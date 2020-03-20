@@ -137,7 +137,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const self = this
-      const options = {
+      return {
         responsive: true,
         legend: {
           display: true,
@@ -191,10 +191,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         }
       }
-      if (this.$route.query.ogp === 'true') {
-        Object.assign(options, { animation: { duration: 0 } })
-      }
-      return options
     }
   }
 }

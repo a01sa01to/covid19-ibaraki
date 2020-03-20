@@ -1,5 +1,9 @@
 # 貢献の仕方
 
+コントリビューターの皆様、本プロジェクトにご参加いただきありがとうございます！！
+
+本サイトの開発に参加してくださる方に対して、参加方法をお伝えします。
+
 ## Issue へのコメントや Pull Request について
 * Issue へのコメントはご自由にどうぞ！新しい質問や提案なども受け付けます。
 * Issue を追加する場合、必ず既に同様の Issue が無いか検索をしてから作成してください。
@@ -27,7 +31,7 @@
 [#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) の Issue に、掲載名、リンク先（あれば）、役割をコメントください。
 
 ## 開発に関する情報
-* 本番サイト https://stopcovid19.metro.tokyo.lg.jp/
+* 本番サイト https://covid19-ibaraki.netlify.com/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
 本 ドキュメント の更新も大歓迎です！
