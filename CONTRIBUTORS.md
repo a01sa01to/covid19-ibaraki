@@ -1,7 +1,17 @@
+Ibaraki Covid-19 response site contributors
+============================================
+
+本プロジェクトにご協力いただいた皆様
+
+| Name (link) | GitHub | Twitter | Contribution |
+| --- | --- | --- | --- |
+| Asa | [@a01sa01to](https://github.com/a01sa01to) | [@a01sa01to](https://twitter.com/a01sa01to) | Main Developer for Ibaraki |
+
+
 Tokyo Covid-19 response site contributors
 ============================================
 
-本サイトにご協力いただいた皆様
+本プロジェクトの元「東京都 新型コロナウイルス感染症対策サイト」にご協力された皆様
 
 | Name (link) | GitHub | Twitter | Contribution |
 | --- | --- | --- | --- |
@@ -128,9 +138,5 @@ Tokyo Covid-19 response site contributors
 | Yoshiki Honda | [@yoshidev523](https://github.com/yoshidev523) | [@yoyoyop523](https://twitter.com/yoyoyop523) | Frontend |
 
 ご協力に感謝です！！！
-
-お名前の掲載をご希望の方は，[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654)にコメントをお願いします。
-
-If you want to add your name, please comment on [#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654).
 
 ![nyan](https://i.gyazo.com/f04e7468ea6e4bb6e87f6817fea980f9.gif)
