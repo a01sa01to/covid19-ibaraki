@@ -51,3 +51,8 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ### ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://covid19-ibaraki.netlify.com/ が更新されます。
+
+### Branch について
+ - master : メインファイル
+ - production : `master`ブランチに変更があったとき、自動的にbuildされる
+ - root : [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) の `master`ブランチと同じもの
