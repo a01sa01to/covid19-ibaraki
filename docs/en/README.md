@@ -5,24 +5,24 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | English | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
 
 ## How to Contribute
 
 All contributions are welcome!
-Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
+Please check [How to contribute](./CONTRIBUTING.md) for details.
 
 ## Code of Conduct
 
-Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) for details.
+Please check [Code of conduct for developers](./CODE_OF_CONDUCT.md) for details.
 
 ## License
-This software is released under [the MIT License](./LICENSE.txt).
+This software is released under [the MIT License](./../../LICENSE.txt).
 
 ## For Translators
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 ## For Developers
 
@@ -99,15 +99,15 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### Basic branch
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
