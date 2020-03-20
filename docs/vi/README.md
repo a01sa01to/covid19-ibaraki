@@ -1,38 +1,36 @@
-# 东京都 新型冠状病毒对策网
+# Cổng thông tin chống dịch CoVid-19 của TP Tokyo
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Cổng thông tin chống dịch CoVid-19 của TP Tokyo](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | Tiếng Việt | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
-## 如何贡献
-如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
+## Làm thế nào để đóng góp
+Mọi đóng góp của các bạn đều được chào đón.
+Xin vui lòng đọc [tại đây](./CONTRIBUTING.md) để biết thêm chi tiết.
 
-详细请参照[如何贡献](./.github/CONTRIBUTING_ZH_CN.md)。
 
+## Quy tắc ứng xử
+Chi tiết vui lòng xem [tại đây](./CODE_OF_CONDUCT.md)
 
-## 行动准则
-详细请参照[建站行动原则](./.github/CODE_OF_CONDUCT_ZH_CN.md)。
-
-## 授权
-本软件采用[MIT授权条款](./LICENSE.txt)。
+## Giấy phép
+Phần mềm này được phân phối dưới giấy phép [MIT](./../../LICENSE.txt)
 
 [PLEASE TRANSLATE ME]
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 [/PLEASE TRANSLATE ME]
 
-## 面向开发者信息
+## Thông tin cho nhà phát triển
 
-### 开发环境搭建
+### Xây dựng môi trường
 
-- Node.js 版本最低需求: 10.19.0以上
+- Node.js phiên bản: 10.19.0 hoặc cao hơn
 
-**使用 yarn 时**
-
-``` bash
+**Nếu dùng yarn**
+```bash
 # install dependencies
 $ yarn install
 
@@ -40,8 +38,7 @@ $ yarn install
 $ yarn dev
 ```
 
-**使用 docker compose 时**
-
+**Nếu dùng docker compose**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -67,13 +64,14 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 [/PLEASE TRANSLATE ME]
 
-### 发布到 Staging环境以及正式环境的方法
+### Triển khai lên môi trường staging và production
 
-`master` 分支更新時，自动将 `production` 分支中的HTML类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
+Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19.metro.tokyo.lg.jp/ sẽ được cập nhật.
 
-`staging` 分支更新時，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
+Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.com/ sẽ được cập nhật.
 
-`development` 分支更新時，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
+Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+
 
 [PLEASE TRANSLATE ME]
 
@@ -82,22 +80,22 @@ Please use the variable to detect which enviroinment is used at the runtime.
 Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
 

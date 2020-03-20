@@ -4,28 +4,28 @@
 
 [![東京都 新型冠狀病毒疫情中心](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | 繁體中文 | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
 
 ## 如何貢獻
 如果您能對 Issues 中做出各式各樣的修正協助，我們將不勝感激。
 
-詳情請洽[如何貢獻](./.github/CONTRIBUTING_ZH_TW.md)。
+詳情請洽[如何貢獻](./CONTRIBUTING.md)。
 
 
 ## 行動原則
-詳情請洽[建立網站的行動原則](./.github/CODE_OF_CONDUCT_ZH_TW.md)。
+詳情請洽[建立網站的行動原則](./CODE_OF_CONDUCT.md)。
 
 ## 授權
-本軟體採 [MIT 授權條款](./LICENSE.txt)釋出。
+本軟體採 [MIT 授權條款](./../../LICENSE.txt)釋出。
 
 ## 從這個網站衍生出來的東西
 
-請參考[此連結](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md)
+請參考[此連結](./../../FORKED_SITES.md)
 
 ## 給翻譯者的資訊
 
-有要幫忙翻譯的話，請參考 [這個文件](./.github/TRANSLATION_ZH_TW.md) 。
+有要幫忙翻譯的話，請參考 [這個文件](./TRANSLATION.md) 。
 
 ## 給開發者的資訊
 
@@ -96,14 +96,14 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### 基本分支
 | 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| 開發 | development | http://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
+| 開發 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
 | 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
 | i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
-| 正式版 | master | http://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
+| 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
 #### 系統所使用的分支
 | 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| 正式網站 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
+| 正式網站 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
 | 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成靜態網站 HTML 的位置 |
 | OGP 工作用 | deploy / new_ogp | 無 | OGP 更新用 |
