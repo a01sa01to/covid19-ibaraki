@@ -1,0 +1,21 @@
+:root {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $gray-5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

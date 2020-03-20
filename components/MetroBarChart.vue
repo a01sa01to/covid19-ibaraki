@@ -1,0 +1,203 @@
+<template>
+  <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:infoPanel>
+      <small :class="$style.DataViewDesc">
+        <slot name="description" />
+      </small>
+    </template>
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOption"
+      :height="240"
+    />
+  </data-view>
+</template>
+
+<style module lang="scss">
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+  }
+}
+</style>
+
+<script lang="ts">
+import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import DataView from '@/components/DataView.vue'
+import { triple as colors } from '@/utils/colors'
+
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+
+type Data = {}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: (string | undefined)[]
+    datasets: object
+  }
+  displayOption: {
+    responsive: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLInputElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLInputElement>) => void
+      labels: {
+        boxWidth: number
+      }
+    }
+    scales: {
+      xAxes: object[]
+      yAxes: object[]
+    }
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        title: (tooltipItems: any, data: any) => string
+        label: (tooltipItems: any, data: any) => string
+      }
+    }
+  }
+}
+type Props = {
+  chartData: ChartData
+  chartOption: ChartOptions
+  chartId: string
+  title: string
+  titleId: string
+  date: string
+  unit: string
+  tooltipsTitle: (tooltipItems: any, data: any) => string
+  tooltipsLabel: (tooltipItems: any, data: any) => string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  components: { DataView },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartData: Object,
+    chartOption: Object,
+    chartId: {
+      type: String,
+      default: 'metro-bar-chart'
+    },
+    date: {
+      type: String,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: false,
+      default: '%'
+    },
+    tooltipsTitle: {
+      type: Function,
+      required: true
+    },
+    tooltipsLabel: {
+      type: Function,
+      required: true
+    }
+  },
+  computed: {
+    displayData() {
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label,
+          data: this.chartData.datasets!.map(d => d.data![i]),
+          backgroundColor: colors[i],
+          borderWidth: 0
+        }
+      })
+      return {
+        labels: this.chartData.datasets!.map(d => d.label),
+        datasets
+      }
+    },
+    displayOption() {
+      const self = this
+      const options = {
+        responsive: true,
+        legend: {
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value: any) {
+                  return value.toFixed(2) + self.unit
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title: self.tooltipsTitle,
+            label: self.tooltipsLabel
+          }
+        }
+      }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
+    }
+  }
+}
+
+export default Vue.extend(options)
+</script>
