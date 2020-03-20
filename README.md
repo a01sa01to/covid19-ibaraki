@@ -20,7 +20,8 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## このサイトのもとになったプロジェクト
 
-東京都 新型コロナウイルス感染症対策サイト（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）
+東京都 新型コロナウイルス感染症対策サイト（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）<br>
+上記プロジェクトの派生プロジェクトは、 [こちらのドキュメント](./FORKED_SITES.md) をご覧ください。
 
 ## 翻訳者向け情報
 

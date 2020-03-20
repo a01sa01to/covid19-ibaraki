@@ -4,13 +4,14 @@
 
 都道府県名 | 公開サイト | 運営者 | プロジェクト
 ------------ | ------------- | ------------- | -------------
-東京都（このサイト）|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
+[](08)茨城県（このサイト）|https://covid19-ibaraki.netlify.com/|Asa|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
 [](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
+[](13)東京都|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.com|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
@@ -34,14 +35,3 @@
 [](42)長崎県|https://stopcovid19-nagasaki.netlify.com/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)|
 [](43)熊本県|https://stop-covid19-kumamoto.netlify.com/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)|
 [](46)鹿児島県|https://covid19.codeforkagoshima.dev/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
-
-## 都道府県追加時のルール
-
-1. 東京都: 先頭で固定とする。
-1. 東京都以外: 厚生労働省発行のPDF([都道府県番号 - tp0727-1d.pdf](https://www.mhlw.go.jp/topics/2007/07/dl/tp0727-1d.pdf))に従って、表に以下の情報を追加する。
-   - 公開しているサイト: URLを記載する。
-   - プロジェクト
-      - Private Repository: 未記入とする。
-      - Public Repository
-         - GitHub: `[organization/repository](https://github.com/organization/repository)`形式で記載する。
-         - GitHub以外: URLを記載する。
