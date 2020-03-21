@@ -7,6 +7,7 @@
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
+      :url="'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html'"
     >
       <template v-slot:description>
         <ul>
