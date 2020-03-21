@@ -18,8 +18,8 @@
   font-weight: bold;
   font-size: 60px;
   line-height: 90px;
-  /* identical to box height */
 
+  /* identical to box height */
   text-align: center;
   color: $gray-2;
 }
@@ -30,8 +30,8 @@
   font-weight: bold;
   font-size: 40px;
   line-height: 90px;
-  /* identical to box height */
 
+  /* identical to box height */
   text-align: center;
   color: $gray-2;
 }

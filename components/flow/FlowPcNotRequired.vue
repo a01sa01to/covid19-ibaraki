@@ -40,7 +40,9 @@
 
 <style module lang="scss">
 .flowContainer {
+
   @include card-container();
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

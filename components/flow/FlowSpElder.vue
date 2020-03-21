@@ -107,18 +107,18 @@ export default {
     margin-top: px2vw(-20);
     margin-left: px2vw(-10);
     margin-right: px2vw(-10);
+    align-items: center;
     .icon {
       display: block;
       margin-bottom: 0;
       width: px2vw(50);
       height: px2vw(50);
     }
-      align-items: center;
-      svg {
-        margin-right: px2vw(5);
-      }
+    svg {
+      margin-right: px2vw(5);
     }
   }
+}
 
 @include largerThan($small) {
   $vw: 960;

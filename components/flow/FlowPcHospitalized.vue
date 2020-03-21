@@ -39,7 +39,9 @@
   }
 
   &subHeading {
+
     @include font-size(20);
+
     margin: 0 !important;
   }
 }

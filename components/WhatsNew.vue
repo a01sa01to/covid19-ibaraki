@@ -60,7 +60,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .WhatsNew {
+
   @include card-container();
+
   padding: 10px;
   margin-bottom: 20px;
 }

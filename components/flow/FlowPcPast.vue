@@ -135,7 +135,9 @@ export default {
 
 <style module lang="scss">
 .Flow {
+
   @include card-container($withDivider: true);
+
   position: relative;
   padding-bottom: 20px;
   color: $gray-2;

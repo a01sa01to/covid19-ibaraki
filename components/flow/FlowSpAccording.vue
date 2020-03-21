@@ -181,12 +181,13 @@ export default {
       padding-top: px2vw(30);
     }
   }
-    padding: px2vw(20);
-    border-radius: px2vw(6);
-    color: $white;
-    text-align: center;
-    line-height: 1.65;
-  }
+
+  padding: px2vw(20);
+  border-radius: px2vw(6);
+  color: $white;
+  text-align: center;
+  line-height: 1.65;
+}
 
   .note {
     margin-top: px2vw(10);
@@ -195,7 +196,6 @@ export default {
   .fzXLLarge {
     font-size: px2vw(56);
   }
-}
 .rectContainer {
   .rect {
     min-height: px2vw(188);
@@ -273,6 +273,7 @@ export default {
   $vw: 960;
 
   .according {
+    margin-top: px2vw(10, $vw);
     .diag {
       margin-top: px2vw(30, $vw);
 
@@ -285,7 +286,6 @@ export default {
       padding: px2vw(20, $vw);
       border-radius: px2vw(6, $vw);
     }
-      margin-top: px2vw(10, $vw);
     .fzXLLarge {
       font-size: px2vw(56, $vw);
     }

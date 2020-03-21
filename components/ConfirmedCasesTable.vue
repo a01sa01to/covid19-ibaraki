@@ -236,11 +236,10 @@ $default-boxdiff: 35px;
 .group {
   display: flex;
   flex: 0 0 auto;
-  padding-left: 0;
-  padding-top: $default-bdw;
+  // padding-left: 0;
+  // padding-top: $default-bdw;
   border-top: $default-bdw solid $green-1;
   border-left: $default-bdw solid $green-1;
-
   padding: 10px 2px;
   flex-direction: column;
   justify-content: flex-end;

@@ -24,7 +24,9 @@
 
 <style module lang="scss">
 .FlowPcPcr {
+
   @include card-container();
+
   color: $gray-2;
   display: flex;
   justify-content: space-between;
@@ -56,7 +58,9 @@
       }
 
       &.content {
+
         @include font-size(22);
+
         line-height: 1.2;
       }
     }
