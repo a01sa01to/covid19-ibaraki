@@ -40,9 +40,11 @@
         text-align: center;
       }
     }
+
     tbody {
       tr {
         color: $gray-1;
+
         td {
           padding: 8px 10px;
           height: auto;

@@ -179,8 +179,10 @@ export default Vue.extend({
     padding: 0 !important;
   }
 }
+
 .appContainer {
   position: relative;
+
   @include largerThan($small) {
     display: grid;
     grid-template-columns: 240px 1fr;
@@ -209,25 +211,30 @@ export default Vue.extend({
     height: 100%;
     border-right: 1px solid $gray-4;
     border-left: 1px solid $gray-4;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     overscroll-behavior: contain;
   }
 }
+
 @include largerThan($huge) {
   .naviContainer {
     width: 325px;
   }
 }
+
 .open {
   height: 100vh;
+
   @include largerThan($small) {
     overflow-x: hidden;
     overflow-y: auto;
   }
 }
+
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
+
   @include lessThan($small) {
     .container {
       padding-top: 16px;

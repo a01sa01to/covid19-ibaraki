@@ -19,7 +19,7 @@
       </li>
     </ul>
 
-    <!-- <div :class="$style.callcenter">
+    <div :class="$style.callcenter">
       <p :class="$style.fzLarge">
         {{ $t('新型コロナコールセンター') }}
       </p>
@@ -32,7 +32,7 @@
         </span>
         <a href="tel:0570550571">0570-550571</a>
       </p>
-    </div> -->
+    </div>
 
     <a
       v-scroll-to="{

@@ -190,18 +190,22 @@ export default {
     font-size: calc(0.875rem + ((1vw - 7.68px) * 1.1905));
     line-height: 1.8;
     text-align: center;
+
     @include largerThan($large) {
       font-size: 23px;
     }
+
     &S {
       @include largerThan($large) {
         font-size: 20px;
       }
     }
   }
+
   &Line {
     border-bottom: 2px solid $green-1;
     font-style: inherit;
+
     @include largerThan($large) {
       border-width: 4px;
     }
@@ -271,8 +275,10 @@ export default {
       font-size: 21px;
     }
   }
+
   &LText {
     font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
+
     @include largerThan($large) {
       font-size: 25px;
     }

@@ -6,6 +6,9 @@
         .loader {
           display: none;
         }
+        .v-overlay {
+          display: none;
+        }
       </style>
       <div class="noscript-heading">
         <img src="/logo.svg" :alt="$t('茨城県 (非公式)')" />
@@ -42,15 +45,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   @include font-size(13);
+
   color: #898989;
+
   img {
     margin-right: 16px;
   }
 }
+
 .noscript-body {
   @include font-size(13);
   @include card-container();
+
   border-radius: 4px;
   margin-top: 16px;
   padding: 1em;

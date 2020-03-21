@@ -75,7 +75,7 @@ $ docker-compose run --rm app yarn install
 
 ### 프로덕션/기타 환경 감지
 
-프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.  
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
 런타임에서 사용할 환경을 감지하려면 이 변수를 사용하세요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
@@ -91,21 +91,21 @@ $ docker-compose run --rm app yarn install
 풀 리퀘스트(Pull Request)는 오직 `development`, `dev-i18n`, `dev-hotfix`에서만 가능합니다.
 만약, 풀 리퀘스트(Pull Request)를 전달할 때 다음의 네이밍(naming) 규칙를 따라 사용해주시기 바랍니다.
 
-기능 구현: feature/#{ISSUE_ID}-#{branch_title_name}  
-핫픽스(hotfix) 커밋: hotfix/#{ISSUE_ID}-{branch_title_name} 
+기능 구현: feature/#{ISSUE_ID}-#{branch_title_name}
+핫픽스(hotfix) 커밋: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 기본 브랜치(branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
 | ---- | -------- | ---- | ---- |
-| 개발 | development | http://dev-covid19-tokyo.netlify.com/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
+| 개발 | development | https://dev-covid19-tokyo.netlify.com/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
 | 핫픽스(hotfix) 브랜치 | dev-hotfix | 없음 | 급하게 프로덕션(production)에 적용해야하는 수정사항용 브랜치입니다. 관리자가 요청한 경우에 사용하세요. |
 | i18n 작업용 브랜치 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 임시로 사용됩니다. |
 | 스테이징(Staging) | staging | https://stg-covid19-tokyo.netlify.com/ | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
-| 프로덕션(Production) | master | http://stopcovid19.metro.tokyo.lg.jp/ | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다. |
+| 프로덕션(Production) | master | https://stopcovid19.metro.tokyo.lg.jp/ | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다. |
 
 #### 시스템에서 사용하는 브랜치(Branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
 | ---- | -------- | ---- | ---- |
-| 프로덕션(Production) 사이트 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치|
+| 프로덕션(Production) 사이트 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치|
 | 스테이징(Staging) 사이트 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
 | OGP 작업용 디렉토리 | deploy / new_ogp | 없음 | OGP 업데이트용 |

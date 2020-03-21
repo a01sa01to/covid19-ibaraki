@@ -57,11 +57,14 @@ export default {
 <style lang="scss" scoped>
 .PrinterButton {
   @include button-text('md');
+
   &:hover {
     color: $white !important;
   }
+
   &-Text {
     margin: 6px auto 0;
+
     @include lessThan($small) {
       position: absolute !important;
       height: 1px !important;

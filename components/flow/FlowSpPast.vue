@@ -154,15 +154,19 @@ export default {
     padding-top: px2vw(30);
     border-top: 1px $gray-4 solid;
   }
+
   .source {
     display: block;
     color: $green-1;
+
     &:last-child {
       margin-top: px2vw(10);
     }
   }
+
   .behavior {
     display: block;
+
     &:last-child {
       margin-top: px2vw(5);
     }
@@ -178,9 +182,11 @@ export default {
   // past
   &.req {
     margin-top: px2vw(20);
+
     > .symptom {
       flex-basis: 36%;
     }
+
     > .op {
       flex-basis: 28%;
       margin-top: px2vw(30);
@@ -191,8 +197,10 @@ export default {
 
 @include largerThan($small) {
   $vw: 960;
+
   .type {
     margin-top: px2vw(20, $vw);
+
     &.hr {
       margin-top: px2vw(30, $vw);
       padding-top: px2vw(30, $vw);
@@ -208,9 +216,11 @@ export default {
       }
     }
   }
+
   .rectContainer {
     &.req {
       margin-top: px2vw(20, $vw);
+
       > .op {
         flex-basis: 28%;
         margin-top: px2vw(30, $vw);

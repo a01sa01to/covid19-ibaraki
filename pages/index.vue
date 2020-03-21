@@ -51,6 +51,7 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import { convertDatetimeToISO8601Format } from '~/utils/formatDate'
 // import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
 // import AgencyCard from '@/components/cards/AgencyCard.vue'
@@ -79,11 +80,15 @@ export default Vue.extend({
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('県内の最新感染動向'),
-        date: Data.lastUpdate
       },
       newsItems: News.newsItems
     }
     return data
+  },
+  computed: {
+    updatedAt() {
+      return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
+    }
   },
   head(): MetaInfo {
     return {
@@ -95,8 +100,35 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .MainPage {
+  .Header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    @include lessThan($small) {
+      flex-direction: column;
+      align-items: baseline;
+    }
+  }
+
+  .UpdatedAt {
+    @include font-size(14);
+
+    color: $gray-3;
+    margin-bottom: 0.2rem;
+  }
+
+  .Annotation {
+    @include font-size(12);
+
+    color: $gray-3;
+    @include largerThan($small) {
+      margin: 0 0 0 auto;
+    }
+  }
   .DataBlock {
     margin: 20px -8px;
+
     .DataCard {
       @include largerThan($medium) {
         padding: 10px;

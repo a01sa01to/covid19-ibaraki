@@ -44,10 +44,13 @@
 
       &.h1 {
         @include font-size(40);
+
         line-height: 1;
         margin-bottom: 0.25em;
+
         .small {
           @include font-size(14);
+
           vertical-align: top;
         }
       }
@@ -70,8 +73,10 @@
     }
   }
 }
+
 .ResultLabel {
   @include font-size(20);
+
   border-radius: 4px;
   border: 2px solid $green-1;
   line-height: 1;

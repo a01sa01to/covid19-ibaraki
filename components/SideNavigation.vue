@@ -16,8 +16,8 @@
             :alt="$t('茨城県')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('茨城県 (非公式)') }}<br />{{ $t('新型コロナウイルス感染症')
-            }}<br />{{ $t('対策サイト') }}
+            {{ $t('menu/茨城県 (非公式)') }}<br />{{ $t('menu/新型コロナウイルス感染症')
+            }}<br />{{ $t('menu/対策サイト') }}
           </div>
         </nuxt-link>
       </h1>
@@ -34,7 +34,10 @@
 
       <nav class="SideNavigation-Menu">
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
-        <!-- <div class="SideNavigation-Language">
+        <!-- <div
+          v-if="this.$i18n.locales.length > 1"
+          class="SideNavigation-Language"
+        >
           <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
             {{ $t('多言語対応選択メニュー') }}
           </label>
@@ -207,9 +210,10 @@ export default Vue.extend({
   position: relative;
   height: 100%;
   background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+
   &:focus {
-    outline: none;
+    outline: 1px dotted $gray-3;
   }
 }
 
@@ -290,9 +294,11 @@ export default Vue.extend({
   &:focus {
     font-weight: bold;
   }
+
   &:focus {
-    outline: 1px dotted $gray-3;
+    outline: dotted $gray-3 1px;
   }
+
   @include largerThan($small) {
     display: block;
     padding: 15px 0;
@@ -366,16 +372,19 @@ export default Vue.extend({
   border: 1px dotted transparent;
   border-radius: 30px;
   color: $gray-3;
+
   &:link,
   &:hover,
-  &:focus,
   &:visited,
   &:active {
     color: inherit;
     text-decoration: none;
   }
+
   &:focus {
-    border-color: $gray-3;
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 

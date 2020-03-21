@@ -148,10 +148,7 @@
       flex-basis: calc(28% - 20px);
       margin: 0 10px;
     }
-    &RowThree {
-      flex-grow: 3;
       display: flex;
-      align-items: center;
       justify-content: center;
       margin-top: 20px;
       &General {
@@ -166,12 +163,15 @@
         margin: 16px 0;
         text-align: left;
         list-style: none;
+
         &Item + &Item {
           margin-top: 14px;
         }
+
         &Item {
           display: flex;
           align-items: center;
+
           &Icon {
             display: inline-block;
             width: 30px;
@@ -201,8 +201,10 @@
           font-size: 20px;
         }
       }
+
       &Large {
         font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
+
         @include largerThan($large) {
           font-size: 25px;
         }

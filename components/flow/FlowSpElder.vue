@@ -113,16 +113,12 @@ export default {
       width: px2vw(50);
       height: px2vw(50);
     }
-    > .item {
-      display: flex;
       align-items: center;
-      margin: px2vw(20) px2vw(10) 0;
       svg {
         margin-right: px2vw(5);
       }
     }
   }
-}
 
 @include largerThan($small) {
   $vw: 960;
@@ -135,8 +131,10 @@ export default {
         width: px2vw(50, $vw);
         height: px2vw(50, $vw);
       }
+
       > .item {
         margin: px2vw(20, $vw) px2vw(10, $vw) 0;
+
         svg {
           margin-right: px2vw(5, $vw);
         }

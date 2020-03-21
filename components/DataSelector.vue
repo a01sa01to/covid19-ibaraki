@@ -38,11 +38,13 @@
     font-size: 12px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+
     &::before {
       background-color: inherit;
     }
+
     &:focus {
-      outline: solid $green-1 2px;
+      outline: dotted $gray-3 1px;
     }
   }
 

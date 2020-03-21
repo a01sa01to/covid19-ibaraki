@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <!-- <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
+    <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
         {{ $t('新型コロナコールセンター') }}
       </div>
@@ -62,7 +62,7 @@
           0570-550571
         </a>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -90,7 +90,9 @@
   &:focus {
     color: inherit;
     text-decoration: none;
+    outline: 1px dotted $gray-3;
   }
+
   &Icon {
     display: inline-block;
     margin-right: 5px;
@@ -144,9 +146,9 @@
   position: relative;
   flex-grow: 0;
   flex-shrink: 0;
-  // width: 60%;
-  width: 100%;
+  width: 60%;
   flex-direction: row;
+
   &Icon {
     position: absolute;
     bottom: 40%;
@@ -155,20 +157,20 @@
     display: block;
     width: 46px;
     height: 46px;
-    display: none;
   }
 }
 
-// .Box2 {
-//   flex-grow: 0;
-//   flex-shrink: 0;
-//   width: 38%;
-//   flex-direction: column;
-//   justify-content: center;
-//   div {
-//     margin: 0.5em;
-//   }
-// }
+.Box2 {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 38%;
+  flex-direction: column;
+  justify-content: center;
+
+  div {
+    margin: 0.5em;
+  }
+}
 
 .RowItems {
   flex-grow: 1;

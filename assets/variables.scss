@@ -37,17 +37,16 @@ $z-index-map: (
 // ==================
 // media-query
 @mixin largerThan($width) {
-	@media screen and (min-width: $width + 1 + px) {
-		@content;
-	}
+  @media screen and (min-width: $width + 1 + px) {
+    @content;
+  }
 }
 
 @mixin lessThan($width) {
-	@media screen and (max-width: $width + px) {
-		@content;
-	}
+  @media screen and (max-width: $width + px) {
+    @content;
+  }
 }
-
 
 // ==================
 // font-size
@@ -55,23 +54,31 @@ $z-index-map: (
   font-size: $size + px;
   font-size: ($size / $base) + rem;
 }
+
 @mixin card-h1 {
   @include font-size(24);
+
   color: $gray-2;
   font-weight: bold;
 }
+
 @mixin card-h2 {
   @include font-size(19);
+
   color: $gray-2;
   font-weight: bold;
 }
+
 @mixin card-h3 {
   @include font-size(16);
+
   color: $gray-2;
   font-weight: bold;
 }
+
 @mixin body-text {
   @include font-size(16);
+
   color: $gray-1;
   line-height: 160%;
   font-weight: normal;
@@ -81,8 +88,10 @@ $z-index-map: (
 // button
 @mixin text-link {
   @include font-size(14);
+
   color: $link !important;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -91,19 +100,25 @@ $z-index-map: (
 @mixin button-text($size: 'md') {
   @if ($size == 'sm') {
     padding: 4px 8px;
-  } @else {
+  }
+
+  @else {
     padding: 24px 36px;
   }
+
   @include font-size(14);
+
   display: inline-block;
   border-radius: 4px;
   background-color: $white;
   border: 1px solid $green-1;
-  color:$green-1;
+  color: $green-1;
   cursor: pointer;
+
   &:hover {
     background-color: $green-1;
     color: $white;
+
     > i {
       color: $white !important;
     }

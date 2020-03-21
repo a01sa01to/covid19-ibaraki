@@ -54,15 +54,21 @@ export default Vue.extend({
 <style lang="scss">
 .TextCard {
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
+
   &-Heading {
     @include card-h1();
+
     margin-bottom: 12px;
+
     a {
       @include card-h1();
+
       color: $link !important;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }

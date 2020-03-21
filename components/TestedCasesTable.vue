@@ -10,7 +10,7 @@
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <b>{{ 累計人数 }}</b>
+            <strong>{{ 累計人数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -25,7 +25,7 @@
         <div :class="$style.content">
           <span>{{ $t('合計') }}</span>
           <span>
-            <b>{{ 合計件数 }}</b>
+            <strong>{{ 合計件数 }}</strong>
             <span :class="$style.unit">{{ $t('件.tested') }}</span>
           </span>
         </div>
@@ -36,7 +36,7 @@
             <div :class="$style.content">
               <span>{{ $t('都内発生') }}</span>
               <span>
-                <b>{{ 都内発生件数 }}</b>
+                <strong>{{ 都内発生件数 }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -45,12 +45,12 @@
         <li :class="[$style.box, $style.others]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('その他') }}</span>
+              <span>{{ $t('その他.graph') }}</span>
               <span :class="$style.small">{{
                 $t('（チャーター機・クルーズ船等）')
               }}</span>
               <span>
-                <b>{{ その他件数 }}</b>
+                <strong>{{ その他件数 }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -130,8 +130,10 @@ $default-boxh: 150px;
     padding-left: 0;
   }
 }
+
 .box {
   display: flex;
+
   &.parent {
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
@@ -208,22 +210,29 @@ $default-boxh: 150px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+
   > span:not(:last-child) {
     word-break: break-all;
   }
+
   > span {
     display: block;
+
     @include font-size(16);
+
     &:last-child {
       margin-top: 0.1em;
     }
   }
-  span b {
+
+  span strong {
     @include font-size(18);
   }
+
   span.unit {
     @include font-size(16);
   }
+
   .small {
     @include font-size(14);
   }
@@ -246,9 +255,11 @@ $default-boxh: 150px;
         margin-top: px2vw((-$bdw * 3), $vw);
       }
     }
+
     &.tested {
       width: calc((100% - #{px2vw($bdw, $vw)} * 3) / 4);
     }
+
     &.cases {
       margin-left: px2vw($bdw, $vw);
       width: calc(
@@ -276,9 +287,11 @@ $default-boxh: 150px;
       width: calc(100% / 2 - #{px2vw($bdw, $vw)});
     }
   }
+
   .pillar {
     border-width: px2vw($bdw, $vw);
   }
+
   .group {
     padding-top: px2vw($bdw, $vw);
     border-top-width: px2vw($bdw, $vw);
@@ -288,15 +301,19 @@ $default-boxh: 150px;
     > span {
       @include font-size($fz);
     }
-    span b {
+
+    span strong {
       @include font-size($fz + 2);
     }
+
     span.unit {
       @include font-size($fz);
     }
+
     .unit {
       @include font-size($fz - 2);
     }
+
     .small {
       @include font-size($fz - 1);
     }

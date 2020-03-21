@@ -88,9 +88,11 @@
     margin-right: 10px;
   }
 }
+
 .icon {
   margin-right: 10px;
 }
+
 .nextAction {
   width: 49%;
   padding: 1rem;

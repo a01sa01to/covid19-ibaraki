@@ -8,7 +8,7 @@
             <br />({{ $t('累計') }})
           </span>
           <span>
-            <b>{{ 陽性物数 }}</b>
+            <strong>{{ 陽性物数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -19,7 +19,7 @@
             <div :class="$style.content">
               <span>{{ $t('入院中') }}</span>
               <span>
-                <b>{{ 入院中 }}</b>
+                <strong>{{ 入院中 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -32,7 +32,7 @@
                   <span v-html="$t('軽症・<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <b>{{ 軽症中等症 }}</b>
+                    <strong>{{ 軽症中等症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -43,7 +43,7 @@
                 <div :class="$style.content">
                   <span>{{ $t('重症') }}</span>
                   <span>
-                    <b>{{ 重症 }}</b>
+                    <strong>{{ 重症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -56,7 +56,7 @@
             <div :class="$style.content">
               <span>{{ $t('死亡') }}</span>
               <span>
-                <b>{{ 死亡 }}</b>
+                <strong>{{ 死亡 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -67,7 +67,7 @@
             <div :class="$style.content">
               <span>{{ $t('退院') }}</span>
               <span>
-                <b>{{ 退院 }}</b>
+                <strong>{{ 退院 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -160,8 +160,10 @@ $default-boxdiff: 35px;
     padding-left: 0;
   }
 }
+
 .box {
   display: flex;
+
   &.parent {
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
@@ -183,8 +185,10 @@ $default-boxdiff: 35px;
       border-left: none;
     }
   }
+
   &.confirmed {
     width: 100%;
+
     > .pillar {
       // [6列] 1/6
       width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
@@ -236,27 +240,29 @@ $default-boxdiff: 35px;
   padding-top: $default-bdw;
   border-top: $default-bdw solid $green-1;
   border-left: $default-bdw solid $green-1;
-}
-.content {
-  min-height: $default-boxh;
+
   padding: 10px 2px;
-  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+
   > span:not(:last-child) {
     word-break: break-all;
   }
+
   > span {
     display: block;
+
     @include font-size(16);
+
     &:last-child {
       margin-top: 0.1em;
     }
   }
-  span b {
+  span strong {
     @include font-size(18);
   }
+
   span.unit {
     @include font-size(16);
   }
@@ -296,9 +302,11 @@ $default-boxdiff: 35px;
         );
       }
     }
+
     &.hospitalized {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
+
       > .pillar {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
@@ -321,9 +329,11 @@ $default-boxdiff: 35px;
       width: calc(100% / 5 - #{px2vw($bdw, $vw)});
     }
   }
+
   .pillar {
     border-width: px2vw($bdw, $vw);
   }
+
   .group {
     padding-top: px2vw($bdw, $vw);
     border-top-width: px2vw($bdw, $vw);
@@ -333,9 +343,10 @@ $default-boxdiff: 35px;
     > span {
       @include font-size($fz);
     }
-    span b {
+    span strong {
       @include font-size($fz + 2);
     }
+
     span.unit {
       @include font-size($fz);
     }
