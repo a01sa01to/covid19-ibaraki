@@ -77,7 +77,7 @@
             <img src="/facebook.png" alt="Facebook" />
           </a> -->
           <a
-            href="https://github.com/a01sa01to/covid19"
+            href="https://github.com/a01sa01to/covid19-ibaraki"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
