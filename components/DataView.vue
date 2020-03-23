@@ -32,7 +32,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('オープンデータを入手') }}
+              {{ $t('県公式サイトで見る') }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
