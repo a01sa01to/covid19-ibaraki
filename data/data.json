@@ -474,16 +474,17 @@
 
 	"// 10": "検査陽性者の状況(Unused)",
 	"main_summary": {
-		"attr": "検査実施人数", "value": 0,
+		"attr": "検査実施人数", "value": 669,
 		"children": [
 			{
-				"attr": "陽性患者数", "value": 0,
+				"attr": "陽性者数", "value": 5,
 				"children": [
 					{
-						"attr": "入院中", "value": 0,
+						"attr": "入院中", "value": 5,
 						"children": [
-							{"attr": "軽症・中等症", "value": 0 },
-							{"attr": "重症", "value": 0 }
+							{"attr": "軽症・中等症", "value": 2 },
+							{"attr": "重症", "value": 1 },
+							{"attr": "不明", "value": 2 }
 						]
 					},
 					{"attr": "退院", "value": 0 },

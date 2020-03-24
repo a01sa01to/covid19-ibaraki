@@ -143,7 +143,7 @@ export default Vue.extend({
 $default-bdw: 3px;
 $default-boxh: 150px;
 $default-boxdiff: 35px;
-
+// .container > .box > (.group > .box > ...) .pillar > .content
 .container {
   width: 100%;
   display: flex;
@@ -160,10 +160,25 @@ $default-boxdiff: 35px;
     padding-left: 0;
   }
 }
-
+.pillar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  text-align: center;
+  width: 100%;
+  border: $default-bdw solid $green-1;
+}
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  padding-left: 0;
+  padding-top: $default-bdw;
+  border-top: $default-bdw solid $green-1;
+  border-left: $default-bdw solid $green-1;
+}
 .box {
   display: flex;
-
   &.parent {
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
@@ -185,10 +200,8 @@ $default-boxdiff: 35px;
       border-left: none;
     }
   }
-
   &.confirmed {
     width: 100%;
-
     > .pillar {
       // [6列] 1/6
       width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
@@ -224,49 +237,30 @@ $default-boxdiff: 35px;
     width: calc(100% / 5 - #{$default-bdw});
   }
 }
-.pillar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 0 0 auto;
-  text-align: center;
-  width: 100%;
-  border: $default-bdw solid $green-1;
-}
-.group {
-  display: flex;
-  flex: 0 0 auto;
-  // padding-left: 0;
-  // padding-top: $default-bdw;
-  border-top: $default-bdw solid $green-1;
-  border-left: $default-bdw solid $green-1;
+.content {
+  min-height: $default-boxh;
   padding: 10px 2px;
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
-  > span:not(:last-child) {
-    word-break: break-all;
-  }
-
   > span {
     display: block;
-
     @include font-size(16);
-
     &:last-child {
       margin-top: 0.1em;
+    }
+    &:not(:last-child) {
+      word-break: break-all;
     }
   }
   span strong {
     @include font-size(18);
   }
-
   span.unit {
     @include font-size(16);
   }
 }
-
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
     @return ceil($px / $vw * 100000vw) / 1000;
@@ -274,8 +268,26 @@ $default-boxdiff: 35px;
     @return $px * 1px;
   }
 }
-
 @mixin override($vw, $bdw, $fz, $boxh, $boxdiff) {
+  .pillar {
+    border-width: px2vw($bdw, $vw);
+  }
+  .group {
+    padding-top: px2vw($bdw, $vw);
+    border-top-width: px2vw($bdw, $vw);
+    border-left-width: px2vw($bdw, $vw);
+  }
+  .content {
+    > span {
+      @include font-size($fz);
+    }
+    span strong {
+      @include font-size($fz + 2);
+    }
+    span.unit {
+      @include font-size($fz);
+    }
+  }
   .box {
     &.parent {
       border-top-width: px2vw($bdw, $vw);
@@ -301,11 +313,9 @@ $default-boxdiff: 35px;
         );
       }
     }
-
     &.hospitalized {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
-
       > .pillar {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
@@ -328,45 +338,19 @@ $default-boxdiff: 35px;
       width: calc(100% / 5 - #{px2vw($bdw, $vw)});
     }
   }
-
-  .pillar {
-    border-width: px2vw($bdw, $vw);
-  }
-
-  .group {
-    padding-top: px2vw($bdw, $vw);
-    border-top-width: px2vw($bdw, $vw);
-    border-left-width: px2vw($bdw, $vw);
-  }
-  .content {
-    > span {
-      @include font-size($fz);
-    }
-    span strong {
-      @include font-size($fz + 2);
-    }
-
-    span.unit {
-      @include font-size($fz);
-    }
-  }
 }
-
 // variables.scss Breakpoints: huge (1440)
 @include lessThan(1440) {
   @include override(1440, 3, 15, 150, 35);
 }
-
 // Vuetify Breakpoints: Large (1264)
 @include lessThan(1263) {
   @include override(1263, 2, 13, 107, 24);
 }
-
 // variables.scss Breakpoints: large (1170)
 @include lessThan(1170) {
   @include override(1170, 2, 13, 107, 24);
 }
-
 // Vuetify Breakpoints: Small (960)
 @include lessThan(959) {
   @include override(960, 4, 14, 180, 40);
@@ -374,7 +358,6 @@ $default-boxdiff: 35px;
 @include lessThan(767) {
   @include override(960, 3, 14, 180, 40);
 }
-
 // Vuetify Breakpoints: Extra Small (600)
 @include lessThan(600) {
   @include override(600, 3, 14, 150, 35);
