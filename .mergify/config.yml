@@ -1,0 +1,48 @@
+pull_request_rules:
+  - name: Auto Merge (package.json)
+    conditions:
+      - "status-success=ci/circleci: build"
+      - base=master
+      - files=package.json
+      - "#files=1"
+    actions:
+      delete_head_branch:
+        force: false
+      merge:
+        method: merge
+
+  - name: Auto Merge (package-lock.json)
+    conditions:
+      - "status-success=ci/circleci: build"
+      - base=master
+      - files=package.json
+      - "#files=1"
+    actions:
+      delete_head_branch:
+        force: false
+      merge:
+        method: merge
+
+  - name: Auto Merge (package.json, package-lock.json)
+    conditions:
+      - "status-success=ci/circleci: build"
+      - base=master
+      - files=package.json
+      - files=package-lock.json
+      - "#files=2"
+    actions:
+      delete_head_branch:
+        force: false
+      merge:
+        method: merge
+
+  - name: Auto Merge (Language pack)
+    conditions:
+      - status-success=production deploy
+      - base=master
+      - files~=^assets/locales/
+    actions:
+      delete_head_branch:
+        force: false
+      merge:
+        method: merge
