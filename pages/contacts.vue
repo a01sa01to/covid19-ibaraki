@@ -15,13 +15,13 @@
           </thead>
           <tbody>
             <tr>
-              <td class="content">{{ $t('サイトに関すること') }}</td>
-              <td class="bureau">Asa</td>
-              <td class="tel"><a href="https://twitter.com/messages/compose?recipient_id=4273512934" target="_blank">Twitter @a01sa01to</a></td>
+              <td class="content text-center">{{ $t('サイトに関すること') }}</td>
+              <td class="bureau text-center">Asa</td>
+              <td class="tel text-center"><a href="https://twitter.com/messages/compose?recipient_id=4273512934" target="_blank">Twitter @a01sa01to</a></td>
             </tr>
             <tr>
-              <td class="content">{{ $t('県公式サイトに関すること') }}</td>
-              <td class="bureau tel" colspan="2">{{ $t('ページによって連絡先が異なります。') }}{{ $t('公式サイトには、ページ下部に連絡先が掲載されております。') }}</td>
+              <td class="content text-center">{{ $t('県公式サイトに関すること') }}</td>
+              <td class="bureau tel text-center" colspan="2">{{ $t('ページによって連絡先が異なります。') }}{{ $t('公式サイトには、ページ下部に連絡先が掲載されております。') }}</td>
             </tr>
           </tbody>
         </template>
