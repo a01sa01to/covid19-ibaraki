@@ -181,10 +181,10 @@ export default Vue.extend({
           title: this.$tc('他県の') + this.$tc('新型コロナ') + this.$tc('対策サイト'),
           link: this.localePath('/otherpref')
         },
-        // {
-        //   title: this.$t('お問い合わせ先一覧'),
-        //   link: this.localePath('/contacts')
-        // },
+        {
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts')
+        },
         {
           title: this.$tc('茨城県') + this.$tc('公式') + this.$tc('サイト'),
           link: 'https://www.pref.ibaraki.jp/'
