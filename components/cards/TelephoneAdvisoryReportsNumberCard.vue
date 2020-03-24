@@ -6,12 +6,12 @@
       :chart-id="'time-bar-chart-contacts'"
       :chart-data="contactsGraph"
       :date="Data.contacts.date"
-      :unit="$t('件.reports')"
+      :unit="$t('件')"
       :url="
         'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html'
       "
     />
-    <!-- 件.reports = 窓口相談件数 -->
+    <!-- 件 = 窓口相談件数 -->
   </v-col>
 </template>
 
