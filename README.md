@@ -1,6 +1,6 @@
 # 茨城県 新型コロナウイルス感染症対策サイト (非公式)
 
-![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg)
+![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io)
 
 [![茨城県 新型コロナウイルス感染症対策サイト](/static/ss.png)](https://covid19-ibaraki.netlify.com/)
 
@@ -59,3 +59,9 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
  - master : メインファイルたち。
  - production : `master`ブランチに変更があったとき、自動的にbuildされる。
  - root : [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) の `master`ブランチと同じもの。毎週日曜日に更新する予定です。
+
+### README .md 上部のバッジについて
+ - ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) デプロイ
+ - [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) CircleCIによるビルド
+ - ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) Dependabot (yarnの依存関係に脆弱性があったら自動更新)
+ - [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io) Mergify (特定のファイルにおけるPRを自動でMerge)

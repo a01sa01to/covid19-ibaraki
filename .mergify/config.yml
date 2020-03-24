@@ -11,11 +11,11 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: Auto Merge (package-lock.json)
+  - name: Auto Merge (yarn.lock)
     conditions:
       - "status-success=ci/circleci: build"
       - base=master
-      - files=package.json
+      - files=yarn.lock
       - "#files=1"
     actions:
       delete_head_branch:
@@ -23,12 +23,12 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: Auto Merge (package.json, package-lock.json)
+  - name: Auto Merge (yarn.lock, package-lock.json)
     conditions:
       - "status-success=ci/circleci: build"
       - base=master
       - files=package.json
-      - files=package-lock.json
+      - files=yarn.lock
       - "#files=2"
     actions:
       delete_head_branch:
@@ -38,7 +38,7 @@ pull_request_rules:
 
   - name: Auto Merge (Language pack)
     conditions:
-      - status-success=production deploy
+      - "status-success=ci/circleci: build"
       - base=master
       - files~=^assets/locales/
     actions:
