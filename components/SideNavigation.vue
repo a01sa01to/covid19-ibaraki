@@ -16,8 +16,8 @@
             :alt="$t('茨城県')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('menu/茨城県 (非公式)') }}<br />{{ $t('menu/新型コロナウイルス感染症')
-            }}<br />{{ $t('menu/対策サイト') }}
+            {{ $t('茨城県') }}({{ $t('非') }}{{ $t('公式') }})<br />{{ $t('新型コロナウイルス感染症')
+            }}<br />{{ $t('対策サイト') }}
           </div>
         </nuxt-link>
       </h1>
@@ -97,7 +97,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          2020 Asa (@a01sa01to)
         </small>
       </footer>
     </div>
@@ -177,12 +177,16 @@ export default Vue.extend({
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
+        {
+          title: this.$tc('他県の') + this.$tc('新型コロナ') + this.$tc('対策サイト'),
+          link: this.localePath('/otherpref')
+        },
         // {
         //   title: this.$t('お問い合わせ先一覧'),
         //   link: this.localePath('/contacts')
         // },
         {
-          title: this.$t('茨城県公式サイト'),
+          title: this.$tc('茨城県') + this.$tc('公式') + this.$tc('サイト'),
           link: 'https://www.pref.ibaraki.jp/'
         }
       ]
