@@ -247,7 +247,7 @@ export default Vue.extend({
 
 <style lang="scss">
 @include largerThan($medium){
-	.StaticCard{
+	.OtherPref .StaticCard{
 		display: none;
 	}
 }
