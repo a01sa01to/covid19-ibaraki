@@ -13,6 +13,7 @@
           'このページは随時更新されます。更新作業を手伝っていただけると幸いです。'
         )
       "
+      :url="localePath('/helpus')"
     />
     <!-- <static-info
       class="mb-4"
