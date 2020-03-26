@@ -53,7 +53,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ### ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://covid19-ibaraki.netlify.com/ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://covid19-ibaraki.netlify.com/ が更新されます。<br>
 `development` ブランチがアップデートされると、自動的に `dev-deploy` ブランチにHTML類がbuildされ、開発用サイト https://covid19-ibk-dev.netlify.com/ が更新されます。
 
 ### Branch について
