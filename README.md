@@ -54,11 +54,14 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ### ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://covid19-ibaraki.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-deploy` ブランチにHTML類がbuildされ、開発用サイト https://covid19-ibk-dev.netlify.com/ が更新されます。
 
 ### Branch について
  - master : メインファイルたち。
- - production : `master`ブランチに変更があったとき、自動的にbuildされる。
+ - production : `master`ブランチに変更があったとき、自動的にBuildされる。
  - root : [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) の `master`ブランチと同じもの。毎週日曜日に更新する予定です。
+ - development : 開発用にご使用ください。
+ - dev-deploy : `development`ブランチに変更があると自動Build
 
 ### README .md 上部のバッジについて
  - ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) デプロイ
