@@ -14,7 +14,7 @@
         </div>
       </div>
       <ul :class="$style.group">
-        <li :class="[$style.box, $style.parent, $style.hospitalized]">
+        <li :class="[$style.box, /*$style.parent, */$style.hospitalized]">
           <div :class="$style.pillar">
             <div :class="$style.content">
               <span>{{ $t('入院中') }}</span>
@@ -23,8 +23,8 @@
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
-          </div>
-          <ul :class="$style.group">
+          </div></li>
+          <!-- <ul :class="$style.group"> -->
             <li :class="[$style.box, $style.short, $style.minor]">
               <div :class="$style.pillar">
                 <div :class="$style.content">
@@ -48,8 +48,8 @@
                   </span>
                 </div>
               </div>
-            </li>
-          </ul>
+            <!-- </li>
+          </ul> -->
         </li>
         <li :class="[$style.box, $style.deceased]">
           <div :class="$style.pillar">
@@ -215,14 +215,14 @@ $default-boxdiff: 35px;
     margin-left: $default-bdw;
     // [5列] 3/5
     width: calc(100% / 5 * 3 - #{$default-bdw});
-    > .pillar {
-      // [3列] 1/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
-    }
-    > .group {
-      // [3列] 2/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
-    }
+    // > .pillar {
+    //   // [3列] 1/3
+    //   width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
+    // }
+    // > .group {
+    //   // [3列] 2/3
+    //   width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
+    // }
   }
   &.minor,
   &.severe {
@@ -316,16 +316,16 @@ $default-boxdiff: 35px;
     &.hospitalized {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
-      > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
-        );
-      }
-      > .group {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
-        );
-      }
+      // > .pillar {
+      //   width: calc(
+      //     (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
+      //   );
+      // }
+      // > .group {
+      //   width: calc(
+      //     (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
+      //   );
+      // }
     }
     &.minor,
     &.severe {
