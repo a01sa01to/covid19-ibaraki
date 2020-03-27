@@ -50,6 +50,9 @@ workflows:
           branches:
             only:
               - master
+
+  build_dev:
+    jobs:
       - build_dev:
         filter:
           branches:
