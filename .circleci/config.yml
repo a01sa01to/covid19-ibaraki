@@ -1,0 +1,61 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@1.1.6
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.19.0
+      - image: mongo:4.2.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install deps
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Build
+          command: yarn generate:deploy
+  build_dev:
+    docker:
+      - image: circleci/node:10.19.0
+      - image: mongo:4.2.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install deps
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Build
+          command: yarn generate:dev
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - development
+                - dev-deploy
+                - production
+      - build_dev:
+          filters:
+            branches:
+              ignore:
+                - master
+                - dev-deploy
+                - production
