@@ -8,7 +8,7 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="
-        'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/press/20200318-corona.html'
+        'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'
       "
     />
   </v-col>
