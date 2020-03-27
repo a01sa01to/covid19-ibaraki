@@ -8,6 +8,11 @@ jobs:
     docker:
       - image: circleci/node:10.19.0
       - image: mongo:4.2.0
+    branches:
+      ignore:
+        - master
+        - production
+        - dev-deploy
     steps:
       - checkout
       - restore_cache:
