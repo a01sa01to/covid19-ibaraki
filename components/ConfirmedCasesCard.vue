@@ -4,9 +4,9 @@
       <p :class="$style.note">
         {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
       </p>
-      <p :class="$style.note">
+      <!-- <p :class="$style.note">
         {{ $t('（注）容体が不明である陽性者は「軽症・中等症」「重症」のいずれにも含まれていない') }}
-      </p>
+      </p> -->
     </template>
     <slot />
   </data-view>
