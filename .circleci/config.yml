@@ -3,16 +3,21 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 
+workflows:
+  version: 2
+  branches:
+    ignore:
+      - master
+      - production
+      - dev-deploy
+  jobs:
+    - build
+
 jobs:
   build:
     docker:
       - image: circleci/node:10.19.0
       - image: mongo:4.2.0
-    branches:
-      ignore:
-        - master
-        - production
-        - dev-deploy
     steps:
       - checkout
       - restore_cache:
