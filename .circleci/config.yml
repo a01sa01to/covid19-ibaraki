@@ -46,15 +46,12 @@ workflows:
   build:
     jobs:
       - build:
-        filter:
+        filters:
           branches:
             only:
               - master
-
-  build_dev:
-    jobs:
       - build_dev:
-        filter:
+        filters:
           branches:
             only:
               - development
