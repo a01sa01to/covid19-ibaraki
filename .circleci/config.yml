@@ -25,10 +25,14 @@ jobs:
 
 workflows:
   version: 2
-  branches:
-    ignore:
-      - master
-      - production
-      - dev-deploy
-  jobs:
-    - build
+  build:
+    jobs:
+      - build
+        filter:
+          branches:
+            only:
+              - development
+            ignore:
+              - master
+              - production
+              - dev-deploy
