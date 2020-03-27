@@ -22,6 +22,24 @@ jobs:
       - run:
           name: Build
           command: yarn generate:deploy
+  build_dev:
+    docker:
+      - image: circleci/node:10.19.0
+      - image: mongo:4.2.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install deps
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Build
+          command: yarn generate:dev
 
 workflows:
   version: 2
@@ -31,8 +49,9 @@ workflows:
         filter:
           branches:
             only:
-              - development
-            ignore:
               - master
-              - production
-              - dev-deploy
+      - build_dev:
+        filter:
+          branches:
+            only:
+              - development
