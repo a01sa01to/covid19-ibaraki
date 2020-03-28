@@ -14,17 +14,17 @@
         </div>
       </div>
       <ul :class="$style.group">
-        <!-- <li :class="[$style.box, /*$style.parent, */$style.hospitalized]">
+        <li :class="[$style.box, $style.parent, $style.hospitalized]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('入院中') }}</span>
-              <span>
+              <span>{{ $t('容体について') }}</span>
+              <!-- <span>
                 <strong>{{ 入院中 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
-              </span>
+              </span> -->
             </div>
-          </div></li> -->
-          <!-- <ul :class="$style.group"> -->
+          </div>
+          <ul :class="$style.group">
             <li :class="[$style.box, $style.short, $style.minor]">
               <div :class="$style.pillar">
                 <div :class="$style.content">
@@ -59,8 +59,8 @@
                   </span>
                 </div>
               </div>
-            <!-- </li>
-          </ul> -->
+            </li>
+          </ul>
         </li>
         <li :class="[$style.box, $style.deceased]">
           <div :class="$style.pillar">
@@ -219,40 +219,45 @@ $default-boxdiff: 35px;
     width: 100%;
     > .pillar {
       // [6列] 1/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
+      // width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
+      width: calc((100% + #{$default-bdw} * 2) / 7 - #{$default-bdw} * 3);
     }
     > .group {
       // [6列] 5/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 * 5 + #{$default-bdw});
+      // width: calc((100% + #{$default-bdw} * 2) / 6 * 5 + #{$default-bdw});
+      width: calc((100% + #{$default-bdw} * 2) / 7 * 6 + #{$default-bdw});
     }
   }
-  // &.hospitalized {
-  //   margin-left: $default-bdw;
-  //   // [5列] 3/5
-  //   width: calc(100% / 5 * 3 - #{$default-bdw});
-  //   // > .pillar {
-  //   //   // [3列] 1/3
-  //   //   width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
-  //   // }
-  //   // > .group {
-  //   //   // [3列] 2/3
-  //   //   width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
-  //   // }
-  // }
+  &.hospitalized {
+    margin-left: $default-bdw;
+    // [5列] 3/5
+    // width: calc(100% / 5 * 3 - #{$default-bdw});
+    width: calc(100% / 6 * 4 - #{$default-bdw});
+    > .pillar {
+      // [3列] 1/3
+      // width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
+      width: calc((100% + #{$default-bdw} * 2) / 4 - #{$default-bdw} * 3);
+    }
+    > .group {
+      // [3列] 2/3
+      // width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
+      width: calc((100% + #{$default-bdw} * 2) / 4 * 3 + #{$default-bdw});
+    }
+  }
   &.minor,
   &.severe,
   &.unknown {
     margin-left: $default-bdw;
     // [2列] 1/2
     // width: calc(100% / 2 - #{$default-bdw});
-    width: calc(100% / 5 - #{$default-bdw});
+    width: calc(100% / 3 - #{$default-bdw});
   }
   &.deceased,
   &.recovered {
     margin-left: $default-bdw;
     // [5列] 1/5
     // width: calc(100% / 5 - #{$default-bdw});
-    width: calc(100% / 5 - #{$default-bdw});
+    width: calc(100% / 6 - #{$default-bdw});
   }
 }
 .content {
@@ -321,40 +326,39 @@ $default-boxdiff: 35px;
     }
     &.confirmed {
       > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
-        );
+        // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3);
+        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 7 - #{px2vw($bdw, $vw)} * 3);
       }
       > .group {
-        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)});
+        // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)});
+        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 7 * 6 + #{px2vw($bdw, $vw)});
       }
     }
-    // &.hospitalized {
-    //   margin-left: px2vw($bdw, $vw);
-    //   width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
-    //   // > .pillar {
-    //   //   width: calc(
-    //   //     (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
-    //   //   );
-    //   // }
-    //   // > .group {
-    //   //   width: calc(
-    //   //     (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
-    //   //   );
-    //   // }
-    // }
+    &.hospitalized {
+      margin-left: px2vw($bdw, $vw);
+      // width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
+      width: calc(100% / 6 * 4 - #{px2vw($bdw, $vw)});
+      > .pillar {
+        // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3);
+        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 4 - #{px2vw($bdw, $vw)} * 3);
+      }
+      > .group {
+        // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)});
+        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 4 * 3 + #{px2vw($bdw, $vw)});
+      }
+    }
     &.minor,
     &.severe,
     &.unknown {
       margin-left: px2vw($bdw, $vw);
       // width: calc(100% / 2 - #{px2vw($bdw, $vw)});
-      width: calc(100% / 5 - #{px2vw($bdw, $vw)});
+      width: calc(100% / 3 - #{px2vw($bdw, $vw)});
     }
     &.deceased,
     &.recovered {
       margin-left: px2vw($bdw, $vw);
       // width: calc(100% / 5 - #{px2vw($bdw, $vw)});
-      width: calc(100% / 5 - #{px2vw($bdw, $vw)});
+      width: calc(100% / 6 - #{px2vw($bdw, $vw)});
     }
   }
 }
