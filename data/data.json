@@ -601,7 +601,7 @@
 		"attr": "検査実施人数(Unused)", "value": 823,
 		"children": [
 			{
-				"attr": "陽性者数", "value": 13,
+				"attr": "陽性者数", "value": 16,
 				"children": [
 					{
 						"attr": "入院中(Unknown)", "value": 7,
