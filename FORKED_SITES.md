@@ -11,7 +11,6 @@
 [](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)|
 [](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
-[](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](10)群馬県|https://stopcovid19-gunma.netlify.com/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
@@ -48,3 +47,42 @@
 [](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)|
 [](45)宮崎県|https://covid19-miyazaki.netlify.com/|有志|[covid19-miyazaki/covid19](https://github.com/covid19-miyazaki/covid19)|
 [](46)鹿児島県|https://covid19.codeforkagoshima.dev/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
+
+
+<!--
+function md2html(ls){
+	let _ = "";
+	ls = ls.split("\n");
+	const n = ls.length;
+	for(let i=0; i<n; i++){
+		if(ls[i]){
+			const e = ls[i].split("|");
+			let pref = e[0].split(")")[1];
+			let site = e[1];
+			let admin = e[2];
+			let repo = e[3].split("]")[0].split("[")[1];
+
+			if(admin.includes("(")){
+				admin = admin.replace(/（/, "(")
+				admin = admin.replace(/\(/, "') }}&nbsp;&nbsp;({{ $t('")
+				admin = admin.replace(/）/, ")");
+				admin = admin.replace(/有志/, "') }}({{ $t('有志') }}{{ $t('");
+				admin = admin.replace(/団体/, "') }}({{ $t('団体') }}{{ $t('");
+			}
+			admin = admin.replace(/\*\*(.+)\*\*/, "<b>{{ $t('$1') }}</b>")
+
+_ += `<tr>
+\t<td class="pref text-center">{{ $t('${pref}') }}</td>
+\t<td class="site text-center"><a href="${site}" target="_blank">${site}</a></td>
+\t<td class="admin text-center">{{ $t('${admin}') }}</td>
+\t<td class="repo text-center"><a href="https://github.com/${repo}" target="_blank">${repo}</a></td>
+</tr>
+`
+		}
+	}
+	_ = _.replace(/{{\ \$t\(''\)\ }}\(/g, "");
+	_ = _.replace(/{{\ \$t\('\)'\)\ }}/g, "");
+	_ = _.replace(/{{\ \$t\(''\)\ }}/g, "");
+	console.log(_)
+}
+-->

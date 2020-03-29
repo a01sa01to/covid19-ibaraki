@@ -33,10 +33,40 @@
 							<td class="repo text-center"><a href="https://github.com/codeforsapporo/covid19" target="_blank">codeforsapporo/covid19</a></td>
 						</tr>
 						<tr>
+							<td class="pref text-center">{{ $t('青森県') }}</td>
+							<td class="site text-center"><a href="https://covid19.codeforaomori.org" target="_blank">https://covid19.codeforaomori.org</a></td>
+							<td class="admin text-center">Code for Aomori</td>
+							<td class="repo text-center"><a href="https://github.com/CodeForAomori/covid19" target="_blank">CodeForAomori/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('青森県') }}</td>
+							<td class="site text-center"><a href="https://covid19-aomori.info/" target="_blank">https://covid19-aomori.info/</a></td>
+							<td class="admin text-center">Aomori Hackers&nbsp;&nbsp;({{ $t('有志') }}{{ $t('団体') }})</td>
+							<td class="repo text-center"><a href="https://github.com/covid19-aomori/website" target="_blank">covid19-aomori/website</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('岩手県') }}</td>
+							<td class="site text-center"><a href="https://iwate.stopcovid19.jp/" target="_blank">https://iwate.stopcovid19.jp/</a></td>
+							<td class="admin text-center">{{ $t('有志') }}</td>
+							<td class="repo text-center"><a href="https://github.com/MeditationDuck/covid19" target="_blank">MeditationDuck/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('宮城県') }}</td>
+							<td class="site text-center"><a href="https://miyagi.stopcovid19.jp/" target="_blank">https://miyagi.stopcovid19.jp/</a></td>
+							<td class="admin text-center">Code for Shiogama</td>
+							<td class="repo text-center"><a href="https://github.com/code4shiogama/covid19-miyagi" target="_blank">code4shiogama/covid19-miyagi</a></td>
+						</tr>
+						<tr>
 							<td class="pref text-center">{{ $t('福島県') }}</td>
 							<td class="site text-center"><a href="https://fukushima-covid19.firebaseapp.com" target="_blank">https://fukushima-covid19.firebaseapp.com</a></td>
-							<td class="admin text-center">{{ $t('GDG Fukushima') }}</td>
+							<td class="admin text-center">GDG Fukushima</td>
 							<td class="repo text-center"><a href="https://github.com/donuzium/covid19" target="_blank">donuzium/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('栃木県') }}</td>
+							<td class="site text-center"><a href="https://covid19-tochigi.netlify.com/" target="_blank">https://covid19-tochigi.netlify.com/</a></td>
+							<td class="admin text-center">{{ $t('有志') }}</td>
+							<td class="repo text-center"><a href="https://github.com/covid19-tochigi/covid19" target="_blank">covid19-tochigi/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('群馬県') }}</td>
@@ -47,7 +77,7 @@
 						<tr>
 							<td class="pref text-center">{{ $t('埼玉県') }}</td>
 							<td class="site text-center"><a href="https://saitama.stopcovid19.jp/" target="_blank">https://saitama.stopcovid19.jp/</a></td>
-							<td class="admin text-center">{{ $t('Code for TODA') }}</td>
+							<td class="admin text-center">Code for TODA</td>
 							<td class="repo text-center"><a href="https://github.com/codefortoda/covid19-saitama" target="_blank">codefortoda/covid19-saitama</a></td>
 						</tr>
 						<tr>
@@ -65,13 +95,13 @@
 						<tr>
 							<td class="pref text-center">{{ $t('千葉県') }}</td>
 							<td class="site text-center"><a href="https://covid19.civictech.chiba.jp/" target="_blank">https://covid19.civictech.chiba.jp/</a></td>
-							<td class="admin text-center">{{ $t('Civic Tech Zen Chiba') }}</td>
+							<td class="admin text-center">Civic Tech Zen Chiba</td>
 							<td class="repo text-center"><a href="https://github.com/civictechzenchiba/covid19-chiba" target="_blank">civictechzenchiba/covid19-chiba</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('千葉市') }}</td>
 							<td class="site text-center"><a href="https://stopcovid19.code4chiba.org/" target="_blank">https://stopcovid19.code4chiba.org/</a></td>
-							<td class="admin text-center">{{ $t('Code for Chiba') }}</td>
+							<td class="admin text-center">Code for Chiba</td>
 							<td class="repo text-center"><a href="https://github.com/codeforchiba/covid19" target="_blank">codeforchiba/covid19</a></td>
 						</tr>
 						<tr>
@@ -83,14 +113,20 @@
 						<tr>
 							<td class="pref text-center">{{ $t('新潟県') }}</td>
 							<td class="site text-center"><a href="https://niigata.stopcovid19.jp/" target="_blank">https://niigata.stopcovid19.jp/</a></td>
-							<td class="admin text-center">{{ $t('Code for Niigata') }}</td>
+							<td class="admin text-center">Code for Niigata</td>
 							<td class="repo text-center"><a href="https://github.com/CodeForNiigata/covid19" target="_blank">CodeForNiigata/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('新潟県') }}</td>
 							<td class="site text-center"><a href="https://stopcovid19-niigata-unofficial.netlify.com" target="_blank">https://stopcovid19-niigata-unofficial.netlify.com</a></td>
-							<td class="admin text-center">{{ $t('air-h-128k-il') }}</td>
+							<td class="admin text-center">air-h-128k-il</td>
 							<td class="repo text-center"><a href="https://github.com/air-h-128k-il/covid19" target="_blank">air-h-128k-il/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('福井県') }}</td>
+							<td class="site text-center"><a href="https://covid19-fukui.com/" target="_blank">https://covid19-fukui.com/</a></td>
+							<td class="admin text-center">{{ $t('個人') }}</td>
+							<td class="repo text-center"><a href="https://github.com/nomunomu0504/covid19" target="_blank">nomunomu0504/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('福井県') }}</td>
@@ -127,6 +163,12 @@
 							<td class="site text-center"><a href="https://covid19-mie.netlify.com/" target="_blank">https://covid19-mie.netlify.com/</a></td>
 							<td class="admin text-center">{{ $t('高専生チーム') }}&nbsp;&nbsp;({{ $t('有志') }})</td>
 							<td class="repo text-center"><a href="https://github.com/FlexiblePrintedCircuits/covid19-mie" target="_blank">FlexiblePrintedCircuits/covid19-mie</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('滋賀県') }}</td>
+							<td class="site text-center"><a href="https://stopcovid19.pref.shiga.jp/" target="_blank">https://stopcovid19.pref.shiga.jp/</a></td>
+							<td class="admin text-center">{{ $t('滋賀県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b>)</td>
+							<td class="repo text-center"><a href="https://github.com/Shiga-pref-org/covid19" target="_blank">Shiga-pref-org/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('京都府') }}</td>
@@ -177,6 +219,12 @@
 							<td class="repo text-center"></td>
 						</tr>
 						<tr>
+						<td class="pref text-center">{{ $t('香川県') }}</td>
+						<td class="site text-center"><a href="https://covid19-kagawa.jp/" target="_blank">https://covid19-kagawa.jp/</a></td>
+						<td class="admin text-center">{{ $t('学生エンジニア') }}&nbsp;&nbsp;({{ $t('有志') }})</td>
+						<td class="repo text-center"><a href="https://github.com/i15317/covid19" target="_blank">i15317/covid19</a></td>
+					</tr>
+						<tr>
 							<td class="pref text-center">{{ $t('愛媛県') }}</td>
 							<td class="site text-center"><a href="https://ehime-covid19.com/" target="_blank">https://ehime-covid19.com/</a></td>
 							<td class="admin text-center">{{ $t('ボランティア') }}({{ $t('有志') }})</td>
@@ -197,20 +245,32 @@
 						<tr>
 							<td class="pref text-center">{{ $t('福岡市') }}</td>
 							<td class="site text-center"><a href="https://stopcovid19.codeforfukuoka.org/" target="_blank">https://stopcovid19.codeforfukuoka.org/</a></td>
-							<td class="admin text-center">{{ $t('Code for Fukuoka') }}</td>
+							<td class="admin text-center">Code for Fukuoka</td>
 							<td class="repo text-center"><a href="https://github.com/Code-for-Fukuoka/covid19" target="_blank">Code-for-Fukuoka/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('長崎県') }}</td>
 							<td class="site text-center"><a href="https://stopcovid19-nagasaki.netlify.com/" target="_blank">https://stopcovid19-nagasaki.netlify.com/</a></td>
-							<td class="admin text-center">{{ $t('Code for Nagasaki') }}</td>
+							<td class="admin text-center">Code for Nagasaki</td>
 							<td class="repo text-center"><a href="https://github.com/CodeForNagasaki/covid19" target="_blank">CodeForNagasaki/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('熊本県') }}</td>
-							<td class="site text-center"><a href="https://stop-covid19-kumamoto.netlify.com/" target="_blank">https://stop-covid19-kumamoto.netlify.com/</a></td>
-							<td class="admin text-center">{{ $t('Code for Kumamoto') }}</td>
+							<td class="site text-center"><a href="https://kumamoto.stopcovid19.jp/" target="_blank">https://kumamoto.stopcovid19.jp/</a></td>
+							<td class="admin text-center">Code for Kumamoto</td>
 							<td class="repo text-center"><a href="https://github.com/codeforkumamoto/covid19" target="_blank">codeforkumamoto/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('大分県') }}</td>
+							<td class="site text-center"><a href="https://oita.stopcovid19.jp/" target="_blank">https://oita.stopcovid19.jp/</a></td>
+							<td class="admin text-center">{{ $t('有志') }}</td>
+							<td class="repo text-center"><a href="https://github.com/covid19-oita/covid19" target="_blank">covid19-oita/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('宮崎県') }}</td>
+							<td class="site text-center"><a href="https://covid19-miyazaki.netlify.com/" target="_blank">https://covid19-miyazaki.netlify.com/</a></td>
+							<td class="admin text-center">{{ $t('有志') }}</td>
+							<td class="repo text-center"><a href="https://github.com/covid19-miyazaki/covid19" target="_blank">covid19-miyazaki/covid19</a></td>
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('鹿児島県') }}</td>
