@@ -8,7 +8,7 @@
             <br />({{ $t('累計') }})
           </span>
           <span>
-            <strong>{{ 陽性物数 }}</strong>
+            <strong>{{ 陽性者数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -99,7 +99,7 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    陽性物数: {
+    陽性者数: {
       type: Number,
       required: true
     },
@@ -158,7 +158,9 @@ export default Vue.extend({
 $default-bdw: 3px;
 $default-boxh: 150px;
 $default-boxdiff: 35px;
+
 // .container > .box > (.group > .box > ...) .pillar > .content
+
 .container {
   width: 100%;
   display: flex;
@@ -267,8 +269,11 @@ $default-boxdiff: 35px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+
   > span {
     display: block;
+    width: 100%;
+
     @include font-size(16);
     &:last-child {
       margin-top: 0.1em;

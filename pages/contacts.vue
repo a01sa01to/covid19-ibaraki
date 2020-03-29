@@ -52,18 +52,38 @@ export default Vue.extend({
   &-Card {
     @include card-container();
 
-    padding: 1px; // tr:hover で外枠が消えないように
     &-Table {
+      width: 100%;
+      border-collapse: collapse;
+
       th {
         font-size: 14px !important;
       }
-      tr:hover {
-        background: $white !important;
+
+      td {
+        padding: 0 16px;
+        font-size: 14px;
       }
 
       @include largerThan($medium) {
+        thead tr {
+          height: 48px;
+        }
+
         tbody tr {
           height: 96px;
+        }
+
+        th,
+        tr:not(:last-child) {
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom: thin solid rgba(0, 0, 0, 0.12);
+        }
+
+        tr:last-child {
+          border: none;
         }
       }
 
@@ -72,27 +92,29 @@ export default Vue.extend({
           display: none;
         }
 
-        tbody tr {
-          height: auto;
+        tbody {
+          tr {
+            height: auto;
 
-          .content {
-            font-weight: bold;
-            border-bottom: none !important;
-            padding-top: 12px;
-            padding-bottom: 8px;
+            .content {
+              font-weight: bold;
+              border-bottom: none !important;
+              padding-top: 12px;
+              padding-bottom: 8px;
+            }
+
+            .bureau {
+              border-bottom: none !important;
+            }
+
+            .tel {
+              padding-bottom: 12px;
+            }
           }
 
-          .bureau {
-            border-bottom: none !important;
+          tr:not(:last-child) {
+            border-bottom: thin solid rgba(0, 0, 0, 0.12);
           }
-
-          .tel {
-            padding-bottom: 12px;
-          }
-        }
-
-        tbody td {
-          height: auto;
         }
 
         td {

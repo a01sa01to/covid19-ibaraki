@@ -298,15 +298,16 @@ export default Vue.extend({
             // padding-bottom: 12px;
 						display: none;
           }
-        }
+		}
+
+		td {
+			display: block;
+		}
 
         tbody td {
           height: auto;
         }
 
-        td {
-          display: block;
-        }
       }
     }
   }

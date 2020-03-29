@@ -48,6 +48,7 @@
             現在このサイトは日本語のみ対応しております。<br />更新作業が終わり次第、随時追加されます。
           </label>
         </div>
+        <!-- <MenuList :items="items" @click="$emit('closeNavi', $event)" /> -->
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -55,34 +56,47 @@
           <!-- <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/line.png" alt="LINE" />
+            <picture>
+              <source srcset="/line.webp" type="image/webp" />
+              <img src="/line.png" alt="LINE" />
+            </picture>
           </a> -->
           <a
             href="https://twitter.com/Ibaraki_Kouhou"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/twitter.png" alt="Twitter" />
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
           </a>
           <!-- <a
             href="https://www.facebook.com/tochokoho"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/facebook.png" alt="Facebook" />
-          </a> -->
+            <picture>
+              <source srcset="/facebook.webp" type="image/webp" />
+              <img src="/facebook.png" alt="Facebook" />
+            </picture>
+          </a>
+          -->
           <a
             href="https://github.com/a01sa01to/covid19-ibaraki"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/github.png" alt="GitHub" />
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
           </a>
         </div>
         <small class="SideNavigation-Copyright">
@@ -216,10 +230,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  }
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -331,7 +344,6 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
-  background-color: $white;
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
@@ -357,10 +369,6 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-Language {
-  padding-top: 20px;
-}
-
 .SideNavigation-LanguageLabel {
   display: block;
   margin-bottom: 5px;
@@ -369,7 +377,6 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-  background-color: $white;
 }
 
 .SideNavigation-Social {

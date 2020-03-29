@@ -6,9 +6,11 @@
       :chart-id="'shinjuku-visitors'"
       :chart-data="chartData.data"
       :date="chartData.date"
-      :tooltip-title="tooltipTitle"
       :standard-date="'2020-02-03'"
       :start-date="'2020-02-10'"
+      :source-link-header="$t('※本データは2020年3月31日までの掲載となります')"
+      :url="'https://ds.yahoo.co.jp/datapolicy/'"
+      :link-string="$t('ヤフー・データソリューション')"
     />
   </v-col>
 </template>
@@ -22,17 +24,8 @@ export default {
     VisitorsBarChart
   },
   data() {
-    // ツールチップ label 文字列
-    // this.$t を使うため visitors-bar-chart の外側へ
-    const tooltipTitle = tooltipItems => {
-      const label = tooltipItems[0].label
-      return this.$t('期間: {duration}', {
-        duration: this.$t(label)
-      })
-    }
     return {
-      chartData: ShinjukuData,
-      tooltipTitle
+      chartData: ShinjukuData
     }
   }
 }

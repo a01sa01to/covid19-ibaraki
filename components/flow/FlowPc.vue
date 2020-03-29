@@ -103,10 +103,12 @@ export default {
 }
 
 .Outer {
+  $grid-gap: 12px;
+
   display: grid;
-  grid-gap: 12px;
 
   &Upper {
+    grid-gap: $grid-gap;
     grid-template-columns: 70% 30%;
     -ms-grid-columns: 70% 12px 30%;
     grid-template-rows: repeat(3, auto);
@@ -139,6 +141,7 @@ export default {
   }
 
   &Lower {
+    grid-gap: $grid-gap;
     grid-template-columns: repeat(2, calc(50% - 6px));
     -ms-grid-columns: calc(50% - 6px) 12px calc(50% - 6px);
     grid-template-rows: repeat(3, auto);

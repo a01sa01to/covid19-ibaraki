@@ -1,10 +1,20 @@
 <template>
   <div class="MainPage">
-    <page-header
-      :icon="headerItem.icon"
-      :title="headerItem.title"
-      :date="headerItem.date"
-    />
+    <div class="Header mb-3">
+      <page-header :icon="headerItem.icon">
+        {{ headerItem.title }}
+      </page-header>
+      <div class="UpdatedAt">
+        <span>{{ $t('最終更新') }} </span>
+        <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
+      </div>
+      <div
+        v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
+        class="Annotation"
+      >
+        <span>{{ $t('注釈') }} </span>
+      </div>
+    </div>
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
@@ -28,12 +38,18 @@
       <confirmed-cases-number-card />
       <inspection-persons-number-card />
       <!-- <tested-number-card /> -->
-      <telephone-advisory-reports-number-card />
-      <!-- <consultation-desk-reports-number-card /> -->
-      <!-- <metro-card /> -->
-      <!-- <agency-card /> -->
-      <!-- <shinjuku-visitors-card /> -->
+      <!-- <telephone-advisory-reports-number-card />
+      <consultation-desk-reports-number-card />
+      <metro-card />
+      <agency-card />
+      <shinjuku-visitors-card />
+      <chiyoda-visitors-card /> -->
     </v-row>
+    <!-- <v-divider />
+    <v-row class="DataBlock">
+      <shinjuku-st-map-card />
+      <tokyo-st-map-card />
+    </v-row> -->
   </div>
 </template>
 
@@ -56,7 +72,11 @@ import { convertDatetimeToISO8601Format } from '~/utils/formatDate'
 // import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
 // import AgencyCard from '@/components/cards/AgencyCard.vue'
+// import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 // import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
+// import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+// import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
+// import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
 
 export default Vue.extend({
   components: {
@@ -69,11 +89,14 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     // TestedNumberCard,
     InspectionPersonsNumberCard,
-    TelephoneAdvisoryReportsNumberCard
+    TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
     // AgencyCard,
-    // ShinjukuVisitorsCard
+    // ShinjukuVisitorsCard,
+    // ChiyodaVisitorsCard,
+    // ShinjukuStMapCard,
+    // TokyoStMapCard
   },
   data() {
     const data = {

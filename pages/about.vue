@@ -51,11 +51,11 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('当サイトへのリンクについて') }}</h2>
+      <h3>{{ $t('当サイトへのリンクについて') }}</h3>
       <p>{{ $t('当サイトへのリンクは自由です。') }}</p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('JavaScriptについて') }}</h2>
+      <h3>{{ $t('JavaScriptについて') }}</h3>
       <p>
         {{ $t('当サイトではJavaScriptを使用しております。') }}<br />
         {{ $t('JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。') }}<br />
@@ -63,7 +63,7 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('クッキー (Cookie) について') }}</h2>
+      <h3>{{ $t('クッキー (Cookie) について') }}</h3>
       <p>
         {{ $t('当サイトの一部ではクッキーを使用しています。') }}<br />
         {{
@@ -88,7 +88,7 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('Google Analyticsの利用について') }}</h2>
+      <h3>{{ $t('Google Analyticsの利用について') }}</h3>
       <p>
         {{
           $t(
@@ -120,7 +120,7 @@
               )
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analytics利用規約') }}
           </a>
@@ -129,7 +129,7 @@
           <a
             :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
@@ -140,7 +140,7 @@
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
@@ -148,7 +148,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('免責事項') }}</h2>
+      <h3>{{ $t('免責事項') }}</h3>
       <p>
         {{
           $t(
@@ -180,7 +180,7 @@
         <a
           href="https://portal.data.metro.tokyo.lg.jp/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           place="catalogWebsite"
         >
           {{ $t('東京都オープンデータカタログサイト') }}
@@ -188,7 +188,7 @@
       </i18n>
     </StaticCard> -->
     <StaticCard>
-      <h2>{{ $t('ソースコードについて') }}</h2>
+      <h3>{{ $t('ソースコードについて') }}</h3>
       <p>
         {{
           $t(
@@ -199,7 +199,7 @@
           <a
             href="https://github.com/a01sa01to/covid19-ibaraki"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             place="githubRepo"
           >
             {{ $t('GitHub リポジトリ') }}

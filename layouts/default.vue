@@ -88,7 +88,11 @@ export default Vue.extend({
         {
           rel: 'canonical',
           href: `https://covid19-ibaraki.netlify.com${this.$route.path}`
-        }
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
+        },
       ],
       meta: [
         {
@@ -193,6 +197,11 @@ export default Vue.extend({
     grid-template-rows: auto;
   }
 }
+
+.naviContainer {
+  background-color: $white;
+}
+
 @include lessThan($small) {
   .naviContainer {
     position: sticky;

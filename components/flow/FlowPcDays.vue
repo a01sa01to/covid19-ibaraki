@@ -7,6 +7,7 @@
             :class="$style.FlowRowRowThreeGeneralIcon"
             src="/flow/accessibility-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('一般の方') }}
         </p>
@@ -43,6 +44,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -63,6 +65,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -71,6 +74,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -79,6 +83,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
     </div>
@@ -90,6 +95,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/directions_walk-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('ご高齢な方') }}
           </li>
@@ -98,6 +104,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/accessible-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('基礎疾患のある方') }}
           </li>
@@ -106,6 +113,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/pregnant_woman-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('妊娠中の方') }}
           </li>
@@ -152,22 +160,48 @@
       flex-basis: calc(28% - 20px);
       margin: 0 10px;
     }
-    &General {
-      &Icon {
-        display: block;
-        margin: auto;
-        width: 44px;
-        height: 44px;
+
+    &RowThree {
+      flex-grow: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+      &General {
+        &Icon {
+          display: block;
+          margin: auto;
+          width: 44px;
+          height: 44px;
+        }
+      }
+
+      &CareTargetList {
+        margin: 16px 0;
+        text-align: left;
+        list-style: none;
+
+        &Item {
+          display: flex;
+          align-items: center;
+
+          &Icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        &Item + &Item {
+          margin-top: 14px;
+        }
       }
     }
     &CareTargetList {
       margin: 16px 0;
       text-align: left;
       list-style: none;
-
-      &Item + &Item {
-        margin-top: 14px;
-      }
 
       &Item {
         display: flex;
@@ -179,6 +213,11 @@
           height: 30px;
         }
       }
+
+      &Item + &Item {
+        margin-top: 14px;
+      }
+
     }
   }
   &Condition {

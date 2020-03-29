@@ -125,3 +125,6 @@ sw.*
 
 # OGP images
 ogp/*
+
+# Vagrant
+.vagrant

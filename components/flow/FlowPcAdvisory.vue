@@ -34,7 +34,7 @@
             <a
               href="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               <span>{{ $t('各保健所の電話番号は県公式サイトへ') }}</span>
               <v-icon size="18">
@@ -64,6 +64,7 @@
               :class="$style.AdvisoryTelephoneIcon"
               src="/flow/phone-24px.svg"
               aria-hidden="true"
+              :alt="$t('電話番号')"
             />
             029-301-3200
           </a>
@@ -164,7 +165,7 @@
   }
   &WhiteBox {
     background-color: $white;
-    width: 160px;
+    max-width: 160px;
     padding: 10px;
     &Sentense {
       color: $green-1;

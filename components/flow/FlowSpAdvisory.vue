@@ -18,7 +18,7 @@
           <a
             href="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('各保健所の電話番号は県公式サイトへ') }}
             <v-icon size="16">
