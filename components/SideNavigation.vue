@@ -165,7 +165,7 @@ export default Vue.extend({
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
           link:
-            'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html'
+            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html'
         },
         // {
         //   icon: 'mdi-domain',
