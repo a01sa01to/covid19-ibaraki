@@ -57,6 +57,23 @@
 詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
 
+## 注意点
+yourname/covid19-ibaraki に随時 [a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki) の内容を統合してください ！！<br>
+
+1. 新しいBranchを作ります。<br>
+   `git branch <ブランチ名>`<br>
+   ここからはブランチ名を `br` とします。
+
+2. 最新の内容を同期します。
+   `git merge br`
+
+3. Development ブランチに切り替えます。
+   `git checkout development`
+
+4. 統合します。
+   `git merge br/master`
+
+
 ### 本番環境/その他の判定
 
 `process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。
