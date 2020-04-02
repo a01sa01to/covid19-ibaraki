@@ -8,7 +8,7 @@
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
       :url="
-        'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'
+        'https://www.pref.ibaraki.jp/1saigai/2019-ncov/hassei.html'
       "
     />
   </v-col>
