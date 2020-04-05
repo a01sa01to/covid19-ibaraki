@@ -26,18 +26,21 @@
           </tbody>
         </template>
       </v-simple-table>
-    </div>
+    </div><br>
+    <StaticCard>{{ $t('このサイトは、茨城県が管理しているものではありません。') }}{{ $t('このサイトに関するご意見やご質問などは、県ではなくAsaにお寄せください。')}}{{ $t('県はこのサイトには一切関与しておりません。') }}</StaticCard>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
-    PageHeader
+    PageHeader,
+    StaticCard
   },
   head(): MetaInfo {
     return {
