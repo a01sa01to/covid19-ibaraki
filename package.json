@@ -44,7 +44,7 @@
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
-    "mapbox-gl": "^1.8.1",
+    "mapbox-gl": "^1.9.1",
     "mapbox-gl-vue": "^2.0.4",
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
