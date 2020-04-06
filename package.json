@@ -39,7 +39,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@types/d3": "^5.7.2",
-    "@types/mapbox-gl": "^1.8.0",
+    "@types/mapbox-gl": "^1.8.3",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",

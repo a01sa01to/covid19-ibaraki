@@ -1872,10 +1872,10 @@
   resolved "https://registry.yarnpkg.com/@types/less/-/less-3.0.1.tgz#625694093c72f8356c4042754e222407e50d6b08"
   integrity sha512-dBp05MtWN/w1fGVjj5LVrDw6VrdYllpWczbUkCsrzBj08IHsSyRLOFvUrCFqZFVR+nsqkrRLNg6oOlvqMLPaSA==
 
-"@types/mapbox-gl@^1.8.0":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-1.8.1.tgz#dbc12da1324d5bdb3dbf71b90b77cac17994a1a3"
-  integrity sha512-DdT/YzpGiYITkj2cUwyqPilPbtZURr1E0vZX0KTyyeNP0t0bxNyKoXo0seAcvUd2MsMgFYwFQh1WRC3x2V0kKQ==
+"@types/mapbox-gl@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-1.8.3.tgz#b472802b1193c283282ee502553725c5c4a7f887"
+  integrity sha512-Exegt5PtshZEz6Vik9rLMs/D0O4thQHxMklvxXhEJUsgcsIPj4bEXjO1f+FIQVcJc0g0VWQ5ERmO3LPR9oXIeg==
   dependencies:
     "@types/geojson" "*"
 
