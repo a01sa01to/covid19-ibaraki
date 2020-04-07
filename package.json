@@ -41,7 +41,7 @@
     "@types/d3": "^5.7.2",
     "@types/mapbox-gl": "^1.8.3",
     "chart.js": "^2.9.3",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.2",
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
     "mapbox-gl": "^1.9.1",
