@@ -16,6 +16,7 @@
       <p>{{ $t('当サイトの情報は、以下のサイトから入手・反映しています。') }}</p>
       <ul>
         <li><a href="https://www.pref.ibaraki.jp/index.html" target="_blank">{{ $t('茨城県') }}{{ $t('公式') }}{{ $t('サイト') }}</a></li>
+        <li><a href="https://twitter.com/Ibaraki_Kouhou" target="_blank">{{ $t('茨城県') }}{{ $t('公式') }}Twitter</a></li>
         <li><a href="https://ibarakinews.jp/" target="_blank">{{ $t('茨城新聞社') }}</a></li>
       </ul>
       <p>{{ $t('当サイトに掲載されている情報の正確性については万全を期していますが、利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。') }}</p>
