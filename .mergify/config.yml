@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Auto Merge (package.json)
     conditions:
-      - "status-success=ci/circleci: build"
+      - "status-success=ci/circleci: build_dev"
       - base=development
       - files=package.json
       - "#files=1"
@@ -13,7 +13,7 @@ pull_request_rules:
 
   - name: Auto Merge (yarn.lock)
     conditions:
-      - "status-success=ci/circleci: build"
+      - "status-success=ci/circleci: build_dev"
       - base=development
       - files=yarn.lock
       - "#files=1"
@@ -25,7 +25,7 @@ pull_request_rules:
 
   - name: Auto Merge (yarn.lock, package-lock.json)
     conditions:
-      - "status-success=ci/circleci: build"
+      - "status-success=ci/circleci: build_dev"
       - base=development
       - files=package.json
       - files=yarn.lock
@@ -38,7 +38,7 @@ pull_request_rules:
 
   - name: Auto Merge (Language pack)
     conditions:
-      - "status-success=ci/circleci: build"
+      - "status-success=ci/circleci: build_dev"
       - base=development
       - files~=^assets/locales/
     actions:
