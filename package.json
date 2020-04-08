@@ -42,7 +42,7 @@
     "@types/mapbox-gl": "^1.8.3",
     "chart.js": "^2.9.3",
     "cross-env": "^7.0.2",
-    "dayjs": "^1.8.21",
+    "dayjs": "^1.8.23",
     "express": "^4.16.4",
     "mapbox-gl": "^1.9.1",
     "mapbox-gl-vue": "^2.0.4",
