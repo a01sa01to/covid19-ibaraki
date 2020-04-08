@@ -60,7 +60,7 @@
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/stylelint-module": "^3.2.2",
     "@nuxtjs/vuetify": "^1.0.0",
-    "@types/chart.js": "^2.9.14",
+    "@types/chart.js": "^2.9.18",
     "@vue/test-utils": "^1.0.0-beta.32",
     "babel-jest": "^25.2.6",
     "eslint": "^6.8.0",
