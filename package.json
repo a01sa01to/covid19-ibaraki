@@ -53,7 +53,7 @@
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@fullhuman/postcss-purgecss": "^2.1.2",
     "@mdi/font": "^5.0.45",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
