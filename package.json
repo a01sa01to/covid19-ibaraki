@@ -73,7 +73,7 @@
     "nodemon": "^2.0.2",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
     "stylelint": "^13.2.0",
     "stylelint-config-prettier": "^8.0.1",
