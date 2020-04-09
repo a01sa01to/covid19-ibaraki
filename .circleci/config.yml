@@ -48,10 +48,8 @@ workflows:
       - build:
           filters:
             branches:
-              ignore:
-                - development
-                - dev-deploy
-                - production
+              only:
+                - master
       - build_dev:
           filters:
             branches:
