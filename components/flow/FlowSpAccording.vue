@@ -200,7 +200,7 @@ export default {
 
   padding: px2vw(20);
   border-radius: px2vw(6);
-  color: $white;
+  // color: $white;
   text-align: center;
   line-height: 1.65;
 }
