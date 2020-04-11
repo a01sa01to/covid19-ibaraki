@@ -70,7 +70,7 @@ import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
-import type { DisplayData } from '@/plugins/vue-chart';
+import { DisplayData } from '@/plugins/vue-chart';
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)

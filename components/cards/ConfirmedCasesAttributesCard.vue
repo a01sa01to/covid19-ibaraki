@@ -8,7 +8,7 @@
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/hassei.html'"
-      :source="$t('オープンデータを入手')"
+      :source="$t('県公式サイトで見る')"
       :custom-sort="customSort"
     />
   </v-col>
@@ -54,6 +54,9 @@ export default {
       if (row['年代'].substr(-1, 1) === '代') {
         const age = row['年代'].substring(0, 2)
         row['年代'] = this.$t('{age}代', { age })
+      } else if (row['年代'].substr(-1, 1) === '歳') {
+        const age = String(Number(row['年代'].substring(0, 2)))  // 0歳対策
+        row['年代'] = this.$t('{age}歳', { age })
       } else if (row['年代'] === '不明') {
         row['年代'] = this.$t('不明')
       } else {

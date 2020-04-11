@@ -8,7 +8,9 @@
       {{　$t('茨城県による公式情報と客観的な数値をわかりやすく伝えることで、茨城県にお住まいの方や、茨城県内に拠点を持つ企業の方、茨城県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。')　}}<br><br>
       {{ $t('なお、「非公式」とあるように、') }}{{ $t('このサイトは、茨城県が管理しているものではありません。') }}{{ $t('このサイトに関するご意見やご質問などは、県ではなくAsaにお寄せください。')}}{{ $t('県はこのサイトには一切関与しておりません。') }}
       <i18n path="詳しくは、{contact}をご確認ください。">
-        <nuxt-link :to="localePath('/contacts')" place="contact">{{ $t('お問い合わせ先一覧') }}</nuxt-link>
+        <template v-slot:contact>
+          <nuxt-link :to="localePath('/contacts')">{{ $t('お問い合わせ先一覧') }}</nuxt-link>
+        </template>
       </i18n>
     </StaticCard>
     <StaticCard>
