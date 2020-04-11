@@ -16,7 +16,7 @@
             :alt="$t('茨城県')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('茨城県') }}({{ $t('非') }}{{ $t('公式') }})<br />{{ $t('新型コロナウイルス感染症')
+            {{ $t('茨城県') }}<br />{{ $t('新型コロナウイルス感染症')
             }}<br />{{ $t('対策サイト') }}
           </div>
         </nuxt-link>
@@ -150,12 +150,12 @@ export default Vue.extend({
           title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
-        // {
-        //   icon: 'CovidIcon',
-        //   title: this.$t('新型コロナウイルス感染症が心配なときに'),
-        //   link: this.localePath('/flow'),
-        //   divider: true
-        // },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルス感染症が心配なときに'),
+          link: this.localePath('/flow'),
+          divider: true
+        },
         // {
         //   icon: 'ParentIcon',
         //   title: this.$t('お子様をお持ちの皆様へ'),
@@ -173,11 +173,11 @@ export default Vue.extend({
         //   link: this.localePath('/worker'),
         //   divider: true
         // },
-        // {
-        //   title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-        //   link:
-        //     'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        // },
+        {
+          title: this.$tc('茨城県') + this.$tc('新型コロナウイルス感染症対策本部発表資料'),
+          link:
+            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'
+        },
         // {
         //   title: this.$t('東京都主催等 中止又は延期するイベント等'),
         //   link:
