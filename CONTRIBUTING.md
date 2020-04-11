@@ -17,7 +17,7 @@
 * 開発に参加する前に、[Principle/行動規範](./CODE_OF_CONDUCT.md) をご一読ください。
 * コミュニケーションにあたっては、Code for Japan の [行動規範](https://github.com/codeforjapan/codeofconduct) もご確認ください。
 * 自分ができそうな Issue に誰もアサインされていない場合、Issueに「やります！」等とコメントしてから開発をはじめてください。
-* [good first issue ラベルのついたもの](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)は初心者におすすめです
+* [good first issue ラベルのついたもの](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue)は初心者におすすめです
 * 半日以上作業から離れそうな場合は、他の人が作業を引き継げるようにしておいてください。（Issue を抱えたまま長時間オフになると、そのIssueがブロックされてしまいます。）
 * 1日以上更新されない Issue については、当方で assign を外させていただくことがあります。作業途中でも、[Draft Pull Request](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) を送ってもらえると、動きが把握しやすくなります。
 * 提案なども受け付けます！積極的に新しく Issue を作ってください。
@@ -33,5 +33,6 @@
 ## 開発に関する情報
 * 本番サイト https://covid19-ibaraki.netlify.com/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
+* [翻訳スプレッドシート (Transifex)](https://www.transifex.com/asas-4/covid19-ibaraki/)
 
 本 ドキュメント の更新も大歓迎です！

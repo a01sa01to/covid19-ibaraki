@@ -42,6 +42,35 @@ export default Vue.extend({
     PageHeader,
     StaticCard
   },
+  data() {
+    return {
+      pc: true
+    }
+  },
+  computed: {
+    tableAttrs(): any {
+      return this.pc ? {} : { role: 'presentation' }
+    },
+    headingAttrs(): any {
+      return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize()
+    }
+  },
+  destroyed() {
+    if (process.browser) {
+      window.removeEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    handleResize() {
+      this.pc = window.innerWidth > 768
+    }
+  },
   head(): MetaInfo {
     return {
       title: this.$t('お問い合わせ先一覧') as string
@@ -77,6 +106,9 @@ export default Vue.extend({
           height: 96px;
         }
 
+        th.tel {
+          width: 35%;
+        }
         th,
         tr:not(:last-child) {
           border-top: none;
@@ -123,6 +155,11 @@ export default Vue.extend({
         td {
           display: block;
         }
+      }
+
+      p.caution {
+        font-size: 12px;
+        margin: 0;
       }
     }
   }

@@ -8,7 +8,7 @@
       <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
-      <div class="Flow-Card-Button-Wrapper">
+      <!-- <div class="Flow-Card-Button-Wrapper">
         <a
           href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
           target="_blank"
@@ -24,7 +24,7 @@
             mdi-open-in-new
           </v-icon>
         </a>
-      </div>
+      </div> -->
       <div class="only-pc" aria-hidden="true">
         <flow-pc />
       </div>
@@ -39,16 +39,15 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
+// import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 import PageHeader from '@/components/PageHeader.vue'
-
 export default Vue.extend({
   components: {
     CovidIcon,
     PageHeader,
-    PrinterButton,
+    // PrinterButton,
     FlowPc,
     FlowSp
   },
@@ -70,21 +69,17 @@ export default Vue.extend({
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-
     > svg {
       width: 30px;
       height: 30px;
-
       > path:not(:first-of-type) {
         fill: $gray-2;
       }
     }
-
     &-Title {
       margin-left: 8px;
     }
   }
-
   &-Card-Button {
     @include button-text('md');
     @include font-size(20);
@@ -95,21 +90,17 @@ export default Vue.extend({
     display: inline-block;
     text-decoration: none;
     color: $green-1 !important;
-
     &-Wrapper {
       text-align: center;
       margin-bottom: 20px;
     }
-
     &:hover {
       color: $white !important;
     }
-
     &-ExternalLinkIcon {
       margin-left: 2px;
       color: $green-1 !important;
     }
-
     &-Description {
       margin-bottom: 12px;
       display: block;
@@ -125,7 +116,10 @@ export default Vue.extend({
   .only-sp {
     @include visually-hidden;
   }
+  .only-pc {
+    display: block;
   }
+}
 @include lessThan($medium) {
   .only-pc {
     display: none;
