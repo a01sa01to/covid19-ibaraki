@@ -14,9 +14,10 @@
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
             :alt="$t('茨城県')"
+            style="max-height: 100%; width: 100px;"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('茨城県') }}({{ $t('非') }}{{ $t('公式') }})<br />{{ $t('新型コロナウイルス感染症')
+            {{ $t('新型コロナウイルス感染症')
             }}<br />{{ $t('対策サイト') }}
           </div>
         </nuxt-link>
@@ -145,68 +146,23 @@ export default Vue.extend({
   computed: {
     items(): Item[] {
       return [
-        {
-          icon: 'mdi-chart-timeline-variant',
-          title: this.$t('県内の最新感染動向'),
-          link: this.localePath('/')
-        },
-        // {
-        //   icon: 'CovidIcon',
-        //   title: this.$t('新型コロナウイルス感染症が心配なときに'),
-        //   link: this.localePath('/flow'),
-        //   divider: true
-        // },
-        // {
-        //   icon: 'ParentIcon',
-        //   title: this.$t('お子様をお持ちの皆様へ'),
-        //   link: this.localePath('/parent')
-        // },
-        {
-          icon: 'mdi-account-multiple',
-          title: this.$t('県民の皆様へ'),
-          link:
-            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html'
-        },
-        // {
-        //   icon: 'mdi-domain',
-        //   title: this.$t('企業の皆様・はたらく皆様へ'),
-        //   link: this.localePath('/worker'),
-        //   divider: true
-        // },
-        // {
-        //   title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-        //   link:
-        //     'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        // },
+        { icon: 'mdi-chart-timeline-variant', title: this.$t('県内の最新感染動向'), link: this.localePath('/') },
+        { icon: 'CovidIcon', title: this.$t('新型コロナウイルス感染症が心配なときに'), link: this.localePath('/flow'), divider: true },
+        { icon: 'ParentIcon', title: this.$t('お子様をお持ちの皆様へ'), link: this.localePath('/parent') },
+        { icon: 'mdi-account-multiple', title: this.$t('県民の皆様へ'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html' },
+        { icon: 'mdi-domain', title: this.$t('企業の皆様・はたらく皆様へ'), link: this.localePath('/worker'), divider: true },
+        { title: this.$tc('茨城県') + this.$tc('新型コロナウイルス感染症対策本部発表資料'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html' },
         // {
         //   title: this.$t('東京都主催等 中止又は延期するイベント等'),
         //   link:
         //     'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
         // },
-        {
-          title: this.$t('知事記者会見'),
-          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html'
-        },
-        {
-          title: this.$t('当サイトについて'),
-          link: this.localePath('/about')
-        },
-        {
-          title: this.$tc('他県の') + this.$tc('新型コロナ') + this.$tc('対策サイト'),
-          link: this.localePath('/otherpref')
-        },
-        {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
-        },
-        {
-          title: this.$t('当プロジェクトをお手伝いいただける方へ'),
-          link: this.localePath('/helpus')
-        },
-        {
-          title: this.$tc('茨城県') + this.$tc('公式') + this.$tc('サイト'),
-          link: 'https://www.pref.ibaraki.jp/'
-        }
+        { title: this.$t('知事記者会見'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html' },
+        { title: this.$t('当サイトについて'), link: this.localePath('/about') },
+        { title: this.$tc('他県の') + this.$tc('新型コロナ') + this.$tc('対策サイト'), link: this.localePath('/otherpref') },
+        { title: this.$t('お問い合わせ先一覧'), link: this.localePath('/contacts') },
+        { title: this.$t('当プロジェクトをお手伝いいただける方へ'), link: this.localePath('/helpus') },
+        { title: this.$tc('茨城県') + this.$tc('公式') + this.$tc('サイト'), link: 'https://www.pref.ibaraki.jp/' }
       ]
     }
   },

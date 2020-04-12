@@ -73,7 +73,7 @@
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
               >
-                far fa-clipboard
+                mdi-clipboard-outline
               </v-icon>
               {{ graphEmbedValue }}
             </div>
@@ -243,7 +243,7 @@ export default Vue.extend({
         'https://twitter.com/intent/tweet?text=' +
         this.title +
         ' / ' +
-        this.$t('茨城県 (非公式)') +
+        this.$t('茨城県') +
         this.$t('新型コロナウイルス感染症') +
         this.$t('対策サイト') +
         '&url=' +
@@ -274,6 +274,27 @@ export default Vue.extend({
   @include card-container();
 
   height: 100%;
+
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    .scrollable {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
 
   &-Header {
     display: flex;
@@ -415,7 +436,7 @@ export default Vue.extend({
         border-radius: 8px;
         text-align: left;
         font-size: 1rem;
-        z-index: 1;
+        z-index: 2;
 
         > * {
           padding: 4px 0;

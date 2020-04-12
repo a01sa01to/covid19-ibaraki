@@ -15,7 +15,7 @@
         <span>{{ $t('注釈') }} </span>
       </div>
     </div>
-    <!-- <whats-new class="mb-4" :items="newsItems" /> -->
+    <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
       :text="
@@ -25,12 +25,12 @@
       "
       :url="localePath('/helpus')"
     />
-    <!-- <static-info
+    <static-info
       class="mb-4"
       :url="localePath('/flow')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
-    /> -->
+    />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <!-- <tested-cases-details-card /> -->
@@ -41,15 +41,9 @@
       <telephone-advisory-reports-number-card />
       <!-- <consultation-desk-reports-number-card />
       <metro-card />
-      <agency-card />
-      <shinjuku-visitors-card />
-      <chiyoda-visitors-card /> -->
+      <agency-card /> -->
     </v-row>
-    <!-- <v-divider />
-    <v-row class="DataBlock">
-      <shinjuku-st-map-card />
-      <tokyo-st-map-card />
-    </v-row> -->
+    <v-divider />
   </div>
 </template>
 
@@ -57,7 +51,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
-// import WhatsNew from '@/components/WhatsNew.vue'
+import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -68,20 +62,15 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import { convertDatetimeToISO8601Format } from '~/utils/formatDate'
 // import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
 // import AgencyCard from '@/components/cards/AgencyCard.vue'
-// import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-// import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
-// import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
-// import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
-// import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    // WhatsNew,
+    WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
     // TestedCasesDetailsCard,
@@ -92,11 +81,7 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
-    // AgencyCard,
-    // ShinjukuVisitorsCard,
-    // ChiyodaVisitorsCard,
-    // ShinjukuStMapCard,
-    // TokyoStMapCard
+    // AgencyCard
   },
   data() {
     const data = {

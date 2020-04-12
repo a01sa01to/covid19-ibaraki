@@ -51,21 +51,26 @@
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
+        {{ $t('県内保健所') }}
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        {{ $t('平日（日中）') }}
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0570550571">
+        <!-- <a :class="$style.TelLink" href="tel:0293013200"> -->
+        <a :class="$style.TelLink"
+          href="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
             :alt="$t('電話番号')"
           />
-          0570-550571
+          {{ $t('各保健所の電話番号は県公式サイトへ') }}
         </a>
       </div>
     </div>
@@ -96,7 +101,15 @@
   &:focus {
     color: inherit;
     text-decoration: none;
-    outline: 1px dotted $gray-3;
+  }
+
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    @media screen {
+      outline: 1px dotted $gray-3;
+    }
   }
 
   &Icon {
@@ -207,6 +220,9 @@
 .LargerText {
   font-size: larger;
   font-weight: bold;
+  @media print {
+    width: 65%;
+  }
 }
 
 .Center {

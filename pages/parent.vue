@@ -4,52 +4,35 @@
       {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
     </page-header>
     <StaticCard>
-      <h3>1. {{ $t('感染予防・健康管理') }}</h3>
+      <h3>
+        <a href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html" target="_blank" rel="noopener noreferrer">{{ $t('学びの支援サイト') }}</a>
+      </h3>
+      <p>{{ $t('※') }}{{ $t('東京都のサイトへ移動します。') }}</p>
+    </StaticCard>
+    <StaticCard>
+      <h3>{{ $t('感染予防・健康管理') }}</h3>
       <ul>
+        <li>{{ $t('不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。') }}</li>
         <li>
-          {{
-            $t(
-              '不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。'
-            )
-          }}
+          {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。') }}<br />
+          <a href="https://youtu.be/lViN9C_BS-0" target="_blank" rel="noopener noreferrer">{{ $t('【参考】感染症予防のための正しい手洗い方法（YouTube）') }}</a>
         </li>
-        <li>
-          {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。')
-          }}<br />
-          <a
-            href="https://tokyodouga.jp/lViN9C_BS-0.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a
-          >
-        </li>
-        <li>
-          {{
-            $t(
-              '規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。'
-            )
-          }}
-        </li>
+        <li>{{ $t('規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。') }}</li>
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>2. {{ $t('感染症を疑う場合の対応') }}</h3>
+      <h3>{{ $t('感染症を疑う場合の対応') }}</h3>
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
         <li>
           {{ $t('各保健所の電話番号について') }}
           <br />
-          <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
-          >
+          <a href="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html" target="_blank" rel="noopener noreferrer">{{ $t('「新型コロナウイルス感染症（対策・相談窓口等）について」') }}</a>
         </li>
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>3. {{ $t('その他.parent') }}</h3>
+      <h3>{{ $t('その他') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </StaticCard>
   </div>

@@ -274,9 +274,15 @@
 						</tr>
 						<tr>
 							<td class="pref text-center">{{ $t('鹿児島県') }}</td>
-							<td class="site text-center"><a href="https://covid19.codeforkagoshima.dev/" target="_blank">https://covid19.codeforkagoshima.dev/</a></td>
+							<td class="site text-center"><a href="https://covid19.code4kagoshima.org/" target="_blank">https://covid19.code4kagoshima.org/</a></td>
 							<td class="admin text-center">{{ $t('有志') }}</td>
 							<td class="repo text-center"><a href="https://github.com/codeforkagoshima/covid19" target="_blank">codeforkagoshima/covid19</a></td>
+						</tr>
+						<tr>
+							<td class="pref text-center">{{ $t('沖縄県') }}</td>
+							<td class="site text-center"><a href="https://okinawa.stopcovid19.jp/" target="_blank">https://okinawa.stopcovid19.jp/</a></td>
+							<td class="admin text-center">{{ $t('有志') }}</td>
+							<td class="repo text-center"><a href="https://github.com/Code-for-OKINAWA/covid19" target="_blank">Code-for-OKINAWA/covid19</a></td>
 						</tr>
 
           </tbody>

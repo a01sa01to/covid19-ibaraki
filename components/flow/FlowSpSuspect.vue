@@ -21,16 +21,23 @@
 
     <div :class="$style.callcenter">
       <p :class="$style.fzLarge">
-        {{ $t('新型コロナコールセンター') }}
+        {{ $t('県内保健所') }}
       </p>
       <p :class="$style.open">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        {{ $t('平日（日中）') }}
       </p>
       <p :class="[$style.phone, $style.fzNumeric]">
         <span :class="$style.icon">
           <PhoneIcon alt="Phone" />
         </span>
-        <a href="tel:0570550571">0570-550571</a>
+        <!-- <a href="tel:0570550571">0570-550571</a> -->
+        <a
+          href="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ $t('各保健所の電話番号は県公式サイトへ') }}
+        </a>
       </p>
     </div>
 
@@ -51,11 +58,11 @@
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
-// import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import PhoneIcon from '@/static/flow/responsive/phone.svg'
 import SentimentIcon from '@/static/flow/responsive/sentiment_very_dissatisfied.svg'
 
 export default {
-  components: { ArrowForwardIcon, /* PhoneIcon, */ SentimentIcon },
+  components: { ArrowForwardIcon, PhoneIcon, SentimentIcon },
   methods: { onDoneScroll }
 }
 </script>

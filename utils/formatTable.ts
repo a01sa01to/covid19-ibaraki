@@ -5,7 +5,7 @@ const headers = [
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
   { text: '性別', value: '性別' },
-  // { text: '退院※', value: '退院', align: 'center' }
+  { text: '退院※', value: '退院', align: 'center' }
 ]
 
 type DataType = {
@@ -50,6 +50,8 @@ export default (data: DataType[]) => {
     }
     tableDate.datasets.push(TableRow)
   })
-  tableDate.datasets.sort((a, b) => (a === b ? 0 : a < b ? 1 : -1))
+  tableDate.datasets.sort((a, b) =>
+    a.公表日 === b.公表日 ? 0 : a.公表日 < b.公表日 ? 1 : -1
+  )
   return tableDate
 }
