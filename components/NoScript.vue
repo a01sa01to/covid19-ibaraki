@@ -11,7 +11,7 @@
         }
       </style>
       <div class="noscript-heading">
-        <img src="/logo.svg" :alt="$t('茨城県 (非公式)')" />
+        <img src="/logo.svg" :alt="$t('茨城県')" style="max-height: 100%; width: 100px;" />
         {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
       </div>
       <div class="noscript-body">

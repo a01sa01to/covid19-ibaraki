@@ -14,9 +14,10 @@
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
             :alt="$t('茨城県')"
+            style="max-height: 100%; width: 100px;"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('茨城県') }}<br />{{ $t('新型コロナウイルス感染症')
+            {{ $t('新型コロナウイルス感染症')
             }}<br />{{ $t('対策サイト') }}
           </div>
         </nuxt-link>

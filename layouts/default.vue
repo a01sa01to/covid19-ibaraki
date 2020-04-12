@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/logo.svg" alt="茨城県" />
+        <img src="/logo.svg" alt="茨城県" style="max-height: 100%; width: 100px;" />
         <scale-loader color="#003FAB" />
       </div>
     </v-overlay>

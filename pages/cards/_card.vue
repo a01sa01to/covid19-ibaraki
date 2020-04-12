@@ -143,7 +143,7 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('茨城県 (非公式)') +
+            this.$t('茨城県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             this.$t('対策サイト')
