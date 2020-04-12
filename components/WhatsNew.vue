@@ -7,7 +7,7 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <span class="WhatsNew-link-to-emergency-page">
+      <!-- <span class="WhatsNew-link-to-emergency-page">
         <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
           mdi-bullhorn
         </v-icon>
@@ -15,7 +15,7 @@
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
           :label="$t('東京都緊急事態措置について')"
         />
-      </span>
+      </span> -->
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+// import ExternalLink from '@/components/ExternalLink.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -57,7 +57,7 @@ import {
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  // components: { ExternalLink },
   props: {
     items: {
       type: Array,
