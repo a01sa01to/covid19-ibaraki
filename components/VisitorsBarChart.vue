@@ -315,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxTicksLimit: 8,
                 suggestedMin: 0,
-                callback(value: Number) {
+                callback(value: number) {
                   return `${value.toFixed(2)}%`
                 }
               }

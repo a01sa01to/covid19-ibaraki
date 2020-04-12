@@ -58,7 +58,7 @@ import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
 
-import type { DisplayData } from '@/plugins/vue-chart';
+import { DisplayData } from '@/plugins/vue-chart';
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -217,7 +217,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
-                callback(value) {
+                callback(value: number) {
                   return value.toFixed(2) + self.unit
                 }
               }

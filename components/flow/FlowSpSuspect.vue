@@ -58,11 +58,11 @@
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
-// import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import PhoneIcon from '@/static/flow/responsive/phone.svg'
 import SentimentIcon from '@/static/flow/responsive/sentiment_very_dissatisfied.svg'
 
 export default {
-  components: { ArrowForwardIcon, /* PhoneIcon, */ SentimentIcon },
+  components: { ArrowForwardIcon, PhoneIcon, SentimentIcon },
   methods: { onDoneScroll }
 }
 </script>
