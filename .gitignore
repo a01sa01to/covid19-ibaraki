@@ -1,6 +1,7 @@
 # Temporary
 tmp/
 temp/
+test.svg
 
 assets/locales/*
 !assets/locales/ja.json
