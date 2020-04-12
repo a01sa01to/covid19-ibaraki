@@ -150,12 +150,7 @@ export default Vue.extend({
         { icon: 'CovidIcon', title: this.$t('新型コロナウイルス感染症が心配なときに'), link: this.localePath('/flow'), divider: true },
         { icon: 'ParentIcon', title: this.$t('お子様をお持ちの皆様へ'), link: this.localePath('/parent') },
         { icon: 'mdi-account-multiple', title: this.$t('県民の皆様へ'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html' },
-        // {
-        //   icon: 'mdi-domain',
-        //   title: this.$t('企業の皆様・はたらく皆様へ'),
-        //   link: this.localePath('/worker'),
-        //   divider: true
-        // },
+        { icon: 'mdi-domain', title: this.$t('企業の皆様・はたらく皆様へ'), link: this.localePath('/worker'), divider: true },
         { title: this.$tc('茨城県') + this.$tc('新型コロナウイルス感染症対策本部発表資料'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html' },
         // {
         //   title: this.$t('東京都主催等 中止又は延期するイベント等'),
