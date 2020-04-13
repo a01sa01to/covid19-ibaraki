@@ -1,5 +1,10 @@
 {
-  "newsItems": [{
+  "newsItems": [
+    {
+      "date": "2020\/04\/13",
+      "url": "https:\/\/www.pref.ibaraki.jp\/shokorodo\/sansei\/kinyu\/shosei\/yushi\/yushitop.html",
+      "text": "中小企業向け融資制度のご案内"
+    }, {
       "date": "2020\/04\/12",
       "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/documents\/0412102109.pdf",
       "text": "【102例目から109例目】新型コロナウイルス感染症患者の発生について（PDF）"
