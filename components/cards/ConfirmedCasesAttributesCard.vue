@@ -42,8 +42,11 @@ export default {
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院') : this.$t(header.value)
+      switch(header.value){
+        case '退院': header.text = this.$t('退院'); break;
+        case 'num': header.text = this.$t('例目'); break;
+        default: header.text = this.$t(header.value)
+      }
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
@@ -94,11 +97,10 @@ export default {
 
         // 「10歳未満」同士を比較する場合、そうでない場合に場合分け
         let comparison = 0
-        if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt10 || b[index[0]] === lt10)
-        ) {
+        if (index[0] === '年代' && (a[index[0]] === lt10 || b[index[0]] === lt10)) {
           comparison = a[index[0]] === lt10 ? -1 : 1
+        } else if (index[0] === '例目') {
+          comparison = Number(a[index[0]]) < Number(b[index[0]]) ? -1 : 1
         } else {
           comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
         }
