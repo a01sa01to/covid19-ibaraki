@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
@@ -104,7 +104,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://covid19-ibaraki.netlify.com${this.$route.path}`
+          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`
         },
         {
           rel: 'stylesheet',
@@ -135,7 +135,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://covid19-ibaraki.netlify.com${this.$route.path}`
+          content: `https://ibaraki.stopcovid19.jp${this.$route.path}`
         },
         ogLocale,
         {
@@ -156,7 +156,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://covid19-ibaraki.netlify.com/ss.png'
+          content: 'https://ibaraki.stopcovid19.jp/ss.png'
         },
         {
           hid: 'apple-mobile-web-app-title',
@@ -171,7 +171,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'https://covid19-ibaraki.netlify.com/ss.png'
+          content: 'https://ibaraki.stopcovid19.jp/ss.png'
         }
       ]
     }

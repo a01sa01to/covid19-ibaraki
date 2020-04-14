@@ -2,7 +2,7 @@
 
 ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io)
 
-[![茨城県 新型コロナウイルス感染症対策サイト](/static/ss.png)](https://covid19-ibaraki.netlify.com/)
+[![茨城県 新型コロナウイルス感染症対策サイト](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
 
 ### 日本語
 

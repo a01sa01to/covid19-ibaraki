@@ -4,7 +4,7 @@
 
 都道府県名 | 公開サイト | 運営者 | プロジェクト
 ------------ | ------------- | ------------- | -------------
-[](08)茨城県（このサイト）|https://covid19-ibaraki.netlify.com/|Asa|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
+[](08)茨城県（このサイト）|https://ibaraki.stopcovid19.jp/|Asa|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
 [](02)青森県|https://covid19.codeforaomori.org|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)|
 [](02)青森県|https://covid19-aomori.info/|Aomori Hackers（有志団体）|[covid19-aomori/website](https://github.com/covid19-aomori/website)|

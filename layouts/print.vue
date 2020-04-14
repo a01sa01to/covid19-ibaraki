@@ -20,7 +20,7 @@
             <p class="PrintMeta-Text">
               {{ $t('※最新の情報はWebページをご覧ください') }}
             </p>
-            <p class="PrintMeta-Link">https://covid19-ibaraki.netlify.com/</p>
+            <p class="PrintMeta-Link">https://ibaraki.stopcovid19.jp/</p>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://covid19-ibaraki.netlify.com${this.$route.path}`
+          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`
         }
       ]
     }
