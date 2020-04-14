@@ -1,8 +1,8 @@
 {
   "newsItems": [{
-    "date": "2020\/04\/13",
-    "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/documents\/20200413110.pdf",
-    "text": "【110例目】新型コロナウイルス感染症患者の発生について（PDF）"
+    "date": "2020\/04\/14",
+    "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/documents\/0414111116.pdf",
+    "text": "【111例目から116例目】新型コロナウイルス感染症患者の発生について（PDF）"
   }, {
     "date": "2020\/04\/13",
     "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/message.html",
@@ -15,9 +15,5 @@
     "date": "2020\/04\/13",
     "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/yousei.html",
     "text": "茨城県からのお願い"
-  }, {
-    "date": "2020\/04\/13",
-    "url": "https:\/\/www.pref.ibaraki.jp\/shokorodo\/sansei\/kinyu\/shosei\/yushi\/yushitop.html",
-    "text": "中小企業向け融資制度のご案内"
   }]
 }
