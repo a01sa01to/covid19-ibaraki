@@ -10,7 +10,7 @@
           <div class="PrintMeta-Logo">
             <img src="/logo.svg" :alt="$t('茨城県')" style="max-height: 100%; width: 100px;" />
           </div>
-          <h1 class="PrintMeta-Heading">{{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}</h1>
+          <h1 class="PrintMeta-Heading">{{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{ $t('非') }}{{ $t('公式') }})</h1>
         </div>
         <div class="PrintMeta-QRWrapper">
           <div class="PrintMeta-QR flex-shrink-0" flat tile color="transparent">

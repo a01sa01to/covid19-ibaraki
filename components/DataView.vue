@@ -243,7 +243,8 @@ export default Vue.extend({
         'https://twitter.com/intent/tweet?text=' +
         this.title +
         ' / ' +
-        this.$t('茨城県') +
+        this.$t('茨城県') + '(' +
+        this.$t('非') + this.$t('公式') + ')' +
         this.$t('新型コロナウイルス感染症') +
         this.$t('対策サイト') +
         '&url=' +
