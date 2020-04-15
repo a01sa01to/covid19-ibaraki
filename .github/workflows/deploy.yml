@@ -1,4 +1,4 @@
-name: production deploy
+name: Production Deploy
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Cache dependencies
+      - name: Cache deps
         uses: actions/cache@v1
         with:
           path: ~/.cache/yarn
@@ -28,9 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn run test
-      - name: generate
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate
         run: |
           echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}" >> .env.production
           cat .env.production
