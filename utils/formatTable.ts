@@ -28,9 +28,17 @@ type TableDataType = {
   退院: DataType['退院']
 }
 
+type CityTableType = {
+  市町村: string
+  入院者数: number
+  退院者数: number
+  発生数: number
+}
+
 type TableDateType = {
   headers: typeof headers
   datasets: TableDataType[]
+  cityDataset: CityTableType[]
 }
 
 /**
@@ -41,7 +49,8 @@ type TableDateType = {
 export default (data: DataType[]) => {
   const tableDate: TableDateType = {
     headers,
-    datasets: []
+    datasets: [],
+    cityDataset: [],
   }
   data.forEach(d => {
     const TableRow: TableDataType = {

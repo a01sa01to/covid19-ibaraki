@@ -41,6 +41,7 @@
       <confirmed-cases-details-card />
       <!-- <tested-cases-details-card /> -->
       <confirmed-cases-attributes-card />
+      <ibaraki-city-card />
       <confirmed-cases-number-card />
       <inspection-persons-number-card />
       <!-- <tested-number-card /> -->
@@ -65,6 +66,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 // import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
@@ -82,6 +84,7 @@ export default Vue.extend({
     // TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    IbarakiCityCard,
     // TestedNumberCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
