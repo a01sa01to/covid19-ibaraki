@@ -5,9 +5,10 @@
       :title-id="'ibaraki-city-table'"
       :chart-data="patientsTable"
       :chart-option="{}"
+      :date="Data.patients.date"
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/hassei.html'"
       :source="$t('県公式サイトで見る')"
-      :date="Data.patients.date"
+      :custom-sort="customSort"
     />
   </v-col>
 </template>
@@ -48,12 +49,33 @@ export default {
 		}
 	}
 
+	patientsTable.cityDataset.sort((a, b)=>{
+		// 発生数が同じなら入院者数で比較
+		if(a.発生数 === b.発生数){
+			if(a.入院者数 === b.入院者数){ return 0; }
+			return a.入院者数 < b.入院者数 ? 1 : -1;
+		}
+		return a.発生数 < b.発生数 ? 1 : -1
+	})
+
 	const data =  {
       Data,
       patientsTable
     }
 
     return data;
+  },
+  methods: {
+    customSort(items, index, isDesc) {
+      items.sort((a, b) => {
+        if (a[index[0]] === b[index[0]]) { return 0 }
+
+        let comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
+
+        return isDesc[0] ? comparison * -1 : comparison
+      })
+      return items
+    }
   }
 }
 </script>
