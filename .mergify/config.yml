@@ -46,3 +46,14 @@ pull_request_rules:
         force: false
       merge:
         method: merge
+
+  - name: Auto Merge (OGP Builder)
+    conditions:
+      - "status-success=ci/circleci: build"
+      - base=master
+      - files~=^static/ogp/
+    actions:
+      delete_head_branch:
+        force: false
+      merge:
+        method: merge
