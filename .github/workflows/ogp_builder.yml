@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - staging
 
 jobs:
   build:
@@ -66,8 +65,10 @@ jobs:
           git config --local user.name "GitHub Action"
           git add static
           git commit -m "Add changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.extract_branch.outputs.branch }}
+          commit-message: '[Automated PR] Change by OGP Builder'
+          title: '[Automated PR] Change by OGP Builder'
+          body: 'Automated Changes by [OGP Builder](https://github.com/a01sa01to/covid19-ibaraki/actions/runs/78474261)'
