@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - 'static/ogp/**'
 
 jobs:
   build:
@@ -62,15 +60,13 @@ jobs:
           name: ogp
       - name: Commit files
         run: |
-          cp -rp ogp static/
+          cp -rp ogp ./
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add static
           git commit -m "Add changes"
-      - name: Create PR
-        uses: peter-evans/create-pull-request@v2
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: '[Automated PR] Change by OGP Builder'
-          title: '[Automated PR] Change by OGP Builder'
-          body: 'Automated Changes by [OGP Builder](https://github.com/a01sa01to/covid19-ibaraki/actions/runs/78474261)'
+          branch: production
