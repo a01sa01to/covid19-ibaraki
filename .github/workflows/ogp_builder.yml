@@ -53,7 +53,7 @@ jobs:
         id: extract_branch
       - uses: actions/checkout@v2
         with:
-          ref: ${{ steps.extract_branch.outputs.branch }}
+          ref: production
       - name: Download ogp images
         uses: actions/download-artifact@v1
         with:
