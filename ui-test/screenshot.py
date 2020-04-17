@@ -4,7 +4,7 @@ import os
 os.mkdir('screenshots')
 
 SIZES = [[320,480],[375,812],[768,1024],[1024,768],[1920,1080]]
-PATHS = ['/', '/about']
+PATHS = ['/', '/about', '/contacts', '/flow', '/helpus', '/otherpref', '/parent', '/worker']
 BROWSERS = ['Chrome', 'Firefox']
 
 for browser in BROWSERS:

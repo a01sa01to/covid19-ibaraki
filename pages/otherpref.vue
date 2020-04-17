@@ -22,7 +22,7 @@
           <tbody>
             <tr>
               <td class="pref text-center">{{ $t('茨城県') }}<br>({{ $t('本サイト') }})</td>
-              <td class="site text-center"><a href="#">https://covid19-ibaraki.netlify.com/</a></td>
+              <td class="site text-center"><a href="#">https://ibaraki.stopcovid19.jp/</a></td>
               <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center"><a href="https://github.com/a01sa01to/covid19-ibaraki">a01sa01to/covid19-ibaraki</a></td>
             </tr>

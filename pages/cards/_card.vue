@@ -36,6 +36,7 @@
       "
     />
     <agency-card v-else-if="this.$route.params.card == 'agency'" />
+    <ibaraki-city-card v-else-if="this.$route.params.card == 'ibaraki-city-table'" />
   </div>
 </template>
 
@@ -47,6 +48,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 // import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
@@ -60,6 +62,7 @@ export default {
     // TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    IbarakiCityCard,
     // TestedNumberCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
@@ -102,6 +105,10 @@ export default {
         title = this.$t('新型コロナ受診相談窓口相談件数')
         updatedAt = Data.querents.date
         break
+      case 'ibaraki-city-table':
+        title = this.$t('市町村毎の感染状況')
+        updatedAt = Data.patients.date
+        break
       // case 'predicted-number-of-toei-subway-passengers':
       //   title = this.$t('都営地下鉄の利用者数の推移')
       //   updatedAt = MetroData.date
@@ -119,14 +126,14 @@ export default {
     return data
   },
   head() {
-    const url = 'https://covid19-ibaraki.netlify.com/'
+    const url = 'https://ibaraki.stopcovid19.jp'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。'
     )}`
 
     return {
@@ -143,7 +150,7 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('茨城県') +
+            this.$t('茨城県') + '(' + this.$t('非') + this.$t('公式') + ')' +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             this.$t('対策サイト')

@@ -84,7 +84,7 @@ yourname/covid19-ibaraki に随時 [a01sa01to/covid19-ibaraki](https://github.co
 
 ## ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://covid19-ibaraki.netlify.com/ が更新されます。<br>
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされ、本番サイト https://ibaraki.stopcovid19.jp/ が更新されます。<br>
 `development` ブランチがアップデートされると、自動的に `dev-deploy` ブランチにHTML類がbuildされ、開発用サイト https://covid19-ibk-dev.netlify.com/ が更新されます。
 
 ## Branch について

@@ -15,7 +15,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 茨城県 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 茨城県(非公式) 新型コロナウイルス感染症対策サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,7 +23,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19-ibaraki.netlify.com/'
+        content: 'https://ibaraki.stopcovid19.jp/'
       },
       {
         hid: 'twitter:card',
@@ -149,7 +149,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '茨城県 新型コロナウイルス感染症対策サイト',
+    name: '茨城県(非公式) 新型コロナウイルス感染症対策サイト',
     theme_color: '#003FAB',
     background_color: '#ffffff',
     display: 'standalone',
@@ -167,11 +167,12 @@ const config: Configuration = {
         '/cards/number-of-confirmed-cases',
         '/cards/attributes-of-confirmed-cases',
         // '/cards/number-of-tested',
-        // '/cards/number-of-inspection-persons',
-        // '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        '/cards/number-of-inspection-persons',
+        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         // '/cards/number-of-reports-to-covid19-consultation-desk',
         // '/cards/predicted-number-of-toei-subway-passengers',
         // '/cards/agency'
+        '/cards/ibaraki-city-table'
       ]
 
       const routes: string[] = []

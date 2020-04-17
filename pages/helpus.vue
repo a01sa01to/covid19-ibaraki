@@ -7,13 +7,15 @@
     <StaticCard>
       <h3>{{ $t('プログラム面について') }}</h3>
       <i18n path="当プロジェクトは、{githubRepo}にて公開しております。">
-        <a
-          href="https://github.com/a01sa01to/covid19-ibaraki/"
-          target="_blank"
-          rel="noopener"
-        >
-          GitHub
-        </a>
+        <template v-slot:githubRepo>
+          <a
+            href="https://github.com/a01sa01to/covid19-ibaraki/"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+        </template>
       </i18n><br>
       {{ $t('当サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。') }}<br />
       <br />
