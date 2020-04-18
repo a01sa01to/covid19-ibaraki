@@ -3,22 +3,11 @@
     <confirmed-cases-details-card
       v-if="this.$route.params.card == 'details-of-confirmed-cases'"
     />
-    <tested-cases-details-card
-      v-else-if="this.$route.params.card == 'details-of-tested-cases'"
-    />
     <confirmed-cases-number-card
       v-else-if="this.$route.params.card == 'number-of-confirmed-cases'"
     />
-    <confirmed-cases-by-municipalities-card
-      v-else-if="
-        this.$route.params.card == 'number-of-confirmed-cases-by-municipalities'
-      "
-    />
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
-    />
-    <tested-number-card
-      v-else-if="this.$route.params.card == 'number-of-tested'"
     />
     <inspection-persons-number-card
       v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
@@ -26,55 +15,32 @@
     <telephone-advisory-reports-number-card
       v-else-if="
         this.$route.params.card ==
-          'number-of-reports-to-covid19-telephone-advisory-center'
+        'number-of-reports-to-covid19-telephone-advisory-center'
       "
     />
-    <consultation-desk-reports-number-card
-      v-else-if="
-        this.$route.params.card ==
-          'number-of-reports-to-covid19-consultation-desk'
-      "
+    <ibaraki-city-card
+      v-else-if="this.$route.params.card == 'ibaraki-city-table'"
     />
-    <metro-card
-      v-else-if="
-        this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
-      "
-    />
-    <agency-card v-else-if="this.$route.params.card == 'agency'" />
-    <ibaraki-city-card v-else-if="this.$route.params.card == 'ibaraki-city-table'" />
   </div>
 </template>
 
 <script>
 import Data from '@/data/data.json'
-// import MetroData from '@/data/metro.json'
-// import agencyData from '@/data/agency.json'
-// import patientData from '@/data/patient.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-// import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
-// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-// import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-// import MetroCard from '@/components/cards/MetroCard.vue'
-// import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
     ConfirmedCasesDetailsCard,
-    // TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     IbarakiCityCard,
-    // TestedNumberCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    // ConsultationDeskReportsNumberCard,
-    // MetroCard,
-    // AgencyCard
   },
   data() {
     let title, updatedAt
@@ -83,25 +49,13 @@ export default {
         title = this.$t('検査陽性者の状況')
         updatedAt = Data.inspections_summary.date
         break
-      case 'details-of-tested-cases':
-        title = this.$t('検査実施状況')
-        updatedAt = Data.inspection_status_summary.date
-        break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
         updatedAt = Data.patients.date
         break
-      case 'number-of-confirmed-cases-by-municipalities':
-        title = this.$t('陽性患者数（区市町村別）')
-        updatedAt = patientData.date
-        break
       case 'attributes-of-confirmed-cases':
         title = this.$t('陽性患者の属性')
         updatedAt = Data.patients.date
-        break
-      case 'number-of-tested':
-        title = this.$t('検査実施件数')
-        updatedAt = Data.inspections_summary.date
         break
       case 'number-of-inspection-persons':
         title = this.$t('検査実施人数')
@@ -111,27 +65,15 @@ export default {
         title = this.$t('新型コロナコールセンター相談件数')
         updatedAt = Data.contacts.date
         break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        title = this.$t('新型コロナ受診相談窓口相談件数')
-        updatedAt = Data.querents.date
-        break
       case 'ibaraki-city-table':
         title = this.$t('市町村毎の感染状況')
         updatedAt = Data.patients.date
         break
-      // case 'predicted-number-of-toei-subway-passengers':
-      //   title = this.$t('都営地下鉄の利用者数の推移')
-      //   updatedAt = MetroData.date
-      //   break
-      // case 'agency':
-      //   title = this.$t('都庁来庁者数の推移')
-      //   updatedAt = agencyData.date
-      //   break
     }
 
     const data = {
       title,
-      updatedAt
+      updatedAt,
     }
     return data
   },
@@ -152,7 +94,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: url + this.$route.path + '/'
+          content: url + this.$route.path + '/',
         },
         {
           hid: 'og:title',
@@ -160,33 +102,37 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('茨城県') + '(' + this.$t('非') + this.$t('公式') + ')' +
+            this.$t('茨城県') +
+            '(' +
+            this.$t('非') +
+            this.$t('公式') +
+            ')' +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
-            this.$t('対策サイト')
+            this.$t('対策サイト'),
         },
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: description
+          content: description,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: ogpImage
+          content: ogpImage,
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: ogpImage
-        }
-      ]
+          content: ogpImage,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

@@ -2,7 +2,11 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/logo.svg" alt="茨城県" style="max-height: 100%; width: 100px;" />
+        <img
+          src="/logo.svg"
+          alt="茨城県"
+          style="max-height: 100%; width: 100px;"
+        />
         <scale-loader color="#003FAB" />
       </div>
     </v-overlay>
@@ -52,7 +56,7 @@ export default Vue.extend({
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
-    NoScript
+    NoScript,
   },
   data(): LocalData {
     let hasNavigation = true
@@ -68,7 +72,7 @@ export default Vue.extend({
     return {
       hasNavigation,
       loading,
-      isOpenNavigation: false
+      isOpenNavigation: false,
     }
   },
   mounted() {
@@ -87,7 +91,7 @@ export default Vue.extend({
     },
     getMatchMedia(): MediaQueryList {
       return window.matchMedia('(min-width: 601px)')
-    }
+    },
   },
   head(): MetaInfo {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
@@ -97,85 +101,103 @@ export default Vue.extend({
         : {
             hid: 'og:locale',
             name: 'og:locale',
-            content: this.$i18n.locale
+            content: this.$i18n.locale,
           }
     return {
       htmlAttrs,
       link: [
         {
           rel: 'canonical',
-          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
+          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`,
         },
       ],
       meta: [
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('茨城県')
+          content: this.$tc('茨城県'),
         },
         {
           hid: 'description',
           name: 'description',
-          content: convertDateToSimpleFormat(Data.lastUpdate) + ' 更新：　' + this.$tc('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。')
+          content:
+            convertDateToSimpleFormat(Data.lastUpdate) +
+            ' 更新：　' +
+            this.$tc(
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。'
+            ),
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            this.$t('茨城県') + '(' + this.$t('非') + this.$t('公式') + ')' +
+            this.$t('茨城県') +
+            '(' +
+            this.$t('非') +
+            this.$t('公式') +
+            ')' +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト')
+            this.$t('対策サイト'),
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://ibaraki.stopcovid19.jp${this.$route.path}`
+          content: `https://ibaraki.stopcovid19.jp${this.$route.path}`,
         },
         ogLocale,
         {
           hid: 'og:title',
           property: 'og:title',
           content:
-            this.$t('茨城県') + '(' + this.$t('非') + this.$t('公式') + ')' +
+            this.$t('茨城県') +
+            '(' +
+            this.$t('非') +
+            this.$t('公式') +
+            ')' +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト')
+            this.$t('対策サイト'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: convertDateToSimpleFormat(Data.lastUpdate) + ' 更新：　' + this.$tc('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。')
+          content:
+            convertDateToSimpleFormat(Data.lastUpdate) +
+            ' 更新：　' +
+            this.$tc(
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。'
+            ),
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://ibaraki.stopcovid19.jp/ss.png'
+          content: 'https://ibaraki.stopcovid19.jp/ss.png',
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('茨城県') + '(' + this.$t('非') + this.$t('公式') + ')' +
+            this.$t('茨城県') +
+            '(' +
+            this.$t('非') +
+            this.$t('公式') +
+            ')' +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト')
+            this.$t('対策サイト'),
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'https://ibaraki.stopcovid19.jp/ss.png'
-        }
-      ]
+          content: 'https://ibaraki.stopcovid19.jp/ss.png',
+        },
+      ],
     }
-  }
+  },
 })
 </script>
 <style lang="scss">

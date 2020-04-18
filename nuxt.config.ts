@@ -1,7 +1,6 @@
 import { Configuration } from '@nuxt/types'
 import { Configuration as WebpackConfiguration } from 'webpack'
 import i18n from './nuxt-i18n.config'
-const webpack = require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
@@ -13,7 +12,7 @@ const config: Configuration = {
    */
   head: {
     htmlAttrs: {
-      prefix: 'og: http://ogp.me/ns#'
+      prefix: 'og: http://ogp.me/ns#',
     },
     titleTemplate: '%s | 茨城県(非公式) 新型コロナウイルス感染症対策サイト',
     meta: [
@@ -23,33 +22,33 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://ibaraki.stopcovid19.jp/'
+        content: 'https://ibaraki.stopcovid19.jp/',
       },
       {
         hid: 'twitter:card',
         name: 'twitter:card',
-        content: 'summary_large_image'
+        content: 'summary_large_image',
       },
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@Ibaraki_Kouhou'
+        content: '@Ibaraki_Kouhou',
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@a01sa01to'
+        content: '@a01sa01to',
       },
       {
         hid: 'note:card',
         property: 'note:card',
-        content: 'summary_large_image'
-      }
+        content: 'summary_large_image',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.gif' },
-    ]
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -65,16 +64,16 @@ const config: Configuration = {
   plugins: [
     {
       src: '@/plugins/vue-chart.ts',
-      ssr: true
+      ssr: true,
     },
     {
       src: '@/plugins/axe',
-      ssr: true
+      ssr: true,
     },
     {
       src: '@/plugins/vuetify.ts',
-      ssr: true
-    }
+      ssr: true,
+    },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -83,7 +82,7 @@ const config: Configuration = {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
   ],
   /*
    ** Nuxt.js modules
@@ -95,7 +94,7 @@ const config: Configuration = {
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',
-    ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
+    ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
   ],
   /*
    ** vuetify module configuration
@@ -105,11 +104,11 @@ const config: Configuration = {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     defaultAssets: {
-      icons: false
-    }
+      icons: false,
+    },
   },
   googleAnalytics: {
-    id: 'UA-142148155-4'
+    id: 'UA-142148155-4',
   },
   optionalCookies: [
     {
@@ -117,15 +116,10 @@ const config: Configuration = {
       label: 'i18n Redirection Cookie',
       description:
         'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected']
-    }
+      cookies: ['i18n_redirected'],
+    },
   ],
   build: {
-    plugins: [
-      new webpack.ProvidePlugin({
-        mapboxgl: 'mapbox-gl'
-      })
-    ],
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
@@ -135,19 +129,19 @@ const config: Configuration = {
             './layouts/**/*.vue',
             './components/**/*.vue',
             './node_modules/vuetify/dist/vuetify.js',
-            './node_modules/vue-spinner/src/ScaleLoader.vue'
+            './node_modules/vue-spinner/src/ScaleLoader.vue',
           ],
           whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-          whitelistPatterns: [/(col|row)/]
-        })
-      ]
+          whitelistPatterns: [/(col|row)/],
+        }),
+      ],
     },
     extend(config: WebpackConfiguration, _) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
-    hardSource: process.env.NODE_ENV === 'development'
+    hardSource: process.env.NODE_ENV === 'development',
   },
   manifest: {
     name: '茨城県(非公式) 新型コロナウイルス感染症対策サイト',
@@ -156,7 +150,7 @@ const config: Configuration = {
     display: 'standalone',
     Scope: '/',
     start_url: '/',
-    splash_pages: null
+    splash_pages: null,
   },
   generate: {
     fallback: true,
@@ -164,22 +158,17 @@ const config: Configuration = {
       const locales = ['ja' /*, 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic' */]
       const pages = [
         '/cards/details-of-confirmed-cases',
-        // '/cards/details-of-tested-cases',
         '/cards/number-of-confirmed-cases',
         '/cards/number-of-confirmed-cases-by-municipalities',
         '/cards/attributes-of-confirmed-cases',
-        // '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        // '/cards/number-of-reports-to-covid19-consultation-desk',
-        // '/cards/predicted-number-of-toei-subway-passengers',
-        // '/cards/agency'
-        '/cards/ibaraki-city-table'
+        '/cards/ibaraki-city-table',
       ]
 
       const routes: string[] = []
-      locales.forEach(locale => {
-        pages.forEach(page => {
+      locales.forEach((locale) => {
+        pages.forEach((page) => {
           if (locale === 'ja') {
             routes.push(page)
             return
@@ -189,16 +178,16 @@ const config: Configuration = {
         })
       })
       return routes
-    }
+    },
   },
   // /*
   // ** hot read configuration for docker
   // */
   watchers: {
     webpack: {
-      poll: true
-    }
-  }
+      poll: true,
+    },
+  },
 }
 
 export default config

@@ -27,7 +27,7 @@
       class="mb-4"
       :url="localePath('/news/domainChange')"
       :text="'当サイトは2020.04.14をもってドメインを変更しました。'"
-      :btnText="'詳しくはこちら'"
+      :btn-text="'詳しくはこちら'"
     />
     <static-info
       class="mb-4"
@@ -44,20 +44,10 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <ibaraki-city-map-card />
-      <!-- 検査実施状況 -->
-      <!-- <tested-cases-details-card /> -->
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
-      <!-- 検査実施件数 -->
-      <!-- <tested-number-card /> -->
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <!-- <consultation-desk-reports-number-card /> -->
-      <!-- 都営地下鉄の利用者数の推移 -->
-      <!-- <metro-card /> -->
-      <!-- 都庁来庁者数の推移 -->
-      <!-- <agency-card /> -->
     </card-row>
     <v-divider />
   </div>
@@ -76,13 +66,8 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiCityMapCard.vue'
-// import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-// import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-// import MetroCard from '@/components/cards/MetroCard.vue'
-// import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -95,13 +80,8 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     IbarakiCityMapCard,
-    // TestedCasesDetailsCard,
     InspectionPersonsNumberCard,
-    // TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    // ConsultationDeskReportsNumberCard,
-    // MetroCard,
-    // AgencyCard
   },
   data() {
     const data = {
@@ -110,20 +90,20 @@ export default Vue.extend({
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('県内の最新感染動向'),
       },
-      newsItems: News.newsItems
+      newsItems: News.newsItems,
     }
     return data
   },
   computed: {
     updatedAt() {
       return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
-    }
+    },
   },
   head(): MetaInfo {
     return {
-      title: this.$t('県内の最新感染動向') as string
+      title: this.$t('県内の最新感染動向') as string,
     }
-  }
+  },
 })
 </script>
 
