@@ -108,9 +108,9 @@
               <dt>平日（日中）：</dt>
               <dd>
                 <a
-                  href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                  href="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
                 >
-                  {{ $t('各保健所の電話番号は福祉保健局HP') }}
+                  {{ $t('各保健所の電話番号は県公式HP') }}
                   <v-icon
                     :class="$style.iconExternal"
                     :aria-label="this.$t('別タブで開く')"
@@ -130,14 +130,14 @@
                 <span :class="$style.telBeforeText">{{
                   $t('午後5時から翌朝午前9時/土日祝 終日')
                 }}</span>
-                <a :class="$style.tel" href="tel:03-5320-4592">
+                <a :class="$style.tel" href="tel:029-301-3200">
                   <img
                     src="/flow/responsive/phone_white.svg"
                     alt=""
                     aria-hidden="true"
                   />
-                  03-5320-4592</a
-                >
+                  029-301-3200
+                </a>
               </dd>
             </div>
           </dl>
@@ -152,15 +152,15 @@
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
             <dd>
-              <a :class="$style.tel" href="tel:0570-550571">
+              <a :class="$style.tel" href="tel:029-301-3200">
                 <img
                   src="/flow/responsive/phone_white.svg"
                   alt=""
                   aria-hidden="true"
                 />
-                0570-550571</a
+                029-301-3200</a
               >
             </dd>
           </dl>
@@ -183,15 +183,15 @@
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
             <dd>
-              <a :class="$style.tel" href="tel:0570-550571">
+              <a :class="$style.tel" href="tel:029-301-3200">
                 <img
                   src="/flow/responsive/phone_white.svg"
                   alt=""
                   aria-hidden="true"
                 />
-                0570-550571</a
+                029-301-3200</a
               >
             </dd>
           </dl>
@@ -259,11 +259,11 @@
     </div>
     <div :class="$style.detail">
       <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        href="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
         target="_blank"
         :class="$style.button"
         rel="noopener noreferrer"
-        >{{ $t('詳細を見る（東京都福祉保健局）') }}
+        >{{ $t('詳細を見る') }}({{ $t('県公式サイト') }})
         <v-icon :class="$style.icon" size="20">
           mdi-open-in-new
         </v-icon>

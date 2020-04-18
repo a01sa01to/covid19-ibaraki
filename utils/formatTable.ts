@@ -63,8 +63,8 @@ export default (data: DataType[]) => {
     }
     tableDate.datasets.push(TableRow)
   })
-  tableDate.datasets
-    .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
-    .reverse()
+  tableDate.datasets.sort((a, b) =>
+    a.例目 === b.例目 ? 0 : a.例目 < b.例目 ? 1 : -1
+  )
   return tableDate
 }

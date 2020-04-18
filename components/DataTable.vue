@@ -18,7 +18,8 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item['公表日'] }}</th>
+            <td class="text-start">{{ item['例目'] }}</td>
+            <td class="text-start">{{ item['公表日'] }}</td>
             <td class="text-start">{{ item['居住地'] }}</td>
             <td class="text-start">{{ item['年代'] }}</td>
             <td class="text-start">{{ item['性別'] }}</td>
@@ -27,9 +28,9 @@
         </tbody>
       </template>
     </v-data-table>
-    <div class="note">
+    <!-- <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
-    </div>
+    </div> -->
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"

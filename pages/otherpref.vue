@@ -65,7 +65,7 @@
 			<tr>
 				<td class="pref text-center">{{ $t('茨城県') }}</td>
 				<td class="site text-center"><a href="https://stopcovid19-ibaraki.jp/" target="_blank">https://stopcovid19-ibaraki.jp/</a></td>
-				<td class="admin text-center">Project Ume&nbsp;&nbsp;({{ $t('有志') }}</td>
+				<td class="admin text-center">Project Ume&nbsp;&nbsp;({{ $t('有志') }})</td>
 				<td class="repo text-center"><a href="https://github.com/BenataY/covid19" target="_blank">BenataY/covid19</a></td>
 			</tr>
 			<tr>
@@ -85,18 +85,6 @@
 				<td class="site text-center"><a href="https://saitama.stopcovid19.jp/" target="_blank">https://saitama.stopcovid19.jp/</a></td>
 				<td class="admin text-center">Code for TODA</td>
 				<td class="repo text-center"><a href="https://github.com/codefortoda/covid19-saitama" target="_blank">codefortoda/covid19-saitama</a></td>
-			</tr>
-			<tr>
-				<td class="pref text-center">{{ $t('市原市') }}</td>
-				<td class="site text-center"><a href="https://covid19-ichihara.netlify.app/" target="_blank">https://covid19-ichihara.netlify.app/</a></td>
-				<td class="admin text-center">{{ $t('個人') }}</td>
-				<td class="repo text-center"><a href="https://github.com/YanaseT/covid19-ichihara/" target="_blank">YanaseT/covid19-ichihara/</a></td>
-			</tr>
-			<tr>
-				<td class="pref text-center">{{ $t('八千代市') }}</td>
-				<td class="site text-center"><a href="https://yachiyo-covid19.netlify.app/" target="_blank">https://yachiyo-covid19.netlify.app/</a></td>
-				<td class="admin text-center">{{ $t('有志') }}({{ $t('学生') }})</td>
-				<td class="repo text-center"><a href="https://github.com/taichi1222/covid19-yachiyo" target="_blank">taichi1222/covid19-yachiyo</a></td>
 			</tr>
 			<tr>
 				<td class="pref text-center">{{ $t('東京都') }}</td>
@@ -121,6 +109,18 @@
 				<td class="site text-center"><a href="https://stopcovid19.code4chiba.org/" target="_blank">https://stopcovid19.code4chiba.org/</a></td>
 				<td class="admin text-center">Code for Chiba</td>
 				<td class="repo text-center"><a href="https://github.com/codeforchiba/covid19" target="_blank">codeforchiba/covid19</a></td>
+			</tr>
+			<tr>
+				<td class="pref text-center">{{ $t('市原市') }}<br>({{ $t('千葉県') }})</td>
+				<td class="site text-center"><a href="https://covid19-ichihara.netlify.app/" target="_blank">https://covid19-ichihara.netlify.app/</a></td>
+				<td class="admin text-center">{{ $t('個人') }}</td>
+				<td class="repo text-center"><a href="https://github.com/YanaseT/covid19-ichihara/" target="_blank">YanaseT/covid19-ichihara/</a></td>
+			</tr>
+			<tr>
+				<td class="pref text-center">{{ $t('八千代市') }}<br>({{ $t('千葉県') }})</td>
+				<td class="site text-center"><a href="https://yachiyo-covid19.netlify.app/" target="_blank">https://yachiyo-covid19.netlify.app/</a></td>
+				<td class="admin text-center">{{ $t('有志') }}({{ $t('学生') }})</td>
+				<td class="repo text-center"><a href="https://github.com/taichi1222/covid19-yachiyo" target="_blank">taichi1222/covid19-yachiyo</a></td>
 			</tr>
 			<tr>
 				<td class="pref text-center">{{ $t('神奈川県') }}</td>

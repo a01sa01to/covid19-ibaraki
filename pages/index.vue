@@ -49,7 +49,7 @@
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
-      <tested-number-card />
+      <!-- <tested-number-card /> -->
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
@@ -78,7 +78,7 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 import IbarakiCityMapCard from '@/components/cards/IbarakiCityMapCard.vue'
 // import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 // import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
@@ -97,7 +97,7 @@ export default Vue.extend({
     IbarakiCityMapCard,
     // TestedCasesDetailsCard,
     InspectionPersonsNumberCard,
-    TestedNumberCard,
+    // TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
