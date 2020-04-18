@@ -1,0 +1,71 @@
+name: OGP Builder (Dev)
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Cache deps
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate
+        run: yarn run generate:dev
+      - name: Install selenium with pip
+        run: pip3 install selenium
+      - name: Take screenshot
+        run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./ui-test/ogp_screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
+        with:
+          name: ogp
+          path: ogp
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Download ogp images
+        uses: actions/download-artifact@v1
+        with:
+          name: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ogp
+          git commit -m "Add OGP changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev-deploy
