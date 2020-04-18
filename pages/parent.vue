@@ -3,38 +3,53 @@
     <page-header class="mb-3">
       {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
     </page-header>
-    <StaticCard>
+    <static-card>
       <h3>
-        <a href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html" target="_blank" rel="noopener noreferrer">{{ $t('学びの支援サイト') }}</a>
+        <external-link
+          url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+          :icon-size="24"
+          >{{ $t('学びの支援サイト') }}
+        </external-link>
       </h3>
+      <ul>
+        <li>{{ $t('臨時休業期間における子供たちの学びを支援する様々なウェブサイトを紹介しています。') }}</li>
+        <li>{{ $t('学習の基本的な内容を身に付けられる「東京・ベーシック・ドリル」や動画教材等があります。') }}</li>
+      </ul>
       <p>{{ $t('※') }}{{ $t('東京都のサイトへ移動します。') }}</p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('感染予防・健康管理') }}</h3>
       <ul>
         <li>{{ $t('不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。') }}</li>
-        <li>
-          {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。') }}<br />
-          <a href="https://youtu.be/lViN9C_BS-0" target="_blank" rel="noopener noreferrer">{{ $t('【参考】感染症予防のための正しい手洗い方法（YouTube）') }}</a>
+        <li>{{ $t('手洗い、咳エチケット等により、感染予防に努めてください。') }}<br />
+        <external-link
+            url="https://tokyodouga.jp/lViN9C_BS-0.html"
+            :icon-size="16"
+            >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
+          </external-link>
         </li>
         <li>{{ $t('規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。') }}</li>
       </ul>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('感染症を疑う場合の対応') }}</h3>
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
         <li>
           {{ $t('各保健所の電話番号について') }}
           <br />
-          <a href="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html" target="_blank" rel="noopener noreferrer">{{ $t('「新型コロナウイルス感染症（対策・相談窓口等）について」') }}</a>
+          <external-link
+            url="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
+            :icon-size="16"
+            >{{ $t('「新型コロナウイルス感染症（対策・相談窓口等）について」') }}
+          </external-link>
         </li>
       </ul>
-    </StaticCard>
-    <StaticCard>
-      <h3>{{ $t('その他') }}</h3>
+    </static-card>
+    <static-card>
+      <h3>{{ $t('その他.parent') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
-    </StaticCard>
+    </static-card>
   </div>
 </template>
 
@@ -43,11 +58,13 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard
+    StaticCard,
+    ExternalLink
   },
   head(): MetaInfo {
     return {

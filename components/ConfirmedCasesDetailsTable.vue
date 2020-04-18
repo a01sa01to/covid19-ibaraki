@@ -281,7 +281,7 @@ $default-boxdiff: 35px;
       margin-top: 0.1em;
     }
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
   span strong {

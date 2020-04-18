@@ -46,7 +46,7 @@
         <dd>
           <div :class="[$style.phone, $style.fzNumeric]">
             <span :class="$style.icon">
-              <PhoneIcon alt="Phone" />
+              <phone-icon alt="Phone" />
             </span>
             <a href="tel:0293013200">029-301-3200</a>
           </div>

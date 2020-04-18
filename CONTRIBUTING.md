@@ -32,6 +32,7 @@
 
 ## 開発に関する情報
 * 本番サイト https://ibaraki.stopcovid19.jp/
+* 開発サイト https://covid19-ibk-dev.netlify.app/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 * [翻訳スプレッドシート (Transifex)](https://www.transifex.com/asas-4/covid19-ibaraki/)
 
