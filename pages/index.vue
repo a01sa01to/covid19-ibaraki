@@ -44,6 +44,8 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <ibaraki-city-map-card />
+      <!-- 区市町村別マップ表示 -->
+      <ibaraki-graphical-map-card />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
@@ -66,6 +68,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiCityMapCard.vue'
+import IbarakiGraphicalMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -80,6 +83,7 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     IbarakiCityMapCard,
+    IbarakiGraphicalMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
   },
