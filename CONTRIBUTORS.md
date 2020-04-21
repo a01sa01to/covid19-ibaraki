@@ -1,4 +1,4 @@
-Ibaraki Covid-19 response site contributors
+Ibaraki COVID-19 Task Force site contributors
 ============================================
 
 本プロジェクトにご協力いただいた皆様
@@ -6,9 +6,13 @@ Ibaraki Covid-19 response site contributors
 | Name (link) | GitHub | Twitter | Contribution |
 | --- | --- | --- | --- |
 | Asa | [@a01sa01to](https://github.com/a01sa01to) | [@a01sa01to](https://twitter.com/a01sa01to) | Main Developer for Ibaraki |
+| たこなす | [@takonasu](https://github.com/takonasu) | [@ITF_tako](https://twitter.com/ITF_tako) | Coding |
+
+お名前の掲載をご希望の方は，#35にコメントをお願いします。<br>
+If you want to add your name, please comment on #35.
 
 
-Tokyo Covid-19 response site contributors
+Tokyo COVID-19 Task Force site contributors
 ============================================
 
 本プロジェクトの元「東京都 新型コロナウイルス感染症対策サイト」にご協力された皆様
