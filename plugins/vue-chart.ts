@@ -1,6 +1,6 @@
 import Vue, { PropType } from 'vue'
 import { ChartData, ChartOptions } from 'chart.js'
-import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
+import { Doughnut, Bar, Line, mixins, HorizontalBar } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 
@@ -19,7 +19,7 @@ const VueChartPlugin: Plugin = ({ app }) => {
 const createCustomChart = () => {
   const { reactiveProp } = mixins
 
-  const watchDisplayLegends = function(this: Vue, v?: boolean[] | null) {
+  const watchDisplayLegends = function (this: Vue, v?: boolean[] | null) {
     if (v == null) {
       return
     }
@@ -41,19 +41,19 @@ const createCustomChart = () => {
       props: {
         displayLegends: {
           type: Array,
-          default: () => null
+          default: () => null,
         },
         options: {
           type: Object as PropType<ChartOptions>,
-          default: () => {}
-        }
+          default: () => {},
+        },
       },
       watch: {
-        displayLegends: watchDisplayLegends
+        displayLegends: watchDisplayLegends,
       },
       mounted(): void {
         this.renderChart(this.chartData, this.options)
-      }
+      },
     }
   )
 
@@ -65,21 +65,21 @@ const createCustomChart = () => {
       props: {
         displayLegends: {
           type: Array,
-          default: () => []
+          default: () => [],
         },
         options: {
           type: Object,
-          default: () => {}
-        }
+          default: () => {},
+        },
       },
       watch: {
-        displayLegends: watchDisplayLegends
+        displayLegends: watchDisplayLegends,
       },
       mounted(): void {
         setTimeout(() => {
           this.renderChart(this.chartData, this.options)
         })
-      }
+      },
     }
   )
 
@@ -91,19 +91,45 @@ const createCustomChart = () => {
       props: {
         displayLegends: {
           type: Array,
-          default: () => []
+          default: () => [],
         },
         options: {
           type: Object,
-          default: () => {}
-        }
+          default: () => {},
+        },
       },
       watch: {
-        displayLegends: watchDisplayLegends
+        displayLegends: watchDisplayLegends,
       },
       mounted(): void {
         this.renderChart(this.chartData, this.options)
-      }
+      },
+    }
+  )
+
+  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
+    'horizontal-bar',
+    {
+      extends: HorizontalBar,
+      mixins: [reactiveProp],
+      props: {
+        displayLegends: {
+          type: Array,
+          default: () => [],
+        },
+        options: {
+          type: Object,
+          default: () => {},
+        },
+      },
+      watch: {
+        displayLegends: watchDisplayLegends,
+      },
+      mounted(): void {
+        setTimeout(() => {
+          this.renderChart(this.chartData, this.options)
+        })
+      },
     }
   )
 }
@@ -140,8 +166,8 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
         chartInstance.chartArea.left,
         chartInstance.height! - chartInstance.chartArea.bottom - 1
       )
-    }
-  }
+    },
+  },
 ]
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
@@ -153,8 +179,8 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
       }
       window.addEventListener('resize', fn)
       fn()
-    }
-  }
+    },
+  },
 ]
 
 export interface DataSets<T = number> extends ChartData {
@@ -163,4 +189,17 @@ export interface DataSets<T = number> extends ChartData {
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]
+}
+
+interface DisplayDataTmp<T = number, U = string> {
+  label?: U
+  data: T[]
+  backgroundColor?: U
+  borderColor?: U
+  borderWidth?: T
+}
+
+export interface DisplayDetailData<T = number, U = string> {
+  labels?: U[]
+  datasets: DisplayDataTmp<T, U>[]
 }
