@@ -26,6 +26,12 @@ export default {
     IbarakiMap,
     DataView,
   },
+  data() {
+    const data = {
+      Data,
+    }
+    return data
+  },
   mounted() {
     const patients = Data.patients.data
     // 市町村の患者人数の連想配列
