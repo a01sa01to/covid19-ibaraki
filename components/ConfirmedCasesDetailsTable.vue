@@ -93,7 +93,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 /* eslint-disable vue/prop-name-casing */
 export default Vue.extend({
   props: {
@@ -103,11 +102,11 @@ export default Vue.extend({
     // },
     陽性者数: {
       type: Number,
-      required: true
+      required: true,
     },
     入院中: {
       type: Number,
-      required: true
+      required: true,
     },
     // 軽症中等症: {
     //   type: Number,
@@ -123,12 +122,12 @@ export default Vue.extend({
     // },
     死亡: {
       type: Number,
-      required: true
+      required: true,
     },
     退院: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     /** 桁数に応じて位置の調整をする */
@@ -151,8 +150,8 @@ export default Vue.extend({
           return 0
         }
       }
-    }
-  }
+    },
+  },
 })
 </script>
 
@@ -160,9 +159,7 @@ export default Vue.extend({
 $default-bdw: 3px;
 $default-boxh: 150px;
 $default-boxdiff: 35px;
-
 // .container > .box > (.group > .box > ...) .pillar > .content
-
 .container {
   width: 100%;
   display: flex;
@@ -271,11 +268,9 @@ $default-boxdiff: 35px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
   > span {
     display: block;
     width: 100%;
-
     @include font-size(16);
     &:last-child {
       margin-top: 0.1em;
@@ -334,11 +329,15 @@ $default-boxdiff: 35px;
     &.confirmed {
       > .pillar {
         // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3);
-        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 4 - #{px2vw($bdw, $vw)} * 3);
+        width: calc(
+          (100% + #{px2vw($bdw, $vw)} * 2) / 4 - #{px2vw($bdw, $vw)} * 3
+        );
       }
       > .group {
         // width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)});
-        width: calc((100% + #{px2vw($bdw, $vw)} * 2) / 4 * 3 + #{px2vw($bdw, $vw)});
+        width: calc(
+          (100% + #{px2vw($bdw, $vw)} * 2) / 4 * 3 + #{px2vw($bdw, $vw)}
+        );
       }
     }
     &.hospitalized {
