@@ -8,7 +8,6 @@
       <template v-slot:button>
         <p :class="$style.note">
           {{ $t('（注）退院している人数を含む') }}
-          {{ cityPatientsNumber }}
         </p>
       </template>
       <ibaraki-map />
@@ -20,13 +19,14 @@
 import Data from '@/data/data.json'
 import IbarakiMap from '@/assets/ibaraki-map.svg'
 import DataView from '@/components/DataView.vue'
+import CityData from '@/data/cities.json'
 
 export default {
   components: {
     IbarakiMap,
     DataView,
   },
-  data() {
+  mounted() {
     const patients = Data.patients.data
     // 市町村の患者人数の連想配列
     const cityPatientsNumber = {}
@@ -36,14 +36,15 @@ export default {
       }).length
     }
 
-    const data = {
-      Data,
-      cityPatientsNumber,
-    }
-
-    return data
+    CityData.forEach((element) => {
+      if (cityPatientsNumber[element.city]) {
+        const targetElement = document.getElementById(
+          'ibaraki-map_svg__' + element.Romaji
+        )
+        targetElement.classList.add('level2')
+      }
+    })
   },
-  methods: {},
 }
 </script>
 
@@ -57,19 +58,10 @@ export default {
 </style>
 <!-- 本来ならばSVGをinline展開してそこに限定してcssを適用するべきだが、inline展開ができなかったため妥協 -->
 <style lang="scss">
-#ibaraki-map_svg__Yuuki {
-  fill: blue;
+.level1 {
+  fill: red !important;
 }
-#ibaraki-map_svg__Goka {
-  fill: blue;
-}
-#ibaraki-map_svg__Shirosato {
-  fill: blue;
-}
-#ibaraki-map_svg__Tone {
-  fill: blue;
-}
-#ibaraki-map_svg__Kawachi {
-  fill: blue;
+.level2 {
+  fill: pink !important;
 }
 </style>
