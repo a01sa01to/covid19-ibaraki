@@ -5,6 +5,9 @@
       :title-id="'details-of-confirmed-cases'"
       :date="Data.patients.date"
     >
+      <h4 :id="`${titleId}-graph`" class="visually-hidden">
+        {{ $t(`{title}のグラフ`, { title }) }}
+      </h4>
       <template v-slot:button>
         <p :class="$style.note">
           {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
@@ -18,6 +21,17 @@
         :aria-label="$t('検査陽性者の状況')"
         v-bind="confirmedCases"
       />
+      <horizontal-bar-chart
+        :chart-id="'horizontal-bar-chart-details'"
+        :chart-data="confirmedDetailCases"
+      />
+      <template v-slot:infoPanel>
+        <data-view-basic-info-panel
+          :l-text="displayInfo.lText"
+          :s-text="displayInfo.sText"
+          :unit="displayInfo.unit"
+        />
+      </template>
     </data-view>
   </v-col>
 </template>
@@ -34,23 +48,40 @@
 <script>
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
+import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import HorizontalBarChart from '@/components/HorizontalBarChart.vue'
 
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable
+    ConfirmedCasesDetailsTable,
+    HorizontalBarChart,
+    DataViewBasicInfoPanel,
   },
   data() {
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
+    const confirmedDetailCases = formatDetailConfirmedCases(Data.main_summary)
 
+    let sum = 0
+    confirmedDetailCases.forEach((_) => {
+      sum += _.transition
+    })
+    const displayInfo = {
+      lText: sum.toLocaleString(),
+      sText: '陽性患者数 累計',
+      unit: this.$t('人'),
+    }
     const data = {
       Data,
-      confirmedCases
+      confirmedCases,
+      confirmedDetailCases,
+      displayInfo,
     }
     return data
-  }
+  },
 }
 </script>
