@@ -30,3 +30,11 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ## 開発者向け情報
 
 開発をお手伝いいただける方は、[こちらのドキュメント](./FOR_DEVELOPERS.md)を御覧ください。
+
+## Credits
+
+ - `市町村毎の感染状況(地図)` における地図データ<br>引用元: [ファイル:茨城県地域区分図.svg - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:%E8%8C%A8%E5%9F%8E%E7%9C%8C%E5%9C%B0%E5%9F%9F%E5%8C%BA%E5%88%86%E5%9B%B3.svg)<br>このメディアは、`Creative Commons Attribution ShareAlike 3.0 Unported License` 下で提供されています。<br>以下表は引用元より抜粋
+
+  | 概要 | 作成者 | 使用データ |
+  |:----:|:-:|:-:|
+  |	茨城県行政区分地図 | [Lincun](https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:Lincun) | 国土交通省 国土数値情報(行政区域(N03)) |
