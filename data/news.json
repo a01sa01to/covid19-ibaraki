@@ -1,23 +1,19 @@
 {
   "newsItems": [{
-    "date": "2020\/04\/20",
-    "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/documents\/0420140143.pdf",
-    "text": "【140例目から143例目】新型コロナウイルス感染症患者の発生について（PDF）"
+    "date": "2020\/04\/21",
+    "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/kinkyu2.html",
+    "text": "県の緊急事態措置等について【第2弾】"
   }, {
-    "date": "2020\/04\/17",
-    "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/kinkyu.html",
-    "text": "県の緊急事態措置について"
-  }, {
-    "date": "2020\/04\/17",
+    "date": "2020\/04\/21",
     "url": "https:\/\/www.pref.ibaraki.jp\/1saigai\/2019-ncov\/message.html",
     "text": "新型コロナウイルス感染症に係る知事メッセージ"
   }, {
-    "date": "2020\/04\/17",
-    "url": "https:\/\/youtu.be\/pe4gQG7Dn_Q",
+    "date": "2020\/04\/21",
+    "url": "https:\/\/youtu.be\/5a7ieslmQWY",
     "text": "新型コロナウィルス感染症に係る県からのお知らせ（YouTube）"
   }, {
-    "date": "2020\/04\/17",
-    "url": "https:\/\/youtu.be\/YJQMiOIzsV8",
+    "date": "2020\/04\/21",
+    "url": "https:\/\/youtu.be\/CKDUwz-mJW4",
     "text": "新型コロナウイルス感染症に係る茨城県知事記者会見（YouTube）"
   }]
 }
