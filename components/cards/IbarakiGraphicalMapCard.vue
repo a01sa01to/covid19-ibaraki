@@ -56,7 +56,7 @@ export default {
         return x.居住地 === key.居住地
       }).length
     }
-    console.log(cityPatientsNumber)
+
     CityData.forEach((element) => {
       if (!cityPatientsNumber[element.city]) {
         return
