@@ -1,178 +1,177 @@
-[
-    {
-        "city": "利根町",
-        "Romaji": "Tone"
-    },
-    {
-        "city": "境町",
-        "Romaji": "Sakai"
-    },
-    {
-        "city": "五霞町",
-        "Romaji": "Goka"
-    },
-    {
-        "city": "八千代町",
-        "Romaji": "Yachiyo"
-    },
-    {
-        "city": "河内町",
-        "Romaji": "Kawachi"
-    },
-    {
-        "city": "阿見町",
-        "Romaji": "Ami"
-    },
-    {
-        "city": "美浦村",
-        "Romaji": "Miho"
-    },
-    {
-        "city": "大子町",
-        "Romaji": "Daigo"
-    },
-    {
-        "city": "東海村",
-        "Romaji": "Tokai"
-    },
-    {
-        "city": "城里町",
-        "Romaji": "Shirosato"
-    },
-    {
-        "city": "大洗町",
-        "Romaji": "Oarai"
-    },
-    {
-        "city": "茨城町",
-        "Romaji": "Ibaraki"
-    },
-    {
-        "city": "小美玉市",
-        "Romaji": "Omitama"
-    },
-    {
-        "city": "つくばみらい市",
-        "Romaji": "Tsukubamirai"
-    },
-    {
-        "city": "鉾田市",
-        "Romaji": "Hokota"
-    },
-    {
-        "city": "行方市",
-        "Romaji": "Namegata"
-    },
-    {
-        "city": "神栖市",
-        "Romaji": "Kamisu"
-    },
-    {
-        "city": "桜川市",
-        "Romaji": "Sakuragawa"
-    },
-    {
-        "city": "かすみがうら市",
-        "Romaji": "Kasumigaura"
-    },
-    {
-        "city": "稲敷市",
-        "Romaji": "Inashiki"
-    },
-    {
-        "city": "坂東市",
-        "Romaji": "Bando"
-    },
-    {
-        "city": "筑西市",
-        "Romaji": "Chikusei"
-    },
-    {
-        "city": "那珂市",
-        "Romaji": "Naka"
-    },
-    {
-        "city": "常陸大宮市",
-        "Romaji": "Hitachiomiya"
-    },
-    {
-        "city": "守谷市",
-        "Romaji": "Moriya"
-    },
-    {
-        "city": "潮来市",
-        "Romaji": "Itako"
-    },
-    {
-        "city": "鹿嶋市",
-        "Romaji": "Kashima"
-    },
-    {
-        "city": "ひたちなか市",
-        "Romaji": "Hitachinaka"
-    },
-    {
-        "city": "つくば市",
-        "Romaji": "Tsukuba"
-    },
-    {
-        "city": "牛久市",
-        "Romaji": "Ushiku"
-    },
-    {
-        "city": "取手市",
-        "Romaji": "Toride"
-    },
-    {
-        "city": "笠間市",
-        "Romaji": "Kasama"
-    },
-    {
-        "city": "北茨城市",
-        "Romaji": "Kitaibaraki"
-    },
-    {
-        "city": "高萩市",
-        "Romaji": "Takahagi"
-    },
-    {
-        "city": "常陸太田市",
-        "Romaji": "Hitachiota"
-    },
-    {
-        "city": "常総市",
-        "Romaji": "Joso"
-    },
-    {
-        "city": "下妻市",
-        "Romaji": "Shimotsuma"
-    },
-    {
-        "city": "竜ヶ崎市",
-        "Romaji": "Ryuugasaki"
-    },
-    {
-        "city": "結城市",
-        "Romaji": "Yuuki"
-    },
-    {
-        "city": "石岡市",
-        "Romaji": "Ishioka"
-    },
-    {
-        "city": "古河市",
-        "Romaji": "Koga"
-    },
-    {
-        "city": "土浦市",
-        "Romaji": "Tsuchiura"
-    },
-    {
-        "city": "日立市",
-        "Romaji": "Hitachi"
-    },
-    {
-        "city": "水戸市",
-        "Romaji": "Mito"
-    }
+[{
+    "city": "利根町",
+    "Romaji": "Tone"
+  },
+  {
+    "city": "境町",
+    "Romaji": "Sakai"
+  },
+  {
+    "city": "五霞町",
+    "Romaji": "Goka"
+  },
+  {
+    "city": "八千代町",
+    "Romaji": "Yachiyo"
+  },
+  {
+    "city": "河内町",
+    "Romaji": "Kawachi"
+  },
+  {
+    "city": "阿見町",
+    "Romaji": "Ami"
+  },
+  {
+    "city": "美浦村",
+    "Romaji": "Miho"
+  },
+  {
+    "city": "大子町",
+    "Romaji": "Daigo"
+  },
+  {
+    "city": "東海村",
+    "Romaji": "Tokai"
+  },
+  {
+    "city": "城里町",
+    "Romaji": "Shirosato"
+  },
+  {
+    "city": "大洗町",
+    "Romaji": "Oarai"
+  },
+  {
+    "city": "茨城町",
+    "Romaji": "Ibaraki"
+  },
+  {
+    "city": "小美玉市",
+    "Romaji": "Omitama"
+  },
+  {
+    "city": "つくばみらい市",
+    "Romaji": "Tsukubamirai"
+  },
+  {
+    "city": "鉾田市",
+    "Romaji": "Hokota"
+  },
+  {
+    "city": "行方市",
+    "Romaji": "Namegata"
+  },
+  {
+    "city": "神栖市",
+    "Romaji": "Kamisu"
+  },
+  {
+    "city": "桜川市",
+    "Romaji": "Sakuragawa"
+  },
+  {
+    "city": "かすみがうら市",
+    "Romaji": "Kasumigaura"
+  },
+  {
+    "city": "稲敷市",
+    "Romaji": "Inashiki"
+  },
+  {
+    "city": "坂東市",
+    "Romaji": "Bando"
+  },
+  {
+    "city": "筑西市",
+    "Romaji": "Chikusei"
+  },
+  {
+    "city": "那珂市",
+    "Romaji": "Naka"
+  },
+  {
+    "city": "常陸大宮市",
+    "Romaji": "Hitachiomiya"
+  },
+  {
+    "city": "守谷市",
+    "Romaji": "Moriya"
+  },
+  {
+    "city": "潮来市",
+    "Romaji": "Itako"
+  },
+  {
+    "city": "鹿嶋市",
+    "Romaji": "Kashima"
+  },
+  {
+    "city": "ひたちなか市",
+    "Romaji": "Hitachinaka"
+  },
+  {
+    "city": "つくば市",
+    "Romaji": "Tsukuba"
+  },
+  {
+    "city": "牛久市",
+    "Romaji": "Ushiku"
+  },
+  {
+    "city": "取手市",
+    "Romaji": "Toride"
+  },
+  {
+    "city": "笠間市",
+    "Romaji": "Kasama"
+  },
+  {
+    "city": "北茨城市",
+    "Romaji": "Kitaibaraki"
+  },
+  {
+    "city": "高萩市",
+    "Romaji": "Takahagi"
+  },
+  {
+    "city": "常陸太田市",
+    "Romaji": "Hitachiota"
+  },
+  {
+    "city": "常総市",
+    "Romaji": "Joso"
+  },
+  {
+    "city": "下妻市",
+    "Romaji": "Shimotsuma"
+  },
+  {
+    "city": "竜ヶ崎市",
+    "Romaji": "Ryuugasaki"
+  },
+  {
+    "city": "結城市",
+    "Romaji": "Yuuki"
+  },
+  {
+    "city": "石岡市",
+    "Romaji": "Ishioka"
+  },
+  {
+    "city": "古河市",
+    "Romaji": "Koga"
+  },
+  {
+    "city": "土浦市",
+    "Romaji": "Tsuchiura"
+  },
+  {
+    "city": "日立市",
+    "Romaji": "Hitachi"
+  },
+  {
+    "city": "水戸市",
+    "Romaji": "Mito"
+  }
 ]
