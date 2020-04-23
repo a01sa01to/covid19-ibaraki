@@ -7,16 +7,16 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <!-- <span class="WhatsNew-link-to-emergency-page">
+      <span class="WhatsNew-link-to-emergency-page">
         <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
           mdi-bullhorn
         </v-icon>
         <external-link
-          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+          url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/kinkyu.html"
         >
-          {{ $t('東京都緊急事態措置について') }}
+          {{ $t('茨城県緊急事態措置について') }}
         </external-link>
-      </span> -->
+      </span>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -54,7 +54,7 @@ import Vue from 'vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
-  convertDateToISO8601Format
+  convertDateToISO8601Format,
 } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -62,8 +62,8 @@ export default Vue.extend({
   props: {
     items: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     isInternalLink(path: string): boolean {
@@ -74,14 +74,13 @@ export default Vue.extend({
     },
     formattedDateForDisplay(dateString: string) {
       return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style lang="scss">
 .WhatsNew {
-
   @include card-container();
 
   padding: 10px;
