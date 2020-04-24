@@ -134,4 +134,8 @@ $infected-level6: #000072;
   fill: $infected-level6 !important;
   background-color: $infected-level6;
 }
+
+svg {
+  max-height: 600px;
+}
 </style>

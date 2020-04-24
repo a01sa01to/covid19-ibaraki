@@ -21,6 +21,9 @@
     <ibaraki-city-card
       v-else-if="this.$route.params.card == 'ibaraki-city-table'"
     />
+    <ibaraki-city-map-card
+      v-else-if="this.$route.params.card == 'ibaraki-city-map-table'"
+    />
   </div>
 </template>
 
@@ -30,6 +33,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
+import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 
@@ -39,6 +43,7 @@ export default {
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     IbarakiCityCard,
+    IbarakiCityMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
   },

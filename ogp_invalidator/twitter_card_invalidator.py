@@ -22,7 +22,8 @@ PATHS = (
     'cards/attributes-of-confirmed-cases',
     'cards/number-of-reports-to-covid19-telephone-advisory-center',
     'cards/number-of-inspection-persons',
-    'cards/ibaraki-city-table'
+    'cards/ibaraki-city-table',
+    'cards/ibaraki-city-map-table'
 )
 
 # LANGS = (

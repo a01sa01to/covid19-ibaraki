@@ -164,6 +164,7 @@ const config: Configuration = {
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/ibaraki-city-table',
+        '/cards/ibaraki-city-map-table',
       ]
 
       const routes: string[] = []

@@ -7,12 +7,13 @@ if not os.path.exists("ogp"):
     os.mkdir("ogp")
 
 PATHS = {
-    "/cards/details-of-confirmed-cases": (959, 500),
-    "/cards/number-of-confirmed-cases": (959, 500),
-    "/cards/attributes-of-confirmed-cases": (959, 480),
-    "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 500),
-    "/cards/number-of-inspection-persons": (959, 600),
-    "/cards/ibaraki-city-table": (959,480),
+    "/cards/details-of-confirmed-cases": (959, 753),
+    "/cards/number-of-confirmed-cases": (959, 650),
+    "/cards/attributes-of-confirmed-cases": (959, 471),
+    "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 613),
+    "/cards/number-of-inspection-persons": (959, 667),
+    "/cards/ibaraki-city-table": (959,465),
+    "/cards/ibaraki-city-map-table": (959,900)
 }
 
 options = webdriver.ChromeOptions()
