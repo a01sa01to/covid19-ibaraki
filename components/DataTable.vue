@@ -28,9 +28,9 @@
         </tbody>
       </template>
     </v-data-table>
-    <!-- <div class="note">
-      {{ $t('※退院には、死亡退院を含む') }}
-    </div> -->
+    <div class="note">
+      {{ $t('（注）「退院」には、自宅療養で陰性化した方を含む') }}
+    </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -106,27 +106,27 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     chartData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     info: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     customSort: {
       type: Function,
@@ -147,8 +147,8 @@ export default Vue.extend({
           return comparison
         })
         return items
-      }
-    }
+      },
+    },
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
@@ -158,6 +158,6 @@ export default Vue.extend({
     tables.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  }
+  },
 })
 </script>

@@ -16,8 +16,10 @@
       class="cityTable"
     />
     <div class="note">
-      {{ $t('※') }}{{ $t('発生数') }} = {{ $t('入院者数') }} + {{ $t('退院者数') }}<br>
-	  {{ $t('※') }}{{ $t('入院者数には、入院予定の患者を含む') }}
+      {{ $t('※') }}{{ $t('発生数') }} = {{ $t('入院者数') }} +
+      {{ $t('退院者数') }}<br />
+      {{ $t('※') }}{{ $t('入院者数には、入院予定の患者を含む') }}<br />
+      {{ $t('※「退院」には、自宅療養で陰性化した方を含む') }}
     </div>
     <template v-slot:footer>
       <open-data-link :url="url" />
@@ -87,25 +89,25 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     chartData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     url: {
       type: String,
-      default: ''
-	},
-	customSort: {
+      default: '',
+    },
+    customSort: {
       type: Function,
       default(items: Object[], index: string[], isDesc: boolean[]) {
         items.sort((a: any, b: any) => {
@@ -124,8 +126,8 @@ export default Vue.extend({
           return comparison
         })
         return items
-	  }
-	}
+      },
+    },
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
@@ -135,6 +137,6 @@ export default Vue.extend({
     tables.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  }
+  },
 })
 </script>
