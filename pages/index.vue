@@ -25,12 +25,6 @@
     />
     <static-info
       class="mb-4"
-      :url="localePath('/news/domainChange')"
-      :text="'当サイトは2020.04.14をもってドメインを変更しました。'"
-      :btn-text="'詳しくはこちら'"
-    />
-    <static-info
-      class="mb-4"
       :url="localePath('/flow')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
