@@ -48,12 +48,12 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: Merge i18n_generator
+  - name: i18n_generator
     conditions:
       - "status-success=ci/circleci: build_dev"
       - base=development
       - files=assets/locales/ja.json
-      - files=auto-i18n/result.csv
+      - "files=auto-i18n/result.csv"
       - "#files=2"
     actions:
       delete_head_branch:
