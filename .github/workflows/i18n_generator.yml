@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - development
-    paths:
-      - 'assets/locales/**'
+    paths-ignore:
+      - 'auto-i18n/result.csv'
 
 jobs:
   i18n-builder:
