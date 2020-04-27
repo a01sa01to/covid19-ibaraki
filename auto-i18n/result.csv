@@ -92,3 +92,6 @@ TAG_REMOVE,{closeContact}をした方
 TAG_REMOVE,検査の必要{ifRequired}
 TAG_REMOVE,あり
 TAG_REMOVE,なし
+RUN,2020/04/27 20:41
+TAG_ADD,
+TAG_REMOVE,
