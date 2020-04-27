@@ -149,7 +149,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
                     # Noneが混じっているので、取り除く
-                    all_tags.pop(all_tags.index(None))
+                    # all_tags.pop(all_tags.index(None))
                     # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
                     # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
                     for x in ["-", "‐", "―"]:
