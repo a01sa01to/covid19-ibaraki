@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: Upgrade deps
+  - name: Upgrade deps (package.json only)
     conditions:
       - "status-success=ci/circleci: build_dev"
       - base=development
@@ -11,7 +11,7 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: Upgrade deps
+  - name: Upgrade deps (yarn.lock only)
     conditions:
       - "status-success=ci/circleci: build_dev"
       - base=development
@@ -23,7 +23,7 @@ pull_request_rules:
       merge:
         method: merge
 
-  - name: Upgrade deps
+  - name: Upgrade deps (package.json, yarn.lock)
     conditions:
       - "status-success=ci/circleci: build_dev"
       - base=development
