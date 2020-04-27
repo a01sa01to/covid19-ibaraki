@@ -18,7 +18,7 @@ CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
 # 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json", "patient.json"]
+JSON_FILES = ["data.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -145,14 +145,6 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(patients["性別"])
                                 # 退院を取得
                                 tags.append(patients["退院"])
-                        elif file_name == JSON_FILES[1]:  # patient.jsonの場合
-                            for city in json_content["datasets"]["data"]:
-                                # エリアを取得
-                                tags.append(city["area"])
-                                # ラベルを取得、「小計」は除外する
-                                tags.append(city["label"]) if city["label"] != "小計" else None
-                                # ルビを取得
-                                tags.append(city["ruby"])
 
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
