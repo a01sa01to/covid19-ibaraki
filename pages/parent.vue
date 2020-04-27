@@ -12,23 +12,49 @@
         </external-link>
       </h3>
       <ul>
-        <li>{{ $t('臨時休業期間における子供たちの学びを支援する様々なウェブサイトを紹介しています。') }}</li>
-        <li>{{ $t('学習の基本的な内容を身に付けられる「東京・ベーシック・ドリル」や動画教材等があります。') }}</li>
+        <li>
+          {{
+            $t(
+              '臨時休業期間における子供たちの学びを支援する様々なウェブサイトを紹介しています。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '学習の基本的な内容を身に付けられる「東京・ベーシック・ドリル」や動画教材等があります。'
+            )
+          }}
+        </li>
       </ul>
       <p>{{ $t('※') }}{{ $t('東京都のサイトへ移動します。') }}</p>
     </static-card>
     <static-card>
       <h3>{{ $t('感染予防・健康管理') }}</h3>
       <ul>
-        <li>{{ $t('不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。') }}</li>
-        <li>{{ $t('手洗い、咳エチケット等により、感染予防に努めてください。') }}<br />
-        <external-link
+        <li>
+          {{
+            $t(
+              '不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。'
+            )
+          }}
+        </li>
+        <li>
+          {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。')
+          }}<br />
+          <external-link
             url="https://tokyodouga.jp/lViN9C_BS-0.html"
             :icon-size="16"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
           </external-link>
         </li>
-        <li>{{ $t('規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。') }}</li>
+        <li>
+          {{
+            $t(
+              '規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。'
+            )
+          }}
+        </li>
       </ul>
     </static-card>
     <static-card>
@@ -41,13 +67,15 @@
           <external-link
             url="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
             :icon-size="16"
-            >{{ $t('「新型コロナウイルス感染症（対策・相談窓口等）について」') }}
+            >{{
+              $t('「新型コロナウイルス感染症（対策・相談窓口等）について」')
+            }}
           </external-link>
         </li>
       </ul>
     </static-card>
     <static-card>
-      <h3>{{ $t('その他.parent') }}</h3>
+      <h3>{{ $t('その他') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </static-card>
   </div>
@@ -64,12 +92,12 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    ExternalLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お子様をお持ちの皆様へ') as string
+      title: this.$t('お子様をお持ちの皆様へ') as string,
     }
-  }
+  },
 })
 </script>

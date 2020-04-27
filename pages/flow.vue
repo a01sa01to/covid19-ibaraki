@@ -130,11 +130,7 @@
         </p>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
-            {{
-              $t(
-                '新型コロナコールセンター（対応言語：日本語・英語・中国語・韓国語）'
-              )
-            }}
+            {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
           </h5>
           <dl :class="$style.contact">
             <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
@@ -163,11 +159,7 @@
         </p>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
-            {{
-              $t(
-                '新型コロナコールセンター（対応言語：日本語・英語・中国語・韓国語）'
-              )
-            }}
+            {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
           </h5>
           <dl :class="$style.contact">
             <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
