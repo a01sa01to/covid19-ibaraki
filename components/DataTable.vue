@@ -29,7 +29,14 @@
       </template>
     </v-data-table>
     <div class="note">
-      {{ $t('（注）「退院」には、自宅療養で陰性化した方を含む') }}
+      <ul>
+        <li>
+          {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
+        </li>
+        <li>
+          {{ $t('※「退院」には、自宅療養で陰性化した方を含む') }}
+        </li>
+      </ul>
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -89,9 +96,15 @@
   }
 }
 .note {
-  padding: 8px;
+  margin: 8px 0 0;
   font-size: 12px;
   color: $gray-3;
+
+  ul,
+  ol {
+    list-style-type: none;
+    padding: 0;
+  }
 }
 </style>
 

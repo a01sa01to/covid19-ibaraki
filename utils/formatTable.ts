@@ -6,7 +6,7 @@ const headers = [
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
   { text: '性別', value: '性別' },
-  { text: '退院※', value: '退院', align: 'center' }
+  { text: '退院※', value: '退院', align: 'center' },
 ]
 
 type DataType = {
@@ -52,14 +52,15 @@ export default (data: DataType[]) => {
     datasets: [],
     cityDataset: [],
   }
-  data.forEach(d => {
+  data.forEach((d) => {
+    const releaseDate = dayjs(d['リリース日'])
     const TableRow: TableDataType = {
-      例目: d['num'],
-      公表日: dayjs(d['リリース日']).format('M/D') ?? '不明',
+      例目: d.num,
+      公表日: releaseDate.isValid() ? releaseDate.format('M/D') : '不明',
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
-      退院: d['退院']
+      退院: d['退院'],
     }
     tableDate.datasets.push(TableRow)
   })

@@ -39,6 +39,20 @@
               </td>
             </tr>
             <tr>
+              <td class="pref text-center">{{ $t('全国') }}</td>
+              <td class="site text-center">
+                <a href="https://covid19.wlaboratory.com" target="_blank"
+                  >https://covid19.wlaboratory.com</a
+                >
+              </td>
+              <td class="admin text-center">{{ $t('個人') }}</td>
+              <td class="repo text-center">
+                <a href="https://github.com/mm0202/covid19-jp" target="_blank"
+                  >mm0202/covid19-jp</a
+                >
+              </td>
+            </tr>
+            <tr>
               <td class="pref text-center">{{ $t('北海道') }}</td>
               <td class="site text-center">
                 <a href="https://stopcovid19.hokkaido.dev/" target="_blank"

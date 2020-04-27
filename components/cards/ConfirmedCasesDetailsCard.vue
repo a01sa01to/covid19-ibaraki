@@ -3,19 +3,22 @@
     <data-view
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.patients.date"
+      :date="updatedAt"
     >
-      <h4 :id="`${titleId}-graph`" class="visually-hidden">
-        {{ $t(`{title}のグラフ`, { title }) }}
-      </h4>
-      <template v-slot:button>
-        <p :class="$style.note">
-          {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
-          <br />
-          {{ $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
-          }}<br />
-          {{ $t('（注）「退院」には、自宅療養で陰性化した方を含む') }}
-        </p>
+      <template v-slot:description>
+        <ul>
+          <li>
+            {{
+              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+            }}
+          </li>
+          <li>
+            {{
+              $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
+            }}
+          </li>
+          <li>{{ $t('（注）「退院」には、自宅療養で陰性化した方を含む') }}</li>
+        </ul>
       </template>
       <confirmed-cases-details-table
         :aria-label="$t('検査陽性者の状況')"
@@ -36,16 +39,8 @@
   </v-col>
 </template>
 
-<style lang="scss" module>
-.note {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 12px;
-  color: $gray-3;
-}
-</style>
-
 <script>
+import dayjs from 'dayjs'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
@@ -75,11 +70,16 @@ export default {
       sText: '陽性患者数 累計',
       unit: this.$t('人'),
     }
+    const updatedAt = dayjs(Data.main_summary.children[0].date).format(
+      'YYYY/MM/DD HH:mm'
+    )
+
     const data = {
       Data,
       confirmedCases,
       confirmedDetailCases,
       displayInfo,
+      updatedAt,
     }
     return data
   },
