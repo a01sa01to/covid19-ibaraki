@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - development
+    paths:
+      - 'assets/locales/**'
 
 jobs:
   i18n-builder:
