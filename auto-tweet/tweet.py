@@ -40,7 +40,7 @@ for i in range(len(commitMsg)):
   updContent += txt
   updContent += "\n"
 
-status="【茨城県版 COVID-19 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。"
+status="【茨城県版 #COVID19 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。"
 t.statuses.update(status=status)
 
 print("ツイート済\n----------\n"+status+"\n----------")
