@@ -214,7 +214,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
     for key in tentative_json_keys:
         ja_tag = ja_json.get(key)
         tentative_tag = tentative_ja_json.get(key)
-        if not ja_tag:
+        if not ja_tag and str(tentative_tag):
             ja_json[key] = tentative_tag
             print("Add TAG: " + str(tentative_tag) + " to " + JA_JSON_PATH)
             if not warn_count:
