@@ -229,6 +229,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         #         result.write(",".join(["RUN", datetime.today().strftime("%Y/%m/%d %H:%M")]) + '\n')
         #     result.write(",".join(["TAG_CHANGE", str(ja_tag) + " to " + str(tentative_tag)]) + '\n')
         #     warn_count += 1
+        elif not ja_tag:
+            print("Nothing to add.");
         if ja_tag:
             ja_json_keys.pop(ja_json_keys.index(key))
 
