@@ -35,6 +35,7 @@ for cdir in CHECK_DIR:
 commitMsg = str(os.environ['MSG']).splitlines()
 updContent = ""
 for i in range(len(commitMsg)):
+  if i<3: continue
   txt = commitMsg[i]
   updContent += txt
   updContent += "\n"
