@@ -22,6 +22,19 @@
     <static-card>
       <h3>
         <external-link
+          url="https://www.pref.ibaraki.jp/hokenfukushi/jinzai/ishikakuho/covid-19taisakukikin.html"
+          :icon-size="24"
+        >
+          {{ $t('茨城県新型コロナウイルス感染症対策医療従事者応援金') }}
+        </external-link>
+      </h3>
+      <p>
+        {{ $t('{date} 発表', { date: '2020.04.28' }) }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
           url="https://www.pref.ibaraki.jp/shokorodo/chusho/shogyo/2020korona.html"
           :icon-size="24"
         >
@@ -29,7 +42,20 @@
         </external-link>
       </h3>
       <p>
-        {{ $t('{date} 発表', { date: '2020.04.21' }) }}
+        {{ $t('{date} 発表', { date: '2020.04.28' }) }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.pref.ibaraki.jp/shokorodo/sansei/20200408.html"
+          :icon-size="24"
+        >
+          {{ $t('新型コロナウイルス感染症に関する中小企業支援策') }}
+        </external-link>
+      </h3>
+      <p>
+        {{ $t('{date} 発表', { date: '2020.04.08' }) }}
       </p>
     </static-card>
     <static-card>
@@ -40,26 +66,13 @@
         >
           {{
             $t(
-              '企業活動における新型コロナウイルス感染症に係る配慮について（依頼）'
+              '企業活動における新型コロナウイルス感染症に係る配慮について（依頼・PDF）'
             )
           }}
         </external-link>
       </h3>
       <p>
         {{ $t('{date} 発表', { date: '2020.03.25' }) }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <external-link
-          url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/documents/0408kigyo.pdf"
-          :icon-size="24"
-        >
-          {{ $t('新型コロナウイルス感染症の感染拡大に伴うお願いについて') }}
-        </external-link>
-      </h3>
-      <p>
-        {{ $t('{date} 発表', { date: '2020.04.08' }) }}
       </p>
     </static-card>
   </div>
