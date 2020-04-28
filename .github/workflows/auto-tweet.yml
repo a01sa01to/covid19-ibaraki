@@ -1,0 +1,36 @@
+name: Auto Tweet
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - data/data.json
+
+jobs:
+  tweet:
+    if: startsWith(github.event.commits[0].message, 'Update data.json')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install twitter
+      - name: Run script
+        env:
+          API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          MSG: ${{ github.event.commits[0].message }}
+        run: |
+          cd auto-tweet
+          python tweet.py
+          cd ..
