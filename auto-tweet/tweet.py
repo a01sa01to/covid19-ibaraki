@@ -34,7 +34,8 @@ for cdir in CHECK_DIR:
 
 commitMsg = str(os.environ['MSG']).splitlines()
 updContent = ""
-for txt in commitMsg:
+for(int i = 3; i < len(commitMsg); i++):
+  txt = commitMsg[i]
   updContent += txt
   updContent += "\n"
 
