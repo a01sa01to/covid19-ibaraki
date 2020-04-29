@@ -8,7 +8,6 @@ on:
 
 jobs:
   tweet:
-    if: startsWith(github.event.commits[0].message, 'Update data.json')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master branch
