@@ -33,9 +33,13 @@ for cdir in CHECK_DIR:
           print("更新日時: "+lastUpdate+"\n")
 
 commitMsg = str(os.environ['MSG']).splitlines()
+print("Commit Message:\n----------")
+print(str(os.environ['MSG']))
+print("----------\n")
+
 updContent = ""
 for i in range(len(commitMsg)):
-  if i<3: continue
+  if i<2: continue
   txt = commitMsg[i]
   updContent += txt
   updContent += "\n"
