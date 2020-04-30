@@ -39,7 +39,7 @@ print("----------\n")
 
 updContent = ""
 for i in range(len(commitMsg)):
-  if i<2: continue
+  if i<1: continue
   txt = commitMsg[i]
   updContent += txt
   updContent += "\n"
