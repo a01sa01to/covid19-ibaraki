@@ -32,9 +32,11 @@ for cdir in CHECK_DIR:
           lastUpdate = json_content["lastUpdate"]
           print("更新日時: "+lastUpdate+"\n")
 
-commitMsg = str(os.environ['MSG']).splitlines()
+msg = str(os.environ['MSG'])
+msgJson = json.loads(msg)
+commitMsg = msgJson[len(msgJson)-1]["message"].splitlines()
 print("Commit Message:\n----------")
-print(str(os.environ['MSG']))
+print(msg)
 print("----------\n")
 
 updContent = ""
@@ -43,6 +45,9 @@ for i in range(len(commitMsg)):
   txt = commitMsg[i]
   updContent += txt
   updContent += "\n"
+
+print("LAST COMMIT MESSAGE")
+print(updContent)
 
 status="【茨城県版 #COVID19 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。\n#StayHome #家で過ごそう"
 t.statuses.update(status=status)
