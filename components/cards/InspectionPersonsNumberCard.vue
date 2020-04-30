@@ -39,13 +39,13 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChart,
   },
   data() {
     const formatData = Data.inspection_persons.labels.map((date, i) => {
       return {
-        日付: date,
-        小計: Data.inspection_persons.datasets[0].data[i]
+        date,
+        total: Data.inspection_persons.datasets[0].data[i],
       }
     })
 
@@ -54,8 +54,8 @@ export default {
 
     return {
       data: Data.inspection_persons,
-      graphData
+      graphData,
     }
-  }
+  },
 }
 </script>

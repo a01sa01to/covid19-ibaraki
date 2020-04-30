@@ -1,6 +1,6 @@
 type DataType = {
-  日付: Date
-  小計: number
+  date: Date
+  total: number
 }
 
 export type GraphDataType = {
@@ -19,16 +19,16 @@ export default (data: DataType[]) => {
   const today = new Date()
   let patSum = 0
   data
-    .filter(d => new Date(d['日付']) < today)
-    .forEach(d => {
-      const date = new Date(d['日付'])
-      const subTotal = d['小計']
+    .filter((d) => new Date(d.date) < today)
+    .forEach((d) => {
+      const date = new Date(d.date)
+      const subTotal = d.total
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
-          cumulative: patSum
+          cumulative: patSum,
         })
       }
     })
