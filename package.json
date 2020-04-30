@@ -1,8 +1,8 @@
 {
-  "name": "covid19",
+  "name": "covid19-ibaraki",
   "version": "1.0.0",
-  "description": "東京都 新型コロナウイルス感染症対策サイト",
-  "author": "東京都",
+  "description": "茨城県 新型コロナウイルス感染症対策サイト",
+  "author": "Asa",
   "private": true,
   "engines": {
     "node": ">=10.19.0"
