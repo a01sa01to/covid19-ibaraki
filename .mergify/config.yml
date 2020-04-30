@@ -46,7 +46,7 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: merge
+        method: squash
 
   - name: i18n_generator
     conditions:
@@ -59,4 +59,4 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: merge
+        method: squash
