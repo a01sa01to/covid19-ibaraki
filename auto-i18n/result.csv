@@ -114,3 +114,17 @@ TAG_REMOVE,企業活動における新型コロナウイルス感染症に係る
 TAG_REMOVE,新型コロナウイルス感染症の感染拡大に伴うお願いについて
 RUN,2020/04/30 13:05
 TAG_REMOVE,市町村
+RUN,2020/05/02 00:05
+TAG_ADD,新型コロナウイルス感染症対策サイト
+TAG_ADD,言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。
+TAG_ADD,茨城県オープンデータカタログサイト
+TAG_ADD,茨城県公式
+TAG_ADD,こちら
+TAG_ADD,非公式
+TAG_ADD,市町村
+TAG_ADD,茨城県公式サイト
+TAG_REMOVE,他県の
+TAG_REMOVE,サイト
+TAG_REMOVE,非
+TAG_REMOVE,東京都主催等 中止又は延期するイベント等
+TAG_REMOVE,東京都オープンデータカタログサイト
