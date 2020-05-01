@@ -17,8 +17,9 @@
             style="max-height: 100%; width: 100px;"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('新型コロナウイルス感染症')
-            }}<br />{{ $t('対策サイト') }}({{ $t('非') }}{{ $t('公式') }})
+            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{
+              $t('非公式')
+            }})
           </div>
         </nuxt-link>
       </h1>
@@ -35,7 +36,7 @@
 
       <nav class="SideNavigation-Menu">
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
-        <!-- <div
+        <div
           v-if="this.$i18n.locales.length > 1"
           class="SideNavigation-Language"
         >
@@ -43,11 +44,19 @@
             {{ $t('多言語対応選択メニュー') }}
           </label>
           <LanguageSelector />
-        </div> -->
-        <div class="SideNavigation-Language">
-          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-            現在このサイトは日本語のみ対応しております。<br />更新作業が終わり次第、随時追加されます。
-          </label>
+          <p class="SideNavigation-LangNote">
+            <i18n
+              path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
+            >
+              <template v-slot:transifex>
+                <external-link
+                  url="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
+                >
+                  {{ $t('こちら') }}
+                </external-link>
+              </template>
+            </i18n>
+          </p>
         </div>
         <!-- <MenuList :items="items" @click="$emit('closeNavi', $event)" /> -->
       </nav>
@@ -122,8 +131,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-// import LanguageSelector from '@/components/LanguageSelector.vue'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 type Item = {
   icon?: string
@@ -134,40 +144,79 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    // LanguageSelector,
-    MenuList
+    LanguageSelector,
+    MenuList,
+    ExternalLink,
   },
   props: {
     isNaviOpen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     items(): Item[] {
       return [
-        { icon: 'mdi-chart-timeline-variant', title: this.$t('県内の最新感染動向'), link: this.localePath('/') },
-        { icon: 'CovidIcon', title: this.$t('新型コロナウイルス感染症が心配なときに'), link: this.localePath('/flow'), divider: true },
-        { icon: 'ParentIcon', title: this.$t('お子様をお持ちの皆様へ'), link: this.localePath('/parent') },
-        { icon: 'mdi-account-multiple', title: this.$t('県民の皆様へ'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html' },
-        { icon: 'mdi-domain', title: this.$t('企業の皆様・はたらく皆様へ'), link: this.localePath('/worker'), divider: true },
-        { title: this.$tc('茨城県') + this.$tc('新型コロナウイルス感染症対策本部発表資料'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html' },
-        // {
-        //   title: this.$t('東京都主催等 中止又は延期するイベント等'),
-        //   link:
-        //     'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
-        // },
-        { title: this.$t('知事記者会見'), link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html' },
+        {
+          icon: 'mdi-chart-timeline-variant',
+          title: this.$t('県内の最新感染動向'),
+          link: this.localePath('/'),
+        },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルス感染症が心配なときに'),
+          link: this.localePath('/flow'),
+          divider: true,
+        },
+        {
+          icon: 'ParentIcon',
+          title: this.$t('お子様をお持ちの皆様へ'),
+          link: this.localePath('/parent'),
+        },
+        {
+          icon: 'mdi-account-multiple',
+          title: this.$t('県民の皆様へ'),
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html',
+        },
+        {
+          icon: 'mdi-domain',
+          title: this.$t('企業の皆様・はたらく皆様へ'),
+          link: this.localePath('/worker'),
+          divider: true,
+        },
+        {
+          title:
+            this.$tc('茨城県') +
+            ' ' +
+            this.$tc('新型コロナウイルス感染症対策本部発表資料'),
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',
+        },
+        {
+          title: this.$t('知事記者会見'),
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html',
+        },
         { title: this.$t('当サイトについて'), link: this.localePath('/about') },
-        { title: this.$tc('他県の') + this.$tc('新型コロナ') + this.$tc('対策サイト'), link: this.localePath('/otherpref') },
-        { title: this.$t('お問い合わせ先一覧'), link: this.localePath('/contacts') },
-        { title: this.$t('当プロジェクトをお手伝いいただける方へ'), link: this.localePath('/helpus') },
-        { title: this.$tc('茨城県') + this.$tc('公式') + this.$tc('サイト'), link: 'https://www.pref.ibaraki.jp/' }
+        {
+          title: this.$t('他県の新型コロナ対策サイト'),
+          link: this.localePath('/otherpref'),
+        },
+        {
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts'),
+        },
+        {
+          title: this.$t('当プロジェクトをお手伝いいただける方へ'),
+          link: this.localePath('/helpus'),
+        },
+        {
+          title: this.$t('茨城県公式サイト'),
+          link: 'https://www.pref.ibaraki.jp/',
+        },
       ]
-    }
+    },
   },
   watch: {
-    $route: 'handleChageRoute'
+    $route: 'handleChageRoute',
   },
   methods: {
     handleChageRoute() {
@@ -178,8 +227,8 @@ export default Vue.extend({
           $Side.focus()
         }
       })
-    }
-  }
+    },
+  },
 })
 </script>
 
@@ -381,5 +430,9 @@ export default Vue.extend({
   &:focus {
     outline: 1px dotted $gray-3;
   }
+}
+
+.SideNavigation-LangNote {
+  font-size: 11px;
 }
 </style>

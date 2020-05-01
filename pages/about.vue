@@ -14,12 +14,13 @@
           '茨城県による公式情報と客観的な数値をわかりやすく伝えることで、茨城県にお住まいの方や、茨城県内に拠点を持つ企業の方、茨城県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}<br /><br />
-      {{ $t('このサイトは、茨城県が管理しているものではありません。')
-      }}{{
+      {{ $t('このサイトは、茨城県が管理しているものではありません。') }}
+      {{
         $t(
           'このサイトに関するご意見やご質問などは、県ではなくAsaにお寄せください。'
         )
-      }}{{ $t('県はこのサイトには一切関与しておりません。') }}
+      }}
+      {{ $t('県はこのサイトには一切関与しておりません。') }}
       <i18n path="詳しくは、{contact}をご確認ください。">
         <template v-slot:contact>
           <nuxt-link :to="localePath('/contacts')">{{
@@ -35,13 +36,13 @@
       </p>
       <ul>
         <li>
-          <a href="https://www.pref.ibaraki.jp/index.html" target="_blank"
-            >{{ $t('茨城県') }}{{ $t('公式') }}{{ $t('サイト') }}</a
-          >
+          <a href="https://www.pref.ibaraki.jp/index.html" target="_blank">{{
+            $t('茨城県公式サイト')
+          }}</a>
         </li>
         <li>
           <a href="https://twitter.com/Ibaraki_Kouhou" target="_blank"
-            >{{ $t('茨城県') }}{{ $t('公式') }}Twitter</a
+            >{{ $t('茨城県公式') }}Twitter</a
           >
         </li>
       </ul>
@@ -217,7 +218,7 @@
             url="https://portal.data.metro.tokyo.lg.jp/"
             :icon-size="16"
           >
-            {{ $t('東京都オープンデータカタログサイト') }}
+            {{ $t('茨城県オープンデータカタログサイト') }}
           </external-link>
         </template>
       </i18n>

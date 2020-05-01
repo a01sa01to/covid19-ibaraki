@@ -1,7 +1,7 @@
 <template>
   <div class="OtherPref">
     <page-header class="mb-3">
-      {{ $t('他県の') }}{{ $t('新型コロナ') }}{{ $t('対策サイト') }}
+      {{ $t('他県の新型コロナ対策サイト') }}
     </page-header>
     <static-card>
       <p>

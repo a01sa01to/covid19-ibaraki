@@ -14,7 +14,18 @@
       :mobile-breakpoint="0"
       :custom-sort="customSort"
       class="cityTable"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <td class="text-start">{{ item['発生数'] }}</td>
+            <td class="text-start">{{ item['市町村'] }}</td>
+            <td class="text-start">{{ item['入院者数'] }}</td>
+            <td class="text-start">{{ item['退院者数'] }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <div class="note">
       {{ $t('※') }}{{ $t('発生数') }} = {{ $t('入院者数') }} +
       {{ $t('退院者数') }}<br />

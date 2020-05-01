@@ -1,16 +1,28 @@
 <template>
   <v-app class="app-print">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" :alt="$t('茨城県')" style="max-height: 100%; width: 100px;" />
+      <img
+        src="/logo.svg"
+        :alt="$t('茨城県')"
+        style="max-height: 100%; width: 100px;"
+      />
       <scale-loader color="#003FAB" />
     </div>
     <div v-else class="print-container">
       <div class="PrintMeta">
         <div class="PrintMeta-HeadingWrapper">
           <div class="PrintMeta-Logo">
-            <img src="/logo.svg" :alt="$t('茨城県')" style="max-height: 100%; width: 100px;" />
+            <img
+              src="/logo.svg"
+              :alt="$t('茨城県')"
+              style="max-height: 100%; width: 100px;"
+            />
           </div>
-          <h1 class="PrintMeta-Heading">{{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{ $t('非') }}{{ $t('公式') }})</h1>
+          <h1 class="PrintMeta-Heading">
+            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{
+              $t('非公式')
+            }})
+          </h1>
         </div>
         <div class="PrintMeta-QRWrapper">
           <div class="PrintMeta-QR flex-shrink-0" flat tile color="transparent">
@@ -35,11 +47,11 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 export default Vue.extend({
   components: {
-    ScaleLoader
+    ScaleLoader,
   },
   data() {
     return {
-      loading: true
+      loading: true,
     }
   },
   mounted() {
@@ -52,7 +64,7 @@ export default Vue.extend({
   methods: {
     print() {
       window.print()
-    }
+    },
   },
   head(): MetaInfo {
     return {
@@ -60,17 +72,17 @@ export default Vue.extend({
         {
           hid: 'robots',
           name: 'robots',
-          content: 'noindex'
-        }
+          content: 'noindex',
+        },
       ],
       link: [
         {
           rel: 'canonical',
-          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`
-        }
-      ]
+          href: `https://ibaraki.stopcovid19.jp${this.$route.path}`,
+        },
+      ],
     }
-  }
+  },
 })
 </script>
 <style lang="scss">
