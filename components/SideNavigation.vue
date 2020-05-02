@@ -186,14 +186,17 @@ export default Vue.extend({
         },
         {
           title:
-            this.$tc('茨城県') +
-            ' ' +
-            this.$tc('新型コロナウイルス感染症対策本部発表資料'),
+            this.$tc('茨城県公式') + ' ' + this.$tc('新型コロナ情報まとめ'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',
+        },
+        {
+          title: this.$tc('知事メッセージ'),
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/message.html',
         },
         {
           title: this.$t('知事記者会見'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html',
+          divider: true,
         },
         { title: this.$t('当サイトについて'), link: this.localePath('/about') },
         {
