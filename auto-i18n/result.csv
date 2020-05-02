@@ -128,3 +128,7 @@ TAG_REMOVE,サイト
 TAG_REMOVE,非
 TAG_REMOVE,東京都主催等 中止又は延期するイベント等
 TAG_REMOVE,東京都オープンデータカタログサイト
+RUN,2020/05/02 18:31
+TAG_ADD,新型コロナ情報まとめ
+TAG_ADD,知事メッセージ
+TAG_REMOVE,新型コロナウイルス感染症対策本部発表資料
