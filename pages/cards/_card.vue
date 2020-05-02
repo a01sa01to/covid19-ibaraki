@@ -24,6 +24,10 @@
     <ibaraki-city-map-card
       v-else-if="this.$route.params.card == 'ibaraki-city-map-table'"
     />
+    <discharges-card
+      v-else-if="this.$route.params.card == 'number-of-discharges'"
+    />
+    <deaths-card v-else-if="this.$route.params.card == 'number-of-deaths'" />
   </div>
 </template>
 
@@ -36,6 +40,8 @@ import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import DischargesCard from '@/components/cards/DischargesCard.vue'
+import DeathsCard from '@/components/cards/DeathsCard.vue'
 
 export default {
   components: {
@@ -46,6 +52,8 @@ export default {
     IbarakiCityMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
+    DischargesCard,
+    DeathsCard,
   },
   data() {
     let title, updatedAt
@@ -73,6 +81,14 @@ export default {
       case 'ibaraki-city-table':
         title = this.$t('市町村毎の感染状況')
         updatedAt = Data.patients.date
+        break
+      case 'number-of-discharges':
+        title = this.$t('退院数')
+        updatedAt = Data.discharges_summary.date
+        break
+      case 'number-of-deaths':
+        title = this.$t('死亡数')
+        updatedAt = Data.deaths_summary.date
         break
     }
 

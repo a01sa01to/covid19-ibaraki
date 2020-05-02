@@ -13,7 +13,9 @@ PATHS = {
   "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 613),
   "/cards/number-of-inspection-persons": (959, 667),
   "/cards/ibaraki-city-table": (959,465),
-  "/cards/ibaraki-city-map-table": (959,900)
+  "/cards/ibaraki-city-map-table": (959,900),
+  "/cards/number-of-discharges": (959,613),
+  "/cards/number-of-deaths": (959,613)
 }
 
 options = webdriver.ChromeOptions()
