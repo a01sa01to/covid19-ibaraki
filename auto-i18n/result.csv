@@ -132,3 +132,9 @@ RUN,2020/05/02 18:31
 TAG_ADD,新型コロナ情報まとめ
 TAG_ADD,知事メッセージ
 TAG_REMOVE,新型コロナウイルス感染症対策本部発表資料
+RUN,2020/05/03 00:26
+TAG_ADD,新型コロナ電話相談件数
+TAG_ADD,死亡数
+TAG_ADD,退院数
+TAG_REMOVE,電話相談件数
+TAG_REMOVE,新型コロナ
