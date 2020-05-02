@@ -143,7 +143,6 @@
   "平日（日中）:": "Weekdays (daytime)",
   "平日（夜間）: 午後5時から翌朝午前9時/土日祝 終日": "Weekdays (evening): 5:00 p.m. to 9:00 a.m. the next morning / Saturday and holidays: 24 hours a day",
   "24時間対応（土日祝含む）": "24 hours a day (including weekends and holidays)",
-  "新型コロナウイルス感染症対策本部発表資料": "Materials released by the Headquarters for the Control of COVID-19",
   "学びの支援サイト": "Learning Support Links (Japanese)",
   "感染予防・健康管理": "Infection prevention and health management",
   "読み込み中": "Loading",
@@ -324,5 +323,7 @@
   "こちら": "here",
   "非公式": "unofficial",
   "市町村": "municipality",
-  "茨城県公式サイト": "Official website of the Ibaraki Metropolitan Government"
+  "茨城県公式サイト": "Official website of the Ibaraki Metropolitan Government",
+  "新型コロナ情報まとめ": "summary about COVID-19",
+  "知事メッセージ": "Governor's message"
 }
