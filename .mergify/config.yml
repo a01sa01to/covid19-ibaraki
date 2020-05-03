@@ -9,7 +9,7 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: merge
+        method: rebase
 
   - name: Upgrade deps (yarn.lock only)
     conditions:
@@ -21,7 +21,7 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: merge
+        method: rebase
 
   - name: Upgrade deps (package.json, yarn.lock)
     conditions:
@@ -34,7 +34,7 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: merge
+        method: rebase
 
   - name: Language pack
     conditions:
@@ -46,7 +46,7 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: squash
+        method: rebase
 
   - name: i18n_generator
     conditions:
@@ -59,4 +59,4 @@ pull_request_rules:
       delete_head_branch:
         force: false
       merge:
-        method: squash
+        method: rebase
