@@ -35,28 +35,3 @@ pull_request_rules:
         force: false
       merge:
         method: rebase
-
-  - name: Language pack
-    conditions:
-      - "status-success=ci/circleci: build_dev"
-      - base=development
-      - files~=^assets/locales/
-      - "#files=1"
-    actions:
-      delete_head_branch:
-        force: false
-      merge:
-        method: rebase
-
-  - name: i18n_generator
-    conditions:
-      - "status-success=ci/circleci: build_dev"
-      - base=development
-      - files=assets/locales/ja.json
-      - "files=auto-i18n/result.csv"
-      - "#files=2"
-    actions:
-      delete_head_branch:
-        force: false
-      merge:
-        method: rebase
