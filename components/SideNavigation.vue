@@ -35,7 +35,7 @@
       </v-icon>
 
       <nav class="SideNavigation-Menu">
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <!-- <MenuList :items="items" @click="$emit('closeNavi', $event)" /> -->
         <div
           v-if="this.$i18n.locales.length > 1"
           class="SideNavigation-Language"
@@ -58,7 +58,7 @@
             </i18n>
           </p>
         </div>
-        <!-- <MenuList :items="items" @click="$emit('closeNavi', $event)" /> -->
+        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
