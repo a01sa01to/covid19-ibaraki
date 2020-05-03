@@ -108,6 +108,17 @@
               <img src="/github.png" alt="GitHub" />
             </picture>
           </a>
+          <a
+            href="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/youtube.webp" type="image/webp" />
+              <img src="/youtube.png" alt="YouTube" />
+            </picture>
+          </a>
         </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
@@ -121,7 +132,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Asa (@a01sa01to)
+          &copy; 2020 Asa (@a01sa01to)
         </small>
       </footer>
     </div>
@@ -166,6 +177,20 @@ export default Vue.extend({
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: this.localePath('/flow'),
+        },
+        {
+          icon: 'CovidIcon',
+          title: this.$t(
+            '新型コロナウイルスの感染が判明した方へ（東京都提供）'
+          ),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
+        },
+        {
+          icon: 'MaskTrashIcon',
+          title: this.$t('ご家庭でのマスク等の捨て方（東京都提供）'),
+          link:
+            'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
           divider: true,
         },
         {
@@ -200,7 +225,7 @@ export default Vue.extend({
         },
         { title: this.$t('当サイトについて'), link: this.localePath('/about') },
         {
-          title: this.$t('他県の新型コロナ対策サイト'),
+          title: this.$t('他都道府県の新型コロナ対策サイト'),
           link: this.localePath('/otherpref'),
         },
         {

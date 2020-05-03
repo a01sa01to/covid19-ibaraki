@@ -4,10 +4,10 @@
 
 都道府県名 | 公開サイト | 運営者 | プロジェクト
 ------------ | ------------- | ------------- | -------------
-[](08)茨城県（このサイト）|https://ibaraki.stopcovid19.jp/|Asa|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
-[](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
+[](08)茨城県(このサイト)|https://ibaraki.stopcovid19.jp/|Asa|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
+[](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT(有志団体)|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
 [](02)青森県|https://covid19.codeforaomori.org|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)|
-[](02)青森県|https://covid19-aomori.info/|Aomori Hackers（有志団体）|[covid19-aomori/website](https://github.com/covid19-aomori/website)|
+[](02)青森県|https://covid19-aomori.info/|Aomori Hackers(有志団体)|[covid19-aomori/website](https://github.com/covid19-aomori/website)|
 [](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)|
 [](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)|
 [](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)|
@@ -15,34 +15,34 @@
 [](06)山形県|https://stopcovid19-yamagata.netlify.app/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://stopcovid19-ibaraki.jp/|Project Ume(有志)|[BenataY/covid19](https://github.com/BenataY/covid19)|
-[](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
+[](09)栃木県|https://covid19-tochigi.netlify.app/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](09)栃木県|https://covid-19-tochigi.origamium.net/|個人|[origamium/covid19-tochigi](https://github.com/origamium/covid19-tochigi)|
-[](10)群馬県|https://stopcovid19.pref.gunma.jp/|群馬県（**公式**）|[bpr-gunma/covid19](https://github.com/bpr-gunma/covid19)|
+[](10)群馬県|https://stopcovid19.pref.gunma.jp/|群馬県(**公式**)|[bpr-gunma/covid19](https://github.com/bpr-gunma/covid19)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
 [](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
 [](12)市原市|https://covid19-ichihara.netlify.app/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)|
-[](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
-[](13)東京都|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
-[](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
-[](14)横浜市|https://covid19.yokohama/|個人|[code-for-yokohama/covid19](https://github.com/code-for-yokohama/covid19)|
+[](12)八千代市|https://yachiyo-covid19.netlify.app/|有志(学生)|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
+[](13)東京都|https://stopcovid19.metro.tokyo.lg.jp|東京都(**公式**)|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
+[](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県(**公式**)||
+[](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)|
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.app|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
 [](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|
-[](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
+[](18)福井県|https://covid19-fukui.com/|地元有志(**福井県公認**)|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
 [](18)福井県|https://covid19-fukui.bosai-signal.jp/|丹南ケーブルテレビ株式会社|[westar7/fukui-covid19](https://github.com/westar7/fukui-covid19)|
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
 [](20)長野県|https://stop-covid19-nagano.netlify.app/|有志|[Stop-COVID19-Nagano/covid19](https://github.com/Stop-COVID19-Nagano/covid19)|
 [](20)長野県|https://covid19-nagano.info/|個人|[kanai3id/covid19](https://github.com/kanai3id/covid19)|
 [](21)岐阜県|https://covid19-gifu.netlify.app/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
-[](22)静岡市|https://stopcovid19.city.shizuoka.lg.jp|静岡市（**公式**)|[kazuomatz/covid19](https://github.com/kazuomatz/covid19)|
+[](22)静岡市|https://stopcovid19.city.shizuoka.lg.jp|静岡市(**公式**)|[kazuomatz/covid19](https://github.com/kazuomatz/covid19)|
 [](22)浜松市|https://stopcovid19-hamamatsu.netlify.app/|有志|[code-for-hamamatsu/covid19](https://github.com/code-for-hamamatsu/covid19)|
 [](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 [](24)三重県|https://mie.stopcovid19.jp/|高専生チーム(有志)|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
-[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**)|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|
+[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県(**公式**)|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|
 [](26)京都府|https://stopcovid19-kyoto.netlify.app/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
-[](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
+[](27)大阪府|https://covid19-osaka.info/|大阪府(**公式**)|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
 [](30)和歌山県|https://stopcovid19.wakayama.jp/|エフエム和歌山|[sys-cube/covid19](https://github.com/sys-cube/covid19)|
@@ -82,9 +82,9 @@ function md2html(ls){
 			let repo = e[3].split("]")[0].split("[")[1];
 
 			if(admin.includes("(")){
-				admin = admin.replace(/（/, "(")
+				admin = admin.replace(/(/, "(")
 				admin = admin.replace(/\(/, "') }}&nbsp;&nbsp;({{ $t('")
-				admin = admin.replace(/）/, ")");
+				admin = admin.replace(/)/, ")");
 				admin = admin.replace(/有志/, "') }}({{ $t('有志') }}{{ $t('");
 				admin = admin.replace(/団体/, "') }}({{ $t('団体') }}{{ $t('");
 			}

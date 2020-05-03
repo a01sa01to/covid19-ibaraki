@@ -4,7 +4,8 @@
 
 [![茨城県 新型コロナウイルス感染症対策サイト](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
 
-### 日本語
+### 日本語 | [English](./docs/en/README.md) |
+
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。

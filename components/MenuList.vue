@@ -31,6 +31,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import CovidIcon from '@/static/covid.svg'
+import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
 
 type MenuItem = {
@@ -43,13 +44,14 @@ type MenuItem = {
 export default Vue.extend({
   components: {
     CovidIcon,
-    ParentIcon
+    MaskTrashIcon,
+    ParentIcon,
   },
   props: {
     items: {
       type: Array as PropType<MenuItem[]>,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     linkTag(link: MenuItem['link']) {
@@ -61,12 +63,12 @@ export default Vue.extend({
             href: link,
             target: '_blank',
             rel: 'noopener noreferrer',
-            class: 'MenuList-Link'
+            class: 'MenuList-Link',
           }
         : {
             to: link,
             router: true,
-            class: 'MenuList-Link'
+            class: 'MenuList-Link',
           }
     },
     iconTag(icon: MenuItem['icon']) {
@@ -77,18 +79,18 @@ export default Vue.extend({
         ? icon.startsWith('mdi')
           ? {
               size: 20,
-              class: 'MenuList-MdIcon'
+              class: 'MenuList-MdIcon',
             }
           : {
               'aria-hidden': true,
-              class: 'MenuList-SvgIcon'
+              class: 'MenuList-SvgIcon',
             }
         : null
     },
     isExternal(path: MenuItem['link']): boolean {
       return /^https?:\/\//.test(path)
-    }
-  }
+    },
+  },
 })
 </script>
 
