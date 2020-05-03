@@ -78,7 +78,6 @@
   "トップページへ戻る": "Back to top page",
   "取手市": "Toride City",
   "都内": "Tokyo",
-  "「新型コロナウイルス感染症（対策・相談窓口等）について」": "About countermeasures, consultation service, etc. of COVID-19",
   "（注）医療機関が保険適用で行った検査も含む": "(Note) Includes tests performed under insurance coverage by medical institutions.",
   "詳しくは、{forDev}をご確認ください。": "For more information, please visit {forDev}.",
   "学生": "Student",
@@ -91,7 +90,6 @@
   "県内の最新感染動向": "Latest updates on COVID-19 in Ibaraki",
   "桜川市": "Sakuragawa City",
   "新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方": "If you are asked by Ibaraki COVID-19 Consultation Hotline to visit COVID-19 Outpatient (Traveller/Contact Outpatient) Services",
-  "他県の新型コロナ対策サイト": "COVID-19 information sites in other prefectures",
   "Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。": "About Google Analytics Terms of Service and Privacy Policy, please visit the Google Analytics site.",
   "埼玉県": "Saitama prefecture",
   "知事メッセージ": "Governor's message",
@@ -347,5 +345,6 @@
   "当サイトの一部ではクッキーを使用しています。": "This site uses a cookie.",
   "Google Chrome 最新版（Windows 10以上, Android 8.0以上）": "Google Chrome (Latest version)",
   "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-  "風邪のような症状や、37.5℃以上の発熱が続いている": "Cold-like symptoms or a fever of more than 37.5 degrees continues"
+  "風邪のような症状や、37.5℃以上の発熱が続いている": "Cold-like symptoms or a fever of more than 37.5 degrees continues",
+  "新型コロナウイルス感染症に関する電話相談窓口について": "About telephone consultation service for COVID-19"
 }
