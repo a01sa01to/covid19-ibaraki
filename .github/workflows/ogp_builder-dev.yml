@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - development
-    paths-ignore:
-      - 'auto-i18n/result.csv'
+    paths:
+      - 'data/data.json'
 
 jobs:
   build:
