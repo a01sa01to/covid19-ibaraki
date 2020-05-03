@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - development
-    paths:
-      - 'data/data.json'
 
 jobs:
   build:
