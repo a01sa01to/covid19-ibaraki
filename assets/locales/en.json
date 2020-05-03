@@ -124,7 +124,6 @@
   "市町村毎の感染状況(地図)": "Infection status by municipality (Map)",
   "陽性患者数": "Number of confirmed cases",
   "検査実施人数": "Number of people tested",
-  "電話相談件数": "Number of calls about Coronavirus",
   "埋め込み用コード": "embedding code",
   "Google Analytics利用規約": "Google Analytics Terms of Service",
   "Googleのプライバシーポリシー": "Google's Privacy Policy",
@@ -210,7 +209,6 @@
   "学生": "Student",
   "※": "* ",
   "新型コロナウイルス感染症": "COVID-19",
-  "新型コロナ": "COVID-19",
   "JUST道IT": "JUST Dou IT",
   "地域情報サイト「まいぷれ」": "Local information site \"Maipure\"",
   "丹南ケーブルテレビ株式会社": "Tannan Cable Television Co.",
@@ -325,5 +323,8 @@
   "市町村": "municipality",
   "茨城県公式サイト": "Official website of the Ibaraki Metropolitan Government",
   "新型コロナ情報まとめ": "summary about COVID-19",
-  "知事メッセージ": "Governor's message"
+  "知事メッセージ": "Governor's message",
+  "新型コロナ電話相談件数": "Number of COVID-19 telephone consultations",
+  "死亡数": "Number of deaths",
+  "退院数": "Number of discharges"
 }
