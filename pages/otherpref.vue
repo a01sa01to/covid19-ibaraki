@@ -1065,7 +1065,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('他県の新型コロナ対策サイト') as string,
+      title: this.$t('他都道府県の新型コロナ対策サイト') as string,
     }
   },
 })
