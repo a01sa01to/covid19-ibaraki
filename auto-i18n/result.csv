@@ -138,3 +138,30 @@ TAG_ADD,死亡数
 TAG_ADD,退院数
 TAG_REMOVE,電話相談件数
 TAG_REMOVE,新型コロナ
+RUN,2020/05/03 13:56
+TAG_ADD,自宅で安静に過ごし、必要に応じて医療機関を受診してください
+TAG_ADD,Code for Saga
+TAG_ADD,秋田県
+TAG_ADD,石川県
+TAG_ADD,島根県
+TAG_ADD,（注）退院者数の把握には一定の期間を要しており、確認次第数値を更新している
+TAG_ADD,鳥取県
+TAG_ADD,浜松市
+TAG_ADD,福井県公認
+TAG_ADD,島根出身学生有志
+TAG_ADD,和歌山県
+TAG_ADD,静岡県
+TAG_ADD,Code for Fukuoka, Code for Kurume
+TAG_ADD,Project Ume
+TAG_ADD,新型コロナウイルスの感染が判明した方へ（東京都提供）
+TAG_ADD,佐賀県
+TAG_ADD,山形県
+TAG_ADD,デーリー東北新聞社
+TAG_ADD,福岡県
+TAG_ADD,ご家庭でのマスク等の捨て方（東京都提供）
+TAG_ADD,他都道府県の新型コロナ対策サイト
+TAG_ADD,静岡市
+TAG_ADD,エフエム和歌山
+TAG_ADD,横浜市
+TAG_ADD,地元有志
+TAG_REMOVE,自宅安静となり、医療機関を受診していただきます
