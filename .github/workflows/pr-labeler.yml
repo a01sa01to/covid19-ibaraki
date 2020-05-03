@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Label for Auto-merge
-      if: endsWith('[bot]', github.actor)
+      if: github.actor == 'transifex-integration[bot]' || github.actor == 'dependabot-preview[bot]' || github.actor == 'github-actions[bot]'
       uses: actions/labeler@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
