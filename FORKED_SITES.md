@@ -82,9 +82,9 @@ function md2html(ls){
 			let repo = e[3].split("]")[0].split("[")[1];
 
 			if(admin.includes("(")){
-				admin = admin.replace(/(/, "(")
+				admin = admin.replace(/（/, "(")
 				admin = admin.replace(/\(/, "') }}&nbsp;&nbsp;({{ $t('")
-				admin = admin.replace(/)/, ")");
+				admin = admin.replace(/）/, ")");
 				admin = admin.replace(/有志/, "') }}({{ $t('有志') }}{{ $t('");
 				admin = admin.replace(/団体/, "') }}({{ $t('団体') }}{{ $t('");
 			}

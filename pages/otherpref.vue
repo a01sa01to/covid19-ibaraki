@@ -209,7 +209,7 @@
                 >
               </td>
               <td class="admin text-center">
-                {{ $t('Project Ume') }}&nbsp;&nbsp;({{ $t('有志') }})
+                Project Ume&nbsp;&nbsp;({{ $t('有志') }})
               </td>
               <td class="repo text-center">
                 <a href="https://github.com/BenataY/covid19" target="_blank"
@@ -904,7 +904,7 @@
                 >
               </td>
               <td class="admin text-center">
-                {{ $t('Code for Fukuoka, Code for Kurume') }}
+                Code for Fukuoka, Code for Kurume
               </td>
               <td class="repo text-center">
                 <a
@@ -939,7 +939,7 @@
                   >https://stopcovid19.code4saga.org/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('Code for Saga') }}</td>
+              <td class="admin text-center">Code for Saga</td>
               <td class="repo text-center">
                 <a href="https://github.com/codeforsaga/covid19" target="_blank"
                   >codeforsaga/covid19</a
