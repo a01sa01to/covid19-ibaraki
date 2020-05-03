@@ -65,11 +65,9 @@
           {{ $t('各保健所の電話番号について') }}
           <br />
           <external-link
-            url="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
+            url="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html"
             :icon-size="16"
-            >{{
-              $t('「新型コロナウイルス感染症（対策・相談窓口等）について」')
-            }}
+            >{{ $t('新型コロナウイルス感染症に関する電話相談窓口について') }}
           </external-link>
         </li>
       </ul>
