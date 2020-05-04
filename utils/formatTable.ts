@@ -36,10 +36,10 @@ type CityTableType = {
 }
 
 export const headers2 = [
+  { text: '発生数', value: '発生数' },
   { text: '市町村', value: '市町村' },
   { text: '入院者数', value: '入院者数' },
   { text: '退院者数', value: '退院者数' },
-  { text: '発生数', value: '発生数' },
 ]
 
 type TableDateType = {
