@@ -28,8 +28,7 @@ export default {
     patientsTable.headers = headers2
 
     for (const header of patientsTable.headers) {
-      header.text = this.$t(header.text)
-      header.value = header.text
+      header.text = this.$t(header.value)
     }
 
     for (const row of patientsTable.datasets) {

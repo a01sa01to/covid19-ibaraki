@@ -49,7 +49,7 @@ type ConfirmedCasesType = {
 }
 
 export type GraphDataType = {
-  label: '入院中・入院予定' | '死亡' | '退院'
+  label: string
   transition: number
   // cumulative: number
   bgColor: '#6e86d3' | '#99a8e0' | '#c2caec'

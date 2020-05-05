@@ -68,13 +68,17 @@ export default {
     const confirmedCases = formatConfirmedCases(Data.main_summary)
     const confirmedDetailCases = formatDetailConfirmedCases(Data.main_summary)
 
+    confirmedDetailCases.forEach((_) => {
+      _.label = this.$t(_.label)
+    })
+
     let sum = 0
     confirmedDetailCases.forEach((_) => {
       sum += _.transition
     })
     const displayInfo = {
       lText: sum.toLocaleString(),
-      sText: '陽性患者数 累計',
+      sText: this.$t('陽性患者数 累計'),
       unit: this.$t('人'),
     }
     const updatedAt = dayjs(Data.main_summary.children[0].date).format(
