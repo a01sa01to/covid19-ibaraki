@@ -29,6 +29,13 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
       file: 'en.json',
       description: 'English',
     },
+    {
+      code: 'ja-basic',
+      name: 'やさしいにほんご',
+      iso: 'ja-JP',
+      file: 'ja-Hira.json',
+      description: 'Easy Japanese',
+    },
   ],
 }
 

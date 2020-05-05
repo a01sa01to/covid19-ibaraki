@@ -28,14 +28,11 @@ PATHS = (
     'cards/number-of-deaths',
 )
 
-# LANGS = (
-#     'ja',
-#     'en',
-#     'zh-cn',
-#     'zh-tw',
-#     'ko',
-#     'ja-basic',
-# )
+LANGS = (
+    'ja',
+    'en',
+    'ja-basic',
+)
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
@@ -65,17 +62,16 @@ def twitter_card_validate(url):
     url_input.send_keys(url)
     submit_button.click()
 
-lang = "ja"
-# for lang in LANGS:
-for path in PATHS:
-    url = '/'.join([HOST, path] if lang == 'ja' else [HOST, lang, path])
-    twitter_card_validate(url)
-    time.sleep(5)
+for lang in LANGS:
+    for path in PATHS:
+        url = '/'.join([HOST, path] if lang == 'ja' else [HOST, lang, path])
+        twitter_card_validate(url)
+        time.sleep(5)
 
-    if args.out:
-        dir_path = f'{OUT_DIR}/{lang}'
-        os.makedirs(dir_path, exist_ok=True)
-        file_name = path.replace('cards/', '')
-        driver.save_screenshot(f'{dir_path}/{file_name}.png')
+        if args.out:
+            dir_path = f'{OUT_DIR}/{lang}'
+            os.makedirs(dir_path, exist_ok=True)
+            file_name = path.replace('cards/', '')
+            driver.save_screenshot(f'{dir_path}/{file_name}.png')
 
 driver.quit()
