@@ -49,7 +49,8 @@ for i in range(len(commitMsg)):
 print("LAST COMMIT MESSAGE")
 print(updContent)
 
-status="【茨城県版 #COVID19 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。\n#StayHome #家で過ごそう"
+# updContent は 55byte以下になるべき（字数制限的に）
+status="【 #茨城県 版 #新型コロナウイルス 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。\nより多くの方に情報を届けるため、拡散お願いします。\n#StayHome #家で過ごそう"
 t.statuses.update(status=status)
 
 print("ツイート済\n----------\n"+status+"\n----------")
