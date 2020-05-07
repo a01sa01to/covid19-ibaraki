@@ -359,3 +359,44 @@ RUN,2020/05/04 16:05
 TAG_REMOVE,（注）4月30日と5月1日は県からのデータがないため、0人としています
 RUN,2020/05/05 12:58
 TAG_ADD,陽性患者数 累計
+RUN,2020/05/07 15:43
+TAG_ADD,お問い合わせ先・県内保健所一覧
+TAG_ADD,管内市町村
+TAG_ADD,古河保健所
+TAG_ADD,茨城町
+TAG_ADD,北茨城市
+TAG_ADD,かすみがうら市
+TAG_ADD,このサイトに関するご意見やご質問などは、県ではなく当サイトの管理者にお寄せください。
+TAG_ADD,潮来保健所
+TAG_ADD,河内町
+TAG_ADD,中央保健所
+TAG_ADD,行方市
+TAG_ADD,大洗町
+TAG_ADD,茨城県公式サイトで確認する
+TAG_ADD,八千代町
+TAG_ADD,茨城県庁内
+TAG_ADD,利根町
+TAG_ADD,水戸市保健所
+TAG_ADD,下妻市
+TAG_ADD,龍ヶ崎保健所
+TAG_ADD,つくば保健所
+TAG_ADD,日立保健所
+TAG_ADD,城里町
+TAG_ADD,石岡市
+TAG_ADD,土浦保健所
+TAG_ADD,ひたちなか保健所
+TAG_ADD,平日 9時～17時 対応
+TAG_ADD,笠間市
+TAG_ADD,東海村
+TAG_ADD,五霞町
+TAG_ADD,大子町
+TAG_ADD,筑西保健所
+TAG_ADD,当サイトの管理者
+TAG_ADD,常陸大宮市
+TAG_ADD,保健所名
+TAG_ADD,潮来市
+TAG_ADD,高萩市
+TAG_ADD,稲敷市
+TAG_ADD,鉾田市
+TAG_REMOVE,お問い合わせ先一覧
+TAG_REMOVE,このサイトに関するご意見やご質問などは、県ではなくAsaにお寄せください。
