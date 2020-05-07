@@ -229,7 +229,7 @@ export default Vue.extend({
           link: this.localePath('/otherpref'),
         },
         {
-          title: this.$t('お問い合わせ先一覧'),
+          title: this.$t('お問い合わせ先・県内保健所一覧'),
           link: this.localePath('/contacts'),
         },
         {
