@@ -21,7 +21,9 @@
       <external-link
         url="https://twitter.com/search?q=%E5%AF%BE%E7%AD%96%E3%82%B5%E3%82%A4%E3%83%88%20%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1%20from%3Aa01sa01to&f=live"
         >{{
-          $t('このサイトの更新情報はこちらからどうぞ（Twitterのページへ）')
+          $t(
+            'このサイトの更新情報はこちらからどうぞ（Twitterのページへ移動します）'
+          )
         }}</external-link
       >
     </static-card>
