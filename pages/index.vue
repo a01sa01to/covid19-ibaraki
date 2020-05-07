@@ -14,15 +14,17 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
-    <static-info
+    <static-card
       class="mb-4"
-      :text="
-        $t(
-          'このページは随時更新されます。更新作業を手伝っていただけると幸いです。'
-        )
-      "
-      :url="localePath('/helpus')"
-    />
+      style="padding: 0.5em 1em; font-size: 0.875rem; color: #006ca8;"
+    >
+      <external-link
+        url="https://twitter.com/search?q=%E5%AF%BE%E7%AD%96%E3%82%B5%E3%82%A4%E3%83%88%20%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1%20from%3Aa01sa01to&f=live"
+        >{{
+          $t('このサイトの更新情報はこちらからどうぞ（Twitterのページへ）')
+        }}</external-link
+      >
+    </static-card>
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
@@ -59,6 +61,7 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
+import StaticCard from '@/components/StaticCard.vue'
 import CardRow from '@/components/cards/CardRow.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -72,6 +75,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import DischargesCard from '@/components/cards/DischargesCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
@@ -88,6 +92,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     DischargesCard,
     DeathsCard,
+    ExternalLink,
+    StaticCard,
   },
   data() {
     const data = {
