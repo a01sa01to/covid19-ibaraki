@@ -57,7 +57,6 @@
   "茨城県オープンデータカタログサイト": "the Ibaraki Metropolitan Government Open Data Catalog site",
   "休業要請・協力金（相談窓口・ＦＡＱ等）について ": "About Request for Leave of Absence and Cooperation Fee (Consultation Counter, FAQ, etc.) ",
   "各保健所の電話番号について": "Phone numbers for each health center",
-  "このページは随時更新されます。更新作業を手伝っていただけると幸いです。": "This page will be updated from time to time. We would appreciate it if you could help us with the update.",
   "詳しくは、{contact}をご確認ください。": "For more information, please visit {contact}.",
   "新型コロナウイルス感染症にかかる相談窓口について": "About consultation desk for COVID-19",
   "学習の基本的な内容を身に付けられる「東京・ベーシック・ドリル」や動画教材等があります。": "There are \"Tokyo Basic Drill\" and video materials to help master the basics of learning.",
@@ -383,5 +382,6 @@
   "潮来市": "Itako City",
   "高萩市": "Takahagi CIty",
   "稲敷市": "Inashiki City",
-  "鉾田市": "Hokota City"
+  "鉾田市": "Hokota City",
+  "このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）": "Click here for updates on this site (you will be redirected to Twitter)"
 }
