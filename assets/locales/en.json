@@ -50,7 +50,6 @@
   "JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。": "If JavaScript is disabled, the content or functionality of the website can be limited or unavailable.",
   "京都府": "Kyoto prefecture",
   "Transifexというサービスを利用して、翻訳作業を行っております。": "We use a service called Transifex to do the translation work.",
-  "死亡数": "Number of deaths",
   "浜松市": "Hamamatsu City",
   "連絡先": "Contact",
   "測定を無効にするブラウザ アドオン": "Browser add-on to disable measurements",
@@ -98,7 +97,6 @@
   "団体": "Organization",
   "ページが移動または削除されたか、URLの入力間違いの可能性があります。": "The page may have been moved or deleted, or the URL may have been typed incorrectly.",
   "医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果": "After a doctor determines that a test is needed, you receive a PCR test at the Tokyo Metropolitan Institute of Public Health or elsewhere, and you:",
-  "（注）「退院」には、自宅療養で陰性化した方を含む": "(Note) \"Discharged\" includes those who have tested negative in-home treatment.",
   "新型コロナ電話相談件数": "Number of COVID-19 telephone consultations",
   "感染症を疑う場合の対応": "If you think your child is infected",
   "サイドメニュー項目を閉じる": "Close side menu",
@@ -252,7 +250,6 @@
   "千葉市": "Chiba City",
   "地元有志": "Local volunteer",
   "※退院は、保健所から報告があり、確認ができているものを反映": "(Note) Discharges reflect those that have been reported and confirmed by the health center.",
-  "※「退院」には、自宅療養で陰性化した方を含む": "(Note) \"Discharged\" includes those who have tested negative in-home treatment.",
   "県内": "within prefecture",
   "死亡": "Deaths",
   "福岡県": "Fukuoka prefecture",
@@ -267,7 +264,6 @@
   "本サイト": "this site",
   "静岡市": "Shizuoka City",
   "（上記の症状がない場合も、軽い症状があるなど不安のある方は、日ごろ受診されている医療機関に電話でご相談ください。）": "(Even if you don't have any of the above symptoms, if you have mild symptoms or other concerns, please call your regular medical institution for advice.",
-  "退院数": "Number of discharges",
   "（注）チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) Excluding the returnees on charter flights or the cruise ship passengers",
   "当サイトの情報について": "About information on this site",
   "stopcovid19.yamanashi.devチーム": "Team stopcovid19.yamanashi.dev",
@@ -383,5 +379,9 @@
   "高萩市": "Takahagi CIty",
   "稲敷市": "Inashiki City",
   "鉾田市": "Hokota City",
-  "このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）": "Click here for updates on this site (you will be redirected to Twitter)"
+  "このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）": "Click here for updates on this site (you will be redirected to Twitter)",
+  "（注）「退院」には、宿泊療養施設から退所した方、自宅療養で陰性化した方を含む": "(Note) \"Discharge\" includes those who were released from residential treatment facilities and those who tested negative in-home treatment.",
+  "※「退院」には、宿泊療養施設から退所した方、自宅療養で陰性化した方を含む": "(Note) \"Discharge\" includes those who were released from residential treatment facilities and those who tested negative in-home treatment.",
+  "死亡者数": "Number of deaths",
+  "凡例（単位は人）": "Legend (units are people)"
 }
