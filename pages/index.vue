@@ -19,7 +19,7 @@
       style="padding: 0.5em 1em; font-size: 0.875rem; color: #006ca8;"
     >
       <external-link
-        url="https://twitter.com/search?q=%E5%AF%BE%E7%AD%96%E3%82%B5%E3%82%A4%E3%83%88%20%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1%20from%3Aa01sa01to&f=live"
+        url="https://twitter.com/search?q=%23StayHome%20%23%E5%AE%B6%E3%81%A7%E9%81%8E%E3%81%94%E3%81%9D%E3%81%86%20from%3Aa01sa01to&f=live"
         >{{
           $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
         }}</external-link
