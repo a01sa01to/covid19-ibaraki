@@ -70,6 +70,8 @@ export default {
 
     confirmedDetailCases.forEach((_) => {
       _.label = this.$t(_.label)
+        .toString()
+        .replace(/<br \/>/, '')
     })
 
     let sum = 0

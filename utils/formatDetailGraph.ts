@@ -75,7 +75,7 @@ export default (data: DataType) => {
 
   ;['入院中', '死亡', '退院'].forEach((_) => {
     const lbl =
-      _ === '入院中' ? '入院中・入院予定' : _ === '死亡' ? '死亡' : '退院'
+      _ === '入院中' ? '入院中・<br />入院予定' : _ === '死亡' ? '死亡' : '退院'
     const fmt =
       _ === '入院中'
         ? formattedData.入院中
