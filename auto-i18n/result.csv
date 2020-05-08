@@ -418,3 +418,11 @@ TAG_REMOVE,死亡数
 TAG_REMOVE,（注）「退院」には、自宅療養で陰性化した方を含む
 TAG_REMOVE,※「退院」には、自宅療養で陰性化した方を含む
 TAG_REMOVE,退院数
+RUN,2020/05/09 01:03
+TAG_ADD,中等症
+TAG_ADD,軽症
+TAG_ADD,療養中
+TAG_REMOVE,（療養期間経過を含む）
+TAG_REMOVE,軽症・<br />中等症
+TAG_REMOVE,（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む
+TAG_REMOVE,入院中・<br />入院予定
