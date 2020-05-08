@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('退院数')"
+      :title="$t('退院者数')"
       :title-id="'number-of-discharges'"
       :chart-id="'time-bar-chart-discharges'"
       :chart-data="dischargesGraph"

@@ -38,9 +38,9 @@
       <confirmed-cases-number-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
-      <!-- 退院数 -->
+      <!-- 退院者数 -->
       <discharges-card />
-      <!-- 死亡数 -->
+      <!-- 死亡者数 -->
       <deaths-card />
       <!-- 区市町村別患者数 -->
       <ibaraki-city-map-card />
