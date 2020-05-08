@@ -14,11 +14,6 @@
           </li>
           <li>
             {{
-              $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
-            }}
-          </li>
-          <li>
-            {{
               $t(
                 '（注）「退院」には、宿泊療養施設から退所した方、自宅療養で陰性化した方を含む'
               )
@@ -71,6 +66,11 @@ export default {
   },
   data() {
     // 検査陽性者の状況
+    Data.main_summary.attr = '検査実施人数'
+    Data.main_summary.value = Data.inspection_persons.datasets[0].data.reduce(
+      (a, b) => a + b,
+      0
+    )
     const confirmedCases = formatConfirmedCases(Data.main_summary)
     const confirmedDetailCases = formatDetailConfirmedCases(Data.main_summary)
 
