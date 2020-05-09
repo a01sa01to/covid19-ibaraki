@@ -49,7 +49,7 @@ for i in range(len(commitMsg)):
 print("LAST COMMIT MESSAGE")
 print(updContent)
 
-status="【 #茨城県 版 #新型コロナウイルス 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。\n#StayHome #家で過ごそう\n\n今までの更新情報\nhttps://twitter.com/i/events/1258960291104088064"
+status="【 #茨城県 版 #新型コロナウイルス 対策サイト 更新情報】\nhttps://ibaraki.stopcovid19.jp/\n"+lastUpdate+"更新\n\n更新内容\n"+updContent+"\n※反映に時間がかかることがあります。\n#StayHome #家で過ごそう"
 
 print("TWEET MESSAGE\n----------\n"+status+"\n----------")
 
