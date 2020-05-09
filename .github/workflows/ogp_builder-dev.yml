@@ -74,7 +74,7 @@ jobs:
     name: Image update for Twitter
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master branch
+      - name: Checkout development branch
         uses: actions/checkout@v2
         with:
           ref: development
