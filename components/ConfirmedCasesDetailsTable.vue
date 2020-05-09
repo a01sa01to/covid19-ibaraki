@@ -2,7 +2,7 @@
   <div>
     <ul :class="$style.container">
       <li style="width: 100%; list-style: none;">
-        <div :class="$style.pillar" style="border: 3px solid #4d4d4d;">
+        <div :class="$style.pillar" style="border-color: #003fab;">
           <div
             :class="$style.content"
             style="min-height: fit-content; display: block;"
