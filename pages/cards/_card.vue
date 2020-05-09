@@ -60,7 +60,7 @@ export default {
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = this.$t('検査陽性者の状況')
-        updatedAt = Data.inspections_summary.date
+        updatedAt = Data.main_summary.children[0].date
         break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
