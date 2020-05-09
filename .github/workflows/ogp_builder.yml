@@ -89,9 +89,7 @@ jobs:
           sudo sh install_dependencies.sh
           cd ..
       - name: Install with pip
-        run: |
-          python -m pip install --upgrade pip
-          pip install selenium
+        run: pip3 install selenium
       - name: Run script
         env:
           TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
