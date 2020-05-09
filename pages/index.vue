@@ -18,12 +18,9 @@
       class="mb-4"
       style="padding: 0.5em 1em; font-size: 0.875rem; color: #006ca8;"
     >
-      <external-link
-        url="https://twitter.com/search?q=%23StayHome%20%23%E5%AE%B6%E3%81%A7%E9%81%8E%E3%81%94%E3%81%9D%E3%81%86%20from%3Aa01sa01to&f=live"
-        >{{
-          $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
-        }}</external-link
-      >
+      <external-link url="https://twitter.com/i/events/1258960291104088064">{{
+        $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
+      }}</external-link>
     </static-card>
     <static-info
       class="mb-4"
