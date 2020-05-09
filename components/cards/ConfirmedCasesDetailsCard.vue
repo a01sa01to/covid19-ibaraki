@@ -80,12 +80,8 @@ export default {
         .replace(/<br \/>/, '')
     })
 
-    let sum = 0
-    confirmedDetailCases.forEach((_) => {
-      sum += _.transition
-    })
     const displayInfo = {
-      lText: sum.toLocaleString(),
+      lText: Data.main_summary.children[0].value.toLocaleString(),
       sText: this.$t('陽性患者数 累計'),
       unit: this.$t('人'),
     }

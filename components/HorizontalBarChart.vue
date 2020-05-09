@@ -37,11 +37,6 @@ type Data = {
 type Methods = {}
 
 type Computed = {
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
   displayData: DisplayDetailData
   displayOption: Chart.ChartOptions
   scaledTicksYAxisMax: number
@@ -99,17 +94,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true,
   }),
   computed: {
-    displayInfo() {
-      let sum = 0
-      this.chartData.forEach((_) => {
-        sum += _.transition
-      })
-      return {
-        lText: sum.toLocaleString(),
-        sText: '陽性患者数 累計',
-        unit: this.unit,
-      }
-    },
     displayData() {
       return {
         labels: [],
