@@ -16,7 +16,7 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-card
       class="mb-4"
-      style="padding: 0.5em 1em; font-size: 0.875rem; color: #006ca8;"
+      style="padding: 0.5em 1em; font-size: 1.4rem; color: #006ca8;"
     >
       <external-link url="https://twitter.com/i/events/1258960291104088064">{{
         $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
