@@ -64,7 +64,8 @@
       height: auto;
       border-bottom: 1px solid $gray-4;
       color: $gray-2;
-      font-size: 12px;
+      @include font-size(12);
+
       &.text-center {
         text-align: center;
       }
@@ -81,7 +82,8 @@
         td {
           padding: 8px 10px;
           height: auto;
-          font-size: 12px;
+          @include font-size(12);
+
           &.text-center {
             text-align: center;
           }
@@ -101,8 +103,8 @@
 }
 .note {
   margin: 8px 0 0;
-  font-size: 12px;
   color: $gray-3;
+  @include font-size(12);
 
   ul,
   ol {

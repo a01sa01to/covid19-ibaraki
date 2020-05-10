@@ -1082,20 +1082,41 @@ export default Vue.extend({
   &-Card {
     @include card-container();
 
-    padding: 1px; // tr:hover で外枠が消えないように
-
     &-Table {
+      width: 100%;
+      border-collapse: collapse;
+
       th {
-        font-size: 14px !important;
+        @include font-size(14, true);
       }
 
-      tr:hover {
-        background: $white !important;
+      td {
+        padding: 0 16px;
+        @include font-size(14);
       }
 
       @include largerThan($medium) {
+        thead tr {
+          height: 48px;
+        }
+
         tbody tr {
           height: 96px;
+        }
+
+        th.tel {
+          width: 35%;
+        }
+        th,
+        tr:not(:last-child) {
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom: thin solid rgba(0, 0, 0, 0.12);
+        }
+
+        tr:last-child {
+          border: none;
         }
       }
 
@@ -1104,37 +1125,39 @@ export default Vue.extend({
           display: none;
         }
 
-        tbody tr {
-          height: auto;
+        tbody {
+          tr {
+            height: auto;
 
-          .pref {
-            font-weight: bold;
-            border-bottom: none !important;
-            padding-top: 12px;
-            padding-bottom: 8px;
+            .pref {
+              font-weight: bold;
+              border-bottom: none !important;
+              padding-top: 12px;
+              padding-bottom: 8px;
+            }
+
+            .site {
+              border-bottom: none !important;
+              margin-bottom: 12px;
+            }
+
+            .admin {
+              display: none;
+            }
+
+            .repo {
+              // padding-bottom: 12px;
+              display: none;
+            }
           }
 
-          .site {
-            border-bottom: none !important;
-            margin-bottom: 12px;
-          }
-
-          .admin {
-            display: none;
-          }
-
-          .repo {
-            // padding-bottom: 12px;
-            display: none;
+          tr:not(:last-child) {
+            border-bottom: thin solid rgba(0, 0, 0, 0.12);
           }
         }
 
         td {
           display: block;
-        }
-
-        tbody td {
-          height: auto;
         }
       }
     }

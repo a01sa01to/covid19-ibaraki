@@ -48,7 +48,6 @@
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
     </card-row>
-    <v-divider />
   </div>
 </template>
 

@@ -21,19 +21,19 @@
       display: inline-block;
       font-family: Hiragino Sans, sans-serif;
       font-style: normal;
-      font-size: 30px;
       line-height: 30px;
+      @include font-size(30);
 
       &-unit {
-        font-size: 0.6em;
+        @include font-size(18);
       }
     }
     &-date {
       white-space: wrap;
       display: inline-block;
-      font-size: 12px;
       line-height: 12px;
       color: $gray-3;
+      @include font-size(12);
     }
   }
 }
@@ -47,17 +47,17 @@ export default Vue.extend({
     lText: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     sText: {
       type: String,
-      required: true
+      required: true,
     },
     unit: {
       type: String,
       required: false,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

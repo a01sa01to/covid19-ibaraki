@@ -12,7 +12,7 @@
       <template v-slot:description>
         <ul>
           <li>
-            {{ $t('（注）医療機関が保険適用で行った検査も含む') }}
+            {{ $t('（注）医療機関等が行った検査も含む') }}
           </li>
           <li>
             {{
@@ -32,7 +32,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChart,
   },
   data() {
     // 感染者数グラフ
@@ -40,9 +40,9 @@ export default {
 
     const data = {
       Data,
-      patientsGraph
+      patientsGraph,
     }
     return data
-  }
+  },
 }
 </script>

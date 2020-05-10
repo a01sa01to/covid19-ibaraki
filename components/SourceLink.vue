@@ -10,7 +10,7 @@
           rel="noopener noreferrer"
         >
           {{ linkString }}
-          <v-icon class="ExternalLinkIcon" size="15">
+          <v-icon class="ExternalLinkIcon" size="1.5rem">
             mdi-open-in-new
           </v-icon>
         </a>
@@ -35,16 +35,16 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     linkString: {
       type: String,
-      default: ''
+      default: '',
     },
     header: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

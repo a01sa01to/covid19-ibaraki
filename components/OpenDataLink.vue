@@ -3,7 +3,7 @@
     {{ $t('県公式サイトで見る') }}
     <v-icon
       class="ExternalLinkIcon"
-      size="15"
+      size="1.5rem"
       :aria-label="this.$t('別タブで開く')"
       role="img"
       :aria-hidden="false"
@@ -28,8 +28,8 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

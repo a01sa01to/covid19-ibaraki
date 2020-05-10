@@ -13,6 +13,7 @@ export default Vue.extend()
 <style lang="scss">
 .StaticCard {
   @include card-container();
+  @include font-size(16);
 
   padding: 20px;
   margin-bottom: 20px;
@@ -45,72 +46,56 @@ export default Vue.extend()
   ol {
     padding-left: 24px;
 
-  dt:not(:first-child) {
-    margin-top: 0.6em;
-  }
-
-  dd {
-    margin-top: 0.6em;
-    margin-left: 2em;
-
-    @include lessThan($medium) {
-      margin-left: 32 / 768 * 100vw;
+    dt:not(:first-child) {
+      margin-top: 0.6em;
     }
-  }
 
-  dd > *:not(:first-child) {
-    margin-top: 0.6em;
-  }
+    dd {
+      margin-top: 0.6em;
+      margin-left: 2em;
 
-  img {
-    max-width: 100%;
-  }
-
-  figcaption {
-    margin-top: 0.6em;
-    color: $gray-2;
-  }
-  strong,
-  em {
-    border-bottom: 2px solid $green-1;
-  }
-
-  em {
-    font-style: normal;
-  }
-
-  a {
-    @include text-link();
-
-    font-size: inherit;
-
-    .ExternalLinkIcon {
-      display: inline-block;
-      color: $link;
-      text-decoration: none;
-      vertical-align: inherit;
-    }
-  }
-
-  /* stylelint-disable no-descending-specificity */
-  &-Note {
-    display: flex;
-
-    > span {
-      display: block;
-
-      &:first-child {
-        margin-right: 0.5em;
+      @include lessThan($medium) {
+        margin-left: 32 / 768 * 100vw;
       }
     }
-  }
 
-  &-Notes {
-    padding-left: 0 !important;
+    dd > *:not(:first-child) {
+      margin-top: 0.6em;
+    }
 
-    > li {
+    img {
+      max-width: 100%;
+    }
+
+    figcaption {
+      margin-top: 0.6em;
+      color: $gray-2;
+    }
+    strong,
+    em {
+      border-bottom: 2px solid $green-1;
+    }
+
+    em {
+      font-style: normal;
+    }
+
+    a {
+      @include text-link();
+
+      font-size: inherit;
+
+      .ExternalLinkIcon {
+        display: inline-block;
+        color: $link;
+        text-decoration: none;
+        vertical-align: inherit;
+      }
+    }
+
+    /* stylelint-disable no-descending-specificity */
+    &-Note {
       display: flex;
-      list-style-type: none;
 
       > span {
         display: block;
@@ -120,7 +105,24 @@ export default Vue.extend()
         }
       }
     }
+
+    &-Notes {
+      padding-left: 0 !important;
+
+      > li {
+        display: flex;
+        list-style-type: none;
+
+        > span {
+          display: block;
+
+          &:first-child {
+            margin-right: 0.5em;
+          }
+        }
+      }
+    }
+    /* stylelint-enable no-descending-specificity */
   }
-  /* stylelint-enable no-descending-specificity */
 }
-}</style>
+</style>
