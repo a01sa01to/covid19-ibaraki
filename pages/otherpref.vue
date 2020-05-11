@@ -373,6 +373,24 @@
               </td>
             </tr>
             <tr>
+              <td class="pref text-center">{{ $t('市川市') }}</td>
+              <td class="site text-center">
+                <a
+                  href="https://stopcovid19-ichikawa.netlify.app/"
+                  target="_blank"
+                  >https://stopcovid19-ichikawa.netlify.app/</a
+                >
+              </td>
+              <td class="admin text-center">{{ $t('個人（学生）') }}</td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/Meiryo7743/covid19-ichikawa"
+                  target="_blank"
+                  >Meiryo7743/covid19-ichikawa</a
+                >
+              </td>
+            </tr>
+            <tr>
               <td class="pref text-center">{{ $t('東京都') }}</td>
               <td class="site text-center">
                 <a href="https://stopcovid19.metro.tokyo.lg.jp" target="_blank"

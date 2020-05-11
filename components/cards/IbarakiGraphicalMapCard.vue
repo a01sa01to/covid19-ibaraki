@@ -9,8 +9,8 @@
         <p :class="$style.note">
           {{ $t('（注）退院している人数を含む') }}
         </p>
-        <p>{{ $t('凡例（単位は人）') }}</p>
-        <table>
+        <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
+        <table :class="$style.note2">
           <tbody>
             <tr>
               <td><span class="color-test infected-level1" />1-5</td>
@@ -82,10 +82,15 @@ export default {
 
 <style lang="scss" module>
 .note {
+  @include font-size(12);
+
   margin-top: 10px;
   margin-bottom: 0;
-  font-size: 12px;
   color: $gray-3;
+
+  &2 {
+    @include font-size(14);
+  }
 }
 </style>
 <!-- 本来ならばSVGをinline展開してそこに限定してcssを適用するべきだが、inline展開ができなかったため妥協 -->

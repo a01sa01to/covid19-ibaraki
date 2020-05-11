@@ -43,6 +43,8 @@
       <ibaraki-city-map-card />
       <!-- 区市町村別マップ表示 -->
       <ibaraki-graphical-map-card />
+    </card-row>
+    <card-row class="DataBlock">
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
