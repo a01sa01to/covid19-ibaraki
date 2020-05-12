@@ -24,7 +24,7 @@ import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
-    DataTable
+    DataTable,
   },
   data() {
     // 感染者数グラフ
@@ -37,30 +37,35 @@ export default {
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
       sText: this.$t('{date}の累計', {
-        date: patientsGraph[patientsGraph.length - 1].label
+        date: patientsGraph[patientsGraph.length - 1].label,
       }),
-      unit: this.$t('人')
+      unit: this.$t('人'),
     }
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      switch(header.value){
-        case '退院': header.text = this.$t('退院'); break;
-        case 'num': header.text = this.$t('例目'); break;
-        default: header.text = this.$t(header.value)
+      switch (header.value) {
+        case '陰性化確認':
+          header.text = this.$t('陰性化確認')
+          break
+        case 'num':
+          header.text = this.$t('例目')
+          break
+        default:
+          header.text = this.$t(header.value)
       }
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
+      row['陰性化確認'] = this.getTranslatedWording(row['陰性化確認'])
 
       if (row['年代'].substr(-1, 1) === '代') {
         const age = row['年代'].substring(0, 2)
         row['年代'] = this.$t('{age}代', { age })
       } else if (row['年代'].substr(-1, 1) === '歳') {
-        const age = String(Number(row['年代'].substring(0, 2)))  // 0歳対策
+        const age = String(Number(row['年代'].substring(0, 2))) // 0歳対策
         row['年代'] = this.$t('{age}歳', { age })
       } else if (row['年代'] === '不明') {
         row['年代'] = this.$t('不明')
@@ -72,7 +77,7 @@ export default {
     const data = {
       Data,
       patientsTable,
-      sumInfoOfPatients
+      sumInfoOfPatients,
     }
     return data
   },
@@ -104,9 +109,15 @@ export default {
 
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (index[0] === '年代' && (a[index[0]] === lt10 || b[index[0]] === lt10)) {
+        if (
+          index[0] === '年代' &&
+          (a[index[0]] === lt10 || b[index[0]] === lt10)
+        ) {
           comparison = a[index[0]] === lt10 ? -1 : 1
-        } else if (index[0] === '年代' && (a[index[0]] === lt100 || b[index[0]] === lt100)) {
+        } else if (
+          index[0] === '年代' &&
+          (a[index[0]] === lt100 || b[index[0]] === lt100)
+        ) {
           comparison = a[index[0]] === lt100 ? 1 : -1
         } else if (index[0] === '例目') {
           comparison = Number(a[index[0]]) < Number(b[index[0]]) ? -1 : 1
@@ -120,10 +131,10 @@ export default {
           // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
           // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
 
-          const aDate = a[index[0]].split('/').map(d => {
+          const aDate = a[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
-          const bDate = b[index[0]].split('/').map(d => {
+          const bDate = b[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
           comparison = aDate[1] > bDate[1] ? 1 : -1
@@ -151,7 +162,7 @@ export default {
         return isDesc[0] ? comparison * -1 : comparison
       })
       return items
-    }
-  }
+    },
+  },
 }
 </script>

@@ -20,19 +20,18 @@
           <tr v-for="item in items" :key="item.text">
             <td class="text-start">{{ item['発生数'] }}</td>
             <td class="text-start">{{ item['市町村'] }}</td>
-            <td class="text-start">{{ item['入院者数'] }}</td>
-            <td class="text-start">{{ item['退院者数'] }}</td>
+            <td class="text-start">{{ item['現在療養中'] }}</td>
+            <td class="text-start">{{ item['陰性化確認者数'] }}</td>
           </tr>
         </tbody>
       </template>
     </v-data-table>
     <div class="note">
-      {{ $t('※') }}{{ $t('発生数') }} = {{ $t('入院者数') }} +
-      {{ $t('退院者数') }}<br />
-      {{ $t('※') }}{{ $t('入院者数には、入院予定の患者を含む') }}<br />
+      {{ $t('※') }}{{ $t('発生数') }} = {{ $t('現在療養中') }} +
+      {{ $t('陰性化確認者数') }}<br />
       {{
         $t(
-          '※「退院」には、宿泊療養施設から退所した方、自宅療養で陰性化した方を含む'
+          '※「陰性化確認」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
         )
       }}
     </div>

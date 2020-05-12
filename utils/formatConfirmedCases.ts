@@ -25,7 +25,7 @@ type DataType = {
           // ]
         },
         {
-          attr: '退院'
+          attr: '陰性化確認'
           value: number
         },
         {
@@ -45,7 +45,7 @@ type ConfirmedCasesType = {
   // 中等症: number
   // 重症: number
   死亡: number
-  退院: number
+  陰性化確認: number
 }
 
 /**
@@ -62,7 +62,7 @@ export default (data: DataType) => {
     // 中等症: data.children[0].children[0].children[1].value,
     // 重症: data.children[0].children[0].children[2].value,
     死亡: data.children[0].children[2].value,
-    退院: data.children[0].children[1].value,
+    陰性化確認: data.children[0].children[1].value,
   }
   return formattedData
 }

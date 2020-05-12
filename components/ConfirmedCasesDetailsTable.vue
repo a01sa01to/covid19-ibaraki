@@ -94,9 +94,9 @@
           <li :class="[$style.box, $style.recovered]">
             <div :class="$style.pillar">
               <div :class="$style.content">
-                <span>{{ $t('退院') }}</span>
+                <span>{{ $t('陰性化確認') }}</span>
                 <span>
-                  <strong>{{ 退院.toLocaleString() }}</strong>
+                  <strong>{{ 陰性化確認.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    退院: {
+    陰性化確認: {
       type: Number,
       required: true,
     },

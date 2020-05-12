@@ -39,26 +39,26 @@ export default {
       if (flt.length === 0) {
         patientsTable.cityDataset.push({
           市町村: row.居住地,
-          入院者数: row.退院 !== '◯' ? 1 : 0,
-          退院者数: row.退院 === '◯' ? 1 : 0,
+          現在療養中: row.陰性化確認 !== '◯' ? 1 : 0,
+          陰性化確認者数: row.陰性化確認 === '◯' ? 1 : 0,
           発生数: 1,
         })
       } else {
         const idx = patientsTable.cityDataset.indexOf(flt[0])
         patientsTable.cityDataset[idx].発生数++
-        row.退院 === '◯'
-          ? patientsTable.cityDataset[idx].退院者数++
-          : patientsTable.cityDataset[idx].入院者数++
+        row.陰性化確認 === '◯'
+          ? patientsTable.cityDataset[idx].陰性化確認者数++
+          : patientsTable.cityDataset[idx].現在療養中++
       }
     }
 
     patientsTable.cityDataset.sort((a, b) => {
-      // 発生数が同じなら入院者数で比較
+      // 発生数が同じなら現在療養中で比較
       if (a.発生数 === b.発生数) {
-        if (a.入院者数 === b.入院者数) {
+        if (a.現在療養中 === b.現在療養中) {
           return 0
         }
-        return a.入院者数 < b.入院者数 ? 1 : -1
+        return a.現在療養中 < b.現在療養中 ? 1 : -1
       }
       return a.発生数 < b.発生数 ? 1 : -1
     })
