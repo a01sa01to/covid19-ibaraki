@@ -3,7 +3,7 @@
     <page-header class="mb-3">
       {{ $t('当プロジェクトをお手伝いいただける方へ') }}
     </page-header>
-	  <p>{{ $t('当サイトの更新作業を手伝っていただけると幸いです。') }}</p>
+    <p>{{ $t('当サイトの更新作業を手伝っていただけると幸いです。') }}</p>
     <StaticCard>
       <h3>{{ $t('プログラム面について') }}</h3>
       <i18n path="当プロジェクトは、{githubRepo}にて公開しております。">
@@ -15,14 +15,18 @@
           >
             GitHub
           </a>
-        </template>
-      </i18n><br>
-      {{ $t('当サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。') }}<br />
+        </template> </i18n
+      ><br />
+      {{
+        $t(
+          '当サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。'
+        )
+      }}<br />
       <br />
       <i18n path="詳しくは、{forDev}をご確認ください。">
         <template v-slot:forDev>
           <a
-            href="https://github.com/a01sa01to/covid19-ibaraki/blob/development/DEVELOPERS.md"
+            href="https://github.com/a01sa01to/covid19-ibaraki/blob/development/FOR_DEVELOPERS.md"
             target="_blank"
             rel="noopener"
           >
@@ -33,12 +37,13 @@
     </StaticCard>
     <StaticCard>
       <h3>{{ $t('翻訳について') }}</h3>
+      {{ $t('Transifexというサービスを利用して、翻訳作業を行っております。')
+      }}<br />
       {{
         $t(
-          'Transifexというサービスを利用して、翻訳作業を行っております。'
+          '翻訳する際に、アカウント登録が必要になりますが、お手伝いいただけるとうれしいです。'
         )
-      }}<br />
-      {{ $t('翻訳する際に、アカウント登録が必要になりますが、お手伝いいただけるとうれしいです。') }}
+      }}
       <br />
       <i18n path="詳しくは、{transifex}をご確認ください。">
         <template v-slot:transifex>
@@ -62,7 +67,7 @@
             target="_blank"
             rel="noopener"
           >
-          Twitter DM
+            Twitter DM
           </a>
         </template>
       </i18n>
@@ -79,12 +84,12 @@ import StaticCard from '@/components/StaticCard.vue'
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard
+    StaticCard,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('当プロジェクトをお手伝いいただける方へ') as string
+      title: this.$t('当プロジェクトをお手伝いいただける方へ') as string,
     }
-  }
+  },
 })
 </script>
