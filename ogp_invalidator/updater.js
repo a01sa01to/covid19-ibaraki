@@ -4,6 +4,9 @@ const HOST = [
   'https://ibaraki.stopcovid19.jp/',
   'https://covid19-ibk-dev.netlify.app/',
 ]
+
+const LANGS = ['ja', 'en', 'ja-basic']
+
 const PATHS = [
   '',
   'cards/details-of-confirmed-cases',
@@ -21,14 +24,17 @@ const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
 ;(async () => {
   for (const host of HOST) {
-    for (const path of PATHS) {
-      document.querySelector('input.FormControl').value = host + path
-      document.querySelector('input.Button').click()
-      await sleep(10000) // 10s待つ
+    for (const lang of LANGS) {
+      for (const path of PATHS) {
+        document.querySelector('input.FormControl').value =
+          host + (lang === 'ja' ? '' : lang + '/') + path
+        document.querySelector('input.Button').click()
+        await sleep(10000) // 10s待つ
+      }
     }
   }
   document.querySelector('input.FormControl').value = ''
   alert('処理が終了しました')
 })()
 
-// 処理が完了するまでに HOST(2) x PATHS(10) x TIME(10s) = 200s かかります
+// 処理が完了するまでに HOST(2) x LANG(3) x PATHS(10) x TIME(10s) = 600s かかります
