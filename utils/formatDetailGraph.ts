@@ -45,7 +45,7 @@ type ConfirmedCasesType = {
   // 中等症: number
   // 重症: number
   死亡: number
-  回復: number
+  回復済: number
 }
 
 export type GraphDataType = {
@@ -69,7 +69,7 @@ export default (data: DataType) => {
     // 中等症: data.children[0].children[0].children[1].value,
     // 重症: data.children[0].children[0].children[1].value,
     死亡: data.children[0].children[2].value,
-    回復: data.children[0].children[1].value,
+    回復済: data.children[0].children[1].value,
   }
   const graphData: GraphDataType[] = []
 
@@ -80,7 +80,7 @@ export default (data: DataType) => {
         ? formattedData.療養中
         : _ === '死亡'
         ? formattedData.死亡
-        : formattedData.回復
+        : formattedData.回復済
     const cl = _ === '療養中' ? '#6e86d3' : _ === '死亡' ? '#99a8e0' : '#c2caec'
     graphData.push({
       label: lbl,

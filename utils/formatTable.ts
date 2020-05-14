@@ -6,7 +6,7 @@ const headers = [
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
   { text: '性別', value: '性別' },
-  { text: '回復※', value: '回復済', align: 'center' },
+  { text: '回復済※', value: '回復済', align: 'center' },
 ]
 
 type DataType = {
@@ -15,7 +15,7 @@ type DataType = {
   居住地: string | null
   年代: string | null
   性別: '男性' | '女性' | string
-  回復: '◯' | null
+  回復済: '◯' | null
   [key: string]: any
 }
 
@@ -25,7 +25,7 @@ type TableDataType = {
   居住地: DataType['居住地']
   年代: DataType['年代']
   性別: DataType['性別'] | '不明'
-  回復: DataType['回復済']
+  回復済: DataType['回復済']
 }
 
 type CityTableType = {
@@ -67,7 +67,7 @@ export default (data: DataType[]) => {
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
-      回復: d['回復済'],
+      回復済: d['回復済'],
     }
     tableDate.datasets.push(TableRow)
   })

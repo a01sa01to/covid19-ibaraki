@@ -96,7 +96,7 @@
               <div :class="$style.content">
                 <span>{{ $t('回復済') }}</span>
                 <span>
-                  <strong>{{ 回復.toLocaleString() }}</strong>
+                  <strong>{{ 回復済.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    回復: {
+    回復済: {
       type: Number,
       required: true,
     },
