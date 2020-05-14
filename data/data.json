@@ -300,7 +300,7 @@
         "date": "2020\/05\/14 18:00",
         "attr": "陽性者数", "value": 168,
         "children": [
-          {"attr": "入院中", "value": 50,
+          {"attr": "入院中", "value": 49,
             "children (Not-Used)": [
               {"attr": "軽症", "value": 27},
               {"attr": "中等症","value": 18},
