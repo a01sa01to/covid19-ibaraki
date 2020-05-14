@@ -82,6 +82,10 @@ export default {
         title = this.$t('市町村毎の感染状況')
         updatedAt = Data.patients.date
         break
+      case 'ibaraki-city-map-table':
+        title = this.$t('市町村毎の感染状況(地図)')
+        updatedAt = Data.patients.date
+        break
       case 'number-of-discharges':
         title = this.$t('回復者数')
         updatedAt = Data.discharges_summary.date
