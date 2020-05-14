@@ -23,7 +23,7 @@
             <td class="text-start">{{ item['居住地'] }}</td>
             <td class="text-start">{{ item['年代'] }}</td>
             <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['陰性化確認'] }}</td>
+            <td class="text-center">{{ item['回復済'] }}</td>
           </tr>
         </tbody>
       </template>
@@ -33,7 +33,7 @@
         <li>
           {{
             $t(
-              '※「陰性化確認」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
+              '※「回復」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
             )
           }}
         </li>

@@ -21,17 +21,17 @@
             <td class="text-start">{{ item['発生数'] }}</td>
             <td class="text-start">{{ item['市町村'] }}</td>
             <td class="text-start">{{ item['現在療養中'] }}</td>
-            <td class="text-start">{{ item['陰性化確認者数'] }}</td>
+            <td class="text-start">{{ item['回復者数'] }}</td>
           </tr>
         </tbody>
       </template>
     </v-data-table>
     <div class="note">
       {{ $t('※') }}{{ $t('発生数') }} = {{ $t('現在療養中') }} +
-      {{ $t('陰性化確認者数') }}<br />
+      {{ $t('回復者数') }}<br />
       {{
         $t(
-          '※「陰性化確認」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
+          '※「回復」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
         )
       }}
     </div>

@@ -35,7 +35,7 @@
       <confirmed-cases-number-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
-      <!-- 陰性化確認者数 -->
+      <!-- 回復者数 -->
       <discharges-card />
       <!-- 死亡者数 -->
       <deaths-card />

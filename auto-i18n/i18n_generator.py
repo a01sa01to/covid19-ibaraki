@@ -143,8 +143,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(patients["年代"])
                                 # 性別を取得
                                 tags.append(patients["性別"])
-                                # 陰性化確認を取得
-                                tags.append(patients["陰性化確認"])
+                                # 回復済を取得
+                                tags.append(patients["回復済"])
 
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
@@ -230,7 +230,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         #     result.write(",".join(["TAG_CHANGE", str(ja_tag) + " to " + str(tentative_tag)]) + '\n')
         #     warn_count += 1
         elif not ja_tag:
-            print("Nothing to add.");
+            print("Nothing to add.")
         if ja_tag:
             ja_json_keys.pop(ja_json_keys.index(key))
 

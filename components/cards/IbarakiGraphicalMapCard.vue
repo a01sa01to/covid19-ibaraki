@@ -7,7 +7,7 @@
     >
       <template v-slot:button>
         <p :class="$style.note">
-          {{ $t('（注）陰性化確認している人数を含む') }}
+          {{ $t('（注）回復している人数を含む') }}
         </p>
         <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
         <table :class="$style.note2">

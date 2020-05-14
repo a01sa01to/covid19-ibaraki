@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('陰性化確認者数')"
+      :title="$t('回復者数')"
       :title-id="'number-of-discharges'"
       :chart-id="'time-bar-chart-discharges'"
       :chart-data="dischargesGraph"
@@ -14,14 +14,14 @@
           <li>
             {{
               $t(
-                '（注）「陰性化確認」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
+                '（注）「回復」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '（注）陰性化確認者数の把握には一定の期間を要しており、確認次第数値を更新している'
+                '（注）回復者数の把握には一定の期間を要しており、確認次第数値を更新している'
               )
             }}
           </li>

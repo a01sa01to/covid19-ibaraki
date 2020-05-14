@@ -45,8 +45,8 @@ export default {
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
       switch (header.value) {
-        case '陰性化確認':
-          header.text = this.$t('陰性化確認')
+        case '回復済':
+          header.text = this.$t('回復済')
           break
         case 'num':
           header.text = this.$t('例目')
@@ -59,7 +59,7 @@ export default {
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
-      row['陰性化確認'] = this.getTranslatedWording(row['陰性化確認'])
+      row['回復済'] = this.getTranslatedWording(row['回復済'])
 
       if (row['年代'].substr(-1, 1) === '代') {
         const age = row['年代'].substring(0, 2)

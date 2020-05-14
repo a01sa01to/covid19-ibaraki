@@ -1145,6 +1145,8 @@ export default Vue.extend({
 
         tbody {
           tr {
+            @include font-size(14);
+
             height: auto;
 
             .pref {
