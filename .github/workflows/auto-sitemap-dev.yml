@@ -1,0 +1,59 @@
+name: Sitemap Builder
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Checkout development branch
+        uses: actions/checkout@v2
+        with:
+          ref: development
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Run Script
+        run: |
+          cd workflow_tools/auto-sitemap
+          python sitemap_generator.py
+          cd ../..
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v1
+        with:
+          name: sitemap
+          path: sitemap
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+      - name: Download Sitemap
+        uses: actions/download-artifact@v1
+        with:
+          name: sitemap
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add sitemap
+          git commit -m "Add Sitemap changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: development
