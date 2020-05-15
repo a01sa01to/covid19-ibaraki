@@ -41,8 +41,8 @@
             <tr>
               <td class="pref text-center">{{ $t('全国') }}</td>
               <td class="site text-center">
-                <a href="https://covid19.wlaboratory.com" target="_blank"
-                  >https://covid19.wlaboratory.com</a
+                <a href="https://covid19.wlaboratory.com/" target="_blank"
+                  >https://covid19.wlaboratory.com/</a
                 >
               </td>
               <td class="admin text-center">{{ $t('個人') }}</td>
@@ -74,8 +74,8 @@
             <tr>
               <td class="pref text-center">{{ $t('青森県') }}</td>
               <td class="site text-center">
-                <a href="https://covid19.codeforaomori.org" target="_blank"
-                  >https://covid19.codeforaomori.org</a
+                <a href="https://covid19.codeforaomori.org/" target="_blank"
+                  >https://covid19.codeforaomori.org/</a
                 >
               </td>
               <td class="admin text-center">Code for Aomori</td>
@@ -189,9 +189,9 @@
               <td class="pref text-center">{{ $t('福島県') }}</td>
               <td class="site text-center">
                 <a
-                  href="https://fukushima-covid19.firebaseapp.com"
+                  href="https://fukushima-covid19.firebaseapp.com/"
                   target="_blank"
-                  >https://fukushima-covid19.firebaseapp.com</a
+                  >https://fukushima-covid19.firebaseapp.com/</a
                 >
               </td>
               <td class="admin text-center">GDG Fukushima</td>
@@ -393,8 +393,8 @@
             <tr>
               <td class="pref text-center">{{ $t('東京都') }}</td>
               <td class="site text-center">
-                <a href="https://stopcovid19.metro.tokyo.lg.jp" target="_blank"
-                  >https://stopcovid19.metro.tokyo.lg.jp</a
+                <a href="https://stopcovid19.metro.tokyo.lg.jp/" target="_blank"
+                  >https://stopcovid19.metro.tokyo.lg.jp/</a
                 >
               </td>
               <td class="admin text-center">
@@ -464,9 +464,9 @@
               <td class="pref text-center">{{ $t('新潟県') }}</td>
               <td class="site text-center">
                 <a
-                  href="https://stopcovid19-niigata-unofficial.netlify.app"
+                  href="https://stopcovid19-niigata-unofficial.netlify.app/"
                   target="_blank"
-                  >https://stopcovid19-niigata-unofficial.netlify.app</a
+                  >https://stopcovid19-niigata-unofficial.netlify.app/</a
                 >
               </td>
               <td class="admin text-center">air-h-128k-il</td>
@@ -601,9 +601,9 @@
               <td class="pref text-center">{{ $t('静岡市') }}</td>
               <td class="site text-center">
                 <a
-                  href="https://stopcovid19.city.shizuoka.lg.jp"
+                  href="https://stopcovid19.city.shizuoka.lg.jp/"
                   target="_blank"
-                  >https://stopcovid19.city.shizuoka.lg.jp</a
+                  >https://stopcovid19.city.shizuoka.lg.jp/</a
                 >
               </td>
               <td class="admin text-center">
@@ -825,8 +825,8 @@
             <tr>
               <td class="pref text-center">{{ $t('山口県') }}</td>
               <td class="site text-center">
-                <a href="https://covid19-yamaguchi.netlify.app" target="_blank"
-                  >https://covid19-yamaguchi.netlify.app</a
+                <a href="https://covid19-yamaguchi.netlify.app/" target="_blank"
+                  >https://covid19-yamaguchi.netlify.app/</a
                 >
               </td>
               <td class="admin text-center">{{ $t('有志') }}</td>
@@ -887,8 +887,8 @@
             <tr>
               <td class="pref text-center">{{ $t('高知県') }}</td>
               <td class="site text-center">
-                <a href="https://covid19-kochi.netlify.app" target="_blank"
-                  >https://covid19-kochi.netlify.app</a
+                <a href="https://covid19-kochi.netlify.app/" target="_blank"
+                  >https://covid19-kochi.netlify.app/</a
                 >
               </td>
               <td class="admin text-center">
@@ -899,8 +899,10 @@
             <tr>
               <td class="pref text-center">{{ $t('九州') }}</td>
               <td class="site text-center">
-                <a href="https://dev-covid19-kyusyu.netlify.app" target="_blank"
-                  >https://dev-covid19-kyusyu.netlify.app</a
+                <a
+                  href="https://dev-covid19-kyusyu.netlify.app/"
+                  target="_blank"
+                  >https://dev-covid19-kyusyu.netlify.app/</a
                 >
               </td>
               <td class="admin text-center">
@@ -1108,7 +1110,7 @@ export default Vue.extend({
         @include font-size(14, true);
       }
 
-      td {
+      tr td {
         padding: 0 16px;
         @include font-size(14);
       }
@@ -1145,8 +1147,6 @@ export default Vue.extend({
 
         tbody {
           tr {
-            @include font-size(14);
-
             height: auto;
 
             .pref {
