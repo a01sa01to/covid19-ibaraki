@@ -127,7 +127,7 @@ export default Vue.extend({
             convertDateToSimpleFormat(Data.lastUpdate) +
             ' 更新：　' +
             this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。'
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
             ),
         },
         {
@@ -169,7 +169,7 @@ export default Vue.extend({
             convertDateToSimpleFormat(Data.lastUpdate) +
             ' 更新：　' +
             this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものを、茨城県向けに改変したものです。'
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
             ),
         },
         {
