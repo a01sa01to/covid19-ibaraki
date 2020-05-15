@@ -1,4 +1,4 @@
-name: Sitemap Builder
+name: Sitemap Builder (Dev)
 
 on:
   push:
