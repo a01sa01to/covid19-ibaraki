@@ -16,7 +16,7 @@ const PATHS = [
   'cards/number-of-inspection-persons',
   'cards/ibaraki-city-table',
   'cards/ibaraki-city-map-table',
-  'cards/number-of-discharges',
+  'cards/number-of-recovered',
   'cards/number-of-deaths',
 ]
 

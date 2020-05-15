@@ -2,10 +2,10 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('回復者数')"
-      :title-id="'number-of-discharges'"
-      :chart-id="'time-bar-chart-discharges'"
-      :chart-data="dischargesGraph"
-      :date="Data.discharges_summary.date"
+      :title-id="'number-of-recovered'"
+      :chart-id="'time-bar-chart-recovered'"
+      :chart-data="recoveredGraph"
+      :date="Data.recovered_summary.date"
       :unit="$t('人')"
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/taiin.html'"
     >
@@ -41,11 +41,11 @@ export default {
     TimeBarChart,
   },
   data() {
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
+    const recoveredGraph = formatGraph(Data.recovered_summary.data)
 
     const data = {
       Data,
-      dischargesGraph,
+      recoveredGraph,
     }
     return data
   },

@@ -24,8 +24,8 @@
     <ibaraki-city-map-card
       v-else-if="this.$route.params.card == 'ibaraki-city-map-table'"
     />
-    <discharges-card
-      v-else-if="this.$route.params.card == 'number-of-discharges'"
+    <recovered-card
+      v-else-if="this.$route.params.card == 'number-of-recovered'"
     />
     <deaths-card v-else-if="this.$route.params.card == 'number-of-deaths'" />
   </div>
@@ -40,7 +40,7 @@ import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import DischargesCard from '@/components/cards/DischargesCard.vue'
+import RecoveredCard from '@/components/cards/recoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 
 export default {
@@ -52,7 +52,7 @@ export default {
     IbarakiCityMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    DischargesCard,
+    RecoveredCard,
     DeathsCard,
   },
   data() {
@@ -86,9 +86,9 @@ export default {
         title = this.$t('市町村毎の感染状況(地図)')
         updatedAt = Data.patients.date
         break
-      case 'number-of-discharges':
+      case 'number-of-recovered':
         title = this.$t('回復者数')
-        updatedAt = Data.discharges_summary.date
+        updatedAt = Data.recovered_summary.date
         break
       case 'number-of-deaths':
         title = this.$t('死亡者数')

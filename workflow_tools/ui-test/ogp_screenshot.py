@@ -14,7 +14,7 @@ PATHS = {
   "/cards/number-of-inspection-persons": (959, 667),
   "/cards/ibaraki-city-table": (959,465),
   "/cards/ibaraki-city-map-table": (959,900),
-  "/cards/number-of-discharges": (959,613),
+  "/cards/number-of-recovered": (959,613),
   "/cards/number-of-deaths": (959,613)
 }
 

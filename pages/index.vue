@@ -36,7 +36,7 @@
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 回復者数 -->
-      <discharges-card />
+      <recovered-card />
       <!-- 死亡者数 -->
       <deaths-card />
       <!-- 区市町村別患者数 -->
@@ -70,7 +70,7 @@ import IbarakiCityMapCard from '@/components/cards/IbarakiCityMapCard.vue'
 import IbarakiGraphicalMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import DischargesCard from '@/components/cards/DischargesCard.vue'
+import RecoveredCard from '@/components/cards/recoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ExternalLink from '@/components/ExternalLink.vue'
@@ -88,7 +88,7 @@ export default Vue.extend({
     IbarakiGraphicalMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    DischargesCard,
+    RecoveredCard,
     DeathsCard,
     ExternalLink,
     StaticCard,
