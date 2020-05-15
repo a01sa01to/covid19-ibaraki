@@ -8,7 +8,7 @@ consumer_secret=os.environ['API_SECRET'],
 token=os.environ['ACCESS_TOKEN'],
 token_secret=os.environ['ACCESS_SECRET'])
 
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
+CHECK_DIR = ["data"]
 ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
 lastUpdate = ""
@@ -16,7 +16,7 @@ lastUpdate = ""
 t = twitter.Twitter(auth=auth)
 
 for cdir in CHECK_DIR:
-  cdir = os.path.join(os.pardir, cdir)
+  cdir = os.path.join(os.pardir, os.pardir, cdir)
 
   json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
   # 各jsonファイルについて処理
