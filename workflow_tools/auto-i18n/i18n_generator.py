@@ -56,7 +56,7 @@ file_count = 0
 # 作られたjson
 made_json = {}
 
-with open(os.path.join(os.pardir, os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=ENCODING) as result, \
+with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=ENCODING) as result, \
         open(JA_JSON_PATH, mode="r", encoding=ENCODING) as ja_file:
     # ディレクトリ毎にチェック
     for cdir in CHECK_DIR:
