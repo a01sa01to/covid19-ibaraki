@@ -30,6 +30,6 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           MSG: ${{ toJson(github.event.commits) }}
         run: |
-          cd auto-tweet
+          cd workflow_tools/auto-tweet
           python tweet.py
-          cd ..
+          cd ../..

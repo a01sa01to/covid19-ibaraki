@@ -5,7 +5,7 @@ on:
     branches:
       - development
     paths-ignore:
-      - 'auto-i18n/result.csv'
+      - 'workflow_tools/auto-i18n/result.csv'
 
 jobs:
   deploy:
