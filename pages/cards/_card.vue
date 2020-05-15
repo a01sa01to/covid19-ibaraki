@@ -40,7 +40,7 @@ import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import RecoveredCard from '@/components/cards/recoveredCard.vue'
+import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 
 export default {
