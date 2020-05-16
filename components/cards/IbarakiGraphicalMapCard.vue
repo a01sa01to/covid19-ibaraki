@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :title="$t('市町村毎の感染状況(地図)')"
+      :title="$t('市町村毎の感染状況（地図）')"
       :title-id="'ibaraki-city-map-table'"
       :date="Data.patients.date"
     >
