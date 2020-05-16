@@ -33,7 +33,7 @@ PATHS = {
   "/cards/ibaraki-city-map-table": data_json["patients"]["date"],
   "/cards/number-of-recovered": data_json["recovered_summary"]["date"],
   "/cards/number-of-deaths": data_json["deaths_summary"]["date"],
-  "/cards/ibaraki-colona-next": data_json["ibaraki_colona_next"]["date"],
+  "/cards/ibaraki-colona-next": data_json["ibk_colona_next"]["date"],
   "/about": "2020/05/15 18:00",
   "/contacts": "2020/05/15 18:00",
   "/flow": "2020/05/15 18:00",
