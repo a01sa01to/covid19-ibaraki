@@ -28,6 +28,9 @@
       v-else-if="this.$route.params.card == 'number-of-recovered'"
     />
     <deaths-card v-else-if="this.$route.params.card == 'number-of-deaths'" />
+    <ibaraki-colona-next
+      v-else-if="this.$route.params.card == 'ibaraki-colona-next'"
+    />
   </div>
 </template>
 
@@ -42,6 +45,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
+import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
 
 export default {
   components: {
@@ -54,6 +58,7 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
+    IbarakiColonaNext,
   },
   data() {
     let title, updatedAt
@@ -83,7 +88,7 @@ export default {
         updatedAt = Data.patients.date
         break
       case 'ibaraki-city-map-table':
-        title = this.$t('市町村毎の感染状況(地図)')
+        title = this.$t('市町村毎の感染状況（地図）')
         updatedAt = Data.patients.date
         break
       case 'number-of-recovered':
@@ -92,6 +97,10 @@ export default {
         break
       case 'number-of-deaths':
         title = this.$t('死亡者数')
+        updatedAt = Data.deaths_summary.date
+        break
+      case 'ibaraki-colona-next':
+        title = this.$t('茨城版コロナNext')
         updatedAt = Data.deaths_summary.date
         break
     }

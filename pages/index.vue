@@ -39,10 +39,12 @@
       <recovered-card />
       <!-- 死亡者数 -->
       <deaths-card />
-      <!-- 区市町村別患者数 -->
+      <!-- 市町村別患者数 -->
       <ibaraki-city-map-card />
-      <!-- 区市町村別マップ表示 -->
+      <!-- 市町村別マップ表示 -->
       <ibaraki-graphical-map-card />
+      <!-- 茨城コロナNext -->
+      <ibaraki-colona-next />
     </card-row>
     <card-row class="DataBlock">
       <!-- 検査実施人数 -->
@@ -72,6 +74,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
+import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ExternalLink from '@/components/ExternalLink.vue'
 
@@ -90,6 +93,7 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
+    IbarakiColonaNext,
     ExternalLink,
     StaticCard,
   },

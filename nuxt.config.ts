@@ -166,6 +166,7 @@ const config: Configuration = {
         '/cards/ibaraki-city-map-table',
         '/cards/number-of-recovered',
         '/cards/number-of-deaths',
+        '/cards/ibaraki-colona-next',
       ]
 
       const routes: string[] = []
