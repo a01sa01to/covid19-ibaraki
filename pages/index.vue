@@ -43,6 +43,8 @@
       <ibaraki-city-map-card />
       <!-- 市町村別マップ表示 -->
       <ibaraki-graphical-map-card />
+      <!-- 検査陽性率 -->
+      <positive-rate-card />
       <!-- 茨城コロナNext -->
       <ibaraki-colona-next />
     </card-row>
@@ -75,6 +77,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
+import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ExternalLink from '@/components/ExternalLink.vue'
 
@@ -94,6 +97,7 @@ export default Vue.extend({
     RecoveredCard,
     DeathsCard,
     IbarakiColonaNext,
+    PositiveRateCard,
     ExternalLink,
     StaticCard,
   },

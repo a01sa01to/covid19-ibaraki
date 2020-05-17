@@ -31,11 +31,15 @@
     <ibaraki-colona-next
       v-else-if="this.$route.params.card == 'ibaraki-colona-next'"
     />
+    <positive-rate-card
+      v-else-if="this.$route.params.card == 'positive-rate'"
+    />
   </div>
 </template>
 
 <script>
 import Data from '@/data/data.json'
+import PositiveRate from '@/data/positive_rate.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -46,9 +50,11 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
+import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 
 export default {
   components: {
+    PositiveRateCard,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
@@ -102,6 +108,10 @@ export default {
       case 'ibaraki-colona-next':
         title = this.$t('茨城版コロナNext')
         updatedAt = Data.deaths_summary.date
+        break
+      case 'positive-rate':
+        title = this.$t('検査実施人数と陽性率の推移')
+        updatedAt = PositiveRate.date
         break
     }
 
