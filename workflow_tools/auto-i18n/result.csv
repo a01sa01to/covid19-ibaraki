@@ -528,3 +528,7 @@ TAG_ADD,陽性率
 TAG_ADD,検査実施人数と陽性率の推移
 TAG_ADD,{date}の陽性率
 TAG_ADD,（注）陽性率：陽性判明数／（陽性判明数＋陰性判明数）
+RUN,2020/05/17 08:33
+TAG_REMOVE,ご家庭でのマスク等の捨て方に関すること
+TAG_REMOVE,Code for Kitakyushu
+TAG_REMOVE,環境局
