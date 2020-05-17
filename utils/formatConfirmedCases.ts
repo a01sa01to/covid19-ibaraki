@@ -3,7 +3,7 @@ type DataType = {
   value: number
   children: [
     {
-      attr: '陽性患者数'
+      attr: '陽性者数'
       value: number
       children: [
         {
@@ -85,7 +85,7 @@ function getSelectedItem(data: DataType, key: string) {
 export default (data: DataType) => {
   const formattedData: ConfirmedCasesType = {
     検査実施人数: getSelectedItem(data, '検査実施人数'),
-    陽性者数: getSelectedItem(data, '陽性患者数'),
+    陽性者数: getSelectedItem(data, '陽性者数'),
     療養中: getSelectedItem(data, '療養中'),
     // 軽症: getSelectedItem(data, '軽症')
     // 中等症: getSelectedItem(data, '中等症'),

@@ -308,13 +308,7 @@
         "date": "2020\/05\/16 18:25",
         "attr": "陽性者数", "value": 168,
         "children": [
-          {"attr": "入院中", "value": 44,
-            "children (Not-Used)": [
-              {"attr": "軽症", "value": 27},
-              {"attr": "中等症","value": 18},
-              {"attr": "重症", "value": 3}
-            ]
-          },
+          {"attr": "療養中", "value": 44},
           {"attr": "回復済",   "value": 115},
           {"attr": "死亡",   "value": 9}
         ]
