@@ -167,6 +167,7 @@ const config: Configuration = {
         '/cards/number-of-recovered',
         '/cards/number-of-deaths',
         '/cards/ibaraki-colona-next',
+        '/cards/positive-rate',
       ]
 
       const routes: string[] = []
