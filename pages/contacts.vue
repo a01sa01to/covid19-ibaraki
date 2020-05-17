@@ -167,13 +167,6 @@
               >
             </td>
           </tr>
-          <tr>
-            <td class="content" v-bind="headingAttrs">
-              {{ $t('ご家庭でのマスク等の捨て方に関すること') }}
-            </td>
-            <td class="bureau">{{ $t('環境局') }}</td>
-            <td class="tel"><a href="tel:03-5388-3581">03-5388-3581</a></td>
-          </tr>
         </tbody>
       </table>
     </div>
