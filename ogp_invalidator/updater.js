@@ -18,6 +18,7 @@ const PATHS = [
   'cards/ibaraki-city-map-table',
   'cards/number-of-recovered',
   'cards/number-of-deaths',
+  'cards/ibaraki-colona-next',
 ]
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
