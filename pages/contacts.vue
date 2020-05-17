@@ -167,6 +167,13 @@
               >
             </td>
           </tr>
+          <tr>
+            <td class="content" v-bind="headingAttrs">
+              {{ $t('ご家庭でのマスク等の捨て方に関すること') }}
+            </td>
+            <td class="bureau">{{ $t('環境局') }}</td>
+            <td class="tel"><a href="tel:03-5388-3581">03-5388-3581</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -243,6 +250,7 @@ export default Vue.extend({
       border-collapse: collapse;
 
       th {
+        padding: 1em 0;
         @include font-size(14, true);
       }
 
@@ -258,15 +266,21 @@ export default Vue.extend({
         }
       }
 
+      .importantContact {
+        font-weight: bold;
+        @include font-size(16, true);
+      }
+
+      .tel ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tel li {
+        margin: 8px 0;
+      }
+
       @include largerThan($medium) {
-        thead tr {
-          height: 48px;
-        }
-
-        tbody tr {
-          height: 96px;
-        }
-
         th.tel {
           width: 35%;
         }

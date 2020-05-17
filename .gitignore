@@ -1,13 +1,3 @@
-# Temporary
-tmp/
-temp/
-
-assets/locales/*
-!assets/locales/ja.json
-
-/data/*
-!/data/data.json
-!/data/news.json
 #=============================
 
 # Created by .ignore support plugin (hsz.mobi)

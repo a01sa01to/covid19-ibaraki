@@ -297,7 +297,7 @@
         :class="$style.detailButton"
         rel="noopener noreferrer"
         >{{ $t('詳細を見る') }}({{ $t('県公式サイト') }})
-        <v-icon :class="$style.icon" size="20">
+        <v-icon :class="$style.icon" size="2rem">
           mdi-open-in-new
         </v-icon>
       </a>

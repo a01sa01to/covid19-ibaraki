@@ -15,11 +15,17 @@ ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
 HOST = "https://ibaraki.stopcovid19.jp"
 data_json = {}
+posRate_json = {}
 
 # --- data.jsonを開く --- #
 with open("data/data.json", encoding=ENCODING) as file:
   data_json = json.load(file)
   print('Loaded data.json')
+
+# --- positive_rate.jsonを開く --- #
+with open("data/positive_rate.json", encoding=ENCODING) as file:
+  posRate_json = json.load(file)
+  print('Loaded positive_rate.json')
 
 # --- パスおよび変更日時の指定 --- #
 PATHS = {
@@ -34,6 +40,7 @@ PATHS = {
   "/cards/number-of-recovered": data_json["recovered_summary"]["date"],
   "/cards/number-of-deaths": data_json["deaths_summary"]["date"],
   "/cards/ibaraki-colona-next": data_json["ibk_colona_next"]["date"],
+  "/cards/positive-rate":posRate_json["date"],
   "/about": "2020/05/15 18:00",
   "/contacts": "2020/05/15 18:00",
   "/flow": "2020/05/15 18:00",

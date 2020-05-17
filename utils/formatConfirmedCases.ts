@@ -48,6 +48,35 @@ type ConfirmedCasesType = {
   回復済: number
 }
 
+interface ChildData {
+  attr: string
+  value: number
+}
+
+type ChildDataType = {
+  attr: string
+  value: number
+  children?: ChildData[]
+}
+
+function getSelectedItem(data: DataType, key: string) {
+  let result: number | undefined
+  const recursiveSearch = (data: ChildDataType) => {
+    if (result) return
+    if (data.attr === key) {
+      result = data.value
+    } else if (data.children) {
+      data.children.forEach((child: ChildDataType) => {
+        if (result) return
+        recursiveSearch(child)
+      })
+    }
+  }
+  recursiveSearch(data)
+
+  return result || 0
+}
+
 /**
  * Format for *Chart component
  *
@@ -55,14 +84,14 @@ type ConfirmedCasesType = {
  */
 export default (data: DataType) => {
   const formattedData: ConfirmedCasesType = {
-    検査実施人数: data.value,
-    陽性者数: data.children[0].value,
-    療養中: data.children[0].children[0].value,
-    // 軽症: data.children[0].children[0].children[0].value,
-    // 中等症: data.children[0].children[0].children[1].value,
-    // 重症: data.children[0].children[0].children[2].value,
-    死亡: data.children[0].children[2].value,
-    回復済: data.children[0].children[1].value,
+    検査実施人数: getSelectedItem(data, '検査実施人数'),
+    陽性者数: getSelectedItem(data, '陽性患者数'),
+    療養中: getSelectedItem(data, '療養中'),
+    // 軽症: getSelectedItem(data, '軽症')
+    // 中等症: getSelectedItem(data, '中等症'),
+    // 重症: getSelectedItem(data, '重症'),
+    死亡: getSelectedItem(data, '死亡'),
+    回復済: getSelectedItem(data, '回復済'),
   }
   return formattedData
 }

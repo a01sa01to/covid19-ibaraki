@@ -16,7 +16,8 @@ PATHS = {
   "/cards/ibaraki-city-map-table": (959,900),
   "/cards/number-of-recovered": (959,613),
   "/cards/number-of-deaths": (959,613),
-  "/cards/ibaraki-colona-next": (959, 597)
+  "/cards/ibaraki-colona-next": (959, 597),
+  "/cards/positive-rate": (959, 730),
 }
 
 options = webdriver.ChromeOptions()

@@ -190,6 +190,8 @@ $default-boxdiff: 35px;
 
 .box {
   display: flex;
+  overflow: auto;
+
   &.parent {
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
@@ -269,7 +271,9 @@ $default-boxdiff: 35px;
   > span {
     display: block;
     width: 100%;
-    @include font-size(16);
+
+    @include font-size(14);
+
     &:last-child {
       margin-top: 0.1em;
     }
@@ -278,10 +282,10 @@ $default-boxdiff: 35px;
     }
   }
   span strong {
-    @include font-size(18);
+    @include font-size(16);
   }
   span.unit {
-    @include font-size(16);
+    @include font-size(14);
   }
 }
 @function px2vw($px, $vw: 0) {

@@ -4,7 +4,8 @@
       {{ $t('他都道府県の新型コロナ対策サイト') }}
     </page-header>
     <static-card>
-      <p>
+      <p>現在までに開設された都道府県：<strong>45</strong> / 47</p>
+      <p class="checkOthers">
         {{
           $t(
             '各都道府県の運営者・GitHubリポジトリを確認したい場合は、パソコンからこのページをご覧ください。'
@@ -953,6 +954,24 @@
               </td>
             </tr>
             <tr>
+              <td class="pref text-center">
+                {{ $t('北九州市') }}({{ $t('福岡県') }})
+              </td>
+              <td class="site text-center">
+                <a href="https://stopcovid19-kitakyushu.jp/" target="_blank"
+                  >https://stopcovid19-kitakyushu.jp/</a
+                >
+              </td>
+              <td class="admin text-center">{{ $t('Code for Kitakyushu') }}</td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/covid19-kitakyushu/covid19"
+                  target="_blank"
+                  >covid19-kitakyushu/covid19</a
+                >
+              </td>
+            </tr>
+            <tr>
               <td class="pref text-center">{{ $t('佐賀県') }}</td>
               <td class="site text-center">
                 <a href="https://stopcovid19.code4saga.org/" target="_blank"
@@ -1093,7 +1112,7 @@ export default Vue.extend({
 
 <style lang="scss">
 @include largerThan($medium) {
-  .OtherPref .StaticCard {
+  .OtherPref .StaticCard p.checkOthers {
     display: none;
   }
 }
