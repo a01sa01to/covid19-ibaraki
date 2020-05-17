@@ -107,28 +107,11 @@ jobs:
         id: extract_branch
       - uses: actions/checkout@v2
         with:
-          ref: ${{ steps.extract_branch.outputs.branch }}
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-      - name: Cache deps
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install deps
-        run: yarn install --frozen-lockfile
-      - name: Test
-        run: yarn run test
-      - name: Generate
-        run: yarn run generate:deploy
+          ref: dev-deploy
       - name: Install selenium with pip
         run: pip3 install selenium
       - name: Take screenshot
-        run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
