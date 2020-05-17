@@ -962,7 +962,7 @@
                   >https://stopcovid19-kitakyushu.jp/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('Code for Kitakyushu') }}</td>
+              <td class="admin text-center">Code for Kitakyushu</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-kitakyushu/covid19"
