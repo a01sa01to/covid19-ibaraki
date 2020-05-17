@@ -511,3 +511,14 @@ TAG_ADD,（注）病床稼働率は最新のデータでない可能性あり
 TAG_ADD,（参考）茨城版コロナNextにおけるStage指標
 TAG_ADD,（注）各値は直近1週間の平均値
 TAG_REMOVE,市町村毎の感染状況(地図)
+RUN,2020/05/17 11:10
+TAG_ADD,1ページ当たり
+TAG_ADD,ご家庭でのマスク等の捨て方に関すること
+TAG_ADD,（注）「退院等」には、療養期間経過を含む。
+TAG_ADD,北九州市
+TAG_ADD,Code for Kitakyushu
+TAG_ADD,{itemsLength} 項目中 {pageStart} - {pageStop} 
+TAG_ADD,新規患者に関する報告件数の推移
+TAG_ADD,環境局
+TAG_ADD,日別値
+TAG_ADD,（注）保健所から発生届が提出された日を基準とする
