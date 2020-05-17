@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-18.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -14,12 +15,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
-
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-
       - name: Cache deps
         uses: actions/cache@v1
         with:
@@ -27,7 +26,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install deps
         run: yarn install --frozen-lockfile
       - name: Test
@@ -39,14 +37,6 @@ jobs:
           yarn run generate:deploy --fail-on-page-error
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-
-      # - name: Temporarily disable "include administrators" branch protection
-      #   uses: benjefferies/branch-protection-bot@master
-      #   if: always()
-      #   with:
-      #     access-token: ${{ secrets.ACCESS_TOKEN }}
-      #     branch: production
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -54,15 +44,149 @@ jobs:
           publish_dir: ./dist
           publish_branch: production
 
-      # - name: Enable "include administrators" branch protection
-      #   uses: benjefferies/branch-protection-bot@master
-      #   if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
-      #   with:
-      #     access-token: ${{ secrets.ACCESS_TOKEN }}
-      #     owner: tokyo-metropolitan-gov
-      #     repo: covid19
-      #     branch: production
-      # - name: Create GitHub release
-      #   uses: rymndhng/release-on-push-action@master
-      #   with:
-      #     bump_version_scheme: patch
+  sitemap_build:
+    name: Sitemap Build
+    needs: deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Run Script
+        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v1
+        with:
+          name: sitemap
+          path: sitemap
+  sitemap_upload:
+    name: Sitemap Upload
+    needs: sitemap_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+      - name: Download Sitemap
+        uses: actions/download-artifact@v1
+        with:
+          name: sitemap
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add sitemap
+          git commit -m "Add Sitemap changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
+  ogp_build:
+    name: OGP Build
+    needs: deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Cache deps
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate
+        run: yarn run generate:deploy
+      - name: Install selenium with pip
+        run: pip3 install selenium
+      - name: Take screenshot
+        run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
+        with:
+          name: ogp
+          path: ogp
+  ogp_upload:
+    name: OGP Upload
+    needs: ogp_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+      - name: Download ogp images
+        uses: actions/download-artifact@v1
+        with:
+          name: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add ogp
+          git commit -m "Add OGP changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
+  tweet:
+    name: Tweet
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install twitter
+      - name: Run script
+        env:
+          API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          MSG: ${{ toJson(github.event.commits) }}
+        run: |
+          cd workflow_tools/auto-tweet
+          python tweet.py
+          cd ../..

@@ -9,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -39,3 +40,123 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: dev-deploy
+
+  sitemap_build:
+    needs: deploy
+    runs-on: macos-latest
+    name: Sitemap Build
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Checkout development branch
+        uses: actions/checkout@v2
+        with:
+          ref: development
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Run Script
+        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v1
+        with:
+          name: sitemap
+          path: sitemap
+
+  sitemap_upload:
+    name: Sitemap Upload
+    needs: sitemap_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Download Sitemap
+        uses: actions/download-artifact@v1
+        with:
+          name: sitemap
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add sitemap
+          git commit -m "Add Sitemap changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev-deploy
+
+  ogp_build:
+    name: OGP Build
+    needs: deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Cache deps
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate
+        run: yarn run generate:dev
+      - name: Install selenium with pip
+        run: pip3 install selenium
+      - name: Take screenshot
+        run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
+        with:
+          name: ogp
+          path: ogp
+  ogp_upload:
+    name: OGP Upload
+    needs: ogp_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Download ogp images
+        uses: actions/download-artifact@v1
+        with:
+          name: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add ogp
+          git commit -m "Add OGP changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev-deploy
