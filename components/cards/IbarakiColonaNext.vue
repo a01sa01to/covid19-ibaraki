@@ -182,9 +182,7 @@ export default {
 
     for (const l of list) {
       const d = _[l[0]] // Key
-      stage[l[0]] += d > l[1] ? 1 : 0 // Stage2以上であれば +1
-      stage[l[0]] += d > l[2] ? 1 : 0 // Stage3以上であれば +1
-      stage[l[0]] += d > l[3] ? 1 : 0 // Stage4以上であれば +1
+      stage[l[0]] += (d > l[1]) + (d > l[2]) + (d > l[3])
     }
 
     const data = {
