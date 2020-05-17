@@ -42,3 +42,4 @@ for lang in ("ja", "en", "ja-basic"):
         path if lang == "ja" else "{}/{}".format(lang, path)
       )
     )
+    print("Path:{}, Lang:{} ...done!".format(path,lang))

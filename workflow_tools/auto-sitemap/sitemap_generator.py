@@ -70,8 +70,8 @@ for lang in ("ja", "en", "ja-basic"):
       result.write('<changefreq>daily</changefreq>')
       result.write('<mobile:mobile />')
       result.write('</url>')
-      print("Path: {} (Updated at {}) ...done".format(path, updatedAt))
+      print("Path: {} (Updated at {}) ...done!".format(path, updatedAt))
     result.write('</urlset>')
 
 print('----------')
-print('All done.')
+print('All done!')
