@@ -121,7 +121,6 @@
   "公開サイト": "public site",
   "埋め込み用コードをコピーしました": "Copied the embed code",
   "阿見町": "Ami Town",
-  "茨城県緊急事態措置について": "About Ibaraki Emergency Measures",
   "埋め込み用コード": "embedding code",
   "24時間対応（土日祝含む）": "24 hours a day (including weekends and holidays)",
   "当サイトへのリンクについて": "About link to this site",
@@ -401,5 +400,11 @@
   "陽性率": "Positive rate",
   "検査実施人数と陽性率の推移": "Number of people tested and positive rate",
   "{date}の陽性率": "Positive rate for {date}",
-  "（注）陽性率：陽性判明数／（陽性判明数＋陰性判明数）": "(Note) Positive rate: number of testing positive / (number of positive + number of testing negative)"
+  "（注）陽性率：陽性判明数／（陽性判明数＋陰性判明数）": "(Note) Positive rate: number of testing positive / (number of positive + number of testing negative)",
+  "茨城版コロナNext Stage3への緩和について": "Mitigation for \"Ibaraki Version of Corona Next\" Stage 3",
+  "このページをシェア": "Share this page",
+  "facebookでこのページをシェア": "Share this page on Facebook",
+  "このページをシェアする": "Share this page",
+  "LINEでこのページをシェア": "Share this page on LINE",
+  "Twitterでこのページをシェア": "Share this page on Twitter"
 }
