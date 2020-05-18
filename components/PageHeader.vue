@@ -6,8 +6,8 @@
       </v-icon>
       <slot />
     </h2>
-    <div class="Footer-Right">
-      <v-tooltip left nudge-right="20" nudge-bottom="4">
+    <div class="Header-Share">
+      <v-tooltip disabled>
         <template v-slot:activator="{ on }">
           <button
             class="DataView-Share-Opener"
@@ -32,7 +32,6 @@
             </svg>
           </button>
         </template>
-        <span>{{ $t('情報をシェアする') }}</span>
       </v-tooltip>
       <div
         v-if="displayShare"
@@ -197,7 +196,7 @@ export default Vue.extend({
 <style lang="scss">
 /* stylelint-disable no-descending-specificity */
 
-.Footer-Right {
+.Header-Share {
   position: absolute;
   top: calc(50% - 10px);
   right: 24px;
