@@ -10,7 +10,7 @@
           {{ $t('（注）各値は直近1週間の平均値') }}<br />
           {{ $t('（注）病床稼働率は最新のデータでない可能性あり') }}
         </p>
-        <table id="ibkColonaNext">
+        <table class="ibkColonaNext">
           <thead>
             <tr>
               <th colspan="2" style="background-color: #d9d9d9;">
@@ -57,7 +57,7 @@
             </tr>
           </tbody>
         </table>
-        <table id="ibkColonaNext">
+        <table class="ibkColonaNext">
           <thead>
             <tr>
               <th colspan="3" style="background-color: #99a8e0;">
@@ -105,7 +105,7 @@
         <p :class="$style.note">
           {{ $t('（参考）茨城版コロナNextにおけるStage指標') }}
         </p>
-        <table id="ibkColonaNext" class="stageTable">
+        <table class="stageTable ibkColonaNext">
           <tbody>
             <tr>
               <td><span style="background-color: #cff;" /></td>
@@ -193,7 +193,6 @@ export default {
     }
     return data
   },
-  mounted() {},
 }
 </script>
 
@@ -205,12 +204,11 @@ export default {
   margin-bottom: 0;
   color: $gray-3;
 }
-table#ibkColonaNext {
-  @include font-size(14);
-}
 </style>
 <style lang="scss">
-table#ibkColonaNext {
+table.ibkColonaNext {
+  @include font-size(14);
+
   margin-bottom: 12px;
 
   th {
