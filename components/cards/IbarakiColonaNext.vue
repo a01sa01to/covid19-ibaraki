@@ -3,7 +3,7 @@
     <data-view
       :title="$t('茨城版コロナNext')"
       :title-id="'ibaraki-colona-next'"
-      :date="Data.patients.date"
+      :date="Data.ibk_colona_next.date"
     >
       <template v-slot:button>
         <p :class="$style.note">
