@@ -51,7 +51,10 @@ export default {
     for (let i = 0; i < l; i++) {
       positiveCount.push(PositiveRate.data[i].positive)
       positiveRates.push(
-        PositiveRate.data[i].positive / PositiveRate.data[i].tested
+        (
+          (PositiveRate.data[i].positive / PositiveRate.data[i].tested) *
+          100
+        ).toFixed(2)
       )
       negativeCount.push(
         PositiveRate.data[i].tested - PositiveRate.data[i].positive
