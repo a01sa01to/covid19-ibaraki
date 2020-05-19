@@ -133,7 +133,7 @@ When the branch listed in the left column of the table below is updated, the bra
 | branch | A branch where HTML is built and updated | Website updated |
 | ---- | ---- | ---- |
 |`master`|`production`|The production site https://ibaraki.stopcovid19.jp/|
-|`development`|`dev-pages`|The development site https://covid19-ibk-dev.netlify.app/|
+|`development`|`dev-pages`|The development site https://covid19-dev.a01sa01to.com/|
 
 ---
 
@@ -151,7 +151,7 @@ Please use the following naming rules for the branch when sending a Pull Request
 
 | Purpose | Branch | Confirmation URL | People who can make pull requests | Remarks |
 | ---- | ---- | ---- | ---- | ---- |
-| Development | development | https://covid19-ibk-dev.netlify.app/ | All developers | base branch. Basically send a Pull Request here |
+| Development | development | https://covid19-dev.a01sa01to.com/ | All developers | base branch. Basically send a Pull Request here |
 | Production | master | https://ibaraki.stopcovid19.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
 | Base Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) | Synchronized daily at 0 o'clock (JST) |
 
@@ -160,7 +160,7 @@ Please use the following naming rules for the branch when sending a Pull Request
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | https://ibaraki.stopcovid19.jp | Location where statically built HTML is located |
-| Development site HTML | dev-deploy | https://covid19-ibk-dev.netlify.app/ | Where to find statically built HTML |
+| Development site HTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | Where to find statically built HTML |
 
 ## About the badge on the top of README .md
  - ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) Deploy

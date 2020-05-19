@@ -13,7 +13,7 @@ if not os.path.exists("sitemap"):
 CHECK_DIR = ["data"]
 ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
-HOST = "https://covid19-ibk-dev.netlify.app"
+HOST = "https://covid19-dev.a01sa01to.com"
 data_json = {}
 posRate_json = {}
 

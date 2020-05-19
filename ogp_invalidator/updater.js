@@ -2,7 +2,7 @@
 
 const HOST = [
   'https://ibaraki.stopcovid19.jp/',
-  'https://covid19-ibk-dev.netlify.app/',
+  'https://covid19-dev.a01sa01to.com/',
 ]
 
 const LANGS = ['ja', 'en', 'ja-basic']
