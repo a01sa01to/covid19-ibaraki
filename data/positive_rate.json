@@ -17,9 +17,9 @@
     {"date": "2020-05-12", "positive": 0, "tested": 74},
     {"date": "2020-05-13", "positive": 0, "tested": 80},
     {"date": "2020-05-14", "positive": 0, "tested": 61},
-    {"date": "2020-05-15", "positive": 0, "tested": 59},
-    {"date": "2020-05-16", "positive": 0, "tested": 55},
-    {"date": "2020-05-17", "positive": 0, "tested": 19},
+    {"date": "2020-05-15", "positive": 0, "tested": 68},
+    {"date": "2020-05-16", "positive": 0, "tested": 64},
+    {"date": "2020-05-17", "positive": 0, "tested": 26},
     {"date": "2020-05-18", "positive": 0, "tested": 8}
   ]
 }
