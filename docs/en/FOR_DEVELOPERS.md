@@ -1,7 +1,6 @@
 # For Developers
 
 ## The work we need your help with
- - To change the site according to the information provided by Ibaraki pref.
  - Translation (Details: [here](../../TRANSLATION.md))
  - Problems in the Issue Tab
 
@@ -154,6 +153,7 @@ Please use the following naming rules for the branch when sending a Pull Request
 | ---- | ---- | ---- | ---- | ---- |
 | Development | development | https://covid19-ibk-dev.netlify.app/ | All developers | base branch. Basically send a Pull Request here |
 | Production | master | https://ibaraki.stopcovid19.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
+| Base Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | Please check tokyo-metropolitan-gov/covid19 | Synchronized daily at 0,6,12,18 o'clock (JST) |
 
 ### 5-2. Branch used by the system
 

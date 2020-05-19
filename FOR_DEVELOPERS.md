@@ -1,7 +1,6 @@
 # 開発者の方へ
 
 ## 手伝っていただきたい作業
- - 東京都のものと比べてサイト内リンクが少ないので、サイト内のページを茨城県向けのものにする作業
  - 翻訳作業（詳しくは[こちら](./TRANSLATION.md)）
  - Issueにある問題
 
@@ -153,6 +152,7 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | ---- | ---- | ---- | ---- | ---- |
 | 開発 | development | https://covid19-ibk-dev.netlify.app/ | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
 | 本番 | master | https://ibaraki.stopcovid19.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
+| 元Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | tokyo-metropolitan-gov/covid19 を確認してください。 | 毎日0,6,12,18時に同期されます。 |
 
 ### 5-2. システムで利用しているブランチ
 
