@@ -1,0 +1,26 @@
+# 毎日0,6,12,18時に元Projectと同期する
+name: Auto Sync
+
+on:
+  schedule:
+    - cron: '0 3,9,15,21 * * *'
+
+jobs:
+  auto-sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: upstream
+      - name: Fetch
+        run: git fetch upstream
+      - name: Merge
+        run: git merge upstream/master
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: upstream
