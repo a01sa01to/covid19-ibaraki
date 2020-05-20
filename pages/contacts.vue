@@ -274,6 +274,10 @@ export default Vue.extend({
       }
 
       @include largerThan($medium) {
+        tr {
+          height: 96px;
+        }
+
         th.tel {
           width: 35%;
         }
