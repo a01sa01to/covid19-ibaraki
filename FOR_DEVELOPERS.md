@@ -152,7 +152,7 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | ---- | ---- | ---- | ---- | ---- |
 | 開発 | development | https://covid19-dev.a01sa01to.com/ | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
 | 本番 | master | https://ibaraki.stopcovid19.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
-| 元Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) を確認してください。 | 毎日0時に同期されます。 |
+| 元Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) を確認してください。 | 毎日0,6,12,18時に同期されます。 |
 
 ### 5-2. システムで利用しているブランチ
 
