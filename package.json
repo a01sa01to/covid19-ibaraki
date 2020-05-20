@@ -52,7 +52,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",
     "@mdi/font": "^5.0.45",
-    "@nuxt/typescript-build": "^0.6.0",
+    "@nuxt/typescript-build": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/stylelint-module": "^3.2.2",
