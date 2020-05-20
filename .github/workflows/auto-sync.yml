@@ -15,8 +15,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: upstream
+      - name: Add remote
+        run: 'git remote add upstream https://github.com/tokyo-metropolitan-gov/covid19.git'
       - name: Fetch
         run: git fetch upstream
+        if: ${{ always() }}
       - name: Merge
         run: git merge upstream/master
       - name: Push
