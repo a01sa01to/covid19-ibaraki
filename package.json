@@ -55,7 +55,7 @@
     "@nuxt/typescript-build": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/stylelint-module": "^3.2.2",
+    "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
     "@types/chart.js": "^2.9.21",
     "@vue/test-utils": "^1.0.0-beta.33",
