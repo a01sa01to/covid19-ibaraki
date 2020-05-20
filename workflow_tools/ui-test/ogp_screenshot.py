@@ -7,17 +7,17 @@ if not os.path.exists("ogp"):
   os.mkdir("ogp")
 
 PATHS = {
-  "/cards/details-of-confirmed-cases": (959, 753),
-  "/cards/number-of-confirmed-cases": (959, 650),
-  "/cards/attributes-of-confirmed-cases": (959, 471),
-  "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 613),
-  "/cards/number-of-inspection-persons": (959, 667),
-  "/cards/ibaraki-city-table": (959,465),
-  "/cards/ibaraki-city-map-table": (959,900),
-  "/cards/number-of-recovered": (959,613),
-  "/cards/number-of-deaths": (959,613),
-  "/cards/ibaraki-colona-next": (959, 597),
-  "/cards/positive-rate": (959, 730),
+  "/cards/details-of-confirmed-cases": (959, 502),
+  "/cards/number-of-confirmed-cases": (959, 502),
+  "/cards/attributes-of-confirmed-cases": (959, 502),
+  "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 502),
+  "/cards/number-of-inspection-persons": (959, 502),
+  "/cards/ibaraki-city-table": (959,502),
+  "/cards/ibaraki-city-map-table": (959,900),  # これはMapがあるのでおさまらない
+  "/cards/number-of-recovered": (959,502),
+  "/cards/number-of-deaths": (959,502),
+  "/cards/ibaraki-colona-next": (959, 502),
+  "/cards/positive-rate": (959, 502),
 }
 
 options = webdriver.ChromeOptions()
