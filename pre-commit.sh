@@ -10,6 +10,7 @@ unchangeable_files=(
   ^assets/locales/vi.json
   ^assets/locales/zh_CN.json
   ^assets/locales/zh_TW.json
+  ^data/cities.json
 )
 
 containsElement () {
@@ -26,6 +27,6 @@ for FILE in `git diff --cached --name-status $against -- | cut -c3-`; do
 done
 
 if [ "$CHANGE_DETECTED" ]; then
-  echo "Failed to commit because of the modification of the files above. {lang}.json files are only allowed to edit from Transifex. See issue tokyo-metropolitan-gov/covid19#1985 for the details. "
+  echo "Failed to commit because of the modification of the files above. See issue tokyo-metropolitan-gov/covid19#1985 for the details. "
   exit 1
 fi
