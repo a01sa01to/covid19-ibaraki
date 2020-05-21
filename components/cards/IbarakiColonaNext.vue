@@ -15,6 +15,26 @@
             )
           }}
         </p>
+        <ul :class="$style.container">
+          <li style="width: 100%; list-style: none;">
+            <div
+              :class="$style.content"
+              style="min-height: fit-content; display: block;"
+            >
+              <span>
+                {{ $t('現在の対策状況：') }}
+                <span :class="$style.unit">Stage</span>
+                <strong>3</strong>
+              </span>
+              <span style="font-size: 1.2rem; text-align: right; margin: 4px;">
+                <external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage3.html"
+                  >{{ $t('茨城版コロナNext Stage3について') }}</external-link
+                >
+              </span>
+            </div>
+          </li>
+        </ul>
         <table class="ibkColonaNext">
           <thead>
             <tr>
@@ -142,10 +162,12 @@
 <script>
 import Data from '@/data/data.json'
 import DataView from '@/components/DataView.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
     DataView,
+    ExternalLink,
   },
   data() {
     const patients = Data.ibk_colona_next
@@ -208,6 +230,54 @@ export default {
   margin-top: 10px;
   margin-bottom: 0;
   color: $gray-3;
+}
+
+$default-bdw: 3px;
+$default-boxh: 150px;
+$default-boxdiff: 35px;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1.35;
+  * {
+    box-sizing: border-box;
+  }
+  // override default styles
+  padding-left: 0 !important;
+  ul {
+    padding-left: 0;
+  }
+}
+.content {
+  min-height: $default-boxh;
+  padding: 10px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  > span {
+    display: block;
+    width: 100%;
+
+    @include font-size(18);
+
+    &:last-child {
+      margin-top: 0.1em;
+    }
+    &:not(:last-child) {
+      overflow-wrap: break-word;
+    }
+  }
+  span strong {
+    @include font-size(20);
+  }
+  span.unit {
+    @include font-size(18);
+  }
 }
 </style>
 <style lang="scss">
