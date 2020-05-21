@@ -33,7 +33,7 @@
 <script>
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import PositiveRate from '@/data/positive_rate.json'
+import Data from '@/data/data.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 dayjs.extend(duration)
 
@@ -42,6 +42,7 @@ export default {
     PositiveRateMixedChart,
   },
   data() {
+    const PositiveRate = Data.positiveRate
     // 検査実施日別状況
     const l = PositiveRate.data.length
     const positiveCount = []

@@ -39,7 +39,6 @@
 
 <script>
 import Data from '@/data/data.json'
-import PositiveRate from '@/data/positive_rate.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -111,7 +110,7 @@ export default {
         break
       case 'positive-rate':
         title = this.$t('検査実施人数と陽性率の推移')
-        updatedAt = PositiveRate.date
+        updatedAt = Data.positiveRate.date
         break
     }
 
