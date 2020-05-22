@@ -35,6 +35,14 @@
             </div>
           </li>
         </ul>
+        <p :class="$style.note">
+          {{ $t('※5/25以降、Stage2への緩和を予定。') }}<br />
+          {{
+            $t(
+              '※引き続き感染者数が抑制できれば、6/8以降、Stage1への緩和を予定。'
+            )
+          }}
+        </p>
         <table class="ibkColonaNext">
           <thead>
             <tr>
