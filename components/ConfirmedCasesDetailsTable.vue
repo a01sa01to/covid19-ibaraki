@@ -42,6 +42,10 @@
                   <strong>{{ 療養中.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
+                <span>
+                  (<strong>{{ ((療養中 / 陽性者数) * 100).toFixed(2) }}</strong>
+                  <span :class="$style.unit">%</span>)
+                </span>
               </div>
             </div>
             <!-- <ul :class="$style.group">
@@ -88,6 +92,10 @@
                   <strong>{{ 死亡.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
+                <span>
+                  (<strong>{{ ((死亡 / 陽性者数) * 100).toFixed(2) }}</strong>
+                  <span :class="$style.unit">%</span>)
+                </span>
               </div>
             </div>
           </li>
@@ -98,6 +106,10 @@
                 <span>
                   <strong>{{ 回復済.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
+                </span>
+                <span>
+                  (<strong>{{ ((回復済 / 陽性者数) * 100).toFixed(2) }}</strong>
+                  <span :class="$style.unit">%</span>)
                 </span>
               </div>
             </div>

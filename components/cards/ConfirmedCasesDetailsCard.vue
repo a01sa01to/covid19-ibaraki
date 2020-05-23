@@ -26,6 +26,9 @@
               )
             }}
           </li>
+          <li>
+            {{ $t('（注）端数の関係上、合計しても必ずしも100%とはならない') }}
+          </li>
         </ul>
       </template>
       <confirmed-cases-details-table
