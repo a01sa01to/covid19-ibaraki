@@ -36,7 +36,10 @@
           </li>
         </ul>
         <p :class="$style.note">
-          {{ $t('※5/25以降、Stage2への緩和を予定。') }}<br />
+          {{ $t('※5/25以降、Stage2への緩和を予定。') }}(<external-link
+            url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
+            >{{ $t('茨城版コロナNext Stage2について') }}</external-link
+          >)<br />
           {{
             $t(
               '※引き続き感染者数が抑制できれば、6/8以降、Stage1への緩和を予定。'
