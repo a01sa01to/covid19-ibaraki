@@ -473,8 +473,8 @@
                 >
               </td>
               <td class="admin text-center">
-                {{ $t('石川県（<b>{{ $t('公式') }}</b
-                >）') }}
+                {{ $t('石川県') }}(<b>{{ $t('公式') }}</b
+                >)
               </td>
               <td class="repo text-center" />
             </tr>
