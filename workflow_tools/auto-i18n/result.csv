@@ -585,3 +585,5 @@ TAG_REMOVE,{date}の陽性率
 TAG_REMOVE,（注）陽性率：陽性判明数／（陽性判明数＋陰性判明数）
 RUN,2020/05/24 13:23
 TAG_ADD,療養中
+RUN,2020/05/24 05:20
+TAG_REMOVE,石川県（<b>{{ $t(
