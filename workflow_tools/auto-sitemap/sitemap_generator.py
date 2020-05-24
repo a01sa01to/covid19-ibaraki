@@ -13,7 +13,12 @@ if not os.path.exists("sitemap"):
 CHECK_DIR = ["data"]
 ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
-HOST = "https://ibaraki.stopcovid19.jp"
+
+if str(os.environ['MODE']) == "prod":
+  HOST = "https://ibaraki.stopcovid19.jp"
+else:
+  HOST = "https://covid19-dev.a01sa01to.com"
+
 data_json = {}
 posRate_json = {}
 
@@ -26,7 +31,7 @@ with open("data/data.json", encoding=ENCODING) as file:
 PATHS = {
   "/": data_json["lastUpdate"],
   "/cards/details-of-confirmed-cases": data_json["main_summary"]["children"][0]["date"],
-  "/cards/number-of-confirmed-cases": data_json["patients"]["date"],
+  "/cards/number-of-confirmed-cases": data_json["patients_summary"]["date"],
   "/cards/attributes-of-confirmed-cases": data_json["patients"]["date"],
   "/cards/number-of-reports-to-covid19-telephone-advisory-center": data_json["contacts"]["date"],
   "/cards/number-of-inspection-persons": data_json["inspection_persons"]["date"],
@@ -36,13 +41,14 @@ PATHS = {
   "/cards/number-of-deaths": data_json["deaths_summary"]["date"],
   "/cards/ibaraki-colona-next": data_json["ibk_colona_next"]["date"],
   "/cards/positive-rate":data_json["positiveRate"]["date"],
-  "/about": "2020/05/15 18:00",
-  "/contacts": "2020/05/15 18:00",
-  "/flow": "2020/05/15 18:00",
-  "/helpus": "2020/05/15 18:00",
-  "/otherpref": "2020/05/15 18:00",
-  "/parent": "2020/05/15 18:00",
-  "/worker": "2020/05/15 18:00"
+  "increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
+  "/about": "2020/05/24 18:00",
+  "/contacts": "2020/05/24 18:00",
+  "/flow": "2020/05/24 18:00",
+  "/helpus": "2020/05/24 18:00",
+  "/otherpref": "2020/05/24 18:00",
+  "/parent": "2020/05/24 18:00",
+  "/worker": "2020/05/24 18:00"
 }
 
 # --- Sitemap.xmlの作成部分 --- #
