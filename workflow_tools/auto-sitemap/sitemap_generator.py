@@ -41,7 +41,7 @@ PATHS = {
   "/cards/number-of-deaths": data_json["deaths_summary"]["date"],
   "/cards/ibaraki-colona-next": data_json["ibk_colona_next"]["date"],
   "/cards/positive-rate":data_json["positiveRate"]["date"],
-  "increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
+  "/cards/increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
   "/about": "2020/05/24 18:00",
   "/contacts": "2020/05/24 18:00",
   "/flow": "2020/05/24 18:00",
