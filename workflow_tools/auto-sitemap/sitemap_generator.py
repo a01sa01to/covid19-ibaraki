@@ -13,7 +13,12 @@ if not os.path.exists("sitemap"):
 CHECK_DIR = ["data"]
 ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
-HOST = "https://ibaraki.stopcovid19.jp"
+
+if str(os.environ['MODE']) == "prod":
+  HOST = "https://ibaraki.stopcovid19.jp"
+else:
+  HOST = "https://covid19-dev.a01sa01to.com"
+
 data_json = {}
 posRate_json = {}
 
@@ -37,13 +42,13 @@ PATHS = {
   "/cards/ibaraki-colona-next": data_json["ibk_colona_next"]["date"],
   "/cards/positive-rate":data_json["positiveRate"]["date"],
   "increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
-  "/about": "2020/05/15 18:00",
-  "/contacts": "2020/05/15 18:00",
-  "/flow": "2020/05/15 18:00",
-  "/helpus": "2020/05/15 18:00",
-  "/otherpref": "2020/05/15 18:00",
-  "/parent": "2020/05/15 18:00",
-  "/worker": "2020/05/15 18:00"
+  "/about": "2020/05/24 18:00",
+  "/contacts": "2020/05/24 18:00",
+  "/flow": "2020/05/24 18:00",
+  "/helpus": "2020/05/24 18:00",
+  "/otherpref": "2020/05/24 18:00",
+  "/parent": "2020/05/24 18:00",
+  "/worker": "2020/05/24 18:00"
 }
 
 # --- Sitemap.xmlの作成部分 --- #
