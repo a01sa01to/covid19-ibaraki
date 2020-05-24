@@ -31,8 +31,10 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
-      <!-- 陽性患者数 -->
+      <!-- 新規患者に関する報告件数の推移 -->
       <confirmed-cases-number-card />
+      <!-- 週単位の陽性者増加比 -->
+      <confirmed-cases-increase-ratio-by-week-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 回復者数 -->
@@ -47,8 +49,6 @@
       <positive-rate-card />
       <!-- 茨城コロナNext -->
       <ibaraki-colona-next />
-    </card-row>
-    <card-row class="DataBlock">
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
@@ -80,9 +80,11 @@ import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ExternalLink from '@/components/ExternalLink.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 
 export default Vue.extend({
   components: {
+    PositiveRateCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
@@ -97,9 +99,9 @@ export default Vue.extend({
     RecoveredCard,
     DeathsCard,
     IbarakiColonaNext,
-    PositiveRateCard,
     ExternalLink,
     StaticCard,
+    ConfirmedCasesIncreaseRatioByWeekCard,
   },
   data() {
     const data = {
@@ -162,6 +164,13 @@ export default Vue.extend({
       }
       @include lessThan($small) {
         padding: 4px 8px;
+      }
+    }
+
+    .DesktopSpacer {
+      padding: 0;
+      @media screen and (min-width: 960px) {
+        padding: 10px;
       }
     }
   }

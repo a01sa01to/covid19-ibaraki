@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('検査実施人数と陽性率の推移')"
+      :title="$t('PCR検査の陽性率')"
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
@@ -12,10 +12,21 @@
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <template v-slot:description>
+      <template v-slot:additionalDescription>
         <ul :class="$style.GraphDesc">
           <li>
-            {{ $t('（注）陽性率：陽性判明数／（陽性判明数＋陰性判明数）') }}
+            {{
+              $t(
+                '（注）陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
+              )
+            }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を陽性率として算出（例えば、5月7日の陽性率は、5月1日から5月7日までの実績平均を用いて算出）'
+              )
+            }}
           </li>
           <li>
             {{
@@ -50,12 +61,17 @@ export default {
     const positiveRates = []
     const positiveRateLabels = []
     for (let i = 0; i < l; i++) {
+      // 直近1weekの検査数平均における陽性率を算出
+      const avgDay = i < 7 ? i + 1 : 7
+      let sumTested = 0
+      for (let j = 0; j < avgDay; j++) {
+        sumTested += PositiveRate.data[i - j].tested
+      }
+      const avgTested = sumTested / avgDay
+
       positiveCount.push(PositiveRate.data[i].positive)
       positiveRates.push(
-        (
-          (PositiveRate.data[i].positive / PositiveRate.data[i].tested) *
-          100
-        ).toFixed(2)
+        ((PositiveRate.data[i].positive / avgTested) * 100).toFixed(2)
       )
       negativeCount.push(
         PositiveRate.data[i].tested - PositiveRate.data[i].positive

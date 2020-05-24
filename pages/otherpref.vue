@@ -75,6 +75,25 @@
             <tr>
               <td class="pref text-center">{{ $t('青森県') }}</td>
               <td class="site text-center">
+                <a href="https://stopcovid19.pref.aomori.lg.jp/" target="_blank"
+                  >https://stopcovid19.pref.aomori.lg.jp/</a
+                >
+              </td>
+              <td class="admin text-center">
+                {{ $t('青森県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
+                >)
+              </td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/covid19-aomori/website"
+                  target="_blank"
+                  >covid19-aomori/website</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="pref text-center">{{ $t('青森県') }}</td>
+              <td class="site text-center">
                 <a href="https://covid19.codeforaomori.org/" target="_blank"
                   >https://covid19.codeforaomori.org/</a
                 >
@@ -85,24 +104,6 @@
                   href="https://github.com/CodeForAomori/covid19"
                   target="_blank"
                   >CodeForAomori/covid19</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="pref text-center">{{ $t('青森県') }}</td>
-              <td class="site text-center">
-                <a href="https://covid19-aomori.info/" target="_blank"
-                  >https://covid19-aomori.info/</a
-                >
-              </td>
-              <td class="admin text-center">
-                Aomori Hackers&nbsp;&nbsp;({{ $t('有志') }}{{ $t('団体') }})
-              </td>
-              <td class="repo text-center">
-                <a
-                  href="https://github.com/covid19-aomori/website"
-                  target="_blank"
-                  >covid19-aomori/website</a
                 >
               </td>
             </tr>
@@ -195,7 +196,10 @@
                   >https://fukushima-covid19.firebaseapp.com/</a
                 >
               </td>
-              <td class="admin text-center">GDG Fukushima</td>
+              <td class="admin text-center">
+                {{ $t('福島県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="repo text-center">
                 <a href="https://github.com/donuzium/covid19" target="_blank"
                   >donuzium/covid19</a
@@ -231,24 +235,6 @@
                   href="https://github.com/covid19-tochigicovid19"
                   target="_blank"
                   >covid19-tochigi/covid19</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="pref text-center">{{ $t('栃木県') }}</td>
-              <td class="site text-center">
-                <a
-                  href="https://covid-19-tochigi.origamium.net/"
-                  target="_blank"
-                  >https://covid-19-tochigi.origamium.net/</a
-                >
-              </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
-              <td class="repo text-center">
-                <a
-                  href="https://github.com/origamium/covid19-tochigi"
-                  target="_blank"
-                  >origamium/covid19-tochigi</a
                 >
               </td>
             </tr>
@@ -482,6 +468,19 @@
             <tr>
               <td class="pref text-center">{{ $t('石川県') }}</td>
               <td class="site text-center">
+                <a href="https://stopcovid19.pref.ishikawa.jp/" target="_blank"
+                  >https://stopcovid19.pref.ishikawa.jp/</a
+                >
+              </td>
+              <td class="admin text-center">
+                {{ $t('石川県（<b>{{ $t('公式') }}</b
+                >）') }}
+              </td>
+              <td class="repo text-center" />
+            </tr>
+            <tr>
+              <td class="pref text-center">{{ $t('石川県') }}</td>
+              <td class="site text-center">
                 <a href="https://ishikawa-covid19.netlify.app/" target="_blank"
                   >https://ishikawa-covid19.netlify.app/</a
                 >
@@ -628,7 +627,10 @@
                   >https://stopcovid19-hamamatsu.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
+              <td class="admin text-center">
+                {{ $t('浜松市') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/code-for-hamamatsu/covid19"

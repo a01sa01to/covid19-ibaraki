@@ -22,7 +22,7 @@ export default (data: DataType[]) => {
     .filter((d) => new Date(d.date) < today)
     .forEach((d) => {
       const date = new Date(d.date)
-      const subTotal = d.total
+      const subTotal = Number(d.total)
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({

@@ -167,6 +167,13 @@
               >
             </td>
           </tr>
+          <tr>
+            <td class="content" v-bind="headingAttrs">
+              {{ $t('ご家庭でのマスク等の捨て方に関すること') }}
+            </td>
+            <td class="bureau">{{ $t('環境局') }}</td>
+            <td class="tel"><a href="tel:03-5388-3581">03-5388-3581</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -248,7 +255,7 @@ export default Vue.extend({
       }
 
       td {
-        padding: 0 16px;
+        padding: 1em 16px;
         @include font-size(14);
       }
 
@@ -278,65 +285,71 @@ export default Vue.extend({
           height: 96px;
         }
 
-        th.tel {
-          width: 35%;
-        }
-        th,
-        tr:not(:last-child) {
-          border-top: none;
-          border-left: none;
-          border-right: none;
-          border-bottom: thin solid rgba(0, 0, 0, 0.12);
+        .tel li {
+          margin: 8px 0;
         }
 
-        tr:last-child {
-          border: none;
-        }
-      }
-
-      @include lessThan($medium) {
-        thead {
-          display: none;
-        }
-
-        tbody {
-          tr {
-            height: auto;
-
-            &.small {
-              height: auto;
-            }
-
-            .content {
-              font-weight: bold;
-              border-bottom: none !important;
-              padding-top: 12px;
-              padding-bottom: 8px;
-            }
-
-            .bureau,
-            .municipality {
-              border-bottom: none !important;
-            }
-
-            .tel {
-              padding-bottom: 12px;
-            }
+        @include largerThan($medium) {
+          th.tel {
+            width: 35%;
           }
-
+          th,
           tr:not(:last-child) {
+            border-top: none;
+            border-left: none;
+            border-right: none;
             border-bottom: thin solid rgba(0, 0, 0, 0.12);
           }
+
+          tr:last-child {
+            border: none;
+          }
         }
 
-        td {
-          display: block;
-        }
-      }
+        @include lessThan($medium) {
+          thead {
+            display: none;
+          }
 
-      p.caution {
-        margin: 0;
-        @include font-size(12);
+          tbody {
+            tr {
+              height: auto;
+
+              &.small {
+                height: auto;
+              }
+
+              .content {
+                font-weight: bold;
+                border-bottom: none !important;
+                padding-top: 12px;
+                padding-bottom: 8px;
+              }
+
+              .bureau,
+              .municipality {
+                border-bottom: none !important;
+              }
+
+              .tel {
+                padding-bottom: 12px;
+              }
+            }
+
+            tr:not(:last-child) {
+              border-bottom: thin solid rgba(0, 0, 0, 0.12);
+            }
+          }
+
+          td {
+            display: block;
+          }
+        }
+
+        p.caution {
+          margin: 0;
+          @include font-size(12);
+        }
       }
     }
   }

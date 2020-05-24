@@ -34,6 +34,11 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <confirmed-cases-increase-ratio-by-week-card
+      v-else-if="
+        this.$route.params.card == 'increase-ratio-of-confirmed-cases-by-daily'
+      "
+    />
   </div>
 </template>
 
@@ -50,6 +55,7 @@ import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 
 export default {
   components: {
@@ -64,6 +70,7 @@ export default {
     RecoveredCard,
     DeathsCard,
     IbarakiColonaNext,
+    ConfirmedCasesIncreaseRatioByWeekCard,
   },
   data() {
     let title, updatedAt
@@ -109,8 +116,12 @@ export default {
         updatedAt = Data.deaths_summary.date
         break
       case 'positive-rate':
-        title = this.$t('検査実施人数と陽性率の推移')
+        title = this.$t('PCR検査の陽性率')
         updatedAt = Data.positiveRate.date
+        break
+      case 'increase-ratio-of-confirmed-cases-by-daily':
+        title = this.$t('週単位の陽性者増加比')
+        updatedAt = Data.patients_summary.date
         break
     }
 
