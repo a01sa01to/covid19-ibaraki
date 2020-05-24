@@ -63,6 +63,8 @@ jobs:
           python-version: 3.8
       - name: Run Script
         run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
+        env:
+          MODE: prod
       - name: Upload sitemap
         uses: actions/upload-artifact@v1
         with:
