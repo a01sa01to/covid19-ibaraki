@@ -20,7 +20,7 @@ const PATHS = [
   'cards/number-of-deaths',
   'cards/ibaraki-colona-next',
   'cards/positive-rate',
-  'increase-ratio-of-confirmed-cases-by-daily',
+  'cards/increase-ratio-of-confirmed-cases-by-daily',
 ]
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
