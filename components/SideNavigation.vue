@@ -75,7 +75,7 @@
             </picture>
           </a> -->
           <a
-            href="https://twitter.com/Ibaraki_Kouhou"
+            href="https://twitter.com/StopCovid19_ibk"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
