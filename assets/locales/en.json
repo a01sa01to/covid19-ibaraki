@@ -418,5 +418,17 @@
   "週単位の陽性者増加比": "The ratio of weekly positive person increases",
   "療養中": "under medical care",
   "茨城版コロナNext Stage2への緩和について": "Mitigation for \"Ibaraki Version of Corona Next\" Stage 2",
-  "凡例をクリックすることにより、そのグラフを非表示にすることができます。もう一度クリックすると再表示します。": "By clicking on the legend, you can hide the graph. Click again to reappear."
+  "凡例をクリックすることにより、グラフを非表示にすることができます。もう一度クリックすると再表示します。": "By clicking on the legend, you can hide the graph. Click again to reappear.",
+  "県内の感染状況": "Infection status in Ibaraki",
+  "陽性者のうち濃厚接触者以外の数": "Number of non-dense contact persons among the positive",
+  "1日当たりの経路不明陽性者数": "Number of unknown route positives per day",
+  "病床稼働率": "Hospital bed utilization rate",
+  "都内の感染状況": "Infection status in Tokyo",
+  "感染を概ね抑制できている状態": "Infection is largely under control",
+  "感染が拡大している状態": "The infection is spreading",
+  "1日当たりの陽性者数": "Number of positives per day",
+  "感染爆発・医療崩壊のリスクが高い状態": "High risk of infection explosion/medical collapse",
+  "県内の医療提供体制": "Health care delivery system in Ibaraki",
+  "重症病床稼働率": "Critical care bed utilization rate",
+  "感染を抑制できている状態": "Infection is under control"
 }
