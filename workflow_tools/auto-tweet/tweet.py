@@ -15,7 +15,7 @@ lastUpdate = ""
 
 t = twitter.Twitter(auth=auth)
 
-with open(os.path.join(os.pardir, os.pardir, "data/data.json"), encoding=ENCODING) as file:
+with open(os.path.join("data/data.json"), encoding=ENCODING) as file:
   # jsonを読み込み
   json_content = json.load(file)
   # タグリストを生成
