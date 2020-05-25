@@ -15,22 +15,12 @@ lastUpdate = ""
 
 t = twitter.Twitter(auth=auth)
 
-for cdir in CHECK_DIR:
-  cdir = os.path.join(os.pardir, os.pardir, cdir)
-
-  json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
-  # 各jsonファイルについて処理
-  for path in json_files:
-    file_name = os.path.basename(path)
-    # jsonファイルが調べるべきjsonであるか
-    if file_name in JSON_FILES:
-      with open(path, encoding=ENCODING) as file:
-        # jsonを読み込み
-        json_content = json.load(file)
-        # タグリストを生成
-        if file_name == JSON_FILES[0]:  # data.jsonの場合
-          lastUpdate = json_content["lastUpdate"]
-          print("更新日時: "+lastUpdate+"\n")
+with open(os.path.join(os.pardir, os.pardir, "data/data.json"), encoding=ENCODING) as file:
+  # jsonを読み込み
+  json_content = json.load(file)
+  # タグリストを生成
+  lastUpdate = json_content["lastUpdate"]
+  print("更新日時: "+lastUpdate+"\n")
 
 msg = str(os.environ['MSG'])
 msgJson = json.loads(msg)
