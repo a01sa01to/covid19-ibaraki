@@ -46,16 +46,16 @@
           <thead>
             <tr>
               <th colspan="2" style="background-color: #d9d9d9;">
-                県内の医療提供体制
+                {{ $t('県内の医療提供体制') }}
               </th>
               <th colspan="1" style="background-color: #98d6a4;">
-                都内の感染状況
+                {{ $t('都内の感染状況') }}
               </th>
             </tr>
             <tr>
-              <th>重症病床稼働率</th>
-              <th>病床稼働率</th>
-              <th>1日当たりの経路不明陽性者数</th>
+              <th>{{ $t('重症病床稼働率') }}</th>
+              <th>{{ $t('病床稼働率') }}</th>
+              <th>{{ $t('1日当たりの経路不明陽性者数') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -93,13 +93,13 @@
           <thead>
             <tr>
               <th colspan="3" style="background-color: #99a8e0;">
-                県内の感染状況
+                {{ $t('県内の感染状況') }}
               </th>
             </tr>
             <tr>
-              <th>1日当たりの陽性者数</th>
-              <th>陽性者のうち濃厚接触者以外の数</th>
-              <th>陽性率</th>
+              <th>{{ $t('1日当たりの陽性者数') }}</th>
+              <th>{{ $t('陽性者のうち濃厚接触者以外の数') }}</th>
+              <th>{{ $t('陽性率') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -142,22 +142,22 @@
             <tr>
               <td><span style="background-color: #cff;" /></td>
               <td>Stage 1</td>
-              <td>感染を抑制できている状態</td>
+              <td>{{ $t('感染を抑制できている状態') }}</td>
             </tr>
             <tr>
               <td><span style="background-color: #ff6;" /></td>
               <td>Stage 2</td>
-              <td>感染を概ね抑制できている状態</td>
+              <td>{{ $t('感染を概ね抑制できている状態') }}</td>
             </tr>
             <tr>
               <td><span style="background-color: #f93;" /></td>
               <td>Stage 3</td>
-              <td>感染が拡大している状態</td>
+              <td>{{ $t('感染が拡大している状態') }}</td>
             </tr>
             <tr>
               <td><span style="background-color: #f00;" /></td>
               <td>Stage 4</td>
-              <td>感染爆発・医療崩壊のリスクが高い状態</td>
+              <td>{{ $t('感染爆発・医療崩壊のリスクが高い状態') }}</td>
             </tr>
           </tbody>
         </table>
