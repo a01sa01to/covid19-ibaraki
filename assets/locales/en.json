@@ -390,16 +390,13 @@
   "（注）保健所から発生届が提出された日を基準とする": "(Note) The date of submission of the outbreak report from the health center is the base date.",
   "陰性者数": "Total number of people testing negative",
   "陽性率": "Positive rate",
-  "茨城版コロナNext Stage3への緩和について": "Mitigation for \"Ibaraki Version of Corona Next\" Stage 3",
   "このページをシェア": "Share this page",
   "facebookでこのページをシェア": "Share this page on Facebook",
   "このページをシェアする": "Share this page",
   "LINEでこのページをシェア": "Share this page on LINE",
   "Twitterでこのページをシェア": "Share this page on Twitter",
   "（注）NaNと表示されている場合には、お手数ですが当サイトの管理者にお知らせください。早急に修正いたします。": "(Note) If you see \"NaN\", please inform the administrator of this site. We will fix it as soon as possible.",
-  "茨城版コロナNext Stage3について": "About the Ibaraki version of Corona Next Stage 3",
   "現在の対策状況：": "Current Status of Countermeasures: ",
-  "※5/25以降、Stage2への緩和を予定。": "Mitigation for Stage 2 is planned after 5/25.",
   "※引き続き感染者数が抑制できれば、6/8以降、Stage1への緩和を予定。": "Mitigation for Stage 1 is planned after 6/8 if the number of newly infected persons decreases.",
   "茨城版コロナNext Stage2について": "About the Ibaraki version of Corona Next Stage 2",
   "（注）端数の関係上、合計しても必ずしも100%とはならない": "(Note) Due to fractions, the total does not necessarily equal 100% of the total.",
@@ -419,5 +416,7 @@
   "{date}の数値": "Number for {date}",
   "学校休校中の子供たちの生活や学習を応援するテレビ番組です。": "It's a TV show that supports children's lives and learning during the school holidays.",
   "週単位の陽性者増加比": "The ratio of weekly positive person increases",
-  "療養中": "under medical care"
+  "療養中": "under medical care",
+  "凡例をクリック（タップ）することにより、そのグラフを非表示にすることができます。もう一度クリックすると再表示します。": "By clicking (tapping) on the legend, you can hide the graph. Click again to reappear.",
+  "茨城版コロナNext Stage2への緩和について": "Mitigation for \"Ibaraki Version of Corona Next\" Stage "
 }
