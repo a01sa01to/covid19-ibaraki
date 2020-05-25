@@ -36,6 +36,17 @@
           </li>
         </ul>
       </template>
+      <template v-slot:additionalDescription
+        ><ul>
+          <li>
+            {{
+              $t(
+                '凡例をクリック（タップ）することにより、そのグラフを非表示にすることができます。もう一度クリックすると再表示します。'
+              )
+            }}
+          </li>
+        </ul></template
+      >
     </simple-mixed-chart>
   </v-col>
 </template>

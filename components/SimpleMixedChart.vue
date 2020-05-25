@@ -89,6 +89,9 @@
       </v-data-table>
     </template>
     <slot name="additionalNotes" />
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"

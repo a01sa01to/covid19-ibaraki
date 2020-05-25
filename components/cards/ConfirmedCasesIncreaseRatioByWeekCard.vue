@@ -9,7 +9,7 @@
       :unit="''"
       :table-labels="tableLabels"
     >
-      <template v-slot:additionalDescription>
+      <template v-slot:description>
         <ul>
           <li>
             {{

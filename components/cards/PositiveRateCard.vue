@@ -12,7 +12,7 @@
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <template v-slot:additionalDescription>
+      <template v-slot:description>
         <ul :class="$style.GraphDesc">
           <li>
             {{
@@ -37,6 +37,17 @@
           </li>
         </ul>
       </template>
+      <template v-slot:additionalDescription
+        ><ul>
+          <li>
+            {{
+              $t(
+                '凡例をクリック（タップ）することにより、そのグラフを非表示にすることができます。もう一度クリックすると再表示します。'
+              )
+            }}
+          </li>
+        </ul></template
+      >
     </positive-rate-mixed-chart>
   </v-col>
 </template>
