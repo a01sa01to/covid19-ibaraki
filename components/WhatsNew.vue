@@ -9,12 +9,12 @@
       </h3>
       <span class="WhatsNew-link-to-emergency-page">
         <external-link
-          url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage3.html"
+          url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
         >
           <v-icon size="2rem" class="WhatsNew-link-to-emergency-page-icon">
             mdi-bullhorn
           </v-icon>
-          {{ $t('茨城版コロナNext Stage3への緩和について') }}
+          {{ $t('茨城版コロナNext Stage2への緩和について') }}
         </external-link>
       </span>
     </div>

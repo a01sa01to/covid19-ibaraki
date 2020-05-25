@@ -24,22 +24,18 @@
               <span>
                 {{ $t('現在の対策状況：') }}
                 <span :class="$style.unit">Stage</span>
-                <strong>3</strong>
+                <strong>2</strong>
               </span>
               <span style="font-size: 1.2rem; text-align: right; margin: 4px;">
                 <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage3.html"
-                  >{{ $t('茨城版コロナNext Stage3について') }}</external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
+                  >{{ $t('茨城版コロナNext Stage2について') }}</external-link
                 >
               </span>
             </div>
           </li>
         </ul>
         <p :class="$style.note">
-          {{ $t('※5/25以降、Stage2への緩和を予定。') }}(<external-link
-            url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
-            >{{ $t('茨城版コロナNext Stage2について') }}</external-link
-          >)<br />
           {{
             $t(
               '※引き続き感染者数が抑制できれば、6/8以降、Stage1への緩和を予定。'
