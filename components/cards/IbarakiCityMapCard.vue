@@ -77,7 +77,7 @@ export default {
           return 0
         }
 
-        const comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
+        const comparison = Number(a[index[0]]) < Number(b[index[0]]) ? -1 : 1
 
         return isDesc[0] ? comparison * -1 : comparison
       })
