@@ -18,6 +18,10 @@ jobs:
           node-version: '10.x'
       - name: Upgrade package.json, yarn.lock
         run: yarn upgrade --latest
+      - name: Install
+        run: yarn Install
+      - name: Test
+        run: yarn run generate:dev --fail-on-page-error
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
