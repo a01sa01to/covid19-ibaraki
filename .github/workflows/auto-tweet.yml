@@ -22,14 +22,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install twitter
-      - name: Tweet as @a01sa01to
-        env:
-          API_KEY: ${{ secrets.TWITTER_API_KEY }}
-          API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
-          ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          MSG: ${{ toJson(github.event.commits) }}
-        run: python workflow_tools/auto-tweet/tweet.py
       - name: Tweet as @StopCovid19_ibk
         env:
           API_KEY: ${{ secrets.TWITTER_API_KEY_SCI }}
