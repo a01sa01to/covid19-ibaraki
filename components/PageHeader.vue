@@ -202,6 +202,7 @@ export default Vue.extend({
   right: 24px;
   display: flex;
   align-items: flex-end;
+  background-color: #fff;
 
   .DataView-Share-Opener {
     cursor: pointer;
@@ -223,6 +224,7 @@ export default Vue.extend({
     right: -4px;
     top: 1.5em;
     width: 200px;
+    height: fit-content;
     border: solid 1px $gray-4;
     background: $white !important;
     border-radius: 8px;

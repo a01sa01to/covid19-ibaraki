@@ -1,49 +1,8 @@
 <template>
-  <div>
-    <confirmed-cases-details-card
-      v-if="this.$route.params.card == 'details-of-confirmed-cases'"
-    />
-    <confirmed-cases-number-card
-      v-else-if="this.$route.params.card == 'number-of-confirmed-cases'"
-    />
-    <confirmed-cases-attributes-card
-      v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
-    />
-    <inspection-persons-number-card
-      v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
-    />
-    <telephone-advisory-reports-number-card
-      v-else-if="
-        this.$route.params.card ==
-        'number-of-reports-to-covid19-telephone-advisory-center'
-      "
-    />
-    <ibaraki-city-card
-      v-else-if="this.$route.params.card == 'ibaraki-city-table'"
-    />
-    <ibaraki-city-map-card
-      v-else-if="this.$route.params.card == 'ibaraki-city-map-table'"
-    />
-    <recovered-card
-      v-else-if="this.$route.params.card == 'number-of-recovered'"
-    />
-    <deaths-card v-else-if="this.$route.params.card == 'number-of-deaths'" />
-    <ibaraki-colona-next
-      v-else-if="this.$route.params.card == 'ibaraki-colona-next'"
-    />
-    <positive-rate-card
-      v-else-if="this.$route.params.card == 'positive-rate'"
-    />
-    <confirmed-cases-increase-ratio-by-week-card
-      v-else-if="
-        this.$route.params.card == 'increase-ratio-of-confirmed-cases-by-daily'
-      "
-    />
-  </div>
+  <component :is="cardComponent" />
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -73,63 +32,51 @@ export default {
     ConfirmedCasesIncreaseRatioByWeekCard,
   },
   data() {
-    let title, updatedAt
+    let title, updatedAt, cardComponent
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
-        title = this.$t('検査陽性者の状況')
-        updatedAt = Data.main_summary.children[0].date
+        cardComponent = 'confirmed-cases-details-card'
         break
       case 'number-of-confirmed-cases':
-        title = this.$t('陽性患者数')
-        updatedAt = Data.patients.date
+        cardComponent = 'confirmed-cases-number-card'
         break
       case 'attributes-of-confirmed-cases':
-        title = this.$t('陽性患者の属性')
-        updatedAt = Data.patients.date
+        cardComponent = 'confirmed-cases-attributes-card'
         break
       case 'number-of-inspection-persons':
-        title = this.$t('検査実施人数')
-        updatedAt = Data.inspection_persons.date
+        cardComponent = 'inspection-persons-number-card'
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
-        title = this.$t('新型コロナコールセンター相談件数')
-        updatedAt = Data.contacts.date
+        cardComponent = 'telephone-advisory-reports-number-card'
         break
       case 'ibaraki-city-table':
-        title = this.$t('市町村毎の感染状況')
-        updatedAt = Data.patients.date
+        cardComponent = 'ibaraki-city-card'
         break
       case 'ibaraki-city-map-table':
-        title = this.$t('市町村毎の感染状況（地図）')
-        updatedAt = Data.patients.date
+        cardComponent = 'ibaraki-city-map-card'
         break
       case 'number-of-recovered':
-        title = this.$t('回復者数')
-        updatedAt = Data.recovered_summary.date
+        cardComponent = 'recovered-card'
         break
       case 'number-of-deaths':
-        title = this.$t('死亡者数')
-        updatedAt = Data.deaths_summary.date
+        cardComponent = 'deaths-card'
         break
       case 'ibaraki-colona-next':
-        title = this.$t('茨城版コロナNext')
-        updatedAt = Data.deaths_summary.date
+        cardComponent = 'ibaraki-colona-next'
         break
       case 'positive-rate':
-        title = this.$t('PCR検査の陽性率')
-        updatedAt = Data.positiveRate.date
+        cardComponent = 'positive-rate-card'
         break
       case 'increase-ratio-of-confirmed-cases-by-daily':
-        title = this.$t('週単位の陽性者増加比')
-        updatedAt = Data.patients_summary.date
+        cardComponent = 'confirmed-cases-increase-ratio-by-week-card'
         break
     }
 
-    const data = {
+    return {
+      cardComponent,
       title,
       updatedAt,
     }
-    return data
   },
   head() {
     const url = 'https://ibaraki.stopcovid19.jp'
@@ -141,9 +88,12 @@ export default {
     const description = `${this.updatedAt} | ${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
     )}`
+    const defaultTitle = `${this.$t('東京都')} ${this.$t(
+      '新型コロナウイルス感染症'
+    )}${this.$t('対策サイト')}`
 
     return {
-      title: this.title,
+      titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
       meta: [
         {
           hid: 'og:url',
@@ -153,25 +103,22 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content:
-            this.title +
-            ' | ' +
-            this.$t('茨城県') +
-            '(' +
-            this.$t('非公式') +
-            ')' +
-            ' ' +
-            this.$t('新型コロナウイルス感染症対策サイト'),
+          template: (title) => `${this.title || title} | ${defaultTitle}`,
+          content: '',
         },
         {
           hid: 'description',
           name: 'description',
-          content: description,
+          template: (updatedAt) =>
+            `${this.updatedAt || updatedAt} | ${description}`,
+          content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: description,
+          template: (updatedAt) =>
+            `${this.updatedAt || updatedAt} | ${description}`,
+          content: '',
         },
         {
           hid: 'og:image',

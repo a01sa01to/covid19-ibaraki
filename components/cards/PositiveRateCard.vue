@@ -6,14 +6,13 @@
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :date="PositiveRate.date"
-      :items="positiveRateItems"
       :labels="positiveRateLabels"
-      :unit="$t('人')"
+      unit="%"
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
       <template v-slot:description>
-        <ul :class="$style.GraphDesc">
+        <ul>
           <li>
             {{
               $t(
@@ -91,11 +90,6 @@ export default {
     }
 
     const positiveRateGraph = [positiveCount, negativeCount, positiveRates]
-    const positiveRateItems = [
-      this.$t('陽性者数'),
-      this.$t('陰性者数'),
-      this.$t('陽性率'),
-    ]
     const positiveRateDataLabels = [
       this.$t('陽性者数'),
       this.$t('陰性者数'),
@@ -108,28 +102,13 @@ export default {
       this.$t('陽性率'),
     ]
 
-    const data = {
+    return {
       PositiveRate,
       positiveRateGraph,
-      positiveRateItems,
       positiveRateLabels,
       positiveRateDataLabels,
       positiveRateTableLabels,
     }
-    return data
   },
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

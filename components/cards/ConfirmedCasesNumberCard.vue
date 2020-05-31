@@ -5,7 +5,7 @@
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
-      :date="Data.patients.date"
+      :date="Data.patients_summary.date"
       :unit="$t('人')"
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'"
       :by-date="true"
@@ -40,11 +40,11 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
-    const data = {
+
+    return {
       Data,
       patientsGraph,
     }
-    return data
   },
 }
 </script>

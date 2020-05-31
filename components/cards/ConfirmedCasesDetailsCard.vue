@@ -92,14 +92,13 @@ export default {
       'YYYY/MM/DD HH:mm'
     )
 
-    const data = {
+    return {
       Data,
       confirmedCases,
       confirmedDetailCases,
       displayInfo,
       updatedAt,
     }
-    return data
   },
 }
 </script>

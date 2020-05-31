@@ -58,6 +58,11 @@ interface ChildData {
   value: number
 }
 
+interface ChildData {
+  attr: string
+  value: number
+}
+
 type ChildDataType = {
   attr: string
   value: number
@@ -88,7 +93,7 @@ function getSelectedItem(data: DataType, key: string) {
  * @param data - Raw data
  */
 export default (data: DataType) => {
-  const formattedData: ConfirmedCasesType = {
+  return {
     検査実施人数: getSelectedItem(data, '検査実施人数'),
     陽性者数: getSelectedItem(data, '陽性者数'),
     療養中: getSelectedItem(data, '療養中'),
@@ -97,6 +102,5 @@ export default (data: DataType) => {
     // 重症: getSelectedItem(data, '重症'),
     死亡: getSelectedItem(data, '死亡'),
     回復済: getSelectedItem(data, '回復済'),
-  }
-  return formattedData
+  } as ConfirmedCasesType
 }

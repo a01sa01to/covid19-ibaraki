@@ -274,12 +274,15 @@ export default Vue.extend({
       }
 
       @include largerThan($medium) {
-        tr {
-          height: 96px;
+        th.tel {
+          width: 35%;
         }
-
-        .tel li {
-          margin: 8px 0;
+        th,
+        tr:not(:last-child) {
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom: thin solid rgba(0, 0, 0, 0.12);
         }
 
         @include largerThan($medium) {
@@ -343,6 +346,11 @@ export default Vue.extend({
           margin: 0;
           @include font-size(12);
         }
+      }
+
+      p.caution {
+        margin: 0;
+        @include font-size(12);
       }
     }
   }

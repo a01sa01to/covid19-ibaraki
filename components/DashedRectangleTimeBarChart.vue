@@ -3,13 +3,6 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
-    <template v-slot:button>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
-    </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
@@ -59,7 +52,6 @@
             <tr v-for="item in items" :key="item.text">
               <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
-              <td class="text-end">{{ item.cumulative }}</td>
             </tr>
           </tbody>
         </template>
@@ -89,12 +81,18 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import {
+  DisplayData,
+  DataSets,
+  DataSetsPoint,
+  yAxesBgPlugin,
+  scrollPlugin,
+} from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 
 type Data = {
-  dataKind: 'transition' | 'cumulative'
+  dataKind: 'transition'
   canvas: boolean
   chartWidth: number | null
 }
@@ -103,14 +101,20 @@ type Methods = {
 }
 
 type Computed = {
-  displayCumulativeRatio: string
   displayTransitionRatio: string
+  makeDashedRectangleData: {
+    x: string
+    y: number
+  }[]
   displayInfo: {
     lText: string
     sText: string
     unit: string
   }
-  displayData: DisplayData
+  displayData: {
+    labels: string[]
+    datasets: (DataSets | DataSetsPoint)[]
+  }
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
@@ -122,9 +126,9 @@ type Computed = {
   tableData: {
     text: string
     transition: string
-    cumulative: string
   }[]
 }
+
 type Props = {
   title: string
   titleId: string
@@ -133,9 +137,11 @@ type Props = {
   date: string
   unit: string
   url: string
+  dashedRectangleRange: string
+  addedValue: number
+  tableLabels: string[] | TranslateResult[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  byDate: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -147,10 +153,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
-    this.dataKind =
-      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
-        ? 'cumulative'
-        : 'transition'
   },
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
@@ -164,7 +166,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'time-bar-chart',
+      default: 'dashed-rectangle-time-bar-chart',
     },
     chartData: {
       type: Array,
@@ -182,6 +184,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: '',
     },
+    dashedRectangleRange: {
+      type: String,
+      required: true,
+    },
+    addedValue: {
+      type: Number,
+      default: 0,
+    },
+    tableLabels: {
+      type: Array,
+      default: () => [],
+    },
     scrollPlugin: {
       type: Array,
       default: () => scrollPlugin,
@@ -190,10 +204,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => yAxesBgPlugin,
     },
-    byDate: {
-      type: Boolean,
-      default: false,
-    },
   },
   data: () => ({
     dataKind: 'transition',
@@ -201,45 +211,28 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true,
   }),
   computed: {
-    displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
+    makeDashedRectangleData() {
+      const max = Math.max(...this.chartData.map((d) => d.transition))
+      const firstDay = this.chartData[0].label
+      return [
+        { x: firstDay, y: 0 },
+        { x: firstDay, y: max + this.addedValue },
+        { x: this.dashedRectangleRange, y: max + this.addedValue },
+        { x: this.dashedRectangleRange, y: 0 },
+        { x: firstDay, y: 0 },
+      ]
+    },
     displayInfo() {
-      if (this.dataKind === 'transition' && this.byDate) {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '日別値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit,
-        }
-      } else if (this.dataKind === 'transition') {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '実績値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit,
-        }
-      }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          '累計値'
-        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          'の数値'
+        )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
           this.unit
         }）`,
         unit: this.unit,
@@ -247,84 +240,47 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]
-      const zeroMouseOverHeight = 5
-      const transparentWhite = '#FFFFFF00'
-
-      if (this.dataKind === 'transition') {
-        return {
-          labels: this.chartData.map((d) => {
-            return d.label
-          }),
-          datasets: [
-            {
-              label: this.dataKind,
-              data: this.chartData.map((_d) => {
-                return 0
-              }),
-              backgroundColor: transparentWhite,
-              borderColor: transparentWhite,
-              borderWidth: 0,
-              minBarLength: this.chartData.map((d) => {
-                if (d.transition <= 0) {
-                  return zeroMouseOverHeight
-                }
-                return 0
-              }),
-            },
-            {
-              label: this.dataKind,
-              data: this.chartData.map((d) => {
-                return d.transition
-              }),
-              backgroundColor: style.fillColor,
-              borderColor: style.strokeColor,
-              borderWidth: 1,
-            },
-          ],
-        }
-      }
       return {
         labels: this.chartData.map((d) => d.label),
         datasets: [
           {
-            label: this.dataKind,
-            data: this.chartData.map((_d) => {
-              return 0
-            }),
-            backgroundColor: transparentWhite,
-            borderColor: transparentWhite,
-            borderWidth: 0,
-            minBarLength: this.chartData.map((d) => {
-              if (d.cumulative <= 0) {
-                return zeroMouseOverHeight
-              }
-              return 0
-            }),
-          },
-          {
+            type: 'bar',
             label: this.dataKind,
             data: this.chartData.map((d) => {
-              return d.cumulative
+              return d.transition
             }),
             backgroundColor: style.fillColor,
             borderColor: style.strokeColor,
             borderWidth: 1,
+            order: 1,
+          },
+          {
+            type: 'line',
+            label: 'dashed-rectangle',
+            data: this.makeDashedRectangleData,
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: '#1b4d30',
+            borderWidth: 2,
+            borderDash: [4, 4],
+            fill: false,
+            order: 0,
+            lineTension: 0,
           },
         ],
       }
     },
     displayOption() {
       const unit = this.unit
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
+          filter(tooltipItem) {
+            return tooltipItem.datasetIndex !== 1
+          },
           callbacks: {
             label(tooltipItem) {
-              const labelText = `${parseInt(
-                tooltipItem.value!
-              ).toLocaleString()} ${unit}`
-              return labelText
+              return `${parseInt(tooltipItem.value!).toLocaleString()} ${unit}`
             },
             title(tooltipItem, data) {
               return data.labels![tooltipItem[0].index!] as string[]
@@ -391,8 +347,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080',
-                suggestedMax: scaledTicksYAxisMax,
+                fontColor: '#808080', // #808080
+                suggestedMax: this.scaledTicksYAxisMax,
               },
             },
           ],
@@ -404,23 +360,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      if (this.dataKind === 'transition') {
-        return {
-          labels: ['2020/1/1'],
-          datasets: [
-            {
-              data: [Math.max(...this.chartData.map((d) => d.transition))],
-              backgroundColor: 'transparent',
-              borderWidth: 0,
-            },
-          ],
-        }
-      }
       return {
         labels: ['2020/1/1'],
         datasets: [
           {
-            data: [Math.max(...this.chartData.map((d) => d.cumulative))],
+            data: [Math.max(...this.chartData.map((d) => d.transition))],
             backgroundColor: 'transparent',
             borderWidth: 0,
           },
@@ -450,7 +394,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 },
               },
             },
@@ -468,24 +412,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: 'transparent', // #808080
                 padding: 13, // 3 + 10(tickMarkLength)
                 fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                },
               },
               type: 'time',
               time: {
@@ -505,6 +431,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
+                suggestedMax: this.scaledTicksYAxisMax,
               },
             },
           ],
@@ -514,22 +441,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map((d) => d[dataKind])
-      return Math.max(...values)
+      const values = this.chartData.map((d) => d.transition)
+      return Math.max(...values) + this.addedValue
     },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
         {
-          text: `${this.title} (${this.$t('日別')})`,
+          text: `${this.tableLabels[0]} (${this.$t('日別')})`,
           value: 'transition',
-          align: 'end',
-        },
-        {
-          text: `${this.title} (${this.$t('累計')})`,
-          value: 'cumulative',
           align: 'end',
         },
       ]
@@ -540,7 +460,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return {
             text: d.label,
             transition: d.transition.toLocaleString(),
-            cumulative: d.cumulative.toLocaleString(),
           }
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
