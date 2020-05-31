@@ -88,7 +88,7 @@ export default {
     const description = `${this.updatedAt} | ${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
     )}`
-    const defaultTitle = `${this.$t('東京都')} ${this.$t(
+    const defaultTitle = `${this.$t('茨城県')} ${this.$t(
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
 
