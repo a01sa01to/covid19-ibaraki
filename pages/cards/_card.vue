@@ -12,7 +12,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
-import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
+import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 
@@ -28,7 +28,7 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
-    IbarakiColonaNext,
+    IbarakiCoronaNext,
     ConfirmedCasesIncreaseRatioByWeekCard,
   },
   data() {
@@ -61,8 +61,8 @@ export default {
       case 'number-of-deaths':
         cardComponent = 'deaths-card'
         break
-      case 'ibaraki-colona-next':
-        cardComponent = 'ibaraki-colona-next'
+      case 'ibaraki-corona-next':
+        cardComponent = 'ibaraki-corona-next'
         break
       case 'positive-rate':
         cardComponent = 'positive-rate-card'

@@ -48,7 +48,7 @@
       <!-- 検査陽性率 -->
       <positive-rate-card />
       <!-- 茨城コロナNext -->
-      <ibaraki-colona-next />
+      <ibaraki-corona-next />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
@@ -76,7 +76,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
-import IbarakiColonaNext from '@/components/cards/IbarakiColonaNext.vue'
+import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ExternalLink from '@/components/ExternalLink.vue'
@@ -98,7 +98,7 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
-    IbarakiColonaNext,
+    IbarakiCoronaNext,
     ExternalLink,
     StaticCard,
     ConfirmedCasesIncreaseRatioByWeekCard,

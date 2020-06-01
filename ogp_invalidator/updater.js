@@ -18,7 +18,7 @@ const PATHS = [
   'cards/ibaraki-city-map-table',
   'cards/number-of-recovered',
   'cards/number-of-deaths',
-  'cards/ibaraki-colona-next',
+  'cards/ibaraki-corona-next',
   'cards/positive-rate',
   'cards/increase-ratio-of-confirmed-cases-by-daily',
 ]

@@ -2,8 +2,8 @@
   <v-col cols="12" md="6" class="DataCard">
     <data-view
       :title="$t('茨城版コロナNext')"
-      :title-id="'ibaraki-colona-next'"
-      :date="Data.ibk_colona_next.date"
+      :title-id="'ibaraki-corona-next'"
+      :date="Data.ibk_corona_next.date"
     >
       <template v-slot:button>
         <p :class="$style.note">
@@ -42,7 +42,7 @@
             )
           }}
         </p>
-        <table class="ibkColonaNext">
+        <table class="ibkCoronaNext">
           <thead>
             <tr>
               <th colspan="2" style="background-color: #d9d9d9;">
@@ -89,7 +89,7 @@
             </tr>
           </tbody>
         </table>
-        <table class="ibkColonaNext">
+        <table class="ibkCoronaNext">
           <thead>
             <tr>
               <th colspan="3" style="background-color: #99a8e0;">
@@ -137,7 +137,7 @@
         <p :class="$style.note">
           {{ $t('（参考）茨城版コロナNextにおけるStage指標') }}
         </p>
-        <table class="stageTable ibkColonaNext">
+        <table class="stageTable ibkCoronaNext">
           <tbody>
             <tr>
               <td><span style="background-color: #cff;" /></td>
@@ -177,7 +177,7 @@ export default {
     ExternalLink,
   },
   data() {
-    const patients = Data.ibk_colona_next
+    const patients = Data.ibk_corona_next
     const avg = { new_patients: 0, non_densecontact: 0, rate: 0, tokyo: 0 }
     const stage = {
       pillar: 1,
@@ -288,7 +288,7 @@ $default-boxdiff: 35px;
 }
 </style>
 <style lang="scss">
-table.ibkColonaNext {
+table.ibkCoronaNext {
   @include font-size(14);
 
   margin-bottom: 12px;
