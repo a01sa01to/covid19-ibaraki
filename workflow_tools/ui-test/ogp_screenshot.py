@@ -16,7 +16,7 @@ PATHS = {
   "/cards/ibaraki-city-map-table": (959,900),  # これはMapがあるのでおさまらない
   "/cards/number-of-recovered": (959,502),
   "/cards/number-of-deaths": (959,502),
-  "/cards/ibaraki-colona-next": (959, 502),
+  "/cards/ibaraki-corona-next": (959, 502),
   "/cards/positive-rate": (959, 502),
   "/cards/increase-ratio-of-confirmed-cases-by-daily": (959,502),
 }
