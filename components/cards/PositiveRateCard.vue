@@ -34,6 +34,13 @@
               )
             }}
           </li>
+          <li>
+            {{
+              $t(
+                '（注）県が公表しておらず、検査実施人数が不明な日は、陽性者・陰性者ともに0名と表示される'
+              )
+            }}
+          </li>
         </ul>
       </template>
       <template v-slot:additionalDescription
