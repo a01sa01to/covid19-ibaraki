@@ -630,3 +630,13 @@ TAG_REMOVE,{date} の数値
 RUN,2020/05/31 18:14
 TAG_ADD,（注）県が公表しておらず、検査実施人数が不明な日は、陽性者・陰性者ともに0名と表示される
 TAG_ADD,（注）県が公表しておらず、検査実施人数が不明な日は0名と表示される
+RUN,2020/06/04 23:27
+TAG_ADD,ふりがな
+TAG_ADD,整理番号
+TAG_ADD,※県が整理番号を公表しなくなったため、「回復済」ラベルを消去しました。
+TAG_ADD,地域
+TAG_REMOVE,例目
+TAG_REMOVE,00歳
+TAG_REMOVE,◯
+TAG_REMOVE,現在療養中
+TAG_REMOVE,回復済※
