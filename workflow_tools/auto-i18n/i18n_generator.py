@@ -140,7 +140,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 # 居住地を取得
                                 tags.append(patients["居住地"])
                                 # 年代を取得
-                                tags.append(patients["年代"])
+                                # tags.append(patients["年代"])
                                 # 性別を取得
                                 tags.append(patients["性別"])
 
