@@ -278,7 +278,7 @@
   "ibk_corona_next": {
     "date": "2020\/06\/04 18:50",
     "pillar": 0.0,
-    "sickbed": 3.7,
+    "sickbed": 3.2,
     "new_patients": [
       {"date": "2020-05-29", "value": 0},
       {"date": "2020-05-30", "value": 0},
