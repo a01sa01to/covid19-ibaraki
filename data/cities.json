@@ -1,177 +1,221 @@
 [{
     "city": "利根町",
-    "Romaji": "Tone"
+    "Romaji": "Tone",
+    "Hiragana": "とねまち"
   },
   {
     "city": "境町",
-    "Romaji": "Sakai"
+    "Romaji": "Sakai",
+    "Hiragana": "さかいまち"
   },
   {
     "city": "五霞町",
-    "Romaji": "Goka"
+    "Romaji": "Goka",
+    "Hiragana": "ごかまち"
   },
   {
     "city": "八千代町",
-    "Romaji": "Yachiyo"
+    "Romaji": "Yachiyo",
+    "Hiragana": "やちよまち"
   },
   {
     "city": "河内町",
-    "Romaji": "Kawachi"
+    "Romaji": "Kawachi",
+    "Hiragana": "かわちまち"
   },
   {
     "city": "阿見町",
-    "Romaji": "Ami"
+    "Romaji": "Ami",
+    "Hiragana": "あみまち"
   },
   {
     "city": "美浦村",
-    "Romaji": "Miho"
+    "Romaji": "Miho",
+    "Hiragana": "みほむら"
   },
   {
     "city": "大子町",
-    "Romaji": "Daigo"
+    "Romaji": "Daigo",
+    "Hiragana": "だいごむら"
   },
   {
     "city": "東海村",
-    "Romaji": "Tokai"
+    "Romaji": "Tokai",
+    "Hiragana": "とうかいむら"
   },
   {
     "city": "城里町",
-    "Romaji": "Shirosato"
+    "Romaji": "Shirosato",
+    "Hiragana": "しろさとまち"
   },
   {
     "city": "大洗町",
-    "Romaji": "Oarai"
+    "Romaji": "Oarai",
+    "Hiragana": "おおあらいまち"
   },
   {
     "city": "茨城町",
-    "Romaji": "Ibaraki"
+    "Romaji": "Ibaraki",
+    "Hiragana": "いばらきまち"
   },
   {
     "city": "小美玉市",
-    "Romaji": "Omitama"
+    "Romaji": "Omitama",
+    "Hiragana": "おみたまし"
   },
   {
     "city": "つくばみらい市",
-    "Romaji": "Tsukubamirai"
+    "Romaji": "Tsukubamirai",
+    "Hiragana": "つくばみらいし"
   },
   {
     "city": "鉾田市",
-    "Romaji": "Hokota"
+    "Romaji": "Hokota",
+    "Hiragana": "ほこたし"
   },
   {
     "city": "行方市",
-    "Romaji": "Namegata"
+    "Romaji": "Namegata",
+    "Hiragana": "なめがたし"
   },
   {
     "city": "神栖市",
-    "Romaji": "Kamisu"
+    "Romaji": "Kamisu",
+    "Hiragana": "かみすし"
   },
   {
     "city": "桜川市",
-    "Romaji": "Sakuragawa"
+    "Romaji": "Sakuragawa",
+    "Hiragana": "さくらがわし"
   },
   {
     "city": "かすみがうら市",
-    "Romaji": "Kasumigaura"
+    "Romaji": "Kasumigaura",
+    "Hiragana": "かすみがうらし"
   },
   {
     "city": "稲敷市",
-    "Romaji": "Inashiki"
+    "Romaji": "Inashiki",
+    "Hiragana": "いなしきし"
   },
   {
     "city": "坂東市",
-    "Romaji": "Bando"
+    "Romaji": "Bando",
+    "Hiragana": "ばんどうし"
   },
   {
     "city": "筑西市",
-    "Romaji": "Chikusei"
+    "Romaji": "Chikusei",
+    "Hiragana": "ちくせいし"
   },
   {
     "city": "那珂市",
-    "Romaji": "Naka"
+    "Romaji": "Naka",
+    "Hiragana": "なかし"
   },
   {
     "city": "常陸大宮市",
-    "Romaji": "Hitachiomiya"
+    "Romaji": "Hitachiomiya",
+    "Hiragana": "ひたちおおみやし"
   },
   {
     "city": "守谷市",
-    "Romaji": "Moriya"
+    "Romaji": "Moriya",
+    "Hiragana": "もりやし"
   },
   {
     "city": "潮来市",
-    "Romaji": "Itako"
+    "Romaji": "Itako",
+    "Hiragana": "いたこし"
   },
   {
     "city": "鹿嶋市",
-    "Romaji": "Kashima"
+    "Romaji": "Kashima",
+    "Hiragana": "かしまし"
   },
   {
     "city": "ひたちなか市",
-    "Romaji": "Hitachinaka"
+    "Romaji": "Hitachinaka",
+    "Hiragana": "ひたちなかし"
   },
   {
     "city": "つくば市",
-    "Romaji": "Tsukuba"
+    "Romaji": "Tsukuba",
+    "Hiragana": "つくばし"
   },
   {
     "city": "牛久市",
-    "Romaji": "Ushiku"
+    "Romaji": "Ushiku",
+    "Hiragana": "うしくし"
   },
   {
     "city": "取手市",
-    "Romaji": "Toride"
+    "Romaji": "Toride",
+    "Hiragana": "とりでし"
   },
   {
     "city": "笠間市",
-    "Romaji": "Kasama"
+    "Romaji": "Kasama",
+    "Hiragana": "かさまし"
   },
   {
     "city": "北茨城市",
-    "Romaji": "Kitaibaraki"
+    "Romaji": "Kitaibaraki",
+    "Hiragana": "きたいばらきし"
   },
   {
     "city": "高萩市",
-    "Romaji": "Takahagi"
+    "Romaji": "Takahagi",
+    "Hiragana": "たかはぎし"
   },
   {
     "city": "常陸太田市",
-    "Romaji": "Hitachiota"
+    "Romaji": "Hitachiota",
+    "Hiragana": "ひたちおおたし"
   },
   {
     "city": "常総市",
-    "Romaji": "Joso"
+    "Romaji": "Joso",
+    "Hiragana": "じょうそうし"
   },
   {
     "city": "下妻市",
-    "Romaji": "Shimotsuma"
+    "Romaji": "Shimotsuma",
+    "Hiragana": "しもつまし"
   },
   {
-    "city": "竜ヶ崎市",
-    "Romaji": "Ryuugasaki"
+    "city": "龍ヶ崎市",
+    "Romaji": "Ryuugasaki",
+    "Hiragana": "りゅうがさきし"
   },
   {
     "city": "結城市",
-    "Romaji": "Yuuki"
+    "Romaji": "Yuuki",
+    "Hiragana": "ゆうきし"
   },
   {
     "city": "石岡市",
-    "Romaji": "Ishioka"
+    "Romaji": "Ishioka",
+    "Hiragana": "いしおかし"
   },
   {
     "city": "古河市",
-    "Romaji": "Koga"
+    "Romaji": "Koga",
+    "Hiragana": "こがし"
   },
   {
     "city": "土浦市",
-    "Romaji": "Tsuchiura"
+    "Romaji": "Tsuchiura",
+    "Hiragana": "つちうらし"
   },
   {
     "city": "日立市",
-    "Romaji": "Hitachi"
+    "Romaji": "Hitachi",
+    "Hiragana": "ひたちし"
   },
   {
     "city": "水戸市",
-    "Romaji": "Mito"
+    "Romaji": "Mito",
+    "Hiragana": "みとし"
   }
 ]

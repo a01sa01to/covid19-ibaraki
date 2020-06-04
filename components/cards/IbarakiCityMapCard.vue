@@ -17,6 +17,7 @@
 import Data from '@/data/data.json'
 import formatTable, { headers2 } from '@/utils/formatTable'
 import DataTable from '@/components/CityTable.vue'
+import Phonetics from '@/data/cities.json'
 
 export default {
   components: {
@@ -37,31 +38,90 @@ export default {
         (_) => _.市町村 === row.居住地
       )
       if (flt.length === 0) {
+        const Hira = Phonetics.filter((c) => c.city === row.居住地)[0]
+        let area = ''
+        if (
+          [
+            '日立市',
+            '常陸太田市',
+            '高萩市',
+            '北茨城市',
+            'ひたちなか市',
+            '常陸大宮市',
+            '那珂市',
+            '東海村',
+            '大子町',
+          ].includes(row.居住地)
+        )
+          area = '県北地域'
+        else if (
+          [
+            '水戸市',
+            '笠間市',
+            '小美玉市',
+            '茨城町',
+            '城里町',
+            '大洗町',
+          ].includes(row.居住地)
+        )
+          area = '県央地域'
+        else if (
+          ['鹿嶋市', '潮来市', '神栖市', '行方市', '鉾田市'].includes(
+            row.居住地
+          )
+        )
+          area = '鹿行地域'
+        else if (
+          [
+            '土浦市',
+            '石岡市',
+            '龍ヶ崎市',
+            '取手市',
+            '牛久市',
+            'つくば市',
+            '守谷市',
+            '稲敷市',
+            'かすみがうら市',
+            'つくばみらい市',
+            '美浦村',
+            '阿見町',
+            '河内町',
+            '利根町',
+            '龍ケ崎保健所管内',
+            'つくば保健所管内',
+          ].includes(row.居住地)
+        )
+          area = '県南地域'
+        else if (
+          [
+            '古河市',
+            '筑西市',
+            '結城市',
+            '下妻市',
+            '常総市',
+            '坂東市',
+            '桜川市',
+            '八千代町',
+            '五霞町',
+            '境町',
+          ].includes(row.居住地)
+        )
+          area = '県西地域'
+        else area = '県外'
+
         patientsTable.cityDataset.push({
+          地域: area,
           市町村: row.居住地,
-          現在療養中: row.回復済 !== '◯' ? 1 : 0,
-          回復者数: row.回復済 === '◯' ? 1 : 0,
+          ふりがな: Hira ? Hira.Hiragana : '',
           発生数: 1,
         })
       } else {
         const idx = patientsTable.cityDataset.indexOf(flt[0])
         patientsTable.cityDataset[idx].発生数++
-        row.回復済 === '◯'
-          ? patientsTable.cityDataset[idx].回復者数++
-          : patientsTable.cityDataset[idx].現在療養中++
       }
     }
 
-    patientsTable.cityDataset.sort((a, b) => {
-      // 発生数が同じなら現在療養中で比較
-      if (a.発生数 === b.発生数) {
-        if (a.現在療養中 === b.現在療養中) {
-          return 0
-        }
-        return a.現在療養中 < b.現在療養中 ? 1 : -1
-      }
-      return a.発生数 < b.発生数 ? 1 : -1
-    })
+    patientsTable.cityDataset.sort((a, b) => (a.発生数 < b.発生数 ? 1 : -1))
 
     const data = {
       Data,

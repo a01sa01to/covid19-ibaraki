@@ -1,6 +1,17 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
+      <div class="note">
+        <ul>
+          <li>
+            {{
+              $t(
+                '※県が整理番号を公表しなくなったため、「回復済」ラベルを消去しました。'
+              )
+            }}
+          </li>
+        </ul>
+      </div>
       <span />
     </template>
     <v-data-table
@@ -18,23 +29,14 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <td class="text-start">{{ item['発生数'] }}</td>
+            <td class="text-start">{{ item['地域'] }}</td>
             <td class="text-start">{{ item['市町村'] }}</td>
-            <td class="text-start">{{ item['現在療養中'] }}</td>
-            <td class="text-start">{{ item['回復者数'] }}</td>
+            <td class="text-start">{{ item['ふりがな'] }}</td>
+            <td class="text-start">{{ item['発生数'] }}</td>
           </tr>
         </tbody>
       </template>
     </v-data-table>
-    <div class="note">
-      {{ $t('※') }}{{ $t('発生数') }} = {{ $t('現在療養中') }} +
-      {{ $t('回復者数') }}<br />
-      {{
-        $t(
-          '※「回復済」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
-        )
-      }}
-    </div>
     <template v-slot:footer>
       <open-data-link :url="url" />
     </template>

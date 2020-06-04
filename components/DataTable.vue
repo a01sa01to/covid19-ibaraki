@@ -20,12 +20,11 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <td class="text-start">{{ item['例目'] }}</td>
+            <td class="text-start">{{ item['整理番号'] }}</td>
             <td class="text-start">{{ item['公表日'] }}</td>
             <td class="text-start">{{ item['居住地'] }}</td>
             <td class="text-start">{{ item['年代'] }}</td>
             <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['回復済'] }}</td>
           </tr>
         </tbody>
       </template>
@@ -45,6 +44,13 @@
           {{
             $t(
               '※「回復済」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '※県が整理番号を公表しなくなったため、「回復済」ラベルを消去しました。'
             )
           }}
         </li>
