@@ -2,9 +2,9 @@
   <span :class="$style.linkButton">
     <external-link
       :class="$style.TextLink"
-      url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
+      url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
     >
-      {{ $t('茨城版コロナNext Stage2への緩和について') }}
+      {{ $t('茨城版コロナNext Stage1への緩和について') }}
     </external-link>
   </span>
 </template>

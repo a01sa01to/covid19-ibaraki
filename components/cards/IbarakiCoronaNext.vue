@@ -41,6 +41,10 @@
               '※引き続き感染者数が抑制できれば、6/8以降、Stage1への緩和を予定。'
             )
           }}
+          <external-link
+            url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
+            >{{ $t('茨城版コロナNext Stage1について') }}</external-link
+          >
         </p>
         <table class="ibkCoronaNext">
           <thead>
