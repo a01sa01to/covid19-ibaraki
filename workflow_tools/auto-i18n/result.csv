@@ -640,3 +640,8 @@ TAG_REMOVE,00歳
 TAG_REMOVE,◯
 TAG_REMOVE,現在療養中
 TAG_REMOVE,回復済※
+RUN,2020/06/05 17:49
+TAG_ADD,茨城版コロナNext Stage1への緩和について
+TAG_ADD,茨城版コロナNext Stage1について
+TAG_REMOVE,※「回復済」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す
+TAG_REMOVE,茨城版コロナNext Stage2への緩和について
