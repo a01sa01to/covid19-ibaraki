@@ -140,11 +140,9 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 # 居住地を取得
                                 tags.append(patients["居住地"])
                                 # 年代を取得
-                                tags.append(patients["年代"])
+                                # tags.append(patients["年代"])
                                 # 性別を取得
                                 tags.append(patients["性別"])
-                                # 回復済を取得
-                                tags.append(patients["回復済"])
 
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
