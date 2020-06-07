@@ -658,3 +658,5 @@ TAG_ADD,富山県
 TAG_ADD,徳島県
 TAG_ADD,富山県公認
 TAG_REMOVE,富山県および徳島県のサイトは開設されていないか、データベースに載っていません。
+RUN,2020/06/07 04:58
+TAG_REMOVE,{date} の数値
