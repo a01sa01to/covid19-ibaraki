@@ -4,13 +4,7 @@
       {{ $t('他都道府県の新型コロナ対策サイト') }}
     </page-header>
     <static-card>
-      <p>
-        {{ $t('現在までに開設された都道府県：') }}<strong>45</strong> / 47<br />{{
-          $t(
-            '富山県および徳島県のサイトは開設されていないか、データベースに載っていません。'
-          )
-        }}
-      </p>
+      <p>{{ $t('現在までに開設された都道府県：') }}<strong>47</strong> / 47</p>
       <p class="checkOthers">
         {{
           $t(
@@ -472,6 +466,27 @@
               </td>
             </tr>
             <tr>
+              <td class="pref text-center">{{ $t('富山県') }}</td>
+              <td class="site text-center">
+                <a
+                  href="https://stopcovid19-toyama.netlify.app/"
+                  target="_blank"
+                  >https://stopcovid19-toyama.netlify.app/</a
+                >
+              </td>
+              <td class="admin text-center">
+                {{ $t('有志') }}(<b>{{ $t('富山県公認') }}</b
+                >)
+              </td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/Terachan0117/covid19-toyama"
+                  target="_blank"
+                  >Terachan0117/covid19-toyama</a
+                >
+              </td>
+            </tr>
+            <tr>
               <td class="pref text-center">{{ $t('石川県') }}</td>
               <td class="site text-center">
                 <a href="https://stopcovid19.pref.ishikawa.jp/" target="_blank"
@@ -844,6 +859,22 @@
                   href="https://github.com/nishidayoshikatsu/covid19-yamaguchi"
                   target="_blank"
                   >nishidayoshikatsu/covid19-yamaguchi</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="pref text-center">{{ $t('徳島県') }}</td>
+              <td class="site text-center">
+                <a href="https://covid19-tokushima.netlify.com/" target="_blank"
+                  >https://covid19-tokushima.netlify.com/</a
+                >
+              </td>
+              <td class="admin text-center">{{ $t('個人') }}</td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/yuta-kusuno/covid19-tokushima"
+                  target="_blank"
+                  >yuta-kusuno/covid19-tokushima</a
                 >
               </td>
             </tr>

@@ -29,6 +29,7 @@
 [](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)|
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.app/|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
+[](16)富山県|https://stopcovid19-toyama.netlify.app/|有志（**富山県公認**）|[Terachan0117/covid19-toyama](https://github.com/Terachan0117/covid19-toyama)
 [](17)石川県|https://stopcovid19.pref.ishikawa.jp/|石川県（**公式**）||
 [](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|
 [](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
@@ -52,6 +53,7 @@
 [](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア（有志）|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
 [](34)広島県|https://covid19-hiroshima.netlify.app/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](35)山口県|https://covid19-yamaguchi.netlify.app/|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
+[](36)徳島県|https://covid19-tokushima.netlify.com/|個人|[yuta-kusuno/covid19-tokushima](https://github.com/yuta-kusuno/covid19-tokushima)
 [](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)|
 [](37)香川県|https://covid19-kagawa.jp/|学生エンジニア（有志）|[i15317/covid19](https://github.com/i15317/covid19) |
 [](38)愛媛県|https://ehime-covid19.com/|ボランティア（有志）|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
