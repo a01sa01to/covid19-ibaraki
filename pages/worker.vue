@@ -3,6 +3,11 @@
     <page-header class="mb-3">{{
       $t('企業の皆様・はたらく皆様へ')
     }}</page-header>
+    <StaticCard>{{
+      $t(
+        'ここに載っている情報は、必ずしも最新の情報ではなく、すべての情報が載っているわけでもないということをご承知ください。'
+      )
+    }}</StaticCard>
     <StaticCard>
       <p>
         {{

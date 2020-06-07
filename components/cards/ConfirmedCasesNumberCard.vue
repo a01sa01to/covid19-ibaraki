@@ -7,8 +7,8 @@
       :chart-data="patientsGraph"
       :date="Data.patients_summary.date"
       :unit="$t('人')"
-      :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'"
       :by-date="true"
+      :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'"
     >
       <template v-slot:description>
         <ul>

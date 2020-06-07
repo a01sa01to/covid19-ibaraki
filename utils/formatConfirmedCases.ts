@@ -63,6 +63,11 @@ interface ChildData {
   value: number
 }
 
+interface ChildData {
+  attr: string
+  value: number
+}
+
 type ChildDataType = {
   attr: string
   value: number

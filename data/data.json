@@ -135,6 +135,9 @@
   "// 9": "茨城版コロナNext用",
   "ibk_corona_next": {
     "date": "2020\/06\/06 18:50",
+    "nowStage": 2,
+    "nextStage": 1,
+    "moveDate": "2020-06-08",
     "pillar": 0.0,
     "sickbed": 2.6,
     "new_patients": [

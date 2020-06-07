@@ -24,7 +24,7 @@
               <span>
                 {{ $t('現在の対策状況：') }}
                 <span :class="$style.unit">Stage</span>
-                <strong>2</strong>
+                <strong>{{ Data.ibk_corona_next.nowStage }}</strong>
               </span>
               <span style="font-size: 1.2rem; text-align: right; margin: 4px;">
                 <external-link
@@ -223,13 +223,12 @@ export default {
       stage[l[0]] += (d > l[1]) + (d > l[2]) + (d > l[3])
     }
 
-    const data = {
+    return {
       Data,
       patients,
       avg,
       stage,
     }
-    return data
   },
 }
 </script>

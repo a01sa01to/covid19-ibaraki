@@ -123,27 +123,18 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content:
-            this.$t('{date} 更新', {
-              date: convertDateToSimpleFormat(Data.lastUpdate),
-            }) +
-            ': ' +
-            this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
-            ),
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(Data.lastUpdate),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
-          content:
-            this.$t('茨城県') +
-            '(' +
-            this.$t('非公式') +
-            ')' +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト'),
+          content: `${this.$t('茨城県')} ${this.$t(
+            '新型コロナウイルス感染症'
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'og:url',
@@ -154,27 +145,18 @@ export default Vue.extend({
         {
           hid: 'og:title',
           property: 'og:title',
-          content:
-            this.$t('茨城県') +
-            '(' +
-            this.$t('非公式') +
-            ')' +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト'),
+          content: `${this.$t('茨城県')} ${this.$t(
+            '新型コロナウイルス感染症'
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            this.$t('{date} 更新', {
-              date: convertDateToSimpleFormat(Data.lastUpdate),
-            }) +
-            ': ' +
-            this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
-            ),
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(Data.lastUpdate),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:image',
@@ -184,15 +166,9 @@ export default Vue.extend({
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content:
-            this.$t('茨城県') +
-            '(' +
-            this.$t('非公式') +
-            ')' +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト'),
+          content: `${this.$t('茨城県')} ${this.$t(
+            '新型コロナウイルス感染症'
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'twitter:image',

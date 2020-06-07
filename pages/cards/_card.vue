@@ -85,7 +85,7 @@ export default {
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.updatedAt} | ${this.$t(
+    const description = `${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
     )}`
     const defaultTitle = `${this.$t('茨城県')} ${this.$t(
@@ -98,7 +98,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: url + this.$route.path + '/',
+          content: `${url}${this.$route.path}/`,
         },
         {
           hid: 'og:title',

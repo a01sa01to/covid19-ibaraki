@@ -42,10 +42,9 @@ export default {
     DataView,
   },
   data() {
-    const data = {
+    return {
       Data,
     }
-    return data
   },
   mounted() {
     const patients = Data.patients.data

@@ -123,12 +123,10 @@ export default {
 
     patientsTable.cityDataset.sort((a, b) => (a.発生数 < b.発生数 ? 1 : -1))
 
-    const data = {
+    return {
       Data,
       patientsTable,
     }
-
-    return data
   },
   methods: {
     customSort(items, index, isDesc) {

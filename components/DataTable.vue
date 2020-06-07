@@ -20,7 +20,7 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <td class="text-start">{{ item['整理番号'] }}</td>
+            <td class="text-start" scope="row">{{ item['整理番号'] }}</td>
             <td class="text-start">{{ item['公表日'] }}</td>
             <td class="text-start">{{ item['居住地'] }}</td>
             <td class="text-start">{{ item['年代'] }}</td>
@@ -202,8 +202,9 @@ export default Vue.extend({
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
     const tables = vTableElement.querySelectorAll('table')
-
-    tables.forEach((table: HTMLElement) => {
+    // NodeListをIE11でforEachするためのワークアラウンド
+    const nodes = Array.prototype.slice.call(tables, 0)
+    nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
   },

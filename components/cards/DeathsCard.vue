@@ -24,11 +24,10 @@ export default {
   data() {
     const deathsGraph = formatGraph(Data.deaths_summary.data)
 
-    const data = {
+    return {
       Data,
       deathsGraph,
     }
-    return data
   },
 }
 </script>
