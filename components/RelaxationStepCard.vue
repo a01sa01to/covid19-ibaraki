@@ -32,10 +32,7 @@
             </span>
           </li>
         </ul>
-        <p
-          v-if="nextStage && formattedDayForDisplay"
-          class="RelaxationStep-changed-text"
-        >
+        <p v-if="nextStage" class="RelaxationStep-changed-text">
           {{
             $t('{date} Stage{num}に移行', {
               date: formattedDayForDisplay,
@@ -59,7 +56,7 @@ export default Vue.extend({
   },
   data() {
     const nowStage = Data.ibk_corona_next.nowStage
-    const nextStage = Data.ibk_corona_next.nextStage || null
+    const nextStage = Data.ibk_corona_next.nextStage
     return {
       nowStage,
       nextStage,
@@ -68,7 +65,7 @@ export default Vue.extend({
   },
   computed: {
     formattedDayForDisplay() {
-      const dateChanged = new Date(Data.ibk_corona_next.moveDate) || new Date()
+      const dateChanged = new Date(Data.ibk_corona_next.moveDate)
       const date = this.$d(dateChanged, 'dateWithDayOfWeek')
       return this.$t('{date}', { date })
     },
