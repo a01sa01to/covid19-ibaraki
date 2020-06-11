@@ -28,8 +28,8 @@
               </span>
               <span style="font-size: 1.2rem; text-align: right; margin: 4px;">
                 <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
-                  >{{ $t('茨城版コロナNext Stage2について') }}</external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
+                  >{{ $t('茨城版コロナNext Stage1について') }}</external-link
                 >
               </span>
             </div>
