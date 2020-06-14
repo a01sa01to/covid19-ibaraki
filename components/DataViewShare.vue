@@ -214,9 +214,9 @@ export default Vue.extend({
 /* stylelint-disable no-descending-specificity */
 
 .DataView-Share-Opener {
-  cursor: pointer;
-  margin: -14px;
   padding: 14px;
+  margin: -14px;
+  cursor: pointer;
 
   &:focus {
     outline: dotted $gray-3 1px;
@@ -225,15 +225,15 @@ export default Vue.extend({
 
 .DataView-Share-Buttons {
   position: absolute;
-  padding: 8px;
   right: 2rem;
   bottom: 3em;
-  width: 240px;
-  border: solid 1px $gray-4;
-  background: $white !important;
-  border-radius: 8px;
-  text-align: left;
   z-index: 2;
+  width: 240px;
+  padding: 8px;
+  text-align: left;
+  background: $white !important;
+  border: solid 1px $gray-4;
+  border-radius: 8px;
   @include font-size(16);
 
   > * {
@@ -246,8 +246,8 @@ export default Vue.extend({
     color: $gray-3;
 
     button {
-      border-radius: 50%;
       border: 1px solid #fff;
+      border-radius: 50%;
 
       &:focus {
         border: 1px dotted #707070;
@@ -273,8 +273,8 @@ export default Vue.extend({
     }
 
     button {
-      border-radius: 50%;
       border: solid 1px #eee;
+      border-radius: 50%;
 
       &:focus {
         border: 1px dotted #707070;
@@ -308,12 +308,12 @@ export default Vue.extend({
     button {
       width: 30px;
       height: 30px;
-      margin-left: 4px;
       margin-right: 4px;
+      margin-left: 4px;
 
       &:focus {
-        border-radius: 50%;
         border: 1px dotted #707070;
+        border-radius: 50%;
         outline: none;
       }
     }
@@ -322,24 +322,24 @@ export default Vue.extend({
 
 .overlay {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   user-select: none;
   opacity: 0.8;
 
   > .overlay-text {
-    text-align: center;
-    padding: 2em;
     width: 60%;
+    padding: 2em;
+    color: $white !important;
+    text-align: center;
     background: $gray-2;
     border-radius: 8px;
-    color: $white !important;
     @include font-size(16);
   }
 }

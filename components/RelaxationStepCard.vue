@@ -89,9 +89,9 @@ $tinySmall: 420;
 
   .RelaxationStep-heading {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 12px;
 
     .RelaxationStep-title {
@@ -100,6 +100,7 @@ $tinySmall: 420;
       padding: 12px;
       color: $gray-2;
       @include card-h2();
+
       &-icon {
         margin: 3px;
       }
@@ -120,55 +121,64 @@ $tinySmall: 420;
 
   .RelaxationStep-steps {
     position: relative;
-    display: block;
-    font-size: px2vw(14);
-    margin-left: px2vw(16);
-    text-align: center;
-    padding: px2vw(5) px2vw(10) px2vw(5) px2vw(25);
     z-index: 3;
+    display: block;
+    padding: px2vw(5) px2vw(10) px2vw(5) px2vw(25);
+    margin-left: px2vw(16);
+    font-size: px2vw(14);
+    text-align: center;
+
     &-on {
       color: $white;
       background-color: $green-1;
     }
+
     &-off {
       color: $gray-2;
       background-color: $gray-4;
     }
+
     &::after,
     &::before {
       position: absolute;
-      content: '';
-      border-style: solid;
-      border-color: transparent;
-      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
       top: 50%;
+      content: '';
+      border-color: transparent;
+      border-style: solid;
+      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
     }
+
     &::after {
       right: 0.1rem;
       transform: translate(100%, -50%);
     }
+
     &-on::after {
       border-left-color: $green-1;
     }
+
     &-off::after {
       border-left-color: $gray-4;
     }
+
     &::before {
       left: px2vw(15);
-      transform: translate(-100%, -50%);
       border-left-color: $white;
+      transform: translate(-100%, -50%);
     }
   }
 
   @include lessThan($small) {
     .RelaxationStep-steps {
-      font-size: 1rem;
-      margin-left: 1.4rem;
       padding: 0.5rem 0.5rem 0.5rem 2rem;
+      margin-left: 1.4rem;
+      font-size: 1rem;
+
       &::after,
       &::before {
         border-width: 1.3rem 0 1.3rem 1.3rem;
       }
+
       &-on::before,
       &-off::before {
         left: 1.2rem;
@@ -178,13 +188,15 @@ $tinySmall: 420;
 
   @include lessThan($tinySmall) {
     .RelaxationStep-steps {
-      font-size: 0.8rem;
-      margin-left: 1rem;
       padding: 0.32rem 0.32rem 0.32rem 1rem;
+      margin-left: 1rem;
+      font-size: 0.8rem;
+
       &::after,
       &::before {
         border-width: 1rem 0 1rem 0.8rem;
       }
+
       &-on::before,
       &-off::before {
         left: 0.8rem;
@@ -194,13 +206,15 @@ $tinySmall: 420;
 
   @include largerThan($mediumLarge) {
     .RelaxationStep-steps {
-      font-size: 1.4rem;
-      margin-left: 1.6rem;
       padding: 0.5rem 0.5rem 0.5rem 2rem;
+      margin-left: 1.6rem;
+      font-size: 1.4rem;
+
       &::after,
       &::before {
         border-width: 1.55rem 0 1.55rem 1.55rem;
       }
+
       &-on::before,
       &-off::before {
         left: 1.45rem;
@@ -215,13 +229,14 @@ $tinySmall: 420;
     flex-wrap: wrap;
 
     .RelaxationStep-block {
-      padding: 12px;
       flex: 1 1 100%;
+      padding: 12px;
 
       @include largerThan($large) {
         &-description {
           flex-basis: 40%;
         }
+
         &-steps {
           flex-basis: auto;
         }
@@ -238,19 +253,19 @@ $tinySmall: 420;
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
-      list-style: none;
+      width: 100%;
       padding: 0;
       font-weight: bold;
       white-space: nowrap;
-      width: 100%;
+      list-style: none;
 
       @include lessThan($tiny) {
         margin-left: -6px;
       }
 
       .RelaxationStep-steps-item {
-        margin-bottom: 12px;
         flex: 0 1 20%;
+        margin-bottom: 12px;
 
         @include largerThan($large) {
           flex: 1 1 auto;
@@ -260,10 +275,12 @@ $tinySmall: 420;
           flex: 0 1 25%;
         }
       }
+
       .RelaxationStep-steps-item:first-child {
         .RelaxationStep-steps {
-          border-radius: 5px 0 0 5px;
           margin-left: 0;
+          border-radius: 5px 0 0 5px;
+
           &::before {
             display: none;
           }
@@ -272,9 +289,9 @@ $tinySmall: 420;
     }
 
     .RelaxationStep-changed-text {
-      text-align: center;
       font-weight: bold;
       color: $green-1;
+      text-align: center;
       @include font-size(16);
     }
   }

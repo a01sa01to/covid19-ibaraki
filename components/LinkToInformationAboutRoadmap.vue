@@ -32,6 +32,7 @@ export default Vue.extend({
   @include button-text('sm', 16);
 
   color: $green-1 !important;
+
   &:hover {
     color: $white !important;
   }

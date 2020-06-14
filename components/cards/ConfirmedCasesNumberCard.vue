@@ -11,7 +11,7 @@
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
           </li>

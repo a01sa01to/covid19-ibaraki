@@ -19,14 +19,14 @@
           <li style="width: 100%; list-style: none;">
             <div
               :class="$style.content"
-              style="min-height: fit-content; display: block;"
+              style="display: block; min-height: fit-content;"
             >
               <span>
                 {{ $t('現在の対策状況：') }}
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ Data.ibk_corona_next.nowStage }}</strong>
               </span>
-              <span style="font-size: 1.2rem; text-align: right; margin: 4px;">
+              <span style="margin: 4px; font-size: 1.2rem; text-align: right;">
                 <external-link
                   url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
                   >{{ $t('茨城版コロナNext Stage1について') }}</external-link
@@ -42,7 +42,7 @@
                 {{ $t('県内の医療提供体制') }}
               </th>
               <th colspan="1" style="background-color: #98d6a4;">
-                {{ $t('都内の感染状況') }}
+                {{ $t('県内の感染状況') }}
               </th>
             </tr>
             <tr>
@@ -236,28 +236,32 @@ $default-boxh: 150px;
 $default-boxdiff: 35px;
 
 .container {
-  width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
+  width: 100%;
+  // override default styles
+  padding-left: 0 !important;
   line-height: 1.35;
+
   * {
     box-sizing: border-box;
   }
-  // override default styles
-  padding-left: 0 !important;
+
   ul {
     padding-left: 0;
   }
 }
+
 .content {
-  min-height: $default-boxh;
-  padding: 10px 2px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
+  min-height: $default-boxh;
+  padding: 10px 2px;
   text-align: center;
+
   > span {
     display: block;
     width: 100%;
@@ -267,13 +271,16 @@ $default-boxdiff: 35px;
     &:last-child {
       margin-top: 0.1em;
     }
+
     &:not(:last-child) {
       overflow-wrap: break-word;
     }
   }
+
   span strong {
     @include font-size(20);
   }
+
   span.unit {
     @include font-size(18);
   }
@@ -300,25 +307,29 @@ table.ibkCoronaNext {
     tr {
       width: 100%;
     }
+
     td {
       &:nth-child(1) {
         width: 50px;
         height: fit-content;
         text-align: right;
+
         span {
-          vertical-align: middle;
+          display: inline-block;
           width: 16px;
           height: 16px;
-          display: inline-block;
           margin: 0 0.5rem 0 0;
-          border-radius: 8px;
+          vertical-align: middle;
           border: 0.5px solid #aaa;
+          border-radius: 8px;
         }
       }
+
       &:nth-child(2) {
         width: 70px;
         text-align: left;
       }
+
       &:nth-child(3) {
         width: fit-content;
         text-align: left;

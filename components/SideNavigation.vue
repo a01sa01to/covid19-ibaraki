@@ -14,7 +14,7 @@
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
             :alt="$t('茨城県')"
-            style="max-height: 100%; width: 100px;"
+            style="width: 100px; max-height: 100%;"
           />
           <div class="SideNavigation-HeaderText">
             {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{
@@ -266,6 +266,7 @@ export default Vue.extend({
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -293,8 +294,8 @@ export default Vue.extend({
   padding: 18px 8px 18px 16px;
   font-size: 28px;
   @include lessThan($tiny) {
-    font-size: 24px;
     padding: 20px 10px;
+    font-size: 24px;
   }
   @include largerThan($small) {
     display: none;
@@ -308,8 +309,8 @@ export default Vue.extend({
   padding: 18px 8px 18px 16px;
   font-size: 28px;
   @include lessThan($tiny) {
-    font-size: 24px;
     padding: 20px 10px;
+    font-size: 24px;
   }
   @include largerThan($small) {
     display: none;
@@ -336,6 +337,7 @@ export default Vue.extend({
   @include lessThan($tiny) {
     justify-content: space-between;
   }
+
   &:link,
   &:hover,
   &:focus,
@@ -344,6 +346,7 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:hover,
   &:focus {
     font-weight: bold;
@@ -380,17 +383,18 @@ export default Vue.extend({
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
+
     &.-opened {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
+      z-index: z-index-of(opened-side-navigation);
       display: block !important;
       width: 100%;
-      z-index: z-index-of(opened-side-navigation);
-      background-color: $white;
       height: 100%;
       overflow: auto;
+      background-color: $white;
       -webkit-overflow-scrolling: touch;
     }
   }
@@ -417,9 +421,9 @@ export default Vue.extend({
 }
 
 .SideNavigation-SocialLink {
+  color: $gray-3;
   border: 1px dotted transparent;
   border-radius: 30px;
-  color: $gray-3;
 
   &:link,
   &:hover,
@@ -448,9 +452,9 @@ export default Vue.extend({
 .SideNavigation-Copyright {
   display: block;
   margin-top: 15px;
-  color: $gray-1;
-  line-height: 1.3;
   font-weight: bold;
+  line-height: 1.3;
+  color: $gray-1;
   @include font-size(10);
 }
 

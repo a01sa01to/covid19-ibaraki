@@ -643,9 +643,9 @@
               </td>
               <td class="site text-center">
                 <a
-                  href="https://stopcovid19-hamamatsu.netlify.app/"
+                  href="https://stopcovid19.code4hamamatsu.org/"
                   target="_blank"
-                  >https://stopcovid19-hamamatsu.netlify.app/</a
+                  >https://stopcovid19.code4hamamatsu.org/</a
                 >
               </td>
               <td class="admin text-center">
@@ -1185,12 +1185,13 @@ export default Vue.extend({
         th.tel {
           width: 35%;
         }
+
         th,
         tr:not(:last-child) {
           border-top: none;
-          border-left: none;
           border-right: none;
           border-bottom: thin solid rgba(0, 0, 0, 0.12);
+          border-left: none;
         }
 
         tr:last-child {
@@ -1208,15 +1209,15 @@ export default Vue.extend({
             height: auto;
 
             .pref {
-              font-weight: bold;
-              border-bottom: none !important;
               padding-top: 12px;
               padding-bottom: 8px;
+              font-weight: bold;
+              border-bottom: none !important;
             }
 
             .site {
-              border-bottom: none !important;
               margin-bottom: 12px;
+              border-bottom: none !important;
             }
 
             .admin {

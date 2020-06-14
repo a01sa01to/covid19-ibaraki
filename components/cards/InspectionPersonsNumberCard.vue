@@ -10,13 +10,16 @@
       :url="'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html'"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
                 '（注）医療機関等での検査人数、チャーター機帰国者、クルーズ船乗客等は含まれていない'
               )
             }}
+          </li>
+          <li>
+            {{ $t('（注）検査結果の判明日を基準とする') }}
           </li>
           <li>
             {{

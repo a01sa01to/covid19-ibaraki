@@ -5,7 +5,7 @@
         <div :class="$style.pillar" style="border-color: #003fab;">
           <div
             :class="$style.content"
-            style="min-height: fit-content; display: block;"
+            style="display: block; min-height: fit-content;"
           >
             <span style="display: inline-block; width: 40%;">
               {{ $t('検査実施人数') }}
@@ -108,20 +108,24 @@ export default Vue.extend({
 $default-bdw: 3px;
 $default-boxdiff: 35px;
 // .container > .box > (.group > .box > ...) .pillar > .content
+
 .container {
-  width: 100%;
   box-sizing: border-box;
-  color: $green-1;
+  width: 100%;
+  // override default styles
+  padding-left: 0 !important;
   line-height: 1.35;
+  color: $green-1;
+
   * {
     box-sizing: border-box;
   }
-  // override default styles
-  padding-left: 0 !important;
+
   ul {
     padding-left: 0;
   }
 }
+
 .group {
   flex: 0 0 auto;
   padding-left: $default-bdw !important;
@@ -130,11 +134,11 @@ $default-boxdiff: 35px;
 }
 
 .content {
-  padding: 5px 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
+  padding: 5px 10px;
   border: $default-bdw solid $green-1;
 
   > span {
@@ -143,16 +147,16 @@ $default-boxdiff: 35px;
     @include font-size(14);
 
     &:first-child {
-      text-align: left;
-      margin-top: 1px;
       flex-shrink: 2;
+      margin-top: 1px;
+      text-align: left;
     }
 
     &:last-child {
-      margin-left: 10px;
-      text-align: right;
       // white-space: nowrap;
       flex-shrink: 1;
+      margin-left: 10px;
+      text-align: right;
     }
 
     &:not(:last-child) {
@@ -179,27 +183,27 @@ $default-boxdiff: 35px;
   margin-top: $default-bdw;
 
   &.parent {
-    border-top: $default-bdw solid $green-1;
-    border-left: $default-bdw solid $green-1;
     position: relative;
     padding-left: $default-boxdiff - $default-bdw * 2;
+    border-top: $default-bdw solid $green-1;
+    border-left: $default-bdw solid $green-1;
 
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: -1px;
       bottom: 0;
+      left: -1px;
+      display: block;
       width: $default-boxdiff - $default-bdw - 2;
+      content: '';
       border-bottom: $default-bdw solid $green-1;
     }
 
     > .content {
-      margin-left: -($default-boxdiff - $default-bdw * 2);
       width: calc(100% + #{($default-boxdiff - $default-bdw * 2)});
+      margin-left: -($default-boxdiff - $default-bdw * 2);
       border-top: none;
-      border-left: none;
       border-bottom: none;
+      border-left: none;
     }
   }
 }
@@ -217,6 +221,7 @@ $default-boxdiff: 35px;
     border-top: px2vw($bdw, $vw) solid $green-1;
     border-left: px2vw($bdw, $vw) solid $green-1;
   }
+
   .content {
     padding: px2vw(5, $vw) px2vw(10, $vw);
     border: px2vw($bdw, $vw) solid $green-1;
@@ -236,17 +241,19 @@ $default-boxdiff: 35px;
     strong {
       @include font-size($fz + 2);
     }
+
     span.unit {
       @include font-size($fz);
     }
   }
+
   .box {
     margin-top: px2vw($bdw, $vw);
 
     &.parent {
+      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
       border-top: px2vw($bdw, $vw) solid $green-1;
       border-left: px2vw($bdw, $vw) solid $green-1;
-      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
 
       &::after {
         width: px2vw($boxdiff - $bdw, $vw);
@@ -254,8 +261,8 @@ $default-boxdiff: 35px;
       }
 
       > .content {
-        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
         width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
+        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
       }
     }
   }
@@ -265,6 +272,7 @@ $default-boxdiff: 35px;
 @include lessThan(1263) {
   @include override(1263, 3, 14, 35);
 }
+
 // Vuetify Breakpoints: Small (960)
 @include lessThan(959) {
   @include override(960, 3, 14, 35);

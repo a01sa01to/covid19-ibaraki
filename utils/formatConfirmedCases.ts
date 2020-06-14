@@ -92,6 +92,11 @@ function getSelectedItem(data: DataType, key: string) {
   return result || 0
 }
 
+interface ChildData {
+  attr: string
+  value: number
+}
+
 /**
  * Format for *Chart component
  *
@@ -102,9 +107,6 @@ export default (data: DataType) => {
     検査実施人数: getSelectedItem(data, '検査実施人数'),
     陽性者数: getSelectedItem(data, '陽性者数'),
     療養中: getSelectedItem(data, '療養中'),
-    // 軽症: getSelectedItem(data, '軽症')
-    // 中等症: getSelectedItem(data, '中等症'),
-    // 重症: getSelectedItem(data, '重症'),
     死亡: getSelectedItem(data, '死亡'),
     回復済: getSelectedItem(data, '回復済'),
   } as ConfirmedCasesType

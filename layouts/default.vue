@@ -1,11 +1,11 @@
 <template>
   <v-app class="app">
-    <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
+    <v-overlay :value="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
         <img
           src="/logo.svg"
           alt="茨城県"
-          style="max-height: 100%; width: 100px;"
+          style="width: 100px; max-height: 100%;"
         />
         <scale-loader color="#003FAB" />
       </div>
@@ -25,7 +25,7 @@
         </v-container>
       </main>
     </div>
-    <div v-else class="embed">
+    <div v-if="!loading && !hasNavigation" class="embed">
       <v-container>
         <nuxt />
       </v-container>
@@ -44,13 +44,11 @@ import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
-
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
   loading: boolean
 }
-
 export default Vue.extend({
   components: {
     DevelopmentModeMark,
@@ -68,7 +66,6 @@ export default Vue.extend({
       hasNavigation = false
       loading = false
     }
-
     return {
       hasNavigation,
       loading,
@@ -195,6 +192,7 @@ export default Vue.extend({
   .container {
     padding: 0 !important;
   }
+
   .DataCard {
     padding: 0 !important;
   }
@@ -202,22 +200,20 @@ export default Vue.extend({
 
 .appContainer {
   position: relative;
-
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 240px 1fr;
     grid-template-rows: auto;
+    grid-template-columns: 240px 1fr;
   }
   @include largerThan($huge) {
-    grid-template-columns: 325px 1fr;
     grid-template-rows: auto;
+    grid-template-columns: 325px 1fr;
   }
 }
 
 .naviContainer {
   background-color: $white;
 }
-
 @include lessThan($small) {
   .naviContainer {
     position: sticky;
@@ -228,19 +224,18 @@ export default Vue.extend({
 }
 @include largerThan($small) {
   .naviContainer {
-    grid-column: 1/2;
     position: fixed;
     top: 0;
-    overflow-y: auto;
+    grid-column: 1/2;
     width: 240px;
     height: 100%;
+    overflow-y: auto;
     border-right: 1px solid $gray-4;
     border-left: 1px solid $gray-4;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     overscroll-behavior: contain;
   }
 }
-
 @include largerThan($huge) {
   .naviContainer {
     width: 325px;
@@ -249,7 +244,6 @@ export default Vue.extend({
 
 .open {
   height: 100vh;
-
   @include largerThan($small) {
     overflow-x: hidden;
     overflow-y: auto;
@@ -259,20 +253,21 @@ export default Vue.extend({
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
-
   @include lessThan($small) {
     .container {
       padding-top: 16px;
     }
   }
 }
+
 .loader {
-  height: 200px;
-  width: 150px;
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 150px;
+  height: 200px;
   transform: translateY(-50%) translateX(-50%);
+
   img {
     display: block;
     margin: 0 auto 20px;

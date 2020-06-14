@@ -561,21 +561,24 @@ export default Vue.extend(options)
 <style module lang="scss">
 .Graph {
   &Legend {
+    padding: 0 !important;
     text-align: center;
     list-style: none;
-    padding: 0 !important;
+
     li {
       display: inline-block;
       margin: 0 3px;
+
       div {
+        display: inline-block;
+        width: 40px;
         height: 12px;
         margin: 2px 4px;
-        width: 40px;
-        display: inline-block;
         vertical-align: middle;
-        border-width: 1px;
         border-style: solid;
+        border-width: 1px;
       }
+
       button {
         color: $gray-3;
         @include font-size(12);

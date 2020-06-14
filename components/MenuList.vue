@@ -96,8 +96,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .MenuList {
-  margin-top: 24px;
   padding: 12px 0;
+  margin-top: 24px;
   border-bottom: 1px solid $gray-4;
   @include largerThan($small) {
     border-top: 1px solid $gray-4;
@@ -105,9 +105,9 @@ export default Vue.extend({
 }
 
 .MenuList-Item {
-  list-style: none;
   line-height: 1.2;
   white-space: normal;
+  list-style: none;
   @include font-size(14);
   @include lessThan($small) {
     font-weight: bold;
@@ -115,8 +115,8 @@ export default Vue.extend({
   }
 
   &.-border {
-    margin-bottom: 12px;
     padding-bottom: 12px;
+    margin-bottom: 12px;
     border-bottom: 1px solid $gray-4;
   }
 }
@@ -127,6 +127,7 @@ export default Vue.extend({
   padding-top: 12px;
   padding-bottom: 12px;
   color: $gray-1;
+
   &:link,
   &:hover,
   &:focus,
@@ -154,6 +155,7 @@ export default Vue.extend({
     &:active {
       color: $green-1;
     }
+
     &:focus {
       color: $green-1;
       outline: dotted $gray-3 1px;
@@ -162,8 +164,8 @@ export default Vue.extend({
 }
 
 .MenuList-Icon {
-  margin-right: 3px;
   min-width: 24px;
+  margin-right: 3px;
 }
 
 .MenuList-MdIcon {

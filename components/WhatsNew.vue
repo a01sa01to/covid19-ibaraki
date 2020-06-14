@@ -85,9 +85,9 @@ export default Vue.extend({
 
   .WhatsNew-heading {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 12px;
 
     .WhatsNew-title {
@@ -95,6 +95,7 @@ export default Vue.extend({
       align-items: center;
       color: $gray-2;
       @include card-h2();
+
       &-icon {
         margin: 3px;
       }
@@ -118,8 +119,8 @@ export default Vue.extend({
 
     &-item {
       &-anchor {
-        text-decoration: none;
         margin: 5px;
+        text-decoration: none;
         @include font-size(14);
 
         @include lessThan($medium) {
@@ -129,12 +130,11 @@ export default Vue.extend({
 
         &-time {
           flex: 0 0 90px;
+          color: $gray-1;
 
           @include lessThan($medium) {
             flex: 0 0 100%;
           }
-
-          color: $gray-1;
         }
 
         &-link {

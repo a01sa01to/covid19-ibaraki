@@ -43,6 +43,7 @@ import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
@@ -51,6 +52,7 @@ export default Vue.extend({
     StaticInfo,
     StaticCard,
     RelaxationStepCard,
+    ExternalLink,
   },
   data() {
     return {
@@ -94,8 +96,8 @@ export default Vue.extend({
   .UpdatedAt {
     @include font-size(14);
 
-    color: $gray-3;
     margin-bottom: 0.2rem;
+    color: $gray-3;
   }
 
   .Annotation {

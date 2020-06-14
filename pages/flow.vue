@@ -539,139 +539,160 @@ $margin: 20;
   display: flex;
   align-items: center;
   margin-bottom: $margin * 1px;
+
   > svg {
     width: 30px;
     height: 30px;
+
     > path:not(:first-of-type) {
       fill: $gray-2;
     }
   }
+
   .text {
     margin-left: 8px;
   }
+
   .attention {
+    display: inline-flex;
+    padding: 4px 8px;
+    margin-left: 8px;
+    color: $gray-2;
+    white-space: nowrap;
     background-color: $emergency;
     border: 2px solid $emergency;
-    color: $gray-2;
     border-radius: 4px;
-    padding: 4px 8px;
-    display: inline-flex;
-    margin-left: 8px;
-    white-space: nowrap;
     @include font-size(16);
   }
+
   .printerButton {
     margin: 0 0 0 auto;
   }
 }
+
 .container {
-  background-color: $white;
-  box-shadow: $shadow;
-  border: 0.5px solid $gray-4 !important;
-  border-radius: 4px;
   padding: $padding * 1px;
   line-height: 1.35;
   color: $gray-2;
+  background-color: $white;
+  border: 0.5px solid $gray-4 !important;
+  border-radius: 4px;
+  box-shadow: $shadow;
   @include font-size($fzRegular);
 
   > .conHeading {
     @include font-size($fzHeading);
   }
+
   > .anchorLead {
     margin-top: $margin * 1.5px;
-    color: $green-1;
     font-weight: bold;
+    color: $green-1;
     text-align: center;
     @include font-size($fzHuge);
   }
+
   ul {
     padding-left: 0; // override Vuetify style
   }
+
   p {
     margin-bottom: 0; // override Vuetify style
   }
 }
+
 .anchor {
+  position: relative;
   padding-top: $margin * 1px;
   padding-bottom: $margin * 1px;
   background-color: $white;
-  position: relative;
+
   .anchorList {
-    margin: 0 -6px;
     display: flex;
+    margin: 0 -6px;
   }
+
   .anchorItem {
     display: flex;
+    flex: 0 0 auto;
     width: (100% / 3);
     padding: 0 6px;
-    flex: 0 0 auto;
   }
+
   .anchorLink {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 0 auto;
     position: relative;
-    padding: 20px 20px 40px;
+    z-index: 2;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
+    padding: 20px 20px 40px;
+    font-size: inherit;
+    font-weight: bold;
+    color: $gray-2;
+    text-align: center;
+    text-decoration: none;
     border: 4px solid $green-1;
     border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: inherit;
-    color: $gray-2;
     transition: color 0.2s;
-    z-index: 2;
+
     > * {
       display: block;
       max-width: 100%;
       pointer-events: none;
     }
+
     > span {
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex: 1 0 auto;
+      align-items: center;
+      justify-content: center;
     }
+
     > svg {
       flex: 0 0 auto;
-      margin-top: 20px;
+      width: 100%;
       max-width: 120px;
       max-height: 120px;
-      width: 100%;
+      margin-top: 20px;
     }
+
     &::after {
-      content: '';
-      display: block;
       position: absolute;
-      left: 50%;
       bottom: 20px;
-      transform: translate(-50%, 50%);
+      left: 50%;
+      display: block;
       width: 0;
       height: 0;
-      border-width: 9.5px 6.3px 0 6.3px;
-      border-style: solid;
+      content: '';
       border-color: $green-1 transparent transparent transparent;
+      border-style: solid;
+      border-width: 9.5px 6.3px 0 6.3px;
       transition: border-color 0.2s;
+      transform: translate(-50%, 50%);
     }
+
     &.active,
     &:hover {
-      background-color: $green-1;
       color: $white;
+      background-color: $green-1;
+
       > svg path {
         fill: $white;
       }
     }
+
     &.active {
       &::after {
         bottom: -1px;
-        transform: translate(-50%, 100%);
         border-width: 19.5px 12.99px 0 12.99px;
         transition: none;
+        transform: translate(-50%, 100%);
       }
     }
+
     &:not(.active) {
       &:hover {
         &::after {
@@ -680,188 +701,228 @@ $margin: 20;
       }
     }
   }
+
   &.floating {
     position: fixed;
     top: 0;
     z-index: 1;
   }
 }
+
 .section {
-  margin-top: $margin * 1.5px;
   padding: $padding * 1px;
+  margin-top: $margin * 1.5px;
+  background-color: $white;
   border: 3px solid $gray-3;
   border-radius: 10px;
-  background-color: $white;
+
   &.yellow {
-    border-width: 4px;
     border-color: $emergency;
+    border-width: 4px;
   }
+
   > * {
     line-height: 1.5;
+
     &:not(.box):not(.boxes):not(:first-child) {
       margin-top: $margin * 1px;
     }
   }
+
   > .sxnHeading {
-    text-align: center;
     font-weight: bold;
+    text-align: center;
     @include font-size($fzHeadingL);
   }
+
   > .sxnHeadingSmall {
-    text-align: center;
     font-weight: bold;
+    text-align: center;
     @include font-size($fzHuge);
   }
+
   > .sxnText {
     margin-top: 20px;
-    text-align: center;
     font-weight: bold;
+    text-align: center;
     @include font-size($fzMedium);
   }
+
   > .hr {
-    margin-top: $margin * 1px;
     padding-top: $margin * 1.5px;
+    margin-top: $margin * 1px;
     border-top: 1px solid $gray-2;
   }
 }
+
 .anchor + .section {
   margin-top: 0;
 }
+
 .boxes {
   display: flex;
   justify-content: space-between;
 }
+
 .box {
-  margin-top: $margin * 1px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  border-radius: 4px;
   padding: $padding * 1px;
-  text-align: center;
+  margin-top: $margin * 1px;
   line-height: 1.65;
+  text-align: center;
+  border-radius: 4px;
+
   &.border {
     border: 2px solid $gray-3;
   }
+
   &.bgGray {
-    background-color: $gray-2;
     color: $white;
+    background-color: $gray-2;
+
     .icon path {
       fill: $white; // 内包するアイコンの色を変更
     }
   }
+
   &.bgYellow {
     background-color: $emergency;
   }
+
   > .boxHeading {
     font-weight: bold;
     @include font-size($fzLarge);
   }
+
   > .boxLead {
     font-weight: bold;
     @include font-size($fzMedium);
   }
+
   > .large {
     font-weight: bold;
     @include font-size($fzHuge);
   }
+
   > .small {
     @include font-size($fzSmall);
   }
+
   > .alignLeft {
     text-align: left;
   }
+
   > .grow {
     flex: 1 0 auto;
   }
+
   > * {
     max-width: 100%;
   }
+
   > *:not(:first-child) {
     margin-top: $margin * 0.75px;
   }
+
   > .notice {
     width: 100%;
     padding: $margin * 1px;
-    border-radius: 4px;
-    background-color: $white;
-    color: #a00000;
-    text-align: center;
     font-weight: bold;
     line-height: 1.35;
+    color: #a00000;
+    text-align: center;
+    background-color: $white;
+    border-radius: 4px;
     @include font-size($fzSmall);
   }
+
   > .contact {
     > div {
       display: flex;
-      width: 100%;
-      justify-content: center;
-      align-items: flex-end;
       flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+
       > dt {
         margin-right: 0.5em;
       }
+
       > dd {
         text-align: left;
       }
     }
+
     > *:not(:first-child) {
       margin-top: $margin * 1px;
     }
   }
+
   li {
     list-style-type: none;
   }
+
   a {
     color: inherit;
     text-decoration: none;
+
     &:not(.tel) {
       > i {
         vertical-align: baseline;
       }
+
       &:hover {
         text-decoration: underline;
       }
     }
   }
+
   .underline {
     text-decoration: underline;
   }
 }
+
 .container .box a {
   color: inherit; // for IE11
 }
+
 .boxes > .box {
   width: calc(50% - 10px);
 }
+
 .iconBed {
+  width: 100%;
   max-width: 37px;
   max-height: 37px; // for IE11
-  width: 100%;
 }
+
 .overrideExternalLink {
   i {
     font-size: 1em !important;
+
     &::before {
-      color: $white;
       margin-right: 0.2em;
+      color: $white;
     }
   }
 }
+
 .tel {
-  font-weight: bold;
-  vertical-align: baseline;
-  white-space: nowrap;
-  line-height: 1px * $fzHuge * 1.35;
   padding: 0 0.25em;
+  font-weight: bold;
+  line-height: 1px * $fzHuge * 1.35;
+  white-space: nowrap;
+  vertical-align: baseline;
   @include font-size($fzHuge);
 
   > svg {
-    vertical-align: baseline;
+    width: 100%;
     max-width: 0.7em;
     max-height: 0.7em; // for IE11
-    width: 100%;
+    vertical-align: baseline;
   }
 
   &:visited,
@@ -871,19 +932,23 @@ $margin: 20;
     outline: 1px dotted $white;
   }
 }
+
 .detail {
   text-align: center;
+
   .detailButton {
     @include button-text('md');
     @include font-size(20);
 
     margin: ($margin * 1.5px) auto 0;
     font-weight: bold;
-    text-decoration: none;
     color: $green-1 !important;
+    text-decoration: none;
+
     &:hover {
       color: $white !important;
     }
+
     > .icon {
       margin-left: 2px;
       color: $green-1 !important;
@@ -898,9 +963,11 @@ $margin: 20;
       padding: 10px 10px 40px;
     }
   }
+
   .boxes {
     display: block;
   }
+
   .boxes > .box {
     width: auto;
   }
@@ -914,104 +981,131 @@ $margin: 20;
   .title {
     margin-bottom: px2vw($margin);
   }
+
   .container {
     padding: px2vw($padding);
     font-size: px2vw($fzRegular);
+
     > .conHeading {
       font-size: px2vw($fzHeading);
     }
+
     > .anchorLead {
       margin-top: px2vw($margin * 1.5);
       font-size: px2vw($fzHuge);
     }
   }
+
   .anchor {
     padding-top: px2vw($margin);
+
     .anchorLink {
       padding: px2vw(20) px2vw(20) px2vw(40);
       border-width: px2vw(4);
       border-radius: px2vw(10);
+
       > svg {
         margin-top: px2vw(20);
       }
+
       &::after {
         bottom: px2vw(20);
         border-width: px2vw(9.5) px2vw(6.3) 0 px2vw(6.3);
       }
+
       &.active {
         &::after {
           border-width: px2vw(19.5) px2vw(12.99) 0 px2vw(12.99);
         }
       }
     }
+
     &.floating {
       top: 64px; // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
     }
   }
+
   .section {
+    padding: px2vw($padding);
     //margin-top: px2vw($margin * 1.5);
     margin-top: 20px; // フローティングの都合で固定
-    padding: px2vw($padding);
     border-width: px2vw(3);
     border-radius: px2vw(10);
+
     &.yellow {
       border-width: px2vw(3);
     }
+
     > * {
       &:not(.box):not(.boxes):not(:first-child) {
         margin-top: px2vw($margin);
       }
     }
+
     > .sxnHeading {
       font-size: px2vw($fzHeadingL);
     }
+
     > .sxnHeadingSmall {
       font-size: px2vw($fzHuge);
     }
+
     > .sxnText {
       font-size: px2vw($fzMedium);
     }
+
     > .hr {
-      margin-top: px2vw($margin);
       padding-top: px2vw($margin * 1.5);
+      margin-top: px2vw($margin);
     }
   }
+
   .box {
-    margin-top: px2vw($margin);
     padding: px2vw($padding);
+    margin-top: px2vw($margin);
     border-radius: px2vw(4);
+
     &.border {
       border-width: px2vw(2);
     }
+
     > .boxHeading {
       font-size: px2vw($fzLarge);
     }
+
     > .boxLead {
       font-size: px2vw($fzMedium);
     }
+
     > .large {
       font-size: px2vw($fzHuge);
     }
+
     > .small {
       font-size: px2vw($fzSmall);
     }
+
     > *:not(:first-child) {
       margin-top: px2vw($margin * 0.75);
     }
+
     > .notice {
       padding: px2vw($margin);
-      border-radius: px2vw(4);
       font-size: px2vw($fzSmall);
+      border-radius: px2vw(4);
     }
+
     > .contact {
       > *:not(:first-child) {
         margin-top: px2vw($margin);
       }
     }
   }
+
   .tel {
     font-size: px2vw($fzHuge);
   }
+
   .detail {
     .button {
       padding: px2vw(24) px2vw(36);

@@ -35,7 +35,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.4.2",
+    "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@types/d3": "^5.7.2",
@@ -50,9 +50,9 @@
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@mdi/font": "^5.0.45",
-    "@nuxt/typescript-build": "^1.0.1",
+    "@nuxt/typescript-build": "^1.0.3",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
@@ -67,7 +67,7 @@
     "eslint-plugin-tsdoc": "^0.2.5",
     "husky": "^4.2.3",
     "jest": "^26.0.1",
-    "lint-staged": "^10.2.9",
+    "lint-staged": "^10.2.10",
     "nodemon": "^2.0.3",
     "nuxt-purgecss": "^1.0.0",
     "nuxt-svg-loader": "^1.2.0",
@@ -78,6 +78,6 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.16.0",
     "vue-axe": "^2.3.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^3.0.5"
   }
 }

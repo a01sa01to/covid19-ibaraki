@@ -296,8 +296,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      // 2月14日以前の分39件を累計値に足す
-      let cumulative = 39
       return this.labels
         .map((label, i) => {
           let [dailySum, data] = [0, 0]
@@ -310,12 +308,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                   dailySum += data = this.chartData[j][i]
                   break
                 case 2: // 検査実施人数 (日別)
-                  cumulative += data = dailySum
+                  data = dailySum
                   break
-                case 3: // 検査実施人数 (累計)
-                  data = cumulative
-                  break
-                case 4: // 陽性率
+                case 3: // 陽性率
                   data = this.chartData[2][i]
                   break
               }
@@ -650,21 +645,24 @@ export default Vue.extend(options)
 <style module lang="scss">
 .Graph {
   &Legend {
+    padding: 0 !important;
     text-align: center;
     list-style: none;
-    padding: 0 !important;
+
     li {
       display: inline-block;
       margin: 0 3px;
+
       div {
+        display: inline-block;
+        width: 40px;
         height: 12px;
         margin: 2px 4px;
-        width: 40px;
-        display: inline-block;
         vertical-align: middle;
-        border-width: 1px;
         border-style: solid;
+        border-width: 1px;
       }
+
       button {
         color: $gray-3;
         @include font-size(12);
