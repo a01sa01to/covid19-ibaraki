@@ -42,7 +42,7 @@
                 {{ $t('県内の医療提供体制') }}
               </th>
               <th colspan="1" style="background-color: #98d6a4;">
-                {{ $t('県内の感染状況') }}
+                {{ $t('都内の感染状況') }}
               </th>
             </tr>
             <tr>
@@ -78,6 +78,23 @@
               <td>
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.tokyo.toLocaleString() }}</strong>
+              </td>
+            </tr>
+            <tr :class="$style.additionalData">
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.pillar }}</strong>
+                <span :class="$style.unit">%</span>
+              </td>
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.sickbed }}</strong>
+                <span :class="$style.unit">%</span>
+              </td>
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.tokyo }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
             </tr>
           </tbody>
@@ -122,6 +139,23 @@
               <td>
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.rate.toLocaleString() }}</strong>
+              </td>
+            </tr>
+            <tr :class="$style.additionalData">
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.new_patients }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+              </td>
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.non_densecontact }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+              </td>
+              <td>
+                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                <strong>{{ deltaStr.rate }}</strong>
+                <span :class="$style.unit">%</span>
               </td>
             </tr>
           </tbody>
@@ -171,6 +205,12 @@ export default {
   },
   data() {
     const patients = Data.ibk_corona_next
+    const avgYesterday = {
+      new_patients: 0,
+      non_densecontact: 0,
+      rate: 0,
+      tokyo: 0,
+    }
     const avg = { new_patients: 0, non_densecontact: 0, rate: 0, tokyo: 0 }
     const stage = {
       pillar: 1,
@@ -181,22 +221,52 @@ export default {
       tokyo: 1,
     }
 
-    avg.new_patients = patients.new_patients.reduce((a, b) => a + b.value, 0)
-    avg.non_densecontact = patients.non_densecontact.reduce(
-      (a, b) => a + b.value,
-      0
-    )
-    avg.rate = avg.new_patients / patients.pcr.reduce((a, b) => a + b.value, 0)
-    avg.tokyo = patients.tokyo.reduce((a, b) => a + b.value, 0)
+    avgYesterday.new_patients = patients.new_patients
+      .slice(0, -1)
+      .reduce((a, b) => a + b.value, 0)
+    avgYesterday.non_densecontact = patients.non_densecontact
+      .slice(0, -1)
+      .reduce((a, b) => a + b.value, 0)
+    avgYesterday.rate =
+      avg.new_patients /
+      patients.pcr.slice(0, -1).reduce((a, b) => a + b.value, 0)
+    avgYesterday.tokyo = patients.tokyo
+      .slice(0, -1)
+      .reduce((a, b) => a + b.value, 0)
+
+    avg.new_patients = patients.new_patients
+      .slice(1)
+      .reduce((a, b) => a + b.value, 0)
+    avg.non_densecontact = patients.non_densecontact
+      .slice(1)
+      .reduce((a, b) => a + b.value, 0)
+    avg.rate =
+      avg.new_patients / patients.pcr.slice(1).reduce((a, b) => a + b.value, 0)
+    avg.tokyo = patients.tokyo.slice(1).reduce((a, b) => a + b.value, 0)
+
+    for (const key in avgYesterday) {
+      avgYesterday[key] /= 7
+    }
     for (const key in avg) {
       avg[key] /= 7
     }
 
     const _ = { pillar: patients.pillar, sickbed: patients.sickbed }
+    const _Y = {
+      pillar: patients.pillarYesterday,
+      sickbed: patients.sickbedYesterday,
+    }
     for (const i in avg) {
       _[i] = avg[i]
     }
+    for (const i in avgYesterday) {
+      _Y[i] = avgYesterday[i]
+    }
 
+    const delta = {}
+    for (const key in _) {
+      delta[key] = _[key] - _Y[key]
+    }
     // [ _でのKey, Stage1->2の境値, Stage2->3, Stage3->4]
     const list = [
       ['pillar', 10, 30, 60],
@@ -212,11 +282,35 @@ export default {
       stage[l[0]] += (d > l[1]) + (d > l[2]) + (d > l[3])
     }
 
+    const formatDelta = (n) => {
+      let str = ''
+      switch (Math.sign(n)) {
+        case 1:
+          str = '+'
+          break
+        case -1:
+          str = '-'
+          break
+        case 0:
+          str = '±'
+          break
+      }
+      str += ' '
+      str += Math.abs(n).toFixed(1)
+      return str
+    }
+
+    const deltaStr = {}
+    for (const key in delta) {
+      deltaStr[key] = formatDelta(delta[key])
+    }
+
     return {
       Data,
       patients,
       avg,
       stage,
+      deltaStr,
     }
   },
 }
@@ -283,6 +377,18 @@ $default-boxdiff: 35px;
 
   span.unit {
     @include font-size(18);
+  }
+}
+
+.additionalData {
+  font-size: 0.8em;
+
+  span.delta::before {
+    content: '(';
+  }
+
+  span.unit::after {
+    content: ')';
   }
 }
 </style>

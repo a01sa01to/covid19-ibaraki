@@ -167,7 +167,12 @@
 
     "pillar": 0.0,
     "sickbed": 2.0,
+
+    "pillarYesterday": 0.0,
+    "sickbedYesterday": 2.0,
+
     "new_patients": [
+      {"date": "2020-06-07", "value": 0},
       {"date": "2020-06-08", "value": 0},
       {"date": "2020-06-09", "value": 0},
       {"date": "2020-06-10", "value": 0},
@@ -177,6 +182,7 @@
       {"date": "2020-06-14", "value": 0}
     ],
     "non_densecontact": [
+      {"date": "2020-06-07", "value": 0},
       {"date": "2020-06-08", "value": 0},
       {"date": "2020-06-09", "value": 0},
       {"date": "2020-06-10", "value": 0},
@@ -186,6 +192,7 @@
       {"date": "2020-06-14", "value": 0}
     ],
     "pcr": [
+      {"date": "2020-06-07", "value": 14},
       {"date": "2020-06-08", "value": 6},
       {"date": "2020-06-09", "value": 64},
       {"date": "2020-06-10", "value": 28},
@@ -201,7 +208,8 @@
       {"date": "2020-06-10", "value": 8},
       {"date": "2020-06-11", "value": 10},
       {"date": "2020-06-12", "value": 7},
-      {"date": "2020-06-12", "value": 13}
+      {"date": "2020-06-13", "value": 13},
+      {"date": "2020-06-14", "value": 13}
     ]
   },
 
