@@ -12,7 +12,7 @@
       :table-labels="positiveRateTableLabels"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -44,7 +44,7 @@
         </ul>
       </template>
       <template v-slot:additionalDescription
-        ><ul>
+        ><ul class="ListStyleNone">
           <li>
             {{
               $t(

@@ -10,7 +10,7 @@
       :table-labels="tableLabels"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(

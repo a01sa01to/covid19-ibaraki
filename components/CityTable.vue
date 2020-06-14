@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <div class="note">
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -47,13 +47,15 @@
 .cityTable {
   &.v-data-table {
     box-shadow: 0 -20px 12px -12px #0003 inset;
+
     th {
-      padding: 8px 10px;
       height: auto;
-      border-bottom: 1px solid $gray-4;
-      white-space: nowrap;
-      color: $gray-2;
+      padding: 8px 10px;
       font-size: 12px;
+      color: $gray-2;
+      white-space: nowrap;
+      border-bottom: 1px solid $gray-4;
+
       &.text-center {
         text-align: center;
       }
@@ -64,18 +66,21 @@
         color: $gray-1;
 
         td {
-          padding: 8px 10px;
           height: auto;
+          padding: 8px 10px;
           font-size: 12px;
+
           &.text-center {
             text-align: center;
           }
         }
+
         &:nth-child(odd) {
           td {
             background: rgba($gray-4, 0.3);
           }
         }
+
         &:not(:last-child) {
           td:not(.v-data-table__mobile-row) {
             border: none;
@@ -83,11 +88,13 @@
         }
       }
     }
+
     &:focus {
       outline: dotted $gray-3 1px;
     }
   }
 }
+
 .note {
   padding: 8px;
   font-size: 12px;

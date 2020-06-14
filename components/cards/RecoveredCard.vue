@@ -10,7 +10,7 @@
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/taiin.html'"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
