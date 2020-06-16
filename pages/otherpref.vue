@@ -1170,7 +1170,7 @@ export default Vue.extend({
 
       tr td {
         padding: 0 16px;
-        @include font-size(14);
+        @include font-size(14, true);
       }
 
       @include largerThan($medium) {
