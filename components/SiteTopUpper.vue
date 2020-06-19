@@ -28,6 +28,7 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
+    <cocoa-redirect-card />
     <relaxation-step-card />
   </div>
 </template>
@@ -40,6 +41,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import StaticCard from '@/components/StaticCard.vue'
 import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
+import CocoaRedirectCard from '@/components/CocoaRedirectCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -52,6 +54,7 @@ export default Vue.extend({
     StaticInfo,
     StaticCard,
     RelaxationStepCard,
+    CocoaRedirectCard,
     ExternalLink,
   },
   data() {
