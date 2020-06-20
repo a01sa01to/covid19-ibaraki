@@ -227,9 +227,6 @@ export default {
     avgYesterday.non_densecontact = patients.non_densecontact
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
-    avgYesterday.rate =
-      avg.new_patients /
-      patients.pcr.slice(0, -1).reduce((a, b) => a + b.value, 0)
     avgYesterday.tokyo = patients.tokyo
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
@@ -240,14 +237,16 @@ export default {
     avg.non_densecontact = patients.non_densecontact
       .slice(1)
       .reduce((a, b) => a + b.value, 0)
-    avg.rate =
-      avg.new_patients / patients.pcr.slice(1).reduce((a, b) => a + b.value, 0)
     avg.tokyo = patients.tokyo.slice(1).reduce((a, b) => a + b.value, 0)
 
-    for (const key in avgYesterday) {
-      avgYesterday[key] /= 7
+    for (let i = 1; i < 8; i++) {
+      avg.rate += (patients.new_patients[i].value / patients.pcr[i].value) * 100
+      avgYesterday.rate +=
+        (patients.new_patients[i - 1].value / patients.pcr[i - 1].value) * 100
     }
+
     for (const key in avg) {
+      avgYesterday[key] /= 7
       avg[key] /= 7
     }
 

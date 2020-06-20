@@ -68,7 +68,7 @@ export default {
 
       let Rate = (sumPos / sumPosPrev).toFixed(2)
 
-      if (isNaN(Rate)) {
+      if (isNaN(Rate) || !isFinite(Rate)) {
         // sumPosPrevが0ならNaNになる
         // sumPosが0の場合、増減なしで1となるため、以下の処理でok
         Rate = sumPos / 7 + 1 // 週平均に1足して対応(仮・代替案あればIssueにてご意見いただきたいです)
