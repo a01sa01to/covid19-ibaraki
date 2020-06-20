@@ -433,5 +433,9 @@
   "富山県": "Toyama prefecture",
   "徳島県": "Tokushima prefecture",
   "富山県公認": "Toyama prefecture Official",
-  "茨城版コロナNext Stage1について": "About the Ibaraki version of Corona Next Stage 1"
+  "茨城版コロナNext Stage1について": "About the Ibaraki version of Corona Next Stage 1",
+  "（注）検査結果の判明日を基準とする": "(Note) Based on the date when the test results are known.",
+  "本アプリは多くの方にお使いいただくほど効果を発揮します。下部のボタンからインストールをお願いします。": "One more person using this app is one more step towards containing the spread of COVID-19. Please click the button below to install.",
+  "厚生労働省が公式提供する、新型コロナウイルス陽性登録した人との接触をお知らせするアプリです。": "Officially provided by the Ministry of Health, Labour and Welfare of Japan (MHLW), this app notifies you of close contact with COVID-19 positive users to help the government and healthcare organizations contain the spread of COVID-19.",
+  "新型コロナウイルス接触確認アプリ（日本厚生労働省公式）": "COVID-19 Contact App (MHLW Japan Official)"
 }
