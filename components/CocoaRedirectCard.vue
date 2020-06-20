@@ -30,35 +30,17 @@
           }}
         </p>
       </div>
-      <div class="AppInstall-block AppInstall-block-buttons">
+      <div class="AppInstall-block AppInstall-buttons">
         <a
           href="https://apps.apple.com/jp/app/%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E3%82%A6%E3%82%A4%E3%83%AB%E3%82%B9%E6%8E%A5%E8%A7%A6%E7%A2%BA%E8%AA%8D%E3%82%A2%E3%83%97%E3%83%AA/id1516764458?mt=8"
-          style="
-            display: inline-block;
-            width: 135px;
-            height: 40px;
-            overflow: hidden;
-            background: url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2020-06-18&kind=iossoftware&bubble=apple_music)
-              no-repeat;
-          "
+          class="AppStore"
         />
         <a
           href="https://play.google.com/store/apps/details?id=jp.go.mhlw.covid19radar"
-          style="
-            display: inline-block;
-            width: auto;
-            height: 40px;
-            overflow: hidden;
-          "
+          class="GooglePlay"
           ><img
             alt="Google Play で手に入れよう"
             src="https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"
-            style="
-              width: auto;
-              height: 58px;
-              object-fit: cover;
-              object-position: -9px -9px;
-            "
         /></a>
       </div>
     </div>
@@ -112,6 +94,29 @@ $tinySmall: 420;
     margin-left: px2vw(16);
     font-size: px2vw(14);
     text-align: center;
+
+    .AppStore {
+      display: inline-block;
+      width: 135px;
+      height: 40px;
+      overflow: hidden;
+      background: url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2020-06-18&kind=iossoftware&bubble=apple_music)
+        no-repeat;
+    }
+
+    .GooglePlay {
+      display: inline-block;
+      width: auto;
+      height: 40px;
+      overflow: hidden;
+
+      img {
+        width: auto;
+        height: 58px;
+        object-fit: cover;
+        object-position: -9px -9px;
+      }
+    }
   }
 
   .AppInstall-content {
