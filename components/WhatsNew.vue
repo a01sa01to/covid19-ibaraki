@@ -120,7 +120,6 @@ export default Vue.extend({
     &-item {
       &-anchor {
         margin: 5px;
-        text-decoration: none;
         @include font-size(14);
 
         @include lessThan($medium) {

@@ -68,12 +68,11 @@ export default {
       }
     }
 
-    const data = {
+    return {
       Data,
       patientsTable,
       sumInfoOfPatients,
     }
-    return data
   },
   methods: {
     getTranslatedWording(value) {

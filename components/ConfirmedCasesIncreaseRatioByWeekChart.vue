@@ -44,33 +44,30 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div class="LegendStickyChart">
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <line-chart
-            :ref="'lineChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :display-legends="displayLegends"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <line-chart
-        class="sticky-legend"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="`${chartId}-header`"
-        :chart-data="displayDataHeader"
-        :options="displayOptionHeader"
-        :plugins="yAxesBgPlugin"
-        :display-legends="displayLegends"
-        :height="240"
-        :width="chartWidth"
-      />
-    </div>
+    <scrollable-chart v-show="canvas" :display-data="displayData">
+      <template v-slot:chart="{ chartWidth }">
+        <line-chart
+          :ref="'lineChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
+        <line-chart
+          class="sticky-legend"
+          :chart-id="`${chartId}-header`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :plugins="yAxesBgPlugin"
+          :display-legends="displayLegends"
+          :height="240"
+        />
+      </template>
+    </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -103,8 +100,9 @@ import DataViewTable, {
   TableItem,
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
@@ -113,7 +111,6 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  chartWidth: number | null
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -147,7 +144,6 @@ type Props = {
   url: string
   tableLabels: string[] | TranslateResult[]
   additionalLines: number[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -165,6 +161,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataView,
     DataViewTable,
     DataViewBasicInfoPanel,
+    ScrollableChart,
     OpenDataLink,
   },
   props: {
@@ -208,10 +205,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin,
-    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin,
@@ -221,7 +214,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dataKind: 'transition',
     displayLegends: [true, true, true],
     colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
-    chartWidth: null,
     canvas: true,
   }),
   computed: {
@@ -306,7 +298,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
           },
         },
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false,
@@ -413,7 +404,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false,
@@ -533,16 +523,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
-          this.displayData.labels!.length +
-        38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
     const lineChart = this.$refs.lineChart as Vue
     const lineElement = lineChart.$el
     const canvas = lineElement.querySelector('canvas')

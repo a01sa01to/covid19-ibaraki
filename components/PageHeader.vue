@@ -103,6 +103,8 @@ export default Vue.extend({
   props: {
     icon: {
       type: String,
+      required: false,
+      default: '',
     },
   },
   data() {
@@ -171,22 +173,22 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .header {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
   width: 100%;
 }
 
 .pageTitle {
   @include font-size(30);
 
-  color: $gray-2;
   display: flex;
   align-items: center;
-  line-height: 1.35;
-  font-weight: normal;
   margin: 0 calc(0.5em + 40px) 0 0;
+  font-weight: normal;
+  line-height: 1.35;
+  color: $gray-2;
 
   @include lessThan($small) {
     @include font-size(20);
@@ -205,9 +207,9 @@ export default Vue.extend({
   background-color: #fff;
 
   .DataView-Share-Opener {
-    cursor: pointer;
-    margin: -14px;
     padding: 14px;
+    margin: -14px;
+    cursor: pointer;
 
     > svg {
       width: auto !important;
@@ -220,16 +222,16 @@ export default Vue.extend({
 
   .DataView-Share-Buttons {
     position: absolute;
-    padding: 8px;
-    right: -4px;
     top: 1.5em;
+    right: -4px;
+    z-index: 2;
     width: 200px;
     height: fit-content;
-    border: solid 1px $gray-4;
-    background: $white !important;
-    border-radius: 8px;
+    padding: 8px;
     text-align: left;
-    z-index: 2;
+    background: $white !important;
+    border: solid 1px $gray-4;
+    border-radius: 8px;
     @include font-size(16);
 
     > * {
@@ -249,8 +251,8 @@ export default Vue.extend({
       color: $gray-3;
 
       button {
-        border-radius: 50%;
         border: 1px solid #fff;
+        border-radius: 50%;
 
         &:focus {
           border: 1px dotted #707070;
@@ -284,12 +286,12 @@ export default Vue.extend({
       button {
         width: 30px;
         height: 30px;
-        margin-left: 4px;
         margin-right: 4px;
+        margin-left: 4px;
 
         &:focus {
-          border-radius: 50%;
           border: 1px dotted #707070;
+          border-radius: 50%;
           outline: none;
         }
       }

@@ -259,30 +259,5 @@ export default Vue.extend({
       margin: 0;
     }
   }
-
-  .LegendStickyChart {
-    position: relative;
-    margin: 16px 0;
-    overflow: hidden;
-
-    .scrollable {
-      overflow-x: scroll;
-
-      &::-webkit-scrollbar {
-        height: 4px;
-        background-color: rgba(0, 0, 0, 0.01);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.07);
-      }
-    }
-
-    .sticky-legend {
-      position: absolute;
-      top: 0;
-      pointer-events: none;
-    }
-  }
 }
 </style>
