@@ -41,6 +41,13 @@
               )
             }}
           </li>
+          <li>
+            {{
+              $t(
+                '（注）民間検査機関、帰国者・接触者外来設置等医療機関、その他の検査機関による検査は含まれていない'
+              )
+            }}
+          </li>
         </ul>
       </template>
       <template v-slot:additionalDescription
