@@ -230,6 +230,9 @@ export default {
     avgYesterday.tokyo = patients.tokyo
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
+    avgYesterday.rate = patients.rate
+      .slice(0, -1)
+      .reduce((a, b) => a + b.value, 0)
 
     avg.new_patients = patients.new_patients
       .slice(1)
@@ -238,12 +241,7 @@ export default {
       .slice(1)
       .reduce((a, b) => a + b.value, 0)
     avg.tokyo = patients.tokyo.slice(1).reduce((a, b) => a + b.value, 0)
-
-    for (let i = 1; i < 8; i++) {
-      avg.rate += (patients.new_patients[i].value / patients.pcr[i].value) * 100
-      avgYesterday.rate +=
-        (patients.new_patients[i - 1].value / patients.pcr[i - 1].value) * 100
-    }
+    avg.rate = patients.rate.slice(1).reduce((a, b) => a + b.value, 0)
 
     for (const key in avg) {
       avgYesterday[key] /= 7
