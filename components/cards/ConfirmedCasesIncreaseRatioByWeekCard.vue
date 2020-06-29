@@ -66,7 +66,7 @@ export default {
         sumPosPrev += Data.patients_summary.data[i - j - 7].total
       }
 
-      let Rate = (sumPos / sumPosPrev).toFixed(2)
+      let Rate = sumPos / sumPosPrev
 
       if (isNaN(Rate) || !isFinite(Rate)) {
         // sumPosPrevが0ならNaNになる
@@ -76,7 +76,7 @@ export default {
 
       formatData.push({
         date: new Date(Data.patients_summary.data[i].date),
-        total: Rate,
+        total: Rate.toFixed(2),
       })
     }
 
