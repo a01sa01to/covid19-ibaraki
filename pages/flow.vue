@@ -141,7 +141,11 @@
         </ul>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
-            {{ $t('新型コロナ受診相談窓口は、24時間対応しています') }}
+            {{
+              $t(
+                '新型コロナ受診相談窓口は、7月1日より24時間対応ではなくなりました'
+              )
+            }}
           </h5>
           <dl :class="$style.contact">
             <div>
@@ -160,7 +164,7 @@
             </div>
             <div>
               <dt>
-                {{ $t('平日（夜間）: 午後5時から翌朝午前9時/土日祝 終日') }}
+                {{ $t('午前8時30分から午後10時（土日祝含む）') }}
               </dt>
               <dd>
                 <a :class="$style.tel" href="tel:029-301-3200">
@@ -183,7 +187,7 @@
             {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
           </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
+            <dt>{{ $t('午前8時30分から午後10時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:029-301-3200">
                 <icon-phone :class="$style.icon" aria-hidden="true" />
@@ -216,7 +220,7 @@
             {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
           </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('24時間対応（土日祝含む）') }}</dt>
+            <dt>{{ $t('午前8時30分から午後10時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:029-301-3200">
                 <icon-phone :class="$style.icon" aria-hidden="true" />
