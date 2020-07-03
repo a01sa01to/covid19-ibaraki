@@ -26,10 +26,22 @@
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ Data.ibk_corona_next.nowStage }}</strong>
               </span>
-              <span style="margin: 4px; font-size: 1.2rem; text-align: right;">
+              <span :class="$style.link">
                 <external-link
                   url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
                   >{{ $t('茨城版コロナNext Stage1について') }}</external-link
+                >
+                <external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
+                  >{{ $t('茨城版コロナNext Stage2について') }}</external-link
+                >
+                <external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage3.html"
+                  >{{ $t('茨城版コロナNext Stage3について') }}</external-link
+                >
+                <external-link
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/handanshihyo.html"
+                  >{{ $t('茨城版コロナNext Stage4について') }}</external-link
                 >
               </span>
             </div>
@@ -354,13 +366,25 @@ $default-boxdiff: 35px;
   text-align: center;
 
   > span {
-    display: block;
-    width: 100%;
-
     @include font-size(18);
 
-    &:last-child {
-      margin-top: 0.1em;
+    display: block;
+
+    &.link {
+      @include font-size(12);
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%;
+      margin: 4px;
+      margin-top: 16px;
+      // font-size: 1.2rem;
+      text-align: right;
+
+      > a {
+        width: 49.5%;
+      }
     }
 
     &:not(:last-child) {
