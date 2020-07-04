@@ -32,7 +32,7 @@
                   >{{ $t('茨城版コロナNext Stage1について') }}</external-link
                 >
                 <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage2.html"
+                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/200703_kaitei.html#stage2"
                   >{{ $t('茨城版コロナNext Stage2について') }}</external-link
                 >
                 <external-link
