@@ -107,6 +107,7 @@ export default {
           ].includes(row.居住地)
         )
           area = '県西地域'
+        else if (row.居住地 === '県内') area = '県内'
         else area = '県外'
 
         patientsTable.cityDataset.push({
