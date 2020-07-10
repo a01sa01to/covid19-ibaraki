@@ -104,6 +104,7 @@ export default {
             '八千代町',
             '五霞町',
             '境町',
+            '筑西保健所管内',
           ].includes(row.居住地)
         )
           area = '県西地域'
