@@ -18,7 +18,7 @@
       class="mb-4"
       style="padding: 0.5em 1em; font-size: 1.4rem; color: #006ca8;"
     >
-      <external-link url="https://twitter.com/StopCovid19_ibk">{{
+      <external-link url="https://twitter.com/Covid19_ibaraki">{{
         $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
       }}</external-link>
     </static-card>
