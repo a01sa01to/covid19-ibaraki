@@ -684,3 +684,5 @@ TAG_ADD,茨城版コロナNext Stage4について
 TAG_ADD,茨城版コロナNext Stage3について
 RUN,2020/07/10 18:46
 TAG_ADD,筑西保健所管内
+RUN,2020/07/11 17:51
+TAG_ADD,{date} に Stage{num} へ強化されました
