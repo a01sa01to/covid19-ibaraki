@@ -445,5 +445,6 @@
   "茨城版コロナNext Stage3について": "茨城版コロナNext Stage3について",
   "茨城版コロナNext Stage4について": "茨城版コロナNext Stage4について",
   "筑西保健所管内": "筑西保健所管内",
-  "{date} に Stage{num} へ強化されました": "{date} に Stage{num} へ強化されました"
+  "{date} に Stage{num} へ強化されました": "{date} に Stage{num} へ強化されました",
+  "濃厚接触者": "濃厚接触者"
 }
