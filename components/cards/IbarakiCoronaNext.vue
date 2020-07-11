@@ -24,7 +24,7 @@
               <span>
                 {{ $t('現在の対策状況：') }}
                 <span :class="$style.unit">Stage</span>
-                <strong>{{ Data.ibk_corona_next.nowStage }}</strong>
+                <strong>{{ Data.ibk_corona_next.stage }}</strong>
               </span>
               <span :class="$style.link">
                 <external-link
