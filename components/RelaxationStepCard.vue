@@ -22,7 +22,7 @@
         <ul class="RelaxationStep-steps-list">
           <li v-for="i in steps" :key="i" class="RelaxationStep-steps-item">
             <span
-              v-if="i === nowStage"
+              v-if="i === stage"
               class="RelaxationStep-steps RelaxationStep-steps-on"
             >
               {{ $t('Stage{num}', { num: i }) }}
@@ -32,11 +32,11 @@
             </span>
           </li>
         </ul>
-        <p v-if="nextStage" class="RelaxationStep-changed-text">
+        <p class="RelaxationStep-changed-text">
           {{
-            $t('{date} Stage{num}に移行', {
+            $t('{date} に Stage{num} へ強化されました', {
               date: formattedDayForDisplay,
-              num: nextStage,
+              num: stage,
             })
           }}
         </p>
@@ -55,11 +55,9 @@ export default Vue.extend({
     LinkToInformationAboutRoadmap,
   },
   data() {
-    const nowStage = Data.ibk_corona_next.nowStage
-    const nextStage = Data.ibk_corona_next.nextStage
+    const stage = Data.ibk_corona_next.stage
     return {
-      nowStage,
-      nextStage,
+      stage,
       steps: [4, 3, 2, 1],
     }
   },

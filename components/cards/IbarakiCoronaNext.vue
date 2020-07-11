@@ -135,7 +135,7 @@
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
               <td>
-                <strong>{{ avg.rate.toFixed(1) }}</strong>
+                <strong>{{ patients.rate.toFixed(1) }}</strong>
                 <span :class="$style.unit">%</span>
               </td>
             </tr>
@@ -220,10 +220,9 @@ export default {
     const avgYesterday = {
       new_patients: 0,
       non_densecontact: 0,
-      rate: 0,
       tokyo: 0,
     }
-    const avg = { new_patients: 0, non_densecontact: 0, rate: 0, tokyo: 0 }
+    const avg = { new_patients: 0, non_densecontact: 0, tokyo: 0 }
     const stage = {
       pillar: 1,
       sickbed: 1,
@@ -242,9 +241,6 @@ export default {
     avgYesterday.tokyo = patients.tokyo
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
-    avgYesterday.rate = patients.rate
-      .slice(0, -1)
-      .reduce((a, b) => a + b.value, 0)
 
     avg.new_patients = patients.new_patients
       .slice(1)
@@ -253,17 +249,21 @@ export default {
       .slice(1)
       .reduce((a, b) => a + b.value, 0)
     avg.tokyo = patients.tokyo.slice(1).reduce((a, b) => a + b.value, 0)
-    avg.rate = patients.rate.slice(1).reduce((a, b) => a + b.value, 0)
 
     for (const key in avg) {
       avgYesterday[key] /= 7
       avg[key] /= 7
     }
 
-    const _ = { pillar: patients.pillar, sickbed: patients.sickbed }
+    const _ = {
+      pillar: patients.pillar,
+      sickbed: patients.sickbed,
+      rate: patients.rate,
+    }
     const _Y = {
       pillar: patients.pillarYesterday,
       sickbed: patients.sickbedYesterday,
+      rate: patients.rateYesterday,
     }
     for (const i in avg) {
       _[i] = avg[i]
