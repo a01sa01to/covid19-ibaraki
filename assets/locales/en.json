@@ -444,5 +444,6 @@
   "茨城版コロナNext Stage2について": "About the Ibaraki version of Corona Next Stage 2",
   "茨城版コロナNext Stage3について": "About the Ibaraki version of Corona Next Stage 3",
   "茨城版コロナNext Stage4について": "About the Ibaraki version of Corona Next Stage 4",
-  "筑西保健所管内": "jurisdiction of Chikusei Public Health Center"
+  "筑西保健所管内": "jurisdiction of Chikusei Public Health Center",
+  "{date} に Stage{num} へ強化されました": "{date}: Move to {num}"
 }
