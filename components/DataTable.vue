@@ -12,7 +12,8 @@
       :mobile-breakpoint="0"
       :custom-sort="customSort"
       :footer-props="{
-        'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
+        // 'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
+        'items-per-page-options': [15, 30, 50, 70, 100, 150, -1],
         'items-per-page-text': $t('1ページ当たり'),
       }"
       class="cardTable"
@@ -25,6 +26,7 @@
             <td class="text-start">{{ item['居住地'] }}</td>
             <td class="text-start">{{ item['年代'] }}</td>
             <td class="text-start">{{ item['性別'] }}</td>
+            <td class="text-center">{{ item['濃厚接触者'] }}</td>
           </tr>
         </tbody>
       </template>
