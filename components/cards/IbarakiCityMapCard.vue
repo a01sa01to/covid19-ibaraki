@@ -62,6 +62,7 @@ export default {
             '茨城町',
             '城里町',
             '大洗町',
+            '中央保健所管内',
           ].includes(row.居住地)
         )
           area = '県央地域'
