@@ -109,6 +109,23 @@
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
             </tr>
+            <tr :class="$style.additionalData">
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.pillar }}</strong>
+                <span :class="$style.unit"> 時点</span>
+              </td>
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.sickbed }}</strong>
+                <span :class="$style.unit"> 時点</span>
+              </td>
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.tokyo }}</strong>
+                <span :class="$style.unit"> 時点</span>
+              </td>
+            </tr>
           </tbody>
         </table>
         <table class="ibkCoronaNext">
@@ -168,6 +185,23 @@
                 <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
                 <strong>{{ deltaStr.rate }}</strong>
                 <span :class="$style.unit">%</span>
+              </td>
+            </tr>
+            <tr :class="$style.additionalData">
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.new_patients }}</strong>
+                <span :class="$style.unit"> 時点</span>
+              </td>
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.non_densecontact }}</strong>
+                <span :class="$style.unit"> 時点</span>
+              </td>
+              <td>
+                <span :class="$style.delta" />
+                <strong>{{ updDate.rate }}</strong>
+                <span :class="$style.unit"> 時点</span>
               </td>
             </tr>
           </tbody>
@@ -314,12 +348,30 @@ export default {
       deltaStr[key] = formatDelta(delta[key])
     }
 
+    const updDate = {
+      pillar: patients.date,
+      sickbed: patients.date,
+      new_patients: patients.new_patients[7].date,
+      non_densecontact: patients.non_densecontact[7].date,
+      rate: patients.date,
+      tokyo: patients.tokyo[7].date,
+    }
+
+    for (const key in updDate) {
+      const t = new Date(updDate[key])
+      updDate[key] = `${String((t.getMonth() + 1) / 10).replace(
+        '.',
+        ''
+      )}/${String(t.getDate() / 10).replace('.', '')}`
+    }
+
     return {
       Data,
       patients,
       avg,
       stage,
       deltaStr,
+      updDate,
     }
   },
 }
