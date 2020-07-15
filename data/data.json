@@ -211,7 +211,7 @@
   "main_summary": {
     "children": [
       {
-        "date": "2020\/07\/15 19:40",
+        "date": "2020\/07\/15 20:10",
         "attr": "陽性者数", "value": 209,
         "children": [
           {"attr": "療養中", "value": 28},
@@ -224,17 +224,17 @@
 
   "// 9": "茨城版コロナNext用",
   "ibk_corona_next": {
-    "date": "2020\/07\/14 19:40",
+    "date": "2020\/07\/15 20:10",
     "stage": 2,
     "moveDate": "2020\/07\/03",
 
     "pillar": 3.3,
-    "sickbed": 9.7,
+    "sickbed": 10.1,
     "rate": 2.4,
 
     "pillarYesterday": 3.3,
-    "sickbedYesterday": 9.3,
-    "rateYesterday": 2.1,
+    "sickbedYesterday": 9.7,
+    "rateYesterday": 2.4,
 
     "new_patients": [
       {"date": "2020-07-08", "value": 1},
