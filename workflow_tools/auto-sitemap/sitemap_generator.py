@@ -42,6 +42,7 @@ PATHS = {
   "/cards/ibaraki-corona-next": data_json["ibk_corona_next"]["date"],
   "/cards/positive-rate":data_json["positiveRate"]["date"],
   "/cards/increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
+  "/cards/number-of-confirmed-cases-by-age": data_json["patients_summary"]["date"],
   "/about": "2020/05/24 18:00",
   "/contacts": "2020/05/24 18:00",
   "/flow": "2020/05/24 18:00",
