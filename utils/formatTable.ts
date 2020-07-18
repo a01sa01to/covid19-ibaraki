@@ -29,10 +29,17 @@ type TableDataType = {
 }
 
 type CityTableType = {
+  地域: string
   市町村: string
-  現在療養中: number
-  回復者数: number
+  ふりがな: string
   発生数: number
+}
+
+type AgeTableType = {
+  年代: string
+  新規: number
+  濃厚接触者: number
+  計: number
 }
 
 export const headers2 = [
@@ -42,10 +49,18 @@ export const headers2 = [
   { text: '発生数', value: '発生数' },
 ]
 
+export const headers3 = [
+  { text: '年代', value: '年代' },
+  { text: '新規', value: '新規' },
+  { text: '濃厚接触者', value: '濃厚接触者' },
+  { text: '計', value: '計' },
+]
+
 type TableDateType = {
   headers: typeof headers
   datasets: TableDataType[]
   cityDataset: CityTableType[]
+  ageDataset: AgeTableType[]
 }
 
 /**
@@ -58,6 +73,7 @@ export default (data: DataType[]) => {
     headers,
     datasets: [],
     cityDataset: [],
+    ageDataset: [],
   }
   data.forEach((d) => {
     const releaseDate = dayjs(d.date).isValid()

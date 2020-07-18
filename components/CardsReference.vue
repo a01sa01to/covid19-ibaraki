@@ -17,6 +17,8 @@
       <ibaraki-city-map-card />
       <!-- 市町村別マップ表示 -->
       <ibaraki-graphical-map-card />
+      <!-- 年代別患者数 -->
+      <confirmed-cases-by-age />
       <!-- 検査陽性率 -->
       <positive-rate-card />
       <!-- 茨城コロナNext -->
@@ -44,6 +46,7 @@ import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
+import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 
 export default Vue.extend({
   components: {
@@ -60,6 +63,7 @@ export default Vue.extend({
     IbarakiCoronaNext,
     PositiveRateCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
+    ConfirmedCasesByAge,
   },
 })
 </script>
