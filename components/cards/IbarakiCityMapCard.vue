@@ -51,6 +51,7 @@ export default {
             '那珂市',
             '東海村',
             '大子町',
+            'ひたちなか保健所管内',
           ].includes(row.居住地)
         )
           area = '県北地域'
