@@ -40,6 +40,7 @@ type AgeTableType = {
   新規: number
   濃厚接触者: number
   計: number
+  割合: number
 }
 
 export const headers2 = [
@@ -54,6 +55,8 @@ export const headers3 = [
   { text: '新規', value: '新規' },
   { text: '濃厚接触者', value: '濃厚接触者' },
   { text: '計', value: '計' },
+  { text: '新規の割合', value: '新規の割合' },
+  { text: '全体に占める割合', value: '全体に占める割合' },
 ]
 
 type TableDateType = {

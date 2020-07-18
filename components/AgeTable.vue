@@ -17,6 +17,20 @@
               )
             }}
           </li>
+          <li>
+            {{
+              $t(
+                '※「全体に占める割合」＝（計）/（累計陽性者数）で算出。端数の関係上、合計しても必ずしも100%とはならない'
+              )
+            }}
+          </li>
+          <li>
+            {{
+              $t(
+                '※「新規の割合」＝（新規）/（計）で算出。端数の関係上、合計しても必ずしも100%とはならない'
+              )
+            }}
+          </li>
         </ul>
       </div>
       <span />
@@ -40,6 +54,8 @@
             <td class="text-start">{{ item['新規'] }}</td>
             <td class="text-start">{{ item['濃厚接触者'] }}</td>
             <td class="text-start">{{ item['計'] }}</td>
+            <td class="text-start">{{ item['新規割合'] }}</td>
+            <td class="text-start">{{ item['割合'] }}</td>
           </tr>
         </tbody>
       </template>
