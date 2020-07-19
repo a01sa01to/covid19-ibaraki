@@ -52,7 +52,6 @@ export default {
 
     for (const dt of patientsTable.ageDataset) {
       dt.割合 = ((dt.計 / patientsTable.datasets.length) * 100).toFixed(2) + '%'
-      dt.新規割合 = ((dt.新規 / dt.計) * 100).toFixed(2) + '%'
     }
 
     patientsTable.ageDataset.sort((a, b) => (a.計 < b.計 ? 1 : -1))

@@ -54,7 +54,6 @@
             <td class="text-start">{{ item['新規'] }}</td>
             <td class="text-start">{{ item['濃厚接触者'] }}</td>
             <td class="text-start">{{ item['計'] }}</td>
-            <td class="text-start">{{ item['新規割合'] }}</td>
             <td class="text-start">{{ item['割合'] }}</td>
           </tr>
         </tbody>
