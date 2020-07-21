@@ -245,7 +245,7 @@
       {"date": "2020-07-20", "value": 1},
       {"date": "2020-07-21", "value": 4}
     ],
-    "non_densecontact": [
+    "non_closecontact": [
       {"date": "2020-07-14", "value": 2},
       {"date": "2020-07-15", "value": 2},
       {"date": "2020-07-16", "value": 2},

@@ -148,7 +148,7 @@
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
               <td>
-                <strong>{{ avg.non_densecontact.toFixed(1) }}</strong>
+                <strong>{{ avg.non_closecontact.toFixed(1) }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
               <td>
@@ -163,7 +163,7 @@
               </td>
               <td>
                 <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.non_densecontact.toLocaleString() }}</strong>
+                <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
               </td>
               <td>
                 <span :class="$style.unit">Stage</span>
@@ -178,7 +178,7 @@
               </td>
               <td>
                 <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.non_densecontact }}</strong>
+                <strong>{{ deltaStr.non_closecontact }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </td>
               <td>
@@ -195,7 +195,7 @@
               </td>
               <td>
                 <span :class="$style.delta" />
-                <strong>{{ updDate.non_densecontact }}</strong>
+                <strong>{{ updDate.non_closecontact }}</strong>
                 <span :class="$style.unit"> 時点</span>
               </td>
               <td>
@@ -253,15 +253,15 @@ export default {
     const patients = Data.ibk_corona_next
     const avgYesterday = {
       new_patients: 0,
-      non_densecontact: 0,
+      non_closecontact: 0,
       tokyo: 0,
     }
-    const avg = { new_patients: 0, non_densecontact: 0, tokyo: 0 }
+    const avg = { new_patients: 0, non_closecontact: 0, tokyo: 0 }
     const stage = {
       pillar: 1,
       sickbed: 1,
       new_patients: 1,
-      non_densecontact: 1,
+      non_closecontact: 1,
       rate: 1,
       tokyo: 1,
     }
@@ -269,7 +269,7 @@ export default {
     avgYesterday.new_patients = patients.new_patients
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
-    avgYesterday.non_densecontact = patients.non_densecontact
+    avgYesterday.non_closecontact = patients.non_closecontact
       .slice(0, -1)
       .reduce((a, b) => a + b.value, 0)
     avgYesterday.tokyo = patients.tokyo
@@ -279,7 +279,7 @@ export default {
     avg.new_patients = patients.new_patients
       .slice(1)
       .reduce((a, b) => a + b.value, 0)
-    avg.non_densecontact = patients.non_densecontact
+    avg.non_closecontact = patients.non_closecontact
       .slice(1)
       .reduce((a, b) => a + b.value, 0)
     avg.tokyo = patients.tokyo.slice(1).reduce((a, b) => a + b.value, 0)
@@ -315,7 +315,7 @@ export default {
       ['pillar', 10, 30, 60],
       ['sickbed', 30, 45, 70],
       ['new_patients', 1, 5, 10],
-      ['non_densecontact', 1, 3, 5],
+      ['non_closecontact', 1, 3, 5],
       ['rate', 1, 3, 7],
       ['tokyo', 10, 50, 100],
     ]
@@ -352,7 +352,7 @@ export default {
       pillar: patients.date,
       sickbed: patients.date,
       new_patients: patients.new_patients[7].date,
-      non_densecontact: patients.non_densecontact[7].date,
+      non_closecontact: patients.non_closecontact[7].date,
       rate: patients.date,
       tokyo: patients.tokyo[7].date,
     }
