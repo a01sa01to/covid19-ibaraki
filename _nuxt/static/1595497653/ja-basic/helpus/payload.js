@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/helpus", {data:[{}],fetch:[],mutations:void 0});
