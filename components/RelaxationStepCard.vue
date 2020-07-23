@@ -5,7 +5,7 @@
         {{ $t('社会経済活動再開に向けた対策の段階的緩和') }}
       </h3>
       <div class="RelaxationStep-link">
-        <link-to-information-about-roadmap />
+        <!-- <link-to-information-about-roadmap /> -->
       </div>
     </div>
     <div class="RelaxationStep-content">
@@ -47,12 +47,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
+// import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
 import Data from '@/data/data.json'
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutRoadmap,
+    // LinkToInformationAboutRoadmap,
   },
   data() {
     const stage = Data.ibk_corona_next.stage
