@@ -98,6 +98,13 @@ export default {
 
     return {
       titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
+      link: [
+        // ...getLinksLanguageAlternative(
+        `cards/${this.$route.params.card}`,
+        // this.$i18n.locales,
+        // this.$i18n.defaultLocale
+        // )
+      ],
       meta: [
         {
           hid: 'og:url',

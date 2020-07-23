@@ -30,7 +30,7 @@
           </span>
         </div>
         <ul :class="$style.group">
-          <li :class="$style.box">
+          <li :class="[$style.box, $style.parent]">
             <div :class="$style.content">
               <span>{{ $t('療養中') }}</span>
               <span>
@@ -42,6 +42,98 @@
                 </div>
               </span>
             </div>
+            <ul :class="$style.group">
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <!-- eslint-disable vue/no-v-html-->
+                  <span v-html="$t('軽症')" />
+                  <!-- eslint-enable vue/no-v-html-->
+                  <span>
+                    <strong>{{ 軽症.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{ ((軽症 / 療養中) * 100).toFixed(2) }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <!-- eslint-disable vue/no-v-html-->
+                  <span v-html="$t('中等症')" />
+                  <!-- eslint-enable vue/no-v-html-->
+                  <span>
+                    <strong>{{ 中等症.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{
+                        ((中等症 / 療養中) * 100).toFixed(2)
+                      }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <span>{{ $t('重症') }}</span>
+                  <span>
+                    <strong>{{ 重症.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{ ((重症 / 療養中) * 100).toFixed(2) }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <span>{{ $t('宿泊療養') }}</span>
+                  <span>
+                    <strong>{{ 宿泊療養.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{
+                        ((宿泊療養 / 療養中) * 100).toFixed(2)
+                      }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <span>{{ $t('自宅療養') }}</span>
+                  <span>
+                    <strong>{{ 自宅療養.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{
+                        ((自宅療養 / 療養中) * 100).toFixed(2)
+                      }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+              <li :class="[$style.box]">
+                <div :class="$style.content">
+                  <span>{{ $t('その他') }}</span>
+                  <span>
+                    <strong>{{ その他.toLocaleString() }}</strong>
+                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <div>
+                      (<strong>{{
+                        ((その他 / 療養中) * 100).toFixed(2)
+                      }}</strong>
+                      <span :class="$style.unit">%</span>)
+                    </div>
+                  </span>
+                </div>
+              </li>
+            </ul>
           </li>
           <li :class="$style.box">
             <div :class="$style.content">
@@ -89,6 +181,30 @@ export default Vue.extend({
       required: true,
     },
     療養中: {
+      type: Number,
+      required: true,
+    },
+    軽症: {
+      type: Number,
+      required: true,
+    },
+    中等症: {
+      type: Number,
+      required: true,
+    },
+    重症: {
+      type: Number,
+      required: true,
+    },
+    宿泊療養: {
+      type: Number,
+      required: true,
+    },
+    自宅療養: {
+      type: Number,
+      required: true,
+    },
+    その他: {
       type: Number,
       required: true,
     },

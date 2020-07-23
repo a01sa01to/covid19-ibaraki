@@ -68,11 +68,11 @@
 .cardTable {
   &.v-data-table {
     th {
-      height: auto;
-      padding: 8px 10px;
-      color: $gray-2;
-      border-bottom: 1px solid $gray-4;
-      @include font-size(12);
+      height: auto !important;
+      padding: 8px 10px !important;
+      color: $gray-2 !important;
+      border-bottom: 1px solid $gray-4 !important;
+      @include font-size(12, true);
 
       &.text-center {
         text-align: center;
@@ -88,9 +88,9 @@
         }
 
         td {
-          height: auto;
-          padding: 8px 10px;
-          @include font-size(12);
+          height: auto !important;
+          padding: 8px 10px !important;
+          @include font-size(12, true);
 
           &.text-center {
             text-align: center;
@@ -130,18 +130,6 @@
 
   .v-data-footer__select .v-select__selections .v-select__selection--comma {
     font-size: 1.2rem;
-  }
-}
-
-.note {
-  margin: 8px 0 0;
-  color: $gray-3;
-  @include font-size(12);
-
-  ul,
-  ol {
-    padding: 0;
-    list-style-type: none;
   }
 }
 

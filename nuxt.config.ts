@@ -1,12 +1,12 @@
-import { Configuration } from '@nuxt/types'
-import { Configuration as WebpackConfiguration } from 'webpack'
+import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
 
-const config: Configuration = {
+const config: NuxtConfig = {
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -109,15 +109,20 @@ const config: Configuration = {
   googleAnalytics: {
     id: 'UA-142148155-4',
   },
-  optionalCookies: [
+  /*
+   * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
+   * @todo 「Cookieがあるときのみ、その言語にリダイレクトする」を実装する場合は復活させる
+   * 実装しない場合は以下の記述を完全に削除する
+   */
+  /* optionalCookies: [
     {
       name: 'i18n_redirected',
       label: 'i18n Redirection Cookie',
       description:
         'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected'],
-    },
-  ],
+      cookies: ['i18n_redirected']
+    }
+  ], */
   build: {
     postcss: {
       plugins: [
@@ -135,7 +140,7 @@ const config: Configuration = {
         }),
       ],
     },
-    extend(config: WebpackConfiguration, _) {
+    extend(config: { externals: { moment: string }[] }) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
     },

@@ -1,10 +1,19 @@
 <template>
-  <div class="Contacts">
-    <page-header class="mb-3">
+  <div
+    class="Contacts"
+    aria-labelledby="pageHeader"
+    aria-describedby="contactsCardTable"
+  >
+    <page-header id="pageHeader" class="mb-3">
       {{ $t('お問い合わせ先・県内保健所一覧') }}
     </page-header>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table">
+      <table
+        id="contactsCardTable"
+        class="Contacts-Card-Table"
+        v-bind="tableAttrs"
+        aria-describedby="pageHeader"
+      >
         <thead>
           <tr>
             <th class="text-center">{{ $t('お問い合わせ内容') }}</th>

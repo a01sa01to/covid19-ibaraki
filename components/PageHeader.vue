@@ -106,13 +106,23 @@ export default Vue.extend({
       required: false,
       default: '',
     },
+    title: {
+      type: String,
+      default: '',
+    },
+    titleId: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
+      openGraphEmbed: false,
       displayShare: false,
-      openDetails: false,
+      showOverlay: false,
     }
   },
+  computed: {},
   watch: {
     displayShare(isShow: boolean) {
       if (isShow) {
@@ -140,9 +150,7 @@ export default Vue.extend({
       e.stopPropagation()
     },
     permalink() {
-      return encodeURIComponent(
-        location.protocol + '//' + location.host + location.pathname
-      )
+      return `${location.protocol}//${location.host}/cards/${this.titleId}`
     },
     twitter() {
       const url =
@@ -164,7 +172,6 @@ export default Vue.extend({
       window.open(url)
     },
     toggleDetails() {
-      this.openDetails = !this.openDetails
       EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
     },
   },

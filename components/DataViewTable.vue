@@ -14,7 +14,7 @@
     <template v-slot:body="{ items }">
       <tbody>
         <tr v-for="(item, i) in items" :key="i">
-          <th scope="row">{{ item[headerKey] }}</th>
+          <th scope="row" class="cardTable-header">{{ item[headerKey] }}</th>
           <td v-for="(dataKey, j) in dataKeys" :key="j" class="text-end">
             {{ item[dataKey] }}
           </td>
@@ -85,6 +85,10 @@ export default Vue.extend(options)
 </script>
 
 <style lang="scss">
+.cardTable-header {
+  white-space: nowrap !important;
+}
+
 .v-data-table .text-end {
   text-align: right;
 }

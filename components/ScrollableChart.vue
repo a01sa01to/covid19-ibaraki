@@ -13,10 +13,12 @@
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { DisplayData } from '@/plugins/vue-chart'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 type Data = {
   chartWidth: number
   timerId: number
+  windowWidth: number
 }
 type Methods = {
   adjustChartWidth: () => void
@@ -48,6 +50,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       chartWidth: 300,
       timerId: 0,
+      windowWidth: 0,
     }
   },
   watch: {
@@ -90,7 +93,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   mounted() {
     this.adjustChartWidth()
-    window.addEventListener('resize', this.handleResize)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== this.windowWidth) {
+        this.handleResize()
+      }
+      this.windowWidth = window.innerWidth
+    })
+
+    // タブ変更時にグラフ`width`を再計算する
+    EventBus.$on(TOGGLE_EVENT, () => {
+      setTimeout(() => this.adjustChartWidth())
+    })
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
@@ -102,28 +115,19 @@ export default options
 
 <style lang="scss" scoped>
 .LegendStickyChart {
-  margin: 16px 0;
   position: relative;
+  margin: 16px 0;
   overflow: hidden;
 
   .scrollable {
     overflow-x: scroll;
-
-    &::-webkit-scrollbar {
-      height: 4px;
-      background-color: rgba(0, 0, 0, 0.01);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.07);
-    }
   }
 
   .sticky-legend {
     position: absolute;
     top: 0;
-    pointer-events: none;
     width: 100%;
+    pointer-events: none;
   }
 }
 </style>

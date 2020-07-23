@@ -23,11 +23,7 @@ import { Chart } from 'chart.js'
 import { GraphDataType } from '@/utils/formatDetailGraph'
 import DataView from '@/components/DataView.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import {
-  yAxesBgPlugin,
-  scrollPlugin,
-  DisplayDetailData,
-} from '@/plugins/vue-chart'
+import { yAxesBgPlugin, DisplayDetailData } from '@/plugins/vue-chart'
 
 type Data = {
   dataKind: 'transition'
@@ -81,7 +77,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     scrollPlugin: {
       type: Array,
-      default: () => scrollPlugin,
+      default: () => null,
     },
     yAxesBgPlugin: {
       type: Array,

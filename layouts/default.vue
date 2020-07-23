@@ -37,13 +37,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import { MetaInfo, LinkPropertyHref } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import Data from '@/data/data.json'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
+
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
@@ -100,6 +102,18 @@ export default Vue.extend({
             name: 'og:locale',
             content: this.$i18n.locale,
           }
+
+    let linksAlternate: LinkPropertyHref[] = []
+    const basename = this.getRouteBaseName()
+    // 404 エラーなどのときは this.getRouteBaseName() が null になるため除外
+    if (basename) {
+      linksAlternate = getLinksLanguageAlternative(
+        basename,
+        this.$i18n.locales,
+        this.$i18n.defaultLocale
+      )
+    }
+
     return {
       htmlAttrs,
       link: [
@@ -107,6 +121,7 @@ export default Vue.extend({
           rel: 'canonical',
           href: `https://ibaraki.stopcovid19.jp${this.$route.path}`,
         },
+        ...linksAlternate,
       ],
       // Disable prettier for readability purposes
       // eslint-disable-next-line prettier/prettier
@@ -217,7 +232,6 @@ export default Vue.extend({
 @include lessThan($small) {
   .naviContainer {
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     z-index: z-index-of(sp-navigation);
   }

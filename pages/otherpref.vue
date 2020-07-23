@@ -3,16 +3,6 @@
     <page-header class="mb-3">
       {{ $t('他都道府県の新型コロナ対策サイト') }}
     </page-header>
-    <static-card>
-      <p>{{ $t('現在までに開設された都道府県：') }}<strong>47</strong> / 47</p>
-      <p class="checkOthers">
-        {{
-          $t(
-            '各都道府県の運営者・GitHubリポジトリを確認したい場合は、パソコンからこのページをご覧ください。'
-          )
-        }}
-      </p>
-    </static-card>
     <div class="Others-Card">
       <v-simple-table class="Others-Card-Table">
         <template v-slot:default>
@@ -32,7 +22,6 @@
               <td class="site text-center">
                 <a href="#">https://ibaraki.stopcovid19.jp/</a>
               </td>
-              <td class="admin text-center">Asa</td>
               <td class="repo text-center">
                 <a href="https://github.com/a01sa01to/covid19-ibaraki"
                   >a01sa01to/covid19-ibaraki</a
@@ -46,7 +35,6 @@
                   >https://covid19.wlaboratory.com/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/mm0202/covid19-jp" target="_blank"
                   >mm0202/covid19-jp</a
@@ -59,10 +47,6 @@
                 <a href="https://stopcovid19.hokkaido.dev/" target="_blank"
                   >https://stopcovid19.hokkaido.dev/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('JUST道IT') }}&nbsp;&nbsp;({{ $t('有志')
-                }}{{ $t('団体') }})
               </td>
               <td class="repo text-center">
                 <a
@@ -79,10 +63,6 @@
                   >https://stopcovid19.pref.aomori.lg.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('青森県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
-              </td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-aomori/website"
@@ -98,7 +78,6 @@
                   >https://covid19.codeforaomori.org/</a
                 >
               </td>
-              <td class="admin text-center">Code for Aomori</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/CodeForAomori/covid19"
@@ -114,7 +93,6 @@
                   >https://covid19-daily-tohoku.news/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('デーリー東北新聞社') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/momujin/covid19" target="_blank"
                   >momujin/covid19</a
@@ -128,7 +106,6 @@
                   >https://iwate.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/MeditationDuck/covid19"
@@ -144,7 +121,6 @@
                   >https://miyagi.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">Code for Shiogama</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/code4shiogama/covid19-miyagi"
@@ -159,9 +135,6 @@
                 <a href="https://covid19-akita.netlify.app/" target="_blank"
                   >https://covid19-akita.netlify.app/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('学生') }}&nbsp;&nbsp;({{ $t('有志') }})
               </td>
               <td class="repo text-center">
                 <a
@@ -180,7 +153,6 @@
                   >https://stopcovid19-yamagata.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/yamaserif/covid19" target="_blank"
                   >yamaserif/covid19</a
@@ -188,17 +160,16 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('福島県') }}</td>
+              <td class="pref text-center">
+                {{ $t('福島県') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a
                   href="https://fukushima-covid19.firebaseapp.com/"
                   target="_blank"
                   >https://fukushima-covid19.firebaseapp.com/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('福島県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a href="https://github.com/donuzium/covid19" target="_blank"
@@ -213,9 +184,6 @@
                   >https://stopcovid19-ibaraki.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                Project Ume&nbsp;&nbsp;({{ $t('有志') }})
-              </td>
               <td class="repo text-center">
                 <a href="https://github.com/BenataY/covid19" target="_blank"
                   >BenataY/covid19</a
@@ -229,7 +197,6 @@
                   >https://covid19-tochigi.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-tochigicovid19"
@@ -239,15 +206,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('群馬県') }}</td>
+              <td class="pref text-center">
+                {{ $t('群馬県') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://stopcovid19.pref.gunma.jp/" target="_blank"
                   >https://stopcovid19.pref.gunma.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('群馬県') }}(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a href="https://github.com/bpr-gunma/covid19" target="_blank"
@@ -262,7 +228,6 @@
                   >https://saitama.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">Code for TODA</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/codefortoda/covid19-saitama"
@@ -277,9 +242,6 @@
                 <a href="https://chiba-covid19.mypl.net/" target="_blank"
                   >https://chiba-covid19.mypl.net/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('地域情報サイト「まいぷれ」') }}
               </td>
               <td class="repo text-center">
                 <a
@@ -296,7 +258,6 @@
                   >https://covid19.civictech.chiba.jp/</a
                 >
               </td>
-              <td class="admin text-center">Civic Tech Zen Chiba</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/civictechzenchiba/covid19-chiba"
@@ -312,7 +273,6 @@
                   >https://stopcovid19.code4chiba.org/</a
                 >
               </td>
-              <td class="admin text-center">Code for Chiba</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/codeforchiba/covid19"
@@ -330,7 +290,6 @@
                   >https://covid19-ichihara.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/YanaseT/covid19-ichihara/"
@@ -347,9 +306,6 @@
                 <a href="https://yachiyo-covid19.netlify.app/" target="_blank"
                   >https://yachiyo-covid19.netlify.app/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('有志') }}({{ $t('学生') }})
               </td>
               <td class="repo text-center">
                 <a
@@ -368,7 +324,6 @@
                   >https://stopcovid19-ichikawa.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人（学生）') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/Meiryo7743/covid19-ichikawa"
@@ -378,15 +333,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('東京都') }}</td>
+              <td class="pref text-center">
+                {{ $t('東京都') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://stopcovid19.metro.tokyo.lg.jp/" target="_blank"
                   >https://stopcovid19.metro.tokyo.lg.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('東京都') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -397,17 +351,16 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('神奈川県') }}</td>
+              <td class="pref text-center">
+                {{ $t('神奈川県') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a
                   href="https://www.pref.kanagawa.jp/osirase/1369/"
                   target="_blank"
                   >https://www.pref.kanagawa.jp/osirase/1369/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('神奈川県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center" />
             </tr>
@@ -419,9 +372,6 @@
                 <a href="https://covid19.yokohama/" target="_blank"
                   >https://covid19.yokohama/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('個人') }}
               </td>
               <td class="repo text-center">
                 <a
@@ -438,7 +388,6 @@
                   >https://niigata.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">Code for Niigata</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/CodeForNiigata/covid19"
@@ -456,7 +405,6 @@
                   >https://stopcovid19-niigata-unofficial.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">air-h-128k-il</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/air-h-128k-il/covid19"
@@ -466,17 +414,16 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('富山県') }}</td>
+              <td class="pref text-center">
+                {{ $t('富山県') }}(<b>{{ $t('公認') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a
                   href="https://stopcovid19-toyama.netlify.app/"
                   target="_blank"
                   >https://stopcovid19-toyama.netlify.app/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('有志') }}(<b>{{ $t('富山県公認') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -487,15 +434,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('石川県') }}</td>
+              <td class="pref text-center">
+                {{ $t('石川県') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://stopcovid19.pref.ishikawa.jp/" target="_blank"
                   >https://stopcovid19.pref.ishikawa.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('石川県') }}(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center" />
             </tr>
@@ -506,7 +452,6 @@
                   >https://ishikawa-covid19.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/Retsuki/covid19-ishikawa/"
@@ -516,15 +461,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('福井県') }}</td>
+              <td class="pref text-center">
+                {{ $t('福井県') }}(<b>{{ $t('公認') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://covid19-fukui.com/" target="_blank"
                   >https://covid19-fukui.com/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('地元有志') }}(<b>{{ $t('福井県公認') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -541,9 +485,6 @@
                   >https://covid19-fukui.bosai-signal.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('丹南ケーブルテレビ株式会社') }}
-              </td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/westar7/fukui-covid19"
@@ -558,9 +499,6 @@
                 <a href="https://stopcovid19.yamanashi.dev/" target="_blank"
                   >https://stopcovid19.yamanashi.dev/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('stopcovid19.yamanashi.devチーム') }}
               </td>
               <td class="repo text-center">
                 <a
@@ -579,7 +517,6 @@
                   >https://stop-covid19-nagano.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/Stop-COVID19-Nagano/covid19"
@@ -595,7 +532,6 @@
                   >https://covid19-nagano.info/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/kanai3id/covid19" target="_blank"
                   >kanai3id/covid19</a
@@ -609,7 +545,6 @@
                   >https://covid19-gifu.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/CODE-for-GIFU/covid19"
@@ -619,17 +554,16 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('静岡市') }}</td>
+              <td class="pref text-center">
+                {{ $t('静岡市') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a
                   href="https://stopcovid19.city.shizuoka.lg.jp/"
                   target="_blank"
                   >https://stopcovid19.city.shizuoka.lg.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('静岡市') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a href="https://github.com/kazuomatz/covid19" target="_blank"
@@ -639,7 +573,8 @@
             </tr>
             <tr>
               <td class="pref text-center">
-                {{ $t('浜松市') }}({{ $t('静岡県') }})
+                {{ $t('浜松市') }}({{ $t('静岡県') }})(<b>{{ $t('公式') }}</b
+                >)
               </td>
               <td class="site text-center">
                 <a
@@ -647,10 +582,6 @@
                   target="_blank"
                   >https://stopcovid19.code4hamamatsu.org/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('浜松市') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -667,7 +598,6 @@
                   >https://stopcovid19.code4.nagoya/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/code4nagoya/covid19" target="_blank"
                   >code4nagoya/covid19</a
@@ -681,9 +611,6 @@
                   >https://mie.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('高専生チーム') }}&nbsp;&nbsp;({{ $t('有志') }})
-              </td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/FlexiblePrintedCircuits/covid19-mie"
@@ -693,15 +620,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('滋賀県') }}</td>
+              <td class="pref text-center">
+                {{ $t('滋賀県') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://stopcovid19.pref.shiga.jp/" target="_blank"
                   >https://stopcovid19.pref.shiga.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('滋賀県') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -718,7 +644,6 @@
                   >https://stopcovid19-kyoto.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/stopcovid19-kyoto/covid19"
@@ -728,15 +653,14 @@
               </td>
             </tr>
             <tr>
-              <td class="pref text-center">{{ $t('大阪府') }}</td>
+              <td class="pref text-center">
+                {{ $t('大阪府') }}(<b>{{ $t('公式') }}</b
+                >)
+              </td>
               <td class="site text-center">
                 <a href="https://covid19-osaka.info/" target="_blank"
                   >https://covid19-osaka.info/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('大阪府') }}&nbsp;&nbsp;(<b>{{ $t('公式') }}</b
-                >)
               </td>
               <td class="repo text-center">
                 <a
@@ -753,7 +677,6 @@
                   >https://stop-covid19-hyogo.org/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/stop-covid19-hyogo/covid19"
@@ -769,7 +692,6 @@
                   >https://stopcovid19.code4nara.org/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/code4nara/covid19" target="_blank"
                   >code4nara/covid19</a
@@ -783,7 +705,6 @@
                   >https://stopcovid19.wakayama.jp/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('エフエム和歌山') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/sys-cube/covid19" target="_blank"
                   >sys-cube/covid19</a
@@ -797,7 +718,6 @@
                   >https://tottori-covid19.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/tottori-covid19/covid19"
@@ -813,7 +733,6 @@
                   >https://shimane-covid19.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('島根出身学生有志') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/TaigaMikami/covid19" target="_blank"
                   >TaigaMikami/covid19</a
@@ -827,9 +746,6 @@
                   >https://okayama.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('学生エンジニア') }}&nbsp;&nbsp;({{ $t('有志') }})
-              </td>
               <td class="repo text-center" />
             </tr>
             <tr>
@@ -839,10 +755,26 @@
                   >https://covid19-hiroshima.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a href="https://github.com/tatsuya1970/covid19" target="_blank"
                   >tatsuya1970/covid19</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="pref text-center">{{ $t('広島市') }}</td>
+              <td class="site text-center">
+                <a
+                  href="https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/"
+                  target="_blank"
+                  >https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/</a
+                >
+              </td>
+              <td class="repo text-center">
+                <a
+                  href="https://github.com/inspired-fox/covid19-hirosima_city"
+                  target="_blank"
+                  >inspired-fox/covid19-hirosima_city</a
                 >
               </td>
             </tr>
@@ -853,7 +785,6 @@
                   >https://covid19-yamaguchi.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/nishidayoshikatsu/covid19-yamaguchi"
@@ -869,7 +800,6 @@
                   >https://covid19-tokushima.netlify.com/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('個人') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/yuta-kusuno/covid19-tokushima"
@@ -885,9 +815,6 @@
                   >https://kagawa.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('学生エンジニア') }}&nbsp;&nbsp;({{ $t('有志') }})
-              </td>
               <td class="repo text-center" />
             </tr>
             <tr>
@@ -896,9 +823,6 @@
                 <a href="https://covid19-kagawa.jp/" target="_blank"
                   >https://covid19-kagawa.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('学生エンジニア') }}&nbsp;&nbsp;({{ $t('有志') }})
               </td>
               <td class="repo text-center">
                 <a href="https://github.com/i15317/covid19" target="_blank"
@@ -912,9 +836,6 @@
                 <a href="https://ehime-covid19.com/" target="_blank"
                   >https://ehime-covid19.com/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('ボランティア') }}({{ $t('有志') }})
               </td>
               <td class="repo text-center">
                 <a
@@ -931,9 +852,6 @@
                   >https://covid19-kochi.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">
-                {{ $t('学生エンジニア') }}({{ $t('有志') }})
-              </td>
               <td class="repo text-center" />
             </tr>
             <tr>
@@ -944,9 +862,6 @@
                   target="_blank"
                   >https://dev-covid19-kyusyu.netlify.app/</a
                 >
-              </td>
-              <td class="admin text-center">
-                {{ $t('九州') }}({{ $t('有志') }})
               </td>
               <td class="repo text-center">
                 <a
@@ -962,9 +877,6 @@
                 <a href="https://fukuoka.stopcovid19.jp/" target="_blank"
                   >https://fukuoka.stopcovid19.jp/</a
                 >
-              </td>
-              <td class="admin text-center">
-                Code for Fukuoka, Code for Kurume
               </td>
               <td class="repo text-center">
                 <a
@@ -983,7 +895,6 @@
                   >https://stopcovid19.codeforfukuoka.org/</a
                 >
               </td>
-              <td class="admin text-center">Code for Fukuoka</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/Code-for-Fukuoka/covid19"
@@ -1001,7 +912,6 @@
                   >https://stopcovid19-kitakyushu.jp/</a
                 >
               </td>
-              <td class="admin text-center">Code for Kitakyushu</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-kitakyushu/covid19"
@@ -1017,7 +927,6 @@
                   >https://stopcovid19.code4saga.org/</a
                 >
               </td>
-              <td class="admin text-center">Code for Saga</td>
               <td class="repo text-center">
                 <a href="https://github.com/codeforsaga/covid19" target="_blank"
                   >codeforsaga/covid19</a
@@ -1033,7 +942,6 @@
                   >https://stopcovid19-nagasaki.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">Code for Nagasaki</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/CodeForNagasaki/covid19"
@@ -1049,7 +957,6 @@
                   >https://kumamoto.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">Code for Kumamoto</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/codeforkumamoto/covid19"
@@ -1066,7 +973,6 @@
                   >https://oita.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-oita/covid19"
@@ -1082,7 +988,6 @@
                   >https://covid19-miyazaki.netlify.app/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/covid19-miyazaki/covid19"
@@ -1098,7 +1003,6 @@
                   >https://covid19.code4kagoshima.org/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/codeforkagoshima/covid19"
@@ -1114,7 +1018,6 @@
                   >https://okinawa.stopcovid19.jp/</a
                 >
               </td>
-              <td class="admin text-center">{{ $t('有志') }}</td>
               <td class="repo text-center">
                 <a
                   href="https://github.com/Code-for-OKINAWA/covid19"
@@ -1134,12 +1037,10 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard,
   },
   head(): MetaInfo {
     return {
