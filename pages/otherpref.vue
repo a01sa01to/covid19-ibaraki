@@ -10,7 +10,6 @@
             <tr>
               <th class="text-center">{{ $t('都道府県名') }}</th>
               <th class="text-center">{{ $t('公開サイト') }}</th>
-              <th class="text-center">{{ $t('運営者') }}</th>
               <th class="text-center">{{ $t('GitHub リポジトリ') }}</th>
             </tr>
           </thead>
