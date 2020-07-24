@@ -43,13 +43,14 @@ PATHS = {
   "/cards/positive-rate":data_json["positiveRate"]["date"],
   "/cards/increase-ratio-of-confirmed-cases-by-daily": data_json["patients_summary"]["date"],
   "/cards/number-of-confirmed-cases-by-age": data_json["patients_summary"]["date"],
-  "/about": "2020/05/24 18:00",
-  "/contacts": "2020/05/24 18:00",
-  "/flow": "2020/05/24 18:00",
-  "/helpus": "2020/05/24 18:00",
-  "/otherpref": "2020/05/24 18:00",
-  "/parent": "2020/05/24 18:00",
-  "/worker": "2020/05/24 18:00"
+  "/cards/number-of-tested": data_json["inspections_summary"]["date"],
+  "/about": "2020/07/24 18:10",
+  "/contacts": "2020/07/24 18:10",
+  "/flow": "2020/07/24 18:10",
+  "/helpus": "2020/07/24 18:10",
+  "/otherpref": "2020/07/24 18:10",
+  "/parent": "2020/07/24 18:10",
+  "/worker": "2020/07/24 18:10"
 }
 
 # --- Sitemap.xmlの作成部分 --- #
