@@ -175,6 +175,7 @@ const config: NuxtConfig = {
         '/cards/positive-rate',
         '/cards/increase-ratio-of-confirmed-cases-by-daily',
         '/cards/number-of-confirmed-cases-by-age',
+        '/cards/number-of-tested',
       ]
 
       const routes: string[] = []

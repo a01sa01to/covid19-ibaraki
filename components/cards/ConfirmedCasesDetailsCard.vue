@@ -77,8 +77,8 @@ export default {
   data() {
     // 検査陽性者の状況
     Data.main_summary.attr = '検査実施人数'
-    Data.main_summary.value = Data.inspection_persons.datasets[0].data.reduce(
-      (a, b) => a + b,
+    Data.main_summary.value = Data.inspections_summary.datasets.reduce(
+      (a, b) => a + b.data,
       0
     )
     const confirmedCases = formatConfirmedCases(Data.main_summary)

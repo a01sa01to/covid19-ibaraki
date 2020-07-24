@@ -23,8 +23,10 @@
       <positive-rate-card />
       <!-- 茨城コロナNext -->
       <ibaraki-corona-next />
-      <!-- 検査実施人数 -->
+      <!-- 検査実施人数（県） -->
       <inspection-persons-number-card />
+      <!-- 検査実施件数（全体） -->
+      <tested-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
     </card-row>
@@ -47,6 +49,7 @@ import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -64,6 +67,7 @@ export default Vue.extend({
     PositiveRateCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
     ConfirmedCasesByAge,
+    TestedNumberCard,
   },
 })
 </script>

@@ -18,7 +18,18 @@
       class="mb-4"
       style="padding: 0.5em 1em; font-size: 1.4rem; color: #006ca8;"
     >
-      <external-link url="https://twitter.com/Covid19_ibaraki">{{
+      <a
+        href="https://twitter.com/covid19_ibaraki?ref_src=twsrc%5Etfw"
+        class="twitter-follow-button"
+        data-show-count="false"
+        >Follow @covid19_ibaraki</a
+      >
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      />
+      <external-link url="https://twitter.com/covid19_ibaraki">{{
         $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
       }}</external-link>
     </static-card>

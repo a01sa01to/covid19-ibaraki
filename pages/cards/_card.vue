@@ -16,6 +16,7 @@ import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 
 export default {
   components: {
@@ -32,6 +33,7 @@ export default {
     IbarakiCoronaNext,
     ConfirmedCasesIncreaseRatioByWeekCard,
     ConfirmedCasesByAge,
+    TestedNumberCard,
   },
   data() {
     let title, updatedAt, cardComponent
@@ -74,6 +76,10 @@ export default {
         break
       case 'number-of-confirmed-cases-by-age':
         cardComponent = 'confirmed-cases-by-age'
+        break
+      case 'number-of-tested':
+        cardComponent = 'tested-number-card'
+        break
     }
 
     return {
