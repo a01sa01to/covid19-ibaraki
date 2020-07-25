@@ -215,19 +215,19 @@
 
   "// 7": "全体の検査実施件数",
   "inspections_summary": {
-    "date": "2020\/07\/24 18:35",
-    "updDate": "2020\/07\/17",
+    "date": "2020\/07\/25 14:40",
+    "updDate": "2020\/07\/21",
     "datasets": [
-      {"label": "茨城県衛生研究所", "data": 5569, "positive": 157},
-      {"label": "水戸市保健所", "data": 439, "positive": 4},
-      {"label": "民間検査機関", "data": 8599, "positive": 37},
-      {"label": "帰国者・接触者外来設置等医療機関", "data": 2680, "positive": 8},
+      {"label": "茨城県衛生研究所", "data": 5966, "positive": 167},
+      {"label": "水戸市保健所", "data": 483, "positive": 4},
+      {"label": "民間検査機関", "data": 9652, "positive": 46},
+      {"label": "帰国者・接触者外来設置等医療機関", "data": 2896, "positive": 10},
       {"label": "その他の検査機関", "data": 133, "positive": 3}
     ]
   },
 
   "// 8": "最終更新日時",
-  "lastUpdate": "2020\/07\/24 21:25",
+  "lastUpdate": "2020\/07\/25 14:40",
 
   "// 9": "検査陽性者の状況",
   "main_summary": {
