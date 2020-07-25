@@ -7,6 +7,8 @@
       <confirmed-cases-number-card />
       <!-- 週単位の陽性者増加比 -->
       <confirmed-cases-increase-ratio-by-week-card />
+      <!-- 経路不明者 -->
+      <untracked-rate-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 回復者数 -->
@@ -50,6 +52,7 @@ import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 
 export default Vue.extend({
   components: {
@@ -68,6 +71,7 @@ export default Vue.extend({
     ConfirmedCasesIncreaseRatioByWeekCard,
     ConfirmedCasesByAge,
     TestedNumberCard,
+    UntrackedRateCard,
   },
 })
 </script>
