@@ -114,7 +114,7 @@ jobs:
         id: extract_branch
       - uses: actions/checkout@v2
         with:
-          ref: dev-deploy
+          ref: production
       - name: Install selenium with pip
         run: pip3 install selenium
       - name: Take screenshot
