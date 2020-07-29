@@ -27,9 +27,9 @@
             <td class="bureau text-center">{{ $t('当サイトの管理者') }}</td>
             <td class="tel text-center">
               <a
-                href="https://twitter.com/messages/compose?recipient_id=4273512934"
+                href="https://twitter.com/messages/compose?recipient_id=1264797161440423936"
                 target="_blank"
-                >Twitter @a01sa01to</a
+                >Twitter @covid19_ibaraki</a
               >
             </td>
           </tr>
@@ -59,7 +59,9 @@
         </thead>
         <tbody>
           <tr class="small">
-            <td colspan="3">{{ $t('24時間対応（土日祝含む）') }}</td>
+            <td colspan="3">
+              {{ $t('午前8時30分から午後10時（土日祝含む）') }}
+            </td>
           </tr>
           <tr>
             <td class="content text-center">{{ $t('茨城県庁内') }}</td>

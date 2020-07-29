@@ -18,6 +18,7 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import error from '@/layouts/error.vue'
 
 export default {
   components: {
@@ -36,6 +37,7 @@ export default {
     ConfirmedCasesByAge,
     TestedNumberCard,
     UntrackedRateCard,
+    error,
   },
   data() {
     let title, updatedAt, cardComponent
@@ -84,6 +86,9 @@ export default {
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
+        break
+      default:
+        cardComponent = 'error'
         break
     }
 
