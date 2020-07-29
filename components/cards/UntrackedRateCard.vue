@@ -95,7 +95,6 @@ export default {
         // sumPosが0の場合、増減なしで1となるため、以下の処理でok
         Rate = sumPos / 7 + 1 // 週平均に1足して対応
       }
-      console.log(sumPos, sumPosPrev, Rate.toFixed(2))
 
       untrackedRate.push(Number((sumPos / 7).toFixed(2)))
       untrackedIncreseRate.push(Number(Rate.toFixed(2)))
@@ -113,8 +112,6 @@ export default {
       untrackedRate,
       untrackedIncreseRate,
     ]
-
-    console.log(graphData)
 
     const dataLabels = [
       this.$t('濃厚接触者数'),

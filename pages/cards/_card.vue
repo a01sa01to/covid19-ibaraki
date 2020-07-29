@@ -1,5 +1,8 @@
 <template>
-  <component :is="cardComponent" />
+  <div>
+    <error-card v-if="err" :error="{ statusCode: 404 }" />
+    <component :is="cardComponent" v-else />
+  </div>
 </template>
 
 <script>
@@ -18,7 +21,7 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import error from '@/layouts/error.vue'
+import ErrorCard from '@/layouts/error.vue'
 
 export default {
   components: {
@@ -37,10 +40,11 @@ export default {
     ConfirmedCasesByAge,
     TestedNumberCard,
     UntrackedRateCard,
-    error,
+    ErrorCard,
   },
   data() {
     let title, updatedAt, cardComponent
+    let err = false
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
@@ -88,12 +92,13 @@ export default {
         cardComponent = 'untracked-rate-card'
         break
       default:
-        cardComponent = 'error'
+        err = true
         break
     }
 
     return {
       cardComponent,
+      err,
       title,
       updatedAt,
     }

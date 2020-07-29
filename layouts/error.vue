@@ -29,8 +29,8 @@ export default Vue.extend({
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     isNotFound(): boolean {
@@ -40,8 +40,8 @@ export default Vue.extend({
       return this.isNotFound
         ? (this.$t('このページはご利用いただけません') as string)
         : (this.$t('現在ご利用できません') as string)
-    }
-  }
+    },
+  },
 })
 </script>
 
@@ -50,9 +50,9 @@ export default Vue.extend({
   &-Heading {
     @include font-size(30);
 
-    color: $gray-2;
-    font-weight: normal;
     margin-top: 28px;
+    font-weight: normal;
+    color: $gray-2;
 
     @include lessThan($small) {
       margin-top: 12px;
@@ -60,11 +60,10 @@ export default Vue.extend({
   }
 
   &-BodyContainer {
-    margin-top: 12px;
-
     @include card-container();
 
     padding: 20px;
+    margin-top: 12px;
   }
 
   &-Body {
@@ -79,10 +78,10 @@ export default Vue.extend({
   &-Button {
     @include button-text('md');
 
-    text-decoration: none;
-    max-width: 300px;
     width: 100%;
+    max-width: 300px;
     font-weight: bold;
+    text-decoration: none;
   }
 }
 </style>
