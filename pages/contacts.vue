@@ -121,12 +121,12 @@
             </td>
           </tr>
           <tr>
-            <td class="content text-center">{{ $t('龍ヶ崎保健所') }}</td>
+            <td class="content text-center">{{ $t('龍ケ崎保健所') }}</td>
             <td class="tel text-center">
               <a href="tel:0297-62-2161">0297-62-2161</a>
             </td>
             <td class="municipality text-center">
-              {{ $t('龍ヶ崎市') }}, {{ $t('取手市') }}, {{ $t('牛久市') }},
+              {{ $t('龍ケ崎市') }}, {{ $t('取手市') }}, {{ $t('牛久市') }},
               {{ $t('守谷市') }}, {{ $t('稲敷市') }}, {{ $t('美浦村') }},
               {{ $t('阿見町') }}, {{ $t('河内町') }}, {{ $t('利根町') }}
             </td>
