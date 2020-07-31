@@ -194,22 +194,6 @@ export default Vue.extend({
           divider: true,
         },
         {
-          icon: 'ParentIcon',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent'),
-        },
-        {
-          icon: 'mdi-account-multiple',
-          title: this.$t('県民の皆様へ'),
-          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/yousei.html',
-        },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
-          divider: true,
-        },
-        {
           title:
             this.$tc('茨城県公式') + ' ' + this.$tc('新型コロナ情報まとめ'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',
