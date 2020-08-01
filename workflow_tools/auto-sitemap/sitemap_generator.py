@@ -68,7 +68,7 @@ for lang in ("ja", "en", "ja-basic"):
         result.write('<url><loc>{}{}</loc>'.format(HOST,path))
       else:
         result.write('<url><loc>{}/{}{}</loc>'.format(HOST, lang, path))
-      result.write('<lastmod>{}</lastmod>'.format(datetime.datetime.strptime(updatedAt, "%Y/%m/%d %H:%M").strftime("%Y-%m-%dT%H:%M")))
+      result.write('<lastmod>{}</lastmod>'.format(datetime.datetime.strptime(updatedAt, "%Y/%m/%d %H:%M").strftime("%Y-%m-%dT%H:%M+09:00")))
       result.write('<changefreq>daily</changefreq>')
       result.write('<mobile:mobile />')
       for lng in ("ja", "en"):
