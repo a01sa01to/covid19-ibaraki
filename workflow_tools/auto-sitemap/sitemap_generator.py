@@ -50,8 +50,6 @@ PATHS = {
   "/flow": "2020/07/24 18:10",
   "/helpus": "2020/07/24 18:10",
   "/otherpref": "2020/07/24 18:10",
-  "/parent": "2020/07/24 18:10",
-  "/worker": "2020/07/24 18:10"
 }
 
 # --- Sitemap.xmlの作成部分 --- #
@@ -70,9 +68,14 @@ for lang in ("ja", "en", "ja-basic"):
         result.write('<url><loc>{}{}</loc>'.format(HOST,path))
       else:
         result.write('<url><loc>{}/{}{}</loc>'.format(HOST, lang, path))
-      result.write('<lastmod>{}</lastmod>'.format(datetime.datetime.strptime(updatedAt, "%Y/%m/%d %H:%M").strftime("%Y-%m-%d")))
+      result.write('<lastmod>{}</lastmod>'.format(datetime.datetime.strptime(updatedAt, "%Y/%m/%d %H:%M").strftime("%Y-%m-%dT%H:%M+09:00")))
       result.write('<changefreq>daily</changefreq>')
       result.write('<mobile:mobile />')
+      for lng in ("ja", "en"):
+        if lng == "ja":
+          result.write('<xhtml:link rel="alternative" hreflang="{}" href="{}{}" />'.format(lng,HOST,path))
+        else:
+          result.write('<xhtml:link rel="alternative" hreflang="{}" href="{}/{}{}" />'.format(lng,HOST,lng,path))
       result.write('</url>')
       print("Path: {} (Updated at {}) ...done!".format(path, updatedAt))
     result.write('</urlset>')
