@@ -181,24 +181,24 @@
   },
 
   "// 8": "最終更新日時",
-  "lastUpdate": "2020\/08\/01 21:25",
+  "lastUpdate": "2020\/08\/01 23:55",
 
   "// 9": "検査陽性者の状況",
   "main_summary": {
     "children": [
       {
-        "date": "2020\/08\/01 19:55",
+        "date": "2020\/08\/01 23:55",
         "attr": "陽性者数", "value": 308,
         "children": [
           {
             "attr": "療養中", "value": 82,
             "children": [
-              {"attr": "重症", "value": 1},
-              {"attr": "中等症","value": 2},
-              {"attr": "軽症", "value": 40},
-              {"attr": "自宅療養", "value": 13},
+              {"attr": "重症", "value": 0},
+              {"attr": "中等症","value": 5},
+              {"attr": "軽症", "value": 42},
+              {"attr": "自宅療養", "value": 20},
               {"attr": "宿泊療養", "value": 5},
-              {"attr": "その他", "value": 21}
+              {"attr": "その他", "value": 10}
             ]
           },
           {"attr": "回復済",   "value": 216},
@@ -240,7 +240,7 @@
       {"date": "2020-07-29", "value": 4},
       {"date": "2020-07-30", "value": 5},
       {"date": "2020-07-31", "value": 3},
-      {"date": "2020-08-01", "value": 5}
+      {"date": "2020-08-01", "value": 4}
     ],
     "tokyo": [
       {"date": "2020-07-25", "value": 165},
