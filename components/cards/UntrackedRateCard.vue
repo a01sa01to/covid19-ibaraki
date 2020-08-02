@@ -84,8 +84,12 @@ export default {
       let sumPos = 0
       let sumPosPrev = 0
       for (let j = 0; j < 7; j++) {
-        sumPos += Data.patients_summary.data[i - j].close
-        sumPosPrev += Data.patients_summary.data[i - j - 7].close
+        sumPos +=
+          Data.patients_summary.data[i - j].total -
+          Data.patients_summary.data[i - j].close
+        sumPosPrev +=
+          Data.patients_summary.data[i - j - 7].total -
+          Data.patients_summary.data[i - j - 7].close
       }
 
       let Rate = sumPos / sumPosPrev
