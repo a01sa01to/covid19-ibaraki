@@ -80,14 +80,23 @@
             </tr>
             <tr>
               <td>
+                <span
+                  :class="['stageMark', 'MarkSmall', `stage${stage.pillar}`]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.pillar.toLocaleString() }}</strong>
               </td>
               <td>
+                <span
+                  :class="['stageMark', 'MarkSmall', `stage${stage.sickbed}`]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.sickbed.toLocaleString() }}</strong>
               </td>
               <td>
+                <span
+                  :class="['stageMark', 'MarkSmall', `stage${stage.tokyo}`]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.tokyo.toLocaleString() }}</strong>
               </td>
@@ -158,14 +167,31 @@
             </tr>
             <tr>
               <td>
+                <span
+                  :class="[
+                    'stageMark',
+                    'MarkSmall',
+                    `stage${stage.new_patients}`,
+                  ]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.new_patients.toLocaleString() }}</strong>
               </td>
               <td>
+                <span
+                  :class="[
+                    'stageMark',
+                    'MarkSmall',
+                    `stage${stage.non_closecontact}`,
+                  ]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
               </td>
               <td>
+                <span
+                  :class="['stageMark', 'MarkSmall', `stage${stage.rate}`]"
+                />
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ stage.rate.toLocaleString() }}</strong>
               </td>
@@ -213,22 +239,22 @@
         <table class="stageTable ibkCoronaNext">
           <tbody>
             <tr>
-              <td><span style="background-color: #cff;" /></td>
+              <td><span class="stageMark stage1" /></td>
               <td>Stage 1</td>
               <td>{{ $t('感染を抑制できている状態') }}</td>
             </tr>
             <tr>
-              <td><span style="background-color: #ff6;" /></td>
+              <td><span class="stageMark stage2" /></td>
               <td>Stage 2</td>
               <td>{{ $t('感染を概ね抑制できている状態') }}</td>
             </tr>
             <tr>
-              <td><span style="background-color: #f93;" /></td>
+              <td><span class="stageMark stage3" /></td>
               <td>Stage 3</td>
               <td>{{ $t('感染が拡大している状態') }}</td>
             </tr>
             <tr>
-              <td><span style="background-color: #f00;" /></td>
+              <td><span class="stageMark stage4" /></td>
               <td>Stage 4</td>
               <td>{{ $t('感染爆発・医療崩壊のリスクが高い状態') }}</td>
             </tr>
@@ -461,7 +487,7 @@ $default-boxdiff: 35px;
   }
 
   span.unit::after {
-    content: ')';
+    content: ' )';
   }
 }
 </style>
@@ -492,16 +518,6 @@ table.ibkCoronaNext {
         width: 50px;
         height: fit-content;
         text-align: right;
-
-        span {
-          display: inline-block;
-          width: 16px;
-          height: 16px;
-          margin: 0 0.5rem 0 0;
-          vertical-align: middle;
-          border: 0.5px solid #aaa;
-          border-radius: 8px;
-        }
       }
 
       &:nth-child(2) {
@@ -514,6 +530,37 @@ table.ibkCoronaNext {
         text-align: left;
       }
     }
+  }
+}
+
+span.stageMark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0.5rem 0 0;
+  vertical-align: middle;
+  border: 0.5px solid #aaa;
+  border-radius: 8px;
+
+  &.MarkSmall {
+    margin: 0;
+    transform: scale(0.75);
+  }
+
+  &.stage1 {
+    background-color: #cff;
+  }
+
+  &.stage2 {
+    background-color: #ff6;
+  }
+
+  &.stage3 {
+    background-color: #f93;
+  }
+
+  &.stage4 {
+    background-color: #f00;
   }
 }
 </style>
