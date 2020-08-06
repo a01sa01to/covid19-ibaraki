@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/mito-city-pcr-roller", {data:[{}],fetch:[],mutations:void 0});
