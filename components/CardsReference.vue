@@ -25,12 +25,14 @@
       <positive-rate-card />
       <!-- 茨城コロナNext -->
       <ibaraki-corona-next />
+      <!-- 新型コロナコールセンター相談件数 -->
+      <telephone-advisory-reports-number-card />
       <!-- 検査実施人数（県） -->
       <inspection-persons-number-card />
       <!-- 検査実施件数（全体） -->
       <tested-number-card />
-      <!-- 新型コロナコールセンター相談件数 -->
-      <telephone-advisory-reports-number-card />
+      <!-- 水戸市PCR検査ローラー作戦まとめ -->
+      <mito-city-roller-card />
     </card-row>
   </div>
 </template>
@@ -53,6 +55,7 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import MitoCityRollerCard from '@/components/cards/MitoCityRollerCard.vue'
 
 export default Vue.extend({
   components: {
@@ -72,6 +75,7 @@ export default Vue.extend({
     ConfirmedCasesByAge,
     TestedNumberCard,
     UntrackedRateCard,
+    MitoCityRollerCard,
   },
 })
 </script>

@@ -45,6 +45,7 @@ PATHS = {
   "/cards/number-of-confirmed-cases-by-age": data_json["patients_summary"]["date"],
   "/cards/number-of-tested": data_json["inspections_summary"]["date"],
   "/cards/untracked-rate": data_json["patients_summary"]["date"],
+  "/cards/mito-city-pcr-roller": data_json["mito_roller"]["date"],
   "/about": "2020/07/24 18:10",
   "/contacts": "2020/07/24 18:10",
   "/flow": "2020/07/24 18:10",

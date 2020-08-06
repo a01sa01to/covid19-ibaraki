@@ -282,5 +282,20 @@
       {"date": "2020-08-05", "positive": 10, "tested": 283},
       {"date": "2020-08-06", "positive": 14, "tested": 116}
     ]
+  },
+
+  "// 12": "水戸市「PCR検査ローラー作戦」",
+  "mito_roller": {
+    "date": "2020\/08\/06 20:10",
+    "nowTotal": {"ac": 768,"co": 355},
+    "data": [
+      {"date":"2020-07-31","accept":31,"collect":0},
+      {"date":"2020-08-01", "accept": 60, "collect": 31},
+      {"date":"2020-08-02", "accept": 164, "collect": 87},
+      {"date":"2020-08-03", "accept": 88, "collect": 60},
+      {"date":"2020-08-04", "accept": 156, "collect": 59},
+      {"date":"2020-08-05", "accept": 142, "collect": 60},
+      {"date":"2020-08-06", "accept": 127, "collect": 58}
+    ]
   }
 }

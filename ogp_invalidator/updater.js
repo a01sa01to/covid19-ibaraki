@@ -24,6 +24,7 @@ const PATHS = [
   'cards/number-of-confirmed-cases-by-age',
   'cards/number-of-tested',
   'cards/untracked-rate',
+  'cards/mito-city-pcr-roller',
 ]
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
