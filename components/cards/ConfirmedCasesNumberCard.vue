@@ -11,17 +11,15 @@
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html'"
     >
       <template v-slot:description>
-        <ul class="ListStyleNone">
+        <ul>
           <li>
-            {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
+            {{ $t('保健所から発生届が提出された日を基準とする') }}
           </li>
           <li>
-            {{ $t('（注）医療機関等が行った検査も含む') }}
+            {{ $t('医療機関等が行った検査も含む') }}
           </li>
           <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
+            {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
           </li>
         </ul>
       </template>

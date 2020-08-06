@@ -6,15 +6,17 @@
       :date="Data.ibk_corona_next.date"
     >
       <template v-slot:button>
-        <p :class="$style.note">
-          {{ $t('（注）各値は直近1週間の平均値') }}<br />
-          {{ $t('（注）病床稼働率は最新のデータでない可能性あり') }}<br />
-          {{
-            $t(
-              '（注）NaNと表示されている場合には、お手数ですが当サイトの管理者にお知らせください。早急に修正いたします。'
-            )
-          }}
-        </p>
+        <ul :class="$style.note">
+          <li>{{ $t('各値は直近1週間の平均値') }}</li>
+          <li>{{ $t('病床稼働率は最新のデータでない可能性あり') }}</li>
+          <li>
+            {{
+              $t(
+                'NaNと表示されている場合には、お手数ですが当サイトの管理者にお知らせください。早急に修正いたします。'
+              )
+            }}
+          </li>
+        </ul>
         <ul :class="$style.container">
           <li style="width: 100%; list-style: none;">
             <div

@@ -7,7 +7,7 @@
     >
       <template v-slot:button>
         <p :class="$style.note">
-          {{ $t('（注）回復している人数を含む') }}
+          {{ $t('・回復している人数を含む') }}
         </p>
         <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
         <table :class="$style.note2">
@@ -102,41 +102,47 @@ $infected-level5: #004da5;
 $infected-level6: #000072;
 
 .color-test {
-  vertical-align: middle;
+  display: inline-block;
   width: 2.5rem;
   height: 1rem;
-  display: inline-block;
   margin: 0 0.5rem 0 0;
+  vertical-align: middle;
 }
 // 1-5
+
 .infected-level1 {
-  fill: $infected-level1 !important;
   background-color: $infected-level1;
+  fill: $infected-level1 !important;
 }
 // 6-10
+
 .infected-level2 {
-  fill: $infected-level2 !important;
   background-color: $infected-level2;
+  fill: $infected-level2 !important;
 }
 // 10-15
+
 .infected-level3 {
-  fill: $infected-level3 !important;
   background-color: $infected-level3;
+  fill: $infected-level3 !important;
 }
 // 15-20
+
 .infected-level4 {
-  fill: $infected-level4 !important;
   background-color: $infected-level4;
+  fill: $infected-level4 !important;
 }
 // 21-30
+
 .infected-level5 {
-  fill: $infected-level5 !important;
   background-color: $infected-level5;
+  fill: $infected-level5 !important;
 }
 // 31-
+
 .infected-level6 {
-  fill: $infected-level6 !important;
   background-color: $infected-level6;
+  fill: $infected-level6 !important;
 }
 
 svg {

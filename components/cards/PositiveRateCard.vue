@@ -12,11 +12,11 @@
       :table-labels="positiveRateTableLabels"
     >
       <template v-slot:description>
-        <ul class="ListStyleNone">
+        <ul>
           <li>
             {{
               $t(
-                '（注）陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
+                '陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
               )
             }}
           </li>
