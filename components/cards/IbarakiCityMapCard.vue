@@ -123,15 +123,19 @@ export default {
           地域: area,
           市町村: row.居住地,
           ふりがな: Hira ? Hira.Hiragana : '',
-          発生数: 1,
+          新規: Number(row.濃厚接触者 === ''),
+          濃厚接触者: Number(row.濃厚接触者 !== ''),
+          発生数計: 1,
         })
       } else {
         const idx = patientsTable.cityDataset.indexOf(flt[0])
-        patientsTable.cityDataset[idx].発生数++
+        const citydata = patientsTable.cityDataset[idx]
+        citydata.発生数計++
+        row.濃厚接触者 === '' ? citydata.新規++ : citydata.濃厚接触者++
       }
     }
 
-    patientsTable.cityDataset.sort((a, b) => (a.発生数 < b.発生数 ? 1 : -1))
+    patientsTable.cityDataset.sort((a, b) => (a.発生数計 < b.発生数計 ? 1 : -1))
 
     return {
       Data,

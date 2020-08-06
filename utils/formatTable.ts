@@ -47,7 +47,9 @@ export const headers2 = [
   { text: '地域', value: '地域' },
   { text: '市町村', value: '市町村' },
   { text: 'ふりがな', value: 'ふりがな' },
-  { text: '発生数', value: '発生数' },
+  { text: '新規', value: '新規' },
+  { text: '濃厚接触者', value: '濃厚接触者' },
+  { text: '発生数計', value: '発生数計' },
 ]
 
 export const headers3 = [

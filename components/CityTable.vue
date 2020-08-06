@@ -10,6 +10,20 @@
               )
             }}
           </li>
+          <li>
+            {{
+              $t(
+                '「濃厚接触者」は、家族や知人などからの感染の可能性が高い方、クラスターに関係する方を指す'
+              )
+            }}
+          </li>
+          <li>
+            {{
+              $t(
+                '「新規」は、「濃厚接触者」ではない方を指す。渡航歴がある方、県外感染の可能性が高い方（帰省等）、感染経路が不明である方のこと'
+              )
+            }}
+          </li>
         </ul>
       </div>
       <span />
@@ -32,7 +46,9 @@
             <td class="text-start">{{ item['地域'] }}</td>
             <td class="text-start">{{ item['市町村'] }}</td>
             <td class="text-start">{{ item['ふりがな'] }}</td>
-            <td class="text-start">{{ item['発生数'] }}</td>
+            <td class="text-start">{{ item['新規'] }}</td>
+            <td class="text-start">{{ item['濃厚接触者'] }}</td>
+            <td class="text-start">{{ item['発生数計'] }}</td>
           </tr>
         </tbody>
       </template>
