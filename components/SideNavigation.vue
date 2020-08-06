@@ -217,10 +217,6 @@ export default Vue.extend({
           link: this.localePath('/contacts'),
         },
         {
-          title: this.$t('当プロジェクトをお手伝いいただける方へ'),
-          link: this.localePath('/helpus'),
-        },
-        {
           title: this.$t('茨城県公式サイト'),
           link: 'https://www.pref.ibaraki.jp/',
         },
