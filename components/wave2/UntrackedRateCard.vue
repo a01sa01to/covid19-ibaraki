@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
       :title="$t('感染経路不明者数推移')"
-      :title-id="'untracked-rate'"
+      :title-id="'wave2/untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"
@@ -24,14 +24,14 @@
           <li>
             {{
               $t(
-                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、7月7日の移動平均値は、7月1日から7月7日までの実績値を平均したもの）'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '1週間前の新規陽性者の報告数と比較した際の増加比について、有意な数値がとれる3月29日から作成'
+                '1週間前の新規陽性者の報告数と比較した際の増加比について、有意な数値がとれる7月3日から作成'
               )
             }}
           </li>
@@ -70,6 +70,10 @@ export default {
     UntrackedRateMixedChart,
   },
   data() {
+    Data.patients_summary.data = Data.patients_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-06-19')
+    )
+
     const data = Data.patients_summary
 
     const reportedCount = []

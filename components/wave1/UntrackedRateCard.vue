@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
       :title="$t('感染経路不明者数推移')"
-      :title-id="'untracked-rate'"
+      :title-id="'wave1/untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"
@@ -24,7 +24,7 @@
           <li>
             {{
               $t(
-                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、4月7日の移動平均値は、4月1日から4月7日までの実績値を平均したもの）'
               )
             }}
           </li>
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import Data from '@/data/data_wave1.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 import {
   getNumberToFixedFunction,

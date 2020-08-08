@@ -163,7 +163,6 @@ const config: NuxtConfig = {
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
-        '/cards/number-of-confirmed-cases-by-municipalities',
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
@@ -179,6 +178,26 @@ const config: NuxtConfig = {
         '/cards/untracked-rate',
         '/cards/mito-city-pcr-roller',
       ]
+
+      const waveCards = [
+        'number-of-confirmed-cases',
+        'attributes-of-confirmed-cases',
+        'number-of-inspection-persons',
+        'number-of-reports-to-covid19-telephone-advisory-center',
+        'ibaraki-city-table',
+        'number-of-recovered',
+        'number-of-deaths',
+        'positive-rate',
+        'increase-ratio-of-confirmed-cases-by-daily',
+        'number-of-confirmed-cases-by-age',
+        'untracked-rate',
+      ]
+
+      for (const c of waveCards) {
+        for (let i = 1; i <= 2; i++) {
+          pages.push(`/cards/wave${i}/${c}`)
+        }
+      }
 
       const routes: string[] = []
       locales.forEach((locale) => {

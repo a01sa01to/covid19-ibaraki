@@ -81,7 +81,9 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
     <template v-slot:dataSetPanel>
       <data-view-basic-info-panel
@@ -113,23 +115,17 @@ import {
 } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/valueFormatter'
-
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
-
 type Computed = {
-  displayTransitionRatio: string
-  displayUntrackedIncreseRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -144,7 +140,6 @@ type Computed = {
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
-
 type Props = {
   title: string
   titleId: string
@@ -160,7 +155,6 @@ type Props = {
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
-
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
   Data,
@@ -247,26 +241,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true,
   }),
   computed: {
-    displayUntrackedIncreseRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[3]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[3]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
-    displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[2]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 2,
+        digit: 1,
+      })
+
       return {
-        lText: this.getFormatter(2)(
-          parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
-        ),
-        sText: `${this.$t('{date}の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D'),
-        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
+        lText: lastDayData,
+        sText: `${this.$t('{date} の数値', {
+          date: lastDay,
+        })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
         unit: this.unit,
       }
     },
@@ -302,7 +288,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             type: 'line',
-            yAxisID: 'y-axis-2',
+            yAxisID: 'y-axis-1',
             label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -342,7 +328,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...this.chartData.map((_, j) => {
               const data = this.chartData[j]
               if (data[i] === null) {
@@ -360,7 +346,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit[1]
+      const unit = '%'
       const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -441,7 +427,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           yAxes: [
             {
               id: 'y-axis-1',
-              position: 'right',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -457,7 +443,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'y-axis-2',
-              position: 'left',
+              position: 'right',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -494,7 +480,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
@@ -574,7 +560,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-1',
               type: 'linear',
-              position: 'right',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -591,7 +577,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-2',
               type: 'linear',
-              position: 'left',
+              position: 'right',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -618,13 +604,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       for (const i in this.chartData[0]) {
         max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
       }
+      for (const i in this.chartData[2]) {
+        max = Math.max(max, this.chartData[2][i])
+      }
       return max
     },
     scaledTicksYAxisMaxRight() {
       let max = 0
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
-      }
       for (const i in this.chartData[3]) {
         max = Math.max(max, this.chartData[3][i])
       }
@@ -639,41 +625,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     makeLineData(value: number): number[] {
       return this.chartData[0].map((_) => value)
     },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array) => {
-        return array[array.length - 1]
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array) => {
-        return array[array.length - 2]
-      })
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
-    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
-
     if (canvas) {
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   },
 }
-
 export default Vue.extend(options)
 </script>
 

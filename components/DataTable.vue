@@ -12,8 +12,7 @@
       :mobile-breakpoint="0"
       :custom-sort="customSort"
       :footer-props="{
-        // 'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
-        'items-per-page-options': [15, 30, 50, 70, 100, 150, -1],
+        'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
         'items-per-page-text': $t('1ページ当たり'),
       }"
       class="cardTable"

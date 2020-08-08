@@ -1,8 +1,7 @@
 <template>
   <div>
     <site-top-upper />
-    <cards-reference />
-    <!-- <v-tabs v-model="tab" hide-slider>
+    <v-tabs v-model="tab" hide-slider>
       <v-tab
         v-for="(item, i) in items"
         :key="i"
@@ -20,29 +19,34 @@
           <component :is="item.component" />
         </v-tab-item>
       </v-tabs-items>
-    </v-tabs> -->
+    </v-tabs>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import SiteTopUpper from '@/components/SiteTopUpper.vue'
-// import CardsMonitoring from '@/components/CardsMonitoring.vue'
+import StaticInfo from '@/components/StaticInfo.vue'
 import CardsReference from '@/components/CardsReference.vue'
+import CardsReferenceWave1 from '@/components/CardsReferenceWave1.vue'
+import CardsReferenceWave2 from '@/components/CardsReferenceWave2.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 export default Vue.extend({
   components: {
     SiteTopUpper,
-    // CardsMonitoring,
+    StaticInfo,
     CardsReference,
+    CardsReferenceWave1,
+    CardsReferenceWave2,
   },
   data() {
     return {
       tab: null,
       items: [
-        // { label: this.$t('モニタリング項目'), component: CardsMonitoring },
-        // { label: this.$t('その他 参考指標'), component: CardsReference }
+        { label: this.$t('これまでの累計'), component: CardsReference },
+        { label: this.$t('第1波'), component: CardsReferenceWave1 },
+        { label: this.$t('第2波'), component: CardsReferenceWave2 },
       ],
     }
   },
