@@ -148,7 +148,7 @@ const config: NuxtConfig = {
     hardSource: process.env.NODE_ENV === 'development',
   },
   manifest: {
-    name: '茨城県(非公式) 新型コロナウイルス感染症対策サイト',
+    name: '茨城県新型コロナウイルス感染症対策サイト',
     theme_color: '#003FAB',
     background_color: '#ffffff',
     display: 'standalone',

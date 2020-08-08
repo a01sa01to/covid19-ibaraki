@@ -4,7 +4,7 @@
       <img
         src="/logo.svg"
         :alt="$t('茨城県')"
-        style="max-height: 100%; width: 100px;"
+        style="width: 100px; max-height: 100%;"
       />
       <scale-loader color="#003FAB" />
     </div>
@@ -15,13 +15,11 @@
             <img
               src="/logo.svg"
               :alt="$t('茨城県')"
-              style="max-height: 100%; width: 100px;"
+              style="width: 100px; max-height: 100%;"
             />
           </div>
           <h1 class="PrintMeta-Heading">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}({{
-              $t('非公式')
-            }})
+            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
           </h1>
         </div>
         <div class="PrintMeta-QRWrapper">
@@ -90,13 +88,15 @@ export default Vue.extend({
   margin: 0 auto;
   background-color: inherit !important;
 }
+
 .loader {
-  height: 200px;
-  width: 150px;
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 150px;
+  height: 200px;
   transform: translateY(-50%) translateX(-50%);
+
   img {
     display: block;
     margin: 0 auto 20px;
@@ -130,25 +130,27 @@ export default Vue.extend({
 }
 
 .PrintMeta {
-  margin-bottom: 0.5em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
 
   &-HeadingWrapper {
     display: flex;
     align-items: center;
-    text-decoration: none;
     margin: 0 20px 0 0;
+    text-decoration: none;
   }
+
   &-Logo {
-    margin: 0 16px 0 0;
     width: 110px;
+    margin: 0 16px 0 0;
   }
+
   &-Heading {
-    color: #898989;
     padding: 0.5em 0;
+    color: #898989;
     text-decoration: none;
     @include font-size(13);
   }
@@ -160,25 +162,27 @@ export default Vue.extend({
   }
 
   &-QR {
-    height: 60px;
     width: 60px;
+    height: 60px;
     margin-right: 1em;
 
     img {
       max-width: 100%;
     }
   }
+
   &-Text {
-    color: gray;
-    margin-bottom: 0;
-    padding-top: 1em;
     width: max-content;
+    padding-top: 1em;
+    margin-bottom: 0;
+    color: gray;
     @include font-size(13);
   }
+
   &-Link {
-    color: gray;
-    margin-bottom: 0;
     width: max-content;
+    margin-bottom: 0;
+    color: gray;
     @include font-size(13);
   }
 }
