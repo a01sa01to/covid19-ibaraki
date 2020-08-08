@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
-      :title="$t('感染経路不明者数推移')"
+      :title="$t('感染経路不明者数推移（第2波）')"
       :title-id="'wave2/untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"

@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('死亡者数')"
+      :title="$t('死亡者数（第2波）')"
       :title-id="'wave2/number-of-deaths'"
       :chart-id="'time-bar-chart-deaths'"
       :chart-data="deathsGraph"

@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('検査実施人数（県衛生研究所・水戸市保健所）')"
+      :title="$t('検査実施人数（県衛生研究所・水戸市保健所）（第1波）')"
       :title-id="'wave1/number-of-inspection-persons'"
       :chart-id="'number-of-inspection-persons'"
       :chart-data="graphData"

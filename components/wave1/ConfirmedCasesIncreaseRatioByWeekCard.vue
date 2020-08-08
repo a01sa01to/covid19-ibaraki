@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-increase-ratio-by-week-chart
-      :title="$t('週単位の陽性者増加比')"
+      :title="$t('週単位の陽性者増加比（第1波）')"
       :title-id="'wave1/increase-ratio-of-confirmed-cases-by-daily'"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"

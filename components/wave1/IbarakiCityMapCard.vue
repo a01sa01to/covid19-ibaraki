@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
-      :title="$t('市町村毎の感染状況')"
+      :title="$t('市町村毎の感染状況（第1波）')"
       :title-id="'wave1/ibaraki-city-table'"
       :chart-data="patientsTable"
       :chart-option="{}"

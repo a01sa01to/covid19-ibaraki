@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('回復者数')"
+      :title="$t('回復者数（第1波）')"
       :title-id="'wave1/number-of-recovered'"
       :chart-id="'time-bar-chart-recovered'"
       :chart-data="recoveredGraph"

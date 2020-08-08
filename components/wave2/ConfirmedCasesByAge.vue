@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
-      :title="$t('年代別の感染状況')"
+      :title="$t('年代別の感染状況（第2波）')"
       :title-id="'wave2/number-of-confirmed-cases-by-age'"
       :chart-data="patientsTable"
       :chart-option="{}"

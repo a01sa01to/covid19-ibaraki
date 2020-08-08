@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('新規患者に関する報告件数の推移')"
+      :title="$t('新規患者に関する報告件数の推移（第2波）')"
       :title-id="'wave2/number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
