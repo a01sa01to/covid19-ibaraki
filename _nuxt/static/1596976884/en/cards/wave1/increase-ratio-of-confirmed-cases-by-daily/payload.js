@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/wave1/increase-ratio-of-confirmed-cases-by-daily", {data:[{}],fetch:[],mutations:void 0});

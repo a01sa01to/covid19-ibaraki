@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/cards/wave1/positive-rate", {data:[{}],fetch:[],mutations:void 0});

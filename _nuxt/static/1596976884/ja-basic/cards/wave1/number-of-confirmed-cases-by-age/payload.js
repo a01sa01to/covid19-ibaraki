@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/wave1/number-of-confirmed-cases-by-age", {data:[{}],fetch:[],mutations:void 0});
