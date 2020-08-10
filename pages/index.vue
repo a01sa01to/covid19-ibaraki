@@ -44,7 +44,7 @@ export default Vue.extend({
     return {
       tab: null,
       items: [
-        { label: this.$t('これまでの累計'), component: CardsReference },
+        { label: this.$t('全期間'), component: CardsReference },
         { label: this.$t('第1波'), component: CardsReferenceWave1 },
         { label: this.$t('第2波'), component: CardsReferenceWave2 },
       ],
