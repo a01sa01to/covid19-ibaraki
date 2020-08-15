@@ -27,21 +27,48 @@ const PATHS = [
   'cards/mito-city-pcr-roller',
 ]
 
+const WAVEPATHS = [
+  'number-of-confirmed-cases',
+  'attributes-of-confirmed-cases',
+  'number-of-reports-to-covid19-telephone-advisory-center',
+  'number-of-inspection-persons',
+  'ibaraki-city-table',
+  'number-of-recovered',
+  'number-of-deaths',
+  'positive-rate',
+  'increase-ratio-of-confirmed-cases-by-daily',
+  'number-of-confirmed-cases-by-age',
+  'untracked-rate',
+]
+
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
+const input = async (host, lang, path) => {
+  const url = host + (lang === 'ja' ? '' : lang + '/') + path
+  document.querySelector('input.FormControl').value = url
+  document.querySelector('input.Button').click()
+  console.groupCollapsed(url)
+  console.log(`Now updating: ${url}`)
+  await sleep(10000) // 10s待つ
+  console.groupEnd()
+}
+
 ;(async () => {
+  console.groupCollapsed('LOG')
   for (const host of HOST) {
     for (const lang of LANGS) {
       for (const path of PATHS) {
-        document.querySelector('input.FormControl').value =
-          host + (lang === 'ja' ? '' : lang + '/') + path
-        document.querySelector('input.Button').click()
-        await sleep(10000) // 10s待つ
+        await input(host, lang, path)
+      }
+      for (const wave of [1, 2]) {
+        for (const path of WAVEPATHS) {
+          await input(host, lang, `cards/wave${wave}/${path}`)
+        }
       }
     }
   }
+  console.log('All Done!')
   document.querySelector('input.FormControl').value = ''
+  console.groupEnd()
   alert('処理が終了しました')
 })()
-
-// 処理が完了するまでに HOST(2) x LANG(3) x PATHS(10) x TIME(10s) = 600s かかります
