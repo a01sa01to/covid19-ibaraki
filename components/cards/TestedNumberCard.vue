@@ -117,7 +117,7 @@ export default {
 
     const total = { number: 0, positive: 0 }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       total.number += datasets[i].data
       total.positive += datasets[i].positive
       graphData.push({
@@ -126,7 +126,7 @@ export default {
           .replace(/<br \/>/, ''),
         transition: datasets[i].data,
         positive: datasets[i].positive,
-        bgColor: ['#6e86d3', '#99a8e0', '#c2caec', '#b2eaf5', '#80dcef'][i],
+        bgColor: ['#6e86d3', '#99a8e0', '#c2caec'][i],
       })
     }
 
@@ -165,6 +165,7 @@ $default-boxdiff: 35px;
       flex-shrink: 2;
       margin-top: 1px;
       text-align: left;
+      white-space: pre-wrap;
     }
 
     &:last-child {
