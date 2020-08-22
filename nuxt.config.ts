@@ -176,7 +176,8 @@ const config: NuxtConfig = {
         '/cards/number-of-confirmed-cases-by-age',
         '/cards/number-of-tested',
         '/cards/untracked-rate',
-        '/cards/mito-city-pcr-roller',
+        '/cards/roller/mito',
+        '/cards/roller/tsukuba-amakubo',
       ]
 
       const waveCards = [
