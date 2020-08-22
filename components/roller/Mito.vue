@@ -1,31 +1,13 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :title="$t('水戸市「PCR検査ローラー作戦」の状況')"
-      :title-id="'mito-city-pcr-roller'"
+      :title="$t('水戸市')"
+      :title-id="'roller/mito'"
       :date="updatedAt"
     >
       <template v-slot:description>
         <ul>
-          <li>
-            {{
-              $t(
-                '「PCR検査ローラー作戦」は、水戸市の特定繁華街の店舗従事者及び検査希望者を対象とした無料のPCR検査である'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t('事前予約制であり、希望者はコールセンターに電話する必要がある')
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '民間検査機関が「別枠で」行う検査であり、県衛生研究所等の検査数には含まれない'
-              )
-            }}
-          </li>
+          <li>{{ $t('8月21日まで実施') }}</li>
         </ul>
       </template>
       <p :class="$style.border" />

@@ -393,5 +393,14 @@
       {"date":"2020-08-20", "accept": 0, "collect": 28},
       {"date":"2020-08-21", "accept": 15, "collect": 11}
     ]
+  },
+
+  "// 13": "つくば市天久保「PCR検査ローラー作戦」",
+  "tsukuba_amakubo_roller": {
+    "date": "2020\/08\/21 19:05",
+    "nowTotal": {"ac": 82,"co": 0},
+    "data": [
+      {"date":"2020-08-21", "accept": 82, "collect": 0}
+    ]
   }
 }

@@ -21,7 +21,6 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import MitoCityRollerCard from '@/components/cards/MitoCityRollerCard.vue'
 import ErrorCard from '@/layouts/error.vue'
 
 export default {
@@ -41,7 +40,6 @@ export default {
     ConfirmedCasesByAge,
     TestedNumberCard,
     UntrackedRateCard,
-    MitoCityRollerCard,
     ErrorCard,
   },
   data() {
@@ -92,9 +90,6 @@ export default {
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
-        break
-      case 'mito-city-pcr-roller':
-        cardComponent = 'mito-city-roller-card'
         break
       default:
         err = true

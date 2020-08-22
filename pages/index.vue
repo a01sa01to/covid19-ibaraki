@@ -1,7 +1,7 @@
 <template>
   <div>
     <site-top-upper />
-    <v-tabs v-model="tab" hide-slider>
+    <v-tabs v-model="tab">
       <v-tab
         v-for="(item, i) in items"
         :key="i"
@@ -30,6 +30,7 @@ import StaticInfo from '@/components/StaticInfo.vue'
 import CardsReference from '@/components/CardsReference.vue'
 import CardsReferenceWave1 from '@/components/CardsReferenceWave1.vue'
 import CardsReferenceWave2 from '@/components/CardsReferenceWave2.vue'
+import CardsReferenceRoller from '@/components/CardsReferenceRoller.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 export default Vue.extend({
@@ -45,6 +46,7 @@ export default Vue.extend({
       tab: null,
       items: [
         { label: this.$t('全期間'), component: CardsReference },
+        { label: this.$t('ローラー作戦'), component: CardsReferenceRoller },
         { label: this.$t('第1波'), component: CardsReferenceWave1 },
         { label: this.$t('第2波'), component: CardsReferenceWave2 },
       ],
@@ -60,6 +62,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .v-slide-group__content {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
   background: $gray-5;
   border-bottom: 1px solid $gray-2;
 }
