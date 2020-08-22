@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/roller/mito", {data:[{}],fetch:[],mutations:void 0});
