@@ -19,15 +19,15 @@ jobs:
         with:
           python-version: 3.8
       - name: Change Dir
-        run: 'cd dist/data'
+        run: 'cd opendata'
       - name: Download File
         run: 'curl https://script.google.com/macros/s/AKfycbycLV1ZGYMD6v9uEE3GhOyOJ94GUkVcI-OuCfLl1HN7WDfwXHX0/exec -L -o otherpref.csv'
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
+        run: 'python ../workflow_tools/csv2json/main.py'
         env:
           FILE: otherpref
       - name: Move JSON to ./data
-        run: 'mv otherpref.json ../../data/otherpref.json -u && cd ../../'
+        run: 'mv otherpref.json ../data/otherpref.json -u && cd ../'
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
