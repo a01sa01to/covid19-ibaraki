@@ -7,7 +7,7 @@
     >
       <template v-slot:description>
         <ul>
-          <li>{{ $t('8月30日まで実施予定') }}</li>
+          <li>{{ $t('9月6日まで実施予定') }}</li>
         </ul>
       </template>
       <p :class="$style.border" />
