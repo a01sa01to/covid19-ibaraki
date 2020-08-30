@@ -23,11 +23,11 @@ jobs:
       - name: Download File
         run: 'curl https://script.google.com/macros/s/AKfycbycLV1ZGYMD6v9uEE3GhOyOJ94GUkVcI-OuCfLl1HN7WDfwXHX0/exec -L -o otherpref.csv'
       - name: (Debug)
-        run: 'ls ../'
+        run: 'ls ./'
       - name: (Debug)
-        run: 'ls ../workflow_tools/'
+        run: 'ls ./workflow_tools/'
       - name: (Debug)
-        run: 'ls ../workflow_tools/csv2json/'
+        run: 'ls ./workflow_tools/csv2json/'
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         env:
