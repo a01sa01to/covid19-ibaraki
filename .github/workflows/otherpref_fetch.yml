@@ -10,30 +10,31 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - uses: actions/checkout@v2
         with:
           ref: development
+
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-      - name: Change Dir
-        run: 'cd opendata'
+
       - name: Download File
         run: 'curl https://script.google.com/macros/s/AKfycbycLV1ZGYMD6v9uEE3GhOyOJ94GUkVcI-OuCfLl1HN7WDfwXHX0/exec -L -o otherpref.csv'
-      - name: (Debug)
-        run: 'ls ./'
-      - name: (Debug)
-        run: 'ls ./workflow_tools/'
-      - name: (Debug)
-        run: 'ls ./workflow_tools/csv2json/'
+        working-directory: ./opendata
+
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
         env:
           FILE: otherpref
+
       - name: Move JSON to ./data
         run: 'mv otherpref.json ../data/otherpref.json -u && cd ../'
+        working-directory: ./opendata
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
