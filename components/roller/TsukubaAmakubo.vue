@@ -38,7 +38,7 @@
 
 <script>
 import dayjs from 'dayjs'
-import Data from '@/data/data/roller/tsukubaAmakubo.json'
+import Data from '@/data/roller/tsukubaAmakubo.json'
 import DataView from '@/components/DataView.vue'
 import RollerChart from '@/components/RollerChart.vue'
 
