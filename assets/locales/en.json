@@ -520,7 +520,7 @@
   "NaNと表示されている場合には、お手数ですが当サイトの管理者にお知らせください。早急に修正いたします。": "If you see \"NaN\", please inform the administrator of this site. We will fix it as soon as possible.",
   "陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均": "Positive rate: Moving average of the number of positive results / (number of positive results + number of negative results)",
   "直近1週間の新規陽性者の報告数とその前の1週間の報告数が共に0の場合、増減がないため1となる": "(Note) If the number of new positive cases reported in the most recent week and the number of cases reported in the week before are both 0, the number is 1 because there is no change.",
-  "水戸市「PCR検査ローラー作戦」の状況": "Status of the \"PCR test roller operation\"",
+  "水戸市「PCR検査ローラー作戦」の状況": "Status of the \"PCR test roller operation\" in Mito City",
   "事前予約制であり、希望者はコールセンターに電話する必要がある": "Advance reservations are required and those who wish to do so must call the call center.",
   "民間検査機関が「別枠で」行う検査であり、県衛生研究所等の検査数には含まれない": "Inspections are carried out by private laboratories \"on a separate basis\" and are not included in the number of inspections by prefectural health laboratories, etc.",
   "「PCR検査ローラー作戦」は、水戸市の特定繁華街の店舗従事者及び検査希望者を対象とした無料のPCR検査である": "The \"PCR test roller operation\" is a free PCR test for store workers in the downtown area of Mito City and for those who wish to be tested.",
@@ -560,5 +560,15 @@
   "新型コロナ電話相談件数（第2波）": "Number of COVID-19 telephone consultations (2nd wave)",
   "回復者数（第2波）": "Number of people who recovered (2nd wave)",
   "年代別の感染状況（第1波）": "Infection status by age (1st wave)",
-  "全期間": "Whole period"
+  "全期間": "Whole period",
+  "【公式】": "(official)",
+  "【公認】": "(certified by the local government)",
+  "8月30日まで実施予定": "Scheduled to run until August 30.",
+  "「PCR検査ローラー作戦」は、特定地域の店舗従事者及び検査希望者を対象とした無料のPCR検査である": "The \"PCR test roller operation\" is a free PCR test for store workers in a particular area and for those who wish to be tested.",
+  "ローラー作戦": "PCR test roller operation",
+  "つくば市天久保「PCR検査ローラー作戦」の状況": "Status of the \"PCR test roller operation\" in Amakubo, Tsukuba City",
+  "つくば市天久保": "Amakubo, Tsukuba",
+  "8月21日まで実施": "Ran through August 21.",
+  "9月6日まで実施予定": "Scheduled to run until September 6.",
+  "9月6日まで実施": "Ran through September 6."
 }
