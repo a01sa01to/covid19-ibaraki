@@ -38,7 +38,7 @@
 
 <script>
 import dayjs from 'dayjs'
-import Data from '@/data/data.json'
+import Data from '@/data/roller/mito.json'
 import DataView from '@/components/DataView.vue'
 import RollerChart from '@/components/RollerChart.vue'
 
@@ -49,9 +49,9 @@ export default {
   },
   data() {
     // 検査陽性者の状況
-    const updatedAt = dayjs(Data.mito_roller.date).format('YYYY/MM/DD HH:mm')
+    const updatedAt = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
 
-    const data = Data.mito_roller.data
+    const data = Data.data
     const today = new Date()
     const chartDataAccept = []
     const chartDataCollect = []

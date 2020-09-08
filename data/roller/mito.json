@@ -1,0 +1,7 @@
+{
+  "date":"2020/08/21 23:59",
+  "nowTotal":{"ac":1115,"co":1082},
+  "data":[
+    {"date":"2020-07-31","accept":31,"collect":0},{"date":"2020-08-01","accept":60,"collect":31},{"date":"2020-08-02","accept":164,"collect":87},{"date":"2020-08-03","accept":88,"collect":60},{"date":"2020-08-04","accept":156,"collect":59},{"date":"2020-08-05","accept":142,"collect":60},{"date":"2020-08-06","accept":127,"collect":58},{"date":"2020-08-07","accept":40,"collect":60},{"date":"2020-08-08","accept":62,"collect":56},{"date":"2020-08-09","accept":24,"collect":80},{"date":"2020-08-10","accept":22,"collect":82},{"date":"2020-08-11","accept":22,"collect":82},{"date":"2020-08-12","accept":23,"collect":82},{"date":"2020-08-13","accept":24,"collect":83},{"date":"2020-08-14","accept":16,"collect":38},{"date":"2020-08-15","accept":30,"collect":29},{"date":"2020-08-16","accept":17,"collect":14},{"date":"2020-08-17","accept":8,"collect":24},{"date":"2020-08-18","accept":31,"collect":38},{"date":"2020-08-19","accept":13,"collect":20},{"date":"2020-08-20","accept":0,"collect":28},{"date":"2020-08-21","accept":15,"collect":11}
+  ]
+}

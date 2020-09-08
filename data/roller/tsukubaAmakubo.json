@@ -1,0 +1,23 @@
+{
+  "date": "2020\/09\/07 23:59",
+  "nowTotal": {"ac": 476,"co": 422},
+  "data": [
+    {"date":"2020-08-21", "accept": 82, "collect": 0},
+    {"date":"2020-08-22", "accept": 124, "collect": 38},
+    {"date":"2020-08-23", "accept": 55, "collect": 48},
+    {"date":"2020-08-24", "accept": 83, "collect": 49},
+    {"date":"2020-08-25", "accept": 46, "collect": 51},
+    {"date":"2020-08-26", "accept": 19, "collect": 50},
+    {"date":"2020-08-27", "accept": 28, "collect": 49},
+    {"date":"2020-08-28", "accept": 13, "collect": 44},
+    {"date":"2020-08-29", "accept": 5, "collect": 44},
+    {"date":"2020-08-30", "accept": 0, "collect": 27},
+    {"date":"2020-08-31", "accept": 6, "collect": 0},
+    {"date":"2020-09-01", "accept": 3, "collect": 6},
+    {"date":"2020-09-02", "accept": 6, "collect": 0},
+    {"date":"2020-09-03", "accept": 1, "collect": 0},
+    {"date":"2020-09-04", "accept": 3, "collect": 9},
+    {"date":"2020-09-05", "accept": 2, "collect": 0},
+    {"date":"2020-09-06", "accept": 0, "collect": 7}
+  ]
+}
