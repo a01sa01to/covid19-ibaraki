@@ -188,6 +188,7 @@
   "ibk_corona_next": {
     "date": "2020\/09\/12 19:00",
     "stage": 2,
+    "strengthen": false,
     "moveDate": "2020\/09\/08",
 
     "pillar": 9.1,

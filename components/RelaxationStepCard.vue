@@ -32,9 +32,20 @@
             </span>
           </li>
         </ul>
-        <p class="RelaxationStep-changed-text">
+        <p
+          v-if="Data.ibk_corona_next.strengthen"
+          class="RelaxationStep-changed-text"
+        >
           {{
             $t('{date} に Stage{num} へ強化されました', {
+              date: formattedDayForDisplay,
+              num: stage,
+            })
+          }}
+        </p>
+        <p v-else class="RelaxationStep-changed-text">
+          {{
+            $t('{date} に Stage{num} へ緩和されました', {
               date: formattedDayForDisplay,
               num: stage,
             })
@@ -59,6 +70,7 @@ export default Vue.extend({
     return {
       stage,
       steps: [4, 3, 2, 1],
+      Data,
     }
   },
   computed: {
