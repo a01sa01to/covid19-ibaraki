@@ -14,20 +14,6 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
-    <static-card
-      class="mb-4"
-      style="padding: 0.5em 1em; font-size: 1.4rem; color: #006ca8;"
-    >
-      <a
-        href="https://twitter.com/covid19_ibaraki?ref_src=twsrc%5Etfw"
-        class="twitter-follow-button"
-        data-show-count="false"
-        >Follow @covid19_ibaraki</a
-      >
-      <external-link url="https://twitter.com/covid19_ibaraki">{{
-        $t('このサイトの更新情報はこちらからどうぞ（Twitterへ移動します）')
-      }}</external-link>
-    </static-card>
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
@@ -54,7 +40,6 @@ import CocoaRedirectCard from '@/components/CocoaRedirectCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
@@ -64,7 +49,6 @@ export default Vue.extend({
     StaticCard,
     RelaxationStepCard,
     CocoaRedirectCard,
-    ExternalLink,
   },
   data() {
     return {
