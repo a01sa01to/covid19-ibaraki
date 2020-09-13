@@ -40,7 +40,7 @@
           class="GooglePlay"
           ><img
             alt="Google Play で手に入れよう"
-            src="https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"
+            src="/ja_badge_web_generic.png"
         /></a>
       </div>
     </div>
@@ -100,8 +100,7 @@ $tinySmall: 420;
       width: 135px;
       height: 40px;
       overflow: hidden;
-      background: url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2020-06-18&kind=iossoftware&bubble=apple_music)
-        no-repeat;
+      background: url('/badge-lrg.svg') no-repeat;
     }
 
     .GooglePlay {
