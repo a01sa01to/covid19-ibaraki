@@ -61,7 +61,7 @@ const input = async (host, lang, path) => {
       for (const path of PATHS) {
         await input(host, lang, path)
       }
-      for (const wave of [1, 2]) {
+      for (const wave of [/* 1, */ 2]) {
         for (const path of WAVEPATHS) {
           await input(host, lang, `cards/wave${wave}/${path}`)
         }
