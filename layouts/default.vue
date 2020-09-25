@@ -130,7 +130,7 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('茨城県'),
+          content: 'Asa',
         },
         {
           hid: 'description',
