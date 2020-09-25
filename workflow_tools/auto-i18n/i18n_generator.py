@@ -18,7 +18,7 @@ CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
 # 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json"]
+JSON_FILES = ["data.json","otherpref.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
