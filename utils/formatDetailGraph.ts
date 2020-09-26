@@ -31,6 +31,10 @@ type DataType = {
         {
           attr: '死亡'
           value: number
+        },
+        {
+          attr: 'その他'
+          value: number
         }
       ]
     }
@@ -46,13 +50,14 @@ type ConfirmedCasesType = {
   // 重症: number
   死亡: number
   回復済: number
+  その他: number
 }
 
 export type GraphDataType = {
   label: string
   transition: number
   // cumulative: number
-  bgColor: '#6e86d3' | '#99a8e0' | '#c2caec'
+  bgColor: '#4b6bca' | '#6e86d3' | '#99a8e0' | '#c2caec'
 }
 
 /**
@@ -70,18 +75,28 @@ export default (data: DataType) => {
     // 重症: data.children[0].children[0].children[1].value,
     死亡: data.children[0].children[2].value,
     回復済: data.children[0].children[1].value,
+    その他: data.children[0].children[3].value,
   }
   const graphData: GraphDataType[] = []
 
-  ;['療養中', '死亡', '回復済'].forEach((_) => {
-    const lbl = _ === '療養中' ? '療養中' : _ === '死亡' ? '死亡' : '回復済'
+  ;['療養中', '死亡', '回復済', 'その他'].forEach((_) => {
+    const lbl = _
     const fmt =
       _ === '療養中'
         ? formattedData.療養中
         : _ === '死亡'
         ? formattedData.死亡
-        : formattedData.回復済
-    const cl = _ === '療養中' ? '#6e86d3' : _ === '死亡' ? '#99a8e0' : '#c2caec'
+        : _ === '回復済'
+        ? formattedData.回復済
+        : formattedData.その他
+    const cl =
+      _ === '療養中'
+        ? '#4b6bca'
+        : _ === '死亡'
+        ? '#6e86d3'
+        : _ === '回復済'
+        ? '#99a8e0'
+        : '#c2caec'
     graphData.push({
       label: lbl,
       transition: fmt,

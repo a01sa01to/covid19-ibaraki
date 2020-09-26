@@ -118,21 +118,6 @@
                   </span>
                 </div>
               </li>
-              <li :class="[$style.box]">
-                <div :class="$style.content">
-                  <span>{{ $t('その他') }}</span>
-                  <span>
-                    <strong>{{ その他.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{
-                        ((その他 / 療養中) * 100).toFixed(2)
-                      }}</strong>
-                      <span :class="$style.unit">%</span>)
-                    </div>
-                  </span>
-                </div>
-              </li>
             </ul>
           </li>
           <li :class="$style.box">
@@ -156,6 +141,19 @@
                 <span :class="$style.unit">{{ $t('人') }}</span>
                 <div>
                   (<strong>{{ ((回復済 / 陽性者数) * 100).toFixed(2) }}</strong>
+                  <span :class="$style.unit">%</span>)
+                </div>
+              </span>
+            </div>
+          </li>
+          <li :class="[$style.box]">
+            <div :class="$style.content">
+              <span>{{ $t('その他') }}</span>
+              <span>
+                <strong>{{ その他.toLocaleString() }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+                <div>
+                  (<strong>{{ ((その他 / 陽性者数) * 100).toFixed(2) }}</strong>
                   <span :class="$style.unit">%</span>)
                 </div>
               </span>

@@ -29,10 +29,6 @@ type DataType = {
             {
               attr: '自宅療養'
               value: number
-            },
-            {
-              attr: 'その他'
-              value: number
             }
           ]
         },
@@ -42,6 +38,10 @@ type DataType = {
         },
         {
           attr: '死亡'
+          value: number
+        },
+        {
+          attr: 'その他'
           value: number
         }
       ]
