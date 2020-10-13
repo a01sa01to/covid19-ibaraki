@@ -35,7 +35,7 @@
           <li>
             {{
               $t(
-                '直近1週間の新規陽性者の報告数とその前の1週間の報告数が共に0の場合、増減がないため1となる'
+                '直近1週間の新規陽性者の報告数とその前の1週間の報告数が共に0の場合、0としている'
               )
             }}
           </li>
@@ -68,10 +68,10 @@ export default {
 
       let Rate = sumPos / sumPosPrev
 
-      if (isNaN(Rate) || !isFinite(Rate)) {
-        // sumPosPrevが0ならNaNになる
-        // sumPosが0の場合、増減なしで1となるため、以下の処理でok
-        Rate = sumPos / 7 + 1 // 週平均に1足して対応(仮・代替案あればIssueにてご意見いただきたいです)
+      if (sumPos === 0) {
+        Rate = 0
+      } else if (isNaN(Rate) || !isFinite(Rate)) {
+        Rate = sumPos / 7 + 1
       }
 
       formatData.push({
