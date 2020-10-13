@@ -88,15 +88,16 @@ export default {
       // 直近1weekの検査数平均における陽性率を算出
       const avgDay = i < 7 ? i + 1 : 7
       let sumTested = 0
+      let sumPositive = 0
       for (let j = 0; j < avgDay; j++) {
         sumTested += PositiveRate.data[i - j].tested
+        sumPositive += PositiveRate.data[i - j].positive
       }
       const avgTested = sumTested / avgDay
+      const avgPositive = sumPositive / avgDay
 
       positiveCount.push(PositiveRate.data[i].positive)
-      positiveRates.push(
-        ((PositiveRate.data[i].positive / avgTested) * 100).toFixed(2)
-      )
+      positiveRates.push(((avgPositive / avgTested) * 100).toFixed(2))
       negativeCount.push(
         PositiveRate.data[i].tested - PositiveRate.data[i].positive
       )
