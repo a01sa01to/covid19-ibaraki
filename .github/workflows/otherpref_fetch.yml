@@ -22,7 +22,7 @@ jobs:
           python-version: 3.8
 
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycbycLV1ZGYMD6v9uEE3GhOyOJ94GUkVcI-OuCfLl1HN7WDfwXHX0/exec -L -o otherpref.csv'
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=forked_sites -L -o otherpref.csv'
         working-directory: ./opendata
 
       - name: Convert to JSON
