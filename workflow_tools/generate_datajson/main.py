@@ -122,7 +122,7 @@ with open('json/inspections_summary.json', 'r', encoding="UTF-8") as f:
   file_content['inspections_summary'] = json_content
   file_content['inspections_summary']['date'] = lastUpdate['inspections_summary']
 
-file_content['lastUpdate'] = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9,minutes=10))).strftime(r'%Y/%m/%d %H:%M')
+file_content['lastUpdate'] = lastUpdate['lastUpdate']
 
 with open('json/main_summary.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
