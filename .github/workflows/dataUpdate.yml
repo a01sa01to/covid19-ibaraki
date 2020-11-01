@@ -408,7 +408,7 @@ jobs:
   push_master:
     name: Push to master branch
     runs-on: ubuntu-latest
-    needs: push_dev
+    needs: push_data
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -420,14 +420,12 @@ jobs:
       - name: Fetch
         run: git fetch origin1
       - name: Merge
-        run: git merge origin1/development --ff
+        run: git merge origin1/data --ff
       - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
-
-          deploy:
 
   prod_deploy:
     name: Production Deploy
