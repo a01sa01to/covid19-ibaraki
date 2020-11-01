@@ -1,0 +1,743 @@
+name: Data Update
+
+on:
+  schedule:
+    - cron: '*/10 3 * * *'
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Add remote
+        run: git remote add origin1 https://github.com/a01sa01to/covid19-ibaraki.git
+      - name: Fetch
+        run: git fetch origin1
+      - name: Merge
+        run: git merge origin1/development --ff
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: data
+
+  patients_data:
+    name: Patients Data
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=patients_data -L -o 080004_ibaraki_covid19_patients.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_patients
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_patients.json ./json/patients.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: patients_data
+          path: |
+            opendata/080004_ibaraki_covid19_patients.csv
+            opendata/json/patients.json
+
+  test_people:
+    name: Tested people
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=tested_people -L -o 080004_ibaraki_covid19_test_people.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/test_people.py'
+        working-directory: ./opendata
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_test_people.json ./json/test_people.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: test_people
+          path: |
+            opendata/080004_ibaraki_covid19_test_people.csv
+            opendata/json/test_people.json
+
+  positive_rate:
+    name: Positive Rate
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=positive_rate -L -o 080004_ibaraki_covid19_positive_rate.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_positive_rate
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_positive_rate.json ./json/positive_rate.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: test_people
+          path: |
+            opendata/080004_ibaraki_covid19_positive_rate.csv
+            opendata/json/positive_rate.json
+
+  call_center:
+    name: Call Center
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=call_center -L -o 080004_ibaraki_covid19_call_center.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_call_center
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_call_center.json ./json/call_center.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: call_center
+          path: |
+            opendata/080004_ibaraki_covid19_call_center.csv
+            opendata/json/call_center.json
+
+  positive_number:
+    name: Positive Number
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=positive_number -L -o 080004_ibaraki_covid19_positive_number.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_positive_number
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_positive_number.json ./json/positive_number.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: positive_number
+          path: |
+            opendata/080004_ibaraki_covid19_positive_number.csv
+            opendata/json/positive_number.json
+
+  recovered_number:
+    name: Recovered Number
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=recovered_number -L -o 080004_ibaraki_covid19_recovered_number.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_recovered_number
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_recovered_number.json ./json/recovered_number.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: recovered_number
+          path: |
+            opendata/080004_ibaraki_covid19_recovered_number.csv
+            opendata/json/recovered_number.json
+
+  death_number:
+    name: Death Number
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=death_number -L -o 080004_ibaraki_covid19_death_number.csv'
+        working-directory: ./opendata
+      - name: Convert to JSON
+        run: 'python ../workflow_tools/csv2json/main.py'
+        working-directory: ./opendata
+        env:
+          FILE: 080004_ibaraki_covid19_death_number
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_death_number.json ./json/death_number.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: death_number
+          path: |
+            opendata/080004_ibaraki_covid19_death_number.csv
+            opendata/json/death_number.json
+
+  inspections_summary:
+    name: Inspections Summary
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=inspections_summary -L -o 080004_ibaraki_covid19_inspections_summary.json'
+        working-directory: ./opendata
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_inspections_summary.json ./json/inspections_summary.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: inspections_summary
+          path: opendata/json/inspections_summary.json
+
+  main_summary:
+    name: Main Summary
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=main_summary -L -o 080004_ibaraki_covid19_summary.json'
+        working-directory: ./opendata
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_summary.json ./json/main_summary.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: main_summary
+          path: opendata/json/main_summary.json
+
+  corona_next:
+    name: Corona Next
+    runs-on: ubuntu-latest
+    needs: sync
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
+        working-directory: ./opendata
+      - name: Move and Rename
+        run: 'mv 080004_ibaraki_covid19_corona_next.json ./json/corona_next.json -u'
+        working-directory: ./opendata
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: corona_next
+          path: opendata/json/corona_next.json
+
+  push_data:
+    name: Generate data.json
+    runs-on: ubuntu-latest
+    needs: [sync,patients_data,test_people,positive_rate,call_center,positive_number,recovered_number,death_number,inspections_summary,main_summary,corona_next]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: data
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Restore
+        uses: actions/download-artifact@v2
+        with:
+          path: opendata/
+      - name: Download and Generate otherpref.json
+        run: |
+          curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=forked_sites -L -o otherpref.csv
+          python ../workflow_tools/csv2json/main.py
+          mv otherpref.json ../data/otherpref.json -u
+        working-directory: ./data
+        continue-on-error: true
+        env:
+          FILE: otherpref
+      - name: Download news.json
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=news_json -L -o news.json'
+        working-directory: ./data
+      - name: Download Last Update time
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=last_update -L -o last_update.json'
+        working-directory: ./opendata
+      - name: Generate data.json
+        run: 'python ../workflow_tools/generate_datajson/main.py'
+        working-directory: ./opendata
+      - name: Move data.json
+        run: 'mv data.json ../data/data.json -u'
+        working-directory: ./opendata
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update Data" -a
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: data
+
+  push_dev:
+    name: Push to development branch
+    runs-on: ubuntu-latest
+    needs: push_data
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+      - name: Add remote
+        run: git remote add origin1 https://github.com/a01sa01to/covid19-ibaraki.git
+      - name: Fetch
+        run: git fetch origin1
+      - name: Merge
+        run: git merge origin1/data --ff
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: development
+
+  push_master:
+    name: Push to master branch
+    runs-on: ubuntu-latest
+    needs: push_dev
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Add remote
+        run: git remote add origin1 https://github.com/a01sa01to/covid19-ibaraki.git
+      - name: Fetch
+        run: git fetch origin1
+      - name: Merge
+        run: git merge origin1/development --ff
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+
+          deploy:
+
+  prod_deploy:
+    name: Production Deploy
+    runs-on: ubuntu-latest
+    needs: push_master
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate
+        run: |
+          echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}" >> .env.production
+          cat .env.production
+          yarn run generate:deploy --fail-on-page-error
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: production
+
+  prod_sitemap_build:
+    name: Production Sitemap Build
+    needs: prod_deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Run Script
+        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
+        env:
+          MODE: prod
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v1
+        with:
+          name: sitemap
+          path: sitemap
+
+  prod_sitemap_upload:
+    name: Production Sitemap Upload
+    needs: prod_sitemap_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+      - name: Download Sitemap
+        uses: actions/download-artifact@v1
+        with:
+          name: sitemap
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add sitemap
+          git commit -m "Add Sitemap changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
+  prod_ogp_build:
+    name: Production OGP Build
+    needs: prod_deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+      - name: Install selenium with pip
+        run: pip3 install selenium
+      - name: Take screenshot
+        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
+        with:
+          name: ogp
+          path: ogp
+
+  prod_ogp_upload:
+    name: Production OGP Upload
+    needs: prod_ogp_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+      - name: Download ogp images
+        uses: actions/download-artifact@v1
+        with:
+          name: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add ogp
+          git commit -m "Add OGP changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
+  tweet:
+    runs-on: ubuntu-latest
+    needs: prod_deploy
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install twitter
+      - name: Tweet as @Covid19_ibaraki
+        env:
+          API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET_SCI }}
+          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN_SCI }}
+          MSG: ${{ toJson(github.event.commits) }}
+        run: python workflow_tools/auto-tweet/tweet.py
+
+  dev_deploy:
+    name: Development Deploy
+    runs-on: ubuntu-latest
+    needs: push_dev
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Cache deps
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn run test
+      - name: Generate for dev
+        run: yarn run generate:dev --fail-on-page-error
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: dev-deploy
+
+  dev_sitemap_build:
+    needs: dev_deploy
+    runs-on: macos-latest
+    name: Development Sitemap Build
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Checkout development branch
+        uses: actions/checkout@v2
+        with:
+          ref: development
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Run Script
+        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
+        env:
+          MODE: dev
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v1
+        with:
+          name: sitemap
+          path: sitemap
+
+  dev_sitemap_upload:
+    name: Development Sitemap Upload
+    needs: dev_sitemap_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Download Sitemap
+        uses: actions/download-artifact@v1
+        with:
+          name: sitemap
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add sitemap
+          git commit -m "Add Sitemap changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev-deploy
+
+  dev_ogp_build:
+    name: Development OGP Build
+    needs: dev_deploy
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Install selenium with pip
+        run: pip3 install selenium
+      - name: Take screenshot
+        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
+        with:
+          name: ogp
+          path: ogp
+
+  dev_ogp_upload:
+    name: Development OGP Upload
+    needs: dev_ogp_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: dev-deploy
+      - name: Download ogp images
+        uses: actions/download-artifact@v1
+        with:
+          name: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add ogp
+          git commit -m "Add OGP changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev-deploy

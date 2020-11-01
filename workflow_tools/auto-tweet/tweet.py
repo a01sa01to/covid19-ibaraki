@@ -39,7 +39,7 @@ for i in range(len(commitMsg)):
 print("LAST COMMIT MESSAGE")
 print(updContent)
 
-status="#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。\n{}更新\n\n{}\n#いばらきアマビエちゃん #コロナに負けるな #ワンチーム茨城\nhttps://ibaraki.stopcovid19.jp/".format(lastUpdate, updContent)
+status="#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。\n{}更新\nhttps://ibaraki.stopcovid19.jp/".format(lastUpdate)
 
 print("TWEET MESSAGE\n----------\n"+status+"\n----------")
 
