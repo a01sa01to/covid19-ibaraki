@@ -3,6 +3,8 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
+      <!-- 茨城コロナNext -->
+      <ibaraki-corona-next />
       <!-- 新規患者に関する報告件数の推移 -->
       <confirmed-cases-number-card />
       <!-- 週単位の陽性者増加比 -->
@@ -23,8 +25,6 @@
       <confirmed-cases-by-age />
       <!-- 検査陽性率 -->
       <positive-rate-card />
-      <!-- 茨城コロナNext -->
-      <ibaraki-corona-next />
       <!-- 検査実施人数（県） -->
       <inspection-persons-number-card />
       <!-- 検査実施件数（全体） -->
