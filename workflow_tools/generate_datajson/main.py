@@ -117,19 +117,19 @@ with open('json/test_people.json', 'r', encoding="UTF-8") as f:
   file_content['inspection_persons'] = json_content
   file_content['inspection_persons']['date'] = lastUpdate['test_people']
 
-with open('json/inspections_summary.json', 'r', encoding="UTF-8") as f:
+with open('inspections_summary.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['inspections_summary'] = json_content
   file_content['inspections_summary']['date'] = lastUpdate['inspections_summary']
 
 file_content['lastUpdate'] = lastUpdate['lastUpdate']
 
-with open('json/main_summary.json', 'r', encoding="UTF-8") as f:
+with open('main_summary.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['main_summary'] = json_content
   file_content['main_summary']['children'][0]['date'] = lastUpdate['main_summary']
 
-with open('json/corona_next.json', 'r', encoding="UTF-8") as f:
+with open('corona_next.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['ibk_corona_next'] = json_content
   file_content['ibk_corona_next']['date'] = lastUpdate['corona_next']
