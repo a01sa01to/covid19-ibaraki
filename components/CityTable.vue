@@ -46,9 +46,10 @@
             <td class="text-start">{{ item['地域'] }}</td>
             <td class="text-start">{{ item['市町村'] }}</td>
             <td class="text-start">{{ item['ふりがな'] }}</td>
+            <td class="text-start">{{ item['発生数計'] }}</td>
+            <td class="text-start">{{ item['人口1万人当たり'] }}</td>
             <td class="text-start">{{ item['新規'] }}</td>
             <td class="text-start">{{ item['濃厚接触者'] }}</td>
-            <td class="text-start">{{ item['発生数計'] }}</td>
           </tr>
         </tbody>
       </template>

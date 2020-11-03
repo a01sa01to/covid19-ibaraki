@@ -7,20 +7,21 @@
     >
       <template v-slot:button>
         <p :class="$style.note">
-          {{ $t('・回復している人数を含む') }}
+          {{ $t('・回復している人数を含む') }}<br />
+          {{ $t('・人口1万人あたりの感染者数（人口は2020年8月現在のもの）') }}
         </p>
         <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
         <table :class="$style.note2">
           <tbody>
             <tr>
-              <td><span class="color-test infected-level1" />1-5</td>
-              <td><span class="color-test infected-level2" />6-10</td>
-              <td><span class="color-test infected-level3" />11-15</td>
+              <td><span class="color-test infected-level1" />1.5未満</td>
+              <td><span class="color-test infected-level2" />1.5 - 3.0</td>
+              <td><span class="color-test infected-level3" />3.0 - 4.5</td>
             </tr>
             <tr>
-              <td><span class="color-test infected-level4" />16-20</td>
-              <td><span class="color-test infected-level5" />21-30</td>
-              <td><span class="color-test infected-level6" />31以上</td>
+              <td><span class="color-test infected-level4" />4.5 - 6.0</td>
+              <td><span class="color-test infected-level5" />6.0 - 7.5</td>
+              <td><span class="color-test infected-level6" />7.5以上</td>
             </tr>
           </tbody>
         </table>
@@ -50,6 +51,7 @@ export default {
     const patients = Data.patients.data
     // 市町村の患者人数の連想配列
     const cityPatientsNumber = {}
+    const cityPatientsRate = {}
     for (const key of patients) {
       cityPatientsNumber[key.居住地] = patients.filter(function (x) {
         return x.居住地 === key.居住地
@@ -60,18 +62,22 @@ export default {
       if (!cityPatientsNumber[element.city]) {
         return
       }
+
+      cityPatientsRate[element.city] =
+        (cityPatientsNumber[element.city] / element.population) * 10000
+
       const targetElement = document.getElementById(
         'ibaraki-map_svg__' + element.Romaji
       )
-      if (cityPatientsNumber[element.city] <= 5)
+      if (cityPatientsRate[element.city] < 1.5)
         targetElement.classList.add('infected-level1')
-      else if (cityPatientsNumber[element.city] <= 10)
+      else if (cityPatientsRate[element.city] < 3.0)
         targetElement.classList.add('infected-level2')
-      else if (cityPatientsNumber[element.city] <= 15)
+      else if (cityPatientsRate[element.city] < 4.5)
         targetElement.classList.add('infected-level3')
-      else if (cityPatientsNumber[element.city] <= 20)
+      else if (cityPatientsRate[element.city] < 6.0)
         targetElement.classList.add('infected-level4')
-      else if (cityPatientsNumber[element.city] <= 30)
+      else if (cityPatientsRate[element.city] < 7.5)
         targetElement.classList.add('infected-level5')
       else targetElement.classList.add('infected-level6')
     })
@@ -89,6 +95,10 @@ export default {
 
   &2 {
     @include font-size(14);
+
+    td {
+      padding-left: 16px;
+    }
   }
 }
 </style>

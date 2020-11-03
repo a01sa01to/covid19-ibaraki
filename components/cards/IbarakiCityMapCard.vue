@@ -127,6 +127,7 @@ export default {
           新規: Number(row.濃厚接触者 === ''),
           濃厚接触者: Number(row.濃厚接触者 !== ''),
           発生数計: 1,
+          人口1万人当たり: null,
         })
       } else {
         const idx = patientsTable.cityDataset.indexOf(flt[0])
@@ -137,6 +138,16 @@ export default {
     }
 
     patientsTable.cityDataset.sort((a, b) => (a.発生数計 < b.発生数計 ? 1 : -1))
+    patientsTable.cityDataset.forEach((_) => {
+      if (_.ふりがな) {
+        _.人口1万人当たり = (
+          (_.発生数計 /
+            Phonetics.filter((__) => __.Hiragana === _.ふりがな)[0]
+              .population) *
+          10000
+        ).toFixed(2)
+      }
+    })
 
     return {
       Data,

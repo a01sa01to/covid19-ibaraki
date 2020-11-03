@@ -1,221 +1,265 @@
 [{
     "city": "利根町",
     "Romaji": "Tone",
-    "Hiragana": "とねまち"
+    "Hiragana": "とねまち",
+    "population": 15122
   },
   {
     "city": "境町",
     "Romaji": "Sakai",
-    "Hiragana": "さかいまち"
+    "Hiragana": "さかいまち",
+    "population": 24098
   },
   {
     "city": "五霞町",
     "Romaji": "Goka",
-    "Hiragana": "ごかまち"
+    "Hiragana": "ごかまち",
+    "population": 8176
   },
   {
     "city": "八千代町",
     "Romaji": "Yachiyo",
-    "Hiragana": "やちよまち"
+    "Hiragana": "やちよまち",
+    "population": 20944
   },
   {
     "city": "河内町",
     "Romaji": "Kawachi",
-    "Hiragana": "かわちまち"
+    "Hiragana": "かわちまち",
+    "population": 8316
   },
   {
     "city": "阿見町",
     "Romaji": "Ami",
-    "Hiragana": "あみまち"
+    "Hiragana": "あみまち",
+    "population": 47854
   },
   {
     "city": "美浦村",
     "Romaji": "Miho",
-    "Hiragana": "みほむら"
+    "Hiragana": "みほむら",
+    "population": 14517
   },
   {
     "city": "大子町",
     "Romaji": "Daigo",
-    "Hiragana": "だいごむら"
+    "Hiragana": "だいごむら",
+    "population": 15755
   },
   {
     "city": "東海村",
     "Romaji": "Tokai",
-    "Hiragana": "とうかいむら"
+    "Hiragana": "とうかいむら",
+    "population": 37649
   },
   {
     "city": "城里町",
     "Romaji": "Shirosato",
-    "Hiragana": "しろさとまち"
+    "Hiragana": "しろさとまち",
+    "population": 18086
   },
   {
     "city": "大洗町",
     "Romaji": "Oarai",
-    "Hiragana": "おおあらいまち"
+    "Hiragana": "おおあらいまち",
+    "population": 15847
   },
   {
     "city": "茨城町",
     "Romaji": "Ibaraki",
-    "Hiragana": "いばらきまち"
+    "Hiragana": "いばらきまち",
+    "population": 31539
   },
   {
     "city": "小美玉市",
     "Romaji": "Omitama",
-    "Hiragana": "おみたまし"
+    "Hiragana": "おみたまし",
+    "population": 48801
   },
   {
     "city": "つくばみらい市",
     "Romaji": "Tsukubamirai",
-    "Hiragana": "つくばみらいし"
+    "Hiragana": "つくばみらいし",
+    "population": 51026
   },
   {
     "city": "鉾田市",
     "Romaji": "Hokota",
-    "Hiragana": "ほこたし"
+    "Hiragana": "ほこたし",
+    "population": 45958
   },
   {
     "city": "行方市",
     "Romaji": "Namegata",
-    "Hiragana": "なめがたし"
+    "Hiragana": "なめがたし",
+    "population": 32065
   },
   {
     "city": "神栖市",
     "Romaji": "Kamisu",
-    "Hiragana": "かみすし"
+    "Hiragana": "かみすし",
+    "population": 95412
   },
   {
     "city": "桜川市",
     "Romaji": "Sakuragawa",
-    "Hiragana": "さくらがわし"
+    "Hiragana": "さくらがわし",
+    "population": 39021
   },
   {
     "city": "かすみがうら市",
     "Romaji": "Kasumigaura",
-    "Hiragana": "かすみがうらし"
+    "Hiragana": "かすみがうらし",
+    "population": 40329
   },
   {
     "city": "稲敷市",
     "Romaji": "Inashiki",
-    "Hiragana": "いなしきし"
+    "Hiragana": "いなしきし",
+    "population": 39238
   },
   {
     "city": "坂東市",
     "Romaji": "Bando",
-    "Hiragana": "ばんどうし"
+    "Hiragana": "ばんどうし",
+    "population": 51659
   },
   {
     "city": "筑西市",
     "Romaji": "Chikusei",
-    "Hiragana": "ちくせいし"
+    "Hiragana": "ちくせいし",
+    "population": 100118
   },
   {
     "city": "那珂市",
     "Romaji": "Naka",
-    "Hiragana": "なかし"
+    "Hiragana": "なかし",
+    "population": 53127
   },
   {
     "city": "常陸大宮市",
     "Romaji": "Hitachiomiya",
-    "Hiragana": "ひたちおおみやし"
+    "Hiragana": "ひたちおおみやし",
+    "population": 39209
   },
   {
     "city": "守谷市",
     "Romaji": "Moriya",
-    "Hiragana": "もりやし"
+    "Hiragana": "もりやし",
+    "population": 68615
   },
   {
     "city": "潮来市",
     "Romaji": "Itako",
-    "Hiragana": "いたこし"
+    "Hiragana": "いたこし",
+    "population": 27556
   },
   {
     "city": "鹿嶋市",
     "Romaji": "Kashima",
-    "Hiragana": "かしまし"
+    "Hiragana": "かしまし",
+    "population": 67177
   },
   {
     "city": "ひたちなか市",
     "Romaji": "Hitachinaka",
-    "Hiragana": "ひたちなかし"
+    "Hiragana": "ひたちなかし",
+    "population": 154714
   },
   {
     "city": "つくば市",
     "Romaji": "Tsukuba",
-    "Hiragana": "つくばし"
+    "Hiragana": "つくばし",
+    "population": 243930
   },
   {
     "city": "牛久市",
     "Romaji": "Ushiku",
-    "Hiragana": "うしくし"
+    "Hiragana": "うしくし",
+    "population": 84609
   },
   {
     "city": "取手市",
     "Romaji": "Toride",
-    "Hiragana": "とりでし"
+    "Hiragana": "とりでし",
+    "population": 104251
   },
   {
     "city": "笠間市",
     "Romaji": "Kasama",
-    "Hiragana": "かさまし"
+    "Hiragana": "かさまし",
+    "population": 73781
   },
   {
     "city": "北茨城市",
     "Romaji": "Kitaibaraki",
-    "Hiragana": "きたいばらきし"
+    "Hiragana": "きたいばらきし",
+    "population": 41713
   },
   {
     "city": "高萩市",
     "Romaji": "Takahagi",
-    "Hiragana": "たかはぎし"
+    "Hiragana": "たかはぎし",
+    "population": 27509
   },
   {
     "city": "常陸太田市",
     "Romaji": "Hitachiota",
-    "Hiragana": "ひたちおおたし"
+    "Hiragana": "ひたちおおたし",
+    "population": 47970
   },
   {
     "city": "常総市",
     "Romaji": "Joso",
-    "Hiragana": "じょうそうし"
+    "Hiragana": "じょうそうし",
+    "population": 59440
   },
   {
     "city": "下妻市",
     "Romaji": "Shimotsuma",
-    "Hiragana": "しもつまし"
+    "Hiragana": "しもつまし",
+    "population": 41614
   },
   {
     "city": "龍ケ崎市",
     "Romaji": "Ryuugasaki",
-    "Hiragana": "りゅうがさきし"
+    "Hiragana": "りゅうがさきし",
+    "population": 76311
   },
   {
     "city": "結城市",
     "Romaji": "Yuuki",
-    "Hiragana": "ゆうきし"
+    "Hiragana": "ゆうきし",
+    "population": 50407
   },
   {
     "city": "石岡市",
     "Romaji": "Ishioka",
-    "Hiragana": "いしおかし"
+    "Hiragana": "いしおかし",
+    "population": 72448
   },
   {
     "city": "古河市",
     "Romaji": "Koga",
-    "Hiragana": "こがし"
+    "Hiragana": "こがし",
+    "population": 138516
   },
   {
     "city": "土浦市",
     "Romaji": "Tsuchiura",
-    "Hiragana": "つちうらし"
+    "Hiragana": "つちうらし",
+    "population": 138099
   },
   {
     "city": "日立市",
     "Romaji": "Hitachi",
-    "Hiragana": "ひたちし"
+    "Hiragana": "ひたちし",
+    "population": 174047
   },
   {
     "city": "水戸市",
     "Romaji": "Mito",
-    "Hiragana": "みとし"
+    "Hiragana": "みとし",
+    "population": 269340
   }
 ]
