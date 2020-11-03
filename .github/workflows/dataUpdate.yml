@@ -54,7 +54,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: patients_data
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_patients.csv
             opendata/json/patients.json
@@ -85,7 +85,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: test_people
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_test_people.csv
             opendata/json/test_people.json
@@ -118,7 +118,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: test_people
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_positive_rate.csv
             opendata/json/positive_rate.json
@@ -151,7 +151,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: call_center
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_call_center.csv
             opendata/json/call_center.json
@@ -184,7 +184,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: positive_number
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_positive_number.csv
             opendata/json/positive_number.json
@@ -217,7 +217,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: recovered_number
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_recovered_number.csv
             opendata/json/recovered_number.json
@@ -250,7 +250,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: death_number
+          name: opendata_artifact
           path: |
             opendata/080004_ibaraki_covid19_death_number.csv
             opendata/json/death_number.json
@@ -278,7 +278,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: inspections_summary
+          name: opendata_artifact
           path: opendata/json/inspections_summary.json
 
   main_summary:
@@ -304,7 +304,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: main_summary
+          name: opendata_artifact
           path: opendata/json/main_summary.json
 
   corona_next:
@@ -330,7 +330,7 @@ jobs:
       - name: Save
         uses: actions/upload-artifact@v2
         with:
-          name: corona_next
+          name: opendata_artifact
           path: opendata/json/corona_next.json
 
   push_data:
@@ -351,6 +351,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           path: opendata/
+      - name: Move restored files
+        run: |
+          mv ./opendata/opendata_artifact/json/*.* ./opendata/json/
+          mv ./opendata/opendata_artifact/*.* ./opendata/
       - name: Download and Generate otherpref.json
         run: |
           curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=forked_sites -L -o otherpref.csv
