@@ -349,6 +349,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add .
           git commit -m "Update Data" -a
       - name: Temporary disable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
