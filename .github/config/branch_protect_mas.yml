@@ -1,0 +1,10 @@
+- branch: master
+  protection:
+    required_status_checks: null
+    required_pull_request_reviews:
+      dismiss_stale_reviews: false
+      require_code_owner_reviews: false
+      required_approving_review_count: 1
+    required_linear_history: false
+    allow_force_pushes: false
+    allow_deletions: false

@@ -354,7 +354,7 @@ jobs:
       - name: Temporary disable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
         with:
-          path: .github/config/branch_unlock.yml
+          path: .github/config/branch_unlock_dev.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
       - name: Push to development
@@ -365,7 +365,7 @@ jobs:
       - name: Enable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
         with:
-          path: .github/config/branch_protection.yml
+          path: .github/config/branch_protect_dev.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
 
@@ -388,7 +388,7 @@ jobs:
       - name: Temporary disable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
         with:
-          path: .github/config/branch_unlock.yml
+          path: .github/config/branch_unlock_mas.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
       - name: Push
@@ -399,7 +399,7 @@ jobs:
       - name: Enable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
         with:
-          path: .github/config/branch_protection.yml
+          path: .github/config/branch_protect_mas.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
 
