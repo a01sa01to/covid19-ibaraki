@@ -336,6 +336,9 @@ jobs:
       - name: Download news.json
         run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=news_json -L -o news.json'
         working-directory: ./data
+      - name: Download tsuchiuraSakura.json
+        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=tsuchiuraSakura -L -o tsuchiuraSakura.json'
+        working-directory: ./data/roller
       - name: Download Last Update time
         run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=last_update -L -o last_update.json'
         working-directory: ./opendata

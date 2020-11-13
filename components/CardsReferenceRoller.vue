@@ -26,6 +26,7 @@
     <card-row class="DataBlock">
       <mito />
       <tsukuba-amakubo />
+      <tsuchiura-sakura />
     </card-row>
   </div>
 </template>
@@ -35,6 +36,7 @@ import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
 import Mito from '@/components/roller/Mito.vue'
 import TsukubaAmakubo from '@/components/roller/TsukubaAmakubo.vue'
+import TsuchiuraSakura from '@/components/roller/TsuchiuraSakura.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
@@ -42,6 +44,7 @@ export default Vue.extend({
     CardRow,
     Mito,
     TsukubaAmakubo,
+    TsuchiuraSakura,
     StaticCard,
   },
 })
