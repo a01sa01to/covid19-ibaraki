@@ -8,14 +8,6 @@
       <template v-slot:button>
         <ul :class="$style.note">
           <li>{{ $t('各値は直近1週間の平均値') }}</li>
-          <li>{{ $t('病床稼働率は最新のデータでない可能性あり') }}</li>
-          <li>
-            {{
-              $t(
-                'NaNと表示されている場合には、お手数ですが当サイトの管理者にお知らせください。早急に修正いたします。'
-              )
-            }}
-          </li>
         </ul>
         <ul :class="$style.container">
           <li style="width: 100%; list-style: none;">
@@ -27,24 +19,6 @@
                 {{ $t('現在の対策状況：') }}
                 <span :class="$style.unit">Stage</span>
                 <strong>{{ Data.ibk_corona_next.stage }}</strong>
-              </span>
-              <span :class="$style.link">
-                <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
-                  >{{ $t('茨城版コロナNext Stage1について') }}</external-link
-                >
-                <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/200703_kaitei.html#stage2"
-                  >{{ $t('茨城版コロナNext Stage2について') }}</external-link
-                >
-                <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage3.html"
-                  >{{ $t('茨城版コロナNext Stage3について') }}</external-link
-                >
-                <external-link
-                  url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/handanshihyo.html"
-                  >{{ $t('茨城版コロナNext Stage4について') }}</external-link
-                >
               </span>
             </div>
           </li>
@@ -270,12 +244,10 @@
 <script>
 import Data from '@/data/data.json'
 import DataView from '@/components/DataView.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
     DataView,
-    ExternalLink,
   },
   data() {
     const patients = Data.ibk_corona_next

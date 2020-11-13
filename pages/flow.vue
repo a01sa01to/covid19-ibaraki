@@ -140,24 +140,15 @@
           </li>
         </ul>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.boxHeading">
-            {{
-              $t(
-                '新型コロナ受診相談窓口は、7月1日より24時間対応ではなくなりました'
-              )
-            }}
-          </h5>
           <dl :class="$style.contact">
             <div>
               <dt>{{ $t('平日（日中）:') }}</dt>
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
                   <template v-slot:publicHealthCenter>
-                    <external-link
-                      url="https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
-                    >
-                      {{ $t('各保健所の電話番号は県公式HP') }}
-                    </external-link>
+                    <nuxt-link :to="localePath('/contacts')">{{
+                      $t('各保健所の電話番号は、お問い合わせ先・県内保健所一覧')
+                    }}</nuxt-link>
                   </template>
                 </i18n>
               </dd>
@@ -173,27 +164,6 @@
                 >
               </dd>
             </div>
-          </dl>
-        </div>
-        <p :class="[$style.sxnText, $style.hr]">
-          {{
-            $t(
-              '上記の症状に当てはまらない方は、新型コロナコールセンターにご相談ください。'
-            )
-          }}
-        </p>
-        <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.boxHeading">
-            {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
-          </h5>
-          <dl :class="$style.contact">
-            <dt>{{ $t('午前8時30分から午後10時（土日祝含む）') }}</dt>
-            <dd>
-              <a :class="$style.tel" href="tel:029-301-3200">
-                <icon-phone :class="$style.icon" aria-hidden="true" />
-                029-301-3200</a
-              >
-            </dd>
           </dl>
           <p :class="$style.notice">
             {{
@@ -216,17 +186,30 @@
           }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.boxHeading">
-            {{ $t('新型コロナコールセンター（対応言語：日本語）') }}
-          </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前8時30分から午後10時（土日祝含む）') }}</dt>
-            <dd>
-              <a :class="$style.tel" href="tel:029-301-3200">
-                <icon-phone :class="$style.icon" aria-hidden="true" />
-                029-301-3200</a
-              >
-            </dd>
+            <div>
+              <dt>{{ $t('平日（日中）:') }}</dt>
+              <dd :class="$style.overrideExternalLink">
+                <i18n path="{publicHealthCenter}に掲載しています">
+                  <template v-slot:publicHealthCenter>
+                    <nuxt-link :to="localePath('/contacts')">{{
+                      $t('各保健所の電話番号は、お問い合わせ先・県内保健所一覧')
+                    }}</nuxt-link>
+                  </template>
+                </i18n>
+              </dd>
+            </div>
+            <div>
+              <dt>
+                {{ $t('午前8時30分から午後10時（土日祝含む）') }}
+              </dt>
+              <dd>
+                <a :class="$style.tel" href="tel:029-301-3200">
+                  <icon-phone :class="$style.icon" aria-hidden="true" />
+                  029-301-3200</a
+                >
+              </dd>
+            </div>
           </dl>
           <p :class="$style.notice">
             {{
@@ -316,7 +299,6 @@ import VueScrollTo from 'vue-scrollto'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 import FigCondSyDr from '@/static/flow/cond_sydr.svg'
 import FigCondSy from '@/static/flow/cond_sy.svg'
 import FigCondAnx from '@/static/flow/cond_anx.svg'
@@ -344,7 +326,6 @@ export default Vue.extend({
     CovidIcon,
     PrinterButton,
     PageHeader,
-    ExternalLink,
     FigCondSyDr,
     FigCondSy,
     FigCondAnx,

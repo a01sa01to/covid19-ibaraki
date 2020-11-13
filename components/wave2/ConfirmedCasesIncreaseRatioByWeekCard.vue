@@ -25,13 +25,6 @@
               )
             }}
           </li>
-          <li>
-            {{
-              $t(
-                '前の1週間の報告数が0の場合、（直近1週間の新規陽性者の報告数平均）＋1で対応している'
-              )
-            }}
-          </li>
         </ul>
       </template>
     </confirmed-cases-increase-ratio-by-week-chart>

@@ -46,7 +46,7 @@
               <li :class="[$style.box]">
                 <div :class="$style.content">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症')" />
+                  <span v-html="$t('軽症（入院療養）')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <strong>{{ 軽症.toLocaleString() }}</strong>
@@ -61,7 +61,7 @@
               <li :class="[$style.box]">
                 <div :class="$style.content">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('中等症')" />
+                  <span v-html="$t('中等症（入院療養）')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <strong>{{ 中等症.toLocaleString() }}</strong>
@@ -77,7 +77,7 @@
               </li>
               <li :class="[$style.box]">
                 <div :class="$style.content">
-                  <span>{{ $t('重症') }}</span>
+                  <span>{{ $t('重症（入院療養）') }}</span>
                   <span>
                     <strong>{{ 重症.toLocaleString() }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
