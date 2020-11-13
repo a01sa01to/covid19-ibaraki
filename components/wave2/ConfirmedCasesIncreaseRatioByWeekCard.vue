@@ -32,13 +32,6 @@
               )
             }}
           </li>
-          <li>
-            {{
-              $t(
-                '直近1週間の新規陽性者の報告数とその前の1週間の報告数が共に0の場合、0としている'
-              )
-            }}
-          </li>
         </ul>
       </template>
     </confirmed-cases-increase-ratio-by-week-chart>
@@ -46,7 +39,7 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import Data from '@/data/data_wave2.json'
 import formatGraph from '@/utils/formatGraph'
 import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
 
@@ -55,9 +48,6 @@ export default {
     ConfirmedCasesIncreaseRatioByWeekChart,
   },
   data() {
-    Data.patients_summary.data = Data.patients_summary.data.filter(
-      (_) => new Date(_.date) > new Date('2020-06-19')
-    )
     const formatData = []
     const l = Data.patients_summary.data.length
     for (let i = 13; i < l; i++) {

@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
-      :title="$t('陽性患者の属性（第2波）')"
-      :title-id="'wave2/attributes-of-confirmed-cases'"
+      :title="$t('陽性患者の属性（第3波）')"
+      :title-id="'wave3/attributes-of-confirmed-cases'"
       :chart-data="patientsTable"
       :chart-option="{}"
       :date="Data.patients.date"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
@@ -25,6 +25,14 @@ export default {
     DataTable,
   },
   data() {
+    Data.patients_summary.data = Data.patients_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
+    Data.patients.data = Data.patients.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
+    Data.patients.data.forEach((_) => (_.num -= 723))
+
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数

@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
-      :title="$t('市町村毎の感染状況（第2波）')"
-      :title-id="'wave2/ibaraki-city-table'"
+      :title="$t('市町村毎の感染状況（第3波）')"
+      :title-id="'wave3/ibaraki-city-table'"
       :chart-data="patientsTable"
       :chart-option="{}"
       :date="Data.patients.date"
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import formatTable, { headers2 } from '@/utils/formatTable'
 import DataTable from '@/components/CityTable.vue'
 import Phonetics from '@/data/cities.json'
@@ -24,6 +24,9 @@ export default {
     DataTable,
   },
   data() {
+    Data.patients.data = Data.patients.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
     const patientsTable = formatTable(Data.patients.data)
 
     patientsTable.headers = headers2

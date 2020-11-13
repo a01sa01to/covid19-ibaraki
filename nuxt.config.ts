@@ -195,7 +195,7 @@ const config: NuxtConfig = {
       ]
 
       for (const c of waveCards) {
-        for (let i = 1; i <= 2; i++) {
+        for (let i = 1; i <= 3; i++) {
           pages.push(`/cards/wave${i}/${c}`)
         }
       }

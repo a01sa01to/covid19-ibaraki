@@ -30,6 +30,7 @@ import StaticInfo from '@/components/StaticInfo.vue'
 import CardsReference from '@/components/CardsReference.vue'
 import CardsReferenceWave1 from '@/components/CardsReferenceWave1.vue'
 import CardsReferenceWave2 from '@/components/CardsReferenceWave2.vue'
+import CardsReferenceWave3 from '@/components/CardsReferenceWave3.vue'
 import CardsReferenceRoller from '@/components/CardsReferenceRoller.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
@@ -40,6 +41,7 @@ export default Vue.extend({
     CardsReference,
     CardsReferenceWave1,
     CardsReferenceWave2,
+    CardsReferenceWave3,
   },
   data() {
     return {
@@ -49,6 +51,7 @@ export default Vue.extend({
         { label: this.$t('ローラー作戦'), component: CardsReferenceRoller },
         { label: this.$t('第1波'), component: CardsReferenceWave1 },
         { label: this.$t('第2波'), component: CardsReferenceWave2 },
+        { label: this.$t('第3波'), component: CardsReferenceWave3 },
       ],
     }
   },

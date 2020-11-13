@@ -23,7 +23,10 @@
     <cocoa-redirect-card />
     <relaxation-step-card />
     <static-card class="mb-4" style="padding: 0.5em 1em; font-size: 1.4rem;">
-      {{ $t('第1波は3/17～5/5の期間、第2波は6/20～(現在)の期間を指す') }}
+      {{ $t('第1波は3/17～5/5の期間、') }}
+      {{ $t('第2波は6/20～10/17の期間、') }}
+      {{ $t('第3波は10/17～(現在)の期間を指す') }}<br />
+      {{ $t('なお、10/17は第2波および第3波の両方に含まれている') }}
     </static-card>
   </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('PCR検査の陽性率（第2波）')"
-      :title-id="'wave2/positive-rate'"
+      :title="$t('PCR検査の陽性率（第3波）')"
+      :title-id="'wave3/positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :date="PositiveRate.date"
@@ -23,7 +23,7 @@
           <li>
             {{
               $t(
-                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値をもとに算出し、折れ線グラフで示す（例えば、7月7日の陽性率は、7月1日から7月7日までの実績平均を用いて算出）'
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値をもとに算出し、折れ線グラフで示す（例えば、11月7日の陽性率は、11月1日から11月7日までの実績平均を用いて算出）'
               )
             }}
           </li>
@@ -68,7 +68,7 @@
 <script>
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 dayjs.extend(duration)
 
@@ -77,6 +77,9 @@ export default {
     PositiveRateMixedChart,
   },
   data() {
+    Data.positiveRate.data = Data.positiveRate.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
     const PositiveRate = Data.positiveRate
     // 検査実施日別状況
     const l = PositiveRate.data.length

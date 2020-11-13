@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('回復者数（第2波）')"
-      :title-id="'wave2/number-of-recovered'"
+      :title="$t('回復者数（第3波）')"
+      :title-id="'wave3/number-of-recovered'"
       :chart-id="'time-bar-chart-recovered'"
       :chart-data="recoveredGraph"
       :date="Data.recovered_summary.date"
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 
@@ -41,6 +41,9 @@ export default {
     TimeBarChart,
   },
   data() {
+    Data.recovered_summary.data = Data.recovered_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
     const recoveredGraph = formatGraph(Data.recovered_summary.data)
 
     const data = {

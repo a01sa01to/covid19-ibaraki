@@ -55,6 +55,6 @@ for lang in ("ja", "en", "ja-basic"):
     os.mkdir("ogp/{}".format(lang))
   for path in PATHS:
     screenshot(path,lang)
-  for wave in range(2):
+  for wave in range(3):
     for path in WAVEPATHS:
       screenshot("/cards/wave{}/{}".format(wave+1, path), lang)

@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('新規患者に関する報告件数の推移（第2波）')"
-      :title-id="'wave2/number-of-confirmed-cases'"
+      :title="$t('新規患者に関する報告件数の推移（第3波）')"
+      :title-id="'wave3/number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
       :date="Data.patients_summary.date"
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 export default {
@@ -36,6 +36,9 @@ export default {
     TimeBarChart,
   },
   data() {
+    Data.patients_summary.data = Data.patients_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
 

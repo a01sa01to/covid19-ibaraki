@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('検査実施人数（県衛生研究所・水戸市保健所）（第2波）')"
-      :title-id="'wave2/number-of-inspection-persons'"
+      :title="$t('検査実施人数（県衛生研究所・水戸市保健所）（第3波）')"
+      :title-id="'wave3/number-of-inspection-persons'"
       :chart-id="'number-of-inspection-persons'"
       :chart-data="graphData"
       :date="data.date"
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 
@@ -56,12 +56,16 @@ export default {
     TimeBarChart,
   },
   data() {
-    const formatData = Data.inspection_persons.labels.map((date, i) => {
+    let formatData = Data.inspection_persons.labels.map((date, i) => {
       return {
         date,
         total: Data.inspection_persons.datasets[0].data[i],
       }
     })
+
+    formatData = formatData.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
 
     // 検査実施人数グラフ
     const graphData = formatGraph(formatData)

@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-increase-ratio-by-week-chart
-      :title="$t('週単位の陽性者前週比')"
-      :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
+      :title="$t('週単位の陽性者前週比（第3波）')"
+      :title-id="'wave3/increase-ratio-of-confirmed-cases-by-daily'"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
       :date="Data.patients_summary.date"
@@ -21,7 +21,7 @@
           <li>
             {{
               $t(
-                '1週間前の新規陽性者の報告数と比較した際の増加比について、有意な数値がとれる3月29日から作成'
+                '1週間前の新規陽性者の報告数と比較した際の増加比について、有意な数値がとれる10月30日から作成'
               )
             }}
           </li>
@@ -41,6 +41,9 @@ export default {
     ConfirmedCasesIncreaseRatioByWeekChart,
   },
   data() {
+    Data.patients_summary.data = Data.patients_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
     const formatData = []
     const l = Data.patients_summary.data.length
     for (let i = 13; i < l; i++) {

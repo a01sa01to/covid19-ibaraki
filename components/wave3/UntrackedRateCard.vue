@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
-      :title="$t('感染経路不明者数推移（第2波）')"
-      :title-id="'wave2/untracked-rate'"
+      :title="$t('感染経路不明者の推移（第3波）')"
+      :title-id="'wave3/untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"
@@ -24,21 +24,19 @@
           <li>
             {{
               $t(
-                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、7月7日の移動平均値は、7月1日から7月7日までの実績値を平均したもの）'
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、11月7日の移動平均値は、11月1日から11月7日までの実績値を平均したもの）'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '1週間前の新規陽性者の報告数と比較した際の前週比について、有意な数値がとれる7月3日から作成'
+                '1週間前の新規陽性者の報告数と比較した際の前週比について、有意な数値がとれる10月30日から作成'
               )
             }}
           </li>
           <li>
-            {{
-              $t('前週比は、1週間前の感染経路不明者数（移動平均値）との比較')
-            }}
+            {{ $t('前週比は、1週間前の感染経路不明者（移動平均値）との比較') }}
           </li>
         </ul>
       </template>
@@ -58,7 +56,7 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
+import Data from '@/data/data.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 import {
   getNumberToFixedFunction,
@@ -70,6 +68,10 @@ export default {
     UntrackedRateMixedChart,
   },
   data() {
+    Data.patients_summary.data = Data.patients_summary.data.filter(
+      (_) => new Date(_.date) > new Date('2020-10-16')
+    )
+
     const data = Data.patients_summary
 
     const reportedCount = []
@@ -118,19 +120,19 @@ export default {
     ]
 
     const dataLabels = [
-      this.$t('濃厚接触者数'),
-      this.$t('感染経路不明者数'),
-      this.$t('感染経路不明者数（7日間移動平均）'),
+      this.$t('濃厚接触者'),
+      this.$t('感染経路不明者'),
+      this.$t('感染経路不明者（週平均）'),
       this.$t('前週比'),
     ]
     const tableLabels = [
-      this.$t('濃厚接触者数'),
-      this.$t('感染経路不明者数'),
-      this.$t('感染経路不明者数（7日間移動平均）'),
+      this.$t('濃厚接触者'),
+      this.$t('感染経路不明者'),
+      this.$t('感染経路不明者（週平均）'),
       this.$t('前週比'),
     ]
     const getFormatter = (columnIndex) => {
-      // 7日間移動平均と前週比は小数点第1位まで表示する。
+      // 週平均と前週比は小数点第1位まで表示する。
       if (columnIndex >= 2) {
         return getNumberToFixedFunction(1)
       }
