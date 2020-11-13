@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/wave3/number-of-deaths", {data:[{}],fetch:[],mutations:void 0});

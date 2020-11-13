@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/wave3/attributes-of-confirmed-cases", {data:[{}],fetch:[],mutations:void 0});
