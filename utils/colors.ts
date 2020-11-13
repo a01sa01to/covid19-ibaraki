@@ -7,22 +7,22 @@ type Series = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
 
 const surfaceStyleA: SurfaceStyle = {
   strokeColor: '#5a8055',
-  fillColor: '#1b4d30',
+  fillColor: '#1d51c1',
 }
 
 const surfaceStyleB: SurfaceStyle = {
   strokeColor: '#5a8055',
-  fillColor: '#00a040',
+  fillColor: '#1549b7',
 }
 
 const surfaceStyleC: SurfaceStyle = {
   strokeColor: '#5a8055',
-  fillColor: '#c5e2c6',
+  fillColor: '#c2caec',
 }
 
 const surfaceStyleD: SurfaceStyle = {
   strokeColor: '#1b4d30',
-  fillColor: '#cbe1c8',
+  fillColor: '#e7eaf7',
 }
 
 const surfaceStyleE: SurfaceStyle = {
@@ -31,8 +31,8 @@ const surfaceStyleE: SurfaceStyle = {
 }
 
 const surfaceStyleF: SurfaceStyle = {
-  strokeColor: '#1b4d30',
-  fillColor: '#1b4d30',
+  strokeColor: '#1549b7',
+  fillColor: '#1549b7',
 }
 
 const surfaceStyleG: SurfaceStyle = {
