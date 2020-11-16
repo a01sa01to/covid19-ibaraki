@@ -101,9 +101,8 @@ export default {
 
       positiveCount.push(PositiveRate.data[i].positive)
       positiveRates.push(((avgPositive / avgTested) * 100).toFixed(2))
-      negativeCount.push(
-        PositiveRate.data[i].tested - PositiveRate.data[i].positive
-      )
+      const neg = PositiveRate.data[i].tested - PositiveRate.data[i].positive
+      negativeCount.push(neg < 0 ? 0 : neg)
       positiveRateLabels.push(PositiveRate.data[i].date)
     }
 
