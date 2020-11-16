@@ -21,6 +21,7 @@
       :btn-text="$t('相談の手順を見る')"
     />
     <cocoa-redirect-card />
+    <ibaraki-amabie-redirect-card />
     <relaxation-step-card />
     <static-card class="mb-4" style="padding: 0.5em 1em; font-size: 1.4rem;">
       {{ $t('第1波は3/17～5/5の期間、') }}
@@ -40,6 +41,7 @@ import StaticInfo from '@/components/StaticInfo.vue'
 import StaticCard from '@/components/StaticCard.vue'
 import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import CocoaRedirectCard from '@/components/CocoaRedirectCard.vue'
+import IbarakiAmabieRedirectCard from '@/components/IbarakiAmabieRedirectCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -52,6 +54,7 @@ export default Vue.extend({
     StaticCard,
     RelaxationStepCard,
     CocoaRedirectCard,
+    IbarakiAmabieRedirectCard,
   },
   data() {
     return {
