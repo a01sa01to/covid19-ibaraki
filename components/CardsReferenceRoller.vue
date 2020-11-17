@@ -24,9 +24,9 @@
       </ul>
     </static-card>
     <card-row class="DataBlock">
-      <mito />
-      <tsukuba-amakubo />
       <tsuchiura-sakura />
+      <tsukuba-amakubo />
+      <mito />
     </card-row>
   </div>
 </template>

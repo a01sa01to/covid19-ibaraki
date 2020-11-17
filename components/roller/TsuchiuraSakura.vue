@@ -5,11 +5,11 @@
       :title-id="'roller/tsuchiura-sakura'"
       :date="updatedAt"
     >
-      <!-- <template v-slot:description>
+      <template v-slot:description>
         <ul>
-          <li>{{ $t('9月6日まで実施') }}</li>
+          <li>{{ $t('11月26日まで実施予定') }}</li>
         </ul>
-      </template> -->
+      </template>
       <p :class="$style.border" />
       <roller-chart
         :title="$t('受付人数')"
