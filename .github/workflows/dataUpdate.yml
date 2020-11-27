@@ -19,8 +19,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=patients_data -L -o 080004_ibaraki_covid19_patients.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=patients_data -L -o 080004_ibaraki_covid19_patients.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -51,8 +53,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=tested_people -L -o 080004_ibaraki_covid19_test_people.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=tested_people -L -o 080004_ibaraki_covid19_test_people.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/test_people.py'
         working-directory: ./opendata
@@ -81,8 +85,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=positive_rate -L -o 080004_ibaraki_covid19_positive_rate.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=positive_rate -L -o 080004_ibaraki_covid19_positive_rate.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -113,8 +119,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=call_center -L -o 080004_ibaraki_covid19_call_center.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=call_center -L -o 080004_ibaraki_covid19_call_center.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -145,8 +153,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=positive_number -L -o 080004_ibaraki_covid19_positive_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=positive_number -L -o 080004_ibaraki_covid19_positive_number.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -177,8 +187,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=recovered_number -L -o 080004_ibaraki_covid19_recovered_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=recovered_number -L -o 080004_ibaraki_covid19_recovered_number.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -209,8 +221,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=death_number -L -o 080004_ibaraki_covid19_death_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=death_number -L -o 080004_ibaraki_covid19_death_number.csv'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../workflow_tools/csv2json/main.py'
         working-directory: ./opendata
@@ -241,8 +255,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=inspections_summary -L -o 080004_ibaraki_covid19_inspections_summary.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=inspections_summary -L -o 080004_ibaraki_covid19_inspections_summary.json'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Move and Rename
         run: 'mv 080004_ibaraki_covid19_inspections_summary.json ./json/inspections_summary.json -u'
         working-directory: ./opendata
@@ -266,8 +282,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=main_summary -L -o 080004_ibaraki_covid19_summary.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=main_summary -L -o 080004_ibaraki_covid19_summary.json'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Move and Rename
         run: 'mv 080004_ibaraki_covid19_summary.json ./json/main_summary.json -u'
         working-directory: ./opendata
@@ -291,8 +309,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Move and Rename
         run: 'mv 080004_ibaraki_covid19_corona_next.json ./json/corona_next.json -u'
         working-directory: ./opendata
@@ -326,22 +346,29 @@ jobs:
           mv ./opendata/opendata_artifact/*.* ./opendata/
       - name: Download and Generate otherpref.json
         run: |
-          curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=forked_sites -L -o otherpref.csv
+          curl ${DATA_UPDATE_URL}?data=forked_sites -L -o otherpref.csv
           python ../workflow_tools/csv2json/main.py
           mv otherpref.json ../data/otherpref.json -u
         working-directory: ./data
         continue-on-error: true
         env:
           FILE: otherpref
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Download news.json
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=news_json -L -o news.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=news_json -L -o news.json'
         working-directory: ./data
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Download tsuchiuraSakura.json
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=tsuchiuraSakura -L -o tsuchiuraSakura.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=tsuchiuraSakura -L -o tsuchiuraSakura.json'
         working-directory: ./data/roller
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Download Last Update time
-        run: 'curl https://script.google.com/macros/s/AKfycby_JZ_sqx8BefQRPOq5AVwt2wMbiazNmYnEeMo--_e8qwqQwNQ/exec?data=last_update -L -o last_update.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=last_update -L -o last_update.json'
         working-directory: ./opendata
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Generate data.json
         run: 'python ../workflow_tools/generate_datajson/main.py'
         working-directory: ./opendata
