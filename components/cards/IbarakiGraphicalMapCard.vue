@@ -1,27 +1,33 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :title="$t('市町村毎の感染状況（地図）')"
+      :title="$t('市町村別感染状況（直近1週間）')"
       :title-id="'ibaraki-city-map-table'"
       :date="Data.patients.date"
     >
       <template v-slot:button>
         <p :class="$style.note">
-          {{ $t('・回復している人数を含む') }}<br />
-          {{ $t('・人口1万人あたりの感染者数（人口は2020年8月現在のもの）') }}
+          {{ $t('・値は、直近1週間での人口1万人あたりの感染者数である') }}<br />
+          {{ $t('・人口は2020年8月現在のものを用いた') }}<br />
+          {{ $t('・白い地域は、直近1週間の感染者数が0人である') }}<br />
+          {{
+            $t(
+              '・国の指標では、1.5人以上がStage3、2.5人以上がStage4となっている'
+            )
+          }}<br />
         </p>
         <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
         <table :class="$style.note2">
           <tbody>
             <tr>
-              <td><span class="color-test infected-level1" />1.5未満</td>
-              <td><span class="color-test infected-level2" />1.5 - 3.0</td>
-              <td><span class="color-test infected-level3" />3.0 - 4.5</td>
+              <td><span class="color-test infected-level1" />0.5未満</td>
+              <td><span class="color-test infected-level2" />0.5 - 1.0</td>
+              <td><span class="color-test infected-level3" />1.0 - 1.5</td>
             </tr>
             <tr>
-              <td><span class="color-test infected-level4" />4.5 - 6.0</td>
-              <td><span class="color-test infected-level5" />6.0 - 7.5</td>
-              <td><span class="color-test infected-level6" />7.5以上</td>
+              <td><span class="color-test infected-level4" />1.5 - 2.0</td>
+              <td><span class="color-test infected-level5" />2.0 - 2.5</td>
+              <td><span class="color-test infected-level6" />2.5以上</td>
             </tr>
           </tbody>
         </table>
@@ -36,6 +42,7 @@ import Data from '@/data/data.json'
 import IbarakiMap from '@/assets/ibaraki-map.svg'
 import DataView from '@/components/DataView.vue'
 import CityData from '@/data/cities.json'
+import dayjs from 'dayjs'
 
 export default {
   components: {
@@ -53,8 +60,12 @@ export default {
     const cityPatientsNumber = {}
     const cityPatientsRate = {}
     for (const key of patients) {
+      const today = dayjs()
       cityPatientsNumber[key.居住地] = patients.filter(function (x) {
-        return x.居住地 === key.居住地
+        return (
+          x.居住地 === key.居住地 &&
+          today.diff(dayjs(x.date)) / (24 * 60 * 60 * 1000) < 7
+        )
       }).length
     }
 
@@ -66,18 +77,20 @@ export default {
       cityPatientsRate[element.city] =
         (cityPatientsNumber[element.city] / element.population) * 10000
 
+      console.log(cityPatientsNumber, cityPatientsRate)
+
       const targetElement = document.getElementById(
         'ibaraki-map_svg__' + element.Romaji
       )
-      if (cityPatientsRate[element.city] < 1.5)
+      if (cityPatientsRate[element.city] < 0.5)
         targetElement.classList.add('infected-level1')
-      else if (cityPatientsRate[element.city] < 3.0)
+      else if (cityPatientsRate[element.city] < 1.0)
         targetElement.classList.add('infected-level2')
-      else if (cityPatientsRate[element.city] < 4.5)
+      else if (cityPatientsRate[element.city] < 1.5)
         targetElement.classList.add('infected-level3')
-      else if (cityPatientsRate[element.city] < 6.0)
+      else if (cityPatientsRate[element.city] < 2.0)
         targetElement.classList.add('infected-level4')
-      else if (cityPatientsRate[element.city] < 7.5)
+      else if (cityPatientsRate[element.city] < 2.5)
         targetElement.classList.add('infected-level5')
       else targetElement.classList.add('infected-level6')
     })
