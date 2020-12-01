@@ -206,10 +206,15 @@ export default Vue.extend({
         {
           title: this.$t('お問い合わせ先・県内保健所一覧'),
           link: this.localePath('/contacts'),
+          divider: true,
         },
         {
           title: this.$t('茨城県公式サイト'),
           link: 'https://www.pref.ibaraki.jp/',
+        },
+        {
+          title: this.$t('茨城県新型コロナ オープンデータ（非公式）'),
+          link: 'https://opendata.a01sa01to.com/covid19_ibaraki/',
         },
       ]
     },

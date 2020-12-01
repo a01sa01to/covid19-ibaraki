@@ -20,7 +20,6 @@
           'このサイトに関するご意見やご質問などは、県ではなく当サイトの管理者にお寄せください。'
         )
       }}
-      {{ $t('県はこのサイトには一切関与しておりません。') }}
       <i18n path="詳しくは、{contact}をご確認ください。">
         <template v-slot:contact>
           <nuxt-link :to="localePath('/contacts')">{{
@@ -39,11 +38,6 @@
           <a href="https://www.pref.ibaraki.jp/index.html" target="_blank">{{
             $t('茨城県公式サイト')
           }}</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/Ibaraki_Kouhou" target="_blank"
-            >{{ $t('茨城県公式') }} Twitter</a
-          >
         </li>
       </ul>
       <p>
@@ -207,22 +201,22 @@
         }}
       </p>
     </static-card>
-    <!-- <static-card>
+    <static-card>
       <h3>{{ $t('データについて') }}</h3>
       <i18n
         tag="p"
-        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
+        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。"
       >
         <template v-slot:catalogWebsite>
           <external-link
-            url="https://portal.data.metro.tokyo.lg.jp/"
+            url="https://opendata.a01sa01to.com/covid19_ibaraki/"
             :icon-size="16"
           >
-            {{ $t('茨城県オープンデータカタログサイト') }}
+            {{ $t('当サイト管理者によるオープンデータカタログ') }}
           </external-link>
         </template>
       </i18n>
-    </static-card> -->
+    </static-card>
     <static-card>
       <h3>{{ $t('ソースコードについて') }}</h3>
       <p>
