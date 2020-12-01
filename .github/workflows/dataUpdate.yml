@@ -359,11 +359,6 @@ jobs:
         working-directory: ./data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-      - name: Download tsuchiuraSakura.json
-        run: 'curl ${DATA_UPDATE_URL}?data=tsuchiuraSakura -L -o tsuchiuraSakura.json'
-        working-directory: ./data/roller
-        env:
-          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Download Last Update time
         run: 'curl ${DATA_UPDATE_URL}?data=last_update -L -o last_update.json'
         working-directory: ./opendata
