@@ -22,7 +22,7 @@ with open(os.path.join("data/data.json"), encoding=ENCODING) as file:
   lastUpdate = json_content["lastUpdate"]
   print("更新日時: "+lastUpdate+"\n")
 
-status="#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。\n{}更新\nhttps://ibaraki.stopcovid19.jp/".format(lastUpdate)
+status="#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。\n{}更新\nhttps://ibaraki.stopcovid19.jp/\n\n※反映には少し時間がかかります。".format(lastUpdate)
 
 print("TWEET MESSAGE\n----------\n"+status+"\n----------")
 
