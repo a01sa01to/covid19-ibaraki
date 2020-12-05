@@ -10,7 +10,19 @@
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/hassei.html'"
       :source="$t('県公式サイトで見る')"
       :custom-sort="customSort"
-    />
+    >
+      <template v-slot:description>
+        <ul>
+          <li>
+            {{
+              $t(
+                '997-1054例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある'
+              )
+            }}
+          </li>
+        </ul>
+      </template>
+    </data-table>
   </v-col>
 </template>
 
