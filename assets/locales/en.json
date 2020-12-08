@@ -630,5 +630,7 @@
   "茨城県新型コロナ オープンデータ（非公式）": "Ibaraki COVID-19 open data (unofficial)",
   "本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。": "The data published on this site are freely available for anyone to download from {catalogWebsite}.",
   "11月28日まで実施": "Ran through November 28.",
-  "当サイト管理者によるオープンデータカタログ": "open data catalog by the site administrator"
+  "当サイト管理者によるオープンデータカタログ": "open data catalog by the site administrator",
+  "997-1054例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For the 997-1054th case, only a summary has been published, so age and gender may be different",
+  "1720-1777例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For the 1720-1777th case, only a summary has been published, so age and gender may be different"
 }
