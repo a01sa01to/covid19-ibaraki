@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/en/cards/number-of-inspection-persons", {data:[{}],fetch:[],mutations:void 0});
