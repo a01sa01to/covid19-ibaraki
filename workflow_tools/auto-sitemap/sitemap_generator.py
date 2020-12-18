@@ -33,7 +33,7 @@ datenow = datetime.datetime.now()
 PATHS = {
   "/": data_json["lastUpdate"],
   "/cards/details-of-confirmed-cases": data_json["main_summary"]["children"][0]["date"],
-  "/cards/ibaraki-city-map-table": data_json["patients"]["date"],
+  "/cards/ibaraki-graphical-map": data_json["patients"]["date"],
   "/cards/ibaraki-corona-next": data_json["ibk_corona_next"]["date"],
   "/cards/number-of-tested": data_json["inspections_summary"]["date"],
   "/cards/roller/mito": "2020/08/21 23:59",
@@ -49,7 +49,7 @@ WAVEPATHS = {
   "attributes-of-confirmed-cases": data_json["patients"]["date"],
   "number-of-reports-to-covid19-telephone-advisory-center": data_json["contacts"]["date"],
   "number-of-inspection-persons": data_json["inspection_persons"]["date"],
-  "ibaraki-city-table": data_json["patients"]["date"],
+  "number-of-confirmed-cases-by-municipalities": data_json["patients"]["date"],
   "number-of-recovered": data_json["recovered_summary"]["date"],
   "number-of-deaths": data_json["deaths_summary"]["date"],
   "positive-rate":data_json["positiveRate"]["date"],

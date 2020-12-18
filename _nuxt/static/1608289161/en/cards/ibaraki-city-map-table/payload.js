@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/en/cards/ibaraki-city-map-table", {data:[{}],fetch:[],mutations:void 0});

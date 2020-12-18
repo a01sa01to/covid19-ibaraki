@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/cards/wave3/ibaraki-city-table", {data:[{}],fetch:[],mutations:void 0});
