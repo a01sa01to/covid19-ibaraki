@@ -1,21 +1,23 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
-      :title="$t('死亡者数（第2波）')"
-      :title-id="'wave2/number-of-deaths'"
-      :chart-id="'time-bar-chart-deaths'"
-      :chart-data="deathsGraph"
-      :date="Data.deaths_summary.date"
-      :unit="$t('人')"
-      :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/0401d.html'"
-    />
+    <client-only>
+      <time-bar-chart
+        :title="$t('死亡者数（第2波）')"
+        :title-id="'wave2/number-of-deaths'"
+        :chart-id="'wave2-time-bar-chart-deaths'"
+        :chart-data="deathsGraph"
+        :date="Data.deaths_summary.date"
+        :unit="$t('人')"
+        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/death_number'"
+      />
+    </client-only>
   </v-col>
 </template>
 
 <script>
+import TimeBarChart from '@/components/TimeBarChart.vue'
 import Data from '@/data/data_wave2.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {

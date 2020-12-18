@@ -1,5 +1,5 @@
+import type { NuxtVueI18n } from 'nuxt-i18n'
 import { LinkPropertyHref } from 'vue-meta'
-import { NuxtVueI18n } from 'nuxt-i18n'
 
 export const getLinksLanguageAlternative = (
   routeBaseName: string,
@@ -10,9 +10,9 @@ export const getLinksLanguageAlternative = (
   const getFullPathWihLocale = (locale: string) => {
     const pathLocale = locale === 'ja' ? '' : `/${locale}`
     if (routeBaseName === 'index') {
-      return `https://stopcovid19.metro.tokyo.lg.jp${pathLocale}`
+      return `https://ibaraki.stopcovid19.jp${pathLocale}`
     } else {
-      return `https://stopcovid19.metro.tokyo.lg.jp${pathLocale}/${routeBaseName}`
+      return `https://ibaraki.stopcovid19.jp${pathLocale}/${routeBaseName}`
     }
   }
 

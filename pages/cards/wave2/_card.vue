@@ -6,31 +6,30 @@
 </template>
 
 <script>
-import ConfirmedCasesNumberCard from '@/components/wave2/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/wave2/ConfirmedCasesAttributesCard.vue'
-import IbarakiCityCard from '@/components/wave2/IbarakiCityMapCard.vue'
-import InspectionPersonsNumberCard from '@/components/wave2/InspectionPersonsNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/wave2/TelephoneAdvisoryReportsNumberCard.vue'
-import RecoveredCard from '@/components/wave2/RecoveredCard.vue'
+import ConfirmedCasesByAgeCard from '@/components/wave2/ConfirmedCasesByAgeCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/wave2/ConfirmedCasesByMunicipalitiesCard.vue'
+import ConfirmedCasesNumberCard from '@/components/wave2/ConfirmedCasesNumberCard.vue'
 import DeathsCard from '@/components/wave2/DeathsCard.vue'
+import InspectionPersonsNumberCard from '@/components/wave2/InspectionPersonsNumberCard.vue'
 import PositiveRateCard from '@/components/wave2/PositiveRateCard.vue'
-import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/wave2/ConfirmedCasesIncreaseRatioByWeekCard.vue'
-import ConfirmedCasesByAge from '@/components/wave2/ConfirmedCasesByAge.vue'
+import RecoveredCard from '@/components/wave2/RecoveredCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/wave2/TelephoneAdvisoryReportsNumberCard.vue'
 import UntrackedRateCard from '@/components/wave2/UntrackedRateCard.vue'
 import ErrorCard from '@/layouts/error.vue'
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
     PositiveRateCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    IbarakiCityCard,
+    ConfirmedCasesByMunicipalitiesCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
-    ConfirmedCasesIncreaseRatioByWeekCard,
-    ConfirmedCasesByAge,
+    ConfirmedCasesByAgeCard,
     UntrackedRateCard,
     ErrorCard,
   },
@@ -50,8 +49,8 @@ export default {
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
         break
-      case 'ibaraki-city-table':
-        cardComponent = 'ibaraki-city-card'
+      case 'number-of-confirmed-cases-by-municipalities':
+        cardComponent = 'confirmed-cases-by-municipalities-card'
         break
       case 'number-of-recovered':
         cardComponent = 'recovered-card'
@@ -62,11 +61,8 @@ export default {
       case 'positive-rate':
         cardComponent = 'positive-rate-card'
         break
-      case 'increase-ratio-of-confirmed-cases-by-daily':
-        cardComponent = 'confirmed-cases-increase-ratio-by-week-card'
-        break
       case 'number-of-confirmed-cases-by-age':
-        cardComponent = 'confirmed-cases-by-age'
+        cardComponent = 'confirmed-cases-by-age-card'
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
@@ -100,11 +96,11 @@ export default {
     return {
       titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
       link: [
-        // ...getLinksLanguageAlternative(
-        `cards/wave2/${this.$route.params.card}`,
-        // this.$i18n.locales,
-        // this.$i18n.defaultLocale
-        // )
+        ...getLinksLanguageAlternative(
+          `cards/wave2/${this.$route.params.card}`,
+          this.$i18n.locales,
+          this.$i18n.defaultLocale
+        ),
       ],
       meta: [
         {
@@ -115,21 +111,28 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: (title) => `${this.title || title} | ${defaultTitle}`,
+          template: (title) =>
+            title !== ''
+              ? `${this.title || title} | ${defaultTitle}`
+              : `${defaultTitle}`,
           content: '',
         },
         {
           hid: 'description',
           name: 'description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {

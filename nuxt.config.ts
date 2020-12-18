@@ -1,11 +1,14 @@
 import { NuxtConfig } from '@nuxt/types'
+
 import i18n from './nuxt-i18n.config'
-const purgecss = require('@fullhuman/postcss-purgecss')
-const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
-  mode: 'universal',
+  // Since nuxt@2.14.5, there have been significant changes.
+  // We dealt with typical two (2) out of them:
+  // 1) The "mode:" directive got deprecated (seen right below);
+  // 2) Autoprefixer has been included so that we can lessen upgrade burden.
+  // mode: 'universal',
   target: 'static',
   /*
    ** Headers of the page
@@ -56,7 +59,7 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: ['~assets/global.scss'],
+  css: ['@/assets/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -69,10 +72,6 @@ const config: NuxtConfig = {
       src: '@/plugins/axe',
       ssr: true,
     },
-    {
-      src: '@/plugins/vuetify.ts',
-      ssr: true,
-    },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -82,6 +81,8 @@ const config: NuxtConfig = {
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/gtm',
+    'nuxt-purgecss',
   ],
   /*
    ** Nuxt.js modules
@@ -92,22 +93,38 @@ const config: NuxtConfig = {
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
-    'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['@/assets/variables.scss'],
+    optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
-    defaultAssets: {
-      icons: false,
+    defaultAssets: false,
+  },
+  /*
+   * Webfontloader
+   * https://github.com/Developmint/nuxt-webfontloader
+   */
+  webfontloader: {
+    google: {
+      families: ['Roboto:100,300,400,500,700,900&display=swap'],
     },
   },
   googleAnalytics: {
     id: 'UA-142148155-4',
+  },
+  /*
+   ** @nuxtjs/gtm config
+   */
+  gtm: {
+    id: process.env.GTM_CONTAINER_ID,
+    pageTracking: true,
+    enabled: true,
   },
   /*
    * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
@@ -125,27 +142,40 @@ const config: NuxtConfig = {
   ], */
   build: {
     postcss: {
-      plugins: [
-        autoprefixer({ grid: 'autoplace' }),
-        purgecss({
-          content: [
-            './pages/**/*.vue',
-            './layouts/**/*.vue',
-            './components/**/*.vue',
-            './node_modules/vuetify/dist/vuetify.js',
-            './node_modules/vue-spinner/src/ScaleLoader.vue',
-          ],
-          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-          whitelistPatterns: [/(col|row)/],
-        }),
-      ],
+      preset: {
+        autoprefixer: {
+          // Built-in since nuxt@2.14.5
+          grid: 'autoplace',
+        },
+      },
     },
-    extend(config: { externals: { moment: string }[] }) {
+    extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     hardSource: process.env.NODE_ENV === 'development',
+    html: {
+      minify: {
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true,
+      },
+    },
+  },
+  purgeCSS: {
+    paths: [
+      './node_modules/vuetify/dist/vuetify.js',
+      './node_modules/vue-spinner/src/ScaleLoader.vue',
+    ],
+    whitelist: ['DataCard', 'GraphLegend'],
+    whitelistPatterns: [/(col|row)/],
   },
   manifest: {
     name: '茨城県新型コロナウイルス感染症対策サイト',
@@ -159,15 +189,15 @@ const config: NuxtConfig = {
   generate: {
     fallback: true,
     routes() {
-      const locales = ['ja', 'en', 'ja-basic']
+      const locales = ['en', 'ja-basic']
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        '/cards/ibaraki-city-table',
-        '/cards/ibaraki-city-map-table',
+        '/cards/number-of-confirmed-cases-by-municipalities',
+        '/cards/ibaraki-graphical-map',
         '/cards/number-of-recovered',
         '/cards/number-of-deaths',
         '/cards/ibaraki-corona-next',
@@ -185,11 +215,10 @@ const config: NuxtConfig = {
         'attributes-of-confirmed-cases',
         'number-of-inspection-persons',
         'number-of-reports-to-covid19-telephone-advisory-center',
-        'ibaraki-city-table',
+        'number-of-confirmed-cases-by-municipalities',
         'number-of-recovered',
         'number-of-deaths',
         'positive-rate',
-        'increase-ratio-of-confirmed-cases-by-daily',
         'number-of-confirmed-cases-by-age',
         'untracked-rate',
       ]
@@ -200,18 +229,10 @@ const config: NuxtConfig = {
         }
       }
 
-      const routes: string[] = []
-      locales.forEach((locale) => {
-        pages.forEach((page) => {
-          if (locale === 'ja') {
-            routes.push(page)
-            return
-          }
-          const route = `/${locale}${page}`
-          routes.push(route)
-        })
-      })
-      return routes
+      const localizedPages = locales
+        .map((locale) => pages.map((page) => `/${locale}${page}`))
+        .reduce((a, b) => [...a, ...b], [])
+      return [...pages, ...localizedPages]
     },
   },
   // /*
@@ -221,6 +242,9 @@ const config: NuxtConfig = {
     webpack: {
       poll: true,
     },
+  },
+  router: {
+    middleware: ['redirect'],
   },
 }
 

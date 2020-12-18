@@ -1,25 +1,32 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <external-link
-      url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/handanshihyo.html"
+    <app-link
+      to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/handanshihyo.html"
     >
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
       >
-        mdi-bullhorn
+        {{ mdiBullhorn }}
       </v-icon>
       {{ $t('茨城県緊急事態措置について') }}
-    </external-link>
+    </app-link>
   </span>
 </template>
 
 <script lang="ts">
+import { mdiBullhorn } from '@mdi/js'
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { AppLink },
+  data() {
+    return {
+      mdiBullhorn,
+    }
+  },
 })
 </script>
 

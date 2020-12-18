@@ -5,7 +5,7 @@
         <img
           src="/logo.svg"
           alt="茨城県"
-          style="width: 100px; max-height: 100%;"
+          style="width: 100px; max-height: 100%"
         />
         <scale-loader color="#003FAB" />
       </div>
@@ -15,8 +15,8 @@
         <side-navigation
           :is-navi-open="isOpenNavigation"
           :class="{ open: isOpenNavigation }"
-          @openNavi="openNavigation"
-          @closeNavi="hideNavigation"
+          @open-navigation="openNavigation"
+          @close-navigation="closeNavigation"
         />
       </div>
       <main class="mainContainer" :class="{ open: isOpenNavigation }">
@@ -37,12 +37,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo, LinkPropertyHref } from 'vue-meta'
+import { LinkPropertyHref, MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import Data from '@/data/data.json'
-import SideNavigation from '@/components/SideNavigation.vue'
-import NoScript from '@/components/NoScript.vue'
+
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
+import NoScript from '@/components/NoScript.vue'
+import SideNavigation from '@/components/SideNavigation.vue'
+import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
@@ -74,24 +75,6 @@ export default Vue.extend({
       isOpenNavigation: false,
     }
   },
-  mounted() {
-    this.loading = false
-    this.getMatchMedia().addListener(this.hideNavigation)
-  },
-  beforeDestroy() {
-    this.getMatchMedia().removeListener(this.hideNavigation)
-  },
-  methods: {
-    openNavigation(): void {
-      this.isOpenNavigation = true
-    },
-    hideNavigation(): void {
-      this.isOpenNavigation = false
-    },
-    getMatchMedia(): MediaQueryList {
-      return window.matchMedia('(min-width: 601px)')
-    },
-  },
   head(): MetaInfo {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
     const ogLocale =
@@ -113,6 +96,8 @@ export default Vue.extend({
         this.$i18n.defaultLocale
       )
     }
+
+    const { lastUpdate } = Data
 
     return {
       htmlAttrs,
@@ -136,7 +121,7 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(Data.lastUpdate),
+            date: convertDateToSimpleFormat(lastUpdate),
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
           )}`,
@@ -189,6 +174,24 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  mounted() {
+    this.loading = false
+    this.getMatchMedia().addListener(this.closeNavigation)
+  },
+  beforeDestroy() {
+    this.getMatchMedia().removeListener(this.closeNavigation)
+  },
+  methods: {
+    openNavigation(): void {
+      this.isOpenNavigation = true
+    },
+    closeNavigation(): void {
+      this.isOpenNavigation = false
+    },
+    getMatchMedia(): MediaQueryList {
+      return window.matchMedia('(min-width: 601px)')
+    },
   },
 })
 </script>

@@ -1,117 +1,131 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-view
-      :title="$t('検査実施件数（全体）')"
-      :title-id="'number-of-tested'"
-      :date="data.date"
-    >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{ $t('同一の対象者について複数の検体を検査する場合がある') }}
-          </li>
-          <li>
-            {{
-              $t(
-                '県公式情報がほとんど更新されないため、このデータは更新の頻度が低い'
-              )
-            }}
-          </li>
-          <li>
-            {{ $t('端数の関係上、合計しても必ずしも100%とはならない') }}
-          </li>
-          <li>
-            {{
-              $t('{date} 時点でのデータである', {
-                date: `${updDate.getMonth() + 1}/${updDate.getDate()}`,
-              })
-            }}
-          </li>
-        </ul>
-      </template>
-      <div>
-        <ul>
-          <li :class="[$style.box]">
-            <div :class="[$style.content]">
-              <span>{{ $t('合計') }}</span>
-              <span>
-                <strong>{{ total.number.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('件') }}</span>
-                <div style="width: fit-content; margin-left: 10px;">
-                  <span :class="$style.unit">全体での陽性率</span>
+    <client-only>
+      <data-view
+        :title="$t('検査実施件数（全体）')"
+        :title-id="'number-of-tested'"
+        :date="date"
+      >
+        <template #description>
+          <ul>
+            <li>
+              {{ $t('同一の対象者について複数の検体を検査する場合がある') }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '県公式情報がほとんど更新されないため、このデータは更新の頻度が低い'
+                )
+              }}
+            </li>
+            <li>
+              {{ $t('端数の関係上、合計しても必ずしも100%とはならない') }}
+            </li>
+            <li>
+              {{
+                $t('{date} 時点でのデータである', {
+                  date: $d(new Date(date), 'dateWithoutYear'),
+                })
+              }}
+            </li>
+          </ul>
+        </template>
+        <div>
+          <ul>
+            <li :class="[$style.box]">
+              <div :class="[$style.content]">
+                <span>{{ $t('合計') }}</span>
+                <span>
+                  <strong>{{ total.number.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('件') }}</span>
+                  <div style="width: fit-content; margin-left: 10px">
+                    <span :class="$style.unit">{{ $t('全体での陽性率') }}</span>
+                    <strong>{{
+                      ((total.positive / total.number) * 100).toFixed(2)
+                    }}</strong>
+                    <span :class="$style.unit">%</span>
+                  </div>
+                </span>
+              </div>
+            </li>
+            <li v-for="(dt, i) in graphData" :key="i" :class="[$style.box]">
+              <div :class="[$style.content, $style.top]">
+                <span>{{ $t(dt.label) }}</span>
+                <span>
+                  <strong>{{ dt.transition.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('件') }}</span>
+                  <div>
+                    (<strong>{{
+                      ((dt.transition / total.number) * 100).toFixed(2)
+                    }}</strong>
+                    <span :class="$style.unit">%</span>)
+                  </div>
+                </span>
+              </div>
+              <div :class="[$style.content, $style.br]">
+                <span>{{ $t('確認された陽性者の数') }}</span>
+                <span>
+                  <strong>{{ dt.positive.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('件') }}</span>
+                </span>
+                <div>
+                  <span :class="$style.unit">{{ $t('陽性率') }}</span>
                   <strong>{{
-                    ((total.positive / total.number) * 100).toFixed(2)
+                    ((dt.positive / dt.transition) * 100).toFixed(2)
                   }}</strong>
                   <span :class="$style.unit">%</span>
                 </div>
-              </span>
-            </div>
-          </li>
-          <li v-for="(dt, i) in graphData" :key="i" :class="[$style.box]">
-            <div :class="[$style.content, $style.top]">
-              <span>{{ $t(dt.label) }}</span>
-              <span>
-                <strong>{{ dt.transition.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('件') }}</span>
-                <div>
-                  (<strong>{{
-                    ((dt.transition / total.number) * 100).toFixed(2)
-                  }}</strong>
-                  <span :class="$style.unit">%</span>)
-                </div>
-              </span>
-            </div>
-            <div :class="[$style.content, $style.br]">
-              <span>{{ $t('確認された陽性者の数') }}</span>
-              <span>
-                <strong>{{ dt.positive.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('件') }}</span>
-              </span>
-              <div>
-                <span :class="$style.unit">陽性率</span>
-                <strong>{{
-                  ((dt.positive / dt.transition) * 100).toFixed(2)
-                }}</strong>
-                <span :class="$style.unit">%</span>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <horizontal-bar-chart
-        :chart-id="'horizontal-chart-inspections'"
-        :chart-data="graphData"
-      />
-      <template v-slot:infoPanel>
-        <data-view-basic-info-panel
-          :l-text="total.number.toLocaleString()"
-          :s-text="$t('検査実施件数 合計')"
-          :unit="$t('件')"
+            </li>
+          </ul>
+        </div>
+        <horizontal-bar-chart
+          :chart-id="'horizontal-chart-inspections'"
+          :chart-data="graphData"
         />
-      </template>
-    </data-view>
+        <template #infoPanel>
+          <data-view-data-set-panel
+            :l-text="info.lText"
+            :s-text="info.sText"
+            :unit="$t('件')"
+          />
+        </template>
+        <template #footer>
+          <open-data-link
+            v-show="
+              'https://opendata.a01sa01to.com/covid19_ibaraki/inspections_summary'
+            "
+            :url="'https://opendata.a01sa01to.com/covid19_ibaraki/inspections_summary'"
+          />
+        </template>
+      </data-view>
+    </client-only>
   </v-col>
 </template>
 
 <script>
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import Data from '@/data/data.json'
-import HorizontalBarChart from '@/components/HorizontalBarChart.vue'
+
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
+import HorizontalBarChart from '@/components/HorizontalBarChart.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
+import Data from '@/data/data.json'
 dayjs.extend(duration)
 
 export default {
   components: {
     HorizontalBarChart,
     DataView,
-    DataViewBasicInfoPanel,
+    OpenDataLink,
+    DataViewDataSetPanel,
   },
   data() {
+    const inspectionsSummary = Data.inspections_summary
+    const { date, datasets } = inspectionsSummary
+
     // 検査実施日別状況
-    const data = Data.inspections_summary
-    const datasets = data.datasets
 
     const graphData = []
 
@@ -130,14 +144,19 @@ export default {
       })
     }
 
-    const updDate = new Date(data.updDate)
+    const info = {
+      lText: total.number.toLocaleString(),
+      sText: this.$t('{date}の累計', {
+        date: this.$d(new Date(date), 'dateWithoutYear'),
+      }),
+    }
 
     return {
-      data,
+      date,
+      info,
       datasets,
       total,
       graphData,
-      updDate,
     }
   },
 }

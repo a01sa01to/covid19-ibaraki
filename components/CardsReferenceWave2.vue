@@ -3,8 +3,6 @@
     <card-row class="DataBlock">
       <!-- 新規患者に関する報告件数の推移 -->
       <confirmed-cases-number-card />
-      <!-- 週単位の陽性者増加比 -->
-      <confirmed-cases-increase-ratio-by-week-card />
       <!-- 経路不明者 -->
       <untracked-rate-card />
       <!-- 陽性患者の属性 -->
@@ -14,9 +12,9 @@
       <!-- 死亡者数 -->
       <deaths-card />
       <!-- 市町村別患者数 -->
-      <ibaraki-city-map-card />
+      <confirmed-cases-by-municipalities-card />
       <!-- 年代別患者数 -->
-      <confirmed-cases-by-age />
+      <confirmed-cases-by-age-card />
       <!-- 検査陽性率 -->
       <positive-rate-card />
       <!-- 検査実施人数（県） -->
@@ -29,17 +27,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import CardRow from '@/components/cards/CardRow.vue'
-import ConfirmedCasesNumberCard from '@/components/wave2/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/wave2/ConfirmedCasesAttributesCard.vue'
-import IbarakiCityMapCard from '@/components/wave2/IbarakiCityMapCard.vue'
-import InspectionPersonsNumberCard from '@/components/wave2/InspectionPersonsNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/wave2/TelephoneAdvisoryReportsNumberCard.vue'
-import RecoveredCard from '@/components/wave2/RecoveredCard.vue'
+import ConfirmedCasesByAgeCard from '@/components/wave2/ConfirmedCasesByAgeCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/wave2/ConfirmedCasesByMunicipalitiesCard.vue'
+import ConfirmedCasesNumberCard from '@/components/wave2/ConfirmedCasesNumberCard.vue'
 import DeathsCard from '@/components/wave2/DeathsCard.vue'
+import InspectionPersonsNumberCard from '@/components/wave2/InspectionPersonsNumberCard.vue'
 import PositiveRateCard from '@/components/wave2/PositiveRateCard.vue'
-import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/wave2/ConfirmedCasesIncreaseRatioByWeekCard.vue'
-import ConfirmedCasesByAge from '@/components/wave2/ConfirmedCasesByAge.vue'
+import RecoveredCard from '@/components/wave2/RecoveredCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/wave2/TelephoneAdvisoryReportsNumberCard.vue'
 import UntrackedRateCard from '@/components/wave2/UntrackedRateCard.vue'
 
 export default Vue.extend({
@@ -47,14 +45,13 @@ export default Vue.extend({
     CardRow,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    IbarakiCityMapCard,
+    ConfirmedCasesByMunicipalitiesCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
     PositiveRateCard,
-    ConfirmedCasesIncreaseRatioByWeekCard,
-    ConfirmedCasesByAge,
+    ConfirmedCasesByAgeCard,
     UntrackedRateCard,
   },
 })

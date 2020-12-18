@@ -162,8 +162,8 @@ Please use the following naming rules for the branch when sending a Pull Request
 | Production site HTML | production | https://ibaraki.stopcovid19.jp | Location where statically built HTML is located |
 | Development site HTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | Where to find statically built HTML |
 
-## About the badge on the top of README .md
- - ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) Deploy
- - [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) Build by CircleCI
- - ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) Dependabot
- - [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io) Mergify
+---
+
+### 6. Data
+
+* `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9). This file is periodically updated and its data is managed by the Tokyo Metropolitan Government. See [this issue comment](https://github.com/tokyo-metropolitan-gov/covid19/issues/1207#issuecomment-664172525) for more details.

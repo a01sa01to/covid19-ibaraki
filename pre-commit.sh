@@ -5,13 +5,6 @@ unchangeable_files=(
   ^assets/locales/ja.json
   ^assets/locales/en.json
   ^assets/locales/ja-Hira.json
-  ^assets/locales/ko.json
-  ^assets/locales/pt_BR.json
-  ^assets/locales/th.json
-  ^assets/locales/vi.json
-  ^assets/locales/zh_CN.json
-  ^assets/locales/zh_TW.json
-  ^data/cities.json
 )
 
 containsElement () {

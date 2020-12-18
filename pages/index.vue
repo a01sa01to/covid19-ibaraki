@@ -1,7 +1,7 @@
 <template>
   <div>
     <site-top-upper />
-    <v-tabs v-model="tab">
+    <v-tabs v-model="tab" hide-slider>
       <v-tab
         v-for="(item, i) in items"
         :key="i"
@@ -9,9 +9,7 @@
         :href="`#tab-${i}`"
         @click="change"
       >
-        <v-icon class="TabIcon">
-          mdi-chart-timeline-variant
-        </v-icon>
+        <v-icon class="TabIcon">{{ mdiChartTimelineVariant }}</v-icon>
         {{ item.label }}
       </v-tab>
       <v-tabs-items v-model="tab" touchless>
@@ -24,14 +22,16 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
-import SiteTopUpper from '@/components/SiteTopUpper.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
+
 import CardsReference from '@/components/CardsReference.vue'
+import CardsReferenceRoller from '@/components/CardsReferenceRoller.vue'
 import CardsReferenceWave1 from '@/components/CardsReferenceWave1.vue'
 import CardsReferenceWave2 from '@/components/CardsReferenceWave2.vue'
 import CardsReferenceWave3 from '@/components/CardsReferenceWave3.vue'
-import CardsReferenceRoller from '@/components/CardsReferenceRoller.vue'
+import SiteTopUpper from '@/components/SiteTopUpper.vue'
+import StaticInfo from '@/components/StaticInfo.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 export default Vue.extend({
@@ -53,6 +53,7 @@ export default Vue.extend({
         { label: this.$t('第2波'), component: CardsReferenceWave2 },
         { label: this.$t('第3波'), component: CardsReferenceWave3 },
       ],
+      mdiChartTimelineVariant,
     }
   },
   methods: {
@@ -65,9 +66,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .v-slide-group__content {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
   background: $gray-5;
   border-bottom: 1px solid $gray-2;
 }

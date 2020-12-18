@@ -1,253 +1,266 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-view
-      :title="$t('茨城版コロナNext')"
-      :title-id="'ibaraki-corona-next'"
-      :date="Data.ibk_corona_next.date"
-    >
-      <template v-slot:button>
-        <ul :class="$style.note">
-          <li>{{ $t('各値は直近1週間の平均値') }}</li>
-        </ul>
-        <ul :class="$style.container">
-          <li style="width: 100%; list-style: none;">
-            <div
-              :class="$style.content"
-              style="display: block; min-height: fit-content;"
-            >
-              <span>
-                {{ $t('現在の対策状況：') }}
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ Data.ibk_corona_next.stage }}</strong>
-              </span>
-            </div>
-          </li>
-        </ul>
-        <table class="ibkCoronaNext">
-          <thead>
-            <tr>
-              <th colspan="2" style="background-color: #d9d9d9;">
-                {{ $t('県内の医療提供体制') }}
-              </th>
-              <th colspan="1" style="background-color: #98d6a4;">
-                {{ $t('都内の感染状況') }}
-              </th>
-            </tr>
-            <tr>
-              <th>{{ $t('重症病床稼働率') }}</th>
-              <th>{{ $t('病床稼働率') }}</th>
-              <th>{{ $t('1日当たりの経路不明陽性者数') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <strong>{{ patients.pillar.toFixed(1) }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-              <td>
-                <strong>{{ patients.sickbed.toFixed(1) }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-              <td>
-                <strong>{{ avg.tokyo.toFixed(1) }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span
-                  :class="['stageMark', 'MarkSmall', `stage${stage.pillar}`]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.pillar.toLocaleString() }}</strong>
-              </td>
-              <td>
-                <span
-                  :class="['stageMark', 'MarkSmall', `stage${stage.sickbed}`]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.sickbed.toLocaleString() }}</strong>
-              </td>
-              <td>
-                <span
-                  :class="['stageMark', 'MarkSmall', `stage${stage.tokyo}`]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.tokyo.toLocaleString() }}</strong>
-              </td>
-            </tr>
-            <tr :class="$style.additionalData">
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.pillar }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.sickbed }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.tokyo }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-            </tr>
-            <tr :class="$style.additionalData">
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.pillar }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.sickbed }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.tokyo }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="ibkCoronaNext">
-          <thead>
-            <tr>
-              <th colspan="3" style="background-color: #99a8e0;">
-                {{ $t('県内の感染状況') }}
-              </th>
-            </tr>
-            <tr>
-              <th>{{ $t('1日当たりの陽性者数') }}</th>
-              <th>{{ $t('陽性者のうち濃厚接触者以外の数') }}</th>
-              <th>{{ $t('陽性率') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <strong>{{ avg.new_patients.toFixed(1) }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-              <td>
-                <strong>{{ avg.non_closecontact.toFixed(1) }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-              <td>
-                <strong>{{ patients.rate.toFixed(1) }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span
-                  :class="[
-                    'stageMark',
-                    'MarkSmall',
-                    `stage${stage.new_patients}`,
-                  ]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.new_patients.toLocaleString() }}</strong>
-              </td>
-              <td>
-                <span
-                  :class="[
-                    'stageMark',
-                    'MarkSmall',
-                    `stage${stage.non_closecontact}`,
-                  ]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
-              </td>
-              <td>
-                <span
-                  :class="['stageMark', 'MarkSmall', `stage${stage.rate}`]"
-                />
-                <span :class="$style.unit">Stage</span>
-                <strong>{{ stage.rate.toLocaleString() }}</strong>
-              </td>
-            </tr>
-            <tr :class="$style.additionalData">
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.new_patients }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.non_closecontact }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-              </td>
-              <td>
-                <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
-                <strong>{{ deltaStr.rate }}</strong>
-                <span :class="$style.unit">%</span>
-              </td>
-            </tr>
-            <tr :class="$style.additionalData">
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.new_patients }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.non_closecontact }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-              <td>
-                <span :class="$style.delta" />
-                <strong>{{ updDate.rate }}</strong>
-                <span :class="$style.unit"> 時点</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-        <p :class="$style.note">
-          {{ $t('（参考）茨城版コロナNextにおけるStage指標') }}
-        </p>
-        <table class="stageTable ibkCoronaNext">
-          <tbody>
-            <tr>
-              <td><span class="stageMark stage1" /></td>
-              <td>Stage 1</td>
-              <td>{{ $t('感染を抑制できている状態') }}</td>
-            </tr>
-            <tr>
-              <td><span class="stageMark stage2" /></td>
-              <td>Stage 2</td>
-              <td>{{ $t('感染を概ね抑制できている状態') }}</td>
-            </tr>
-            <tr>
-              <td><span class="stageMark stage3" /></td>
-              <td>Stage 3</td>
-              <td>{{ $t('感染が拡大している状態') }}</td>
-            </tr>
-            <tr>
-              <td><span class="stageMark stage4" /></td>
-              <td>Stage 4</td>
-              <td>{{ $t('感染爆発・医療崩壊のリスクが高い状態') }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </template>
-    </data-view>
+    <client-only>
+      <data-view
+        :title="$t('茨城版コロナNext')"
+        :title-id="'ibaraki-corona-next'"
+        :date="Data.ibk_corona_next.date"
+        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/corona_next'"
+      >
+        <template #button>
+          <ul :class="$style.note">
+            <li>{{ $t('各値は直近1週間の平均値') }}</li>
+          </ul>
+          <ul :class="$style.container">
+            <li style="width: 100%; list-style: none">
+              <div
+                :class="$style.content"
+                style="display: block; min-height: fit-content"
+              >
+                <span>
+                  {{ $t('現在の対策状況：') }}
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ Data.ibk_corona_next.stage }}</strong>
+                </span>
+              </div>
+            </li>
+          </ul>
+          <table class="ibkCoronaNext">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color: #d9d9d9">
+                  {{ $t('県内の医療提供体制') }}
+                </th>
+                <th colspan="1" style="background-color: #98d6a4">
+                  {{ $t('都内の感染状況') }}
+                </th>
+              </tr>
+              <tr>
+                <th>{{ $t('重症病床稼働率') }}</th>
+                <th>{{ $t('病床稼働率') }}</th>
+                <th>{{ $t('1日当たりの経路不明陽性者数') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>{{ patients.pillar.toFixed(1) }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+                <td>
+                  <strong>{{ patients.sickbed.toFixed(1) }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+                <td>
+                  <strong>{{ avg.tokyo.toFixed(1) }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    :class="['stageMark', 'MarkSmall', `stage${stage.pillar}`]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.pillar.toLocaleString() }}</strong>
+                </td>
+                <td>
+                  <span
+                    :class="['stageMark', 'MarkSmall', `stage${stage.sickbed}`]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.sickbed.toLocaleString() }}</strong>
+                </td>
+                <td>
+                  <span
+                    :class="['stageMark', 'MarkSmall', `stage${stage.tokyo}`]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.tokyo.toLocaleString() }}</strong>
+                </td>
+              </tr>
+              <tr :class="$style.additionalData">
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.pillar }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.sickbed }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.tokyo }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+              </tr>
+              <tr :class="$style.additionalData">
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.pillar }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.sickbed }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.tokyo }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="ibkCoronaNext">
+            <thead>
+              <tr>
+                <th colspan="3" style="background-color: #99a8e0">
+                  {{ $t('県内の感染状況') }}
+                </th>
+              </tr>
+              <tr>
+                <th>{{ $t('1日当たりの陽性者数') }}</th>
+                <th>{{ $t('陽性者のうち濃厚接触者以外の数') }}</th>
+                <th>{{ $t('陽性率') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>{{ avg.new_patients.toFixed(1) }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+                <td>
+                  <strong>{{ avg.non_closecontact.toFixed(1) }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+                <td>
+                  <strong>{{ patients.rate.toFixed(1) }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    :class="[
+                      'stageMark',
+                      'MarkSmall',
+                      `stage${stage.new_patients}`,
+                    ]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.new_patients.toLocaleString() }}</strong>
+                </td>
+                <td>
+                  <span
+                    :class="[
+                      'stageMark',
+                      'MarkSmall',
+                      `stage${stage.non_closecontact}`,
+                    ]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
+                </td>
+                <td>
+                  <span
+                    :class="['stageMark', 'MarkSmall', `stage${stage.rate}`]"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.rate.toLocaleString() }}</strong>
+                </td>
+              </tr>
+              <tr :class="$style.additionalData">
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.new_patients }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.non_closecontact }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
+                <td>
+                  <span :class="$style.delta">{{ $t('前日比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.rate }}</strong>
+                  <span :class="$style.unit">%</span>
+                </td>
+              </tr>
+              <tr :class="$style.additionalData">
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.new_patients }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.non_closecontact }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+                <td>
+                  <span :class="$style.delta" />
+                  <strong>{{ updDate.rate }}</strong>
+                  <span :class="$style.unit"> 時点</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <p :class="$style.note">
+            {{ $t('（参考）茨城版コロナNextにおけるStage指標') }}
+          </p>
+          <table class="stageTable ibkCoronaNext">
+            <tbody>
+              <tr>
+                <td><span class="stageMark stage1" /></td>
+                <td>Stage 1</td>
+                <td>{{ $t('感染を抑制できている状態') }}</td>
+              </tr>
+              <tr>
+                <td><span class="stageMark stage2" /></td>
+                <td>Stage 2</td>
+                <td>{{ $t('感染を概ね抑制できている状態') }}</td>
+              </tr>
+              <tr>
+                <td><span class="stageMark stage3" /></td>
+                <td>Stage 3</td>
+                <td>{{ $t('感染が拡大している状態') }}</td>
+              </tr>
+              <tr>
+                <td><span class="stageMark stage4" /></td>
+                <td>Stage 4</td>
+                <td>{{ $t('感染爆発・医療崩壊のリスクが高い状態') }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </template>
+        <template #footer>
+          <open-data-link
+            v-show="
+              'https://opendata.a01sa01to.com/covid19_ibaraki/corona_next'
+            "
+            :url="'https://opendata.a01sa01to.com/covid19_ibaraki/corona_next'"
+          />
+        </template>
+      </data-view>
+    </client-only>
   </v-col>
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import DataView from '@/components/DataView.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
+import Data from '@/data/data.json'
 
 export default {
   components: {
     DataView,
+    OpenDataLink,
   },
   data() {
     const patients = Data.ibk_corona_next

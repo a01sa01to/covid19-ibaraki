@@ -18,8 +18,7 @@
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](10)群馬県|https://stopcovid19.pref.gunma.jp/|群馬県（**公式**）|[bpr-gunma/covid19](https://github.com/bpr-gunma/covid19)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
-[](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
-[](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
+[](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba（**千葉県公認**）|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
 [](12)市原市|https://covid19-ichihara.netlify.app/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)|
 [](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
@@ -43,7 +42,8 @@
 [](24)三重県|https://mie.stopcovid19.jp/|高専生チーム（有志）|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
 [](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**）|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|
 [](26)京都府|https://stopcovid19-kyoto.netlify.app/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
-[](27)大阪府|https://covid19-osaka.info/|大阪府(**公式**)|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
+[](26)京都府|https://kyoto.stopcovid19.jp/|有志|[stop-covid19-kyoto/covid19-kyoto](https://github.com/stop-covid19-kyoto/covid19-kyoto)|
+[](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
 [](30)和歌山県|https://stopcovid19.wakayama.jp/|エフエム和歌山|[sys-cube/covid19](https://github.com/sys-cube/covid19)|

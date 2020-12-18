@@ -58,7 +58,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -75,7 +75,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -109,7 +109,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -126,7 +126,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -145,7 +145,7 @@
               <dt>{{ $t('平日（日中）:') }}</dt>
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
-                  <template v-slot:publicHealthCenter>
+                  <template #publicHealthCenter>
                     <nuxt-link :to="localePath('/contacts')">{{
                       $t('各保健所の電話番号は、お問い合わせ先・県内保健所一覧')
                     }}</nuxt-link>
@@ -191,7 +191,7 @@
               <dt>{{ $t('平日（日中）:') }}</dt>
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
-                  <template v-slot:publicHealthCenter>
+                  <template #publicHealthCenter>
                     <nuxt-link :to="localePath('/contacts')">{{
                       $t('各保健所の電話番号は、お問い合わせ先・県内保健所一覧')
                     }}</nuxt-link>
@@ -278,16 +278,13 @@
       </div>
     </div>
     <div :class="$style.detail">
-      <a
-        href="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
-        target="_blank"
+      <app-link
+        to="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/20200130-corona.html"
+        :icon-size="20"
+        :icon-class="$style.icon"
         :class="$style.detailButton"
-        rel="noopener noreferrer"
-        >{{ $t('詳細を見る') }}({{ $t('県公式サイト') }})
-        <v-icon :class="$style.icon" size="2rem">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+        >{{ $t('詳細を見る（県公式サイト）') }}
+      </app-link>
     </div>
   </div>
 </template>
@@ -296,14 +293,16 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
-import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
+
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import FigCondSyDr from '@/static/flow/cond_sydr.svg'
-import FigCondSy from '@/static/flow/cond_sy.svg'
-import FigCondAnx from '@/static/flow/cond_anx.svg'
-import IconPhone from '@/static/flow/phone.svg'
+import PrinterButton from '@/components/PrinterButton.vue'
+import CovidIcon from '@/static/covid.svg'
 import IconBed from '@/static/flow/bed.svg'
+import FigCondAnx from '@/static/flow/cond_anx.svg'
+import FigCondSy from '@/static/flow/cond_sy.svg'
+import FigCondSyDr from '@/static/flow/cond_sydr.svg'
+import IconPhone from '@/static/flow/phone.svg'
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
@@ -326,12 +325,14 @@ export default Vue.extend({
     CovidIcon,
     PrinterButton,
     PageHeader,
+    AppLink,
     FigCondSyDr,
     FigCondSy,
     FigCondAnx,
     IconPhone,
     IconBed,
   },
+  middleware: 'redirect',
   data(): LocalData {
     const nav = null
     const upperTrigger = null
@@ -361,6 +362,14 @@ export default Vue.extend({
       floatingOffset,
       forceFloating,
       timerId,
+    }
+  },
+  head(): any {
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに.title'
+    )
+    return {
+      title,
     }
   },
   mounted() {
@@ -494,14 +503,6 @@ export default Vue.extend({
         }
       })
     },
-  },
-  head(): any {
-    const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに'
-    )
-    return {
-      title,
-    }
   },
 })
 </script>
@@ -691,6 +692,10 @@ $margin: 20;
     position: fixed;
     top: 0;
     z-index: 1;
+
+    .fig {
+      display: none;
+    }
   }
 }
 
@@ -934,7 +939,7 @@ $margin: 20;
       color: $white !important;
     }
 
-    > .icon {
+    .icon {
       margin-left: 2px;
       color: $green-1 !important;
     }

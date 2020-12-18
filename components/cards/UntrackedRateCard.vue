@@ -7,12 +7,12 @@
       :chart-data="graphData"
       :get-formatter="getFormatter"
       :date="updated"
-      :unit="$t('人')"
+      :unit="[$t('人'), '%']"
       :labels="dateLabels"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
     >
-      <template v-slot:description>
+      <template #description>
         <ul>
           <li>
             {{
@@ -42,7 +42,7 @@
           </li>
         </ul>
       </template>
-      <template v-slot:additionalDescription
+      <template #additionalDescription
         ><ul class="ListStyleNone">
           <li>
             {{
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
+import Data from '@/data/data.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,

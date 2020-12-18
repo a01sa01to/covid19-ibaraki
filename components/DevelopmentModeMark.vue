@@ -1,44 +1,18 @@
 <template>
   <div v-if="isDevelopmentMode" class="DevelopmentModeMark">
     開発中（development mode）
-    <a
-      href="https://ibaraki.stopcovid19.jp/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      公開サイトへ
-    </a>
+    <app-link to="https://ibaraki.stopcovid19.jp/"> 公開サイトへ </app-link>
   </div>
 </template>
 
-<style lang="scss">
-.DevelopmentModeMark {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 20px;
-  text-align: center;
-  background-color: #ffe200;
-  color: #4d4d4d;
-  line-height: 20px;
-  opacity: 0.9;
-  @include font-size(12);
-
-  // mobile view
-  @include lessThan($small) {
-    height: 40px;
-    a {
-      display: block;
-    }
-  }
-}
-</style>
-
 <script>
+import AppLink from '@/components/AppLink.vue'
+
 export default {
   name: 'DevelopmentModeMark',
+  components: {
+    AppLink,
+  },
   props: {
     value: {
       type: String,
@@ -56,3 +30,29 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.DevelopmentModeMark {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  color: #4d4d4d;
+  text-align: center;
+  background-color: #ffe200;
+  opacity: 0.9;
+  @include font-size(12);
+
+  // mobile view
+  @include lessThan($small) {
+    height: 40px;
+
+    a {
+      display: block;
+    }
+  }
+}
+</style>

@@ -1,7 +1,9 @@
 <template>
   <div class="MainPage">
     <div class="Header mb-3">
-      <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
+      <page-header :icon-path="headerItem.iconPath">{{
+        headerItem.title
+      }}</page-header>
       <div class="UpdatedAt">
         <span>{{ $t('最終更新') }}</span>
         <time :datetime="updatedAt">{{ formattedDateForDisplay }}</time>
@@ -23,7 +25,7 @@
     <cocoa-redirect-card />
     <ibaraki-amabie-redirect-card />
     <relaxation-step-card />
-    <static-card class="mb-4" style="padding: 0.5em 1em; font-size: 1.4rem;">
+    <static-card class="mb-4" style="padding: 0.5em 1em; font-size: 1.4rem">
       {{ $t('第1波は3/17～5/5の期間、') }}
       {{ $t('第2波は6/20～10/17の期間、') }}
       {{ $t('第3波は10/17～(現在)の期間を指す') }}<br />
@@ -33,15 +35,17 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
-import StaticCard from '@/components/StaticCard.vue'
-import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
+
 import CocoaRedirectCard from '@/components/CocoaRedirectCard.vue'
 import IbarakiAmabieRedirectCard from '@/components/IbarakiAmabieRedirectCard.vue'
+import PageHeader from '@/components/PageHeader.vue'
+import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
+import StaticCard from '@/components/StaticCard.vue'
+import StaticInfo from '@/components/StaticInfo.vue'
+import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -57,27 +61,29 @@ export default Vue.extend({
     IbarakiAmabieRedirectCard,
   },
   data() {
+    const { lastUpdate } = Data
+
     return {
-      Data,
       headerItem: {
-        icon: 'mdi-chart-timeline-variant',
+        iconPath: mdiChartTimelineVariant,
         title: this.$t('県内の最新感染動向'),
       },
+      lastUpdate,
       newsItems: News.newsItems,
     }
-  },
-  computed: {
-    updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
-    },
-    formattedDateForDisplay() {
-      return this.$d(new Date(Data.lastUpdate), 'dateTime')
-    },
   },
   head(): MetaInfo {
     return {
       title: this.$t('県内の最新感染動向') as string,
     }
+  },
+  computed: {
+    updatedAt() {
+      return convertDatetimeToISO8601Format(this.$data.lastUpdate)
+    },
+    formattedDateForDisplay() {
+      return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
+    },
   },
 })
 </script>
@@ -106,6 +112,7 @@ export default Vue.extend({
     @include font-size(12);
 
     color: $gray-3;
+
     @include largerThan($small) {
       margin: 0 0 0 auto;
     }

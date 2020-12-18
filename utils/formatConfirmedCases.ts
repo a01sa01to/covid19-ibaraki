@@ -1,6 +1,4 @@
 type DataType = {
-  attr: '検査実施人数'
-  value: number
   children: [
     {
       attr: '陽性者数'
@@ -50,7 +48,6 @@ type DataType = {
 }
 
 type ConfirmedCasesType = {
-  検査実施人数: number
   陽性者数: number
   療養中: number
   軽症: number
@@ -68,34 +65,9 @@ interface ChildData {
   value: number
 }
 
-interface ChildData {
-  attr: string
-  value: number
-}
-
-interface ChildData {
-  attr: string
-  value: number
-}
-
-interface ChildData {
-  attr: string
-  value: number
-}
-
-interface ChildData {
-  attr: string
-  value: number
-}
-
-interface ChildData {
-  attr: string
-  value: number
-}
-
 type ChildDataType = {
-  attr: string
-  value: number
+  attr?: string
+  value?: number
   children?: ChildData[]
 }
 

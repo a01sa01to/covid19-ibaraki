@@ -3,16 +3,16 @@
     <untracked-rate-mixed-chart
       :title="$t('感染経路不明者数推移（第2波）')"
       :title-id="'wave2/untracked-rate'"
-      :chart-id="'untracked-rate-chart'"
+      :chart-id="'wave2-untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"
       :date="updated"
-      :unit="$t('人')"
+      :unit="[$t('人'), '%']"
       :labels="dateLabels"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
     >
-      <template v-slot:description>
+      <template #description>
         <ul>
           <li>
             {{
@@ -42,7 +42,7 @@
           </li>
         </ul>
       </template>
-      <template v-slot:additionalDescription
+      <template #additionalDescription
         ><ul class="ListStyleNone">
           <li>
             {{
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import Data from '@/data/data_wave2.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
+import Data from '@/data/data_wave2.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,

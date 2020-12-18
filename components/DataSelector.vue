@@ -25,36 +25,6 @@
   </v-btn-toggle>
 </template>
 
-<style lang="scss">
-.DataSelector {
-  margin-top: 20px;
-  border: 1px solid $gray-4;
-  background-color: $white;
-  &-Button {
-    border: none !important;
-    margin: 2px;
-    border-radius: 4px !important;
-    height: 24px !important;
-    color: $gray-1 !important;
-    background-color: $white !important;
-    @include font-size(12, true);
-
-    &::before {
-      background-color: inherit;
-    }
-
-    &:focus {
-      outline: dotted $gray-3 1px;
-    }
-  }
-
-  & .v-btn--active {
-    background-color: $gray-2 !important;
-    color: $white !important;
-  }
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue'
 
@@ -68,10 +38,40 @@ export default Vue.extend({
     targetId: {
       type: String,
       default: (val: string | null) => {
-        // TODO: type は NullableString 型をとり、default: null とする
         return val && val !== '' ? val : null
       },
     },
   },
 })
 </script>
+
+<style lang="scss">
+.DataSelector {
+  margin-top: 20px;
+  background-color: $white;
+  border: 1px solid $gray-4;
+
+  &-Button {
+    height: 24px !important;
+    margin: 2px;
+    color: $gray-1 !important;
+    background-color: $white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    @include font-size(12, true);
+
+    &::before {
+      background-color: inherit;
+    }
+
+    &:focus {
+      outline: dotted $gray-3 1px;
+    }
+  }
+
+  & .v-btn--active {
+    color: $white !important;
+    background-color: $gray-2 !important;
+  }
+}
+</style>

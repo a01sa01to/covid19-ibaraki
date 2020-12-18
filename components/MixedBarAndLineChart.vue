@@ -39,7 +39,7 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -50,7 +50,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
@@ -62,42 +62,48 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+    <template #dataTable>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:dataSetPanel>
+    <template #dataSetPanel>
       <data-view-data-set-panel
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
+import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
-import { Chart } from 'chart.js'
-import dayjs from 'dayjs'
+
 import DataView from '@/components/DataView.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import { getComplementedDate } from '@/utils/formatDate'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getNumberToFixedFunction } from '@/utils/valueFormatter'
 
 type Data = {
@@ -106,19 +112,16 @@ type Data = {
   colors: SurfaceStyle[]
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
-  displayTransitionRatio: string
   displayInfo: [
     {
       lText: string
       sText: string
+      sTextUnder: string
       unit: string
     }
   ]
@@ -226,20 +229,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[1]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 1,
+        digit: 1,
+      })
       return [
         {
-          lText: this.getFormatter(1)(
-            parseFloat(this.pickLastNumber(this.chartData)[1].toLocaleString())
-          ),
+          lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D'),
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            date: this.$d(lastDay, 'dateWithoutYear'),
+          })}（${this.$t('7日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
             this.unit
           }）`,
           unit: this.unit,
@@ -286,7 +288,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...(this.dataLabels as string[]).map((_, j) => {
               if (this.chartData[j][i] === null) {
                 return {
@@ -305,6 +307,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -319,8 +322,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              const date = data.labels![tooltipItem[0].index!].toString()
-              return dayjs(date).format('M/D')
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },
@@ -397,7 +400,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayDataHeader() {
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: (this.dataLabels as string[]).map((_) => ({
           data: [],
           backgroundColor: 'transparent',
@@ -483,29 +486,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 1])
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 2])
-      })
-    },
     makeLineData(value: number): number[] {
       return this.chartData[0].map((_) => value)
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(1)(dayBeforeRatio)
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     },
   },
   mounted() {

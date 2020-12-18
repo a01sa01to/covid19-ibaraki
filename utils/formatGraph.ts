@@ -1,5 +1,7 @@
+import { convertDateToISO8601Format } from '@/utils/formatDate'
+
 type DataType = {
-  date: Date
+  date: string
   total: number
 }
 
@@ -21,12 +23,11 @@ export default (data: DataType[]) => {
   data
     .filter((d) => new Date(d.date) < today)
     .forEach((d) => {
-      const date = new Date(d.date)
       const subTotal = d.total
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
-          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          label: convertDateToISO8601Format(d.date),
           transition: subTotal,
           cumulative: patSum,
         })

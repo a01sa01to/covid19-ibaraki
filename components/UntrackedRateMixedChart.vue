@@ -5,7 +5,7 @@
     :date="date"
     :head-title="title + infoTitles.join(',')"
   >
-    <template v-slot:description>
+    <template #description>
       <slot name="description" />
     </template>
     <ul
@@ -54,7 +54,7 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -65,7 +65,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
@@ -77,36 +77,45 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:dataSetPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+    <template #dataSetPanel>
+      <data-view-data-set-panel
+        v-for="(di, i) in displayInfo"
+        :key="i"
+        :title="infoTitles[i]"
+        :l-text="di.lText"
+        :s-text="di.sText"
+        :s-text-under="di.sTextUnder"
+        :unit="di.unit"
       />
+    </template>
+    <template #footer>
+      <open-data-link :url="url" />
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
+import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
-import { Chart } from 'chart.js'
-import dayjs from 'dayjs'
+
 import DataView from '@/components/DataView.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
@@ -114,8 +123,10 @@ import {
   yAxesBgRightPlugin,
 } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '@/utils/valueFormatter'
+import { getComplementedDate } from '@/utils/formatDate'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getNumberToLocaleStringFunction } from '@/utils/valueFormatter'
+
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
@@ -125,12 +136,15 @@ type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
 }
+type DisplayInfo = {
+  lText: string
+  sText: string
+  sTextUnder: string
+  unit: string
+}
+
 type Computed = {
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -151,10 +165,12 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
-  unit: string
+  unit: string[]
+  url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
+
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
   Data,
@@ -168,8 +184,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
+    OpenDataLink,
   },
   props: {
     title: {
@@ -218,6 +235,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => [],
     },
     unit: {
+      type: Array,
+      default: () => [],
+    },
+    url: {
       type: String,
       default: '',
     },
@@ -247,14 +268,37 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         dataIndex: 2,
         digit: 1,
       })
-
-      return {
-        lText: lastDayData,
-        sText: `${this.$t('{date} の数値', {
-          date: lastDay,
-        })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
-        unit: this.unit,
-      }
+      const {
+        lastDay: lastDay3,
+        lastDayData: lastDayData3,
+        dayBeforeRatio: dayBeforeRatio3,
+      } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 3,
+        digit: 1,
+      })
+      return [
+        {
+          lText: lastDayData,
+          sText: `${this.$t('{date} の数値', {
+            date: this.$d(lastDay, 'dateWithoutYear'),
+          })}（${this.$t('7日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit[0]
+          }）`,
+          unit: this.unit[0],
+        },
+        {
+          lText: lastDayData3,
+          sText: `${this.$t('{date} の数値', {
+            date: this.$d(lastDay3, 'dateWithoutYear'),
+          })}（${this.$t('7日間移動平均値をもとに算出')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
+            this.unit[1]
+          }）`,
+          unit: this.unit[1],
+        },
+      ]
     },
     displayData() {
       const graphSeries = [
@@ -346,7 +390,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = '%'
+      const self = this
+      const unit = this.unit[1]
       const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -367,10 +412,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 4) {
-                const date = dayjs(
-                  data.labels![tooltipItem[0].index!].toString()
-                ).format('M/D')
-                return String(date)
+                const label = data.labels![tooltipItem[0].index!] as string
+                return self.$d(getComplementedDate(label), 'dateWithoutYear')
               }
               return ''
             },
@@ -468,17 +511,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      let n = 0
-      let max = 0
-      for (const i in this.displayData.datasets[0].data) {
-        const current =
-          this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
-        if (current > max) {
-          max = current
-          n = Number(i)
-        }
-      }
+      const { datasets } = this.displayData
+      const sums = Array.from(datasets[0].data.keys()).map(
+        (i) => datasets[0].data[i] + datasets[1].data[i]
+      )
+      const max = sums.reduce((a, b) => Math.max(a, b), 0)
+      const n = sums.indexOf(max)
       return {
         labels: ['2020-01-01'],
         datasets: [
@@ -600,21 +638,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      let max = 0
-      for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
-      }
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
-      }
-      return max
+      const max = Array.from(this.chartData[0].keys())
+        .map((i) => this.chartData[0][i] + this.chartData[1][i])
+        .reduce((a, b) => Math.max(a, b), 0)
+      return this.chartData[2].reduce((a, b) => Math.max(a, b), max)
     },
     scaledTicksYAxisMaxRight() {
-      let max = 0
-      for (const i in this.chartData[3]) {
-        max = Math.max(max, this.chartData[3][i])
-      }
-      return max
+      return this.chartData[3].reduce((a, b) => Math.max(a, b), 0)
     },
   },
   methods: {

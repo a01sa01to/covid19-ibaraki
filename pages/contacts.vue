@@ -170,14 +170,6 @@
               {{ $t('境町') }}
             </td>
           </tr>
-          <tr class="small">
-            <td colspan="3">
-              <external-link
-                url="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html"
-                >{{ $t('茨城県公式サイトで確認する') }}</external-link
-              >
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -196,19 +188,23 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import StaticCard from '@/components/StaticCard.vue'
+
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink,
   },
   data() {
     return {
       pc: true,
+    }
+  },
+  head(): MetaInfo {
+    return {
+      title: this.$t('お問い合わせ先・県内保健所一覧') as string,
     }
   },
   computed: {
@@ -234,11 +230,6 @@ export default Vue.extend({
     handleResize() {
       this.pc = window.innerWidth > 768
     },
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('お問い合わせ先・県内保健所一覧') as string,
-    }
   },
 })
 </script>

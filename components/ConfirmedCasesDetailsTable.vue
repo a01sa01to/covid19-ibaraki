@@ -1,16 +1,16 @@
 <template>
   <div>
     <ul :class="$style.container">
-      <li style="width: 100%; list-style: none;">
-        <div :class="$style.pillar" style="border-color: #003fab;">
+      <li style="width: 100%; list-style: none">
+        <div :class="$style.pillar" style="border-color: #003fab">
           <div
             :class="$style.content"
-            style="display: block; min-height: fit-content;"
+            style="display: block; min-height: fit-content"
           >
-            <span style="display: inline-block; width: 40%;">
+            <span style="display: inline-block; width: 40%">
               {{ $t('検査実施人数') }}
             </span>
-            <span style="display: inline-block; width: 40%;">
+            <span style="display: inline-block; width: 40%">
               <strong>{{ 検査実施人数.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
@@ -43,50 +43,47 @@
               </span>
             </div>
             <ul :class="$style.group">
-              <li :class="[$style.box]">
+              <li :class="[$style.box, $style.parent]">
                 <div :class="$style.content">
-                  <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症（入院療養）')" />
-                  <!-- eslint-enable vue/no-v-html-->
+                  <span>{{ $t('入院') }}</span>
                   <span>
-                    <strong>{{ 軽症.toLocaleString() }}</strong>
+                    <strong>{{ 入院.toLocaleString() }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{ ((軽症 / 療養中) * 100).toFixed(2) }}</strong>
-                      <span :class="$style.unit">%</span>)
-                    </div>
                   </span>
                 </div>
-              </li>
-              <li :class="[$style.box]">
-                <div :class="$style.content">
-                  <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('中等症（入院療養）')" />
-                  <!-- eslint-enable vue/no-v-html-->
-                  <span>
-                    <strong>{{ 中等症.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{
-                        ((中等症 / 療養中) * 100).toFixed(2)
-                      }}</strong>
-                      <span :class="$style.unit">%</span>)
+                <ul :class="$style.group">
+                  <li :class="[$style.box]">
+                    <div :class="$style.content">
+                      <!-- eslint-disable vue/no-v-html-->
+                      <span v-html="$t('軽症')" />
+                      <!-- eslint-enable vue/no-v-html-->
+                      <span>
+                        <strong>{{ 軽症.toLocaleString() }}</strong>
+                        <span :class="$style.unit">{{ $t('人') }}</span>
+                      </span>
                     </div>
-                  </span>
-                </div>
-              </li>
-              <li :class="[$style.box]">
-                <div :class="$style.content">
-                  <span>{{ $t('重症（入院療養）') }}</span>
-                  <span>
-                    <strong>{{ 重症.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{ ((重症 / 療養中) * 100).toFixed(2) }}</strong>
-                      <span :class="$style.unit">%</span>)
+                  </li>
+                  <li :class="[$style.box]">
+                    <div :class="$style.content">
+                      <!-- eslint-disable vue/no-v-html-->
+                      <span v-html="$t('中等症')" />
+                      <!-- eslint-enable vue/no-v-html-->
+                      <span>
+                        <strong>{{ 中等症.toLocaleString() }}</strong>
+                        <span :class="$style.unit">{{ $t('人') }}</span>
+                      </span>
                     </div>
-                  </span>
-                </div>
+                  </li>
+                  <li :class="[$style.box]">
+                    <div :class="$style.content">
+                      <span>{{ $t('重症') }}</span>
+                      <span>
+                        <strong>{{ 重症.toLocaleString() }}</strong>
+                        <span :class="$style.unit">{{ $t('人') }}</span>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
               </li>
               <li :class="[$style.box]">
                 <div :class="$style.content">
@@ -94,12 +91,6 @@
                   <span>
                     <strong>{{ 宿泊療養.toLocaleString() }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{
-                        ((宿泊療養 / 療養中) * 100).toFixed(2)
-                      }}</strong>
-                      <span :class="$style.unit">%</span>)
-                    </div>
                   </span>
                 </div>
               </li>
@@ -109,12 +100,6 @@
                   <span>
                     <strong>{{ 自宅療養.toLocaleString() }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
-                    <div>
-                      (<strong>{{
-                        ((自宅療養 / 療養中) * 100).toFixed(2)
-                      }}</strong>
-                      <span :class="$style.unit">%</span>)
-                    </div>
                   </span>
                 </div>
               </li>
@@ -179,6 +164,10 @@ export default Vue.extend({
       required: true,
     },
     療養中: {
+      type: Number,
+      required: true,
+    },
+    入院: {
       type: Number,
       required: true,
     },
@@ -391,6 +380,7 @@ $default-boxdiff: 35px;
 @include lessThan(959) {
   @include override(960, 3, 14, 35);
 }
+
 // Vuetify Breakpoints: Extra Small (600)
 @include lessThan(600) {
   @include override(600, 3, 14, 35);

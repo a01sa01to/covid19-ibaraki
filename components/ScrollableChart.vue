@@ -12,6 +12,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
 import { DisplayData } from '@/plugins/vue-chart'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
@@ -31,6 +32,7 @@ type Computed = {
 }
 type Props = {
   displayData: DisplayData
+  isWeekly: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -44,6 +46,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayData: {
       type: Object as PropType<DisplayData>,
       required: true,
+    },
+    isWeekly: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -73,9 +80,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     calcChartWidth(containerWidth, labelCount) {
       const dates = 60
+      const weeks = 24
       const yaxisWidth = 38
       const chartWidth = containerWidth - yaxisWidth
-      const barWidth = chartWidth / dates
+      const barWidth = chartWidth / (this.isWeekly ? weeks : dates)
       const calcWidth = barWidth * labelCount + yaxisWidth
       return Math.max(calcWidth, containerWidth)
     },

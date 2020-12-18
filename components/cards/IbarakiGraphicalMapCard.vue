@@ -2,10 +2,10 @@
   <v-col cols="12" md="6" class="DataCard">
     <data-view
       :title="$t('市町村別感染状況（直近1週間）')"
-      :title-id="'ibaraki-city-map-table'"
-      :date="Data.patients.date"
+      :title-id="'ibaraki-graphical-map'"
+      :date="date"
     >
-      <template v-slot:button>
+      <template #button>
         <p :class="$style.note">
           {{ $t('・値は、直近1週間での人口1万人あたりの感染者数である') }}<br />
           {{ $t('・人口は2020年8月現在のものを用いた') }}<br />
@@ -38,11 +38,10 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import IbarakiMap from '@/assets/ibaraki-map.svg'
 import DataView from '@/components/DataView.vue'
 import CityData from '@/data/cities.json'
-import dayjs from 'dayjs'
+import Data from '@/data/data.json'
 
 export default {
   components: {
@@ -51,47 +50,27 @@ export default {
   },
   data() {
     return {
-      Data,
+      date: Data.patients_city.date,
     }
   },
   mounted() {
-    const patients = Data.patients.data
-    // 市町村の患者人数の連想配列
-    const cityPatientsNumber = {}
-    const cityPatientsRate = {}
-    for (const key of patients) {
-      const today = dayjs()
-      cityPatientsNumber[key.居住地] = patients.filter(function (x) {
-        return (
-          x.居住地 === key.居住地 &&
-          today.diff(dayjs(x.date)) / (24 * 60 * 60 * 1000) < 7
-        )
-      }).length
-    }
+    const { data } = Data.patients_city
 
     CityData.forEach((element) => {
-      if (!cityPatientsNumber[element.city]) {
-        return
-      }
+      const num = data.filter((_) => _.city === element.city)[0].recent
 
-      cityPatientsRate[element.city] =
-        (cityPatientsNumber[element.city] / element.population) * 10000
-
-      console.log(cityPatientsNumber, cityPatientsRate)
+      const rate = (num / element.population) * 10000
 
       const targetElement = document.getElementById(
         'ibaraki-map_svg__' + element.Romaji
       )
-      if (cityPatientsRate[element.city] < 0.5)
-        targetElement.classList.add('infected-level1')
-      else if (cityPatientsRate[element.city] < 1.0)
-        targetElement.classList.add('infected-level2')
-      else if (cityPatientsRate[element.city] < 1.5)
-        targetElement.classList.add('infected-level3')
-      else if (cityPatientsRate[element.city] < 2.0)
-        targetElement.classList.add('infected-level4')
-      else if (cityPatientsRate[element.city] < 2.5)
-        targetElement.classList.add('infected-level5')
+
+      if (rate === 0) targetElement.classList.add('infected-level0')
+      else if (rate < 0.5) targetElement.classList.add('infected-level1')
+      else if (rate < 1.0) targetElement.classList.add('infected-level2')
+      else if (rate < 1.5) targetElement.classList.add('infected-level3')
+      else if (rate < 2.0) targetElement.classList.add('infected-level4')
+      else if (rate < 2.5) targetElement.classList.add('infected-level5')
       else targetElement.classList.add('infected-level6')
     })
   },
@@ -117,6 +96,7 @@ export default {
 </style>
 <!-- 本来ならばSVGをinline展開してそこに限定してcssを適用するべきだが、inline展開ができなかったため妥協 -->
 <style lang="scss">
+$infected-level0: #fff;
 $infected-level1: #ccfbcc;
 $infected-level2: #88f2a9;
 $infected-level3: #44e5b7;
@@ -131,37 +111,36 @@ $infected-level6: #000072;
   margin: 0 0.5rem 0 0;
   vertical-align: middle;
 }
-// 1-5
+
+.infected-level0 {
+  background-color: $infected-level0;
+  fill: $infected-level0 !important;
+}
 
 .infected-level1 {
   background-color: $infected-level1;
   fill: $infected-level1 !important;
 }
-// 6-10
 
 .infected-level2 {
   background-color: $infected-level2;
   fill: $infected-level2 !important;
 }
-// 10-15
 
 .infected-level3 {
   background-color: $infected-level3;
   fill: $infected-level3 !important;
 }
-// 15-20
 
 .infected-level4 {
   background-color: $infected-level4;
   fill: $infected-level4 !important;
 }
-// 21-30
 
 .infected-level5 {
   background-color: $infected-level5;
   fill: $infected-level5 !important;
 }
-// 31-
 
 .infected-level6 {
   background-color: $infected-level6;

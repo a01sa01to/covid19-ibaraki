@@ -14,13 +14,12 @@ const PATHS = [
   'cards/attributes-of-confirmed-cases',
   'cards/number-of-reports-to-covid19-telephone-advisory-center',
   'cards/number-of-inspection-persons',
-  'cards/ibaraki-city-table',
-  'cards/ibaraki-city-map-table',
+  'cards/number-of-confirmed-cases-by-municipalities',
+  'cards/ibaraki-graphical-map',
   'cards/number-of-recovered',
   'cards/number-of-deaths',
   'cards/ibaraki-corona-next',
   'cards/positive-rate',
-  'cards/increase-ratio-of-confirmed-cases-by-daily',
   'cards/number-of-confirmed-cases-by-age',
   'cards/number-of-tested',
   'cards/untracked-rate',
@@ -33,11 +32,10 @@ const WAVEPATHS = [
   'attributes-of-confirmed-cases',
   'number-of-reports-to-covid19-telephone-advisory-center',
   'number-of-inspection-persons',
-  'ibaraki-city-table',
+  'number-of-confirmed-cases-by-municipalities',
   'number-of-recovered',
   'number-of-deaths',
   'positive-rate',
-  'increase-ratio-of-confirmed-cases-by-daily',
   'number-of-confirmed-cases-by-age',
   'untracked-rate',
 ]
@@ -61,7 +59,7 @@ const input = async (host, lang, path) => {
       for (const path of PATHS) {
         await input(host, lang, path)
       }
-      for (const wave of [/* 1, */ 2, 3]) {
+      for (const wave of [1, 2, 3]) {
         for (const path of WAVEPATHS) {
           await input(host, lang, `cards/wave${wave}/${path}`)
         }

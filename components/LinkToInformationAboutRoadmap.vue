@@ -1,20 +1,21 @@
 <template>
   <span :class="$style.linkButton">
-    <external-link
+    <app-link
       :class="$style.TextLink"
-      url="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
+      to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/stage1.html"
     >
       {{ $t('茨城版コロナNext Stage1への緩和について') }}
-    </external-link>
+    </app-link>
   </span>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { AppLink },
 })
 </script>
 

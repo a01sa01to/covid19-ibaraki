@@ -4,23 +4,24 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click="$emit('open-navigation', $event)"
       >
-        mdi-menu
+        {{ mdiMenu }}
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
-        <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+        <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
+            width="111"
+            height="28"
             :alt="$t('茨城県')"
-            style="width: 100px; max-height: 100%;"
           />
           <div class="SideNavigation-HeaderText">
             {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト')
             }}{{ $t('（非公式）') }}
           </div>
-        </nuxt-link>
+        </app-link>
       </h1>
     </header>
 
@@ -28,9 +29,9 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click="$emit('close-navigation', $event)"
       >
-        mdi-close
+        {{ mdiClose }}
       </v-icon>
 
       <nav class="SideNavigation-Menu">
@@ -47,90 +48,94 @@
             <i18n
               path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
             >
-              <template v-slot:transifex>
-                <external-link
-                  url="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
+              <template #transifex>
+                <app-link
+                  to="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
                 >
                   {{ $t('こちら') }}
-                </external-link>
+                </app-link>
               </template>
             </i18n>
           </p>
         </div>
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
-          <!-- <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener noreferrer"
+          <!-- <app-link
+            to="https://line.me/R/ti/p/%40822sysfc"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" alt="LINE" />
+              <img src="/line.png" width="130" height="130" alt="LINE" />
             </picture>
-          </a> -->
-          <a
-            href="https://twitter.com/Covid19_ibaraki"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link> -->
+          <app-link
+            to="https://twitter.com/covid19_ibaraki"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/twitter.webp" type="image/webp" />
-              <img src="/twitter.png" alt="Twitter" />
+              <img src="/twitter.png" width="130" height="130" alt="Twitter" />
             </picture>
-          </a>
-          <!-- <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <!-- <app-link
+            to="https://www.facebook.com/tochokoho"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/facebook.webp" type="image/webp" />
-              <img src="/facebook.png" alt="Facebook" />
+              <img
+                src="/facebook.png"
+                width="130"
+                height="130"
+                alt="Facebook"
+              />
             </picture>
-          </a>
-          -->
-          <a
-            href="https://github.com/a01sa01to/covid19-ibaraki"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link> -->
+          <app-link
+            to="https://github.com/a01sa01to/covid19-ibaraki"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/github.webp" type="image/webp" />
-              <img src="/github.png" alt="GitHub" />
+              <img src="/github.png" width="130" height="130" alt="GitHub" />
             </picture>
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <app-link
+            to="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/youtube.webp" type="image/webp" />
-              <img src="/youtube.png" alt="YouTube" />
+              <img src="/youtube.png" width="130" height="130" alt="YouTube" />
             </picture>
-          </a>
+          </app-link>
         </div>
+        <i18n
+          tag="small"
+          path="このサイトの内容物は{creativeCommons}の下に提供されています。"
+          class="SideNavigation-Copyright"
+        >
+          <template #creativeCommons>
+            <app-link
+              :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+              :icon-size="12"
+              class="SideNavigation-LicenseLink"
+            >
+              {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+            </app-link>
+          </template>
+        </i18n>
+        <br />
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトの内容物は') }}
-          <a
-            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
-            target="_blank"
-            rel="license"
-            class="SideNavigation-LicenseLink"
-          >
-            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
-          </a>
-          {{ $t('の下に提供されています。') }}
-          <br />
           &copy; 2020 Asa (@a01sa01to)
         </small>
       </footer>
@@ -139,14 +144,17 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant, mdiClose, mdiMenu } from '@mdi/js'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+
+import AppLink from '@/components/AppLink.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 type Item = {
-  icon?: string
+  iconPath?: string
+  svg?: string
   title: TranslateResult
   link: string
   divider?: boolean
@@ -156,7 +164,7 @@ export default Vue.extend({
   components: {
     LanguageSelector,
     MenuList,
-    ExternalLink,
+    AppLink,
   },
   props: {
     isNaviOpen: {
@@ -164,21 +172,27 @@ export default Vue.extend({
       required: true,
     },
   },
+  data() {
+    return {
+      mdiClose,
+      mdiMenu,
+    }
+  },
   computed: {
     items(): Item[] {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
+          iconPath: mdiChartTimelineVariant,
           title: this.$t('県内の最新感染動向'),
           link: this.localePath('/'),
         },
         {
-          icon: 'CovidIcon',
+          svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: this.localePath('/flow'),
         },
         {
-          icon: 'CovidIcon',
+          svg: 'CovidIcon',
           title: this.$t('発熱患者の受診体制について'),
           link:
             'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
@@ -397,6 +411,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-SocialLink {
+  margin-bottom: 15px;
   color: $gray-3;
   border: 1px dotted transparent;
   border-radius: 30px;
@@ -426,8 +441,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Copyright {
-  display: block;
-  margin-top: 15px;
+  display: inline-block;
   font-weight: bold;
   line-height: 1.3;
   color: $gray-1;

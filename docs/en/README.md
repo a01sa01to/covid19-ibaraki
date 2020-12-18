@@ -1,6 +1,8 @@
 # Ibaraki COVID-19 Task Force website (Unofficial)
 
-![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io)
+[![production deploy](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22production+deploy%22)
+[![OGP Builder](https://github.com/a01sa01to/covid19-ibaraki/workflows/OGP%20Builder/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22OGP+Builder%22)
+[![Auto-i18n Generator](https://github.com/a01sa01to/covid19-ibaraki/workflows/Auto-i18n%20Generator/badge.svg?branch=development)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22Auto-i18n+Generator%22)
 
 [![Ibaraki COVID-19 Task Force Website](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
 

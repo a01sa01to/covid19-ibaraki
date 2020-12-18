@@ -6,38 +6,37 @@
 </template>
 
 <script>
+import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import ConfirmedCasesByAgeCard from '@/components/cards/ConfirmedCasesByAgeCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import IbarakiCityCard from '@/components/cards/IbarakiCityMapCard.vue'
-import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
+import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
+import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
-import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
-import ConfirmedCasesByAge from '@/components/cards/ConfirmedCasesByAge.vue'
+import RecoveredCard from '@/components/cards/RecoveredCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ErrorCard from '@/layouts/error.vue'
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
-    PositiveRateCard,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
+    PositiveRateCard,
     ConfirmedCasesAttributesCard,
-    IbarakiCityCard,
+    ConfirmedCasesByMunicipalitiesCard,
     IbarakiCityMapCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     RecoveredCard,
     DeathsCard,
     IbarakiCoronaNext,
-    ConfirmedCasesIncreaseRatioByWeekCard,
-    ConfirmedCasesByAge,
+    ConfirmedCasesByAgeCard,
     TestedNumberCard,
     UntrackedRateCard,
     ErrorCard,
@@ -61,10 +60,10 @@ export default {
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
         break
-      case 'ibaraki-city-table':
-        cardComponent = 'ibaraki-city-card'
+      case 'number-of-confirmed-cases-by-municipalities':
+        cardComponent = 'confirmed-cases-by-municipalities-card'
         break
-      case 'ibaraki-city-map-table':
+      case 'ibaraki-graphical-map':
         cardComponent = 'ibaraki-city-map-card'
         break
       case 'number-of-recovered':
@@ -79,11 +78,8 @@ export default {
       case 'positive-rate':
         cardComponent = 'positive-rate-card'
         break
-      case 'increase-ratio-of-confirmed-cases-by-daily':
-        cardComponent = 'confirmed-cases-increase-ratio-by-week-card'
-        break
       case 'number-of-confirmed-cases-by-age':
-        cardComponent = 'confirmed-cases-by-age'
+        cardComponent = 'confirmed-cases-by-age-card'
         break
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
@@ -120,11 +116,11 @@ export default {
     return {
       titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
       link: [
-        // ...getLinksLanguageAlternative(
-        `cards/${this.$route.params.card}`,
-        // this.$i18n.locales,
-        // this.$i18n.defaultLocale
-        // )
+        ...getLinksLanguageAlternative(
+          `cards/${this.$route.params.card}`,
+          this.$i18n.locales,
+          this.$i18n.defaultLocale
+        ),
       ],
       meta: [
         {
@@ -135,21 +131,28 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: (title) => `${this.title || title} | ${defaultTitle}`,
+          template: (title) =>
+            title !== ''
+              ? `${this.title || title} | ${defaultTitle}`
+              : `${defaultTitle}`,
           content: '',
         },
         {
           hid: 'description',
           name: 'description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {

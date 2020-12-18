@@ -1,6 +1,6 @@
 <template>
   <roller-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
+    <template #button>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -11,7 +11,7 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -21,7 +21,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
@@ -32,41 +32,41 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+    <template #infoPanel>
+      <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <open-data-link v-show="url" :url="url" />
     </template>
   </roller-view>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
-import { GraphDataType } from '@/utils/formatGraph'
-import RollerView from '@/components/RollerView.vue'
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
 import DataSelector from '@/components/DataSelector.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import RollerView from '@/components/RollerView.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { getComplementedDate } from '@/utils/formatDate'
+import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -121,7 +121,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     RollerView,
     DataSelector,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     DataViewTable,
     ScrollableChart,
     OpenDataLink,

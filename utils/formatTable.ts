@@ -1,71 +1,47 @@
-import Vue from 'vue'
-import dayjs from 'dayjs'
+type Header = {
+  text: string
+  value: string
+  align?: string
+  type?: 'date' | 'age'
+}
 
-const headers = [
+const headers: Header[] = [
   { text: '整理番号', value: '整理番号' },
-  { text: '公表日', value: '公表日' },
+  { text: '公表日', value: '公表日', type: 'date' },
   { text: '居住地', value: '居住地' },
-  { text: '年代', value: '年代' },
+  { text: '年代', value: '年代', type: 'age' },
   { text: '性別', value: '性別' },
+  { text: '職業', value: '職業', align: 'center' },
+  { text: '発症日', value: '発症日', type: 'date' },
   { text: '濃厚接触者', value: '濃厚接触者' },
 ]
 
-type DataType = {
-  num: number
-  date: string
-  居住地: string | null
-  年代: string | null
-  性別: '男性' | '女性' | string
+export type DataType = {
+  No: number
+  公表_年月日: string
+  発症_年月日: string | undefined
+  患者_居住地: string | undefined
+  患者_年代: string | undefined
+  患者_性別: '男性' | '女性' | string
+  患者_職業: string | undefined
+  患者_濃厚接触者フラグ: number | undefined
   [key: string]: any
 }
 
 type TableDataType = {
-  整理番号: DataType['num']
+  整理番号: number
   公表日: string
-  居住地: DataType['居住地']
-  年代: DataType['年代']
-  性別: DataType['性別'] | '不明'
-  濃厚接触者: DataType['濃厚接触者']
+  居住地: DataType['患者_居住地']
+  年代: DataType['患者_年代']
+  性別: DataType['患者_性別'] | '不明'
+  職業: DataType['患者_職業']
+  発症日: DataType['発症_年月日']
+  濃厚接触者: string
 }
 
-type CityTableType = {
-  地域: string
-  市町村: string
-  ふりがな: string
-  発生数: number
-}
-
-type AgeTableType = {
-  年代: string
-  新規: number
-  濃厚接触者: number
-  計: number
-  割合: number
-}
-
-export const headers2 = [
-  { text: '地域', value: '地域' },
-  { text: '市町村', value: '市町村' },
-  { text: 'ふりがな', value: 'ふりがな' },
-  { text: '発生数計', value: '感染者数計' },
-  { text: '人口1万人当たり', value: '人口1万人当たり感染者数' },
-  { text: '新規', value: '新規' },
-  { text: '濃厚接触者', value: '濃厚接触者' },
-]
-
-export const headers3 = [
-  { text: '年代', value: '年代' },
-  { text: '新規', value: '新規' },
-  { text: '濃厚接触者', value: '濃厚接触者' },
-  { text: '計', value: '計' },
-  { text: '全体に占める割合', value: '全体に占める割合' },
-]
-
-type TableDateType = {
-  headers: typeof headers
+export type TableDateType = {
+  headers: Header[]
   datasets: TableDataType[]
-  cityDataset: CityTableType[]
-  ageDataset: AgeTableType[]
 }
 
 /**
@@ -73,29 +49,19 @@ type TableDateType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
-  const tableDate: TableDateType = {
+export function formatTable(data: DataType[]): TableDateType {
+  const datasets = data.map((d) => ({
+    整理番号: d.No,
+    公表日: d['公表_年月日'] ?? '不明',
+    居住地: d['患者_居住地'] ?? '調査中',
+    年代: d['患者_年代'] ?? '不明',
+    性別: d['患者_性別'] ?? '不明',
+    職業: d['患者_職業'] ?? '-',
+    発症日: d['発症_年月日'] ?? '',
+    濃厚接触者: d['患者_濃厚接触者フラグ'] ? '○' : '',
+  }))
+  return {
     headers,
-    datasets: [],
-    cityDataset: [],
-    ageDataset: [],
+    datasets,
   }
-  data.forEach((d) => {
-    const releaseDate = dayjs(d.date).isValid()
-      ? Vue.prototype.$nuxt.$options.i18n.d(new Date(d.date), 'dateWithoutYear')
-      : '不明'
-    const TableRow: TableDataType = {
-      整理番号: d.num,
-      公表日: releaseDate,
-      居住地: d['居住地'] ?? '調査中',
-      年代: d['年代'] ?? '不明',
-      性別: d['性別'] ?? '不明',
-      濃厚接触者: d['濃厚接触者'],
-    }
-    tableDate.datasets.push(TableRow)
-  })
-  tableDate.datasets.sort((a, b) =>
-    a.整理番号 === b.整理番号 ? 0 : a.整理番号 < b.整理番号 ? 1 : -1
-  )
-  return tableDate
 }

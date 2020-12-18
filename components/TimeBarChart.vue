@@ -1,12 +1,12 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:attentionNote>
+    <template #attentionNote>
       <slot name="attentionNote" />
     </template>
-    <template v-slot:description>
+    <template #description>
       <slot name="description" />
     </template>
-    <template v-slot:button>
+    <template #button>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -17,7 +17,7 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -27,7 +27,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
@@ -38,56 +38,56 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+    <template #dataTable>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+    <template #infoPanel>
+      <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
+      <slot v-if="dataKind === 'cumulative'" name="additionalInfoPanel" />
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
-import { GraphDataType } from '@/utils/formatGraph'
-import DataView from '@/components/DataView.vue'
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
 import DataSelector from '@/components/DataSelector.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataView from '@/components/DataView.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { getComplementedDate } from '@/utils/formatDate'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
 }
-type Methods = {
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
-}
+type Methods = {}
 
 type Computed = {
-  displayCumulativeRatio: string
-  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -130,7 +130,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataSelector,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     DataViewTable,
     ScrollableChart,
     OpenDataLink,
@@ -178,42 +178,34 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true,
   }),
   computed: {
-    displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
-    displayTransitionRatio() {
-      const lastDay = this.chartData.slice(-1)[0].transition
-      const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
-      const date = this.chartData.slice(-1)[0].label
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 1,
+      })
+      const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
       if (this.dataKind === 'transition' && this.byDate) {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${date} ${this.$t('日別値')}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          lText: lastDayData,
+          sText: `${formattedLastDay} ${this.$t('日別値')}（${this.$t(
+            '前日比'
+          )}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
         }
       } else if (this.dataKind === 'transition') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${date} ${this.$t('実績値')}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          lText: lastDayData,
+          sText: `${formattedLastDay} ${this.$t('実績値')}（${this.$t(
+            '前日比'
+          )}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
         }
       }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
-        sText: `${date} ${this.$t('累計値')}（${this.$t('前日比')}: ${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        lText: lastDayData,
+        sText: `${formattedLastDay} ${this.$t('累計値')}（${this.$t(
+          '前日比'
+        )}: ${dayBeforeRatio} ${this.unit}）`,
         unit: this.unit,
       }
     },
@@ -301,10 +293,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },
@@ -326,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 },
               },
               // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
@@ -350,7 +339,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               type: 'time',
               time: {
                 unit: 'month',
-                parser: 'M/D',
                 displayFormats: {
                   month: 'MMM',
                 },
@@ -382,7 +370,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['2020/1/1'],
+          labels: ['2020-01-01'],
           datasets: [
             {
               data: [Math.max(...this.chartData.map((d) => d.transition))],
@@ -393,7 +381,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: [
           {
             data: [Math.max(...this.chartData.map((d) => d.cumulative))],
@@ -425,7 +413,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 },
               },
             },
@@ -523,19 +511,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
         .reverse()
-    },
-  },
-  methods: {
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     },
   },
   mounted() {

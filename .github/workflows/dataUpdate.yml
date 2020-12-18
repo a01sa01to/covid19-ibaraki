@@ -2,7 +2,7 @@ name: Data Update
 
 on:
   schedule:
-    - cron: '*/10 9,10,11,12,13 * * *'
+    - cron: '*/20 9,10,11,12,13 * * *'
 
 jobs:
   patients_data:
@@ -368,7 +368,9 @@ jobs:
         run: 'python ../workflow_tools/generate_datajson/main.py'
         working-directory: ./opendata
       - name: Move data.json
-        run: 'mv data.json ../data/data.json -u'
+        run: |
+          mv data.json ../data/data.json -u
+          mv data_wave3.json ../data/data_wave3.json -u
         working-directory: ./opendata
       - name: Commit files
         run: |

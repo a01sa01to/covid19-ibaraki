@@ -1,46 +1,49 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-view
-      :title="$t('土浦市桜町')"
-      :title-id="'roller/tsuchiura-sakura'"
-      :date="updatedAt"
-    >
-      <template v-slot:description>
-        <ul>
-          <li>{{ $t('11月28日まで実施') }}</li>
-        </ul>
-      </template>
-      <p :class="$style.border" />
-      <roller-chart
-        :title="$t('受付人数')"
-        :chart-id="'tsuchiura-sakura-pcr-roller-accept'"
-        :chart-data="chartDataAccept"
-        :date="updatedAt"
-      />
-      <p :class="$style.border" />
-      <roller-chart
-        :title="$t('検体採取済人数')"
-        :chart-id="'tsuchiura-sakura-pcr-roller-collect'"
-        :chart-data="chartDataCollect"
-        :date="updatedAt"
-      />
-
-      <!-- タブに表示されるタイトルが「検体採取済人数」になるため以下の処理 -->
+    <client-only>
       <data-view
-        v-show="false"
-        :title="$t('土浦市桜町「PCR検査ローラー作戦」の状況')"
-        :title-id="''"
+        :title="$t('土浦市桜町')"
+        :title-id="'roller/tsuchiura-sakura'"
         :date="updatedAt"
-      />
-    </data-view>
+      >
+        <template #description>
+          <ul>
+            <li>{{ $t('11月28日まで実施') }}</li>
+          </ul>
+        </template>
+        <p :class="$style.border" />
+        <roller-chart
+          :title="$t('受付人数')"
+          :chart-id="'tsuchiura-sakura-pcr-roller-accept'"
+          :chart-data="chartDataAccept"
+          :date="updatedAt"
+        />
+        <p :class="$style.border" />
+        <roller-chart
+          :title="$t('検体採取済人数')"
+          :chart-id="'tsuchiura-sakura-pcr-roller-collect'"
+          :chart-data="chartDataCollect"
+          :date="updatedAt"
+        />
+
+        <!-- タブに表示されるタイトルが「検体採取済人数」になるため以下の処理 -->
+        <data-view
+          v-show="false"
+          :title="$t('土浦市桜町「PCR検査ローラー作戦」の状況')"
+          :title-id="''"
+          :date="updatedAt"
+        />
+      </data-view>
+    </client-only>
   </v-col>
 </template>
 
 <script>
 import dayjs from 'dayjs'
-import Data from '@/data/roller/tsuchiuraSakura.json'
+
 import DataView from '@/components/DataView.vue'
 import RollerChart from '@/components/RollerChart.vue'
+import Data from '@/data/roller/tsuchiuraSakura.json'
 
 export default {
   components: {
