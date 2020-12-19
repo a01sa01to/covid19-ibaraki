@@ -17,7 +17,7 @@
         <template v-slot:tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
-              <th scope="row" class="text-start DataTable-cell">
+              <th scope="row" class="text-center DataTable-cell">
                 {{ item['整理番号'] }}
               </th>
               <td

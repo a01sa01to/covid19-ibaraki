@@ -6,14 +6,14 @@ type Header = {
 }
 
 const headers: Header[] = [
-  { text: '整理番号', value: '整理番号' },
-  { text: '公表日', value: '公表日', type: 'date' },
-  { text: '居住地', value: '居住地' },
-  { text: '年代', value: '年代', type: 'age' },
-  { text: '性別', value: '性別' },
+  { text: '整理番号', value: '整理番号', align: 'center' },
+  { text: '公表日', value: '公表日', type: 'date', align: 'center' },
+  { text: '濃厚接触者', value: '濃厚接触者', align: 'center' },
+  { text: '居住地', value: '居住地', align: 'center' },
+  { text: '年代', value: '年代', type: 'age', align: 'center' },
+  { text: '性別', value: '性別', align: 'center' },
   { text: '職業', value: '職業', align: 'center' },
-  { text: '発症日', value: '発症日', type: 'date' },
-  { text: '濃厚接触者', value: '濃厚接触者' },
+  { text: '発症日', value: '発症日', type: 'date', align: 'center' },
 ]
 
 export type DataType = {
