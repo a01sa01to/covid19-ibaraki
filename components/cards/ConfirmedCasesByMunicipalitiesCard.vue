@@ -57,14 +57,14 @@ export default {
         { text: this.$t('市町村'), value: 'label' },
         { text: this.$t('ふりがな'), value: 'ruby' },
         { text: this.$t('陽性者数累計'), value: 'count' },
-        { text: this.$t('陽性者数（直近1週間）'), value: 'count_recent' },
+        { text: this.$t('陽性者数（直近1週間）'), value: 'countRecent' },
       ]
     } else {
       municipalitiesTable.headers = [
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('市町村'), value: 'label' },
         { text: this.$t('陽性者数累計'), value: 'count' },
-        { text: this.$t('陽性者数（直近1週間）'), value: 'count_recent' },
+        { text: this.$t('陽性者数（直近1週間）'), value: 'countRecent' },
       ]
     }
 
@@ -74,7 +74,7 @@ export default {
       city.population = CityData.filter(
         (_) => city.city === _.city
       )[0].population
-      city.recent = Number((city.recent / city.population) * 10000)
+      city.rate = Number((city.recent / city.population) * 10000)
     })
 
     data.sort((a, b) => {
@@ -93,7 +93,7 @@ export default {
       const area = this.$t(d.area)
       const label = this.$t(d.city)
       const count = countFormatter(d.total)
-      const countRecent = Number((d.recent / d.population) * 10000).toFixed(3)
+      const countRecent = d.rate.toFixed(3)
 
       if (this.$i18n.locale === 'ja') {
         const ruby = this.$t(d.ruby)
