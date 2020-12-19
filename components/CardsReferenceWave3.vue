@@ -1,5 +1,5 @@
 <template>
-  <Card_wave3s-lazy-row :rows="rows" />
+  <cards-lazy-row :rows="rows" />
 </template>
 
 <script lang="ts">

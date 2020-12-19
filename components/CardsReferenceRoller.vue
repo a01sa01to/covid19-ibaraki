@@ -23,7 +23,7 @@
         </li>
       </ul>
     </static-card>
-    <lazy-card-row :rows="rows" />
+    <cards-lazy-row :rows="rows" />
   </div>
 </template>
 
