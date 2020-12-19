@@ -30,13 +30,13 @@ export default Vue.extend({
     return {
       rows: [
         [ConfirmedCasesNumberCardWave1, ConfirmedCasesAttributesCardWave1],
+        [ConfirmedCasesByMunicipalitiesCardWave1, ConfirmedCasesByAgeCardWave1],
+        [PositiveRateCardWave1, UntrackedRateCardWave1],
+        [RecoveredCardWave1, DeathsCardWave1],
         [
-          ConfirmedCasesByMunicipalitiesCardWave1,
           InspectionPersonsNumberCardWave1,
+          TelephoneAdvisoryReportsNumberCardWave1,
         ],
-        [TelephoneAdvisoryReportsNumberCardWave1, RecoveredCardWave1],
-        [DeathsCardWave1, PositiveRateCardWave1],
-        [ConfirmedCasesByAgeCardWave1, UntrackedRateCardWave1],
       ],
     }
   },

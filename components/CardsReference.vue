@@ -34,13 +34,13 @@ export default Vue.extend({
   data() {
     return {
       rows: [
-        [ConfirmedCasesDetailsCard, ConfirmedCasesNumberCard],
-        [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
-        [IbarakiGraphicalMapCard, InspectionPersonsNumberCard],
-        [TelephoneAdvisoryReportsNumberCard, RecoveredCard],
-        [DeathsCard, IbarakiCoronaNext],
-        [PositiveRateCard, ConfirmedCasesByAgeCard],
+        [ConfirmedCasesDetailsCard, IbarakiCoronaNext],
+        [ConfirmedCasesNumberCard, ConfirmedCasesAttributesCard],
+        [ConfirmedCasesByMunicipalitiesCard, IbarakiGraphicalMapCard],
+        [ConfirmedCasesByAgeCard, PositiveRateCard],
         [TestedNumberCard, UntrackedRateCard],
+        [RecoveredCard, DeathsCard],
+        [InspectionPersonsNumberCard, TelephoneAdvisoryReportsNumberCard],
       ],
     }
   },
