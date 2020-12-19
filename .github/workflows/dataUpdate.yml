@@ -474,61 +474,6 @@ jobs:
           publish_dir: ./dist
           publish_branch: production
 
-  prod_sitemap_build:
-    name: Production Sitemap Build
-    needs: prod_deploy
-    runs-on: macos-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - name: Checkout master branch
-        uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Run Script
-        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
-        env:
-          MODE: prod
-      - name: Upload sitemap
-        uses: actions/upload-artifact@v1
-        with:
-          name: sitemap
-          path: sitemap
-
-  prod_sitemap_upload:
-    name: Production Sitemap Upload
-    needs: prod_sitemap_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: production
-      - name: Download Sitemap
-        uses: actions/download-artifact@v1
-        with:
-          name: sitemap
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
-          git add sitemap
-          git commit -m "Add Sitemap changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: production
-
   prod_ogp_build:
     name: Production OGP Build
     needs: prod_deploy
@@ -637,61 +582,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: dev-deploy
-
-  dev_sitemap_build:
-    needs: dev_deploy
-    runs-on: macos-latest
-    name: Development Sitemap Build
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - name: Checkout development branch
-        uses: actions/checkout@v2
-        with:
-          ref: development
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Run Script
-        run: python ./workflow_tools/auto-sitemap/sitemap_generator.py
-        env:
-          MODE: dev
-      - name: Upload sitemap
-        uses: actions/upload-artifact@v1
-        with:
-          name: sitemap
-          path: sitemap
-
-  dev_sitemap_upload:
-    name: Development Sitemap Upload
-    needs: dev_sitemap_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: dev-deploy
-      - name: Download Sitemap
-        uses: actions/download-artifact@v1
-        with:
-          name: sitemap
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
-          git add sitemap
-          git commit -m "Add Sitemap changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev-deploy
 
   dev_ogp_build:
     name: Development OGP Build

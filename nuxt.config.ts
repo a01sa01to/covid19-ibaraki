@@ -10,6 +10,7 @@ const config: NuxtConfig = {
   // 2) Autoprefixer has been included so that we can lessen upgrade burden.
   // mode: 'universal',
   target: 'static',
+  components: true,
   /*
    ** Headers of the page
    */
@@ -50,6 +51,13 @@ const config: NuxtConfig = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.gif' },
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        defer: true,
+      },
     ],
   },
   /*
@@ -95,6 +103,7 @@ const config: NuxtConfig = {
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
+    '@nuxtjs/sitemap',
   ],
   /*
    ** vuetify module configuration
@@ -155,19 +164,6 @@ const config: NuxtConfig = {
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     hardSource: process.env.NODE_ENV === 'development',
-    html: {
-      minify: {
-        collapseBooleanAttributes: true,
-        decodeEntities: true,
-        minifyCSS: true,
-        minifyJS: true,
-        processConditionalComments: true,
-        removeEmptyAttributes: true,
-        removeRedundantAttributes: true,
-        trimCustomFragments: true,
-        useShortDoctype: true,
-      },
-    },
   },
   purgeCSS: {
     paths: [
@@ -245,6 +241,13 @@ const config: NuxtConfig = {
   },
   router: {
     middleware: ['redirect'],
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname:
+      process.env.GENERATE_ENV === 'development'
+        ? 'https://covid19-dev.a01sa01to.com'
+        : 'https://ibaraki.stopcovid19.jp',
   },
 }
 
