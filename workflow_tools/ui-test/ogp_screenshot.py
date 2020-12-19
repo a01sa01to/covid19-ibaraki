@@ -8,7 +8,7 @@ if not os.path.exists("ogp"):
 
 PATHS = [
   "/cards/details-of-confirmed-cases",
-  "/cards/ibaraki-city-map-table"
+  "/cards/ibaraki-graphical-map"
   "/cards/ibaraki-corona-next",
   "/cards/number-of-tested",
   "/cards/roller/mito",
@@ -20,7 +20,7 @@ WAVEPATHS = [
   "attributes-of-confirmed-cases",
   "number-of-reports-to-covid19-telephone-advisory-center",
   "number-of-inspection-persons",
-  "ibaraki-city-table",
+  "number-of-confirmed-cases-by-municipalities",
   "number-of-recovered",
   "number-of-deaths",
   "positive-rate",

@@ -18,7 +18,7 @@ CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
 # 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json","otherpref.json"]
+JSON_FILES = ["data.json","otherpref.json","cities.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -136,25 +136,35 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # タグリストを生成
                         tags = []
                         if file_name == JSON_FILES[0]:  # data.jsonの場合
-                            for patients in json_content["patients"]["data"]:
+                            for age in json_content["patients_age"]["data"]:
                                 # 居住地を取得
-                                tags.append(patients["居住地"])
-                                # 年代を取得
-                                # tags.append(patients["年代"])
-                                # 性別を取得
-                                tags.append(patients["性別"])
+                                tags.append(age["age"])
+                            for city in json_content["patients_city"]["data"]:
+                                # 居住地を取得
+                                tags.append(city["city"])
+                            for inspection_place in json_content["inspections_summary"]["datasets"]:
+                                tags.append(inspection_place["label"])
+
+                        elif file_name == JSON_FILES[1]:  # otherpref.json
+                            for data in json_content:
+                                tags.append(data["自治体"])
+
+                        elif file_name == JSON_FILES[2]:  # cities.json
+                            for data in json_content:
+                                tags.append(data["city"])
+                                tags.append(data["area"])
 
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
-                    # Noneが混じっているので、取り除く
-                    # all_tags.pop(all_tags.index(None))
-                    # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
-                    # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
-                    for x in ["-", "‐", "―"]:
-                        try:
-                            all_tags.pop(all_tags.index(x))
-                        except Exception:
-                            pass
+            # Noneが混じっているので、取り除く
+            all_tags.pop(all_tags.index(None))
+            # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
+            # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
+            for x in ["-", "‐", "―"]:
+                try:
+                    all_tags.pop(all_tags.index(x))
+                except Exception:
+                    pass
 
     # 翻訳が複数あるもの("."で区切られている特殊なもの)を保管するリスト
     has_many_tags = []

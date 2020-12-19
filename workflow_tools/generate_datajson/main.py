@@ -1,58 +1,184 @@
+# coding=utf-8
+
 import json
 import datetime
 
+IBK_CITY_LIST = ["利根町","境町","五霞町","八千代町","河内町","阿見町","美浦村","大子町","東海村","城里町","大洗町","茨城町","小美玉市","つくばみらい市","鉾田市","行方市","神栖市","桜川市","かすみがうら市","稲敷市","坂東市","筑西市","那珂市","常陸大宮市","守谷市","潮来市","鹿嶋市","ひたちなか市","つくば市","牛久市","取手市","笠間市","北茨城市","高萩市","常陸太田市","常総市","下妻市","龍ケ崎市","結城市","石岡市","古河市","土浦市","日立市","水戸市"]
+
 file_content = {
-  "// 1": "新型コロナコールセンター相談件数",
   "contacts": {
     "data": [],
     "date": "",
   },
 
-  "// 2": "陽性患者属性",
-  "patients": {
-    "data": [],
+  "patients_age": {
+    "data": [
+      { "age": "10歳未満", "close": 0, "new": 0 },
+      { "age": "10代", "close": 0, "new": 0 },
+      { "age": "20代", "close": 0, "new": 0 },
+      { "age": "30代", "close": 0, "new": 0 },
+      { "age": "40代", "close": 0, "new": 0 },
+      { "age": "50代", "close": 0, "new": 0 },
+      { "age": "60代", "close": 0, "new": 0 },
+      { "age": "70代", "close": 0, "new": 0 },
+      { "age": "80代", "close": 0, "new": 0 },
+      { "age": "90代", "close": 0, "new": 0 },
+      { "age": "100歳以上", "close": 0, "new": 0 }
+    ],
     "date": "",
   },
 
-  "// 3": "陽性患者数",
+  "patients_city": {
+    "data": [
+      { "city": "利根町", "total": 0, "recent": 0 },
+      { "city": "境町", "total": 0, "recent": 0 },
+      { "city": "五霞町", "total": 0, "recent": 0 },
+      { "city": "八千代町", "total": 0, "recent": 0 },
+      { "city": "河内町", "total": 0, "recent": 0 },
+      { "city": "阿見町", "total": 0, "recent": 0 },
+      { "city": "美浦村", "total": 0, "recent": 0 },
+      { "city": "大子町", "total": 0, "recent": 0 },
+      { "city": "東海村", "total": 0, "recent": 0 },
+      { "city": "城里町", "total": 0, "recent": 0 },
+      { "city": "大洗町", "total": 0, "recent": 0 },
+      { "city": "茨城町", "total": 0, "recent": 0 },
+      { "city": "小美玉市", "total": 0, "recent": 0 },
+      { "city": "つくばみらい市", "total": 0, "recent": 0 },
+      { "city": "鉾田市", "total": 0, "recent": 0 },
+      { "city": "行方市", "total": 0, "recent": 0 },
+      { "city": "神栖市", "total": 0, "recent": 0 },
+      { "city": "桜川市", "total": 0, "recent": 0 },
+      { "city": "かすみがうら市", "total": 0, "recent": 0 },
+      { "city": "稲敷市", "total": 0, "recent": 0 },
+      { "city": "坂東市", "total": 0, "recent": 0 },
+      { "city": "筑西市", "total": 0, "recent": 0 },
+      { "city": "那珂市", "total": 0, "recent": 0 },
+      { "city": "常陸大宮市", "total": 0, "recent": 0 },
+      { "city": "守谷市", "total": 0, "recent": 0 },
+      { "city": "潮来市", "total": 0, "recent": 0 },
+      { "city": "鹿嶋市", "total": 0, "recent": 0 },
+      { "city": "ひたちなか市", "total": 0, "recent": 0 },
+      { "city": "つくば市", "total": 0, "recent": 0 },
+      { "city": "牛久市", "total": 0, "recent": 0 },
+      { "city": "取手市", "total": 0, "recent": 0 },
+      { "city": "笠間市", "total": 0, "recent": 0 },
+      { "city": "北茨城市", "total": 0, "recent": 0 },
+      { "city": "高萩市", "total": 0, "recent": 0 },
+      { "city": "常陸太田市", "total": 0, "recent": 0 },
+      { "city": "常総市", "total": 0, "recent": 0 },
+      { "city": "下妻市", "total": 0, "recent": 0 },
+      { "city": "龍ケ崎市", "total": 0, "recent": 0 },
+      { "city": "結城市", "total": 0, "recent": 0 },
+      { "city": "石岡市", "total": 0, "recent": 0 },
+      { "city": "古河市", "total": 0, "recent": 0 },
+      { "city": "土浦市", "total": 0, "recent": 0 },
+      { "city": "日立市", "total": 0, "recent": 0 },
+      { "city": "水戸市", "total": 0, "recent": 0 }
+    ],
+    "date": ""
+  },
+
   "patients_summary": {
     "data": [],
     "date": "",
   },
 
-  "// 4": "回復者数",
   "recovered_summary": {
     "data": [],
     "date": "",
   },
 
-  "// 5": "死亡者数",
   "deaths_summary": {
     "data": [],
     "date": "",
   },
 
-  "// 6": "検査実施人数",
   "inspection_persons": {},
 
-  "// 7": "全体の検査実施件数",
   "inspections_summary": {},
 
-  "// 8": "最終更新日時",
   "lastUpdate": "",
 
-  "// 9": "検査陽性者の状況",
   "main_summary": {},
 
-  "// 10": "茨城版コロナNext",
   "ibk_corona_next": {},
 
-  "// 11": "陽性率",
   "positiveRate": {
     "data": [],
     "date": "",
   }
 }
+
+
+file_content_wave3 = {
+  "patients_age": {
+    "data": [
+      { "age": "10歳未満", "close": 0, "new": 0 },
+      { "age": "10代", "close": 0, "new": 0 },
+      { "age": "20代", "close": 0, "new": 0 },
+      { "age": "30代", "close": 0, "new": 0 },
+      { "age": "40代", "close": 0, "new": 0 },
+      { "age": "50代", "close": 0, "new": 0 },
+      { "age": "60代", "close": 0, "new": 0 },
+      { "age": "70代", "close": 0, "new": 0 },
+      { "age": "80代", "close": 0, "new": 0 },
+      { "age": "90代", "close": 0, "new": 0 },
+      { "age": "100歳以上", "close": 0, "new": 0 }
+    ],
+    "date": "",
+  },
+  "patients_city": {
+    "data": [
+      { "city": "利根町", "total": 0, "recent": 0 },
+      { "city": "境町", "total": 0, "recent": 0 },
+      { "city": "五霞町", "total": 0, "recent": 0 },
+      { "city": "八千代町", "total": 0, "recent": 0 },
+      { "city": "河内町", "total": 0, "recent": 0 },
+      { "city": "阿見町", "total": 0, "recent": 0 },
+      { "city": "美浦村", "total": 0, "recent": 0 },
+      { "city": "大子町", "total": 0, "recent": 0 },
+      { "city": "東海村", "total": 0, "recent": 0 },
+      { "city": "城里町", "total": 0, "recent": 0 },
+      { "city": "大洗町", "total": 0, "recent": 0 },
+      { "city": "茨城町", "total": 0, "recent": 0 },
+      { "city": "小美玉市", "total": 0, "recent": 0 },
+      { "city": "つくばみらい市", "total": 0, "recent": 0 },
+      { "city": "鉾田市", "total": 0, "recent": 0 },
+      { "city": "行方市", "total": 0, "recent": 0 },
+      { "city": "神栖市", "total": 0, "recent": 0 },
+      { "city": "桜川市", "total": 0, "recent": 0 },
+      { "city": "かすみがうら市", "total": 0, "recent": 0 },
+      { "city": "稲敷市", "total": 0, "recent": 0 },
+      { "city": "坂東市", "total": 0, "recent": 0 },
+      { "city": "筑西市", "total": 0, "recent": 0 },
+      { "city": "那珂市", "total": 0, "recent": 0 },
+      { "city": "常陸大宮市", "total": 0, "recent": 0 },
+      { "city": "守谷市", "total": 0, "recent": 0 },
+      { "city": "潮来市", "total": 0, "recent": 0 },
+      { "city": "鹿嶋市", "total": 0, "recent": 0 },
+      { "city": "ひたちなか市", "total": 0, "recent": 0 },
+      { "city": "つくば市", "total": 0, "recent": 0 },
+      { "city": "牛久市", "total": 0, "recent": 0 },
+      { "city": "取手市", "total": 0, "recent": 0 },
+      { "city": "笠間市", "total": 0, "recent": 0 },
+      { "city": "北茨城市", "total": 0, "recent": 0 },
+      { "city": "高萩市", "total": 0, "recent": 0 },
+      { "city": "常陸太田市", "total": 0, "recent": 0 },
+      { "city": "常総市", "total": 0, "recent": 0 },
+      { "city": "下妻市", "total": 0, "recent": 0 },
+      { "city": "龍ケ崎市", "total": 0, "recent": 0 },
+      { "city": "結城市", "total": 0, "recent": 0 },
+      { "city": "石岡市", "total": 0, "recent": 0 },
+      { "city": "古河市", "total": 0, "recent": 0 },
+      { "city": "土浦市", "total": 0, "recent": 0 },
+      { "city": "日立市", "total": 0, "recent": 0 },
+      { "city": "水戸市", "total": 0, "recent": 0 }
+    ],
+    "date": ""
+  }
+}
+
+WAVE3_START = datetime.datetime(year=2020,month=10,day=27)
 
 with open('last_update.json', 'r', encoding="UTF-8") as f:
   lastUpdate = json.load(f)
@@ -70,16 +196,46 @@ with open('json/call_center.json', 'r', encoding="UTF-8") as f:
 with open('json/patients.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for person in json_content:
-    person['num'] = int(person['No'])
     person['date'] = person['公表_年月日'].replace('T00:00:00','')
     person['年代'] = person['患者_年代']
-    person['性別'] = person['患者_性別']
     person['居住地'] = person['患者_居住地']
     person['濃厚接触者'] = '○' if int(person['患者_濃厚接触者フラグ']) == 1 else ''
+
+    person['date'] = datetime.datetime.strptime(person['date'], '%Y-%m-%d')
+    one_wk_ago = datetime.datetime.now() - datetime.timedelta(days=7)
+
     for key in ['No','全国地方公共団体コード','都道府県名','市区町村名','公表_年月日','発症_年月日','患者_居住地','患者_年代','患者_性別','患者_職業','患者_状態','患者_症状','患者_渡航歴の有無フラグ','患者_濃厚接触者フラグ','検査方法','備考']:
       del person[key]
-  file_content['patients']['data'] = json_content
-  file_content['patients']['date'] = lastUpdate['patients']
+
+    if person['居住地'] in IBK_CITY_LIST:
+      city = [_ for _ in file_content['patients_city']['data'] if _["city"] == person['居住地']][0]
+      city["total"] += 1
+      city["recent"] += 1 if person['date'] > one_wk_ago else 0
+    if person['年代'] != '不明':
+      age = [_ for _ in file_content['patients_age']['data'] if _["age"] == person['年代']]
+      age = age[0]
+      if person['濃厚接触者'] == '○':
+        age['close'] += 1
+      else:
+        age['new'] += 1
+
+    if person['date'] >= WAVE3_START:
+      if person['居住地'] in IBK_CITY_LIST:
+        city = [_ for _ in file_content_wave3['patients_city']['data'] if _["city"] == person['居住地']][0]
+        city["total"] += 1
+      if person['年代'] != '不明':
+        age = [_ for _ in file_content_wave3['patients_age']['data'] if _["age"] == person['年代']]
+        age = age[0]
+        if person['濃厚接触者'] == '○':
+          age['close'] += 1
+        else:
+          age['new'] += 1
+
+  file_content['patients_city']['date'] = lastUpdate['patients']
+  file_content['patients_age']['date'] = lastUpdate['patients']
+  file_content_wave3['patients_city']['date'] = lastUpdate['patients']
+  file_content_wave3['patients_age']['date'] = lastUpdate['patients']
+
 
 with open('json/positive_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
@@ -147,12 +303,16 @@ with open('json/positive_rate.json', 'r', encoding="UTF-8") as f:
 
 # JSON書き込み
 with open('data.json', 'w', encoding="UTF-8") as f:
-  for key in range(1,12):
-    del file_content['// {}'.format(key)]
   json.dump(file_content, f, ensure_ascii=False, indent=0, separators=(',', ':'))
+with open('data_wave3.json', 'w', encoding="UTF-8") as f:
+  json.dump(file_content_wave3, f, ensure_ascii=False, indent=0, separators=(',', ':'))
 
 # JSON改行なくす
 with open('data.json', 'r', encoding="UTF-8") as f:
   json_content = f.read()
 with open('data.json', 'w', encoding="UTF-8") as f:
+  f.write(json_content.replace("\n",""))
+with open('data_wave3.json', 'r', encoding="UTF-8") as f:
+  json_content = f.read()
+with open('data_wave3.json', 'w', encoding="UTF-8") as f:
   f.write(json_content.replace("\n",""))
