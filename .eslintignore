@@ -4,5 +4,5 @@ node_modules/
 static/
 assets/
 ogp_invalidator/
-ConfirmedCasesAttributesCard.vue
+ConfirmedCasesAttributesCard*.vue
 vue-chart.ts

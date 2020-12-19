@@ -2,8 +2,8 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <data-table
-        :title="$t('陽性者の属性（第2波）')"
-        :title-id="'wave2/attributes-of-confirmed-cases'"
+        :title="$t('陽性者の属性（第1波）')"
+        :title-id="'wave1/attributes-of-confirmed-cases'"
         :table-data="patientsTable"
         :date="date"
         :info="sumInfoOfPatients"
@@ -17,7 +17,7 @@
         <template v-slot:tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
-              <th scope="row" class="text-start DataTable-cell">
+              <th scope="row" class="text-center DataTable-cell">
                 {{ item['整理番号'] }}
               </th>
               <td
@@ -93,10 +93,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     // 感染者数グラフ
     const lastDay = this.$d(
-      getDayjsObject("2020-10-17").toDate(),
+      getDayjsObject("2020-05-05").toDate(),
       'dateWithoutYear'
     )
-    const dataLength = 557
+    const dataLength = 168
     const sumInfoOfPatients = {
       lText: dataLength.toLocaleString(),
       sText: this.$t('{date}の累計', { date: lastDay }),
@@ -139,15 +139,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     async fetchOpenAPI() {
       const lastIndividualNum = this.endCursor - this.itemsPerPage + 1
       const endpoint = 'https://opendata.a01sa01to.com/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
-      const url = endpoint + encodeURIComponent(`num__No__under__${this.endCursor+168};num__No__over__${lastIndividualNum < 1 ? 169 : lastIndividualNum+168}`)
+      const url = endpoint + encodeURIComponent(`num__No__under__${this.endCursor};num__No__over__${lastIndividualNum < 1 ? 1 : lastIndividualNum}`)
 
       return await fetch(url)
         .then((response) => response.json())
-        .then((data) => {
-          const returnData = data.reverse();
-          returnData.forEach((d: { No: number })=>{ d.No -= 168 })
-          return { patientsData: returnData }
-        })
+        .then((data) => ({ patientsData: data.reverse() }))
         .catch((error) => {
           throw new Error(error.toString())
         })
