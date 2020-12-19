@@ -1,5 +1,5 @@
 <template>
-  <div class="MainPage">
+  <div v-scroll="onScroll" class="MainPage">
     <div class="Header mb-3">
       <page-header :icon-path="headerItem.iconPath">{{
         headerItem.title
@@ -16,7 +16,8 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
-    <static-info
+    <lazy-static-info
+      v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
       class="mb-4"
       :url="localePath('/flow')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
@@ -44,7 +45,6 @@ import IbarakiAmabieRedirectCard from '@/components/IbarakiAmabieRedirectCard.vu
 import PageHeader from '@/components/PageHeader.vue'
 import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import StaticCard from '@/components/StaticCard.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -54,7 +54,6 @@ export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
-    StaticInfo,
     StaticCard,
     RelaxationStepCard,
     CocoaRedirectCard,
@@ -70,6 +69,7 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
+      showStaticInfo: false,
     }
   },
   head(): MetaInfo {
@@ -83,6 +83,11 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
+    },
+  },
+  methods: {
+    onScroll() {
+      this.$data.showStaticInfo = true
     },
   },
 })

@@ -6,31 +6,31 @@
 </template>
 
 <script>
-import ConfirmedCasesAttributesCard from '@/components/wave2/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByAgeCard from '@/components/wave2/ConfirmedCasesByAgeCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/wave2/ConfirmedCasesByMunicipalitiesCard.vue'
-import ConfirmedCasesNumberCard from '@/components/wave2/ConfirmedCasesNumberCard.vue'
-import DeathsCard from '@/components/wave2/DeathsCard.vue'
-import InspectionPersonsNumberCard from '@/components/wave2/InspectionPersonsNumberCard.vue'
-import PositiveRateCard from '@/components/wave2/PositiveRateCard.vue'
-import RecoveredCard from '@/components/wave2/RecoveredCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/wave2/TelephoneAdvisoryReportsNumberCard.vue'
-import UntrackedRateCard from '@/components/wave2/UntrackedRateCard.vue'
+import ConfirmedCasesAttributesCardWave2 from '@/components/wave2/ConfirmedCasesAttributesCard_wave2.vue'
+import ConfirmedCasesByAgeCardWave2 from '@/components/wave2/ConfirmedCasesByAgeCard_wave2.vue'
+import ConfirmedCasesByMunicipalitiesCardWave2 from '@/components/wave2/ConfirmedCasesByMunicipalitiesCard_wave2.vue'
+import ConfirmedCasesNumberCardWave2 from '@/components/wave2/ConfirmedCasesNumberCard_wave2.vue'
+import DeathsCardWave2 from '@/components/wave2/DeathsCard_wave2.vue'
+import InspectionPersonsNumberCardWave2 from '@/components/wave2/InspectionPersonsNumberCard_wave2.vue'
+import PositiveRateCardWave2 from '@/components/wave2/PositiveRateCard_wave2.vue'
+import RecoveredCardWave2 from '@/components/wave2/RecoveredCard_wave2.vue'
+import TelephoneAdvisoryReportsNumberCardWave2 from '@/components/wave2/TelephoneAdvisoryReportsNumberCard_wave2.vue'
+import UntrackedRateCardWave2 from '@/components/wave2/UntrackedRateCard_wave2.vue'
 import ErrorCard from '@/layouts/error.vue'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
-    PositiveRateCard,
-    ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard,
-    ConfirmedCasesByMunicipalitiesCard,
-    InspectionPersonsNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    RecoveredCard,
-    DeathsCard,
-    ConfirmedCasesByAgeCard,
-    UntrackedRateCard,
+    PositiveRateCardWave2,
+    ConfirmedCasesNumberCardWave2,
+    ConfirmedCasesAttributesCardWave2,
+    ConfirmedCasesByMunicipalitiesCardWave2,
+    InspectionPersonsNumberCardWave2,
+    TelephoneAdvisoryReportsNumberCardWave2,
+    RecoveredCardWave2,
+    DeathsCardWave2,
+    ConfirmedCasesByAgeCardWave2,
+    UntrackedRateCardWave2,
     ErrorCard,
   },
   data() {
@@ -38,34 +38,34 @@ export default {
     let err = false
     switch (this.$route.params.card) {
       case 'number-of-confirmed-cases':
-        cardComponent = 'confirmed-cases-number-card'
+        cardComponent = 'confirmed-cases-number-card-wave2'
         break
       case 'attributes-of-confirmed-cases':
-        cardComponent = 'confirmed-cases-attributes-card'
+        cardComponent = 'confirmed-cases-attributes-card-wave2'
         break
       case 'number-of-inspection-persons':
-        cardComponent = 'inspection-persons-number-card'
+        cardComponent = 'inspection-persons-number-card-wave2'
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
-        cardComponent = 'telephone-advisory-reports-number-card'
+        cardComponent = 'telephone-advisory-reports-number-card-wave2'
         break
       case 'number-of-confirmed-cases-by-municipalities':
-        cardComponent = 'confirmed-cases-by-municipalities-card'
+        cardComponent = 'confirmed-cases-by-municipalities-card-wave2'
         break
       case 'number-of-recovered':
-        cardComponent = 'recovered-card'
+        cardComponent = 'recovered-card-wave2'
         break
       case 'number-of-deaths':
-        cardComponent = 'deaths-card'
+        cardComponent = 'deaths-card-wave2'
         break
       case 'positive-rate':
-        cardComponent = 'positive-rate-card'
+        cardComponent = 'positive-rate-card-wave2'
         break
       case 'number-of-confirmed-cases-by-age':
-        cardComponent = 'confirmed-cases-by-age-card'
+        cardComponent = 'confirmed-cases-by-age-card-wave2'
         break
       case 'untracked-rate':
-        cardComponent = 'untracked-rate-card'
+        cardComponent = 'untracked-rate-card-wave2'
         break
       default:
         err = true

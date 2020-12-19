@@ -23,29 +23,27 @@
         </li>
       </ul>
     </static-card>
-    <card-row class="DataBlock">
-      <tsuchiura-sakura />
-      <tsukuba-amakubo />
-      <mito />
-    </card-row>
+    <lazy-card-row :rows="rows" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import CardRow from '@/components/cards/CardRow.vue'
-import Mito from '@/components/roller/Mito.vue'
-import TsukubaAmakubo from '@/components/roller/TsukubaAmakubo.vue'
-import TsuchiuraSakura from '@/components/roller/TsuchiuraSakura.vue'
+
 import StaticCard from '@/components/StaticCard.vue'
+
+const Mito = () => import('@/components/roller/Mito.vue')
+const TsukubaAmakubo = () => import('@/components/roller/TsukubaAmakubo.vue')
+const TsuchiuraSakura = () => import('@/components/roller/TsuchiuraSakura.vue')
 
 export default Vue.extend({
   components: {
-    CardRow,
-    Mito,
-    TsukubaAmakubo,
-    TsuchiuraSakura,
     StaticCard,
+  },
+  data() {
+    return {
+      rows: [[TsuchiuraSakura, TsukubaAmakubo], [Mito]],
+    }
   },
 })
 </script>

@@ -1,58 +1,44 @@
 <template>
-  <div>
-    <card-row class="DataBlock">
-      <!-- 新規患者に関する報告件数の推移 -->
-      <confirmed-cases-number-card />
-      <!-- 経路不明者 -->
-      <untracked-rate-card />
-      <!-- 陽性患者の属性 -->
-      <confirmed-cases-attributes-card />
-      <!-- 回復者数 -->
-      <recovered-card />
-      <!-- 死亡者数 -->
-      <deaths-card />
-      <!-- 市町村別患者数 -->
-      <confirmed-cases-by-municipalities-card />
-      <!-- 年代別患者数 -->
-      <confirmed-cases-by-age-card />
-      <!-- 検査陽性率 -->
-      <positive-rate-card />
-      <!-- 検査実施人数（県） -->
-      <inspection-persons-number-card />
-      <!-- 新型コロナコールセンター相談件数 -->
-      <telephone-advisory-reports-number-card />
-    </card-row>
-  </div>
+  <Card_wave3s-lazy-row :rows="rows" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import CardRow from '@/components/cards/CardRow.vue'
-import ConfirmedCasesAttributesCard from '@/components/wave3/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByAgeCard from '@/components/wave3/ConfirmedCasesByAgeCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/wave3/ConfirmedCasesByMunicipalitiesCard.vue'
-import ConfirmedCasesNumberCard from '@/components/wave3/ConfirmedCasesNumberCard.vue'
-import DeathsCard from '@/components/wave3/DeathsCard.vue'
-import InspectionPersonsNumberCard from '@/components/wave3/InspectionPersonsNumberCard.vue'
-import PositiveRateCard from '@/components/wave3/PositiveRateCard.vue'
-import RecoveredCard from '@/components/wave3/RecoveredCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/wave3/TelephoneAdvisoryReportsNumberCard.vue'
-import UntrackedRateCard from '@/components/wave3/UntrackedRateCard.vue'
+const ConfirmedCasesAttributesCardWave3 = () =>
+  import('@/components/wave3/ConfirmedCasesAttributesCard_wave3.vue')
+const ConfirmedCasesByAgeCardWave3 = () =>
+  import('@/components/wave3/ConfirmedCasesByAgeCard_wave3.vue')
+const ConfirmedCasesByMunicipalitiesCardWave3 = () =>
+  import('@/components/wave3/ConfirmedCasesByMunicipalitiesCard_wave3.vue')
+const ConfirmedCasesNumberCardWave3 = () =>
+  import('@/components/wave3/ConfirmedCasesNumberCard_wave3.vue')
+const DeathsCardWave3 = () => import('@/components/wave3/DeathsCard_wave3.vue')
+const InspectionPersonsNumberCardWave3 = () =>
+  import('@/components/wave3/InspectionPersonsNumberCard_wave3.vue')
+const PositiveRateCardWave3 = () =>
+  import('@/components/wave3/PositiveRateCard_wave3.vue')
+const RecoveredCardWave3 = () =>
+  import('@/components/wave3/RecoveredCard_wave3.vue')
+const TelephoneAdvisoryReportsNumberCardWave3 = () =>
+  import('@/components/wave3/TelephoneAdvisoryReportsNumberCard_wave3.vue')
+const UntrackedRateCardWave3 = () =>
+  import('@/components/wave3/UntrackedRateCard_wave3.vue')
 
 export default Vue.extend({
-  components: {
-    CardRow,
-    ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard,
-    ConfirmedCasesByMunicipalitiesCard,
-    InspectionPersonsNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    RecoveredCard,
-    DeathsCard,
-    PositiveRateCard,
-    ConfirmedCasesByAgeCard,
-    UntrackedRateCard,
+  data() {
+    return {
+      rows: [
+        [ConfirmedCasesNumberCardWave3, ConfirmedCasesAttributesCardWave3],
+        [
+          ConfirmedCasesByMunicipalitiesCardWave3,
+          InspectionPersonsNumberCardWave3,
+        ],
+        [TelephoneAdvisoryReportsNumberCardWave3, RecoveredCardWave3],
+        [DeathsCardWave3, PositiveRateCardWave3],
+        [ConfirmedCasesByAgeCardWave3, UntrackedRateCardWave3],
+      ],
+    }
   },
 })
 </script>
@@ -61,7 +47,7 @@ export default Vue.extend({
 .DataBlock {
   margin: 20px -8px;
 
-  .DataCard {
+  .DataCard_wave3 {
     @include largerThan($medium) {
       padding: 10px;
     }

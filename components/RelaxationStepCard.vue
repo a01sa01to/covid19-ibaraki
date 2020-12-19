@@ -4,16 +4,13 @@
       <h3 class="RelaxationStep-title">
         {{ $t('社会経済活動再開に向けた対策の段階的緩和') }}
       </h3>
-      <div class="RelaxationStep-link">
-        <!-- <link-to-information-about-roadmap /> -->
-      </div>
     </div>
     <div class="RelaxationStep-content">
       <div class="RelaxationStep-block RelaxationStep-block-description">
         <p>
           {{
             $t(
-              '社会経済活動再開に向けた対策の段階的緩和については、6つの指標における直近1週間の平均値等から判断して、「Stage1」から「Stage4」までの4段階を設定し、段階的に県としての対策を緩和します。'
+              '茨城版コロナNextでは、6つの指標における直近1週間の平均値等から判断して、「Stage1」から「Stage4」までの4段階を設定し、段階的に県としての対策を緩和します。'
             )
           }}
         </p>
@@ -58,13 +55,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-// import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
+
 import Data from '@/data/data.json'
 
 export default Vue.extend({
-  components: {
-    // LinkToInformationAboutRoadmap,
-  },
+  components: {},
   data() {
     const stage = Data.ibk_corona_next.stage
     return {
