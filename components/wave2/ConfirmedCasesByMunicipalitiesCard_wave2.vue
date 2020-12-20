@@ -40,16 +40,16 @@ export default {
     // ヘッダーを設定
     if (this.$i18n.locale === 'ja') {
       municipalitiesTable.headers = [
-        { text: this.$t('地域'), value: 'area' },
-        { text: this.$t('市町村'), value: 'label' },
-        { text: this.$t('ふりがな'), value: 'ruby' },
-        { text: this.$t('陽性者数'), value: 'count' },
+        { text: this.$t('地域'), value: 'area', align: 'center' },
+        { text: this.$t('市町村'), value: 'label', align: 'center' },
+        { text: this.$t('ふりがな'), value: 'ruby', align: 'center' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'center' },
       ]
     } else {
       municipalitiesTable.headers = [
-        { text: this.$t('地域'), value: 'area' },
-        { text: this.$t('市町村'), value: 'label' },
-        { text: this.$t('陽性者数'), value: 'count' },
+        { text: this.$t('地域'), value: 'area', align: 'center' },
+        { text: this.$t('市町村'), value: 'label', align: 'center' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'center' },
       ]
     }
 

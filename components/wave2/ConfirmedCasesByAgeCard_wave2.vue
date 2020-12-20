@@ -58,10 +58,10 @@ export default {
 
     // ヘッダーを設定
     ageTable.headers = [
-      { text: this.$t('年代'), value: 'age' },
-      { text: this.$t('新規'), value: '_new' },
-      { text: this.$t('濃厚接触者'), value: 'close' },
-      { text: this.$t('合計'), value: 'total' },
+      { text: this.$t('年代'), value: 'age', align: 'center' },
+      { text: this.$t('新規'), value: '_new', align: 'center' },
+      { text: this.$t('濃厚接触者'), value: 'close', align: 'center' },
+      { text: this.$t('合計'), value: 'total', align: 'center' },
     ]
 
     // データをソート
