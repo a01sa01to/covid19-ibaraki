@@ -4,7 +4,7 @@
       <positive-rate-mixed-chart
         :title="$t('検査の陽性率')"
         :title-id="'positive-rate'"
-        :info-titles="[$t('検査の陽性率'), $t('検査人数')]"
+        :info-titles="[$t('検査の陽性率（推定）'), $t('検査人数')]"
         :chart-id="'positive-rate-chart'"
         :chart-data="positiveRateGraph"
         :get-formatter="getFormatter"
@@ -17,13 +17,6 @@
       >
         <template #description>
           <ul>
-            <li>
-              {{
-                $t(
-                  '陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
-                )
-              }}
-            </li>
             <li>
               {{
                 $t(
@@ -55,7 +48,7 @@
           </ul>
         </template>
         <template #additionalDescription
-          ><ul>
+          ><ul class="ListStyleNone">
             <li>
               {{
                 $t(
@@ -90,6 +83,9 @@ export default {
   data() {
     // 検査実施日別状況
     const { data, date } = Data.positiveRate
+    const prefInspectionRate =
+      Data.inspections_summary.datasets[0].data /
+      Data.inspections_summary.datasets.reduce((a, b) => a + b.data, 0)
 
     const PositiveCount = []
     const NegativeCount = []
@@ -110,7 +106,7 @@ export default {
       const avgPositive = sumPositive / avgDay
 
       PositiveCount.push(data[i].positive)
-      positiveRates.push((avgPositive / avgTested) * 100)
+      positiveRates.push((avgPositive / avgTested) * 100 * prefInspectionRate)
       const neg = data[i].tested - data[i].positive
       NegativeCount.push(neg < 0 ? 0 : neg)
       positiveRateLabels.push(data[i].date)

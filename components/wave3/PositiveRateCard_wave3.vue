@@ -4,7 +4,7 @@
       <positive-rate-mixed-chart
         :title="$t('検査の陽性率（第3波）')"
         :title-id="'wave3/positive-rate'"
-        :info-titles="[$t('検査の陽性率'), $t('検査人数')]"
+        :info-titles="[$t('検査の陽性率（推定）'), $t('検査人数')]"
         :chart-id="'wave3-positive-rate-chart'"
         :chart-data="positiveRateGraph"
         :get-formatter="getFormatter"
@@ -55,7 +55,7 @@
           </ul>
         </template>
         <template #additionalDescription
-          ><ul>
+          ><ul class="ListStyleNone">
             <li>
               {{
                 $t(
@@ -93,6 +93,9 @@ export default {
       (_) => new Date(_.date) > new Date('2020-10-16')
     )
     const date = Data.positiveRate.date
+    const prefInspectionRate =
+      Data.inspections_summary.datasets[0].data /
+      Data.inspections_summary.datasets.reduce((a, b) => a + b.data, 0)
 
     const PositiveCount = []
     const NegativeCount = []
@@ -113,7 +116,7 @@ export default {
       const avgPositive = sumPositive / avgDay
 
       PositiveCount.push(data[i].positive)
-      positiveRates.push((avgPositive / avgTested) * 100)
+      positiveRates.push((avgPositive / avgTested) * 100 * prefInspectionRate)
       const neg = data[i].tested - data[i].positive
       NegativeCount.push(neg < 0 ? 0 : neg)
       positiveRateLabels.push(data[i].date)

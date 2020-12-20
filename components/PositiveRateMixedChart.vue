@@ -1,8 +1,9 @@
 <template>
   <data-view
+    :title="title"
     :title-id="titleId"
     :date="date"
-    :head-title="infoTitles.join(',')"
+    :head-title="title + infoTitles.join(',')"
   >
     <ul
       :class="$style.GraphLegend"
