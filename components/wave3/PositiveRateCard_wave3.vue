@@ -89,10 +89,10 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    Data.positiveRate.data = Data.positiveRate.data.filter(
+    const data = Data.positiveRate.data.filter(
       (_) => new Date(_.date) > new Date('2020-10-16')
     )
-    const { data, date } = Data.positiveRate
+    const date = Data.positiveRate.date
 
     const PositiveCount = []
     const NegativeCount = []

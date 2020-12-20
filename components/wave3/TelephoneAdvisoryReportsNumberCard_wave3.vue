@@ -24,13 +24,11 @@ export default {
     TimeBarChart,
   },
   data() {
-    Data.contacts.data = Data.contacts.data.filter(
-      (_) => new Date(_.date) > new Date('2020-10-16')
-    )
-    const { contacts } = Data
-    const { date } = contacts
+    const date = Data.contacts.date
     // 相談件数
-    const contactsGraph = formatGraph(contacts.data)
+    const contactsGraph = formatGraph(Data.contacts.data).filter(
+      (_) => new Date(_.label) > new Date('2020-10-16')
+    )
 
     return {
       contactsGraph,

@@ -43,10 +43,9 @@ export default {
     TimeBarChart,
   },
   data() {
-    Data.recovered_summary.data = Data.recovered_summary.data.filter(
-      (_) => new Date(_.date) > new Date('2020-10-16')
+    const recoveredGraph = formatGraph(Data.recovered_summary.data).filter(
+      (_) => new Date(_.label) > new Date('2020-10-16')
     )
-    const recoveredGraph = formatGraph(Data.recovered_summary.data)
 
     const data = {
       Data,

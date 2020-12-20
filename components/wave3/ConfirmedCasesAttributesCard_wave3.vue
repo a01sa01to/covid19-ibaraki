@@ -106,6 +106,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       getDayjsObject(lastData.label).toDate(),
       'dateWithoutYear'
     )
+    console.log(lastData)
     const dataLength = lastData.cumulative - 723
     const sumInfoOfPatients = {
       lText: dataLength.toLocaleString(),

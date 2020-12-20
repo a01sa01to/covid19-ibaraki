@@ -70,10 +70,9 @@ export default {
     UntrackedRateMixedChart,
   },
   data() {
-    Data.patients_summary.data = Data.patients_summary.data.filter(
+    const data = Data.patients_summary.data.filter(
       (_) => new Date(_.date) > new Date('2020-10-16')
     )
-    const data = Data.patients_summary
 
     const reportedCount = []
     const missingCount = []
@@ -81,18 +80,14 @@ export default {
     const untrackedIncreseRate = []
     const dateLabels = []
 
-    const l = data.data.length
+    const l = data.length
     for (let i = 13; i < l; i++) {
       // 直近1weekおよび1week前の陽性者数平均を算出
       let sumPos = 0
       let sumPosPrev = 0
       for (let j = 0; j < 7; j++) {
-        sumPos +=
-          Data.patients_summary.data[i - j].total -
-          Data.patients_summary.data[i - j].close
-        sumPosPrev +=
-          Data.patients_summary.data[i - j - 7].total -
-          Data.patients_summary.data[i - j - 7].close
+        sumPos += data[i - j].total - data[i - j].close
+        sumPosPrev += data[i - j - 7].total - data[i - j - 7].close
       }
 
       let Rate = sumPos / sumPosPrev
@@ -106,7 +101,7 @@ export default {
       untrackedRate.push(Number((sumPos / 7).toFixed(2)))
       untrackedIncreseRate.push(Number((Rate * 100).toFixed(2)))
 
-      const row = data.data[i]
+      const row = data[i]
       dateLabels.push(row.date)
       reportedCount.push(row.close)
       missingCount.push(row.total - row.close)

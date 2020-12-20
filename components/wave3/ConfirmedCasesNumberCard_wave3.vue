@@ -40,11 +40,9 @@ export default {
   },
   data() {
     // 感染者数グラフ
-
-    Data.patients_summary.data = Data.patients_summary.data.filter(
-      (_) => new Date(_.date) > new Date('2020-10-16')
+    const patientsGraph = formatGraph(Data.patients_summary.data).filter(
+      (_) => new Date(_.label) > new Date('2020-10-16')
     )
-    const patientsGraph = formatGraph(Data.patients_summary.data)
     const date = Data.patients_summary.date
 
     return {
