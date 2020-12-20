@@ -14,7 +14,7 @@
         @on-change-items-per-page="onChangeItemsPerPage"
         @on-change-page="onChangePage"
       >
-        <template v-slot:tableBody="{ items, headers }">
+        <template #tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
               <th scope="row" class="text-center DataTable-cell">

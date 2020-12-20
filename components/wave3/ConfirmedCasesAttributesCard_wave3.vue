@@ -14,7 +14,7 @@
         @on-change-items-per-page="onChangeItemsPerPage"
         @on-change-page="onChangePage"
       >
-        <template v-slot:tableBody="{ items, headers }">
+        <template #tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
               <th scope="row" class="text-center DataTable-cell">
@@ -38,7 +38,7 @@
             </tr>
           </tbody>
         </template>
-        <template v-slot:description>
+        <template #description>
           <ul>
             <li>
               {{ $t('997-1054例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある') }}
@@ -106,7 +106,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       getDayjsObject(lastData.label).toDate(),
       'dateWithoutYear'
     )
-    console.log(lastData)
     const dataLength = lastData.cumulative - 723
     const sumInfoOfPatients = {
       lText: dataLength.toLocaleString(),

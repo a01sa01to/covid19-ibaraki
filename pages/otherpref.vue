@@ -5,7 +5,7 @@
     </page-header>
     <div class="Others-Card">
       <v-simple-table class="Others-Card-Table">
-        <template v-slot:default>
+        <template #default>
           <thead>
             <tr>
               <th class="text-center">{{ $t('都道府県名') }}</th>
@@ -50,6 +50,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+
 import PageHeader from '@/components/PageHeader.vue'
 import Data from '@/data/otherpref.json'
 
