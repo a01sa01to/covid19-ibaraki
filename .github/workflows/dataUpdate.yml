@@ -344,6 +344,14 @@ jobs:
         run: |
           mv ./opendata/opendata_artifact/json/*.* ./opendata/json/
           mv ./opendata/opendata_artifact/*.* ./opendata/
+      - name: Temporary Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update Data (Temp)" -a
+      - name: Reset the Commit
+        run: git reset --soft HEAD
       - name: Download and Generate otherpref.json
         run: |
           curl ${DATA_UPDATE_URL}?data=forked_sites -L -o otherpref.csv
