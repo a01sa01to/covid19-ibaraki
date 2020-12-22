@@ -351,7 +351,7 @@ jobs:
           git add .
           git commit -m "Update Data (Temp)" -a
       - name: Reset the Commit
-        run: git reset --soft HEAD
+        run: 'git reset --soft HEAD^'
       - name: Download and Generate otherpref.json
         run: |
           curl ${DATA_UPDATE_URL}?data=forked_sites -L -o otherpref.csv
