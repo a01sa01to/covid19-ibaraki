@@ -248,6 +248,10 @@ const config: NuxtConfig = {
       process.env.GENERATE_ENV === 'development'
         ? 'https://covid19-dev.a01sa01to.com'
         : 'https://ibaraki.stopcovid19.jp',
+    i18n: true,
+    defaults: {
+      changefreq: 'daily',
+    },
   },
 }
 
