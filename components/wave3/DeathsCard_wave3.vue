@@ -24,8 +24,10 @@ export default {
     TimeBarChart,
   },
   data() {
-    const deathsGraph = formatGraph(Data.deaths_summary.data).filter(
-      (_) => new Date(_.label) > new Date('2020-10-16')
+    const deathsGraph = formatGraph(
+      Data.deaths_summary.data.filter(
+        (_) => new Date(_.date) > new Date('2020-10-16')
+      )
     )
 
     return {

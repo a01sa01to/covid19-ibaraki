@@ -2,9 +2,9 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <time-bar-chart
-        :title="$t('報告日別による陽性者数の推移（第2波）')"
-        :title-id="'wave2/number-of-confirmed-cases'"
-        :chart-id="'wave2-time-bar-chart-patients'"
+        :title="$t('報告日別による陽性者数の推移（第3波）')"
+        :title-id="'wave3/number-of-confirmed-cases'"
+        :chart-id="'wave3-time-bar-chart-patients'"
         :chart-data="patientsGraph"
         :date="date"
         :unit="$t('人')"
@@ -40,8 +40,10 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data).filter(
-      (_) => new Date(_.label) > new Date('2020-10-16')
+    const patientsGraph = formatGraph(
+      Data.patients_summary.data.filter(
+        (_) => new Date(_.date) > new Date('2020-10-16')
+      )
     )
     const date = Data.patients_summary.date
 

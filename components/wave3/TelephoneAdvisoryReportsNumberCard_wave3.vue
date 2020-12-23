@@ -26,8 +26,10 @@ export default {
   data() {
     const date = Data.contacts.date
     // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data).filter(
-      (_) => new Date(_.label) > new Date('2020-10-16')
+    const contactsGraph = formatGraph(
+      Data.contacts.data.filter(
+        (_) => new Date(_.date) > new Date('2020-10-16')
+      )
     )
 
     return {
