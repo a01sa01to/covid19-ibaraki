@@ -15,6 +15,9 @@
         エラーメッセージ: {{ error.message }}
       </v-alert>
     </v-overlay>
+    <template #description>
+      <slot name="description" />
+    </template>
     <v-layout :class="{ loading: !loaded || error }" column>
       <v-data-table
         :ref="'displayedTable'"
