@@ -192,14 +192,8 @@ export default Vue.extend({
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
-        },
-        {
-          svg: 'CovidIcon',
-          title: this.$t('発熱患者の受診体制について'),
           link:
             'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
-          divider: true,
         },
         {
           title:
