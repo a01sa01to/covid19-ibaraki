@@ -25,6 +25,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
+    // ---- モニタリング項目
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     PositiveRateCard,

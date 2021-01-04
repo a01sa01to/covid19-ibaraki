@@ -58,7 +58,6 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
-import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
 import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
@@ -103,8 +102,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     const patientsGraph = formatGraph(Data.patients_summary.data)
     const lastData = patientsGraph[patientsGraph.length - 1]
     const lastDay = this.$d(
-      getDayjsObject(lastData.label).toDate(),
-      'dateWithoutYear'
+      dayjs(lastData.label).toDate(),
+      'date'
     )
     const dataLength = lastData.cumulative - 723
     const sumInfoOfPatients = {
@@ -179,7 +178,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     translateDate(date) {
       const day = dayjs(date)
       if (!day.isValid()) return date
-      return this.$d(day.toDate(), 'dateWithoutYear')
+      return this.$d(day.toDate(), 'date')
     },
     translateAge(_age) {
       const [age, dai] = _age.split(/(代)$/, 2)

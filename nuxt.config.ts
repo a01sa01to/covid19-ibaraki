@@ -204,6 +204,7 @@ const config: NuxtConfig = {
         '/cards/untracked-rate',
         '/cards/roller/mito',
         '/cards/roller/tsukuba-amakubo',
+        '/cards/roller/tsuchiura-sakura',
       ]
 
       const waveCards = [

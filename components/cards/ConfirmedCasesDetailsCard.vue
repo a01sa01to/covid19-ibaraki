@@ -104,10 +104,7 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(
-          new Date(mainSummary.children[0].date),
-          'dateWithoutYear'
-        ),
+        date: this.$d(new Date(mainSummary.children[0].date), 'date'),
       }),
     }
     const updatedAt = dayjs(mainSummary.children[0].date).format(

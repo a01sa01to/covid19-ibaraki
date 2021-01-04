@@ -10,7 +10,10 @@
       <scale-loader color="#00A040" />
     </v-overlay>
     <v-overlay v-if="error" absolute justify-center align-center>
-      <v-alert type="error" color="#AD2121">
+      <v-alert color="#AD2121">
+        <v-icon>
+          {{ mdiAlert }}
+        </v-icon>
         {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
         エラーメッセージ: {{ error.message }}
       </v-alert>
@@ -76,11 +79,15 @@
     </template>
     <template #footer>
       <open-data-link :url="url" />
+      <p class="FooterNote">
+        {{ $t('下記更新日時はオープンデータAPIの反映日時に準じています') }}
+      </p>
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
+import { mdiAlert } from '@mdi/js'
 import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
@@ -132,6 +139,7 @@ export default Vue.extend({
     return {
       itemsPerPage: 15,
       page: 1,
+      mdiAlert,
     }
   },
   watch: {

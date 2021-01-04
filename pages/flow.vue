@@ -365,7 +365,7 @@ export default Vue.extend({
   },
   head(): any {
     const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに.title'
+      '新型コロナウイルス感染症が心配なときに'
     )
     return {
       title,

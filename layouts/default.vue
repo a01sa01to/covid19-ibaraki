@@ -150,7 +150,7 @@ export default Vue.extend({
           hid: 'og:description',
           property: 'og:description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(Data.lastUpdate),
+            date: convertDateToSimpleFormat(lastUpdate),
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
           )}`,

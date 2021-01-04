@@ -59,7 +59,6 @@ type ConfirmedCasesType = {
   死亡: number
   回復済: number
 }
-
 interface ChildData {
   attr: string
   value: number

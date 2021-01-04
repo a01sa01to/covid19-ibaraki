@@ -31,7 +31,7 @@ Transifex has some useful features like a dictionary feature. Feel free to use i
 
 ## Adding new language
 
-If you want to add new language. Please request new language via Transifex system.
+If you want to add new language, please request new language via Transifex system.
 
 ## For developers
 

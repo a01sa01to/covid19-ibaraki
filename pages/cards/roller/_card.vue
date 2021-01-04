@@ -7,6 +7,7 @@
 
 <script>
 import Mito from '@/components/roller/Mito.vue'
+import TsuchiuraSakura from '@/components/roller/TsuchiuraSakura.vue'
 import TsukubaAmakubo from '@/components/roller/TsukubaAmakubo.vue'
 import ErrorCard from '@/layouts/error.vue'
 
@@ -14,6 +15,7 @@ export default {
   components: {
     Mito,
     TsukubaAmakubo,
+    TsuchiuraSakura,
     ErrorCard,
   },
   data() {
@@ -25,6 +27,9 @@ export default {
         break
       case 'tsukuba-amakubo':
         cardComponent = 'tsukuba-amakubo'
+        break
+      case 'tsuchiura-sakura':
+        cardComponent = 'tsuchiura-sakura'
         break
       default:
         err = true

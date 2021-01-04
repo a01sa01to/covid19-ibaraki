@@ -24,7 +24,7 @@
             <li>
               {{
                 $t('{date} 時点でのデータである', {
-                  date: $d(new Date(date), 'dateWithoutYear'),
+                  date: $d(new Date(date), 'date'),
                 })
               }}
             </li>
@@ -147,7 +147,7 @@ export default {
     const info = {
       lText: total.number.toLocaleString(),
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(date), 'dateWithoutYear'),
+        date: this.$d(new Date(date), 'date'),
       }),
     }
 

@@ -116,7 +116,7 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(date), 'dateWithoutYear'),
+        date: this.$d(new Date(date), 'date'),
       }),
     }
 

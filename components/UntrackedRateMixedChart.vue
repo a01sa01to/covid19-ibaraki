@@ -122,9 +122,8 @@ import {
   yAxesBgPlugin,
   yAxesBgRightPlugin,
 } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getNumberToLocaleStringFunction } from '@/utils/valueFormatter'
 
 type Data = {
@@ -281,7 +280,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: this.$d(lastDay, 'dateWithoutYear'),
+            date: this.$d(lastDay, 'date'),
           })}（${this.$t('7日間移動平均')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
             this.unit[0]
@@ -291,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData3,
           sText: `${this.$t('{date} の数値', {
-            date: this.$d(lastDay3, 'dateWithoutYear'),
+            date: this.$d(lastDay3, 'date'),
           })}（${this.$t('7日間移動平均値をもとに算出')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
             this.unit[1]
@@ -413,7 +412,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 4) {
                 const label = data.labels![tooltipItem[0].index!] as string
-                return self.$d(getComplementedDate(label), 'dateWithoutYear')
+                return self.$d(new Date(label), 'date')
               }
               return ''
             },
@@ -533,9 +532,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 0,
           },
           {
-            data: [this.displayData.datasets[2].data[n]],
+            data: [0],
             backgroundColor: 'transparent',
-            yAxisID: 'y-axis-2',
+            yAxisID: 'y-axis-1',
             borderWidth: 0,
           },
           {

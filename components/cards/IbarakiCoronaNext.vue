@@ -372,10 +372,7 @@ export default {
 
     for (const key in updDate) {
       const t = new Date(updDate[key])
-      updDate[key] = `${String((t.getMonth() + 1) / 10).replace(
-        '.',
-        ''
-      )}/${String(t.getDate() / 10).replace('.', '')}`
+      updDate[key] = this.$d(t, 'dateWithoutYear')
     }
 
     return {

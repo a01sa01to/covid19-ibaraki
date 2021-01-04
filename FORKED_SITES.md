@@ -50,7 +50,7 @@
 [](31)鳥取県|https://tottori-covid19.netlify.app/|有志|[tottori-covid19/covid19](https://github.com/tottori-covid19/covid19)|
 [](32)島根県|https://shimane-covid19.netlify.app/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
 [](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア（有志）|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
-[](34)広島県|https://covid19-hiroshima.netlify.app/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
+[](34)広島県|https://hiroshima.stopcovid19.jp/|広島県（**公式**）||
 [](34)広島市|https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/|学生エンジニア（**広島市公式**）|[covid19-hirosima_city](https://github.com/inspired-fox/covid19-hirosima_city)|
 [](35)山口県|https://covid19-yamaguchi.netlify.app/|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
 [](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)|
@@ -69,40 +69,14 @@
 [](47)沖縄県|https://okinawa.stopcovid19.jp/|有志|[Code-for-OKINAWA/covid19](https://github.com/Code-for-OKINAWA/covid19)
 []()全国|https://covid19.wlaboratory.com/|個人|[mm0202/covid19-jp](https://github.com/mm0202/covid19-jp)|
 
-<!--
-function md2html(ls){
-	let _ = "";
-	ls = ls.split("\n");
-	const n = ls.length;
-	for(let i=0; i<n; i++){
-		if(ls[i]){
-			const e = ls[i].split("|");
-			let pref = e[0].split(")")[1];
-			let site = e[1];
-			let admin = e[2];
-			let repo = e[3].split("]")[0].split("[")[1];
+## 都道府県追加時のルール
 
-			if(admin.includes("(")){
-				admin = admin.replace(/（/, "(")
-				admin = admin.replace(/\(/, "') }}&nbsp;&nbsp;({{ $t('")
-				admin = admin.replace(/）/, ")");
-				admin = admin.replace(/有志/, "') }}({{ $t('有志') }}{{ $t('");
-				admin = admin.replace(/団体/, "') }}({{ $t('団体') }}{{ $t('");
-			}
-			admin = admin.replace(/\*\*(.+)\*\*/, "<b>{{ $t('$1') }}</b>")
-
-_ += `<tr>
-\t<td class="pref text-center">{{ $t('${pref}') }}</td>
-\t<td class="site text-center"><a href="${site}" target="_blank">${site}</a></td>
-\t<td class="admin text-center">{{ $t('${admin}') }}</td>
-\t<td class="repo text-center"><a href="https://github.com/${repo}" target="_blank">${repo}</a></td>
-</tr>
-`
-		}
-	}
-	_ = _.replace(/{{\ \$t\(''\)\ }}\(/g, "");
-	_ = _.replace(/{{\ \$t\('\)'\)\ }}/g, "");
-	_ = _.replace(/{{\ \$t\(''\)\ }}/g, "");
-	console.log(_)
-}
--->
+1. 東京都: 先頭で固定とする。
+1. 東京都以外: 厚生労働省発行のPDF（[都道府県番号 - tp0727-1d.pdf](https://www.mhlw.go.jp/topics/2007/07/dl/tp0727-1d.pdf)）に従って、表に以下の情報を追加する。
+   - 公開しているサイト: URLを記載する。URLの末尾にスラッシュを忘れずに記載すること。
+   - 運営者: 括弧を使用する際には、全角で統一すること。
+   - プロジェクト
+      - Private Repository: 未記入とする。
+      - Public Repository
+         - GitHub: `[organization/repository](https://github.com/organization/repository)`形式で記載する。
+         - GitHub以外: URLを記載する。

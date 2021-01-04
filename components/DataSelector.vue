@@ -53,11 +53,8 @@ export default Vue.extend({
 
   &-Button {
     height: 24px !important;
-    margin: 2px;
     color: $gray-1 !important;
     background-color: $white !important;
-    border: none !important;
-    border-radius: 4px !important;
     @include font-size(12, true);
 
     &::before {

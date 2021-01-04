@@ -65,7 +65,6 @@ import RollerView from '@/components/RollerView.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
 import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
@@ -292,10 +291,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
+              return self.$d(new Date(label), 'date')
             },
           },
         },
@@ -504,10 +500,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.chartData
         .map((d, _) => {
           return {
-            text: this.$d(
-              new Date(getComplementedDate(d.label)),
-              'dateWithoutYear'
-            ),
+            text: this.$d(new Date(d.label), 'date'),
             transition: d.transition.toLocaleString(),
             cumulative: d.cumulative.toLocaleString(),
           }

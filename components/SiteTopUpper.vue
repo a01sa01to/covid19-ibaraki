@@ -26,11 +26,13 @@
     <cocoa-redirect-card />
     <ibaraki-amabie-redirect-card />
     <relaxation-step-card />
-    <static-card class="mb-4" style="padding: 0.5em 1em; font-size: 1.4rem">
-      {{ $t('第1波は3/17～5/5の期間、') }}
-      {{ $t('第2波は6/20～10/17の期間、') }}
-      {{ $t('第3波は10/17～(現在)の期間を指す') }}<br />
-      {{ $t('なお、10/17は第2波および第3波の両方に含まれている') }}
+    <static-card class="description">
+      {{ $t('当サイトでの「第〇波」の定義は以下のようになっています。') }}
+      <ul>
+        <li>{{ $t('第1波 2020年3月17日～2020年5月5日') }}</li>
+        <li>{{ $t('第2波 2020年6月20日～2020年10月17日') }}</li>
+        <li>{{ $t('第3波 2020年10月17日～(現在)') }}</li>
+      </ul>
     </static-card>
   </div>
 </template>
@@ -117,10 +119,15 @@ export default Vue.extend({
     @include font-size(12);
 
     color: $gray-3;
-
     @include largerThan($small) {
       margin: 0 0 0 auto;
     }
+  }
+
+  .description {
+    @include font-size(14);
+
+    padding: 1rem;
   }
 }
 </style>
