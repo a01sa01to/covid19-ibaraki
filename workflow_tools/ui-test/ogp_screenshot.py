@@ -13,6 +13,7 @@ PATHS = [
   "/cards/number-of-tested",
   "/cards/roller/mito",
   "/cards/roller/tsukuba-amakubo",
+  "/cards/roller/tsuchiura-sakura",
 ]
 
 WAVEPATHS = [
