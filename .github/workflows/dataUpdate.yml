@@ -1,8 +1,6 @@
 name: Data Update
 
-on:
-  schedule:
-    - cron: '*/20 9,10,11,12,13 * * *'
+on: workflow_dispatch
 
 jobs:
   patients_data:
