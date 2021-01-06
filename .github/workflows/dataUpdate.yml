@@ -301,7 +301,6 @@ jobs:
         working-directory: ./opendata
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-        working-directory: ./opendata
       - name: Save
         uses: actions/upload-artifact@v2
         with:
