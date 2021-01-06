@@ -380,7 +380,6 @@ jobs:
         run: |
           curl ${DATA_UPDATE_URL}?data=forked_sites -L -o otherpref.csv
           python ../workflow_tools/csv2json/main.py
-          mv otherpref.json ../data/otherpref.json -u
         working-directory: ./data
         continue-on-error: true
         env:
@@ -392,7 +391,7 @@ jobs:
       - name: Move data.json, news.json
         run: |
           mv data.json ../data/data.json -u
-          mv ./opendata/news.json ./data/news.json -u
+          mv news.json ../data/news.json -u
           mv data_wave3.json ../data/data_wave3.json -u
         working-directory: ./opendata
       - name: Commit files
