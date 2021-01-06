@@ -295,7 +295,7 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=news_json -L -o news.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
         working-directory: ./opendata
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
@@ -315,7 +315,7 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=news_json -L -o news.json'
         working-directory: ./opendata
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
@@ -323,7 +323,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: opendata/data.json
+          path: opendata/news.json
 
   last_update:
     name: Last Update Time
