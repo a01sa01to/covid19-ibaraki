@@ -306,7 +306,7 @@ jobs:
           path: opendata/json/corona_next.json
 
   news_json:
-    name: name.json
+    name: news.json
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
