@@ -13,7 +13,11 @@
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <app-link :to="item.url" class="WhatsNew-list-item-anchor">
+        <app-link
+          v-if="item.url"
+          :to="item.url"
+          class="WhatsNew-list-item-anchor"
+        >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
@@ -24,6 +28,17 @@
             {{ item.text }}
           </span>
         </app-link>
+        <div v-else class="WhatsNew-list-item-anchor">
+          <time
+            class="WhatsNew-list-item-anchor-time px-2"
+            :datetime="formattedDate(item.date)"
+          >
+            {{ formattedDateForDisplay(item.date) }}
+          </time>
+          <span class="WhatsNew-list-item-anchor-link">
+            {{ item.text }}
+          </span>
+        </div>
       </li>
     </ul>
   </div>
