@@ -15,7 +15,7 @@
         <span>{{ $t('注釈') }}</span>
       </div>
     </div>
-    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
     <lazy-static-info
       v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
       class="mb-4"

@@ -1,16 +1,17 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <app-link
-      to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/handanshihyo.html"
-    >
+    <!-- <app-link
+      to="#" -->
+    <div>
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('茨城県緊急事態措置について') }}
-    </app-link>
+      {{ $t('県内全域に不要不急の外出自粛を要請') }}
+    </div>
+    <!-- </app-link> -->
   </span>
 </template>
 
@@ -18,10 +19,10 @@
 import { mdiBullhorn } from '@mdi/js'
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
+// import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: { AppLink },
+  // components: { AppLink },
   data() {
     return {
       mdiBullhorn,
