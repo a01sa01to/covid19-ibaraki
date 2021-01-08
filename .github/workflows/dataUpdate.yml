@@ -299,6 +299,9 @@ jobs:
         working-directory: ./opendata
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
+      - name: Rename
+        run: 'mv 080004_ibaraki_covid19_corona_next.json ./json/corona_next.json -u'
+        working-directory: ./opendata
       - name: Save
         uses: actions/upload-artifact@v2
         with:
