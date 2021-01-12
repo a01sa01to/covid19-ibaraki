@@ -75,6 +75,10 @@ export default options
 .DataBlock {
   margin-top: 20px;
 
+  .row {
+    margin: 0 -12px;
+  }
+
   .DataCard {
     @include largerThan($medium) {
       padding: 10px;
