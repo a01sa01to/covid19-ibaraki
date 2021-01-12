@@ -59,6 +59,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.v-tabs .v-window {
+  overflow: inherit;
+}
+
 .v-slide-group__content {
   background: $gray-5;
   border-bottom: 1px solid $gray-2;
