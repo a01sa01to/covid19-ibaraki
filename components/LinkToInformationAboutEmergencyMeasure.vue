@@ -1,17 +1,16 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <!-- <app-link
-      to="#" -->
-    <div>
+    <app-link to="/EmergencyMeasure">
+      <!-- <div> -->
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('県内全域に不要不急の外出自粛を要請') }}
-    </div>
-    <!-- </app-link> -->
+      {{ $t('茨城県独自の緊急事態宣言を発令') }}
+      <!-- </div> -->
+    </app-link>
   </span>
 </template>
 
