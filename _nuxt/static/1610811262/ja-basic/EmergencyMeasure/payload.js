@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/EmergencyMeasure", {data:[{}],fetch:[],mutations:void 0});
