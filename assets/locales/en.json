@@ -735,5 +735,7 @@
   "宿泊施設は、新規予約受付を中止。": "Accommodation facilities have stopped accepting new reservations.",
   "飲食店の営業時間短縮要請": "Request to shorten opening hours of restaurants",
   "例2. 最大収容人数20,000人→人数上限の5,000人（収容率 25%）": "Example 2: Maximum capacity of 20,000 persons → 5,000 persons (Maximum number of people; the capacity factor is 25%)",
-  "例1. 最大収容人数3,000人→収容率50%の1,500人（&lt; 5,000人）": "Example 1. Maximum capacity of 3,000 persons → 1,500 persons (Maximum capacity factor 50%; is less than the maximum number of people 5,000)"
+  "例1. 最大収容人数3,000人→収容率50%の1,500人（&lt; 5,000人）": "Example 1. Maximum capacity of 3,000 persons → 1,500 persons (Maximum capacity factor 50%; is less than the maximum number of people 5,000)",
+  "緊急事態宣言について": "About Emergency Measures",
+  "茨城県独自の緊急事態宣言が発令されています": "Ibaraki Prefecture declares its own state of emergency."
 }
