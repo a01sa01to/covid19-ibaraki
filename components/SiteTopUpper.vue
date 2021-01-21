@@ -17,6 +17,13 @@
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
     <lazy-static-info
+      v-if="$vuetify.breakpoint.smAndUp"
+      class="mb-4"
+      :url="localePath('/EmergencyMeasure')"
+      :text="$t('茨城県独自の緊急事態宣言が発令されています')"
+      :btn-text="$t('緊急事態宣言について')"
+    />
+    <lazy-static-info
       v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
       class="mb-4"
       :url="'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html'"
