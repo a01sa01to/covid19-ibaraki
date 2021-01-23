@@ -14,11 +14,11 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "opendata/json"]
 
 # チェックするjsonファイルのリスト
 # 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json","otherpref.json","cities.json"]
+JSON_FILES = ["data.json","otherpref.json","cities.json","patients.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -153,11 +153,17 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                             for data in json_content:
                                 tags.append(data["city"])
                                 tags.append(data["area"])
+                        elif file_name == JSON_FILES[3]:  # opendata/json/patients.json
+                            for data in json_content:
+                                tags.append(data["患者_職業"])
 
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
-            # Noneが混じっているので、取り除く
-            all_tags.pop(all_tags.index(None))
+            # Noneが混じっている場合、取り除く
+            try:
+                all_tags.pop(all_tags.index(None))
+            except:
+                print('None is not in List')
             # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
             # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
             for x in ["-", "‐", "―"]:
