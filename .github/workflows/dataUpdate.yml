@@ -420,6 +420,16 @@ jobs:
           path: .github/config/branch_protect_dev.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
+      - name: Run Deploy & i18n_generator
+        run: |
+          echo "::group::Development Deploy"
+          curl https://api.github.com/repos/a01sa01to/covid19-ibaraki/actions/workflows/859009/dispatches -X POST -H "Accept: application.vnd.github.v3+json" -H "Authorization: token ${WORKFLOW_DISPATCH_TOKEN}" -d '{"ref":"development"}'
+          echo "::endgroup::"
+          echo "::group::i18n generator"
+          curl https://api.github.com/repos/a01sa01to/covid19-ibaraki/actions/workflows/1131350/dispatches -X POST -H "Accept: application.vnd.github.v3+json" -H "Authorization: token ${WORKFLOW_DISPATCH_TOKEN}" -d '{"ref":"development"}'
+          echo "::endgroup::"
+        env:
+          WORKFLOW_DISPATCH_TOKEN: ${{ secrets.WORKFLOW_DISPATCH_TOKEN }}
 
   push_master:
     name: Push to master branch
@@ -454,206 +464,8 @@ jobs:
           path: .github/config/branch_protect_mas.yml
         env:
           GITHUB_TOKEN: ${{secrets.GHAC_TOKEN}}
-
-  prod_deploy:
-    name: Production Deploy
-    runs-on: ubuntu-latest
-    needs: push_master
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install deps
-        run: yarn install --frozen-lockfile
-      - name: Test
-        run: yarn run test
-      - name: Generate
+      - name: Run Deploy
         run: |
-          echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}" >> .env.production
-          cat .env.production
-          yarn run generate:deploy --fail-on-page-error
+          curl https://api.github.com/repos/a01sa01to/covid19-ibaraki/actions/workflows/814487/dispatches -X POST -H "Accept: application.vnd.github.v3+json" -H "Authorization: token ${WORKFLOW_DISPATCH_TOKEN}" -d '{"ref":"master"}'
         env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: production
-
-  prod_ogp_build:
-    name: Production OGP Build
-    needs: prod_deploy
-    runs-on: macos-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: production
-      - name: Install selenium with pip
-        run: pip3 install selenium
-      - name: Take screenshot
-        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v1
-        with:
-          name: ogp
-          path: ogp
-
-  prod_ogp_upload:
-    name: Production OGP Upload
-    needs: prod_ogp_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: production
-      - name: Download ogp images
-        uses: actions/download-artifact@v1
-        with:
-          name: ogp
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
-          git add ogp
-          git commit -m "Add OGP changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: production
-
-  tweet:
-    runs-on: ubuntu-latest
-    needs: prod_deploy
-    steps:
-      - name: Checkout master branch
-        uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install twitter
-      - name: Tweet as @Covid19_ibaraki
-        env:
-          API_KEY: ${{ secrets.TWITTER_API_KEY }}
-          API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
-          ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET_SCI }}
-          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN_SCI }}
-          MSG: ${{ toJson(github.event.commits) }}
-        run: python workflow_tools/auto-tweet/tweet.py
-
-  dev_deploy:
-    name: Development Deploy
-    runs-on: ubuntu-latest
-    needs: push_dev
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-
-      - name: Cache deps
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install deps
-        run: yarn install --frozen-lockfile
-      - name: Test
-        run: yarn run test
-      - name: Generate for dev
-        run: yarn run generate:dev --fail-on-page-error
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: dev-deploy
-
-  dev_ogp_build:
-    name: Development OGP Build
-    needs: dev_deploy
-    runs-on: macos-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: dev-deploy
-      - name: Install selenium with pip
-        run: pip3 install selenium
-      - name: Take screenshot
-        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v1
-        with:
-          name: ogp
-          path: ogp
-
-  dev_ogp_upload:
-    name: Development OGP Upload
-    needs: dev_ogp_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v2
-        with:
-          ref: dev-deploy
-      - name: Download ogp images
-        uses: actions/download-artifact@v1
-        with:
-          name: ogp
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
-          git add ogp
-          git commit -m "Add OGP changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev-deploy
+          WORKFLOW_DISPATCH_TOKEN: ${{ secrets.WORKFLOW_DISPATCH_TOKEN }}

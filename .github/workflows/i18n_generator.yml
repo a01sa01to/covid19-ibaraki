@@ -1,6 +1,7 @@
 name: Auto-i18n Generator
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - development
