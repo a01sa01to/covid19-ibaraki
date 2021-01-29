@@ -19,7 +19,7 @@ on:
     - cron: '0 3 * * 0'
 jobs:
   build:
-    name: calibreapp/image-actions
+    name: Compress
     runs-on: ubuntu-latest
     # Only run on main repo on and PRs that match the main repo.
     if: |
@@ -33,6 +33,7 @@ jobs:
           ref: development
       - name: Compress Images
         uses: calibreapp/image-actions@main
+        id: calibre
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           # For non-Pull Requests, run in compressOnly mode and we'll PR after.
