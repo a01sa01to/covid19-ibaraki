@@ -1,6 +1,8 @@
 import { NuxtConfig } from '@nuxt/types'
+import dayjs from 'dayjs'
 
 import i18n from './nuxt-i18n.config'
+import lastUpdate from './opendata/last_update.json'
 const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
@@ -104,6 +106,7 @@ const config: NuxtConfig = {
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
     '@nuxtjs/sitemap',
+    'nuxt-trailingslash-module',
   ],
   /*
    ** vuetify module configuration
@@ -251,7 +254,9 @@ const config: NuxtConfig = {
     i18n: true,
     defaults: {
       changefreq: 'daily',
+      lastmod: dayjs(lastUpdate.lastUpdate).format('YYYY-MM-DDTHH:mm:ss+09:00'),
     },
+    trailingSlash: true,
   },
 }
 

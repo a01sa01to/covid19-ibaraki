@@ -73,6 +73,7 @@
     "lint-staged": "10.5.3",
     "nuxt-purgecss": "1.0.0",
     "nuxt-svg-loader": "1.2.0",
+    "nuxt-trailingslash-module": "^1.1.0",
     "nuxt-webfontloader": "1.1.0",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
