@@ -10,7 +10,7 @@ jobs:
     name: Sync
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GHAC_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -25,5 +25,5 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GHAC_TOKEN }}
           branch: upstream
