@@ -43,9 +43,9 @@ export default Vue.extend({
       items: [
         { label: this.$t('全期間'), component: CardsReference },
         { label: this.$t('ローラー作戦'), component: CardsReferenceRoller },
-        { label: this.$t('第1波'), component: CardsReferenceWave1 },
-        { label: this.$t('第2波'), component: CardsReferenceWave2 },
         { label: this.$t('第3波'), component: CardsReferenceWave3 },
+        { label: this.$t('第2波'), component: CardsReferenceWave2 },
+        { label: this.$t('第1波'), component: CardsReferenceWave1 },
       ],
       mdiChartTimelineVariant,
     }
