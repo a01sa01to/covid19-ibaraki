@@ -37,7 +37,7 @@
                 <span>{{ $t('合計') }}</span>
                 <span>
                   <strong>{{ total.number.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('件') }}</span>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
                   <div style="width: fit-content; margin-left: 10px">
                     <span :class="$style.unit">{{ $t('全体での陽性率') }}</span>
                     <strong>{{
@@ -53,7 +53,7 @@
                 <span>{{ $t(dt.label) }}</span>
                 <span>
                   <strong>{{ dt.transition.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('件') }}</span>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
                   <div>
                     (<strong>{{
                       ((dt.transition / total.number) * 100).toFixed(2)
@@ -66,7 +66,7 @@
                 <span>{{ $t('確認された陽性者の数') }}</span>
                 <span>
                   <strong>{{ dt.positive.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('件') }}</span>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
                 <div>
                   <span :class="$style.unit">{{ $t('陽性率') }}</span>
@@ -87,7 +87,7 @@
           <data-view-data-set-panel
             :l-text="info.lText"
             :s-text="info.sText"
-            :unit="$t('件')"
+            :unit="$t('人')"
           />
         </template>
         <template #footer>

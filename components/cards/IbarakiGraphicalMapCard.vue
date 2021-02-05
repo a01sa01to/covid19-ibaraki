@@ -20,14 +20,18 @@
         <table :class="$style.note2">
           <tbody>
             <tr>
-              <td><span class="color-test infected-level1" />0.5未満</td>
+              <td>
+                <span class="color-test infected-level1" />{{ $t('0.5未満') }}
+              </td>
               <td><span class="color-test infected-level2" />0.5 - 1.0</td>
               <td><span class="color-test infected-level3" />1.0 - 1.5</td>
             </tr>
             <tr>
               <td><span class="color-test infected-level4" />1.5 - 2.0</td>
               <td><span class="color-test infected-level5" />2.0 - 2.5</td>
-              <td><span class="color-test infected-level6" />2.5以上</td>
+              <td>
+                <span class="color-test infected-level6" />{{ $t('2.5以上') }}
+              </td>
             </tr>
           </tbody>
         </table>
