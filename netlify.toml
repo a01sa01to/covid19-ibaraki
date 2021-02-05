@@ -4,6 +4,6 @@
   status = 404
 
 [[headers]]
-  for = "/_nuxt/*"
+  for = "*.js"
   [headers.values]
-    cache-control = 'max-age=3600,must-revalidate'
+    cache-control = 'no-store, max-age=0'
