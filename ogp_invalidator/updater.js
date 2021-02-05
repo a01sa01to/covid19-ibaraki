@@ -9,22 +9,23 @@ const LANGS = ['ja', 'en', 'ja-basic']
 
 const PATHS = [
   '',
-  'cards/details-of-confirmed-cases',
-  'cards/number-of-confirmed-cases',
-  'cards/attributes-of-confirmed-cases',
-  'cards/number-of-reports-to-covid19-telephone-advisory-center',
-  'cards/number-of-inspection-persons',
-  'cards/number-of-confirmed-cases-by-municipalities',
-  'cards/ibaraki-graphical-map',
-  'cards/number-of-recovered',
-  'cards/number-of-deaths',
-  'cards/ibaraki-corona-next',
-  'cards/positive-rate',
-  'cards/number-of-confirmed-cases-by-age',
-  'cards/number-of-tested',
-  'cards/untracked-rate',
-  'cards/roller/mito',
-  'cards/roller/tsukuba-amakubo',
+  'cards/details-of-confirmed-cases/',
+  'cards/number-of-confirmed-cases/',
+  'cards/attributes-of-confirmed-cases/',
+  'cards/number-of-reports-to-covid19-telephone-advisory-center/',
+  'cards/number-of-inspection-persons/',
+  'cards/number-of-confirmed-cases-by-municipalities/',
+  'cards/ibaraki-graphical-map/',
+  'cards/number-of-recovered/',
+  'cards/number-of-deaths/',
+  'cards/ibaraki-corona-next/',
+  'cards/positive-rate/',
+  'cards/number-of-confirmed-cases-by-age/',
+  'cards/number-of-tested/',
+  'cards/untracked-rate/',
+  'cards/roller/mito/',
+  'cards/roller/tsukuba-amakubo/',
+  'cards/roller/tsuchiura-sakura/',
 ]
 
 const WAVEPATHS = [
@@ -61,7 +62,7 @@ const input = async (host, lang, path) => {
       }
       for (const wave of [1, 2, 3]) {
         for (const path of WAVEPATHS) {
-          await input(host, lang, `cards/wave${wave}/${path}`)
+          await input(host, lang, `cards/wave${wave}/${path}/`)
         }
       }
     }
