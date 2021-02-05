@@ -149,7 +149,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     async fetchOpenAPI() {
       const lastIndividualNum = this.endCursor - this.itemsPerPage + 1
       const endpoint = 'https://opendata.a01sa01to.com/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
-      const url = endpoint + encodeURIComponent(`num__No__under__${this.endCursor};num__No__over__${lastIndividualNum < 1 ? 1 : lastIndividualNum}`)
+      const url = endpoint + encodeURIComponent(`num__No__under__${this.endCursor};num__No__over__${lastIndividualNum < 1 ? 1 : lastIndividualNum};key__["No","公表_年月日","患者_濃厚接触者フラグ","患者_居住地","患者_年代","患者_性別","患者_職業","発症_年月日"]`)
 
       return await fetch(url)
         .then((response) => response.json())
