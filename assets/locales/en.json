@@ -812,5 +812,20 @@
   "無職": "Unemployed",
   "ゴルフ場従業員": "Golf course employee",
   "派遣職員": "Temporary staff",
-  "介護施設職員": "Nursing home staff"
+  "介護施設職員": "Nursing home staff",
+  "1720-1777例目・2214-2223例目・3524-3603例目・4661-4677例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For cases 1720-1777, 2214-2223, 3524-3603, and 4661-4677, only the summary was published, so the age and gender may be different.",
+  "997-1054例目・1491-1500例目・2801-2880例目・3938-3954例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For cases 997-1054, 1491-1500, 2801-2880, and 3938-3954, only the summary was published, so the age and gender may be different.",
+  "介護職員": "Carer",
+  "医療提供体制": "Health care delivery system",
+  "期間は2021年1月18日から2月28日まで（延長の可能性あり）。": "The period is from January 18, 2021, to February 28, 2021 (with the possibility of extension).",
+  "1720-1777例目・2214-2223例目・3524-3603例目・4661-4677例目・5006-5033例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For cases 1720-1777, 2214-2223, 3524-3603, 4661-4677, and 5006-5033, only the summary was published, so the age and gender may be different.",
+  "997-1054例目・1491-1500例目・2801-2880例目・3938-3954例目・4283-4310例目の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For cases 997-1054, 1491-1500, 2801-2880, 3938-3954, and 4283-4310, only the summary was published, so the age and gender may be different.",
+  "2/8より、感染対策を講じたうえで順次営業再開。宿泊施設に関しては、国の緊急事態宣言対象地域からの来県をのぞき、順次予約受付再開。": "The business will resume on February 8 after taking countermeasures against infection. Reservations for lodging facilities have resumed in order, except for those coming from areas declared a state of emergency by the government.",
+  "感染状況（週平均）": "Infection status (weekly average)",
+  "医療提供体制については、空港検疫や県外で確認された陽性者による病床利用を算入していることなどから、「茨城県内の新型コロナウイルス感染症の陽性者の状況」の入院者数とは一致しない。": "As for the medical care provision system, the number of hospitalized patients does not match the number of hospitalized patients in the \"Status of positive cases of new coronavirus infection in Ibaraki Prefecture\" because the number of hospital beds used by positive cases confirmed at airport quarantine and outside the prefecture are included.",
+  "重症病床稼働数": "Number of critical care bed utilized",
+  "要請期間のすべてにご協力いただいた店舗には、協力金が支給される予定。支給額は「1店舗当たり4万円/日」で計算。": "Stores that cooperate for the entire request period will be paid a cooperation fee. The amount to be paid is calculated at \"40,000 yen/day per store\".",
+  "県有宿泊施設は、新規予約受付を中止。": "Accommodation facilities have stopped accepting new reservations.",
+  "病床稼働数": "Number of hospital bed utilized",
+  "床.bed": "beds"
 }
