@@ -836,5 +836,8 @@
   "アマビエちゃんの利用登録ができない場合には、連絡先を聞く。": "If the visitors couldn't use the system, ask for the contact info.",
   "アマビエちゃんの利用推進": "Promoting the use of \"Ibaraki Amabie-chan System\"",
   "2.5以上": "2.5 and more",
-  "0.5未満": "Less than 0.5"
+  "0.5未満": "Less than 0.5",
+  "海外": "Overseas",
+  "以下の整理番号の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある": "For those with the following reference numbers, only a summary has been published, so their age and gender may be different.",
+  "○": "○"
 }
