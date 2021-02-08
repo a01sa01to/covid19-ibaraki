@@ -46,11 +46,11 @@
             <tbody>
               <tr>
                 <td>
-                  <strong>{{ patients.pillar.toFixed(1) }}</strong>
+                  <strong>{{ patients.pillar.toFixed(0) }}</strong>
                   <span :class="$style.unit">{{ $t('床.bed') }}</span>
                 </td>
                 <td>
-                  <strong>{{ patients.sickbed.toFixed(1) }}</strong>
+                  <strong>{{ patients.sickbed.toFixed(0) }}</strong>
                   <span :class="$style.unit">{{ $t('床.bed') }}</span>
                 </td>
               </tr>
@@ -235,7 +235,7 @@ export default {
       stage[l[0]] += (d > l[1]) + (d > l[2]) + (d > l[3])
     }
 
-    const formatDelta = (n) => {
+    const formatDelta = (n, digit) => {
       let str = ''
       switch (Math.sign(n)) {
         case 1:
@@ -249,13 +249,17 @@ export default {
           break
       }
       str += ' '
-      str += Math.abs(n).toFixed(1)
+      str += Math.abs(n).toFixed(digit)
       return str
     }
 
     const deltaStr = {}
     for (const key in delta) {
-      deltaStr[key] = formatDelta(delta[key])
+      if (key === 'pillar' || key === 'sickbed') {
+        deltaStr[key] = formatDelta(delta[key], 0)
+      } else {
+        deltaStr[key] = formatDelta(delta[key], 1)
+      }
     }
 
     return {
