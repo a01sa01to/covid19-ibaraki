@@ -154,7 +154,12 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(data["city"])
                                 tags.append(data["area"])
                         elif file_name == JSON_FILES[3]:  # opendata/json/patients.json
+                            # 陽性者属性の濃厚接触者の「○」を追加
+                            tags.append('○')
                             for data in json_content:
+                                tags.append(data["患者_居住地"])
+                                tags.append(data["患者_年代"])
+                                tags.append(data["患者_性別"])
                                 tags.append(data["患者_職業"])
 
                         # タグを統合し、重複分を取り除く

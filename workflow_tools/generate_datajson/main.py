@@ -102,11 +102,6 @@ file_content = {
   "main_summary": {},
 
   "ibk_corona_next": {},
-
-  "positiveRate": {
-    "data": [],
-    "date": "",
-  }
 }
 
 
@@ -289,17 +284,6 @@ with open('corona_next.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['ibk_corona_next'] = json_content
   file_content['ibk_corona_next']['date'] = lastUpdate['corona_next']
-
-with open('json/positive_rate.json', 'r', encoding="UTF-8") as f:
-  json_content = json.load(f)
-  for day in json_content:
-    day['date'] = day['実施_年月日'].replace('T00:00:00','')
-    day['positive'] = int(day['（感染者数）'])
-    day['tested'] = int(day['検査実施_人数'])
-    for key in ['実施_年月日','全国地方公共団体コード','都道府県名','市区町村名','（感染者数）','検査実施_人数']:
-      del day[key]
-  file_content['positiveRate']['data'] = json_content
-  file_content['positiveRate']['date'] = lastUpdate['test_people']
 
 # JSON書き込み
 with open('data.json', 'w', encoding="UTF-8") as f:
