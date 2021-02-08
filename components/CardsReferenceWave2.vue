@@ -16,8 +16,6 @@ const ConfirmedCasesNumberCardWave2 = () =>
 const DeathsCardWave2 = () => import('@/components/wave2/DeathsCard_wave2.vue')
 const InspectionPersonsNumberCardWave2 = () =>
   import('@/components/wave2/InspectionPersonsNumberCard_wave2.vue')
-const PositiveRateCardWave2 = () =>
-  import('@/components/wave2/PositiveRateCard_wave2.vue')
 const RecoveredCardWave2 = () =>
   import('@/components/wave2/RecoveredCard_wave2.vue')
 const TelephoneAdvisoryReportsNumberCardWave2 = () =>
@@ -31,8 +29,8 @@ export default Vue.extend({
       rows: [
         [ConfirmedCasesNumberCardWave2, ConfirmedCasesAttributesCardWave2],
         [ConfirmedCasesByMunicipalitiesCardWave2, ConfirmedCasesByAgeCardWave2],
-        [PositiveRateCardWave2, UntrackedRateCardWave2],
-        [RecoveredCardWave2, DeathsCardWave2],
+        [UntrackedRateCardWave2, RecoveredCardWave2],
+        [DeathsCardWave2],
         [
           InspectionPersonsNumberCardWave2,
           TelephoneAdvisoryReportsNumberCardWave2,

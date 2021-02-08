@@ -200,7 +200,6 @@ const config: NuxtConfig = {
         '/cards/number-of-recovered',
         '/cards/number-of-deaths',
         '/cards/ibaraki-corona-next',
-        '/cards/positive-rate',
         '/cards/number-of-confirmed-cases-by-age',
         '/cards/number-of-tested',
         '/cards/untracked-rate',
@@ -217,7 +216,6 @@ const config: NuxtConfig = {
         'number-of-confirmed-cases-by-municipalities',
         'number-of-recovered',
         'number-of-deaths',
-        'positive-rate',
         'number-of-confirmed-cases-by-age',
         'untracked-rate',
       ]

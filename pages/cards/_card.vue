@@ -15,7 +15,6 @@ import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -25,10 +24,8 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
-    // ---- モニタリング項目
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
-    PositiveRateCard,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
     IbarakiCityMapCard,
@@ -75,9 +72,6 @@ export default {
         break
       case 'ibaraki-corona-next':
         cardComponent = 'ibaraki-corona-next'
-        break
-      case 'positive-rate':
-        cardComponent = 'positive-rate-card'
         break
       case 'number-of-confirmed-cases-by-age':
         cardComponent = 'confirmed-cases-by-age-card'

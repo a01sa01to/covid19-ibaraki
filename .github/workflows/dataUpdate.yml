@@ -69,40 +69,6 @@ jobs:
             opendata/080004_ibaraki_covid19_test_people.csv
             opendata/json/test_people.json
 
-  positive_rate:
-    name: Positive Rate
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: development
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=positive_rate -L -o 080004_ibaraki_covid19_positive_rate.csv'
-        working-directory: ./opendata
-        env:
-          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-      - name: Convert to JSON
-        run: 'python ../workflow_tools/csv2json/main.py'
-        working-directory: ./opendata
-        env:
-          FILE: 080004_ibaraki_covid19_positive_rate
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_positive_rate.json ./json/positive_rate.json -u'
-        working-directory: ./opendata
-      - name: Save
-        uses: actions/upload-artifact@v2
-        with:
-          name: opendata_artifact
-          path: |
-            opendata/080004_ibaraki_covid19_positive_rate.csv
-            opendata/json/positive_rate.json
-
   call_center:
     name: Call Center
     runs-on: ubuntu-latest
@@ -351,7 +317,7 @@ jobs:
   push_dev:
     name: Generate data.json
     runs-on: ubuntu-latest
-    needs: [patients_data,test_people,positive_rate,call_center,positive_number,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update]
+    needs: [patients_data,test_people,call_center,positive_number,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:

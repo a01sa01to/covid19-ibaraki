@@ -22,7 +22,6 @@ const IbarakiGraphicalMapCard = () =>
   import('@/components/cards/IbarakiGraphicalMapCard.vue')
 const InspectionPersonsNumberCard = () =>
   import('@/components/cards/InspectionPersonsNumberCard.vue')
-const PositiveRateCard = () => import('@/components/cards/PositiveRateCard.vue')
 const RecoveredCard = () => import('@/components/cards/RecoveredCard.vue')
 const TelephoneAdvisoryReportsNumberCard = () =>
   import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
@@ -37,9 +36,9 @@ export default Vue.extend({
         [ConfirmedCasesDetailsCard, IbarakiCoronaNext],
         [ConfirmedCasesNumberCard, ConfirmedCasesAttributesCard],
         [ConfirmedCasesByMunicipalitiesCard, IbarakiGraphicalMapCard],
-        [ConfirmedCasesByAgeCard, PositiveRateCard],
-        [TestedNumberCard, UntrackedRateCard],
-        [RecoveredCard, DeathsCard],
+        [ConfirmedCasesByAgeCard, TestedNumberCard],
+        [UntrackedRateCard, RecoveredCard],
+        [DeathsCard],
         [InspectionPersonsNumberCard, TelephoneAdvisoryReportsNumberCard],
       ],
     }

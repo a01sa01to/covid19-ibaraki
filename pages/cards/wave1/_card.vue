@@ -12,7 +12,6 @@ import ConfirmedCasesByMunicipalitiesCardWave1 from '@/components/wave1/Confirme
 import ConfirmedCasesNumberCardWave1 from '@/components/wave1/ConfirmedCasesNumberCard_wave1.vue'
 import DeathsCardWave1 from '@/components/wave1/DeathsCard_wave1.vue'
 import InspectionPersonsNumberCardWave1 from '@/components/wave1/InspectionPersonsNumberCard_wave1.vue'
-import PositiveRateCardWave1 from '@/components/wave1/PositiveRateCard_wave1.vue'
 import RecoveredCardWave1 from '@/components/wave1/RecoveredCard_wave1.vue'
 import TelephoneAdvisoryReportsNumberCardWave1 from '@/components/wave1/TelephoneAdvisoryReportsNumberCard_wave1.vue'
 import UntrackedRateCardWave1 from '@/components/wave1/UntrackedRateCard_wave1.vue'
@@ -21,7 +20,6 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
-    PositiveRateCardWave1,
     ConfirmedCasesNumberCardWave1,
     ConfirmedCasesAttributesCardWave1,
     ConfirmedCasesByMunicipalitiesCardWave1,
@@ -57,9 +55,6 @@ export default {
         break
       case 'number-of-deaths':
         cardComponent = 'deaths-card-wave1'
-        break
-      case 'positive-rate':
-        cardComponent = 'positive-rate-card-wave1'
         break
       case 'number-of-confirmed-cases-by-age':
         cardComponent = 'confirmed-cases-by-age-card-wave1'

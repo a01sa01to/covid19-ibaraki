@@ -24,7 +24,6 @@ WAVEPATHS = [
   "number-of-confirmed-cases-by-municipalities",
   "number-of-recovered",
   "number-of-deaths",
-  "positive-rate",
   "number-of-confirmed-cases-by-age",
   "untracked-rate",
 ]
