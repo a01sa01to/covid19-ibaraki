@@ -38,10 +38,14 @@
         <a
           href="https://apps.apple.com/jp/app/%E3%81%84%E3%81%B0%E3%82%89%E3%81%8D%E3%82%A2%E3%83%9E%E3%83%93%E3%82%A8%E3%81%A1%E3%82%83%E3%82%93/id1534295840"
           class="AppStore"
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <a
           href="https://play.google.com/store/apps/details?id=jp.ibarakicoronanext"
           class="GooglePlay"
+          target="_blank"
+          rel="noopener noreferrer"
           ><img
             alt="Google Play で手に入れよう"
             src="/ja_badge_web_generic.png"
