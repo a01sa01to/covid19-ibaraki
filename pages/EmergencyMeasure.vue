@@ -7,8 +7,17 @@
       <h2>{{ $t('対象地域と期間') }}</h2>
       <p>
         {{ $t('県内全域が対象。') }}<br />{{
-          $t('期間は2021年1月18日から2月28日まで（延長の可能性あり）。')
+          $t('期間は2021年1月18日から2月22日まで。')
         }}
+      </p>
+      <p>
+        {{ $t('2月23日からは宣言が解除されましたが、引き続き感染対策を。')
+        }}<br /><app-link
+          :to="'https://hackmd.io/@a01sa01to/20210222-governor-interview'"
+          >{{
+            $t('【2021.02.22 知事記者会見まとめ】県独自の緊急事態宣言を解除')
+          }}</app-link
+        >
       </p>
     </static-card>
     <h2 class="mb-3">{{ $t('緊急事態宣言の内容') }}</h2>
@@ -131,6 +140,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
@@ -138,6 +148,7 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
+    AppLink,
   },
   head(): MetaInfo {
     return {
