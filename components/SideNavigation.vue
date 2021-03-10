@@ -66,8 +66,8 @@
 
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
-          <!-- <app-link
-            to="https://line.me/R/ti/p/%40822sysfc"
+          <app-link
+            to="https://line.me/R/ti/p/@615vsilb"
             :show-icon="false"
             class="SideNavigation-SocialLink"
           >
@@ -75,7 +75,7 @@
               <source srcset="/line.webp" type="image/webp" />
               <img src="/line.png" width="130" height="130" alt="LINE" />
             </picture>
-          </app-link> -->
+          </app-link>
           <app-link
             to="https://twitter.com/covid19_ibaraki"
             :show-icon="false"
@@ -151,6 +151,7 @@ import {
   mdiBullhorn,
   mdiChartTimelineVariant,
   mdiClose,
+  mdiDomain,
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
@@ -204,6 +205,11 @@ export default Vue.extend({
           iconPath: mdiBullhorn,
           title: this.$t('茨城県独自の緊急事態宣言について'),
           link: this.localePath('/EmergencyMeasure'),
+        },
+        {
+          iconPath: mdiDomain,
+          title: this.$t('企業の皆様・はたらく皆様へ'),
+          link: this.localePath('/worker'),
           divider: true,
         },
         {
