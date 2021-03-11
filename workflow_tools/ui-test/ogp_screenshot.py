@@ -37,7 +37,7 @@ driver = webdriver.Chrome(options=options)
 def screenshot(path, lang):
   driver.set_window_size(959,502)
   driver.get(
-    "http://localhost:8000{}?ogp=true".format(
+    "http://localhost:8000{}/?ogp=true".format(
       path if lang == "ja" else "/{}{}".format(lang, path)
     )
   )
