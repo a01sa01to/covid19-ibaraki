@@ -43,7 +43,7 @@
   },
   {
     "自治体": "秋田県",
-    "URL": "https://covid19-akita.netlify.app/",
+    "URL": "https://covid19-akita-cfa.netlify.app/",
     "GitHub": "asaba-zauberer/covid19-akita",
     "公式": "0"
   },
@@ -309,6 +309,12 @@
     "自治体": "広島市（広島県）",
     "URL": "https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/",
     "GitHub": "inspired-fox/covid19-hirosima_city",
+    "公式": "1"
+  },
+  {
+    "自治体": "福山市（広島県）",
+    "URL": "https://usecase.data.city.fukuyama.hiroshima.jp/covid-19/",
+    "GitHub": "",
     "公式": "1"
   },
   {

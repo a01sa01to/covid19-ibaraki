@@ -6,7 +6,7 @@
 青森県,https://covid19-daily-tohoku.news/,momujin/covid19,0
 岩手県,https://iwate.stopcovid19.jp/,MeditationDuck/covid19,0
 宮城県,https://miyagi.stopcovid19.jp/,code4shiogama/covid19-miyagi,0
-秋田県,https://covid19-akita.netlify.app/,asaba-zauberer/covid19-akita,0
+秋田県,https://covid19-akita-cfa.netlify.app/,asaba-zauberer/covid19-akita,0
 山形県,https://stopcovid19-yamagata-unofficial.netlify.app/,ANN2b-MD/covid19,0
 山形県,https://stopcovid19-yamagata.netlify.app/,yamaserif/covid19,0
 福島県,https://fukushima-covid19.firebaseapp.com/,donuzium/covid19,0
@@ -51,6 +51,7 @@
 岡山県,https://okayama.stopcovid19.jp/,stopcovid19-okayama/covid19,0
 広島県,https://covid19-hiroshima.netlify.app/,tatsuya1970/covid19,0
 広島市（広島県）,https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/,inspired-fox/covid19-hirosima_city,1
+福山市（広島県）,https://usecase.data.city.fukuyama.hiroshima.jp/covid-19/,,1
 山口県,http://yamaguchi.stopcovid19.jp/,nishidayoshikatsu/covid19-yamaguchi,1
 徳島県,https://covid19-tokushima.netlify.com,yuta-kusuno/covid19-tokushima,0
 香川県,https://kagawa.stopcovid19.jp,codeforkagawa/covid19,0
