@@ -404,15 +404,12 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout & Fetch
+        uses: actions/checkout@v2
         with:
           ref: master
-      - name: Add remote
-        run: git remote add origin1 https://github.com/a01sa01to/covid19-ibaraki.git
-      - name: Fetch
-        run: git fetch origin1
       - name: Merge
-        run: git merge origin1/development --ff
+        run: git merge origin/development --ff
       - name: Temporary disable branch protection
         uses: Hatzelencio/branch-protection@v0.0.0
         with:
