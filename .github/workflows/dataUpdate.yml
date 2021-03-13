@@ -404,10 +404,11 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout & Fetch
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: master
+      - name: Fetch
+        run: git fetch origin
       - name: Merge
         run: git merge origin/development --ff
       - name: Temporary disable branch protection
