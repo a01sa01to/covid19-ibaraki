@@ -203,7 +203,7 @@ export default Vue.extend({
         },
         {
           iconPath: mdiBullhorn,
-          title: this.$t('茨城県独自の緊急事態宣言について'),
+          title: this.$t('茨城県まん延防止警戒期間について'),
           link: this.localePath('/EmergencyMeasure'),
         },
         {
