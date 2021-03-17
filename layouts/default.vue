@@ -8,6 +8,9 @@
           style="width: 100px; max-height: 100%"
         />
         <scale-loader color="#003FAB" />
+        <p class="reload-prompt">
+          数秒経っても読み込まれない場合は、再読み込みしてください。
+        </p>
       </div>
     </v-overlay>
     <div v-if="hasNavigation" class="appContainer">
@@ -288,6 +291,24 @@ export default Vue.extend({
   img {
     display: block;
     margin: 0 auto 20px;
+  }
+
+  .reload-prompt {
+    margin-top: 8px;
+    color: #000;
+    animation-name: fadein;
+    animation-duration: 100ms;
+    animation-delay: 3000ms;
+    animation-fill-mode: both;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 </style>
