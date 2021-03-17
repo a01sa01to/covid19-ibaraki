@@ -24,7 +24,7 @@
             <li>
               {{
                 $t('{date} 時点でのデータである', {
-                  date: $d(new Date(date), 'date'),
+                  date: $d(new Date(updDate), 'date'),
                 })
               }}
             </li>
@@ -123,7 +123,7 @@ export default {
   },
   data() {
     const inspectionsSummary = Data.inspections_summary
-    const { date, datasets } = inspectionsSummary
+    const { updDate, datasets } = inspectionsSummary
 
     // 検査実施日別状況
 
@@ -147,12 +147,12 @@ export default {
     const info = {
       lText: total.number.toLocaleString(),
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(date), 'date'),
+        date: this.$d(new Date(updDate), 'date'),
       }),
     }
 
     return {
-      date,
+      updDate,
       info,
       datasets,
       total,
