@@ -1,14 +1,6 @@
 <template>
   <div class="AppInstall">
     <div class="AppInstall-heading">
-      <picture>
-        <source
-          srcset="/cocoa_logo.webp"
-          type="image/webp"
-          class="icon-resize"
-        />
-        <img src="/cocoa_logo.png" alt="COCOA" class="icon-resize" />
-      </picture>
       <h3 class="AppInstall-title">
         {{ $t('新型コロナウイルス接触確認アプリ（日本厚生労働省公式）') }}
       </h3>

@@ -1,18 +1,6 @@
 <template>
   <div class="AppInstall">
     <div class="AppInstall-heading">
-      <picture>
-        <source
-          srcset="/ibaraki_amabie_logo.webp"
-          type="image/webp"
-          class="icon-resize"
-        />
-        <img
-          src="/ibaraki_amabie_logo.png"
-          alt="Ibaraki Amabie Chan"
-          class="icon-resize"
-        />
-      </picture>
       <h3 class="AppInstall-title">
         {{ $t('いばらきアマビエちゃんアプリ（茨城県公式）') }}
       </h3>
