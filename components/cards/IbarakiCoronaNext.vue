@@ -26,7 +26,9 @@
                 <span>
                   {{ $t('現在の対策状況：') }}
                   <span :class="$style.unit">Stage</span>
-                  <strong>{{ Data.ibk_corona_next.stage }}</strong>
+                  <strong>{{ Data.ibk_corona_next.stage }}</strong
+                  ><br />
+                  {{ $t('（{date}から）', { date: formattedMoveDate }) }}
                 </span>
               </div>
             </li>
@@ -262,11 +264,15 @@ export default {
       }
     }
 
+    const moveDate = new Date(Data.ibk_corona_next.moveDate)
+    const formattedMoveDate = this.$d(moveDate, 'dateWithoutYear')
+
     return {
       Data,
       patients,
       stage,
       deltaStr,
+      formattedMoveDate,
     }
   },
 }
@@ -364,6 +370,7 @@ $default-boxdiff: 35px;
 table.ibkCoronaNext {
   @include font-size(14);
 
+  width: 100%;
   margin-bottom: 12px;
 
   th {
@@ -371,7 +378,6 @@ table.ibkCoronaNext {
   }
 
   td {
-    width: calc(100% / 4);
     text-align: center;
   }
 

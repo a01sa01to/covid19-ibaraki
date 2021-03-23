@@ -29,7 +29,6 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <relaxation-step-card />
     <static-card class="description">
       {{ $t('当サイトでの「第〇波」の定義は以下のようになっています。') }}
       <ul>
@@ -47,7 +46,6 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
 import PageHeader from '@/components/PageHeader.vue'
-import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import StaticCard from '@/components/StaticCard.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
@@ -59,7 +57,6 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticCard,
-    RelaxationStepCard,
   },
   data() {
     const { lastUpdate } = Data
