@@ -29,8 +29,6 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <cocoa-redirect-card />
-    <ibaraki-amabie-redirect-card />
     <relaxation-step-card />
     <static-card class="description">
       {{ $t('当サイトでの「第〇波」の定義は以下のようになっています。') }}
@@ -48,8 +46,6 @@ import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import CocoaRedirectCard from '@/components/CocoaRedirectCard.vue'
-import IbarakiAmabieRedirectCard from '@/components/IbarakiAmabieRedirectCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import StaticCard from '@/components/StaticCard.vue'
@@ -64,8 +60,6 @@ export default Vue.extend({
     WhatsNew,
     StaticCard,
     RelaxationStepCard,
-    CocoaRedirectCard,
-    IbarakiAmabieRedirectCard,
   },
   data() {
     const { lastUpdate } = Data

@@ -28,6 +28,9 @@ const TelephoneAdvisoryReportsNumberCard = () =>
 const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
 const UntrackedRateCard = () =>
   import('@/components/cards/UntrackedRateCard.vue')
+const CocoaCard = () => import('@/components/cards/CocoaCard.vue')
+const IbarakiAmabieCard = () =>
+  import('@/components/cards/IbarakiAmabieCard.vue')
 
 export default Vue.extend({
   data() {
@@ -40,6 +43,7 @@ export default Vue.extend({
         [UntrackedRateCard, RecoveredCard],
         [DeathsCard],
         [InspectionPersonsNumberCard, TelephoneAdvisoryReportsNumberCard],
+        [CocoaCard, IbarakiAmabieCard],
       ],
     }
   },
