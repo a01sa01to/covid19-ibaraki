@@ -122,8 +122,7 @@ export default {
     DataViewDataSetPanel,
   },
   data() {
-    const inspectionsSummary = Data.inspections_summary
-    const { updDate, datasets } = inspectionsSummary
+    const { updDate, datasets, date } = Data.inspections_summary
 
     // 検査実施日別状況
 
@@ -153,6 +152,7 @@ export default {
 
     return {
       updDate,
+      date,
       info,
       datasets,
       total,
