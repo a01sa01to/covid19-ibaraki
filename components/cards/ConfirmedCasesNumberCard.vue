@@ -5,10 +5,13 @@
         :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
-        :chart-data="patientsGraph"
+        :chart-data="chartData"
         :date="date"
         :unit="$t('人')"
-        :by-date="true"
+        :labels="labels"
+        :data-labels="dataLabels"
+        :table-labels="tableLabels"
+        :get-formatter="getFormatter"
         :url="'https://opendata.a01sa01to.com/covid19_ibaraki/positive_number'"
       >
         <template #description>
@@ -30,9 +33,13 @@
 </template>
 
 <script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction,
+} from '@/utils/valueFormatter'
+import TimeBarChart from '~/components/ConfirmedCasesNumberChart.vue'
 
 export default {
   components: {
@@ -43,9 +50,45 @@ export default {
     const patientsGraph = formatGraph(Data.patients_summary.data)
     const date = Data.patients_summary.date
 
+    const [everydayCount, labels] = patientsGraph.reduce(
+      (res, data) => {
+        res[0].push(data.transition)
+        res[1].push(data.label)
+        return res
+      },
+      [[], [], []]
+    )
+
+    const weekAvg = []
+    for (let i = 0; i < patientsGraph.length; i++) {
+      if (i < 7) {
+        weekAvg.push(patientsGraph[i].cumulative / (i + 1))
+      } else {
+        weekAvg.push(
+          (patientsGraph[i].cumulative - patientsGraph[i - 7].cumulative) / 7
+        )
+      }
+    }
+
+    const chartData = [everydayCount, weekAvg]
+    const dataLabels = [this.$t('陽性者数'), this.$t('7日間移動平均')]
+    const tableLabels = [this.$t('陽性者数'), this.$t('7日間移動平均')]
+
+    const getFormatter = (columnIndex) => {
+      if (columnIndex === 1) {
+        // 平均は小数第1位まで
+        return getNumberToFixedFunction(1)
+      }
+      return getNumberToLocaleStringFunction()
+    }
+
     return {
-      patientsGraph,
+      chartData,
       date,
+      dataLabels,
+      tableLabels,
+      labels,
+      getFormatter,
     }
   },
 }
