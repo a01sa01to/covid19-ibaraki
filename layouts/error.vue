@@ -79,9 +79,7 @@ export default Vue.extend({
     @include button-text('md');
 
     width: 100%;
-    max-width: 300px;
-    font-weight: bold;
-    text-decoration: none;
+    font-weight: 600;
   }
 }
 </style>

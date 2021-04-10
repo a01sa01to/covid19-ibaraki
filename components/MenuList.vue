@@ -68,7 +68,7 @@ export default Vue.extend({
   list-style: none;
   @include font-size(14);
   @include lessThan($small) {
-    font-weight: bold;
+    font-weight: 600;
     @include font-size(14.5);
   }
 
@@ -96,16 +96,16 @@ export default Vue.extend({
   }
 
   &:hover {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &:focus {
-    font-weight: bold;
+    font-weight: 600;
     outline: dotted $gray-3 1px;
   }
 
   &.nuxt-link-exact-active {
-    font-weight: bold;
+    font-weight: 600;
 
     &:link,
     &:hover,

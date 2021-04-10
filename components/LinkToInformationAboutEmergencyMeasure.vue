@@ -18,10 +18,10 @@
 import { mdiBullhorn } from '@mdi/js'
 import Vue from 'vue'
 
-// import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  // components: { AppLink },
+  components: { AppLink },
   data() {
     return {
       mdiBullhorn,

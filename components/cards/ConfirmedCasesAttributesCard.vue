@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesAttributesCard">
     <client-only>
       <data-table
         :title="$t('陽性者の属性')"
@@ -39,7 +39,13 @@
           </tbody>
         </template>
         <template #description>
-          <p style="margin-bottom: 4px;">{{ $t('以下の整理番号の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある') }}</p>
+          <p style="margin-bottom: 4px">
+            {{
+              $t(
+                '以下の整理番号の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある'
+              )
+            }}
+          </p>
           <ul>
             <li>1720 - 1777</li>
             <li>2214 - 2223</li>
@@ -57,19 +63,15 @@
 <script lang="ts">
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import VueI18n from 'vue-i18n'
 
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
-interface MetaData {
-  endCursor: string
-  updated: string
-}
-type Data = {
+type DataT = {
   dataLength: number
   sumInfoOfPatients: {
     lText: string
@@ -85,7 +87,7 @@ type Data = {
 type Methods = {
   fetchOpenAPI: () => Promise<{ patientsData: DataType }>
   fetchIfNoCache: () => void
-  onChangeItemsPerPage: (itemsPerPage: Data['itemsPerPage']) => void
+  onChangeItemsPerPage: (itemsPerPage: DataT['itemsPerPage']) => void
   onChangePage: (page: number) => void
   translateWord: (word: string) => string | VueI18n.TranslateResult
   translateDate: (date: string) => string | VueI18n.TranslateResult
@@ -99,7 +101,7 @@ type Props = {}
 
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
-  Data,
+  DataT,
   Methods,
   Computed,
   Props
@@ -131,7 +133,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     patientsTable() {
       const end = this.page * this.itemsPerPage
       let start = end - this.itemsPerPage
-      if(start < 0){ start = 0 }
+      if (start < 0) {
+        start = 0
+      }
       const currentPageData = this.patientsData.slice(start, end)
       return formatTable(currentPageData)
     },
@@ -141,7 +145,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   async fetch() {
-    if(this.endCursor > 0){
+    if (this.endCursor > 0) {
       const { patientsData } = await this.fetchOpenAPI()
       this.endCursor -= patientsData.length
       this.patientsData = this.patientsData.concat(patientsData)
@@ -152,8 +156,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   methods: {
     async fetchOpenAPI() {
       const lastIndividualNum = this.endCursor - this.itemsPerPage + 1
-      const endpoint = 'https://opendata.a01sa01to.com/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
-      const url = endpoint + encodeURIComponent(`num__No__under__${this.endCursor};num__No__over__${lastIndividualNum < 1 ? 1 : lastIndividualNum};key__["No","公表_年月日","患者_濃厚接触者フラグ","患者_居住地","患者_年代","患者_性別","患者_職業","発症_年月日"]`)
+      const endpoint =
+        'https://opendata.a01sa01to.com/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
+      const url =
+        endpoint +
+        encodeURIComponent(
+          `num__No__under__${this.endCursor};num__No__over__${
+            lastIndividualNum < 1 ? 1 : lastIndividualNum
+          };key__["No","公表_年月日","患者_濃厚接触者フラグ","患者_居住地","患者_年代","患者_性別","患者_職業","発症_年月日"]`
+        )
 
       return await fetch(url)
         .then((response) => response.json())

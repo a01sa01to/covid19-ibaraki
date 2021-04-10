@@ -71,7 +71,7 @@ export default Vue.extend({
 .v-tab {
   top: 1px;
   margin: 0 8px;
-  font-weight: bold !important;
+  font-weight: 600 !important;
   border-style: solid;
   border-radius: 4px 4px 0 0;
   @include font-size(16, true);
@@ -111,9 +111,11 @@ export default Vue.extend({
 .v-tabs-items {
   background-color: transparent !important;
 }
+
 @function px2vw($px, $vw: 768) {
   @return $px / $vw * 100vw;
 }
+
 @include lessThan($medium) {
   .v-slide-group__content {
     width: 100%;
@@ -127,6 +129,7 @@ export default Vue.extend({
     font-weight: normal !important;
   }
 }
+
 @include lessThan($small) {
   .v-tab {
     padding: 0 4px !important;

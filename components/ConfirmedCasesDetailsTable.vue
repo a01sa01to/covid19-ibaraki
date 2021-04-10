@@ -265,11 +265,6 @@ $default-boxdiff: 35px;
     &:not(:last-child) {
       overflow-wrap: break-word;
     }
-
-    div {
-      display: inline-block;
-      width: 7rem;
-    }
   }
 
   strong {

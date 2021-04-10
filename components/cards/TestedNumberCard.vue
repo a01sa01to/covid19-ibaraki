@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard TestedNumberCard">
     <client-only>
       <data-view
         :title="$t('検査実施件数（全体）')"

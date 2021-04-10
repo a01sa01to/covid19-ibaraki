@@ -124,7 +124,7 @@
         </div>
         <i18n
           tag="small"
-          path="このサイトの内容物は{creativeCommons}の下に提供されています。"
+          path="このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。"
           class="SideNavigation-Copyright"
         >
           <template #creativeCommons>
@@ -323,6 +323,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderTitle {
   width: 100%;
+  font-weight: 600;
   color: #707070;
   @include font-size(13);
   @include largerThan($small) {
@@ -353,7 +354,7 @@ export default Vue.extend({
 
   &:hover,
   &:focus {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &:focus {
@@ -456,7 +457,7 @@ export default Vue.extend({
 
 .SideNavigation-Copyright {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1.3;
   color: $gray-1;
   @include font-size(10);
@@ -468,7 +469,7 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-LangNote {
-  font-size: 11px;
+.SideNavigation-GMarkWrapper {
+  margin-top: 16px;
 }
 </style>

@@ -26,7 +26,7 @@
       />
     </template>
     <template #footer>
-      <open-data-link :url="url" />
+      <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>

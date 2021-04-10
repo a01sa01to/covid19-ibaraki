@@ -91,7 +91,6 @@ function getSelectedItem(data: DataType, key: string) {
 
   return result || 0
 }
-
 /**
  * Format for *Chart component
  *

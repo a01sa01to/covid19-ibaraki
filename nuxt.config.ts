@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 
 import i18n from './nuxt-i18n.config'
 import lastUpdate from './opendata/last_update.json'
+
 const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {

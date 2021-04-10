@@ -35,25 +35,28 @@ export default Vue.extend({
 
 <style lang="scss">
 .StaticInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: $white;
-  border: 1px solid $gray-4;
-  box-shadow: $shadow;
-  border-radius: 4px;
-  padding: 0.5em 1em;
+  @include card-container();
 
-  @include font-size(14);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    font-weight: 600;
+    white-space: pre-wrap;
+  }
+
+  @include font-size(12);
 
   &-Button {
+    display: inline-block;
     flex: 1 0 auto;
     text-align: right;
 
     > a {
-      text-decoration: none;
       color: $green-1 !important;
+      text-decoration: none;
       @include button-text('sm');
 
       &:hover {

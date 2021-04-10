@@ -5,7 +5,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import { Component, Vue } from 'nuxt-property-decorator'
+
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByAgeCard from '@/components/cards/ConfirmedCasesByAgeCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
@@ -20,12 +24,14 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ErrorCard from '@/layouts/error.vue'
+import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-export default {
+@Component({
   components: {
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
+    UntrackedRateCard,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
     IbarakiCityMapCard,
@@ -36,25 +42,32 @@ export default {
     IbarakiCoronaNext,
     ConfirmedCasesByAgeCard,
     TestedNumberCard,
-    UntrackedRateCard,
     ErrorCard,
   },
+})
+export default class CardContainer extends Vue implements NuxtConfig {
   data() {
     let title, updatedAt, cardComponent
     let err = false
     switch (this.$route.params.card) {
+      // NOTE: 以下，ブラウザでの表示順に合わせて条件分岐を行う
+      // ---- モニタリング項目
+      // 検査陽性者の状況
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
         break
+      // 報告日別による陽性者数の推移
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
         break
+      // 陽性者の属性
       case 'attributes-of-confirmed-cases':
         cardComponent = 'confirmed-cases-attributes-card'
         break
       case 'number-of-inspection-persons':
         cardComponent = 'inspection-persons-number-card'
         break
+      // 新型コロナコールセンター相談件数
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
         break
@@ -93,29 +106,31 @@ export default {
       title,
       updatedAt,
     }
-  },
+  }
+
   head() {
     const url = 'https://ibaraki.stopcovid19.jp'
     const timestamp = new Date().getTime()
-    const ogpImage =
-      this.$i18n.locale === 'ja'
-        ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
-        : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
-    )}`
     const defaultTitle = `${this.$t('茨城県')} ${this.$t(
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
+    const ogpImage =
+      (this.$i18n.locale ?? 'ja') === 'ja'
+        ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
+        : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
 
-    return {
-      titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
+    const mInfo: MetaInfo = {
+      title: `${
+        (this.$data.title ?? '') !== ''
+          ? this.$data.title + ' | ' + defaultTitle
+          : defaultTitle
+      }`,
       link: [
-        ...getLinksLanguageAlternative(
+        ...(getLinksLanguageAlternative(
           `cards/${this.$route.params.card}`,
           this.$i18n.locales,
           this.$i18n.defaultLocale
-        ),
+        ) as []),
       ],
       meta: [
         {
@@ -126,42 +141,43 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: (title) =>
-            title !== ''
-              ? `${this.title || title} | ${defaultTitle}`
-              : `${defaultTitle}`,
-          content: '',
+          content: `${
+            (this.$data.title ?? '') !== ''
+              ? this.$data.title + ' | ' + defaultTitle
+              : defaultTitle
+          }`,
         },
         {
           hid: 'description',
           name: 'description',
-          template: (updatedAt) =>
-            updatedAt !== ''
-              ? `${this.updatedAt || updatedAt} | ${description}`
-              : `${description}`,
-          content: '',
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(this.$data.updatedAt),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          template: (updatedAt) =>
-            updatedAt !== ''
-              ? `${this.updatedAt || updatedAt} | ${description}`
-              : `${description}`,
-          content: '',
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(this.$data.updatedAt),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: ogpImage,
+          content: `${ogpImage}`,
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: ogpImage,
+          content: `${ogpImage}`,
         },
       ],
     }
-  },
+    return mInfo
+  }
 }
 </script>

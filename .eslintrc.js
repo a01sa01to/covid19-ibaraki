@@ -2,7 +2,6 @@ module.exports = {
   plugins: ['eslint-plugin-tsdoc', 'simple-import-sort'],
   extends: [
     '@nuxtjs/eslint-config-typescript',
-    'prettier/vue',
     'prettier',
     'plugin:prettier/recommended',
   ],
@@ -25,5 +24,11 @@ module.exports = {
     ],
     'tsdoc/syntax': 'error',
     'simple-import-sort/imports': 'error',
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['../'],
+      },
+    ],
   },
 }

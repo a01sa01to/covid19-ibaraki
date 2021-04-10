@@ -1,5 +1,5 @@
 <template>
-  <div v-scroll="onScroll" class="MainPage">
+  <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon-path="headerItem.iconPath">{{
         headerItem.title
@@ -23,7 +23,6 @@
       :btn-text="$t('茨城県まん延防止警戒期間について')"
     />
     <lazy-static-info
-      v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
       class="mb-4"
       :url="'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html'"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
@@ -43,7 +42,6 @@
 <script lang="ts">
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
 
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
@@ -68,12 +66,6 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
-      showStaticInfo: false,
-    }
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('県内の最新感染動向') as string,
     }
   },
   computed: {
@@ -82,11 +74,6 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
-    },
-  },
-  methods: {
-    onScroll() {
-      this.$data.showStaticInfo = true
     },
   },
 })
@@ -119,12 +106,6 @@ export default Vue.extend({
     @include largerThan($small) {
       margin: 0 0 0 auto;
     }
-  }
-
-  .description {
-    @include font-size(14);
-
-    padding: 1rem;
   }
 }
 </style>
