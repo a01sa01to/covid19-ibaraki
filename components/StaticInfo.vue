@@ -41,13 +41,13 @@ export default Vue.extend({
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 8px;
 
   span {
-    font-weight: 600;
     white-space: pre-wrap;
   }
 
-  @include font-size(12);
+  @include font-size(14);
 
   &-Button {
     display: inline-block;

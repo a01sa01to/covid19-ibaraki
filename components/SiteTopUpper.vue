@@ -18,9 +18,9 @@
     <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
     <lazy-static-info
       class="mb-4"
-      :url="localePath('/EmergencyMeasure')"
-      :text="$t('「茨城県まん延防止警戒期間」の期間中です')"
-      :btn-text="$t('茨城県まん延防止警戒期間について')"
+      :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210409_kaiken.html'"
+      :text="$t('今後の感染拡大に備え対策を強化します')"
+      :btn-text="$t('詳しくはこちら')"
     />
     <lazy-static-info
       class="mb-4"

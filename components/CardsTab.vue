@@ -119,6 +119,8 @@ export default Vue.extend({
 @include lessThan($medium) {
   .v-slide-group__content {
     width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .v-tab {

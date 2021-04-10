@@ -1,6 +1,8 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <app-link to="/EmergencyMeasure">
+    <app-link
+      to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/210409_kaiken.html"
+    >
       <!-- <div> -->
       <v-icon
         size="2rem"
@@ -8,7 +10,7 @@
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('茨城県まん延防止警戒期間（茨城まん防警戒期間）') }}
+      {{ $t('今後の感染拡大に備え対策を強化します') }}
       <!-- </div> -->
     </app-link>
   </span>
