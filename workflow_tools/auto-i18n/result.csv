@@ -1200,3 +1200,13 @@ RUN,2021/03/25 18:07
 TAG_ADD,女子
 RUN,2021/03/28 21:53
 TAG_ADD,訓練生
+RUN,2021/04/10 19:02
+TAG_ADD,各SNS（LINE、Twitter、Facebook、GitHub、YouTube）ロゴマーク
+TAG_ADD,詳しくはこちら
+TAG_ADD,このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。
+TAG_ADD,コンテンツについて
+TAG_ADD,ただし商標等の他団体が権利を持つ以下のものは除きます。
+TAG_ADD,ワクチン情報
+TAG_ADD,今後の感染拡大に備え対策を強化します
+TAG_ADD,{'og:image': 'ogp'}
+TAG_ADD,このサイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供されています。
