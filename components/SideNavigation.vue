@@ -147,13 +147,7 @@
 </template>
 
 <script lang="ts">
-import {
-  mdiBullhorn,
-  mdiChartTimelineVariant,
-  mdiClose,
-  mdiDomain,
-  mdiMenu,
-} from '@mdi/js'
+import { mdiChartTimelineVariant, mdiClose, mdiDomain, mdiMenu } from '@mdi/js'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
@@ -200,11 +194,6 @@ export default Vue.extend({
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link:
             'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
-        },
-        {
-          iconPath: mdiBullhorn,
-          title: this.$t('茨城県まん延防止警戒期間について'),
-          link: this.localePath('/EmergencyMeasure'),
         },
         {
           iconPath: mdiDomain,
