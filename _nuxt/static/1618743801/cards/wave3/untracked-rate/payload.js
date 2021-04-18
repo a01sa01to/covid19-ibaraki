@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/cards/wave3/untracked-rate", {data:[{}],fetch:[],mutations:void 0});

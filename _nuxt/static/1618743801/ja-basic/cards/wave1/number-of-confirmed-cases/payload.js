@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic/cards/wave1/number-of-confirmed-cases", {data:[{}],fetch:[],mutations:void 0});

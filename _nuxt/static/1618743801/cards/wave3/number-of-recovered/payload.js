@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/cards/wave3/number-of-recovered", {data:[{}],fetch:[],mutations:void 0});
