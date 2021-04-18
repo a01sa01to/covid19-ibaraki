@@ -28,14 +28,6 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <static-card class="description">
-      {{ $t('当サイトでの「第〇波」の定義は以下のようになっています。') }}
-      <ul>
-        <li>{{ $t('第1波 2020年3月17日～2020年5月5日') }}</li>
-        <li>{{ $t('第2波 2020年6月20日～2020年10月17日') }}</li>
-        <li>{{ $t('第3波 2020年10月17日～(現在)') }}</li>
-      </ul>
-    </static-card>
   </div>
 </template>
 
@@ -44,7 +36,6 @@ import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import PageHeader from '@/components/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -54,7 +45,6 @@ export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
-    StaticCard,
   },
   data() {
     const { lastUpdate } = Data

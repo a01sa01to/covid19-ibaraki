@@ -361,7 +361,6 @@ jobs:
         run: |
           mv data.json ../data/data.json -u
           mv news.json ../data/news.json -u
-          mv data_wave3.json ../data/data_wave3.json -u
         working-directory: ./opendata
       - name: Commit files
         run: |
