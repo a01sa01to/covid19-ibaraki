@@ -7,7 +7,7 @@
       :href="`#tab-${i}`"
       @click="change"
     >
-      <v-icon class="TabIcon">{{ mdiChartTimelineVariant }}</v-icon>
+      <v-icon class="TabIcon">{{ item.icon }}</v-icon>
       {{ item.label }}
     </v-tab>
     <v-tabs-items v-model="tab" touchless>
@@ -19,26 +19,49 @@
 </template>
 
 <script lang="ts">
-import { mdiChartTimelineVariant } from '@mdi/js'
+import { mdiAppsBox, mdiChartTimelineVariant, mdiMagnifyScan } from '@mdi/js'
 import Vue from 'vue'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
-const CardsReference = () => import('@/components/CardsReference.vue')
+const CardsReferenceInfection = () =>
+  import('@/components/CardsReferenceInfection.vue')
+const CardsReferenceInspection = () =>
+  import('@/components/CardsReferenceInspection.vue')
 const CardsReferenceRoller = () =>
   import('@/components/CardsReferenceRoller.vue')
+const CardsReferenceApps = () => import('@/components/CardsReferenceApps.vue')
 export default Vue.extend({
   components: {
-    CardsReference,
+    CardsReferenceInfection,
+    CardsReferenceInspection,
     CardsReferenceRoller,
+    CardsReferenceApps,
   },
   data() {
     return {
       tab: null,
       items: [
-        { label: this.$t('全期間'), component: CardsReference },
-        { label: this.$t('ローラー作戦'), component: CardsReferenceRoller },
+        {
+          label: this.$t('感染動向'),
+          component: CardsReferenceInfection,
+          icon: mdiChartTimelineVariant,
+        },
+        {
+          label: this.$t('検査状況等'),
+          component: CardsReferenceInspection,
+          icon: mdiChartTimelineVariant,
+        },
+        {
+          label: this.$t('ローラー作戦'),
+          component: CardsReferenceRoller,
+          icon: mdiMagnifyScan,
+        },
+        {
+          label: this.$t('アプリ'),
+          component: CardsReferenceApps,
+          icon: mdiAppsBox,
+        },
       ],
-      mdiChartTimelineVariant,
     }
   },
   methods: {
@@ -50,6 +73,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@function px2vw($px, $vw: 768) {
+  @return $px / $vw * 100vw;
+}
+
 .v-tabs .v-window {
   overflow: inherit;
 }
@@ -68,6 +95,10 @@ export default Vue.extend({
   border-style: solid;
   border-radius: 4px 4px 0 0;
   @include font-size(16, true);
+
+  span {
+    margin-right: px2vw(4);
+  }
 
   &:focus {
     outline: dotted $gray-3 1px;
@@ -103,10 +134,6 @@ export default Vue.extend({
 
 .v-tabs-items {
   background-color: transparent !important;
-}
-
-@function px2vw($px, $vw: 768) {
-  @return $px / $vw * 100vw;
 }
 
 @include lessThan($medium) {

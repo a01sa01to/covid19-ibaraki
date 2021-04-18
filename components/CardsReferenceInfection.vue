@@ -20,17 +20,9 @@ const IbarakiCoronaNext = () =>
   import('@/components/cards/IbarakiCoronaNext.vue')
 const IbarakiGraphicalMapCard = () =>
   import('@/components/cards/IbarakiGraphicalMapCard.vue')
-const InspectionPersonsNumberCard = () =>
-  import('@/components/cards/InspectionPersonsNumberCard.vue')
 const RecoveredCard = () => import('@/components/cards/RecoveredCard.vue')
-const TelephoneAdvisoryReportsNumberCard = () =>
-  import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
-const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
 const UntrackedRateCard = () =>
   import('@/components/cards/UntrackedRateCard.vue')
-const CocoaCard = () => import('@/components/cards/CocoaCard.vue')
-const IbarakiAmabieCard = () =>
-  import('@/components/cards/IbarakiAmabieCard.vue')
 
 export default Vue.extend({
   data() {
@@ -39,11 +31,8 @@ export default Vue.extend({
         [ConfirmedCasesDetailsCard, IbarakiCoronaNext],
         [ConfirmedCasesNumberCard, ConfirmedCasesAttributesCard],
         [ConfirmedCasesByMunicipalitiesCard, IbarakiGraphicalMapCard],
-        [ConfirmedCasesByAgeCard, TestedNumberCard],
-        [UntrackedRateCard, RecoveredCard],
-        [DeathsCard],
-        [InspectionPersonsNumberCard, TelephoneAdvisoryReportsNumberCard],
-        [CocoaCard, IbarakiAmabieCard],
+        [ConfirmedCasesByAgeCard, UntrackedRateCard],
+        [RecoveredCard, DeathsCard],
       ],
     }
   },
