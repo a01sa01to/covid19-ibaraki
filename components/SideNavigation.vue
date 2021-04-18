@@ -139,7 +139,7 @@
         </i18n>
         <br />
         <small class="SideNavigation-Copyright">
-          &copy; 2020 Asa (@a01sa01to)
+          &copy; 2020 - {{ new Date().getFullYear() }} Asa (@a01sa01to)
         </small>
       </footer>
     </div>
@@ -196,6 +196,12 @@ export default Vue.extend({
             'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
         },
         {
+          svg: 'VaccineIcon',
+          title: this.$t('新型コロナウイルスワクチンについて'),
+          link:
+            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
+        },
+        {
           iconPath: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
@@ -205,10 +211,6 @@ export default Vue.extend({
           title:
             this.$tc('茨城県公式') + ' ' + this.$tc('新型コロナ情報まとめ'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',
-        },
-        {
-          title: this.$tc('知事メッセージ'),
-          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/message.html',
         },
         {
           title: this.$t('知事記者会見'),
