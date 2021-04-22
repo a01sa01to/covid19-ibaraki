@@ -22,23 +22,11 @@ const PATHS = [
   'cards/number-of-confirmed-cases-by-age/',
   'cards/number-of-tested/',
   'cards/untracked-rate/',
+  'cards/infection-status-by-national-index/',
   'cards/roller/mito/',
   'cards/roller/tsukuba-amakubo/',
   'cards/roller/tsuchiura-sakura/',
 ]
-
-const WAVEPATHS = [
-  'number-of-confirmed-cases',
-  'attributes-of-confirmed-cases',
-  'number-of-reports-to-covid19-telephone-advisory-center',
-  'number-of-inspection-persons',
-  'number-of-confirmed-cases-by-municipalities',
-  'number-of-recovered',
-  'number-of-deaths',
-  'number-of-confirmed-cases-by-age',
-  'untracked-rate',
-]
-
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
 const input = async (host, lang, path) => {
@@ -57,11 +45,6 @@ const input = async (host, lang, path) => {
     for (const lang of LANGS) {
       for (const path of PATHS) {
         await input(host, lang, path)
-      }
-      for (const wave of [1, 2, 3]) {
-        for (const path of WAVEPATHS) {
-          await input(host, lang, `cards/wave${wave}/${path}/`)
-        }
       }
     }
   }

@@ -1,6 +1,6 @@
 import argparse
-import time
 import os
+import time
 
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
@@ -13,25 +13,33 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-o', '--out', action='store_true', help='output screenshots.')
 args = parser.parse_args()
 
-HOST = 'https://stopcovid19.metro.tokyo.lg.jp'
+HOST = 'https://ibaraki.stopcovid19.jp'
 OUT_DIR = 'out'
 
 PATHS = (
-    'cards/details-of-confirmed-cases',
-    'cards/number-of-confirmed-cases',
-    'cards/attributes-of-confirmed-cases',
-    'cards/number-of-tested',
-    'cards/number-of-reports-to-covid19-telephone-advisory-center',
-    'cards/predicted-number-of-toei-subway-passengers',
-    'cards/agency',
+  '',
+  'cards/details-of-confirmed-cases/',
+  'cards/number-of-confirmed-cases/',
+  'cards/attributes-of-confirmed-cases/',
+  'cards/number-of-reports-to-covid19-telephone-advisory-center/',
+  'cards/number-of-inspection-persons/',
+  'cards/number-of-confirmed-cases-by-municipalities/',
+  'cards/ibaraki-graphical-map/',
+  'cards/number-of-recovered/',
+  'cards/number-of-deaths/',
+  'cards/ibaraki-corona-next/',
+  'cards/number-of-confirmed-cases-by-age/',
+  'cards/number-of-tested/',
+  'cards/untracked-rate/',
+  'cards/infection-status-by-national-index/',
+  'cards/roller/mito/',
+  'cards/roller/tsukuba-amakubo/',
+  'cards/roller/tsuchiura-sakura/'
 )
 
 LANGS = (
     'ja',
     'en',
-    'zh-cn',
-    'zh-tw',
-    'ko',
     'ja-basic',
 )
 

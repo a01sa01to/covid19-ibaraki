@@ -206,28 +206,11 @@ const config: NuxtConfig = {
         '/cards/number-of-confirmed-cases-by-age',
         '/cards/number-of-tested',
         '/cards/untracked-rate',
+        '/cards/infection-status-by-national-index',
         '/cards/roller/mito',
         '/cards/roller/tsukuba-amakubo',
         '/cards/roller/tsuchiura-sakura',
       ]
-
-      const waveCards = [
-        'number-of-confirmed-cases',
-        'attributes-of-confirmed-cases',
-        'number-of-inspection-persons',
-        'number-of-reports-to-covid19-telephone-advisory-center',
-        'number-of-confirmed-cases-by-municipalities',
-        'number-of-recovered',
-        'number-of-deaths',
-        'number-of-confirmed-cases-by-age',
-        'untracked-rate',
-      ]
-
-      for (const c of waveCards) {
-        for (let i = 1; i <= 3; i++) {
-          pages.push(`/cards/wave${i}/${c}`)
-        }
-      }
 
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))
