@@ -17,6 +17,7 @@ import DeathsCard from '@/components/cards/DeathsCard.vue'
 import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
 import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+import NationalInfectionStatus from '@/components/cards/NationalInfectionStatus.vue'
 import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -40,6 +41,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     IbarakiCoronaNext,
     ConfirmedCasesByAgeCard,
     TestedNumberCard,
+    NationalInfectionStatus,
     ErrorCard,
   },
 })
@@ -87,6 +89,9 @@ export default class CardContainer extends Vue {
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
+        break
+      case 'infection-status-by-national-index':
+        cardComponent = 'national-infection-status'
         break
       default:
         err = true
