@@ -1,8 +1,11 @@
 import { NuxtConfig } from '@nuxt/types'
 import dayjs from 'dayjs'
 
+// eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
+// eslint-disable-next-line no-restricted-imports
 import lastUpdate from './opendata/last_update.json'
+
 const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
@@ -37,7 +40,7 @@ const config: NuxtConfig = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@Ibaraki_Kouhou',
+        content: '@covid19_ibaraki',
       },
       {
         hid: 'twitter:creator',
@@ -52,7 +55,7 @@ const config: NuxtConfig = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.gif' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
     ],
     script: [
       {
@@ -174,7 +177,7 @@ const config: NuxtConfig = {
       './node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
     whitelist: ['DataCard', 'GraphLegend'],
-    whitelistPatterns: [/(col|row)/],
+    whitelistPatterns: [/(col|row|v-window)/],
   },
   manifest: {
     name: '茨城県新型コロナウイルス感染症対策サイト',

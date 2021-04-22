@@ -1,7 +1,7 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesNumberCard">
     <client-only>
-      <time-bar-chart
+      <confirmed-cases-number-chart
         :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
@@ -27,23 +27,23 @@
             </li>
           </ul>
         </template>
-      </time-bar-chart>
+      </confirmed-cases-number-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
+import ConfirmedCasesNumberChart from '@/components/ConfirmedCasesNumberChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/valueFormatter'
-import TimeBarChart from '~/components/ConfirmedCasesNumberChart.vue'
 
 export default {
   components: {
-    TimeBarChart,
+    ConfirmedCasesNumberChart,
   },
   data() {
     // 感染者数グラフ

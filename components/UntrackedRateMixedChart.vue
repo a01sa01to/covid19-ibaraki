@@ -97,7 +97,7 @@
       />
     </template>
     <template #footer>
-      <open-data-link :url="url" />
+      <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
@@ -389,16 +389,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const self = this
       const unit = this.unit[1]
-      const getFormatter = this.getFormatter
+
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
+
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {
-              const formatter = getFormatter(tooltipItem.datasetIndex!)
-              const cases = formatter(parseFloat(tooltipItem.value!))
+              const cases = this.getFormatter(tooltipItem.datasetIndex!)(
+                parseFloat(tooltipItem.value!)
+              )
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.$t('人')}`
@@ -409,10 +412,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }
               return label
             },
-            title(tooltipItem, data) {
+            title: (tooltipItem, data) => {
               if (tooltipItem[0].datasetIndex! < 4) {
                 const label = data.labels![tooltipItem[0].index!] as string
-                return self.$d(new Date(label), 'date')
+                return this.$d(new Date(label), 'date')
               }
               return ''
             },
@@ -461,7 +464,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               time: {
                 unit: 'month',
                 displayFormats: {
-                  month: 'MMM',
+                  month: 'YYYY-MM',
                 },
               },
             },
@@ -474,13 +477,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMax,
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
               },
             },
             {
@@ -489,14 +492,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMaxRight,
+                callback: (value) => {
                   return `${value}%`
                 },
               },
@@ -504,9 +507,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
         },
       }
+
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
+
       return options
     },
     displayDataHeader() {
@@ -547,12 +552,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
+
       const options: Chart.ChartOptions = {
+        tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
           display: false,
         },
-        tooltips: { enabled: false },
         scales: {
           xAxes: [
             {
@@ -564,9 +572,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
                 },
@@ -577,55 +584,56 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では true
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では '#808080'
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',
               time: {
                 unit: 'month',
+                displayFormats: {
+                  month: 'YYYY-MM',
+                },
               },
             },
           ],
           yAxes: [
             {
               id: 'y-axis-1',
-              type: 'linear',
               position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                drawOnChartArea: false, // displayOption では true
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMax,
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
               },
             },
             {
               id: 'y-axis-2',
-              type: 'linear',
               position: 'right',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMaxRight,
+                callback: (value) => {
                   return `${value}%`
                 },
               },

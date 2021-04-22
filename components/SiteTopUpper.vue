@@ -6,7 +6,9 @@
       }}</page-header>
       <div class="UpdatedAt">
         <span>{{ $t('最終更新') }}</span>
-        <time :datetime="updatedAt">{{ formattedDateForDisplay }}</time>
+        <time :datetime="convertDate(lastUpdate)">{{
+          formatDate(lastUpdate)
+        }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
@@ -58,12 +60,12 @@ export default Vue.extend({
       newsItems: News.newsItems,
     }
   },
-  computed: {
-    updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.lastUpdate)
+  methods: {
+    formatDate(date: string) {
+      return `${this.$d(new Date(date), 'dateTime')} JST`
     },
-    formattedDateForDisplay() {
-      return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
+    convertDate(dateAsString: string) {
+      return convertDatetimeToISO8601Format(dateAsString)
     },
   },
 })

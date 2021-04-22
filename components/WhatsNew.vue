@@ -8,6 +8,7 @@
         {{ $t('最新のお知らせ') }}
       </h3>
       <div class="WhatsNew-linkGroup">
+        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
         <app-link
           class="WhatsNew-linkButton"
           to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html"
@@ -15,7 +16,6 @@
           <VaccineIcon class="WhatsNew-linkButton-icon" aria-hidden="true" />
           {{ $t('ワクチン情報') }}
         </app-link>
-        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
       </div>
     </div>
     <ul class="WhatsNew-list">

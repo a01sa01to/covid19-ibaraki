@@ -86,7 +86,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   methods: {
     formatDate(dateString: string): string {
-      const date = dayjs(dateString)
+      const date = dayjs(new Date(dateString))
       if (date.isValid()) {
         return this.$d(date.toDate(), 'date')
       } else {

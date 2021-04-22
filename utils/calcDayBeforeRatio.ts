@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 
 import { DisplayData } from '@/plugins/vue-chart'
+import { getComplementedDate } from '@/utils/formatDate'
 import { getCommaSeparatedNumberToFixedFunction } from '@/utils/valueFormatter'
 
 interface DayBeforeRatioParameters {
@@ -33,7 +34,7 @@ export default function ({
   const formatter = getCommaSeparatedNumberToFixedFunction(digit)
 
   return {
-    lastDay: dayjs(lastDay).toDate(),
+    lastDay: dayjs(getComplementedDate(lastDay)).toDate(),
     lastDayData: formatter(lastDayData),
     dayBeforeRatio: formatDayBeforeRatio(dayBeforeRatio, formatter),
   }

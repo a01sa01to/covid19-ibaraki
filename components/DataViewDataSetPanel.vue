@@ -79,7 +79,6 @@ export default Vue.extend({
 
     &-summary {
       display: inline-block;
-      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       line-height: 30px;
       color: $gray-2;

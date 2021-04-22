@@ -8,15 +8,17 @@
 
 ## 1. 環境構築
 
-以下のアプリケーションを開発をおこなう環境へインストールします。
+以下のアプリケーション開発をおこなう環境へインストールします。
 
 | アプリケーション名 | バージョン(指定がある場合のみ、記載する) | インストール条件 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/ja/)|10.19.0以上|必須|
-|[Visual Studio Code](https://code.visualstudio.com/)| |Visual Studio Codeを利用する場合|
-|[yarn](https://classic.yarnpkg.com/ja/)| |本プログラムをyarnで実行する場合|
-|[docker compose](https://docs.docker.com/compose/install/)| |本プログラムをdocker composeで実行する場合|
-|[Vagrant](https://www.vagrantup.com/)| |本プログラムをVagrantで実行する場合|
+|[Node.js](https://nodejs.org/ja/)|14.16.0以上|必須|
+|[Visual Studio Code](https://code.visualstudio.com/)| |[Visual Studio Codeを利用する場合](#1-1-visual-studio-codeの拡張機能)|
+|[yarn](https://classic.yarnpkg.com/ja/)| |[本プログラムをyarnで実行する場合](#2-1-yarn-を使う場合)|
+|[docker compose](https://docs.docker.com/compose/install/)| |[本プログラムをdocker composeで実行する場合](#2-2-docker-compose-を使う場合)|
+|[Vagrant](https://www.vagrantup.com/)| |[本プログラムをVagrantで実行する場合](#2-3-vagrant-を使う場合)|
+|[Visual Studio Code](https://code.visualstudio.com/) + [Remote Containers](https://code.visualstudio.com/docs/remote/remote-overview) | |[Visual Studio Code + Remote Containersで開発する場合](#2-4-visual-studio-code--remote-containersで開発する場合)|
+|[Gitpod](https://www.gitpod.io/)| |[Gitpodで開発する場合](#2-5-gitpodで開発する場合)|
 
 ### 1-1. Visual Studio Codeの拡張機能
 
@@ -169,8 +171,16 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | 本番サイトHTML | production | https://ibaraki.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | 開発サイトHTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | 静的ビルドされたHTMLが置いてある場所 |
 
-## README .md 上部のバッジについて
- - ![](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg) デプロイ
- - [![CircleCI](https://circleci.com/gh/a01sa01to/covid19-ibaraki.svg?style=svg)](https://circleci.com/gh/a01sa01to/covid19-ibaraki) CircleCIによるビルド
- - ![](https://flat.badgen.net/dependabot/a01sa01to/covid19-ibaraki?icon=dependabot) Dependabot (yarnの依存関係に脆弱性があったら自動更新)
- - [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/a01sa01to/covid19-ibaraki&style=flat)](https://mergify.io) Mergify (特定のファイルにおけるPRを自動でMerge)
+## 6. `data` ディレクトリ以下の JSON データについて
+
+### 6-1. データの構造が変わったとき、またはデータが追加されたときは
+
+次のコマンドで、自動生成しているコード（`libraries/auto_generated` 以下のファイル）を再生成してください。
+
+```bash
+$ yarn generate-data-converters
+```
+
+また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
+
+JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。

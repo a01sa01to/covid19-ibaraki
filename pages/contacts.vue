@@ -174,13 +174,13 @@
       </table>
     </div>
     <br />
-    <StaticCard
+    <static-card
       >{{ $t('このサイトは、茨城県が管理しているものではありません。')
       }}{{
         $t(
           'このサイトに関するご意見やご質問などは、県ではなく当サイトの管理者にお寄せください。'
         )
-      }}</StaticCard
+      }}</static-card
     >
   </div>
 </template>

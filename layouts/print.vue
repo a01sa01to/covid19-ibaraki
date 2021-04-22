@@ -4,7 +4,7 @@
       <img
         src="/logo.svg"
         :alt="$t('茨城県')"
-        style="width: 100px; max-height: 100%;"
+        style="width: 100px; max-height: 100%"
       />
       <scale-loader color="#003FAB" />
     </div>
@@ -15,7 +15,7 @@
             <img
               src="/logo.svg"
               :alt="$t('茨城県')"
-              style="width: 100px; max-height: 100%;"
+              style="width: 100px; max-height: 100%"
             />
           </div>
           <h1 class="PrintMeta-Heading">
@@ -52,18 +52,6 @@ export default Vue.extend({
       loading: true,
     }
   },
-  mounted() {
-    this.loading = false
-    window.addEventListener('load', this.print)
-  },
-  beforeDestroy() {
-    window.removeEventListener('load', this.print)
-  },
-  methods: {
-    print() {
-      window.print()
-    },
-  },
   head(): MetaInfo {
     return {
       meta: [
@@ -80,6 +68,18 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  mounted() {
+    this.loading = false
+    window.addEventListener('load', this.print)
+  },
+  beforeDestroy() {
+    window.removeEventListener('load', this.print)
+  },
+  methods: {
+    print() {
+      window.print()
+    },
   },
 })
 </script>

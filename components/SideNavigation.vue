@@ -12,7 +12,7 @@
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
+            :src="logoSrc"
             width="111"
             height="28"
             :alt="$t('茨城県')"
@@ -46,7 +46,7 @@
           <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
             {{ $t('多言語対応選択メニュー') }}
           </label>
-          <LanguageSelector />
+          <language-selector />
           <p class="SideNavigation-LangNote">
             <i18n
               path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
@@ -248,6 +248,14 @@ export default Vue.extend({
           link: 'https://opendata.a01sa01to.com/covid19_ibaraki/',
         },
       ]
+    },
+    logoSrc(): string {
+      switch (this.$i18n.locale) {
+        case 'ja':
+        case 'ja-basic':
+        default:
+          return '/logo.svg'
+      }
     },
   },
   watch: {

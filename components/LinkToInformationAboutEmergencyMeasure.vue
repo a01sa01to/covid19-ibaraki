@@ -1,7 +1,6 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
     <app-link to="/EmergencyMeasure">
-      <!-- <div> -->
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
@@ -9,7 +8,6 @@
         {{ mdiBullhorn }}
       </v-icon>
       {{ $t('「感染拡大市町村」を設定') }}
-      <!-- </div> -->
     </app-link>
   </span>
 </template>
@@ -18,10 +16,10 @@
 import { mdiBullhorn } from '@mdi/js'
 import Vue from 'vue'
 
-// import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  // components: { AppLink },
+  components: { AppLink },
   data() {
     return {
       mdiBullhorn,

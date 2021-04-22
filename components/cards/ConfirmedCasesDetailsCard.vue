@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesDetailsCard">
     <client-only>
       <data-view
         :title="$t('検査陽性者の状況')"
@@ -16,13 +16,6 @@
               {{
                 $t(
                   '「回復済」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す'
-                )
-              }}
-            </li>
-            <li>
-              {{
-                $t(
-                  '回復者数の把握には一定の期間を要しており、確認次第数値を更新している'
                 )
               }}
             </li>
@@ -51,9 +44,6 @@
         </template>
         <template #footer>
           <open-data-link
-            v-show="
-              'https://opendata.a01sa01to.com/covid19_ibaraki/patients_summary'
-            "
             :url="'https://opendata.a01sa01to.com/covid19_ibaraki/patients_summary'"
           />
         </template>
@@ -74,7 +64,7 @@ import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
 
-export default {
+const options = {
   components: {
     DataView,
     ConfirmedCasesDetailsTable,
@@ -120,12 +110,15 @@ export default {
     }
   },
 }
+
+export default options
 </script>
 
 <style lang="scss" module>
 .button {
   margin: 20px 0 0;
   color: $green-1 !important;
+  text-decoration: none;
 
   &:hover {
     color: $white !important;

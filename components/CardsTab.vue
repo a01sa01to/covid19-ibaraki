@@ -77,10 +77,6 @@ export default Vue.extend({
   @return $px / $vw * 100vw;
 }
 
-.v-tabs .v-window {
-  overflow: inherit;
-}
-
 .v-slide-group__content {
   overflow-x: auto;
   overflow-y: hidden;

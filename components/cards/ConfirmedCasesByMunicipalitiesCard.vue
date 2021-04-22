@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesByMunicipalitiesCard">
     <client-only>
       <confirmed-cases-by-municipalities-table
         :title="$t('陽性者数（市町村別）')"
@@ -28,10 +28,10 @@
 <script>
 import dayjs from 'dayjs'
 
+import ConfirmedCasesByMunicipalitiesTable from '@/components/ConfirmedCasesByMunicipalitiesTable.vue'
 import CityData from '@/data/cities.json'
 import Data from '@/data/data.json'
-import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
-import { getCommaSeparatedNumberToFixedFunction } from '~/utils/valueFormatter'
+import { getCommaSeparatedNumberToFixedFunction } from '@/utils/valueFormatter'
 
 const countFormatter = getCommaSeparatedNumberToFixedFunction()
 
