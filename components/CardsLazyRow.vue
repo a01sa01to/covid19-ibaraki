@@ -1,7 +1,7 @@
 <template>
   <div class="DataBlock">
     <v-lazy
-      v-for="(row, i) in rows"
+      v-for="(row, i) in rows_arr"
       :key="i"
       v-intersect="handler"
       v-scroll="onScroll"
@@ -49,9 +49,18 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
   },
   data() {
+    const rows = []
+    for (let i = 0; i < this.rows.length; i++) {
+      if (i * 2 + 1 !== this.rows.length) {
+        rows.push([this.rows[i * 2], this.rows[i * 2 + 1]])
+      } else {
+        rows.push([this.rows[i * 2]])
+      }
+    }
     return {
-      actives: Array.from({ length: this.rows.length }, () => false),
+      actives: Array.from({ length: rows.length }, () => false),
       scroll: false,
+      rows_arr: rows,
     }
   },
   methods: {

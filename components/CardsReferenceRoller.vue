@@ -42,7 +42,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [[TsuchiuraSakura, TsukubaAmakubo], [Mito]],
+      rows: [TsuchiuraSakura, TsukubaAmakubo, Mito],
     }
   },
 })

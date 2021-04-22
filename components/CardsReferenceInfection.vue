@@ -23,16 +23,24 @@ const IbarakiGraphicalMapCard = () =>
 const RecoveredCard = () => import('@/components/cards/RecoveredCard.vue')
 const UntrackedRateCard = () =>
   import('@/components/cards/UntrackedRateCard.vue')
+const NationalInfectionStatus = () =>
+  import('@/components/cards/NationalInfectionStatus.vue')
 
 export default Vue.extend({
   data() {
     return {
       rows: [
-        [ConfirmedCasesDetailsCard, IbarakiCoronaNext],
-        [ConfirmedCasesNumberCard, ConfirmedCasesAttributesCard],
-        [ConfirmedCasesByMunicipalitiesCard, IbarakiGraphicalMapCard],
-        [ConfirmedCasesByAgeCard, UntrackedRateCard],
-        [RecoveredCard, DeathsCard],
+        ConfirmedCasesDetailsCard,
+        IbarakiCoronaNext,
+        NationalInfectionStatus,
+        ConfirmedCasesNumberCard,
+        ConfirmedCasesAttributesCard,
+        ConfirmedCasesByMunicipalitiesCard,
+        IbarakiGraphicalMapCard,
+        ConfirmedCasesByAgeCard,
+        UntrackedRateCard,
+        RecoveredCard,
+        DeathsCard,
       ],
     }
   },

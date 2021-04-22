@@ -15,8 +15,9 @@ export default Vue.extend({
   data() {
     return {
       rows: [
-        [InspectionPersonsNumberCard, TestedNumberCard],
-        [TelephoneAdvisoryReportsNumberCard],
+        InspectionPersonsNumberCard,
+        TestedNumberCard,
+        TelephoneAdvisoryReportsNumberCard,
       ],
     }
   },

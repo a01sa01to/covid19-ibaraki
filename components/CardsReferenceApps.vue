@@ -40,7 +40,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [[CocoaCard, IbarakiAmabieCard]],
+      rows: [CocoaCard, IbarakiAmabieCard],
     }
   },
 })
