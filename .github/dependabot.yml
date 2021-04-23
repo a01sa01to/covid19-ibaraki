@@ -8,8 +8,7 @@ updates:
       - "a01sa01to"
     labels:
       - "dependencies"
-      - "auto_merge"
-      
+
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -18,8 +17,8 @@ updates:
       - "a01sa01to"
     labels:
       - "dependencies"
-      - "auto_merge"
-      
+    versioning-strategy: lockfile-only
+
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
@@ -28,4 +27,4 @@ updates:
       - "a01sa01to"
     labels:
       - "dependencies"
-      - "auto_merge"
+    versioning-strategy: lockfile-only
