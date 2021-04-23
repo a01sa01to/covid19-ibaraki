@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+      - "auto_merge"
+      
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+      - "auto_merge"
+      
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+      - "auto_merge"
