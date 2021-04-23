@@ -109,7 +109,7 @@ export default class CardContainer extends Vue {
   head() {
     const url = 'https://ibaraki.stopcovid19.jp'
     const timestamp = new Date().getTime()
-    const defaultTitle = `${this.$t('東京都')} ${this.$t(
+    const defaultTitle = `${this.$t('茨城県')} ${this.$t(
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
     const ogpImage =
