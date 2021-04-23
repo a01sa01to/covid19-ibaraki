@@ -7,25 +7,23 @@ if not os.path.exists("ogp"):
   os.mkdir("ogp")
 
 PATHS = [
+  "/cards/roller/mito",
+  "/cards/roller/tsukuba-amakubo",
+  "/cards/roller/tsuchiura-sakura",
   "/cards/details-of-confirmed-cases",
   "/cards/ibaraki-graphical-map"
   "/cards/ibaraki-corona-next",
   "/cards/number-of-tested",
-  "/cards/roller/mito",
-  "/cards/roller/tsukuba-amakubo",
-  "/cards/roller/tsuchiura-sakura",
-]
-
-WAVEPATHS = [
-  "number-of-confirmed-cases",
-  "attributes-of-confirmed-cases",
-  "number-of-reports-to-covid19-telephone-advisory-center",
-  "number-of-inspection-persons",
-  "number-of-confirmed-cases-by-municipalities",
-  "number-of-recovered",
-  "number-of-deaths",
-  "number-of-confirmed-cases-by-age",
-  "untracked-rate",
+  "/cards/number-of-confirmed-cases",
+  "/cards/attributes-of-confirmed-cases",
+  "/cards/number-of-reports-to-covid19-telephone-advisory-center",
+  "/cards/number-of-inspection-persons",
+  "/cards/number-of-confirmed-cases-by-municipalities",
+  "/cards/number-of-recovered",
+  "/cards/number-of-deaths",
+  "/cards/number-of-confirmed-cases-by-age",
+  "/cards/untracked-rate",
+  "/cards/infection-status-by-national-index"
 ]
 
 options = webdriver.ChromeOptions()
@@ -54,6 +52,3 @@ for lang in ("ja", "en", "ja-basic"):
     os.mkdir("ogp/{}".format(lang))
   for path in PATHS:
     screenshot(path,lang)
-  for wave in range(3):
-    for path in WAVEPATHS:
-      screenshot("/cards/wave{}/{}".format(wave+1, path), lang)

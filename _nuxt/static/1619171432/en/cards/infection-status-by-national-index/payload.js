@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/infection-status-by-national-index", {data:[{}],fetch:{},mutations:void 0});
