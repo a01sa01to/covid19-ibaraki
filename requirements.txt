@@ -1,0 +1,7 @@
+argparse
+selenium
+datetime
+markdown
+pandas
+bs4
+twitter
