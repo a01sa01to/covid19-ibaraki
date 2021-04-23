@@ -18,7 +18,6 @@ from bs4 import BeautifulSoup
 CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "opendata/json"]
 
 # チェックするjsonファイルのリスト
-# 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
 JSON_FILES = ["data.json","otherpref.json","cities.json","patients.json","worker.json"]
 
 # チェックするTypeScriptファイルのリスト
