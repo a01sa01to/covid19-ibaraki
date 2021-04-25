@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <roller-view :title="title" :title-id="titleId" :date="date">
     <template #button>
       <data-selector
         v-model="dataKind"
@@ -45,7 +45,7 @@
     <template #footer>
       <open-data-link v-show="url" :url="url" />
     </template>
-  </data-view>
+  </roller-view>
 </template>
 
 <script lang="ts">
@@ -55,13 +55,13 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataSelector from '@/components/DataSelector.vue'
-import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import RollerView from '@/components/RollerView.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
@@ -115,7 +115,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         : 'transition'
   },
   components: {
-    DataView,
+    RollerView,
     DataSelector,
     DataViewDataSetPanel,
     DataViewTable,
