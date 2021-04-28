@@ -12,7 +12,7 @@
         :data-labels="dataLabels"
         :table-labels="tableLabels"
         :get-formatter="getFormatter"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/positive_number'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/positive_number'"
       >
         <template #description>
           <ul>

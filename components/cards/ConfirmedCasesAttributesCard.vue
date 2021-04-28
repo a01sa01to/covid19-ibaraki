@@ -7,7 +7,7 @@
         :table-data="patientsTable"
         :date="date"
         :info="sumInfoOfPatients"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/patients'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
         :loaded="dataMargin >= 0"
         :error="$fetchState.error"
         :data-length="dataLength"
@@ -157,7 +157,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     async fetchOpenAPI() {
       const lastIndividualNum = this.endCursor - this.itemsPerPage + 1
       const endpoint =
-        'https://opendata.a01sa01to.com/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
+        'https://a01sa01to.com/opendata/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
       const url =
         endpoint +
         encodeURIComponent(

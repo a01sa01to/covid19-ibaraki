@@ -8,7 +8,7 @@
         :chart-data="graphData"
         :date="data.date"
         :unit="$t('人')"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/test_people'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/test_people'"
       >
         <template #description>
           <ul>

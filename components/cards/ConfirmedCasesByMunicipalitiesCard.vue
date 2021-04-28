@@ -7,7 +7,7 @@
         :chart-data="municipalitiesTable"
         :date="date"
         :info="info"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/patients'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
       >
         <template #description>
           <ul>

@@ -8,7 +8,7 @@
         :chart-data="contactsGraph"
         :date="date"
         :unit="$t('件')"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/call_center'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/call_center'"
       />
     </client-only>
   </v-col>

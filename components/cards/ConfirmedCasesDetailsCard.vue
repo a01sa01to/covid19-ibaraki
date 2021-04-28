@@ -5,7 +5,7 @@
         :title="$t('検査陽性者の状況')"
         :title-id="'details-of-confirmed-cases'"
         :date="updatedAt"
-        :url="'https://opendata.a01sa01to.com/covid19_ibaraki/patients_summary'"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients_summary'"
       >
         <template #description>
           <ul>
@@ -44,7 +44,7 @@
         </template>
         <template #footer>
           <open-data-link
-            :url="'https://opendata.a01sa01to.com/covid19_ibaraki/patients_summary'"
+            :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients_summary'"
           />
         </template>
       </data-view>

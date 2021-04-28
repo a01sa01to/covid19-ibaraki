@@ -93,9 +93,9 @@
         <template #footer>
           <open-data-link
             v-show="
-              'https://opendata.a01sa01to.com/covid19_ibaraki/inspections_summary'
+              'https://a01sa01to.com/opendata/covid19_ibaraki/inspections_summary'
             "
-            :url="'https://opendata.a01sa01to.com/covid19_ibaraki/inspections_summary'"
+            :url="'https://a01sa01to.com/opendata/covid19_ibaraki/inspections_summary'"
           />
         </template>
       </data-view>
