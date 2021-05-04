@@ -39,11 +39,10 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
-
 import DataView from '@/components/DataView.vue'
 import RollerChart from '@/components/RollerChart.vue'
 import Data from '@/data/roller/mito.json'
+import formatRollerInspection from '@/utils/formatRollerInspection'
 
 export default {
   components: {
@@ -51,35 +50,11 @@ export default {
     RollerChart,
   },
   data() {
-    // 検査陽性者の状況
-    const updatedAt = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
-
-    const data = Data.data
-    const today = new Date()
-    const chartDataAccept = []
-    const chartDataCollect = []
-    let acSum = 0
-    let coSum = 0
-    data
-      .filter((d) => new Date(d.date) < today)
-      .forEach((d) => {
-        const date = new Date(d.date)
-        if (!isNaN(d.accept) && !isNaN(d.collect)) {
-          acSum += d.accept
-          coSum += d.collect
-          chartDataAccept.push({
-            label: `${date.getMonth() + 1}/${date.getDate()}`,
-            transition: d.accept,
-            cumulative: acSum,
-          })
-          chartDataCollect.push({
-            label: `${date.getMonth() + 1}/${date.getDate()}`,
-            transition: d.collect,
-            cumulative: coSum,
-          })
-        }
-      })
-
+    const {
+      chartDataAccept,
+      chartDataCollect,
+      updatedAt,
+    } = formatRollerInspection(Data)
     return {
       Data,
       chartDataAccept,
