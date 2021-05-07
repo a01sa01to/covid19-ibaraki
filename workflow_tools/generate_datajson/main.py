@@ -107,7 +107,7 @@ file_content = {
 with open('last_update.json', 'r', encoding="UTF-8") as f:
   lastUpdate = json.load(f)
 
-with open('json/call_center.json', 'r', encoding="UTF-8") as f:
+with open('call_center.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for day in json_content:
     day['date'] = day['受付_年月日'].replace('T00:00:00','')
@@ -117,7 +117,7 @@ with open('json/call_center.json', 'r', encoding="UTF-8") as f:
   file_content['contacts']['data'] = json_content
   file_content['contacts']['date'] = lastUpdate['call_center']
 
-with open('json/patients.json', 'r', encoding="UTF-8") as f:
+with open('patients.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for person in json_content:
     person['date'] = person['公表_年月日'].replace('T00:00:00','')
@@ -146,7 +146,7 @@ with open('json/patients.json', 'r', encoding="UTF-8") as f:
   file_content['patients_age']['date'] = lastUpdate['patients']
 
 
-with open('json/positive_number.json', 'r', encoding="UTF-8") as f:
+with open('positive_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
@@ -157,7 +157,7 @@ with open('json/positive_number.json', 'r', encoding="UTF-8") as f:
   file_content['patients_summary']['data'] = json_content
   file_content['patients_summary']['date'] = lastUpdate['positive_number']
 
-with open('json/recovered_number.json', 'r', encoding="UTF-8") as f:
+with open('recovered_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
@@ -167,7 +167,7 @@ with open('json/recovered_number.json', 'r', encoding="UTF-8") as f:
   file_content['recovered_summary']['data'] = json_content
   file_content['recovered_summary']['date'] = lastUpdate['recovered_number']
 
-with open('json/death_number.json', 'r', encoding="UTF-8") as f:
+with open('death_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
@@ -177,7 +177,7 @@ with open('json/death_number.json', 'r', encoding="UTF-8") as f:
   file_content['deaths_summary']['data'] = json_content
   file_content['deaths_summary']['date'] = lastUpdate['death_number']
 
-with open('json/test_people.json', 'r', encoding="UTF-8") as f:
+with open('test_people.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['inspection_persons'] = json_content
   file_content['inspection_persons']['date'] = lastUpdate['test_people']
