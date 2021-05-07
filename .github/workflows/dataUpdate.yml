@@ -27,7 +27,7 @@ jobs:
         env:
           FILE: 080004_ibaraki_covid19_patients
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_patients.json ./json/patients.json -u'
+        run: 'mv 080004_ibaraki_covid19_patients.json patients.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -35,7 +35,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_patients.csv
-            dist/data/json/patients.json
+            dist/data/patients.json
 
   test_people:
     name: Tested people
@@ -59,7 +59,7 @@ jobs:
         run: 'python ../../workflow_tools/csv2json/test_people.py'
         working-directory: ./dist/data
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_test_people.json ./json/test_people.json -u'
+        run: 'mv 080004_ibaraki_covid19_test_people.json test_people.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -67,7 +67,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_test_people.csv
-            dist/data/json/test_people.json
+            dist/data/test_people.json
 
   call_center:
     name: Call Center
@@ -93,7 +93,7 @@ jobs:
         env:
           FILE: 080004_ibaraki_covid19_call_center
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_call_center.json ./json/call_center.json -u'
+        run: 'mv 080004_ibaraki_covid19_call_center.json call_center.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -101,7 +101,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_call_center.csv
-            dist/data/json/call_center.json
+            dist/data/call_center.json
 
   positive_number:
     name: Positive Number
@@ -127,7 +127,7 @@ jobs:
         env:
           FILE: 080004_ibaraki_covid19_positive_number
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_positive_number.json ./json/positive_number.json -u'
+        run: 'mv 080004_ibaraki_covid19_positive_number.json positive_number.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -135,7 +135,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_positive_number.csv
-            dist/data/json/positive_number.json
+            dist/data/positive_number.json
 
   recovered_number:
     name: Recovered Number
@@ -161,7 +161,7 @@ jobs:
         env:
           FILE: 080004_ibaraki_covid19_recovered_number
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_recovered_number.json ./json/recovered_number.json -u'
+        run: 'mv 080004_ibaraki_covid19_recovered_number.json recovered_number.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -169,7 +169,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_recovered_number.csv
-            dist/data/json/recovered_number.json
+            dist/data/recovered_number.json
 
   death_number:
     name: Death Number
@@ -195,7 +195,7 @@ jobs:
         env:
           FILE: 080004_ibaraki_covid19_death_number
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_death_number.json ./json/death_number.json -u'
+        run: 'mv 080004_ibaraki_covid19_death_number.json death_number.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -203,7 +203,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/080004_ibaraki_covid19_death_number.csv
-            dist/data/json/death_number.json
+            dist/data/death_number.json
 
   inspections_summary:
     name: Inspections Summary
@@ -220,13 +220,13 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_inspections_summary.json ./json/inspections_summary.json -u'
+        run: 'mv 080004_ibaraki_covid19_inspections_summary.json inspections_summary.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: dist/data/json/inspections_summary.json
+          path: dist/data/inspections_summary.json
 
   main_summary:
     name: Main Summary
@@ -243,13 +243,13 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_summary.json ./json/main_summary.json -u'
+        run: 'mv 080004_ibaraki_covid19_summary.json main_summary.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: dist/data/json/main_summary.json
+          path: dist/data/main_summary.json
 
   corona_next:
     name: Corona Next
@@ -266,13 +266,13 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Rename
-        run: 'mv 080004_ibaraki_covid19_corona_next.json ./json/corona_next.json -u'
+        run: 'mv 080004_ibaraki_covid19_corona_next.json corona_next.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: dist/data/json/corona_next.json
+          path: dist/data/corona_next.json
 
   news_json:
     name: news.json
@@ -334,7 +334,7 @@ jobs:
         env:
           FILE: otherpref
       - name: Move and Rename
-        run: 'mv otherpref.json ./json/otherpref.json -u'
+        run: 'mv otherpref.json otherpref.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -342,7 +342,7 @@ jobs:
           name: opendata_artifact
           path: |
             dist/data/otherpref.csv
-            dist/data/json/otherpref.json
+            dist/data/otherpref.json
 
   push_dev:
     name: Generate data.json
@@ -363,9 +363,7 @@ jobs:
         with:
           path: dist/data
       - name: Move restored files
-        run: |
-          mv ./dist/data/opendata_artifact/json/*.* ./dist/data/json/
-          mv ./dist/data/opendata_artifact/*.* ./dist/data/
+        run: 'mv ./dist/data/opendata_artifact/*.* ./dist/data/'
       - name: Temporary Commit
         run: |
           git config --local user.email "action@github.com"
@@ -381,7 +379,7 @@ jobs:
         run: |
           mv data.json ../../data/data.json -u
           mv news.json ../../data/news.json -u
-          mv json/otherpref.json ../../data/otherpref.json -u
+          mv otherpref.json ../../data/otherpref.json -u
         working-directory: ./dist/data
       - name: Commit files
         run: |
