@@ -2,9 +2,9 @@ import { NuxtConfig } from '@nuxt/types'
 import dayjs from 'dayjs'
 
 // eslint-disable-next-line no-restricted-imports
-import i18n from './nuxt-i18n.config'
+import { lastUpdate } from './data/data.json'
 // eslint-disable-next-line no-restricted-imports
-import lastUpdate from './opendata/last_update.json'
+import i18n from './nuxt-i18n.config'
 
 const environment = process.env.NODE_ENV || 'development'
 
@@ -238,7 +238,7 @@ const config: NuxtConfig = {
     i18n: true,
     defaults: {
       changefreq: 'daily',
-      lastmod: dayjs(lastUpdate.lastUpdate).format('YYYY-MM-DDTHH:mm:ss+09:00'),
+      lastmod: dayjs(lastUpdate).format('YYYY-MM-DDTHH:mm:ss+09:00'),
     },
     trailingSlash: true,
   },

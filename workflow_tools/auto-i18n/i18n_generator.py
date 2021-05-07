@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "opendata/json"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "dist/data/json"]
 
 # チェックするjsonファイルのリスト
 JSON_FILES = ["data.json","otherpref.json","cities.json","patients.json","worker.json"]
