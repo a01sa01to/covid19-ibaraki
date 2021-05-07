@@ -333,8 +333,6 @@ jobs:
         working-directory: ./dist/data
         env:
           FILE: otherpref
-      - name: Move and Rename
-        run: 'mv otherpref.json otherpref.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
