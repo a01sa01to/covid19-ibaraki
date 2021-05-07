@@ -33,9 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_patients.csv
-            dist/data/patients.json
+          path: dist/data/patients.json
 
   test_people:
     name: Tested people
@@ -65,9 +63,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_test_people.csv
-            dist/data/test_people.json
+          path: dist/data/test_people.json
 
   call_center:
     name: Call Center
@@ -99,9 +95,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_call_center.csv
-            dist/data/call_center.json
+          path: dist/data/call_center.json
 
   positive_number:
     name: Positive Number
@@ -133,9 +127,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_positive_number.csv
-            dist/data/positive_number.json
+          path: dist/data/positive_number.json
 
   recovered_number:
     name: Recovered Number
@@ -167,9 +159,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_recovered_number.csv
-            dist/data/recovered_number.json
+          path: dist/data/recovered_number.json
 
   death_number:
     name: Death Number
@@ -201,9 +191,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/080004_ibaraki_covid19_death_number.csv
-            dist/data/death_number.json
+          path: dist/data/death_number.json
 
   inspections_summary:
     name: Inspections Summary
@@ -337,9 +325,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: |
-            dist/data/otherpref.csv
-            dist/data/otherpref.json
+          path: dist/data/otherpref.json
 
   push_dev:
     name: Generate data.json
