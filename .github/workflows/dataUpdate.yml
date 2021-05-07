@@ -347,14 +347,6 @@ jobs:
           path: dist/data
       - name: Move restored files
         run: 'mv ./dist/data/opendata_artifact/*.* ./dist/data/'
-      - name: Temporary Commit
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update Data (Temp)" -a
-      - name: Reset the Commit
-        run: 'git reset --soft HEAD~'
       - name: Generate data.json
         run: 'python ../../workflow_tools/generate_datajson/main.py'
         working-directory: ./dist/data
