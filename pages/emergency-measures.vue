@@ -1,5 +1,5 @@
 <template>
-  <div class="EmergencyMeasure">
+  <div class="emergency-measures">
     <page-header class="mb-3">
       {{ $t('「感染拡大市町村」の指定について') }}
     </page-header>

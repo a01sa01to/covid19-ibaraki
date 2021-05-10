@@ -1,6 +1,6 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <app-link to="/EmergencyMeasure">
+    <app-link to="/emergency-measures">
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"

@@ -12,6 +12,9 @@ const redirect: Middleware = ({ route, redirect }) => {
       'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html'
     )
   }
+  if (route.path.match(/EmergencyMeasure$/i)) {
+    return redirect('/emergency-measures')
+  }
 }
 
 export default redirect
