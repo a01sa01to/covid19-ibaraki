@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Approve pull request
         if: contains(github.event.pull_request.labels.*.name, 'dependencies')
-        uses: andrewmusgrave/automatic-pull-request-review@0.0.2
+        uses: andrewmusgrave/automatic-pull-request-review@0.0.3
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           event: APPROVE
