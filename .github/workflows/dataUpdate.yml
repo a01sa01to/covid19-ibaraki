@@ -13,7 +13,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -45,7 +45,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -75,7 +75,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -107,7 +107,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -139,7 +139,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -171,7 +171,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Download File
@@ -338,7 +338,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
       - name: Restore
