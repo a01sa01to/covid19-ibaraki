@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: stylelint review
-        uses: reviewdog/action-stylelint@v1
+        uses: reviewdog/action-stylelint@v1.9
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
