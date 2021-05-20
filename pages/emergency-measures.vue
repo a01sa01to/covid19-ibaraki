@@ -90,7 +90,7 @@
           }}</app-link
         ><br />
         <app-link
-          :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210517_kaiken.html'"
+          :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210517_rinjikaiken.html'"
           >{{
             $t('【県公式ページ】感染拡大市町村の追加等（5月17日記者会見発表）')
           }}</app-link
