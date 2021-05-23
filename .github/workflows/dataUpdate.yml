@@ -17,17 +17,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=patients_data -L -o 080004_ibaraki_covid19_patients.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=patients_data -L -o patients.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
-        working-directory: ./dist/data
-        env:
-          FILE: 080004_ibaraki_covid19_patients
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_patients.json patients.json -u'
+        run: 'python ../../workflow_tools/csv2json/main.py patients'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -49,15 +44,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=tested_people -L -o 080004_ibaraki_covid19_test_people.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=tested_people -L -o test_people.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../workflow_tools/csv2json/test_people.py'
-        working-directory: ./dist/data
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_test_people.json test_people.json -u'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -79,17 +71,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=call_center -L -o 080004_ibaraki_covid19_call_center.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=call_center -L -o call_center.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
-        working-directory: ./dist/data
-        env:
-          FILE: 080004_ibaraki_covid19_call_center
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_call_center.json call_center.json -u'
+        run: 'python ../../workflow_tools/csv2json/main.py call_center'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -111,23 +98,38 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=positive_number -L -o 080004_ibaraki_covid19_positive_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=positive_number -L -o positive_number.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
-        working-directory: ./dist/data
-        env:
-          FILE: 080004_ibaraki_covid19_positive_number
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_positive_number.json positive_number.json -u'
+        run: 'python ../../workflow_tools/csv2json/main.py positive_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
           path: dist/data/positive_number.json
+
+  mutant_positive:
+    name: Mutant virus Positive Number
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          ref: development
+      - name: Download File
+        run: 'curl ${DATA_UPDATE_URL}?data=mutant_positive_number -L -o mutant_positive.json'
+        working-directory: ./dist/data
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: opendata_artifact
+          path: dist/data/mutant_positive.json
 
   recovered_number:
     name: Recovered Number
@@ -143,17 +145,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=recovered_number -L -o 080004_ibaraki_covid19_recovered_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=recovered_number -L -o recovered_number.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
-        working-directory: ./dist/data
-        env:
-          FILE: 080004_ibaraki_covid19_recovered_number
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_recovered_number.json recovered_number.json -u'
+        run: 'python ../../workflow_tools/csv2json/main.py recovered_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -175,17 +172,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=death_number -L -o 080004_ibaraki_covid19_death_number.csv'
+        run: 'curl ${DATA_UPDATE_URL}?data=death_number -L -o death_number.csv'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
-        working-directory: ./dist/data
-        env:
-          FILE: 080004_ibaraki_covid19_death_number
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_death_number.json death_number.json -u'
+        run: 'python ../../workflow_tools/csv2json/main.py death_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -203,13 +195,10 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=inspections_summary -L -o 080004_ibaraki_covid19_inspections_summary.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=inspections_summary -L -o inspections_summary.json'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_inspections_summary.json inspections_summary.json -u'
-        working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
@@ -226,13 +215,10 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=main_summary -L -o 080004_ibaraki_covid19_summary.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=main_summary -L -o main_summary.json'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-      - name: Move and Rename
-        run: 'mv 080004_ibaraki_covid19_summary.json main_summary.json -u'
-        working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
@@ -249,13 +235,10 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o 080004_ibaraki_covid19_corona_next.json'
+        run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o corona_next.json'
         working-directory: ./dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
-      - name: Rename
-        run: 'mv 080004_ibaraki_covid19_corona_next.json corona_next.json -u'
-        working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
         with:
@@ -317,10 +300,8 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py'
+        run: 'python ../../workflow_tools/csv2json/main.py otherpref'
         working-directory: ./dist/data
-        env:
-          FILE: otherpref
       - name: Save
         uses: actions/upload-artifact@v2
         with:
@@ -330,7 +311,7 @@ jobs:
   push_dev:
     name: Generate data.json
     runs-on: ubuntu-latest
-    needs: [patients_data,test_people,call_center,positive_number,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update,otherpref]
+    needs: [patients_data,test_people,call_center,positive_number,mutant_positive,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update,otherpref]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
