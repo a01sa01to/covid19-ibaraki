@@ -102,6 +102,11 @@ file_content = {
   "main_summary": {},
 
   "ibk_corona_next": {},
+
+  "mutant_summary": {
+    "data": [],
+    "date": "",
+  }
 }
 
 with open('last_update.json', 'r', encoding="UTF-8") as f:
@@ -145,7 +150,6 @@ with open('patients.json', 'r', encoding="UTF-8") as f:
   file_content['patients_city']['date'] = lastUpdate['patients']
   file_content['patients_age']['date'] = lastUpdate['patients']
 
-
 with open('positive_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   for day in json_content:
@@ -156,6 +160,16 @@ with open('positive_number.json', 'r', encoding="UTF-8") as f:
       del day[key]
   file_content['patients_summary']['data'] = json_content
   file_content['patients_summary']['date'] = lastUpdate['positive_number']
+
+with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
+  json_content = json.load(f)
+  for day in json_content:
+    day['date'] = day['公表_年月日'].replace('T00:00:00','')
+    day['total'] = int(day['変異株陽性者数'])
+    for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','変異株陽性者数']:
+      del day[key]
+  file_content['mutant_summary']['data'] = json_content
+  file_content['mutant_summary']['date'] = lastUpdate['mutant_positive']
 
 with open('recovered_number.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)

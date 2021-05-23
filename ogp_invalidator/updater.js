@@ -11,6 +11,7 @@ const PATHS = [
   '',
   'cards/details-of-confirmed-cases/',
   'cards/number-of-confirmed-cases/',
+  'cards/number-of-mutant-confirmed-cases/',
   'cards/attributes-of-confirmed-cases/',
   'cards/number-of-reports-to-covid19-telephone-advisory-center/',
   'cards/number-of-inspection-persons/',
