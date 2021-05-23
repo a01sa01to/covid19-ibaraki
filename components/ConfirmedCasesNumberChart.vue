@@ -218,7 +218,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data() {
     const colors: SurfaceStyle[] = [
-      getGraphSeriesColor('C'),
+      getGraphSeriesColor('B'),
       getGraphSeriesColor('E'),
     ]
     return {

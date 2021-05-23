@@ -25,6 +25,8 @@ const UntrackedRateCard = () =>
   import('@/components/cards/UntrackedRateCard.vue')
 const NationalInfectionStatus = () =>
   import('@/components/cards/NationalInfectionStatus.vue')
+const MutantConfirmedCasesNumberCard = () =>
+  import('@/components/cards/MutantConfirmedCasesNumberCard.vue')
 
 export default Vue.extend({
   data() {
@@ -39,6 +41,7 @@ export default Vue.extend({
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
         UntrackedRateCard,
+        MutantConfirmedCasesNumberCard,
         RecoveredCard,
         DeathsCard,
       ],

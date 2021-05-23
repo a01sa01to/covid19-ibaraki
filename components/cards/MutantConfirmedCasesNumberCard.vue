@@ -1,9 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesNumberCard">
+  <v-col cols="12" md="6" class="DataCard MutantConfirmedCasesNumberCard">
     <client-only>
       <confirmed-cases-number-chart
-        :title="$t('公表日別による陽性者数の推移')"
-        :title-id="'number-of-confirmed-cases'"
+        :title="$t('公表日別による変異株陽性者数の推移')"
+        :title-id="'number-of-mutant-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
         :chart-data="chartData"
         :date="date"
@@ -12,8 +12,23 @@
         :data-labels="dataLabels"
         :table-labels="tableLabels"
         :get-formatter="getFormatter"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/positive_number'"
-      />
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_positive_number'"
+      >
+        <template #description>
+          <ul>
+            <li>
+              {{ $t('県が公表した日を基準とする') }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '同一患者でも、「公表日別による陽性者数の推移」カードの日付とは異なる'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
+      </confirmed-cases-number-chart>
     </client-only>
   </v-col>
 </template>
@@ -33,8 +48,8 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-    const date = Data.patients_summary.date
+    const patientsGraph = formatGraph(Data.mutant_summary.data)
+    const date = Data.mutant_summary.date
 
     const [everydayCount, labels] = patientsGraph.reduce(
       (res, data) => {
@@ -57,8 +72,8 @@ export default {
     }
 
     const chartData = [everydayCount, weekAvg]
-    const dataLabels = [this.$t('陽性者数'), this.$t('7日間移動平均')]
-    const tableLabels = [this.$t('陽性者数'), this.$t('7日間移動平均')]
+    const dataLabels = [this.$t('変異株陽性者数'), this.$t('7日間移動平均')]
+    const tableLabels = [this.$t('変異株陽性者数'), this.$t('7日間移動平均')]
 
     const getFormatter = (columnIndex) => {
       if (columnIndex === 1) {
