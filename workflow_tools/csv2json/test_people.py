@@ -1,9 +1,8 @@
-import json
 import csv
-import os
+import json
 
 json_list = {"labels":[],"datasets":[{"label":"検査実施人数","data":[]}]}
-filename = "080004_ibaraki_covid19_test_people"
+filename = "test_people"
 
 # CSV読み込み
 with open('{}.csv'.format(filename), 'r', encoding="UTF-8") as f:
