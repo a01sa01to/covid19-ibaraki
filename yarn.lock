@@ -7866,11 +7866,6 @@ nuxt-svg-loader@1.2.0:
     consola "^2.3.2"
     svg-to-vue-component "^0.3.1"
 
-nuxt-trailingslash-module@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/nuxt-trailingslash-module/-/nuxt-trailingslash-module-1.2.0.tgz#5c046a2911cc99ed50681c3d03248b756ea99421"
-  integrity sha512-R8YA7LEGQASfU6xGalJ2vah16TgYYCP9HoY8Gp+hDWzTqSuXbMOL3kJoD9dOjXoxruEW4ysz7teSLtwS5zB5Ew==
-
 nuxt-webfontloader@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/nuxt-webfontloader/-/nuxt-webfontloader-1.1.0.tgz#68b47ffbeaee4c41969f42f57a86946e0c36715c"
