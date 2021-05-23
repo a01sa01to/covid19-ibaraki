@@ -1,9 +1,9 @@
-import json
 import csv
-import os
+import json
+import sys
 
 json_list = []
-filename = str(os.environ['FILE'])
+filename = str(sys.argv[1])
 
 # CSV読み込み
 with open('{}.csv'.format(filename), 'r', encoding="UTF-8") as f:
