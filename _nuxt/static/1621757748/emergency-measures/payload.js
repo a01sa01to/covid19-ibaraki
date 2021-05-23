@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/emergency-measures", {data:[{}],fetch:{},mutations:void 0});
