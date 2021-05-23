@@ -197,7 +197,7 @@ export default Vue.extend({
         },
         {
           iconPath: mdiBullhorn,
-          title: this.$t('「感染拡大市町村」の指定について'),
+          title: this.$t('「感染拡大市町村」について'),
           link: this.localePath('/emergency-measures'),
           divider: true,
         },
