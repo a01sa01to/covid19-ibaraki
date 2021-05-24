@@ -3,6 +3,21 @@
     <page-header class="mb-3">
       {{ $t('「感染拡大市町村」について') }}
     </page-header>
+    <div class="UpdatedAt">
+      <span>{{ $t('最終更新') }}</span>
+      <time :datetime="convertDate(lastUpdate)">{{
+        formatDate(lastUpdate)
+      }}</time>
+    </div>
+    <static-card>
+      <p>
+        {{
+          $t(
+            'このページは随時更新されます。このページをブックマークしておくなどして、ぜひお役立てください。'
+          )
+        }}
+      </p>
+    </static-card>
     <static-card>
       <h3 class="mb-3">{{ $t('目次') }}</h3>
       <ul>
@@ -28,16 +43,19 @@
         <li>
           {{
             $t(
-              '5月26日までの対象地域は、常陸太田市、取手市、境町、水戸市、古河市、結城市、茨城町、大洗町、八千代町、利根町の10市町。'
+              '5月26日までの対象地域は、水戸市、古河市、結城市、取手市、茨城町、境町の6市町。'
             )
           }}
         </li>
         <li>
           {{
             $t(
-              '6月2日までの対象地域は、土浦市、下妻市、笠間市、牛久市、筑西市、かすみがうら市、鉾田市、小美玉市、東海村、阿見町の10市町村。'
+              '6月2日までの対象地域は、土浦市、下妻市、笠間市、牛久市、筑西市、かすみがうら市、鉾田市、小美玉市、東海村、阿見町、常陸太田市、大洗町、八千代町、利根町の14市町村。'
             )
           }}
+        </li>
+        <li>
+          {{ $t('6月9日までの対象地域は、龍ケ崎市、常総市、北茨城市の3市。') }}
         </li>
       </ul>
       <p>
@@ -90,6 +108,12 @@
           :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210517_rinjikaiken.html'"
           >{{
             $t('【県公式ページ】感染拡大市町村の追加等（5月17日記者会見発表）')
+          }}</app-link
+        ><br />
+        <app-link
+          :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210524_rinjikaiken.html'"
+          >{{
+            $t('【県公式ページ】感染拡大市町村の追加等（5月24日記者会見発表）')
           }}</app-link
         >
       </p>
@@ -320,21 +344,28 @@
         <li>
           {{
             $t(
-              '5月10日から、4月22日以降の時短営業要請に係る協力金の申請受付が開始。'
+              '5月10日から、4月22日以降の時短営業要請に係る協力金の申請受付が開始されます。'
             )
           }}
         </li>
         <li>
           {{
             $t(
-              '5月13日から、5月13日以降の時短営業要請に係る協力金の申請受付が開始。'
+              '5月13日から、5月13日以降の時短営業要請に係る協力金の申請受付が開始されます。'
             )
           }}
         </li>
         <li>
           {{
             $t(
-              '5月20日から、5月20日以降の時短営業要請に係る協力金の申請受付が開始。'
+              '5月20日から、5月20日以降の時短営業要請に係る協力金の申請受付が開始されます。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '5月27日から、5月27日以降の時短営業要請に係る協力金の申請受付が開始されます。'
             )
           }}
         </li>
@@ -365,6 +396,7 @@ import { MetaInfo } from 'vue-meta'
 import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
@@ -372,10 +404,43 @@ export default Vue.extend({
     StaticCard,
     AppLink,
   },
+  data() {
+    const lastUpdate = '2021/05/24'
+
+    return {
+      lastUpdate,
+    }
+  },
   head(): MetaInfo {
     return {
       title: this.$t('「感染拡大市町村」について') as string,
     }
   },
+  methods: {
+    formatDate(date: string) {
+      return `${this.$d(new Date(date), 'date')} JST`
+    },
+    convertDate(dateAsString: string) {
+      return convertDatetimeToISO8601Format(dateAsString)
+    },
+  },
 })
 </script>
+<style lang="scss" scoped>
+.emergency-measures {
+  .UpdatedAt {
+    @include font-size(14);
+
+    margin-bottom: 1rem;
+    color: $gray-3;
+  }
+
+  h2 {
+    @include font-size(22);
+  }
+
+  .StaticCard h3 {
+    @include font-size(18);
+  }
+}
+</style>
