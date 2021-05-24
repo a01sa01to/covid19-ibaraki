@@ -1048,5 +1048,19 @@
   "「感染拡大市町村」について": "About \"municipalities with widespread infection\"",
   "なお、5月17日付で、改めて茨城県は「まん延防止等重点措置」の適用を国に要請しましたが、適用は見送られました。": "On May 17, Ibaraki Prefecture once again requested the government to apply the \"Priority Measures to Prevent the Spread of the Disease,\" but the application was postponed.",
   "「感染拡大市町村」指定による要請期間すべてで、20時～翌5時の営業自粛に加え、酒類の提供を19時までにした全飲食店に対し、協力金が支給されます。": "All restaurants and bars which refraining from operating between 8 p.m. and 5 a.m. and from serving alcoholic beverages after 7 p.m. during ALL periods when they are required due to the designation as \"municipalities with widespread infection\", will receive cooperative money.",
-  "（例1）最大収容人数3,000人→収容率50%の1,500人（5,000人以下）": "(Example 1) Maximum capacity of 3,000 persons → 1,500 persons (Maximum capacity factor 50%; is less than the maximum number of people 5,000)"
+  "（例1）最大収容人数3,000人→収容率50%の1,500人（5,000人以下）": "(Example 1) Maximum capacity of 3,000 persons → 1,500 persons (Maximum capacity factor 50%; is less than the maximum number of people 5,000)",
+  "公表日別による変異株陽性者数の推移": "Number of mutant positive cases by publication date",
+  "公表日別による陽性者数の推移": "Number of positive cases by publication date",
+  "県が公表した日を基準とする": "Based on the date announced by the prefecture",
+  "変異株陽性者数": "Number of mutant positive patients",
+  "同一患者でも、「公表日別による陽性者数の推移」カードの日付とは異なる": "The same patient may be different from the date on the \"Number of positive cases by publication date\" card.",
+  "【県公式ページ】感染拡大市町村の追加等（5月24日記者会見発表）": "Designation of \"municipalities with widespread infection\" (Announced at a press conference on May 24)",
+  "6月2日までの対象地域は、土浦市、下妻市、笠間市、牛久市、筑西市、かすみがうら市、鉾田市、小美玉市、東海村、阿見町、常陸太田市、大洗町、八千代町、利根町の14市町村。": "The target areas by June 2 are the following 14 cities and towns and villages: Tsuchiura City, Shimotsuma City, Kasama City, Ushiku City, Chikusei City, Kasumigaura City, Hokota City, Omitama City, Tokai Village, Ami Town, Hitachiota City, Oarai Town, Yachiyo Town, and Tone Town.",
+  "6月9日までの対象地域は、龍ケ崎市、常総市、北茨城市の3市。": "The target areas by June 9 are the following 3 cities: Ryugasaki City, Joso City, and Kitaibaraki City.",
+  "5月26日までの対象地域は、水戸市、古河市、結城市、取手市、茨城町、境町の6市町。": "The target areas by May 26 are the following 6 cities and towns: Mito City, Koga City, Yuki City, Toride City, Ibaraki Town, and Sakai Town.",
+  "このページは随時更新されます。このページをブックマークしておくなどして、ぜひお役立てください。": "This page will be updated as needed. Please bookmark this page for future reference.",
+  "5月20日から、5月20日以降の時短営業要請に係る協力金の申請受付が開始されます。": "On May 20, applications for cooperation money for being requested shorter hours of operation after May 20 will be accepted.",
+  "5月13日から、5月13日以降の時短営業要請に係る協力金の申請受付が開始されます。": "On May 13, applications for cooperation money after May 13 will be accepted.",
+  "5月27日から、5月27日以降の時短営業要請に係る協力金の申請受付が開始されます。": "On May 27, applications for cooperation money for being requested shorter hours of operation after May 27 will be accepted.",
+  "5月10日から、4月22日以降の時短営業要請に係る協力金の申請受付が開始されます。": "On May 10, applications for cooperation money for being requested shorter hours of operation after April 22 will be accepted."
 }
