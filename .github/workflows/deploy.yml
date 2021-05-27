@@ -119,5 +119,6 @@ jobs:
           API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET_SCI }}
           ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN_SCI }}
-          MSG: ${{ toJson(github.event.commits) }}
+          ACCESS_SECRET_ASA: ${{ secrets.TWITTER_ASA_ACCESS_SECRET }}
+          ACCESS_TOKEN_ASA: ${{ secrets.TWITTER_ASA_ACCESS_TOKEN }}
         run: python workflow_tools/auto-tweet/tweet.py
