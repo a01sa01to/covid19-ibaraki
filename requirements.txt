@@ -4,4 +4,6 @@ datetime
 markdown
 pandas
 bs4
-twitter
+requests
+requests_oauthlib
+lxml

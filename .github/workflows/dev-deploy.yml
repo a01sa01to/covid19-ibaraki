@@ -56,7 +56,7 @@ jobs:
         with:
           ref: dev-deploy
       - name: Install selenium with pip
-        run: pip3 install selenium
+        run: pip3 install -r requirements.txt
       - name: Take screenshot
         run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
       - name: Upload screenshot
