@@ -113,7 +113,7 @@ jobs:
           pip install -r requirements.txt
       - name: Sleep 10min (waiting for Netlify deploy)
         run: sleep 10m
-      - name: Tweet as @Covid19_ibaraki
+      - name: Tweet as @Covid19_ibaraki & Retweet as @a01sa01to
         env:
           API_KEY: ${{ secrets.TWITTER_API_KEY }}
           API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
