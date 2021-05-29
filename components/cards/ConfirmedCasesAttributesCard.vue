@@ -208,10 +208,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
       for (const range of summaryOnly) {
         if (range[0] <= num && num <= range[1]) {
-          return String(num) + '*'
+          return num.toLocaleString() + '*'
         }
       }
-      return String(num)
+      return num.toLocaleString()
     },
   },
 }
