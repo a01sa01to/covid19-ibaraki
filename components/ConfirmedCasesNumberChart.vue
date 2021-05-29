@@ -5,12 +5,23 @@
     :date="date"
     :head-title="title"
   >
+    <template #description>
+      <slot name="description" />
+    </template>
+    <template #button>
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
+      />
+    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
       <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
-        <button>
+        <span v-if="dataKind === 'cumulative' || i === 2" />
+        <button v-else>
           <div
             v-if="i === 1"
             :style="{
@@ -92,6 +103,7 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 
+import DataSelector from '@/components/DataSelector.vue'
 import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
@@ -108,6 +120,7 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
+  dataKind: 'transition' | 'cumulative'
 }
 type Methods = {
   makeLineData: (value: number) => number[]
@@ -143,6 +156,8 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
+  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
+  byDate: boolean
 }
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
@@ -153,10 +168,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
+    this.dataKind =
+      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
+        ? 'cumulative'
+        : 'transition'
   },
   components: {
     DataView,
     DataViewTable,
+    DataSelector,
     DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink,
@@ -169,7 +189,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       required: false,
-      default: 'number-of-confirmed-cases',
+      default: '',
     },
     infoTitles: {
       type: Array,
@@ -215,6 +235,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: '',
     },
+    yAxesBgPlugin: {
+      type: Array,
+      default: () => yAxesBgPlugin,
+    },
+    byDate: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     const colors: SurfaceStyle[] = [
@@ -225,7 +253,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       displayLegends: [true, true],
       colors,
       canvas: true,
-      yAxesBgPlugin,
+      dataKind: 'transition',
     }
   },
   computed: {
@@ -233,12 +261,34 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
         displayData: this.displayData,
       })
+      const formattedLastDay = this.$d(lastDay, 'date')
+      if (this.dataKind === 'transition' && this.byDate) {
+        return [
+          {
+            lText: lastDayData,
+            sText: `${formattedLastDay} ${this.$t('日別値')}`,
+            sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+              this.unit
+            }）`,
+            unit: this.unit,
+          },
+        ]
+      } else if (this.dataKind === 'transition') {
+        return [
+          {
+            lText: lastDayData,
+            sText: `${formattedLastDay} ${this.$t('実績値')}`,
+            sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+              this.unit
+            }）`,
+            unit: this.unit,
+          },
+        ]
+      }
       return [
         {
           lText: lastDayData,
-          sText: `${this.$t('{date} の数値', {
-            date: this.$d(lastDay, 'date'),
-          })}`,
+          sText: `${formattedLastDay} ${this.$t('累計値')}`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
             this.unit
           }）`,
@@ -247,29 +297,45 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
+      if (this.dataKind === 'transition') {
+        return {
+          labels: this.labels,
+          datasets: [
+            {
+              type: 'bar',
+              label: this.dataLabels[0],
+              data: this.chartData[0],
+              backgroundColor: this.colors[0].fillColor,
+              borderColor: this.colors[0].strokeColor,
+              borderWidth: 1,
+              order: 3,
+            },
+            {
+              type: 'line',
+              label: this.dataLabels[1],
+              data: this.chartData[1],
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              borderColor: this.colors[1].fillColor,
+              borderWidth: 3,
+              fill: false,
+              order: 2,
+              lineTension: 0,
+            },
+          ],
+        }
+      }
       return {
         labels: this.labels,
         datasets: [
           {
             type: 'bar',
-            label: this.dataLabels[0],
-            data: this.chartData[0],
+            label: this.dataLabels[2],
+            data: this.chartData[2],
             backgroundColor: this.colors[0].fillColor,
             borderColor: this.colors[0].strokeColor,
             borderWidth: 1,
             order: 3,
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[1],
-            data: this.chartData[1],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[1].fillColor,
-            borderWidth: 3,
-            fill: false,
-            order: 2,
-            lineTension: 0,
           },
         ],
       }
@@ -278,7 +344,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: `${i}`, align: 'end' }
+          return { text, value: `${i}`, align: 'center' }
         }),
       ]
     },
@@ -477,7 +543,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      return this.chartData.reduce((max, data) => Math.max(max, ...data), 0)
+      if (this.dataKind === 'transition') {
+        return Math.max(...this.chartData[0])
+      }
+      return Math.max(...this.chartData[2])
     },
   },
   methods: {

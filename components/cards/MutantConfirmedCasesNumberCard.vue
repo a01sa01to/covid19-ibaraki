@@ -51,10 +51,11 @@ export default {
     const patientsGraph = formatGraph(Data.mutant_summary.data)
     const date = Data.mutant_summary.date
 
-    const [everydayCount, labels] = patientsGraph.reduce(
+    const [everydayCount, labels, cumulativeCount] = patientsGraph.reduce(
       (res, data) => {
         res[0].push(data.transition)
         res[1].push(data.label)
+        res[2].push(data.cumulative)
         return res
       },
       [[], [], []]
@@ -71,9 +72,17 @@ export default {
       }
     }
 
-    const chartData = [everydayCount, weekAvg]
-    const dataLabels = [this.$t('変異株陽性者数'), this.$t('7日間移動平均')]
-    const tableLabels = [this.$t('変異株陽性者数'), this.$t('7日間移動平均')]
+    const chartData = [everydayCount, weekAvg, cumulativeCount]
+    const dataLabels = [
+      this.$t('変異株 陽性者数'),
+      this.$t('7日間移動平均'),
+      this.$t('変異株 累計陽性者数'),
+    ]
+    const tableLabels = [
+      this.$t('変異株 陽性者数'),
+      this.$t('7日間移動平均'),
+      this.$t('変異株 累計陽性者数'),
+    ]
 
     const getFormatter = (columnIndex) => {
       if (columnIndex === 1) {
