@@ -18,7 +18,7 @@
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
               <th scope="row" class="text-center DataTable-cell">
-                {{ item['整理番号'] }}
+                {{ formatNo(item['整理番号']) }}
               </th>
               <td
                 v-for="(header, j) in headers.slice(1)"
@@ -42,18 +42,10 @@
           <p style="margin-bottom: 4px">
             {{
               $t(
-                '以下の整理番号の方については、概要のみが公表されているため、年代・性別が異なっている可能性がある'
+                '整理番号に「*（アスタリスク）」がついている方については、概要のみが公表されているため、年代・性別が異なっている可能性がある'
               )
             }}
           </p>
-          <ul>
-            <li>1720 - 1777</li>
-            <li>2214 - 2223</li>
-            <li>3524 - 3603</li>
-            <li>4661 - 4677</li>
-            <li>5006 - 5033</li>
-            <li>5632 - 5669</li>
-          </ul>
         </template>
       </data-table>
     </client-only>
@@ -92,6 +84,7 @@ type Methods = {
   translateWord: (word: string) => string | VueI18n.TranslateResult
   translateDate: (date: string) => string | VueI18n.TranslateResult
   translateAge: (age: string) => VueI18n.TranslateResult
+  formatNo: (num: number) => string
 }
 type Computed = {
   patientsTable: TableDateType
@@ -201,6 +194,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       // 全角のハイフン, 半角のハイフン, 全角のダッシュ, 全角ハイフンマイナス
       const notTranslateWords = ['-', '‐', '―', '－', null]
       return notTranslateWords.includes(word) ? word : this.$t(word)
+    },
+    formatNo(num) {
+      // 概要のみ公表されている整理番号にはアスタリスクをつける
+      const summaryOnly = [
+        // 閉区間として記述
+        [1720, 1777],
+        [2214, 2223],
+        [3524, 3603],
+        [4661, 4677],
+        [5006, 5033],
+        [5632, 5669],
+      ]
+      for (const range of summaryOnly) {
+        if (range[0] <= num && num <= range[1]) {
+          return String(num) + '*'
+        }
+      }
+      return String(num)
     },
   },
 }
