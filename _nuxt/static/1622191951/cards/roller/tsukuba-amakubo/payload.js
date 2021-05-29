@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/cards/roller/tsukuba-amakubo", {data:[{}],fetch:{},mutations:void 0});
