@@ -7,9 +7,6 @@ if not os.path.exists("ogp"):
   os.mkdir("ogp")
 
 PATHS = [
-  "/cards/roller/mito",
-  "/cards/roller/tsukuba-amakubo",
-  "/cards/roller/tsuchiura-sakura",
   "/cards/details-of-confirmed-cases",
   "/cards/ibaraki-graphical-map"
   "/cards/ibaraki-corona-next",
