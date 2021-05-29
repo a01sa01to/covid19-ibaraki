@@ -207,9 +207,6 @@ const config: NuxtConfig = {
         '/cards/number-of-tested',
         '/cards/untracked-rate',
         '/cards/infection-status-by-national-index',
-        '/cards/roller/mito',
-        '/cards/roller/tsukuba-amakubo',
-        '/cards/roller/tsuchiura-sakura',
       ]
 
       const localizedPages = locales

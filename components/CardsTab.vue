@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { mdiAppsBox, mdiChartTimelineVariant, mdiMagnifyScan } from '@mdi/js'
+import { mdiAppsBox, mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
@@ -27,14 +27,11 @@ const CardsReferenceInfection = () =>
   import('@/components/CardsReferenceInfection.vue')
 const CardsReferenceInspection = () =>
   import('@/components/CardsReferenceInspection.vue')
-const CardsReferenceRoller = () =>
-  import('@/components/CardsReferenceRoller.vue')
 const CardsReferenceApps = () => import('@/components/CardsReferenceApps.vue')
 export default Vue.extend({
   components: {
     CardsReferenceInfection,
     CardsReferenceInspection,
-    CardsReferenceRoller,
     CardsReferenceApps,
   },
   data() {
@@ -50,11 +47,6 @@ export default Vue.extend({
           label: this.$t('検査状況等'),
           component: CardsReferenceInspection,
           icon: mdiChartTimelineVariant,
-        },
-        {
-          label: this.$t('ローラー作戦'),
-          component: CardsReferenceRoller,
-          icon: mdiMagnifyScan,
         },
         {
           label: this.$t('アプリ'),
