@@ -119,6 +119,12 @@
           >{{
             $t('【県公式ページ】感染拡大市町村の追加等（5月24日記者会見発表）')
           }}</app-link
+        ><br />
+        <app-link
+          :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210531_rinjikaiken.html'"
+          >{{
+            $t('【県公式ページ】感染拡大市町村の追加等（5月31日記者会見発表）')
+          }}</app-link
         >
       </p>
     </static-card>
