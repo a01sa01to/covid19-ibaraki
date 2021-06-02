@@ -26,10 +26,8 @@
             <td class="content text-center">{{ $t('サイトに関すること') }}</td>
             <td class="bureau text-center">{{ $t('当サイトの管理者') }}</td>
             <td class="tel text-center">
-              <a
-                href="https://twitter.com/messages/compose?recipient_id=1264797161440423936"
-                target="_blank"
-                >Twitter @covid19_ibaraki</a
+              <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank"
+                >covid19-ibaraki@a01sa01to.com</a
               >
             </td>
           </tr>
