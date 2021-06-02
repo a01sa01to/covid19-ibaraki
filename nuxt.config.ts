@@ -197,6 +197,7 @@ const config: NuxtConfig = {
         '/cards/number-of-mutant-confirmed-cases',
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-inspection-persons',
+        '/cards/number-of-mutant-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-confirmed-cases-by-municipalities',
         '/cards/ibaraki-graphical-map',

@@ -57,6 +57,33 @@ jobs:
           name: opendata_artifact
           path: dist/data/test_people.json
 
+  mutant_test_people:
+    name: Tested people
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          ref: development
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
+      - name: Download File
+        run: 'curl ${DATA_UPDATE_URL}?data=mutant_tested_people -L -o mutant_test_people.csv'
+        working-directory: ./dist/data
+        env:
+          DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
+      - name: Convert to JSON
+        run: 'python ../../workflow_tools/csv2json/main.py mutant_test_people'
+        working-directory: ./dist/data
+      - name: Save
+        uses: actions/upload-artifact@v2
+        with:
+          name: opendata_artifact
+          path: dist/data/test_people.json
+
   call_center:
     name: Call Center
     runs-on: ubuntu-latest
@@ -311,7 +338,7 @@ jobs:
   push_dev:
     name: Generate data.json
     runs-on: ubuntu-latest
-    needs: [patients_data,test_people,call_center,positive_number,mutant_positive,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update,otherpref]
+    needs: [patients_data,test_people,mutant_test_people,call_center,positive_number,mutant_positive,recovered_number,death_number,inspections_summary,main_summary,corona_next,news_json,last_update,otherpref]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:

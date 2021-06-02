@@ -24,6 +24,7 @@ PATHS = (
   'cards/attributes-of-confirmed-cases/',
   'cards/number-of-reports-to-covid19-telephone-advisory-center/',
   'cards/number-of-inspection-persons/',
+  'cards/number-of-mutant-inspection-persons/',
   'cards/number-of-confirmed-cases-by-municipalities/',
   'cards/ibaraki-graphical-map/',
   'cards/number-of-recovered/',

@@ -106,6 +106,11 @@ file_content = {
   "mutant_summary": {
     "data": [],
     "date": "",
+  },
+
+  "mutant_inspections": {
+    "data": [],
+    "date": "",
   }
 }
 
@@ -195,6 +200,18 @@ with open('test_people.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['inspection_persons'] = json_content
   file_content['inspection_persons']['date'] = lastUpdate['test_people']
+
+with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
+  json_content = json.load(f)
+  for day in json_content:
+    day['from_date'] = day['実施_年月日 FROM'].replace('T00:00:00','')
+    day['to_date'] = day['実施_年月日 TO'].replace('T00:00:00','')
+    day['inspected'] = int(day['検査実施_人数'])
+    day['positive'] = int(day['陽性者数'])
+    for key in ['実施_年月日 FROM','実施_年月日 TO','全国地方公共団体コード','都道府県名','市区町村名','検査実施_人数','陽性者数']:
+      del day[key]
+  file_content['mutant_inspections']['data'] = json_content
+  file_content['mutant_inspections']['date'] = lastUpdate['mutant_test_people']
 
 with open('inspections_summary.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
