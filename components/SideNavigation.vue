@@ -247,6 +247,10 @@ export default Vue.extend({
           title: this.$t('茨城県新型コロナ オープンデータ（非公式）'),
           link: 'https://a01sa01to.com/opendata/covid19_ibaraki/',
         },
+        {
+          title: this.$t('対策サイトに関わるサービスの稼働状況'),
+          link: 'https://covid19-ibaraki.statuspage.io/',
+        },
       ]
     },
     logoSrc(): string {
