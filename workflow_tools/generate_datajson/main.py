@@ -171,7 +171,7 @@ with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
     day['total'] = int(day['変異株陽性者数'])
-    for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','変異株陽性者数']:
+    for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','変異株陽性者数','年代別','性別']:
       del day[key]
   file_content['mutant_summary']['data'] = json_content
   file_content['mutant_summary']['date'] = lastUpdate['mutant_positive']
