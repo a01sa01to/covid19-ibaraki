@@ -462,13 +462,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
+      if (this.dataKind === 'transition') {
+        return {
+          labels: ['2020-01-01'],
+          datasets: [
+            {
+              data: [Math.max(...this.chartData[0])],
+              backgroundColor: 'transparent',
+              borderWidth: 0,
+            },
+            {
+              data: [Math.max(...this.chartData[1])],
+              backgroundColor: 'transparent',
+              borderWidth: 0,
+            },
+          ],
+        }
+      }
       return {
         labels: ['2020-01-01'],
-        datasets: (this.dataLabels as string[]).map((_) => ({
-          data: [],
-          backgroundColor: 'transparent',
-          borderWidth: 0,
-        })),
+        datasets: [
+          {
+            data: [Math.max(...this.chartData[2])],
+            backgroundColor: 'transparent',
+            borderWidth: 0,
+          },
+        ],
       }
     },
     displayOptionHeader() {
