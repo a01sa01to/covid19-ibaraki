@@ -20,6 +20,8 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+
 import Chart from '@/components/MutantInspectionPersonsNumberChart.vue'
 import Data from '@/data/data.json'
 import {
@@ -27,7 +29,7 @@ import {
   getNumberToLocaleStringFunction,
 } from '@/utils/valueFormatter'
 
-export default {
+export default Vue.extend({
   components: {
     Chart,
   },
@@ -88,5 +90,5 @@ export default {
       tableLabels,
     }
   },
-}
+})
 </script>
