@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ConfirmedCasesNumberChart from '@/components/ConfirmedCasesNumberChart.vue'
+import ConfirmedCasesNumberChart from '@/components/TimeBarWithAverageChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import {
