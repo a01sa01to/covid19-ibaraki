@@ -14,6 +14,7 @@
         :table-labels="tableLabels"
         :info-titles="[$t('検査数'), $t('陽性割合')]"
         :table-data="tableData"
+        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_test_people'"
       />
     </client-only>
   </v-col>
