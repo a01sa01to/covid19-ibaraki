@@ -34,6 +34,8 @@ PATHS = (
   'cards/number-of-tested/',
   'cards/untracked-rate/',
   'cards/infection-status-by-national-index/',
+  'cards/vaccination-1st/',
+  'cards/vaccination-2nd/',
 )
 
 LANGS = (

@@ -7,7 +7,14 @@
       :href="`#tab-${i}`"
       @click="change"
     >
-      <v-icon class="TabIcon">{{ item.icon }}</v-icon>
+      <span
+        v-if="item.svg"
+        aria-hidden="true"
+        class="v-icon notranslate TabIcon theme--light"
+      >
+        <svg :is="item.svg" aria-hidden="true" class="v-icon__svg" />
+      </span>
+      <v-icon v-else class="TabIcon">{{ item.icon }}</v-icon>
       {{ item.label }}
     </v-tab>
     <v-tabs-items v-model="tab" touchless>
@@ -22,17 +29,22 @@
 import { mdiAppsBox, mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
+import VaccineIcon from '@/static/vaccine.svg'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 const CardsReferenceInfection = () =>
   import('@/components/CardsReferenceInfection.vue')
 const CardsReferenceInspection = () =>
   import('@/components/CardsReferenceInspection.vue')
 const CardsReferenceApps = () => import('@/components/CardsReferenceApps.vue')
+const CardsReferenceVaccination = () =>
+  import('@/components/CardsReferenceVaccination.vue')
+
 export default Vue.extend({
   components: {
     CardsReferenceInfection,
     CardsReferenceInspection,
     CardsReferenceApps,
+    CardsReferenceVaccination,
   },
   data() {
     return {
@@ -47,6 +59,11 @@ export default Vue.extend({
           label: this.$t('検査状況等'),
           component: CardsReferenceInspection,
           icon: mdiChartTimelineVariant,
+        },
+        {
+          label: this.$t('ワクチン接種状況'),
+          component: CardsReferenceVaccination,
+          svg: VaccineIcon,
         },
         {
           label: this.$t('アプリ'),

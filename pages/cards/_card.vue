@@ -24,6 +24,8 @@ import RecoveredCard from '@/components/cards/RecoveredCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import VaccineSummary1stCard from '@/components/cards/VaccineSummary1stCard.vue'
+import VaccineSummary2ndCard from '@/components/cards/VaccineSummary2ndCard.vue'
 import ErrorCard from '@/layouts/error.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
@@ -46,6 +48,8 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     NationalInfectionStatus,
     MutantConfirmedCasesNumberCard,
     MutantInspectionPersonsNumberCard,
+    VaccineSummary1stCard,
+    VaccineSummary2ndCard,
     ErrorCard,
   },
 })
@@ -102,6 +106,12 @@ export default class CardContainer extends Vue {
         break
       case 'number-of-mutant-inspection-persons':
         cardComponent = 'mutant-inspection-persons-number-card'
+        break
+      case 'vaccination-1st':
+        cardComponent = 'vaccine-summary-1st-card'
+        break
+      case 'vaccination-2nd':
+        cardComponent = 'vaccine-summary-2nd-card'
         break
       default:
         err = true
