@@ -58,7 +58,7 @@ jobs:
           path: dist/data/test_people.json
 
   mutant_test_people:
-    name: Tested people
+    name: Mutant Tested people
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: dist/data/test_people.json
+          path: dist/data/mutant_test_people.json
 
   call_center:
     name: Call Center
