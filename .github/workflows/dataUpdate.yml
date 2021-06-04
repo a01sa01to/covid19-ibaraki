@@ -354,7 +354,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: opendata_artifact
-          path: dist/data/vaccine_data.ndjson
+          path: dist/data/vaccine_data.json
 
   push_dev:
     name: Generate data.json
