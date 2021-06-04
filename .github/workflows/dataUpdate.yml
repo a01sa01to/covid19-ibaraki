@@ -345,7 +345,7 @@ jobs:
         with:
           ref: development
       - name: Download File
-        run: curl https://vrs-data.cio.go.jp/vaccination/opendata/latest/prefecture.ndjson -L -o vaccine_data.ndjson
+        run: curl --compressed https://vrs-data.cio.go.jp/vaccination/opendata/latest/prefecture.ndjson -L -o vaccine_data.ndjson
         working-directory: ./dist/data
       - name: Convert to Ibaraki Pref only JSON
         run: 'python ../../workflow_tools/vaccine-data/main.py'
