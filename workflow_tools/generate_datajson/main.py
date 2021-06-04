@@ -111,7 +111,9 @@ file_content = {
   "mutant_inspections": {
     "data": [],
     "date": "",
-  }
+  },
+
+  "vaccine_summary": []
 }
 
 with open('last_update.json', 'r', encoding="UTF-8") as f:
@@ -229,6 +231,10 @@ with open('corona_next.json', 'r', encoding="UTF-8") as f:
   json_content = json.load(f)
   file_content['ibk_corona_next'] = json_content
   file_content['ibk_corona_next']['date'] = lastUpdate['corona_next']
+
+with open('vaccine_data.json', 'r', encoding="UTF-8") as f:
+  json_content = json.load(f)
+  file_content['vaccine_summary'] = json_content
 
 # JSON書き込み
 with open('data.json', 'w', encoding="UTF-8") as f:

@@ -23,6 +23,8 @@ PATHS = [
   "/cards/number-of-confirmed-cases-by-age",
   "/cards/untracked-rate",
   "/cards/infection-status-by-national-index"
+  "/cards/vaccination-1st",
+  "/cards/vaccination-2nd",
 ]
 
 options = webdriver.ChromeOptions()
