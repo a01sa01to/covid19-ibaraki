@@ -80,6 +80,11 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: ogp
+      - name: Compress Images
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
