@@ -8,48 +8,56 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByAgeCard from '@/components/cards/ConfirmedCasesByAgeCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import DeathsCard from '@/components/cards/DeathsCard.vue'
-import IbarakiCoronaNext from '@/components/cards/IbarakiCoronaNext.vue'
-import IbarakiCityMapCard from '@/components/cards/IbarakiGraphicalMapCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import MutantConfirmedCasesNumberCard from '@/components/cards/MutantConfirmedCasesNumberCard.vue'
-import MutantInspectionPersonsNumberCard from '@/components/cards/MutantInspectionPersonsNumberCard.vue'
-import NationalInfectionStatus from '@/components/cards/NationalInfectionStatus.vue'
-import RecoveredCard from '@/components/cards/RecoveredCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import VaccineSummary1stCard from '@/components/cards/VaccineSummary1stCard.vue'
-import VaccineSummary2ndCard from '@/components/cards/VaccineSummary2ndCard.vue'
+// Infection
+import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
+import ConfirmedCasesByAgeCard from '@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
+import ConfirmedCasesDetailsCard from '@/components/index/CardsInfection/ConfirmedCasesDetails/Card.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsInfection/ConfirmedCasesNumber/Card.vue'
+import DeathsCard from '@/components/index/CardsInfection/Deaths/Card.vue'
+import IbarakiCoronaNextCard from '@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue'
+import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
+import MutantConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
+import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
+import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
+import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
+// Inspection
+import InspectionPersonsNumberCard from '@/components/index/CardsInspection/InspectionPersonsNumber/Card.vue'
+import MutantInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantInspectionPersonsNumber/Card.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsInspection/TelephoneAdvisoryReportsNumber/Card.vue'
+import TestedNumberCard from '@/components/index/CardsInspection/TestedNumber/Card.vue'
+// Vaccination
+import VaccineSummary1stCard from '@/components/index/CardsVaccination/1st/Card.vue'
+import VaccineSummary2ndCard from '@/components/index/CardsVaccination/2nd/Card.vue'
+// Error
 import ErrorCard from '@/layouts/error.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 @Component({
   components: {
+    // Infection
+    ConfirmedCasesAttributesCard,
+    ConfirmedCasesByAgeCard,
+    ConfirmedCasesByMunicipalitiesCard,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
+    DeathsCard,
+    IbarakiCoronaNextCard,
+    IbarakiGraphicalMapCard,
+    RecoveredCard,
     UntrackedRateCard,
-    ConfirmedCasesAttributesCard,
-    ConfirmedCasesByMunicipalitiesCard,
-    IbarakiCityMapCard,
+    NationalInfectionStatusCard,
+    MutantConfirmedCasesNumberCard,
+    // Inspection
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    RecoveredCard,
-    DeathsCard,
-    IbarakiCoronaNext,
-    ConfirmedCasesByAgeCard,
     TestedNumberCard,
-    NationalInfectionStatus,
-    MutantConfirmedCasesNumberCard,
     MutantInspectionPersonsNumberCard,
+    // Vaccination
     VaccineSummary1stCard,
     VaccineSummary2ndCard,
+    // Error
     ErrorCard,
   },
 })
@@ -59,60 +67,64 @@ export default class CardContainer extends Vue {
     let title, updatedAt, cardComponent
     let err = false
     switch (this.$route.params.card) {
+      // Infection
+      case 'attributes-of-confirmed-cases':
+        cardComponent = 'confirmed-cases-attributes-card'
+        break
+      case 'number-of-confirmed-cases-by-age':
+        cardComponent = 'confirmed-cases-by-age-card'
+        break
+      case 'number-of-confirmed-cases-by-municipalities':
+        cardComponent = 'confirmed-cases-by-municipalities-card'
+        break
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
         break
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
         break
-      case 'attributes-of-confirmed-cases':
-        cardComponent = 'confirmed-cases-attributes-card'
-        break
-      case 'number-of-inspection-persons':
-        cardComponent = 'inspection-persons-number-card'
-        break
-      case 'number-of-tested':
-        cardComponent = 'tested-number-card'
-        break
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        cardComponent = 'telephone-advisory-reports-number-card'
-        break
-      case 'number-of-confirmed-cases-by-municipalities':
-        cardComponent = 'confirmed-cases-by-municipalities-card'
-        break
-      case 'ibaraki-graphical-map':
-        cardComponent = 'ibaraki-city-map-card'
-        break
-      case 'number-of-recovered':
-        cardComponent = 'recovered-card'
-        break
       case 'number-of-deaths':
         cardComponent = 'deaths-card'
         break
       case 'ibaraki-corona-next':
-        cardComponent = 'ibaraki-corona-next'
+        cardComponent = 'ibaraki-corona-next-card'
         break
-      case 'number-of-confirmed-cases-by-age':
-        cardComponent = 'confirmed-cases-by-age-card'
+      case 'ibaraki-graphical-map':
+        cardComponent = 'ibaraki-graphical-map-card'
+        break
+      case 'number-of-recovered':
+        cardComponent = 'recovered-card'
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
         break
       case 'infection-status-by-national-index':
-        cardComponent = 'national-infection-status'
+        cardComponent = 'national-infection-status-card'
         break
       case 'number-of-mutant-confirmed-cases':
         cardComponent = 'mutant-confirmed-cases-number-card'
         break
+      // Inspection
+      case 'number-of-inspection-persons':
+        cardComponent = 'inspection-persons-number-card'
+        break
+      case 'number-of-reports-to-covid19-telephone-advisory-center':
+        cardComponent = 'telephone-advisory-reports-number-card'
+        break
+      case 'number-of-tested':
+        cardComponent = 'tested-number-card'
+        break
       case 'number-of-mutant-inspection-persons':
         cardComponent = 'mutant-inspection-persons-number-card'
         break
+      // Vaccination
       case 'vaccination-1st':
         cardComponent = 'vaccine-summary-1st-card'
         break
       case 'vaccination-2nd':
         cardComponent = 'vaccine-summary-2nd-card'
         break
+      // Error
       default:
         err = true
         break

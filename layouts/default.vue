@@ -44,9 +44,9 @@ import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import { Component, Vue } from 'nuxt-property-decorator'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
-import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
-import NoScript from '@/components/NoScript.vue'
-import SideNavigation from '@/components/SideNavigation.vue'
+import DevelopmentModeMark from '@/components/_shared/DevelopmentModeMark.vue'
+import NoScript from '@/components/_shared/NoScript.vue'
+import SideNavigation from '@/components/_shared/SideNavigation.vue'
 import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
@@ -271,10 +271,10 @@ export default class Default extends Vue implements NuxtConfig {
     width: 240px;
     height: 100%;
     overflow-y: auto;
+    overscroll-behavior: contain;
     border-right: 1px solid $gray-4;
     border-left: 1px solid $gray-4;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-    overscroll-behavior: contain;
   }
 }
 @include largerThan($huge) {

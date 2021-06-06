@@ -1,7 +1,7 @@
 <template>
   <div v-scroll="onScroll">
     <site-top-upper />
-    <lazy-cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
+    <cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
   </div>
 </template>
 
@@ -9,6 +9,9 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { MetaInfo } from 'vue-meta'
+
+import CardsTab from '@/components/index/CardsTab.vue'
+import SiteTopUpper from '@/components/index/SiteTopUpper.vue'
 
 type Data = {
   showCardsTab: boolean
@@ -26,6 +29,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  components: {
+    CardsTab,
+    SiteTopUpper,
+  },
   data() {
     return {
       showCardsTab: false,

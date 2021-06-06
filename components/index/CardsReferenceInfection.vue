@@ -1,0 +1,62 @@
+<template>
+  <cards-lazy-row :rows="rows" />
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
+
+const ConfirmedCasesAttributesCard = () =>
+  import('@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue')
+const ConfirmedCasesByAgeCard = () =>
+  import('@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue')
+const ConfirmedCasesByMunicipalitiesCard = () =>
+  import(
+    '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
+  )
+const ConfirmedCasesDetailsCard = () =>
+  import('@/components/index/CardsInfection/ConfirmedCasesDetails/Card.vue')
+const ConfirmedCasesNumberCard = () =>
+  import('@/components/index/CardsInfection/ConfirmedCasesNumber/Card.vue')
+const DeathsCard = () =>
+  import('@/components/index/CardsInfection/Deaths/Card.vue')
+const IbarakiCoronaNextCard = () =>
+  import('@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue')
+const IbarakiGraphicalMapCard = () =>
+  import('@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue')
+const RecoveredCard = () =>
+  import('@/components/index/CardsInfection/Recovered/Card.vue')
+const UntrackedRateCard = () =>
+  import('@/components/index/CardsInfection/UntrackedRate/Card.vue')
+const NationalInfectionStatusCard = () =>
+  import('@/components/index/CardsInfection/NationalInfectionStatus/Card.vue')
+const MutantConfirmedCasesNumberCard = () =>
+  import(
+    '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
+  )
+
+export default Vue.extend({
+  components: {
+    CardsLazyRow,
+  },
+  data() {
+    return {
+      rows: [
+        ConfirmedCasesDetailsCard,
+        IbarakiCoronaNextCard,
+        NationalInfectionStatusCard,
+        ConfirmedCasesNumberCard,
+        ConfirmedCasesAttributesCard,
+        ConfirmedCasesByMunicipalitiesCard,
+        IbarakiGraphicalMapCard,
+        ConfirmedCasesByAgeCard,
+        UntrackedRateCard,
+        MutantConfirmedCasesNumberCard,
+        RecoveredCard,
+        DeathsCard,
+      ],
+    }
+  },
+})
+</script>
