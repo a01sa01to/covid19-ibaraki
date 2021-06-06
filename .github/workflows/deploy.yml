@@ -37,9 +37,9 @@ jobs:
       - name: Test
         run: yarn run test
       - name: Generate
-        run: |
-          yarn run generate:deploy --fail-on-page-error
-
+        run: yarn run generate:deploy --fail-on-page-error
+      - name: Generate Sitemap
+        run: python ./workflow_tools/generate_sitemap/main.py
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:

@@ -1,8 +1,5 @@
 import { NuxtConfig } from '@nuxt/types'
-import dayjs from 'dayjs'
 
-// eslint-disable-next-line no-restricted-imports
-import { lastUpdate } from './data/data.json'
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
 
@@ -108,7 +105,6 @@ const config: NuxtConfig = {
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
-    '@nuxtjs/sitemap',
   ],
   /*
    ** vuetify module configuration
@@ -237,19 +233,6 @@ const config: NuxtConfig = {
   },
   router: {
     middleware: ['redirect'],
-  },
-  sitemap: {
-    path: '/sitemap.xml',
-    hostname:
-      process.env.GENERATE_ENV === 'development'
-        ? 'https://covid19-dev.a01sa01to.com'
-        : 'https://ibaraki.stopcovid19.jp',
-    i18n: true,
-    defaults: {
-      changefreq: 'daily',
-      lastmod: dayjs(lastUpdate).format('YYYY-MM-DDTHH:mm:ss+09:00'),
-    },
-    trailingSlash: true,
   },
 }
 
