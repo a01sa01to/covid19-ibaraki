@@ -4,9 +4,7 @@
     aria-labelledby="pageHeader"
     aria-describedby="contactsCardTable"
   >
-    <page-header id="pageHeader" class="mb-3">
-      {{ $t('お問い合わせ先・県内保健所一覧') }}
-    </page-header>
+    <page-header :title="$t('お問い合わせ先・県内保健所一覧')" />
     <div class="Contacts-Card">
       <table
         id="contactsCardTable"

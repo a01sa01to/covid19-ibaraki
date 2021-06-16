@@ -1,8 +1,6 @@
 <template>
   <div class="OtherPref">
-    <page-header class="mb-3">
-      {{ $t('他都道府県の新型コロナ対策サイト') }}
-    </page-header>
+    <page-header :title="$t('他都道府県の新型コロナ対策サイト')" />
     <div class="Others-Card">
       <v-simple-table class="Others-Card-Table">
         <template #default>
