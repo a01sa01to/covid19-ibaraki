@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 export default Vue.extend()
 </script>
 
@@ -18,6 +17,7 @@ export default Vue.extend()
   padding: 20px;
   margin-bottom: 20px;
   overflow-wrap: break-word;
+
   > *:not(:first-child) {
     margin-top: 1.2em;
   }
@@ -26,18 +26,22 @@ export default Vue.extend()
   &-Heading1 {
     @include card-h1();
   }
+
   h4,
   &-Heading2 {
     @include card-h2();
   }
+
   h5,
   &-Heading3 {
     @include card-h3();
   }
+
   p {
     // Override `.v-application p`
     margin-bottom: 0;
   }
+
   sup {
     vertical-align: top;
   }
@@ -45,57 +49,74 @@ export default Vue.extend()
   ul,
   ol {
     padding-left: 24px;
+  }
 
-    dt:not(:first-child) {
-      margin-top: 0.6em;
+  dt:not(:first-child) {
+    margin-top: 0.6em;
+  }
+
+  dd {
+    margin-top: 0.6em;
+    margin-left: 2em;
+    @include lessThan($medium) {
+      margin-left: 32 / 768 * 100vw;
     }
+  }
 
-    dd {
-      margin-top: 0.6em;
-      margin-left: 2em;
+  dd > *:not(:first-child) {
+    margin-top: 0.6em;
+  }
 
-      @include lessThan($medium) {
-        margin-left: 32 / 768 * 100vw;
+  img {
+    max-width: 100%;
+  }
+
+  figcaption {
+    margin-top: 0.6em;
+    color: $gray-2;
+  }
+
+  strong,
+  em {
+    border-bottom: 2px solid $green-1;
+  }
+
+  em {
+    font-style: normal;
+  }
+
+  a {
+    @include text-link();
+
+    font-size: inherit;
+
+    .ExternalLinkIcon {
+      display: inline-block;
+      color: $link;
+      text-decoration: none;
+      vertical-align: inherit;
+    }
+  }
+  /* stylelint-disable no-descending-specificity */
+
+  &-Note {
+    display: flex;
+
+    > span {
+      display: block;
+
+      &:first-child {
+        margin-right: 0.5em;
       }
     }
+  }
 
-    dd > *:not(:first-child) {
-      margin-top: 0.6em;
-    }
+  &-Notes {
+    padding-left: 0 !important;
 
-    img {
-      max-width: 100%;
-    }
-
-    figcaption {
-      margin-top: 0.6em;
-      color: $gray-2;
-    }
-    strong,
-    em {
-      border-bottom: 2px solid $green-1;
-    }
-
-    em {
-      font-style: normal;
-    }
-
-    a {
-      @include text-link();
-
-      font-size: inherit;
-
-      .ExternalLinkIcon {
-        display: inline-block;
-        color: $link;
-        text-decoration: none;
-        vertical-align: inherit;
-      }
-    }
-
-    /* stylelint-disable no-descending-specificity */
-    &-Note {
+    > li {
       display: flex;
+      list-style-type: none;
 
       > span {
         display: block;
@@ -105,24 +126,7 @@ export default Vue.extend()
         }
       }
     }
-
-    &-Notes {
-      padding-left: 0 !important;
-
-      > li {
-        display: flex;
-        list-style-type: none;
-
-        > span {
-          display: block;
-
-          &:first-child {
-            margin-right: 0.5em;
-          }
-        }
-      }
-    }
-    /* stylelint-enable no-descending-specificity */
   }
+  /* stylelint-enable no-descending-specificity */
 }
 </style>

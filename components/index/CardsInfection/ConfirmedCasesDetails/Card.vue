@@ -31,7 +31,10 @@
             </li>
           </ul>
         </template>
-        <chart :aria-label="$t('検査陽性者の状況')" v-bind="confirmedCases" />
+        <confirmed-cases-details-table
+          :aria-label="$t('検査陽性者の状況')"
+          v-bind="confirmedCases"
+        />
         <horizontal-bar-chart
           :chart-id="'horizontal-bar-chart-details'"
           :chart-data="confirmedDetailCases"
@@ -56,7 +59,8 @@ import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import HorizontalBarChart from '@/components/index/_shared/HorizontalBarChart.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import Chart from '@/components/index/CardsInfection/ConfirmedCasesDetails/Chart.vue'
+// <table>タグとの競合回避のためConfirmedCasesDetailsTableにする
+import ConfirmedCasesDetailsTable from '@/components/index/CardsInfection/ConfirmedCasesDetails/Table.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
@@ -64,7 +68,7 @@ import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
 const options = {
   components: {
     DataView,
-    Chart,
+    ConfirmedCasesDetailsTable,
     HorizontalBarChart,
     DataViewDataSetPanel,
     OpenDataLink,

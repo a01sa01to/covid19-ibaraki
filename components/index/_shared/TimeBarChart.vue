@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { Chart } from 'chart.js'
+import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
@@ -79,13 +79,11 @@ import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
-
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
 }
 type Methods = {}
-
 type Computed = {
   displayInfo: {
     lText: string
@@ -93,9 +91,9 @@ type Computed = {
     unit: string
   }
   displayData: DisplayData
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
   scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
@@ -108,10 +106,9 @@ type Props = {
   date: string
   unit: string
   url: string
-  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgPlugin: PluginServiceRegistrationOptions[]
   byDate: boolean
 }
-
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
   Data,
@@ -212,7 +209,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const style = getGraphSeriesStyle(1)[0]
       const zeroMouseOverHeight = 5
       const transparentWhite = 'rgba(255,255,255,0)'
-
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map((d) => {
@@ -279,8 +275,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -362,11 +357,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
         },
       }
-
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
-
       return options
     },
     displayDataHeader() {
@@ -395,8 +388,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
@@ -463,7 +455,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         animation: { duration: 0 },
       }
-
       return options
     },
     scaledTicksYAxisMax() {
@@ -505,13 +496,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
-
     if (canvas) {
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   },
 }
-
 export default Vue.extend(options)
 </script>

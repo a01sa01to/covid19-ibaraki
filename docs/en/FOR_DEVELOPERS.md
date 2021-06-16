@@ -166,4 +166,4 @@ Please use the following naming rules for the branch when sending a Pull Request
 
 ### 6. Data
 
-* `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9). This file is periodically updated and its data is managed by the Tokyo Metropolitan Government. See [this issue comment](https://github.com/tokyo-metropolitan-gov/covid19/issues/1207#issuecomment-664172525) for more details.
+* `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9).

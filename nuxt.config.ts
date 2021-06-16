@@ -56,8 +56,7 @@ const config: NuxtConfig = {
     ],
     script: [
       {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
         defer: true,
       },
     ],
@@ -89,7 +88,18 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: {
+          async: true,
+          typescript: {
+            enable: true,
+            memoryLimit: 4096,
+          },
+        },
+      },
+    ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -151,6 +161,18 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    babel: {
+      presets() {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: '3.14' },
+            },
+          ],
+        ]
+      },
+    },
     postcss: {
       preset: {
         autoprefixer: {

@@ -30,7 +30,7 @@ import { mdiAppsBox, mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import VaccineIcon from '@/static/vaccine.svg'
-import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
 const CardsReferenceInfection = () =>
   import('@/components/index/CardsReferenceInfection.vue')
 const CardsReferenceInspection = () =>
@@ -83,13 +83,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@function px2vw($px, $vw: 768) {
-  @return $px / $vw * 100vw;
-}
-
 .v-slide-group__content {
-  overflow-x: auto;
-  overflow-y: hidden;
   background: $gray-5;
   border-bottom: 1px solid $gray-2;
 }
@@ -101,10 +95,6 @@ export default Vue.extend({
   border-style: solid;
   border-radius: 4px 4px 0 0;
   @include font-size(16, true);
-
-  span {
-    margin-right: px2vw(4);
-  }
 
   &:focus {
     outline: dotted $gray-3 1px;
@@ -142,11 +132,13 @@ export default Vue.extend({
   background-color: transparent !important;
 }
 
+@function px2vw($px, $vw: 768) {
+  @return $px / $vw * 100vw;
+}
+
 @include lessThan($medium) {
   .v-slide-group__content {
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
   }
 
   .v-tab {

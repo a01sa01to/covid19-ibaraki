@@ -38,28 +38,26 @@
       </v-icon>
 
       <nav class="SideNavigation-Menu">
-        <!-- <MenuList :items="items" @click="$emit('closeNavi', $event)" /> -->
-        <div
-          v-if="this.$i18n.locales.length > 1"
-          class="SideNavigation-Language"
-        >
-          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-            {{ $t('多言語対応選択メニュー') }}
-          </label>
-          <language-selector />
-          <p class="SideNavigation-LangNote">
-            <i18n
-              path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
-            >
-              <template #transifex>
-                <app-link
-                  to="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
-                >
-                  {{ $t('こちら') }}
-                </app-link>
-              </template>
-            </i18n>
-          </p>
+        <div class="SideNavigation-Language">
+          <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
+            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+              {{ $t('多言語対応選択メニュー') }}
+            </label>
+            <language-selector />
+            <p class="SideNavigation-LangNote">
+              <i18n
+                path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
+              >
+                <template #transifex>
+                  <app-link
+                    to="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
+                  >
+                    {{ $t('こちら') }}
+                  </app-link>
+                </template>
+              </i18n>
+            </p>
+          </div>
         </div>
         <menu-list :items="items" @click="$emit('close-navigation', $event)" />
       </nav>
@@ -204,14 +202,12 @@ export default Vue.extend({
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link:
-            'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
+          link: 'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
         },
         {
           svg: 'VaccineIcon',
           title: this.$t('新型コロナウイルスワクチンについて'),
-          link:
-            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
         },
         {
           iconPath: mdiDomain,
