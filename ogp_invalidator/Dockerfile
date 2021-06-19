@@ -6,6 +6,8 @@ WORKDIR $PROJECT_ROOTDIR
 
 COPY install_dependencies.sh $PROJECT_ROOTDIR
 
+RUN chmod +x ./install_dependencies.sh
+
 RUN ./install_dependencies.sh
 
 COPY twitter_card_invalidator.py $PROJECT_ROOTDIR
