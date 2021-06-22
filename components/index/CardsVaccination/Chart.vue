@@ -67,7 +67,7 @@
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
-          :plugins="yAxesBgPlugin"
+          :plugins="yAxesBgRightPlugin"
           :display-legends="displayLegends"
           :height="240"
         />
