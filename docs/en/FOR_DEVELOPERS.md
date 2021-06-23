@@ -132,8 +132,8 @@ When the branch listed in the left column of the table below is updated, the bra
 
 | branch | A branch where HTML is built and updated | Website updated |
 | ---- | ---- | ---- |
-|`master`|`production`|The production site https://ibaraki.stopcovid19.jp/|
-|`development`|`dev-pages`|The development site https://covid19-dev.a01sa01to.com/|
+|`production`|`prod-deploy`|The production site https://ibaraki.stopcovid19.jp/|
+|`development`|`dev-deploy`|The development site https://covid19-dev.a01sa01to.com/|
 
 ---
 
@@ -152,14 +152,14 @@ Please use the following naming rules for the branch when sending a Pull Request
 | Purpose | Branch | Confirmation URL | People who can make pull requests | Remarks |
 | ---- | ---- | ---- | ---- | ---- |
 | Development | development | https://covid19-dev.a01sa01to.com/ | All developers | base branch. Basically send a Pull Request here |
-| Production | master | https://ibaraki.stopcovid19.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
+| Production | production | https://ibaraki.stopcovid19.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
 | Base Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) | Synchronized daily at 0,6,12,18 o'clock (JST) |
 
 ### 5-2. Branch used by the system
 
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://ibaraki.stopcovid19.jp | Location where statically built HTML is located |
+| Production site HTML | prod-deploy | https://ibaraki.stopcovid19.jp | Location where statically built HTML is located |
 | Development site HTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | Where to find statically built HTML |
 
 ---

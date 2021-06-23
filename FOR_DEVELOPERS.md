@@ -141,7 +141,7 @@ $ vagrant up
 
 | ブランチ | HTML類がbuildされ、更新されるブランチ | 更新されるWebサイト |
 | ---- | ---- | ---- |
-|`master`|`production`|本番サイト https://ibaraki.stopcovid19.jp/|
+|`production`|`prod-deploy`|本番サイト https://ibaraki.stopcovid19.jp/|
 |`development`|`dev-deploy`|開発用サイト https://covid19-dev.a01sa01to.com/|
 
 ---
@@ -161,14 +161,14 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | 目的 | ブランチ | 確認URL | Pull requestsを出せる人 | 備考 |
 | ---- | ---- | ---- | ---- | ---- |
 | 開発 | development | https://covid19-dev.a01sa01to.com/ | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
-| 本番 | master | https://ibaraki.stopcovid19.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
+| 本番 | production | https://ibaraki.stopcovid19.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
 | 元Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) を確認してください。 | 毎日0,6,12,18時に同期されます。 |
 
 ### 5-2. システムで利用しているブランチ
 
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | https://ibaraki.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイトHTML | prod-deploy | https://ibaraki.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | 開発サイトHTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | 静的ビルドされたHTMLが置いてある場所 |
 
 ## 6. `data` ディレクトリ以下の JSON データについて

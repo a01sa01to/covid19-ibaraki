@@ -1,4 +1,4 @@
-- branch: master
+- branch: production
   protection:
     required_status_checks: null
     required_pull_request_reviews:
