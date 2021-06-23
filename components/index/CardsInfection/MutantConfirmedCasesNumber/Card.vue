@@ -26,6 +26,13 @@
                 )
               }}
             </li>
+            <li>
+              {{
+                $t(
+                  '2021年2月1日からのデータはN501Y、2021年6月15日からのデータはL452Rの変異株に対する陽性者数を示している。検査体制が変わったため、その日の前後で「累計陽性者数」はリセットされる'
+                )
+              }}
+            </li>
           </ul>
         </template>
       </confirmed-cases-number-chart>
@@ -47,8 +54,10 @@ export default {
     ConfirmedCasesNumberChart,
   },
   data() {
-    // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.mutant_summary.data)
+    // 感染者数グラフ（2021-06-14からL452Rに対する検査に移行したため、リセットする）
+    const resetDate = ['2021-02-01', '2021-06-15']
+
+    const patientsGraph = formatGraph(Data.mutant_summary.data, ...resetDate)
     const date = Data.mutant_summary.date
 
     const [everydayCount, labels, cumulativeCount] = patientsGraph.reduce(
@@ -63,7 +72,14 @@ export default {
 
     const weekAvg = []
     for (let i = 0; i < patientsGraph.length; i++) {
-      if (i < 7) {
+      let isReset = false
+      resetDate.forEach((reset) => {
+        const deltaMilliSec = new Date(patientsGraph[i].label) - new Date(reset)
+        isReset ||= deltaMilliSec < 7 * 86400 * 1000 && deltaMilliSec >= 0
+      })
+      console.log(patientsGraph[i].label, isReset)
+
+      if (isReset) {
         weekAvg.push(patientsGraph[i].cumulative / (i + 1))
       } else {
         weekAvg.push(

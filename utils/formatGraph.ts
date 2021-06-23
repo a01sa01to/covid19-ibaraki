@@ -15,8 +15,9 @@ export type GraphDataType = {
  * Format for *Chart component
  *
  * @param data - Raw data
+ * @param resetDate - Date to reset "cumulative"
  */
-export default (data: DataType[]) => {
+export default (data: DataType[], ...resetDate: string[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0
@@ -24,6 +25,9 @@ export default (data: DataType[]) => {
     .filter((d) => new Date(d.date) < today)
     .forEach((d) => {
       const subTotal = d.total
+      if (resetDate.includes(d.date)) {
+        patSum = 0
+      }
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
