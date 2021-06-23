@@ -77,7 +77,6 @@ export default {
         const deltaMilliSec = new Date(patientsGraph[i].label) - new Date(reset)
         isReset ||= deltaMilliSec < 7 * 86400 * 1000 && deltaMilliSec >= 0
       })
-      console.log(patientsGraph[i].label, isReset)
 
       if (isReset) {
         weekAvg.push(patientsGraph[i].cumulative / (i + 1))
