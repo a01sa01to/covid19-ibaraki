@@ -24,7 +24,7 @@ jobs:
       - name: Yarn install
         run: yarn install --frozen-lockfile
       - name: eslint review
-        uses: reviewdog/action-eslint@v1.12.3
+        uses: reviewdog/action-eslint@v1.13
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
