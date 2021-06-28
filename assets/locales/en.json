@@ -1155,5 +1155,6 @@
   "日立児童相談所": "Hitachi Child Guidance Center",
   "平日 8時30分～17時15分": "Weekdays 8:30 a.m. - 5:15 p.m. Available",
   "土・日・祝日 9時～17時": "Saturday, Sunday, and holidays 9:00 a.m. - 5:00 p.m.",
-  "毎日の検温・健康チェックをしてください。体調に異常を感じたら、マスクなしでの会話を避けてください。": "Please take your temperature and check your health every day. If you feel any abnormality in your health, avoid talking without a mask."
+  "毎日の検温・健康チェックをしてください。体調に異常を感じたら、マスクなしでの会話を避けてください。": "Please take your temperature and check your health every day. If you feel any abnormality in your health, avoid talking without a mask.",
+  "2021年2月1日からのデータはN501Y、2021年6月15日からのデータはL452Rの変異株に対する陽性者数を示している。検査体制が変わったため、その日の前後で「累計陽性者数」はリセットされる": "The data from February 1, 2021, shows the number of positive cases for N501Y, and the data from June 15, 2021, shows the number of positive cases for the L452R mutant strain. Due to a change in the testing system, the \"cumulative number of positive cases\" is reset on that date."
 }
