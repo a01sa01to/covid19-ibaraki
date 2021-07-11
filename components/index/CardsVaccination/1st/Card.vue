@@ -33,7 +33,7 @@
             <li>
               {{
                 $t(
-                  '接種率は、県全体の人口（約285万人）に対する割合である。人口は2021年1月1日現在のもの。'
+                  '接種率は、県全体の人口から医療従事者数を引いた数（約276万人）に対する割合である。人口は2021年1月1日現在のもの。'
                 )
               }}
             </li>
@@ -68,7 +68,7 @@ export default Vue.extend({
     Chart,
   },
   data() {
-    const prefPopulation = CityData.reduce((a, b) => a + b.population, 0)
+    const prefPopulation = CityData.reduce((a, b) => a + b.population, 0) - 9e4
     const summaryGraph = formatGraph(
       Data.vaccine_summary.map((_) => ({ date: _.date, total: _.status_1 }))
     )
