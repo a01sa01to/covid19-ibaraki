@@ -15,7 +15,9 @@
               : ''
           "
         >
-          {{ title }}
+          <app-link :to="permalink" class="DataView-Title-HeaderLink">{{
+            title
+          }}</app-link>
         </h3>
         <div v-if="!!$slots.infoPanel" class="DataView-InfoPanel">
           <slot name="infoPanel" />
@@ -186,6 +188,15 @@ export default Vue.extend({
 
     &.with-dataSetPanel {
       margin-bottom: 0;
+    }
+
+    &-HeaderLink {
+      color: $gray-2 !important;
+      text-decoration: none;
+
+      &:hover {
+        color: $green-1 !important;
+      }
     }
 
     @include largerThan($large) {
