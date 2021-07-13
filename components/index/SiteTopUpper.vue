@@ -5,7 +5,7 @@
         '茨城県新型コロナウイルス感染症ポータルサイト（stopcovid19-ibaraki.jp）は、茨城県新型コロナウイルス対策サイト（ibaraki.stopcovid19.jp）に統合されました。'
       )
     }}</static-card>
-    <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
+    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <static-info
       class="mb-4"
       :url="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210409_kaiken.html'"
