@@ -49,7 +49,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      tab: null,
+      tab: '',
       items: [
         {
           label: this.$t('感染動向'),
@@ -73,6 +73,9 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  mounted() {
+    this.tab = location.hash.replace('#', '')
   },
   methods: {
     change() {
