@@ -1,5 +1,10 @@
 <template>
   <div class="SiteTopUpper">
+    <static-card id="site_merged_info">{{
+      $t(
+        '茨城県新型コロナウイルス感染症ポータルサイト（stopcovid19-ibaraki.jp）は、茨城県新型コロナウイルス対策サイト（ibaraki.stopcovid19.jp）に統合されました。'
+      )
+    }}</static-card>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
     <static-info
       class="mb-4"
@@ -19,6 +24,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import StaticCard from '@/components/_shared/StaticCard.vue'
 import StaticInfo from '@/components/index/SiteTopUpper/StaticInfo.vue'
 import WhatsNew from '@/components/index/SiteTopUpper/WhatsNew.vue'
 import News from '@/data/news.json'
@@ -27,10 +33,16 @@ export default Vue.extend({
   components: {
     WhatsNew,
     StaticInfo,
+    StaticCard,
   },
   data() {
     return {
       newsItems: News.newsItems,
+    }
+  },
+  mounted() {
+    if (!document.referrer.includes('stopcovid19-ibaraki.jp')) {
+      document.getElementById('site_merged_info')?.remove()
     }
   },
 })
