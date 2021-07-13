@@ -16,6 +16,7 @@
         :table-data="tableData"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_test_people'"
       />
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>
@@ -45,21 +46,17 @@ export default Vue.extend({
       return formatPeriod(fr, to)
     })
     const updated = mutantInspection.date
-    const [
-      positive,
-      negative,
-      inspected,
-      positiveRate,
-    ]: number[][] = mutantInspection.data.reduce(
-      (res: number[][], data) => {
-        res[0].push(data.positive)
-        res[1].push(data.inspected - data.positive)
-        res[2].push(data.inspected)
-        res[3].push((data.positive / data.inspected) * 100)
-        return res
-      },
-      [[], [], [], []]
-    )
+    const [positive, negative, inspected, positiveRate]: number[][] =
+      mutantInspection.data.reduce(
+        (res: number[][], data) => {
+          res[0].push(data.positive)
+          res[1].push(data.inspected - data.positive)
+          res[2].push(data.inspected)
+          res[3].push((data.positive / data.inspected) * 100)
+          return res
+        },
+        [[], [], [], []]
+      )
 
     const chartLabels = [
       this.$t('変異株陽性例数'),

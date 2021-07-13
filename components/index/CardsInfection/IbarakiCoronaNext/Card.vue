@@ -185,6 +185,7 @@
           />
         </template>
       </data-view>
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>

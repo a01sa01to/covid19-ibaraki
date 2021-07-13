@@ -28,6 +28,7 @@
           </ul>
         </template>
       </chart>
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>

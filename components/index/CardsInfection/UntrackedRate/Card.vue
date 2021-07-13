@@ -1,59 +1,62 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <chart
-      :title="$t('感染経路不明者数推移')"
-      :title-id="'untracked-rate'"
-      :chart-id="'untracked-rate-chart'"
-      :chart-data="graphData"
-      :get-formatter="getFormatter"
-      :date="updated"
-      :unit="[$t('人'), '%']"
-      :labels="dateLabels"
-      :data-labels="dataLabels"
-      :table-labels="tableLabels"
-    >
-      <template #description>
-        <ul>
-          <li>
-            {{
-              $t(
-                '保健所から発生届が提出された日別（報告日別）の新規陽性者について、感染経路等の不明者、判明者に区分したものである'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '1週間前の新規陽性者の報告数と比較した際の前週比について、有意な数値がとれる2020年3月29日から作成'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t('前週比は、1週間前の感染経路不明者数（移動平均値）との比較')
-            }}
-          </li>
-        </ul>
-      </template>
-      <template #additionalDescription
-        ><ul class="ListStyleNone">
-          <li>
-            {{
-              $t(
-                '凡例をクリックすることにより、グラフを非表示にすることができます。もう一度クリックすると再表示します。'
-              )
-            }}
-          </li>
-        </ul></template
+    <client-only>
+      <chart
+        :title="$t('感染経路不明者数推移')"
+        :title-id="'untracked-rate'"
+        :chart-id="'untracked-rate-chart'"
+        :chart-data="graphData"
+        :get-formatter="getFormatter"
+        :date="updated"
+        :unit="[$t('人'), '%']"
+        :labels="dateLabels"
+        :data-labels="dataLabels"
+        :table-labels="tableLabels"
       >
-    </chart>
+        <template #description>
+          <ul>
+            <li>
+              {{
+                $t(
+                  '保健所から発生届が提出された日別（報告日別）の新規陽性者について、感染経路等の不明者、判明者に区分したものである'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '1週間前の新規陽性者の報告数と比較した際の前週比について、有意な数値がとれる2020年3月29日から作成'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t('前週比は、1週間前の感染経路不明者数（移動平均値）との比較')
+              }}
+            </li>
+          </ul>
+        </template>
+        <template #additionalDescription
+          ><ul class="ListStyleNone">
+            <li>
+              {{
+                $t(
+                  '凡例をクリックすることにより、グラフを非表示にすることができます。もう一度クリックすると再表示します。'
+                )
+              }}
+            </li>
+          </ul></template
+        >
+      </chart>
+      <slot name="breadCrumb" />
+    </client-only>
   </v-col>
 </template>
 

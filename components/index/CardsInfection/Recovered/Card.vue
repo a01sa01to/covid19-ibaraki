@@ -29,6 +29,7 @@
           </ul>
         </template>
       </time-bar-chart>
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>

@@ -14,6 +14,7 @@
         :get-formatter="getFormatter"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/positive_number'"
       />
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>

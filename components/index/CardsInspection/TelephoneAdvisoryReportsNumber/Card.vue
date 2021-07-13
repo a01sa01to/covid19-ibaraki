@@ -10,6 +10,7 @@
         :unit="$t('件')"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/call_center'"
       />
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>

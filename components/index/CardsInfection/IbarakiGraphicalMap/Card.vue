@@ -38,6 +38,7 @@
       </template>
       <ibaraki-map />
     </data-view>
+    <slot name="breadCrumb" />
   </v-col>
 </template>
 

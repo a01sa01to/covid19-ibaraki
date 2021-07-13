@@ -36,6 +36,7 @@
           </ul>
         </template>
       </confirmed-cases-number-chart>
+      <slot name="breadCrumb" />
     </client-only>
   </v-col>
 </template>
