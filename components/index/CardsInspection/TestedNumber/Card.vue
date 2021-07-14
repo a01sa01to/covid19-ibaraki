@@ -9,9 +9,6 @@
         <template #description>
           <ul>
             <li>
-              {{ $t('同一の対象者について複数の検体を検査する場合がある') }}
-            </li>
-            <li>
               {{
                 $t(
                   '県公式情報がほとんど更新されないため、このデータは更新の頻度が低い'
@@ -62,20 +59,6 @@
                   </div>
                 </span>
               </div>
-              <div :class="[$style.content, $style.br]">
-                <span>{{ $t('確認された陽性者の数') }}</span>
-                <span>
-                  <strong>{{ dt.positive.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('人') }}</span>
-                </span>
-                <div>
-                  <span :class="$style.unit">{{ $t('陽性率') }}</span>
-                  <strong>{{
-                    ((dt.positive / dt.transition) * 100).toFixed(2)
-                  }}</strong>
-                  <span :class="$style.unit">%</span>
-                </div>
-              </div>
             </li>
           </ul>
         </div>
@@ -124,22 +107,21 @@ export default {
   },
   data() {
     const { updDate, datasets, date } = Data.inspections_summary
+    const positiveTotal = Data.main_summary.children[0].value
 
     // 検査実施日別状況
 
     const graphData = []
 
-    const total = { number: 0, positive: 0 }
+    const total = { number: 0, positive: positiveTotal }
 
     for (let i = 0; i < 3; i++) {
       total.number += datasets[i].data
-      total.positive += datasets[i].positive
       graphData.push({
         label: this.$t(datasets[i].label)
           .toString()
           .replace(/<br \/>/, ''),
         transition: datasets[i].data,
-        positive: datasets[i].positive,
         bgColor: ['#6e86d3', '#99a8e0', '#c2caec'][i],
       })
     }
@@ -211,19 +193,6 @@ $default-boxdiff: 35px;
 
   span.unit {
     @include font-size(14);
-  }
-}
-
-.content.top {
-  border-bottom: none;
-}
-
-.content.br {
-  border-top: none;
-
-  div {
-    width: 50%;
-    text-align: right;
   }
 }
 
