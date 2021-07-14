@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard VariantCard">
     <client-only>
       <chart
-        :title="$t('変異株PCR検査の実施状況（県衛生研究所）')"
+        :title="$t('変異株PCR検査の実施状況')"
         :title-id="'number-of-mutant-inspection-persons'"
         :chart-id="'number-of-mutant-inspection-persons-chart'"
         :chart-data="chartData"
@@ -15,7 +15,22 @@
         :info-titles="[$t('検査数'), $t('陽性割合')]"
         :table-data="tableData"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_test_people'"
-      />
+      >
+        <template #description>
+          <ul>
+            <li>
+              {{
+                $t(
+                  '検査数は、県衛生研究所、水戸市保健所、民間検査機関、医療機関で行われた検査が含まれている'
+                )
+              }}
+            </li>
+            <li>
+              {{ $t('陽性者数は、検査結果の判明日を基準とする') }}
+            </li>
+          </ul>
+        </template>
+      </chart>
       <slot name="breadCrumb" />
     </client-only>
   </v-col>
