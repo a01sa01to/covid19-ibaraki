@@ -2,25 +2,13 @@
   <v-col cols="12" md="6" class="DataCard ConfirmedCasesByMunicipalitiesCard">
     <client-only>
       <chart
-        :title="$t('陽性者数（市町村別）')"
+        :title="$t('陽性者数（市町村別・直近1週間）')"
         :title-id="'number-of-confirmed-cases-by-municipalities'"
         :chart-data="municipalitiesTable"
         :date="date"
         :info="info"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
-      >
-        <template #description>
-          <ul>
-            <li>
-              {{
-                $t(
-                  '「陽性者数（直近1週間）」は、各市町村の人口1万人あたりの陽性者である'
-                )
-              }}
-            </li>
-          </ul>
-        </template>
-      </chart>
+      />
       <slot name="breadCrumb" />
     </client-only>
   </v-col>
@@ -59,7 +47,7 @@ export default {
         { text: this.$t('ふりがな'), value: 'ruby', align: 'center' },
         { text: this.$t('陽性者数累計'), value: 'count', align: 'center' },
         {
-          text: this.$t('陽性者数（直近1週間）'),
+          text: this.$t('人口1万人あたりの陽性者数'),
           value: 'countRecent',
           align: 'center',
         },
@@ -83,18 +71,12 @@ export default {
       city.population = CityData.filter(
         (_) => city.city === _.city
       )[0].population
-      city.rate = Number((city.recent / city.population) * 10000)
+      city.rate = Number((city.total / city.population) * 10000)
     })
 
     data.sort((a, b) => {
       // 全体を陽性者数でソート
-      if (a.total === b.total) {
-        return a.recent > b.recent ? -1 : 1
-      } else if (a.total > b.total) {
-        return -1
-      } else {
-        return 1
-      }
+      return b.total - a.total
     })
 
     // データを追加

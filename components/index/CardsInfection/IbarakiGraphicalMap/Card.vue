@@ -62,7 +62,7 @@ export default {
     const { data } = Data.patients_city
 
     CityData.forEach((element) => {
-      const num = data.filter((_) => _.city === element.city)[0].recent
+      const num = data.filter((_) => _.city === element.city)[0].total
 
       const rate = (num / element.population) * 10000
 
