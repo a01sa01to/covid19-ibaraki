@@ -345,11 +345,7 @@
         >
       </p>
       <p>
-        {{
-          $t(
-            '現在、協力金の申請受付中です。お早めにご申請ください。申請期間は7月31日までです。'
-          )
-        }}
+        {{ $t('協力金の申請受付は、8月早期に開始されます。') }}
       </p>
       <p>
         {{
@@ -379,7 +375,7 @@ export default Vue.extend({
     AppLink,
   },
   data() {
-    const lastUpdate = '2021/07/27'
+    const lastUpdate = '2021/07/29'
 
     return {
       lastUpdate,
