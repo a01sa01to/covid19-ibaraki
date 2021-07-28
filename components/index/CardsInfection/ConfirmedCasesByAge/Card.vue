@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <chart
-        :title="$t('年代別の感染状況')"
+        :title="$t('年代別の感染状況（直近1週間）')"
         :title-id="'number-of-confirmed-cases-by-age'"
         :chart-data="ageTable"
         :date="date"
@@ -67,6 +67,7 @@ export default {
 
     // データをソート
     const areaOrder = [
+      '合計',
       '10歳未満',
       '10代',
       '20代',

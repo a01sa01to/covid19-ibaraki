@@ -13,6 +13,7 @@ file_content = {
 
   "patients_age": {
     "data": [
+      { "age": "合計", "close": 0, "new": 0 },
       { "age": "10歳未満", "close": 0, "new": 0 },
       { "age": "10代", "close": 0, "new": 0 },
       { "age": "20代", "close": 0, "new": 0 },
@@ -147,13 +148,15 @@ with open('patients.json', 'r', encoding="UTF-8") as f:
       city = [_ for _ in file_content['patients_city']['data'] if _["city"] == person['居住地']][0]
       city["total"] += 1
       city["recent"] += 1 if person['date'] > one_wk_ago else 0
-    if person['年代'] != '不明':
+    if person['年代'] != '不明' and person["date"] > one_wk_ago:
       age = [_ for _ in file_content['patients_age']['data'] if _["age"] == person['年代']]
       age = age[0]
       if person['濃厚接触者'] == '○':
         age['close'] += 1
+        file_content['patients_age']['data'][0]['close'] += 1
       else:
         age['new'] += 1
+        file_content['patients_age']['data'][0]['new'] += 1
   file_content['patients_city']['date'] = lastUpdate['patients']
   file_content['patients_age']['date'] = lastUpdate['patients']
 
