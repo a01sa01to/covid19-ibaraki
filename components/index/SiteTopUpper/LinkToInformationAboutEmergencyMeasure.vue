@@ -7,7 +7,7 @@
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('「感染拡大市町村」を設定') }}
+      {{ $t('県独自の緊急事態宣言を発令') }}
     </app-link>
   </span>
 </template>

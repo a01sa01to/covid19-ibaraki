@@ -9,7 +9,7 @@
     <static-info
       class="mb-4"
       :url="localePath('emergency-measures')"
-      :text="$t('感染拡大市町村に16市町が指定されました')"
+      :text="$t('県独自の緊急事態宣言が発令されました')"
       :btn-text="$t('詳しくはこちら')"
     />
     <static-info
