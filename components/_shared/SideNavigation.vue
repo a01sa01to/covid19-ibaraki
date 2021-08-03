@@ -149,7 +149,6 @@ import {
   mdiBullhorn,
   mdiChartTimelineVariant,
   mdiClose,
-  mdiDomain,
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
@@ -210,11 +209,6 @@ export default Vue.extend({
           title: this.$t('新型コロナウイルスワクチンについて'),
           link:
             'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
-        },
-        {
-          iconPath: mdiDomain,
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
           divider: true,
         },
         {

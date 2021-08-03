@@ -12,7 +12,6 @@ PAGES = [
   ['/contacts',lastUpdate["lastUpdate"]],
   ['/emergency-measures',lastUpdate["lastUpdate"]],
   ['/otherpref',lastUpdate["lastUpdate"]],
-  ['/worker',lastUpdate["lastUpdate"]],
   ['/cards/details-of-confirmed-cases',lastUpdate["lastUpdate"]],
   ['/cards/number-of-confirmed-cases',lastUpdate["patients_summary"]["date"]],
   ['/cards/attributes-of-confirmed-cases',lastUpdate["patients_summary"]["date"]],
