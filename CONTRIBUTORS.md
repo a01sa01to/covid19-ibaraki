@@ -5,7 +5,8 @@ Ibaraki COVID-19 Task Force site contributors
 
 | Name (link) | GitHub | Twitter | Contribution |
 | --- | --- | --- | --- |
-| Asa | [@a01sa01to](https://github.com/a01sa01to) | [@a01sa01to](https://twitter.com/a01sa01to) | Main Developer for Ibaraki |
+| Asa | [@a01sa01to](https://github.com/a01sa01to) | [@a01sa01to](https://twitter.com/a01sa01to) | Main Developer for this repo |
+| Yuta | [@BenataY](https://github.com/BenataY) | | Main Developer for stopcovid19-ibaraki.jp (merged to this repo) |
 | たこなす | [@takonasu](https://github.com/takonasu) | [@ITF_tako](https://twitter.com/ITF_tako) | Coding |
 
 お名前の掲載をご希望の方は，[#35](https://github.com/a01sa01to/covid19-ibaraki/issues/35) にコメントをお願いします。<br>
