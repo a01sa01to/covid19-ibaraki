@@ -297,6 +297,8 @@ export default {
       stage[l[0]] += (d > l[1]) + (d > l[2])
       if (stage[l[0]] <= 2) {
         stage[l[0]] = this.$t('2以下')
+      } else if (l[1] === l[2]) {
+        stage[l[0]] = this.$t('3以上')
       } else {
         stage[l[0]] = stage[l[0]].toLocaleString()
       }
@@ -485,6 +487,16 @@ table.NationalInfectionStatus {
         #b4c7e7 50%,
         #fff2cc 50%,
         #fff2cc 100%
+      );
+    }
+
+    &.stage3以上 {
+      background: linear-gradient(
+        to bottom right,
+        #c55a11 0%,
+        #c55a11 50%,
+        #f00 50%,
+        #f00 100%
       );
     }
 
