@@ -479,7 +479,13 @@ table.NationalInfectionStatus {
     }
 
     &.stage2以下 {
-      background-color: transparent;
+      background: linear-gradient(
+        to bottom right,
+        #b4c7e7 0%,
+        #b4c7e7 50%,
+        #fff2cc 50%,
+        #fff2cc 100%
+      );
     }
 
     &.stage1 {
