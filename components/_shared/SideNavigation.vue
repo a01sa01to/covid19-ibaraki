@@ -194,21 +194,19 @@ export default Vue.extend({
         },
         {
           iconPath: mdiBullhorn,
-          title: this.$t('県独自の緊急事態宣言について'),
+          title: this.$t('感染拡大防止のための緊急措置について'),
           link: this.localePath('/emergency-measures'),
           divider: true,
         },
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link:
-            'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
+          link: 'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
         },
         {
           svg: 'VaccineIcon',
           title: this.$t('新型コロナウイルスワクチンについて'),
-          link:
-            'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
+          link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
           divider: true,
         },
         {
