@@ -64,21 +64,24 @@
               <tr>
                 <td>
                   <span
-                    :class="['stageMark', 'MarkSmall', `stage${stage.sickbed}`]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.sickbed)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.sickbed }}</strong>
                 </td>
                 <td>
                   <span
-                    :class="['stageMark', 'MarkSmall', `stage${stage.pillar}`]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.pillar)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.pillar }}</strong>
                 </td>
                 <td>
                   <span
-                    :class="['stageMark', 'MarkSmall', `stage${stage.care}`]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.care)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.care }}</strong>
@@ -134,33 +137,24 @@
               <tr>
                 <td>
                   <span
-                    :class="[
-                      'stageMark',
-                      'MarkSmall',
-                      `stage${stage.posi_rate}`,
-                    ]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.posi_rate)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.posi_rate }}</strong>
                 </td>
                 <td>
                   <span
-                    :class="[
-                      'stageMark',
-                      'MarkSmall',
-                      `stage${stage.new_patients}`,
-                    ]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.new_patients)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.new_patients }}</strong>
                 </td>
                 <td>
                   <span
-                    :class="[
-                      'stageMark',
-                      'MarkSmall',
-                      `stage${stage.nonclose_rate}`,
-                    ]"
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.nonclose_rate)"
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.nonclose_rate }}</strong>
@@ -192,12 +186,12 @@
           <table class="stageTable NationalInfectionStatus">
             <tbody>
               <tr>
-                <td><span class="stageMark stage1" /></td>
+                <td><span class="stageMark" :style="stageToStyle(1)" /></td>
                 <td>Stage 1</td>
                 <td>{{ $t('医療提供体制に特段の支障がない段階') }}</td>
               </tr>
               <tr>
-                <td><span class="stageMark stage2" /></td>
+                <td><span class="stageMark" :style="stageToStyle(2)" /></td>
                 <td>Stage 2</td>
                 <td>
                   {{
@@ -206,7 +200,7 @@
                 </td>
               </tr>
               <tr>
-                <td><span class="stageMark stage3" /></td>
+                <td><span class="stageMark" :style="stageToStyle(3)" /></td>
                 <td>Stage 3</td>
                 <td>
                   {{
@@ -217,7 +211,7 @@
                 </td>
               </tr>
               <tr>
-                <td><span class="stageMark stage4" /></td>
+                <td><span class="stageMark" :style="stageToStyle(4)" /></td>
                 <td>Stage 4</td>
                 <td>
                   {{
@@ -304,6 +298,18 @@ export default {
       }
     }
 
+    const stageStyle = {
+      1: 'background-color:#b4c7e7;',
+      2: 'background-color:#fff2cc;',
+      3: 'background-color:#c55a11;',
+      4: 'background-color:#ff0000;',
+      '2以下':
+        'background:linear-gradient(to bottom right,#b4c7e7 0%,#b4c7e7 50%,#fff2cc 50%,#fff2cc 100%);',
+      '3以上':
+        'background:linear-gradient(to bottom right,#c55a11 0%,#c55a11 50%,#ff0000 50%,#ff0000 100%);',
+    }
+    const stageToStyle = (stg) => stageStyle[stg]
+
     const formatDelta = (n, digit) => {
       let str = ''
       switch (Math.sign(n)) {
@@ -332,6 +338,7 @@ export default {
       statusData: _,
       stage,
       deltaStr,
+      stageToStyle,
     }
   },
 }
@@ -478,42 +485,6 @@ table.NationalInfectionStatus {
     &.MarkSmall {
       margin: 0;
       transform: scale(0.75);
-    }
-
-    &.stage2以下 {
-      background: linear-gradient(
-        to bottom right,
-        #b4c7e7 0%,
-        #b4c7e7 50%,
-        #fff2cc 50%,
-        #fff2cc 100%
-      );
-    }
-
-    &.stage3以上 {
-      background: linear-gradient(
-        to bottom right,
-        #c55a11 0%,
-        #c55a11 50%,
-        #f00 50%,
-        #f00 100%
-      );
-    }
-
-    &.stage1 {
-      background-color: #b4c7e7;
-    }
-
-    &.stage2 {
-      background-color: #fff2cc;
-    }
-
-    &.stage3 {
-      background-color: #c55a11;
-    }
-
-    &.stage4 {
-      background-color: #f00;
     }
   }
 }
