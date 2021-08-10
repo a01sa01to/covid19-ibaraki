@@ -404,8 +404,8 @@
           )
         }}<br />
         <app-link
-          :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/20210420_kyouryokukinnmeyasusanntei_1.pdf'"
-          >{{ $t('協力金目安額の算定（PDF）') }}</app-link
+          :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/kyouryokukin_meyasu_210810.pdf'"
+          >{{ $t('協力金目安額の算定（PDF・3ページ目から）') }}</app-link
         >
       </p>
       <p>
@@ -430,9 +430,13 @@
       <p>
         {{
           $t(
-            'まん延防止等重点措置における中小企業の1店舗・1日あたりの支給額は、売上高に応じて算定され、大企業も対象となります。算定式については、本ページ作成時点では未発表です。なお、協力金の申請受付は、8月16日に開始されます。'
+            'まん延防止等重点措置における中小企業の1店舗・1日あたりの支給額は、売上高に応じて算定され、大企業も対象となります。算定式については、以下ページを参照してください。なお、協力金の申請受付は、8月16日に開始されます。'
           )
-        }}
+        }}<br />
+        <app-link
+          :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/kyouryokukin_meyasu_210810.pdf'"
+          >{{ $t('協力金目安額の算定（PDF・2ページ目まで）') }}</app-link
+        >
       </p>
       <p>
         {{
@@ -503,7 +507,7 @@ export default Vue.extend({
     AppLink,
   },
   data() {
-    const lastUpdate = '2021/08/05'
+    const lastUpdate = '2021/08/10'
 
     return {
       lastUpdate,
