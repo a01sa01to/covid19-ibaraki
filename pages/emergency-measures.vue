@@ -39,16 +39,12 @@
     <static-card>
       <ul>
         <li>
-          {{
-            $t(
-              '県独自の緊急事態宣言の対象地域は、次の6市町です。日立市、高萩市、大洗町、城里町、大子町、河内町。'
-            )
-          }}
+          {{ $t('県独自の緊急事態宣言の対象地域は、高萩市です。') }}
         </li>
         <li>
           {{
             $t(
-              '上の6市町以外のすべての市町村が、国のまん延防止等重点措置の対象地域です。'
+              '高萩市以外のすべての市町村が、国のまん延防止等重点措置の対象地域です。'
             )
           }}
         </li>
@@ -76,11 +72,25 @@
         ><br />
         <app-link
           :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210805_manbou.html'"
-          >【県公式ページ】国からのまん延防止等重点措置の適用等について（8月5日記者会見発表）</app-link
+          >{{
+            $t(
+              '【県公式ページ】国からのまん延防止等重点措置の適用等について（8月5日記者会見発表）'
+            )
+          }}</app-link
+        ><br />
+        <app-link
+          :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210812_kaiken.html'"
+          >{{
+            $t(
+              '【県公式ページ】まん延防止等重点措置の区域追加等について（8月12日記者会見発表）'
+            )
+          }}</app-link
         ><br />
         <app-link
           :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/jitanyousei_r3.html'"
-          >【県公式ページ】営業時間短縮の要請について（令和3年7月以降）</app-link
+          >{{
+            $t('【県公式ページ】営業時間短縮の要請について（令和3年7月以降）')
+          }}</app-link
         >
       </p>
     </static-card>
@@ -507,7 +517,7 @@ export default Vue.extend({
     AppLink,
   },
   data() {
-    const lastUpdate = '2021/08/10'
+    const lastUpdate = '2021/08/12'
 
     return {
       lastUpdate,
