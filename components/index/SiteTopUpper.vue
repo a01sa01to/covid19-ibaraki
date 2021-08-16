@@ -9,9 +9,7 @@
     <static-info
       class="mb-4"
       :url="localePath('emergency-measures')"
-      :text="
-        $t('県独自の緊急事態宣言・国によるまん延防止等重点措置が発令されました')
-      "
+      :text="$t('茨城県非常事態宣言が発令されました')"
       :btn-text="$t('詳しくはこちら')"
     />
     <static-info
