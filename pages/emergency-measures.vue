@@ -467,22 +467,21 @@
     <h2 id="coop-money" class="mb-3">{{ $t('協力金の支給') }}</h2>
     <static-card>
       <h3>
-        {{ $t('協力金の申請受付の一時停止について') }}
+        {{ $t('協力金の申請について') }}
       </h3>
       <p>
         {{
           $t(
-            '国の緊急事態宣言の対象になることに伴い、要請内容・協力金の額など、制度を修正する必要があるため、協力金の申請受付が一時停止されます。'
+            '茨城県非常事態宣言もしくは国の緊急事態宣言措置区域に所在する飲食店等で、要請期間すべてで要請に従った施設に対し、協力金が支払われます。'
           )
         }}
       </p>
       <p>
         {{
-          $t(
-            '受付再開は8月23日の予定です。なお、受付再開後は、7月30日から9月12日までの期間の協力金を一度に申請できるようになる予定です。'
-          )
+          $t('申請受付は10月31日まで有効です。郵送の場合、当日消印有効です。')
         }}
       </p>
+      <p>{{ $t('詳細については、以下のページをご確認ください。') }}</p>
       <div>
         {{ $t('参考リンク') }}
         <ul>
@@ -491,7 +490,7 @@
               :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/jitanyouseikyouryokukin.html'"
               >{{
                 $t(
-                  '【県公式ページ】茨城県新型コロナウイルス感染症拡大防止営業時間短縮要請協力金（令和3年7月以降）について'
+                  '茨城県新型コロナウイルス感染症拡大防止営業時間短縮要請協力金（令和3年7月以降）について'
                 )
               }}</app-link
             >
@@ -500,10 +499,36 @@
             <app-link
               :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/jitanyousei_r3.html'"
               >{{
-                $t(
-                  '【県公式ページ】飲食店の営業時間短縮の要請について（令和3年7月以降）'
-                )
+                $t('飲食店の営業時間短縮の要請について（令和3年7月以降）')
               }}</app-link
+            >
+          </li>
+          <li>
+            <app-link
+              :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/kyouryokukin_meyasu_210817.pdf'"
+              >{{ $t('協力金額の目安 早見表（PDF）') }}</app-link
+            >
+          </li>
+          <li>
+            <app-link
+              :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/210817_chiiki_kagengaku_kikan.pdf'"
+              >{{
+                $t('飲食店に対する時短要請・協力金下限額 市町村別一覧（PDF）')
+              }}</app-link
+            >
+          </li>
+          <li>
+            <app-link
+              :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/210817_jitanhpqa_taisho.pdf'"
+              >{{
+                $t('営業時間短縮の要請及び協力金に係るFAQ（PDF）')
+              }}</app-link
+            >
+          </li>
+          <li>
+            <app-link
+              :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/210817_chiiki_youseinaiyou.pdf'"
+              >{{ $t('市町村別の要請期間・内容一覧（PDF）') }}</app-link
             >
           </li>
         </ul>
@@ -528,7 +553,7 @@ export default Vue.extend({
     AppLink,
   },
   data() {
-    const lastUpdate = '2021/08/18'
+    const lastUpdate = '2021/08/23'
 
     return {
       lastUpdate,
