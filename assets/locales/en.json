@@ -366,7 +366,7 @@
   "回復者数": "Number of people who recovered",
   "（注）回復者数の把握には一定の期間を要しており、確認次第数値を更新している": "(Note) It takes a certain time to ascertain the number of patients who recovered, and the figures will be updated as soon as they are confirmed.",
   "（注）「回復済」は、退院した方、宿泊療養施設から退所した方を含め、陰性化した方を指す": "(Note) \"Recovered\" includes those who were discharged from the hospital or released from residential treatment facilities.",
-  "当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。": "This website was opened by a volunteer in Ibaraki to provide the latest information on the novel coronavirus disease (COVID-19) and has been modified for Ibaraki Prefecture.",
+  "当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、茨城県内の有志が開設したものです。": "This website was opened by a volunteer in Ibaraki to provide the latest information on the COVID-19 and has been modified for Ibaraki Prefecture.",
   "茨城版コロナNext": "Ibaraki version of Corona Next",
   "市町村毎の感染状況（地図）": "Infection status by municipality (Map)",
   "（注）病床稼働率は最新のデータでない可能性あり": "(Note) The occupancy rate may not be the latest data.",
@@ -1270,5 +1270,15 @@
   "県境をまたぐ往来は、極力自粛してください。": "Please refrain as much as possible from traffic that crosses prefectural borders.",
   "いずれも、感染状況によっては期間の延長が行われる可能性があります。": "In both measures, the period may be extended depending on the infection situation.",
   "結婚式等については、宴会を90分以内にしたうえで、上記の対策を講じて開催するよう協力依頼をします。": "For weddings and other events, the prefectural government will request cooperation in keeping the banquet within 90 minutes and taking the above measures to hold the event.",
-  "酒類の提供・持ち込みは、終日停止してください。また、カラオケ設備の利用についても、終日停止してください。提供等した店舗に対しては、休業を要請します。": "Please do not serve or bring in alcoholic beverages throughout the day. The use of karaoke facilities must also be suspended throughout the day. Stores that serve alcohol will be asked to close."
+  "酒類の提供・持ち込みは、終日停止してください。また、カラオケ設備の利用についても、終日停止してください。提供等した店舗に対しては、休業を要請します。": "Please do not serve or bring in alcoholic beverages throughout the day. The use of karaoke facilities must also be suspended throughout the day. Stores that serve alcohol will be asked to close.",
+  "飲食店に対する時短要請・協力金下限額 市町村別一覧（PDF）": "Request for shortening working hours and minimum amount of cooperation money for restaurants, by municipality (PDF)",
+  "市町村別の要請期間・内容一覧（PDF）": "List of Request Periods and Details by Municipality (PDF)",
+  "詳細については、以下のページをご確認ください。": "For more information, please see the following page.",
+  "申請受付は10月31日まで有効です。郵送の場合、当日消印有効です。": "Applications must be received by October 31. Applications sent by mail must be postmarked on that day.",
+  "協力金額の目安 早見表（PDF）": "Approximate Amount of Cooperation Money Quick Reference Table (PDF)",
+  "茨城県新型コロナウイルス感染症拡大防止営業時間短縮要請協力金（令和3年7月以降）について": "Ibaraki Prefecture's Request for Shortened Business Hours to Prevent the Spread of COVID-19 Infections (since July 2021)",
+  "営業時間短縮の要請及び協力金に係るFAQ（PDF）": "FAQ on Request for Shortened Business Hours and Cooperative Money (PDF)",
+  "協力金の申請について": "Applying for cooperation money",
+  "茨城県非常事態宣言もしくは国の緊急事態宣言措置区域に所在する飲食店等で、要請期間すべてで要請に従った施設に対し、協力金が支払われます。": "Restaurants and other establishments located in Ibaraki Prefecture that comply with the request during the entire request period will receive cooperation money.",
+  "飲食店の営業時間短縮の要請について（令和3年7月以降）": "Request to shorten business hours for restaurants (since July 2021)"
 }
