@@ -65,14 +65,28 @@ export default {
       ]
     }
 
+    const allData = {
+      area: '─',
+      city: '県全体',
+      ruby: '─',
+      total: 0,
+      rate: 0,
+      population: 0,
+    }
+
     data.forEach((city) => {
-      city.ruby = CityData.filter((_) => city.city === _.city)[0].Hiragana
-      city.area = CityData.filter((_) => city.city === _.city)[0].area
-      city.population = CityData.filter(
-        (_) => city.city === _.city
-      )[0].population
+      const CData = CityData.filter((_) => city.city === _.city)[0]
+      city.ruby = CData.Hiragana
+      city.area = CData.area
+      city.population = CData.population
       city.rate = Number((city.total / city.population) * 10000)
+
+      allData.population += CData.population
+      allData.total += city.total
     })
+
+    allData.rate = Number((allData.total / allData.population) * 10000)
+    data.push(allData)
 
     data.sort((a, b) => {
       // 全体を陽性者数でソート
