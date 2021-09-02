@@ -519,6 +519,14 @@
           </li>
           <li>
             <app-link
+              :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/daikibo_kyouryokukin.html'"
+              >{{
+                $t('大規模集客施設等協力金について（令和3年8・9月）')
+              }}</app-link
+            >
+          </li>
+          <li>
+            <app-link
               :to="'https://www.pref.ibaraki.jp/sangyo/chusho/kikaku/documents/kyouryokukin_meyasu_210817.pdf'"
               >{{ $t('協力金額の目安 早見表（PDF）') }}</app-link
             >
