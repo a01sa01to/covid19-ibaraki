@@ -19,12 +19,6 @@
   },
   {
     "自治体": "青森県",
-    "URL": "https://covid19-aomori.info/",
-    "GitHub": "covid19-aomori/website",
-    "公式": "0"
-  },
-  {
-    "自治体": "青森県",
     "URL": "https://covid19-daily-tohoku.news/",
     "GitHub": "momujin/covid19",
     "公式": "0"
@@ -49,12 +43,6 @@
   },
   {
     "自治体": "山形県",
-    "URL": "https://stopcovid19-yamagata-unofficial.netlify.app/",
-    "GitHub": "ANN2b-MD/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "山形県",
     "URL": "https://stopcovid19-yamagata.netlify.app/",
     "GitHub": "yamaserif/covid19",
     "公式": "0"
@@ -63,18 +51,6 @@
     "自治体": "福島県",
     "URL": "https://fukushima-covid19.firebaseapp.com/",
     "GitHub": "donuzium/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "茨城県",
-    "URL": "https://stopcovid19-ibaraki.jp/",
-    "GitHub": "BenataY/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "群馬県",
-    "URL": "https://covid19-gunma.com/",
-    "GitHub": "",
     "公式": "0"
   },
   {
@@ -108,18 +84,6 @@
     "公式": "0"
   },
   {
-    "自治体": "市原市（千葉県）",
-    "URL": "https://covid19-ichihara.netlify.app/",
-    "GitHub": "YanaseT/covid19-ichihara/",
-    "公式": "0"
-  },
-  {
-    "自治体": "八千代市（千葉県）",
-    "URL": "https://yachiyo-covid19.netlify.app/",
-    "GitHub": "taichi1222/covid19-yachiyo",
-    "公式": "0"
-  },
-  {
     "自治体": "葛飾区（東京都）",
     "URL": "https://covid19-katsushika.netlify.app/",
     "GitHub": "motya1121/covid19-katsushika",
@@ -150,22 +114,10 @@
     "公式": "0"
   },
   {
-    "自治体": "新潟県",
-    "URL": "https://stopcovid19-niigata-unofficial.netlify.app/",
-    "GitHub": "air-h-128k-il/covid19",
-    "公式": "0"
-  },
-  {
     "自治体": "富山県",
     "URL": "https://stopcovid19-toyama.netlify.com/",
     "GitHub": "Terachan0117/covid19-toyama",
     "公式": "1"
-  },
-  {
-    "自治体": "石川県",
-    "URL": "https://ishikawa-covid19.netlify.app/",
-    "GitHub": "Retsuki/covid19-ishikawa",
-    "公式": "0"
   },
   {
     "自治体": "石川県",
@@ -240,14 +192,8 @@
     "公式": "0"
   },
   {
-    "自治体": "滋賀県",
-    "URL": "https://stopcovid19.pref.shiga.jp/",
-    "GitHub": "Shiga-pref-org/covid19",
-    "公式": "2"
-  },
-  {
     "自治体": "京都府",
-    "URL": "https://stop-covid19-kyoto.netlify.app/",
+    "URL": "https://kyoto.stopcovid19.jp/",
     "GitHub": "stop-covid19-kyoto/covid19-kyoto",
     "公式": "0"
   },
@@ -271,26 +217,8 @@
   },
   {
     "自治体": "和歌山県",
-    "URL": "https://thirsty-darwin-c480d2.netlify.com/",
-    "GitHub": "norihito-t/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "和歌山県",
     "URL": "https://stopcovid19.wakayama.jp/",
     "GitHub": "sys-cube/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "鳥取県",
-    "URL": "https://tottori-covid19.netlify.app/",
-    "GitHub": "tottori-covid19/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "島根県",
-    "URL": "https://shimane-covid19.com/",
-    "GitHub": "TaigaMikami",
     "公式": "0"
   },
   {
@@ -300,16 +228,16 @@
     "公式": "0"
   },
   {
-    "自治体": "広島県",
-    "URL": "https://covid19-hiroshima.netlify.app/",
-    "GitHub": "tatsuya1970/covid19",
-    "公式": "0"
-  },
-  {
     "自治体": "広島市（広島県）",
     "URL": "https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/",
     "GitHub": "inspired-fox/covid19-hirosima_city",
     "公式": "1"
+  },
+  {
+    "自治体": "広島県",
+    "URL": "https://hiroshima.stopcovid19.jp/",
+    "GitHub": "brickhouse-co-jp/covid19-hiropref",
+    "公式": "2"
   },
   {
     "自治体": "福山市（広島県）",
@@ -324,21 +252,9 @@
     "公式": "1"
   },
   {
-    "自治体": "徳島県",
-    "URL": "https://covid19-tokushima.netlify.com",
-    "GitHub": "yuta-kusuno/covid19-tokushima",
-    "公式": "0"
-  },
-  {
     "自治体": "香川県",
     "URL": "https://kagawa.stopcovid19.jp",
     "GitHub": "codeforkagawa/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "香川県",
-    "URL": "https://covid19-kagawa.jp/",
-    "GitHub": "i15317/covid19",
     "公式": "0"
   },
   {
@@ -348,22 +264,10 @@
     "公式": "2"
   },
   {
-    "自治体": "高知県",
-    "URL": "https://stopcovid19.code4kochi.com/",
-    "GitHub": "",
-    "公式": "0"
-  },
-  {
     "自治体": "福岡市（福岡県）",
     "URL": "https://stopcovid19.codeforfukuoka.org/",
     "GitHub": "Code-for-Fukuoka/covid19",
     "公式": "0"
-  },
-  {
-    "自治体": "福岡県",
-    "URL": "https://fukuoka.stopcovid19.jp/",
-    "GitHub": "Code-for-Fukuoka/covid19-fukuoka",
-    "公式": "2"
   },
   {
     "自治体": "佐賀県",
@@ -390,39 +294,9 @@
     "公式": "0"
   },
   {
-    "自治体": "宮崎県",
-    "URL": "https://covid19-miyazaki.netlify.app/",
-    "GitHub": "covid19-miyazaki/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "鹿児島県",
-    "URL": "https://covid19.code4kagoshima.org",
-    "GitHub": "codeforkagoshima/covid19",
-    "公式": "0"
-  },
-  {
     "自治体": "沖縄県",
     "URL": "https://okinawa.stopcovid19.jp/",
     "GitHub": "Code-for-OKINAWA/covid19",
-    "公式": "0"
-  },
-  {
-    "自治体": "全国",
-    "URL": "https://stop-covid19-japan.netlify.app/",
-    "GitHub": "",
-    "公式": "0"
-  },
-  {
-    "自治体": "全国",
-    "URL": "https://covid19.wlaboratory.com ",
-    "GitHub": "mm0202/covid19-jp",
-    "公式": "0"
-  },
-  {
-    "自治体": "台湾",
-    "URL": "https://stopcovid19.pichuchen.tw/",
-    "GitHub": "pichuchen/covid19",
     "公式": "0"
   }
 ]
