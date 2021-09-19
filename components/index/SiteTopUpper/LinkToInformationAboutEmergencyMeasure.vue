@@ -7,7 +7,7 @@
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('茨城県非常事態宣言を発令') }}
+      {{ $t('緊急事態宣言発令中') }}
     </app-link>
   </span>
 </template>
