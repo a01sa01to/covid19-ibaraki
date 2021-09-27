@@ -15,13 +15,13 @@
                 )
               }}
             </li>
-            <!-- <li>
+            <li>
               {{
                 $t(
                   '入院が必要な方は、発生届の翌日までに入院できているため、「入院率」は適用されない。'
                 )
               }}
-            </li> -->
+            </li>
             <li>
               {{ $t('確保病床数は791床、確保重症病床数は70床となっている。') }}
             </li>
@@ -36,13 +36,15 @@
           <table class="NationalInfectionStatus">
             <thead>
               <tr>
-                <th colspan="2" style="background-color: #ddebf7">
+                <!-- <th colspan="2" style="background-color: #ddebf7"> -->
+                <th colspan="3" style="background-color: #ddebf7">
                   {{ $t('医療提供体制への負荷') }}
                 </th>
               </tr>
               <tr>
                 <th>{{ $t('病床稼働率') }}</th>
                 <th>{{ $t('重症病床稼働率') }}</th>
+                <th>{{ $t('療養者数') }}*</th>
               </tr>
             </thead>
             <tbody>
@@ -54,6 +56,10 @@
                 <td>
                   <strong>{{ statusData.pillar.toFixed(1) }}</strong>
                   <span :class="$style.unit">%</span>
+                </td>
+                <td>
+                  <strong>{{ statusData.care.toFixed(1) }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
                 </td>
               </tr>
               <tr>
@@ -73,6 +79,14 @@
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.pillar }}</strong>
                 </td>
+                <td>
+                  <span
+                    :class="['stageMark', 'MarkSmall']"
+                    :style="stageToStyle(stage.care)"
+                  />
+                  <span :class="$style.unit">Stage</span>
+                  <strong>{{ stage.care }}</strong>
+                </td>
               </tr>
               <tr :class="$style.additionalData">
                 <td>
@@ -85,12 +99,16 @@
                   <strong>{{ deltaStr.pillar }}</strong>
                   <span :class="$style.unit">%</span>
                 </td>
+                <td>
+                  <span :class="$style.delta">{{ $t('前週比') }}:&nbsp;</span>
+                  <strong>{{ deltaStr.care }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </td>
               </tr>
             </tbody>
           </table>
-          <table class="NationalInfectionStatus">
+          <!-- <table class="NationalInfectionStatus">
             <thead>
-              <!-- <tr><th colspan="2" style="background-color: #ddebf7;">{{ $t('医療提供体制への負荷') }}</th></tr> -->
               <tr>
                 <th>{{ $t('入院率') }}</th>
                 <th>{{ $t('療養者数') }}*</th>
@@ -138,7 +156,7 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
           <table class="NationalInfectionStatus">
             <thead>
               <tr>
@@ -279,7 +297,7 @@ export default {
       sickbed: 2,
       pillar: 2,
       care: 2,
-      care_rate: 2,
+      // care_rate: 2,
       posi_rate: 2,
       new_patients: 2,
       nonclose_rate: 2,
@@ -289,7 +307,7 @@ export default {
       sickbed: (coronaNext.sickbed / 791) * 100,
       pillar: (coronaNext.pillar / 70) * 100,
       care: (coronaNext.care / PrefPopulation) * 10e4,
-      care_rate: coronaNext.care_rate,
+      // care_rate: coronaNext.care_rate,
       new_patients: ((coronaNext.new_patients * 7) / PrefPopulation) * 10e4,
       nonclose_rate:
         (coronaNext.non_closecontact / coronaNext.new_patients) * 100,
@@ -299,7 +317,7 @@ export default {
       sickbed: (coronaNext.sickbed_lastweek / 600) * 100,
       pillar: (coronaNext.pillar_lastweek / 70) * 100,
       care: (coronaNext.care_lastweek / PrefPopulation) * 10e4,
-      care_rate: coronaNext.care_rate_lastweek,
+      // care_rate: coronaNext.care_rate_lastweek,
       new_patients:
         ((coronaNext.new_patients_lastweek * 7) / PrefPopulation) * 10e4,
       nonclose_rate:
@@ -317,7 +335,7 @@ export default {
       ['sickbed', 20, 50],
       ['pillar', 20, 50],
       ['care', 20, 30],
-      ['care_rate', 40, 25],
+      // ['care_rate', 40, 25],
       ['new_patients', 15, 25],
       ['nonclose_rate', 50, 50],
       ['posi_rate', 5, 10],
@@ -325,11 +343,11 @@ export default {
 
     for (const l of list) {
       const d = _[l[0]] // Key
-      if (l[0] === 'care_rate') {
-        stage[l[0]] += (d <= l[1]) + (d <= l[2])
-      } else {
-        stage[l[0]] += (d >= l[1]) + (d >= l[2])
-      }
+      // if (l[0] === 'care_rate') {
+      //   stage[l[0]] += (d <= l[1]) + (d <= l[2])
+      // } else {
+      stage[l[0]] += (d >= l[1]) + (d >= l[2])
+      // }
       if (stage[l[0]] <= 2) {
         stage[l[0]] = this.$t('2以下')
       } else if (l[1] === l[2]) {
