@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/event-max-people-calculator", {data:[{}],fetch:{},mutations:void 0});
