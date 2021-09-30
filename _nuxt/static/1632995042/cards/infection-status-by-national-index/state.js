@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1632995042",layout:"default",error:a,serverRendered:true,routePath:"\u002Fcards\u002Finfection-status-by-national-index",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a}},__i18n:{langs:{}}}}(null));
