@@ -28,7 +28,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python ./workflow_tools/audit-forked-sites/check_status.py
+          python ./audit-forked-sites/check_status.py
 
       - name: Create a pull request
         uses: peter-evans/create-pull-request@v3.10.1

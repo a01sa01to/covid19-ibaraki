@@ -37,7 +37,6 @@ import Vue from 'vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-
 export default Vue.extend({
   components: { DataView, DataViewDataSetPanel, OpenDataLink },
   props: {
@@ -69,7 +68,7 @@ export default Vue.extend({
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
-    const tables = vTableElement.querySelectorAll('table')
+    const tables = vTableElement.querySelectorAll('.v-data-table__wrapper')
     // NodeListをIE11でforEachするためのワークアラウンド
     const nodes = Array.prototype.slice.call(tables, 0)
     nodes.forEach((table: HTMLElement) => {

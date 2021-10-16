@@ -74,6 +74,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
+
   @include lessThan($small) {
     flex-direction: column;
     align-items: baseline;
@@ -87,9 +88,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     font-weight: normal;
     line-height: 1.35;
     color: $gray-2;
+
     @include lessThan($small) {
       @include font-size(20);
     }
+
     @include largerThan($small) {
       margin-right: 0.5em;
     }

@@ -1,10 +1,9 @@
 import csv
 import datetime
-import re
-import urllib.request
-
 import markdown
 import pandas as pd
+import re
+import urllib.request
 
 
 def markdown_to_html(input: str):
@@ -20,7 +19,7 @@ def now_in_jst():
 
 
 MD_PATH: str = './FORKED_SITES.md'
-LOG_PATH: str = './workflow_tools/audit-forked-sites/error.csv'
+LOG_PATH: str = './audit-forked-sites/error.csv'
 
 with open(MD_PATH, 'r', encoding='utf-8') as f:
     md: str = f.read()

@@ -2,8 +2,10 @@
   <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
+        ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
+        :aria-haspopup="true"
         @click="$emit('open-navigation', $event)"
       >
         {{ mdiMenu }}
@@ -27,6 +29,7 @@
 
     <div
       v-if="isNaviOpen || $vuetify.breakpoint.smAndUp"
+      ref="SideBody"
       :class="['SideNavigation-Body', { '-opened': isNaviOpen }]"
     >
       <v-icon
@@ -40,7 +43,12 @@
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
           <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
-            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            <label
+              ref="LanguageLabel"
+              class="SideNavigation-LanguageLabel"
+              for="LanguageSelector"
+              tabindex="-1"
+            >
               {{ $t('多言語対応選択メニュー') }}
             </label>
             <language-selector />
@@ -59,67 +67,93 @@
             </p>
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
+        <menu-list
+          :items="items"
+          :item-titles="itemTitles"
+          @click="$emit('close-navigation', $event)"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
-        <div class="SideNavigation-Social">
-          <app-link
-            to="https://line.me/R/ti/p/@615vsilb"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" width="130" height="130" alt="LINE" />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://twitter.com/covid19_ibaraki"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/twitter.webp" type="image/webp" />
-              <img src="/twitter.png" width="130" height="130" alt="Twitter" />
-            </picture>
-          </app-link>
-          <!-- <app-link
-            to="https://www.facebook.com/tochokoho"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/facebook.webp" type="image/webp" />
-              <img
-                src="/facebook.png"
-                width="130"
-                height="130"
-                alt="Facebook"
-              />
-            </picture>
-          </app-link> -->
-          <app-link
-            to="https://github.com/a01sa01to/covid19-ibaraki"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/github.webp" type="image/webp" />
-              <img src="/github.png" width="130" height="130" alt="GitHub" />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/youtube.webp" type="image/webp" />
-              <img src="/youtube.png" width="130" height="130" alt="YouTube" />
-            </picture>
-          </app-link>
-        </div>
+        <ul class="SideNavigation-Social">
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://line.me/R/ti/p/@615vsilb"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/line.webp" type="image/webp" />
+                <img src="/line.png" width="130" height="130" alt="LINE" />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://twitter.com/covid19_ibaraki"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/twitter.webp" type="image/webp" />
+                <img
+                  src="/twitter.png"
+                  width="130"
+                  height="130"
+                  alt="Twitter"
+                />
+              </picture>
+            </app-link>
+          </li>
+          <!--
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://www.facebook.com/tochokoho"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/facebook.webp" type="image/webp" />
+                <img
+                  src="/facebook.png"
+                  width="130"
+                  height="130"
+                  alt="Facebook"
+                />
+              </picture>
+            </app-link>
+          </li>
+          -->
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://github.com/a01sa01to/covid19-ibaraki"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/github.webp" type="image/webp" />
+                <img src="/github.png" width="130" height="130" alt="GitHub" />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/youtube.webp" type="image/webp" />
+                <img
+                  src="/youtube.png"
+                  width="130"
+                  height="130"
+                  alt="YouTube"
+                />
+              </picture>
+            </app-link>
+          </li>
+        </ul>
         <i18n
           tag="small"
           path="このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。"
@@ -152,18 +186,24 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
 import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
+
+type ItemTitle = {
+  slug: string
+  text: TranslateResult
+  isExpand?: boolean
+}
 
 type Item = {
   iconPath?: string
   svg?: string
   title: TranslateResult
   link: string
-  divider?: boolean
+  slug: string
 }
 
 export default Vue.extend({
@@ -185,61 +225,96 @@ export default Vue.extend({
     }
   },
   computed: {
+    itemTitles(): ItemTitle[] {
+      return [
+        {
+          slug: 'covid19-info',
+          text: this.$t('新型コロナウイルス感染症情報'),
+          isExpand: false,
+        },
+        {
+          slug: 'notice-from-ibk',
+          text: this.$t('茨城県からのお知らせ'),
+          isExpand: true,
+        },
+        {
+          slug: 'site-info',
+          text: this.$t('サイト情報'),
+          isExpand: false,
+        },
+      ]
+    },
     items(): Item[] {
       return [
         {
           iconPath: mdiChartTimelineVariant,
           title: this.$t('県内の最新感染動向'),
           link: this.localePath('/'),
+          slug: 'covid19-info',
         },
         {
           iconPath: mdiBullhorn,
           title: this.$t('感染拡大防止のための緊急措置について'),
           link: this.localePath('/emergency-measures'),
-          divider: true,
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: 'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'VaccineIcon',
           title: this.$t('新型コロナウイルスワクチンについて'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html',
-          divider: true,
+          slug: 'covid19-info',
+        },
+        {
+          title: this.$t('他都道府県の新型コロナ対策サイト'),
+          link: this.localePath('/otherpref'),
+          slug: 'covid19-info',
+        },
+        {
+          title: this.$t('お問い合わせ先・県内保健所一覧'),
+          link: this.localePath('/contacts'),
+          slug: 'covid19-info',
         },
         {
           title:
             this.$tc('茨城県公式') + ' ' + this.$tc('新型コロナ情報まとめ'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',
+          slug: 'notice-from-ibk',
         },
         {
           title: this.$t('知事記者会見'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken.html',
-          divider: true,
-        },
-        { title: this.$t('当サイトについて'), link: this.localePath('/about') },
-        {
-          title: this.$t('他都道府県の新型コロナ対策サイト'),
-          link: this.localePath('/otherpref'),
-        },
-        {
-          title: this.$t('お問い合わせ先・県内保健所一覧'),
-          link: this.localePath('/contacts'),
-          divider: true,
+          slug: 'notice-from-ibk',
         },
         {
           title: this.$t('茨城県公式サイト'),
           link: 'https://www.pref.ibaraki.jp/',
+          slug: 'notice-from-ibk',
+        },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about'),
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('サイトマップ'),
+          link: this.localePath('/sitemap'),
+          slug: 'site-info',
         },
         {
           title: this.$t('茨城県新型コロナ オープンデータ（非公式）'),
           link: 'https://a01sa01to.com/opendata/covid19_ibaraki/',
+          slug: 'site-info',
         },
         {
           title: this.$t('対策サイトに関わるサービスの稼働状況'),
           link: 'https://covid19-ibaraki.statuspage.io/',
+          slug: 'site-info',
         },
       ]
     },
@@ -253,15 +328,45 @@ export default Vue.extend({
     },
   },
   watch: {
-    $route: 'handleChageRoute',
+    $route: 'handleChangeRoute',
+    isNaviOpen(value) {
+      this.handleChangeAttribute(value)
+      this.handleNavFocus(value)
+    },
   },
   methods: {
-    handleChageRoute() {
+    handleChangeAttribute(isNaviOpen: boolean) {
+      return this.$nextTick().then(() => {
+        const $SideBody = this.$refs.SideBody as HTMLElement | undefined
+        if ($SideBody) {
+          if (isNaviOpen) {
+            $SideBody.setAttribute('role', 'dialog')
+            $SideBody.setAttribute('aria-modal', 'true')
+          } else {
+            $SideBody.removeAttribute('role')
+            $SideBody.removeAttribute('aria-modal')
+          }
+        }
+      })
+    },
+    handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        const $Side = this.$refs.Side as HTMLElement | undefined
         if ($Side) {
           $Side.focus()
+        }
+      })
+    },
+    handleNavFocus(isNaviOpen: boolean) {
+      return this.$nextTick(() => {
+        if (isNaviOpen) {
+          const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
+          $LanguageLabel.focus()
+        } else {
+          const $Open = this.$refs.Open as Vue
+          const $OpenElement = $Open.$el as HTMLButtonElement
+          $OpenElement.focus()
         }
       })
     },
@@ -329,7 +434,7 @@ export default Vue.extend({
 .SideNavigation-HeaderTitle {
   width: 100%;
   font-weight: 600;
-  color: #707070;
+  color: $gray-3;
   @include font-size(13);
   @include largerThan($small) {
     margin: 0;
@@ -379,6 +484,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderText {
+  display: block;
   margin: 10px 0 0 0;
   @include lessThan($small) {
     margin: 0 0 0 10px;
@@ -424,39 +530,46 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-}
 
-.SideNavigation-Social {
-  display: flex;
-}
+  .SideNavigation-Social {
+    display: flex;
+    padding: 0;
+    margin-bottom: 15px;
+    list-style: none;
 
-.SideNavigation-SocialLink {
-  margin-bottom: 15px;
-  color: $gray-3;
-  border: 1px dotted transparent;
-  border-radius: 30px;
+    .SideNavigation-SocialLink-ListItem {
+      .SideNavigation-SocialLink {
+        display: block;
+        color: $gray-3;
+        border: 1px dotted transparent;
+        border-radius: 15px;
 
-  &:link,
-  &:hover,
-  &:visited,
-  &:active {
-    color: inherit;
-    text-decoration: none;
-  }
+        &:link,
+        &:hover,
+        &:visited,
+        &:active {
+          color: inherit;
+          text-decoration: none;
+        }
 
-  &:focus {
-    color: inherit;
-    text-decoration: none;
-    border: 1px dotted $gray-3;
-    outline: none;
-  }
+        &:focus {
+          color: inherit;
+          text-decoration: none;
+          border: 1px dotted $gray-3;
+          outline: none;
+        }
 
-  & + & {
-    margin-left: 10px;
-  }
+        picture {
+          img {
+            width: 30px;
+          }
+        }
+      }
 
-  img {
-    width: 30px;
+      & + .SideNavigation-SocialLink-ListItem {
+        margin-left: 10px;
+      }
+    }
   }
 }
 

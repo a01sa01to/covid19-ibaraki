@@ -1,9 +1,18 @@
+/* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
+// @ts-ignore
+import fs from 'fs'
+import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
-
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
-
+import { Settings } from '@/types/cardRoutesSettings'
 const environment = process.env.NODE_ENV || 'development'
+const cardData = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, 'assets/json/cardRoutesSettings.json'),
+    'utf8'
+  )
+)
 
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.
@@ -21,7 +30,6 @@ const config: NuxtConfig = {
       prefix: 'og: http://ogp.me/ns#',
     },
     meta: [
-      { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -111,7 +119,7 @@ const config: NuxtConfig = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
-    ['nuxt-i18n', i18n],
+    ['@nuxtjs/i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
@@ -161,13 +169,16 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    filenames: {
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+    },
     babel: {
       presets() {
         return [
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.14' },
+              corejs: { version: '3.16' },
             },
           ],
         ]
@@ -186,7 +197,7 @@ const config: NuxtConfig = {
       config.externals = [{ moment: 'moment' }]
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
-    hardSource: process.env.NODE_ENV === 'development',
+    // hardSource: process.env.NODE_ENV === 'development',
   },
   purgeCSS: {
     paths: [
@@ -209,29 +220,11 @@ const config: NuxtConfig = {
     fallback: true,
     routes() {
       const locales = ['en', 'ja-basic']
-      const pages = [
-        '/cards/details-of-confirmed-cases',
-        '/cards/number-of-confirmed-cases',
-        '/cards/number-of-mutant-confirmed-cases',
-        '/cards/attributes-of-confirmed-cases',
-        '/cards/number-of-inspection-persons',
-        '/cards/number-of-mutant-inspection-persons',
-        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        '/cards/number-of-confirmed-cases-by-municipalities',
-        '/cards/ibaraki-graphical-map',
-        '/cards/number-of-recovered',
-        '/cards/number-of-deaths',
-        '/cards/ibaraki-corona-next',
-        '/cards/number-of-confirmed-cases-by-age',
-        '/cards/number-of-tested',
-        '/cards/untracked-rate',
-        '/cards/infection-status-by-national-index',
-        '/cards/vaccination-1st',
-        '/cards/vaccination-2nd',
-      ]
-
+      const pages = cardData.map((v: Settings) => {
+        return v.path
+      })
       const localizedPages = locales
-        .map((locale) => pages.map((page) => `/${locale}${page}`))
+        .map((locale) => pages.map((page: string) => `/${locale}${page}`))
         .reduce((a, b) => [...a, ...b], [])
       return [...pages, ...localizedPages]
     },
@@ -255,6 +248,18 @@ const config: NuxtConfig = {
   },
   router: {
     middleware: ['redirect'],
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        if (
+          route.name === 'index' ||
+          route.name === 'inspection' ||
+          route.name === 'vaccination' ||
+          route.name === 'apps'
+        ) {
+          route.meta = { tabs: true }
+        }
+      })
+    },
   },
 }
 

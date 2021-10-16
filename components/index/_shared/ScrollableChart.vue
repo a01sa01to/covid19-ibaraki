@@ -1,6 +1,6 @@
 <template>
   <div ref="chartContainer" class="LegendStickyChart">
-    <div ref="scrollable" class="scrollable">
+    <div ref="scrollable" class="scrollable" tabindex="0">
       <div :style="{ width: `${chartWidth}px` }">
         <slot name="chart" :chart-width="chartWidth" />
       </div>
@@ -10,11 +10,13 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import type { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
-import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
+
 type Data = {
   chartWidth: number
   timerId: number
@@ -111,7 +113,6 @@ export default options
 .LegendStickyChart {
   position: relative;
   margin: 16px 0;
-  overflow: hidden;
 
   .scrollable {
     overflow-x: scroll;

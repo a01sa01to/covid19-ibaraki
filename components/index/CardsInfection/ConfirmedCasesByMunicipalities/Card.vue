@@ -58,7 +58,7 @@ export default {
         { text: this.$t('市町村'), value: 'label', align: 'center' },
         { text: this.$t('陽性者数累計'), value: 'count', align: 'center' },
         {
-          text: this.$t('陽性者数（直近1週間）'),
+          text: this.$t('人口1万人あたりの陽性者数'),
           value: 'countRecent',
           align: 'center',
         },
@@ -66,9 +66,9 @@ export default {
     }
 
     const allData = {
-      area: '─',
-      city: '県全体',
-      ruby: '─',
+      area: this.$t('─'),
+      city: this.$t('県全体'),
+      ruby: this.$t('─'),
       total: 0,
       rate: 0,
       population: 0,

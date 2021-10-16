@@ -527,7 +527,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import PageHeader from '@/components/_shared/PageHeader.vue'
 import StaticCard from '@/components/_shared/StaticCard.vue'

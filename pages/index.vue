@@ -1,12 +1,12 @@
 <template>
-  <div v-scroll="onScroll">
+  <div>
     <page-header
       :icon-path="headerItem.iconPath"
       :title="headerItem.title"
       :updated-at="lastUpdateAsString"
     />
     <site-top-upper />
-    <cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
+    <cards-tab />
   </div>
 </template>
 
@@ -14,7 +14,7 @@
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import PageHeader from '@/components/_shared/PageHeader.vue'
 import CardsTab from '@/components/index/CardsTab.vue'
@@ -26,12 +26,9 @@ type Data = {
     iconPath: string
     title: string
   }
-  showCardsTab: boolean
   lastUpdateAsString: string
 }
-type Methods = {
-  onScroll: () => void
-}
+type Methods = {}
 type Computed = {}
 type Props = {}
 
@@ -53,18 +50,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         iconPath: mdiChartTimelineVariant,
         title: this.$t('県内の最新感染動向') as string,
       },
-      showCardsTab: false,
       lastUpdateAsString: DataJson.lastUpdate,
     }
   },
-  methods: {
-    onScroll() {
-      this.showCardsTab = true
-    },
-  },
   head(): MetaInfo {
     return {
-      title: this.$t('県内の最新感染動向') as string,
+      title: `${this.$t('県内の最新感染動向')} : ${this.$t(
+        '感染動向'
+      )}` as string,
     }
   },
 }

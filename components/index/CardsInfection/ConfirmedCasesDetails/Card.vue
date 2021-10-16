@@ -35,10 +35,6 @@
           :aria-label="$t('検査陽性者の状況')"
           v-bind="confirmedCases"
         />
-        <horizontal-bar-chart
-          :chart-id="'horizontal-bar-chart-details'"
-          :chart-data="confirmedDetailCases"
-        />
         <template #infoPanel>
           <data-view-data-set-panel :s-text="info.sText" />
         </template>
@@ -58,19 +54,16 @@ import dayjs from 'dayjs'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
-import HorizontalBarChart from '@/components/index/_shared/HorizontalBarChart.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 // <table>タグとの競合回避のためConfirmedCasesDetailsTableにする
 import ConfirmedCasesDetailsTable from '@/components/index/CardsInfection/ConfirmedCasesDetails/Table.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import formatDetailConfirmedCases from '@/utils/formatDetailGraph'
 
 const options = {
   components: {
     DataView,
     ConfirmedCasesDetailsTable,
-    HorizontalBarChart,
     DataViewDataSetPanel,
     OpenDataLink,
   },
@@ -83,16 +76,9 @@ const options = {
       0
     )
     const confirmedCases = formatConfirmedCases(mainSummary)
-    const confirmedDetailCases = formatDetailConfirmedCases(mainSummary)
 
     confirmedCases['入院'] =
       confirmedCases.軽症 + confirmedCases.中等症 + confirmedCases.重症
-
-    confirmedDetailCases.forEach((_) => {
-      _.label = this.$t(_.label)
-        .toString()
-        .replace(/<br \/>/, '')
-    })
 
     const info = {
       sText: this.$t('{date}の累計', {
@@ -106,7 +92,6 @@ const options = {
     return {
       Data,
       confirmedCases,
-      confirmedDetailCases,
       info,
       updatedAt,
     }

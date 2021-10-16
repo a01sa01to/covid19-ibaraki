@@ -264,7 +264,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'
@@ -280,6 +280,11 @@ export default Vue.extend({
     return {
       title: this.$t('当サイトについて') as string,
     }
+  },
+  methods: {
+    formatDate(date: string) {
+      return `${this.$d(new Date(date), 'date')}`
+    },
   },
 })
 </script>

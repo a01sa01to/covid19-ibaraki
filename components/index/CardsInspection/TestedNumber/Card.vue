@@ -62,10 +62,6 @@
             </li>
           </ul>
         </div>
-        <horizontal-bar-chart
-          :chart-id="'horizontal-chart-inspections'"
-          :chart-data="graphData"
-        />
         <template #infoPanel>
           <data-view-data-set-panel
             :l-text="info.lText"
@@ -93,14 +89,12 @@ import duration from 'dayjs/plugin/duration'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
-import HorizontalBarChart from '@/components/index/_shared/HorizontalBarChart.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import Data from '@/data/data.json'
 dayjs.extend(duration)
 
 export default {
   components: {
-    HorizontalBarChart,
     DataView,
     OpenDataLink,
     DataViewDataSetPanel,
@@ -122,7 +116,6 @@ export default {
           .toString()
           .replace(/<br \/>/, ''),
         transition: datasets[i].data,
-        bgColor: ['#6e86d3', '#99a8e0', '#c2caec'][i],
       })
     }
 

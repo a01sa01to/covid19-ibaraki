@@ -1,5 +1,16 @@
 <template>
   <div>
+    <h2 v-if="header.category" class="card-title">
+      <span
+        v-if="header.category === 'vaccination'"
+        aria-hidden="true"
+        class="v-icon notranslate TabIcon theme--light"
+      >
+        <svg :is="header.icon" aria-hidden="true" class="v-icon__svg" />
+      </span>
+      <v-icon v-else>{{ header.icon }}</v-icon>
+      {{ header.title }}
+    </h2>
     <error-card v-if="err" :error="{ statusCode: 404 }" />
     <component :is="cardComponent" v-else>
       <template #breadCrumb>
@@ -10,10 +21,10 @@
 </template>
 
 <script>
+import { mdiChartTimelineVariant } from '@mdi/js'
 import { Component, Vue } from 'nuxt-property-decorator'
 
 import Breadcrumb from '@/components/_shared/breadcrumb.vue'
-// Infection
 import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
 import ConfirmedCasesByAgeCard from '@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
@@ -22,6 +33,8 @@ import ConfirmedCasesNumberCard from '@/components/index/CardsInfection/Confirme
 import DeathsCard from '@/components/index/CardsInfection/Deaths/Card.vue'
 import IbarakiCoronaNextCard from '@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue'
 import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
+// Infection
+import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
 import MutantConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
 import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
 import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
@@ -34,8 +47,10 @@ import TestedNumberCard from '@/components/index/CardsInspection/TestedNumber/Ca
 // Vaccination
 import VaccineSummary1stCard from '@/components/index/CardsVaccination/1st/Card.vue'
 import VaccineSummary2ndCard from '@/components/index/CardsVaccination/2nd/Card.vue'
+import { lastUpdate } from '@/data/data.json'
 // Error
 import ErrorCard from '@/layouts/error.vue'
+import VaccineIcon from '@/static/vaccine.svg'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
@@ -43,6 +58,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
   components: {
     Breadcrumb,
     // Infection
+    InfectionMedicalCareProvisionStatusCard,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByAgeCard,
     ConfirmedCasesByMunicipalitiesCard,
@@ -70,101 +86,107 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 // export default class CardContainer extends Vue implements NuxtConfig {
 export default class CardContainer extends Vue {
   data() {
-    let title, updatedAt, cardComponent, cardTitle, cardTab
+    let title, updatedAt, cardComponent, cardTitle, cardCategory
     let err = false
     switch (this.$route.params.card) {
       // Infection
+      case 'infection-medical-care-provision-status':
+        cardComponent = 'infection-medical-care-provision-status-card'
+        cardTitle = `${this.$d(new Date(lastUpdate), 'date')}の状況`
+        cardCategory = 'infection'
+        break
       case 'attributes-of-confirmed-cases':
         cardComponent = 'confirmed-cases-attributes-card'
         cardTitle = '陽性者の属性'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'number-of-confirmed-cases-by-age':
         cardComponent = 'confirmed-cases-by-age-card'
         cardTitle = '年代別の感染状況'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'number-of-confirmed-cases-by-municipalities':
         cardComponent = 'confirmed-cases-by-municipalities-card'
         cardTitle = '陽性者数（市町村別）'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
         cardTitle = '検査陽性者の状況'
-        cardTab = 0
+        cardCategory = 'infection'
         break
+      // 報告日別による陽性者数の推移
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
         cardTitle = '公表日別による陽性者数の推移'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'number-of-deaths':
         cardComponent = 'deaths-card'
         cardTitle = '死亡者数'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'ibaraki-corona-next':
         cardComponent = 'ibaraki-corona-next-card'
         cardTitle = '茨城版コロナNext'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'ibaraki-graphical-map':
         cardComponent = 'ibaraki-graphical-map-card'
         cardTitle = '市町村別感染状況（直近1週間）'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'number-of-recovered':
         cardComponent = 'recovered-card'
         cardTitle = '回復者数'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
         cardTitle = '感染経路不明者数推移'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'infection-status-by-national-index':
         cardComponent = 'national-infection-status-card'
         cardTitle = '国の指標による感染状況'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       case 'number-of-mutant-confirmed-cases':
         cardComponent = 'mutant-confirmed-cases-number-card'
         cardTitle = '公表日別による変異株陽性者数の推移'
-        cardTab = 0
+        cardCategory = 'infection'
         break
       // Inspection
       case 'number-of-inspection-persons':
         cardComponent = 'inspection-persons-number-card'
         cardTitle = '検査実施人数（県衛生研究所・水戸市保健所）'
-        cardTab = 1
+        cardCategory = 'inspection'
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
         cardTitle = '受診相談窓口における相談件数'
-        cardTab = 1
+        cardCategory = 'inspection'
         break
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
         cardTitle = '検査実施件数（全体）'
-        cardTab = 1
+        cardCategory = 'inspection'
         break
       case 'number-of-mutant-inspection-persons':
         cardComponent = 'mutant-inspection-persons-number-card'
         cardTitle = '変異株PCR検査の実施状況（県衛生研究所）'
-        cardTab = 1
+        cardCategory = 'inspection'
         break
       // Vaccination
       case 'vaccination-1st':
         cardComponent = 'vaccine-summary-1st-card'
         cardTitle = 'ワクチン接種回数（1回目）'
-        cardTab = 2
+        cardCategory = 'vaccination'
         break
       case 'vaccination-2nd':
         cardComponent = 'vaccine-summary-2nd-card'
         cardTitle = 'ワクチン接種回数（2回目）'
-        cardTab = 2
+        cardCategory = 'vaccination'
         break
       // Error
       default:
@@ -172,7 +194,16 @@ export default class CardContainer extends Vue {
         break
     }
 
-    const tabs = ['感染動向', '検査状況等', 'ワクチン接種状況', 'アプリ']
+    const titles = {
+      infection: '感染動向',
+      inspection: '検査状況',
+      vaccination: 'ワクチン接種状況',
+    }
+    const icons = {
+      infection: mdiChartTimelineVariant,
+      inspection: mdiChartTimelineVariant,
+      vaccination: VaccineIcon,
+    }
 
     const breadCrumb = {
       items: [
@@ -182,9 +213,11 @@ export default class CardContainer extends Vue {
           to: this.localePath('/'),
         },
         {
-          text: this.$t(tabs[cardTab]),
+          text: this.$t(titles[cardCategory]),
           disabled: false,
-          to: this.localePath(`/#tab-${cardTab}`),
+          to: this.localePath(
+            cardCategory === 'infection' ? '/' : `/${cardCategory}`
+          ),
         },
         {
           text: this.$t(cardTitle),
@@ -200,6 +233,11 @@ export default class CardContainer extends Vue {
       title,
       breadCrumb,
       updatedAt,
+      header: {
+        icon: icons[cardCategory],
+        title: titles[cardCategory],
+        category: cardCategory,
+      },
     }
   }
 
@@ -214,7 +252,6 @@ export default class CardContainer extends Vue {
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
 
-    // const mInfo: MetaInfo = {
     const mInfo = {
       title: `${
         (this.$data.title ?? '') !== ''
@@ -226,7 +263,6 @@ export default class CardContainer extends Vue {
           `cards/${this.$route.params.card}`,
           this.$i18n.locales,
           this.$i18n.defaultLocale
-          // ) as []),
         ),
       ],
       meta: [
@@ -278,3 +314,16 @@ export default class CardContainer extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+.card-title {
+  @include font-size(24);
+
+  padding: 8px 12px;
+  font-weight: normal;
+  color: $gray-2;
+  @include lessThan($small) {
+    @include font-size(20);
+  }
+}
+</style>

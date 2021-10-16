@@ -2,9 +2,12 @@
   <v-tabs v-model="tab" hide-slider>
     <v-tab
       v-for="(item, i) in items"
+      :id="`cardTab-${i}`"
       :key="i"
       v-ripple="false"
-      :href="`#tab-${i}`"
+      :to="localePath(item.path)"
+      nuxt
+      exact
       @click="change"
     >
       <span
@@ -18,7 +21,11 @@
       {{ item.label }}
     </v-tab>
     <v-tabs-items v-model="tab" touchless>
-      <v-tab-item v-for="(item, i) in items" :key="i" :value="`tab-${i}`">
+      <v-tab-item
+        v-for="(item, i) in items"
+        :key="i"
+        :value="localePath(item.path)"
+      >
         <lazy-component :is="item.component" />
       </v-tab-item>
     </v-tabs-items>
@@ -49,33 +56,50 @@ export default Vue.extend({
   },
   data() {
     return {
-      tab: '',
+      tab: null,
       items: [
         {
           label: this.$t('感染動向'),
           component: CardsReferenceInfection,
           icon: mdiChartTimelineVariant,
+          path: '/',
         },
         {
-          label: this.$t('検査状況等'),
+          label: this.$t('検査状況'),
           component: CardsReferenceInspection,
           icon: mdiChartTimelineVariant,
+          path: '/inspection',
         },
         {
           label: this.$t('ワクチン接種状況'),
           component: CardsReferenceVaccination,
           svg: VaccineIcon,
+          path: '/vaccination',
         },
         {
           label: this.$t('アプリ'),
           component: CardsReferenceApps,
           icon: mdiAppsBox,
+          path: '/apps',
         },
       ],
     }
   },
   mounted() {
-    this.tab = location.hash.replace('#', '')
+    this.$nextTick().then(() => {
+      const tabs = this.$refs.tabs as Vue
+      if (tabs) {
+        const tabsElement = tabs.$el
+        const tabDiv = tabsElement.querySelectorAll('div')
+        tabDiv[0].removeAttribute('role')
+        const tabItems = tabsElement.querySelectorAll('a')
+        const nodes = Array.prototype.slice.call(tabItems, 0)
+        nodes.forEach((tabItem: HTMLElement) => {
+          tabItem.removeAttribute('role')
+          tabItem.removeAttribute('aria-selected')
+        })
+      }
+    })
   },
   methods: {
     change() {
@@ -89,6 +113,12 @@ export default Vue.extend({
 .v-slide-group__content {
   background: $gray-5;
   border-bottom: 1px solid $gray-2;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.v-tabs {
+  min-height: 100vh;
 }
 
 .v-tab {
@@ -112,6 +142,10 @@ export default Vue.extend({
     &::before {
       background-color: transparent;
     }
+  }
+
+  .TabIcon {
+    transition: none;
   }
 
   &:not(.v-tab--active) {
@@ -139,7 +173,7 @@ export default Vue.extend({
   @return $px / $vw * 100vw;
 }
 
-@include lessThan($medium) {
+@include lessThan(900) {
   .v-slide-group__content {
     width: 100%;
   }
@@ -148,6 +182,7 @@ export default Vue.extend({
     flex: 1 1 auto;
     width: 100%;
     padding: 0 8px !important;
+    margin: 0 6px;
     font-size: px2vw(16) !important;
     font-weight: normal !important;
   }
@@ -156,11 +191,17 @@ export default Vue.extend({
 @include lessThan($small) {
   .v-tab {
     padding: 0 4px !important;
+    margin: 0 4px;
     font-size: px2vw(20, 600) !important;
   }
 
   .TabIcon {
-    font-size: px2vw(24, 600) !important;
+    font-size: px2vw(20, 600) !important;
+
+    .v-icon__svg {
+      width: px2vw(24, 600) !important;
+      height: px2vw(24, 600) !important;
+    }
   }
 }
 </style>

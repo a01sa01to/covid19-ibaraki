@@ -1,5 +1,8 @@
 <template>
-  <cards-lazy-row :rows="rows" />
+  <div>
+    <cards-lazy-row :rows="rows" />
+    <cards-lazy-row :rows="hideRows" hide-cards />
+  </div>
 </template>
 
 <script lang="ts">
@@ -7,6 +10,10 @@ import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 
+const InfectionMedicalCareProvisionStatusCard = () =>
+  import(
+    '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
+  )
 const ConfirmedCasesAttributesCard = () =>
   import('@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue')
 const ConfirmedCasesByAgeCard = () =>
@@ -43,6 +50,7 @@ export default Vue.extend({
   data() {
     return {
       rows: [
+        InfectionMedicalCareProvisionStatusCard,
         ConfirmedCasesDetailsCard,
         IbarakiCoronaNextCard,
         NationalInfectionStatusCard,
@@ -52,10 +60,10 @@ export default Vue.extend({
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
         UntrackedRateCard,
-        MutantConfirmedCasesNumberCard,
         RecoveredCard,
         DeathsCard,
       ],
+      hideRows: [MutantConfirmedCasesNumberCard],
     }
   },
 })

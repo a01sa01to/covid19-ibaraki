@@ -55,7 +55,7 @@ export default Vue.extend({
 }
 
 .DataBlock {
-  margin: 20px -8px;
+  margin-top: 20px;
 
   .DataCard {
     @include largerThan($medium) {

@@ -1,153 +1,132 @@
 <template>
-  <div>
-    <ul :class="$style.container">
-      <li style="width: 100%; list-style: none">
-        <div :class="$style.pillar" style="border-color: #003fab">
-          <div
-            :class="$style.content"
-            style="display: block; min-height: fit-content"
-          >
-            <span style="display: inline-block; width: 40%">
-              {{ $t('検査実施人数') }}
-            </span>
-            <span style="display: inline-block; width: 40%">
-              <strong>{{ 検査実施人数.toLocaleString() }}</strong>
+  <ul :class="$style.container">
+    <li :class="[$style.box, $style.parent]">
+      <div :class="$style.content">
+        <span> {{ $t('陽性者数') }}({{ $t('累計') }})</span>
+        <span>
+          <strong>{{ 陽性者数.toLocaleString() }}</strong>
+          <span :class="$style.unit">{{ $t('人') }}</span>
+          <div><!-- 余白用のdiv --></div>
+        </span>
+      </div>
+      <ul :class="$style.group">
+        <li :class="[$style.box, $style.parent]">
+          <div :class="$style.content">
+            <span>{{ $t('療養中') }}</span>
+            <span>
+              <strong>{{ 療養中.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
+              <div>
+                (<strong>{{ ((療養中 / 陽性者数) * 100).toFixed(2) }}</strong>
+                <span :class="$style.unit">%</span>)
+              </div>
             </span>
           </div>
-        </div>
-      </li>
-    </ul>
-    <br />
-    <ul :class="$style.container">
-      <li :class="[$style.box, $style.parent]">
-        <div :class="$style.content">
-          <span> {{ $t('陽性者数') }}({{ $t('累計') }})</span>
-          <span>
-            <strong>{{ 陽性者数.toLocaleString() }}</strong>
-            <span :class="$style.unit">{{ $t('人') }}</span>
-            <div><!-- 余白用のdiv --></div>
-          </span>
-        </div>
-        <ul :class="$style.group">
-          <li :class="[$style.box, $style.parent]">
-            <div :class="$style.content">
-              <span>{{ $t('療養中') }}</span>
-              <span>
-                <strong>{{ 療養中.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-                <div>
-                  (<strong>{{ ((療養中 / 陽性者数) * 100).toFixed(2) }}</strong>
-                  <span :class="$style.unit">%</span>)
-                </div>
-              </span>
-            </div>
-            <ul :class="$style.group">
-              <li :class="[$style.box, $style.parent]">
-                <div :class="$style.content">
-                  <span>{{ $t('入院') }}</span>
-                  <span>
-                    <strong>{{ 入院.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-                <ul :class="$style.group">
-                  <li :class="[$style.box]">
-                    <div :class="$style.content">
-                      <span>{{ $t('重症') }}</span>
-                      <span>
-                        <strong>{{ 重症.toLocaleString() }}</strong>
-                        <span :class="$style.unit">{{ $t('人') }}</span>
-                      </span>
-                    </div>
-                  </li>
-                  <li :class="[$style.box]">
-                    <div :class="$style.content">
-                      <!-- eslint-disable vue/no-v-html-->
-                      <span v-html="$t('中等症')" />
-                      <!-- eslint-enable vue/no-v-html-->
-                      <span>
-                        <strong>{{ 中等症.toLocaleString() }}</strong>
-                        <span :class="$style.unit">{{ $t('人') }}</span>
-                      </span>
-                    </div>
-                  </li>
-                  <li :class="[$style.box]">
-                    <div :class="$style.content">
-                      <!-- eslint-disable vue/no-v-html-->
-                      <span v-html="$t('軽症')" />
-                      <!-- eslint-enable vue/no-v-html-->
-                      <span>
-                        <strong>{{ 軽症.toLocaleString() }}</strong>
-                        <span :class="$style.unit">{{ $t('人') }}</span>
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li :class="[$style.box]">
-                <div :class="$style.content">
-                  <span>{{ $t('宿泊療養') }}</span>
-                  <span>
-                    <strong>{{ 宿泊療養.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </li>
-              <li :class="[$style.box]">
-                <div :class="$style.content">
-                  <span>{{ $t('自宅療養') }}</span>
-                  <span>
-                    <strong>{{ 自宅療養.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li :class="$style.box">
-            <div :class="$style.content">
-              <span>{{ $t('死亡') }}</span>
-              <span>
-                <strong>{{ 死亡.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-                <div>
-                  (<strong>{{ ((死亡 / 陽性者数) * 100).toFixed(2) }}</strong>
-                  <span :class="$style.unit">%</span>)
-                </div>
-              </span>
-            </div>
-          </li>
-          <li :class="$style.box">
-            <div :class="$style.content">
-              <span>{{ $t('回復済') }}</span>
-              <span>
-                <strong>{{ 回復済.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-                <div>
-                  (<strong>{{ ((回復済 / 陽性者数) * 100).toFixed(2) }}</strong>
-                  <span :class="$style.unit">%</span>)
-                </div>
-              </span>
-            </div>
-          </li>
-          <li :class="[$style.box]">
-            <div :class="$style.content">
-              <span>{{ $t('その他') }}</span>
-              <span>
-                <strong>{{ その他.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
-                <div>
-                  (<strong>{{ ((その他 / 陽性者数) * 100).toFixed(2) }}</strong>
-                  <span :class="$style.unit">%</span>)
-                </div>
-              </span>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+          <ul :class="$style.group">
+            <li :class="[$style.box, $style.parent]">
+              <div :class="$style.content">
+                <span>{{ $t('入院') }}</span>
+                <span>
+                  <strong>{{ 入院.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </span>
+              </div>
+              <ul :class="$style.group">
+                <li :class="[$style.box]">
+                  <div :class="$style.content">
+                    <span>{{ $t('重症') }}</span>
+                    <span>
+                      <strong>{{ 重症.toLocaleString() }}</strong>
+                      <span :class="$style.unit">{{ $t('人') }}</span>
+                    </span>
+                  </div>
+                </li>
+                <li :class="[$style.box]">
+                  <div :class="$style.content">
+                    <!-- eslint-disable vue/no-v-html-->
+                    <span v-html="$t('中等症')" />
+                    <!-- eslint-enable vue/no-v-html-->
+                    <span>
+                      <strong>{{ 中等症.toLocaleString() }}</strong>
+                      <span :class="$style.unit">{{ $t('人') }}</span>
+                    </span>
+                  </div>
+                </li>
+                <li :class="[$style.box]">
+                  <div :class="$style.content">
+                    <!-- eslint-disable vue/no-v-html-->
+                    <span v-html="$t('軽症')" />
+                    <!-- eslint-enable vue/no-v-html-->
+                    <span>
+                      <strong>{{ 軽症.toLocaleString() }}</strong>
+                      <span :class="$style.unit">{{ $t('人') }}</span>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('宿泊療養') }}</span>
+                <span>
+                  <strong>{{ 宿泊療養.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </span>
+              </div>
+            </li>
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('自宅療養') }}</span>
+                <span>
+                  <strong>{{ 自宅療養.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('人') }}</span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li :class="$style.box">
+          <div :class="$style.content">
+            <span>{{ $t('死亡') }}</span>
+            <span>
+              <strong>{{ 死亡.toLocaleString() }}</strong>
+              <span :class="$style.unit">{{ $t('人') }}</span>
+              <div>
+                (<strong>{{ ((死亡 / 陽性者数) * 100).toFixed(2) }}</strong>
+                <span :class="$style.unit">%</span>)
+              </div>
+            </span>
+          </div>
+        </li>
+        <li :class="$style.box">
+          <div :class="$style.content">
+            <span>{{ $t('回復済') }}</span>
+            <span>
+              <strong>{{ 回復済.toLocaleString() }}</strong>
+              <span :class="$style.unit">{{ $t('人') }}</span>
+              <div>
+                (<strong>{{ ((回復済 / 陽性者数) * 100).toFixed(2) }}</strong>
+                <span :class="$style.unit">%</span>)
+              </div>
+            </span>
+          </div>
+        </li>
+        <li :class="[$style.box]">
+          <div :class="$style.content">
+            <span>{{ $t('その他') }}</span>
+            <span>
+              <strong>{{ その他.toLocaleString() }}</strong>
+              <span :class="$style.unit">{{ $t('人') }}</span>
+              <div>
+                (<strong>{{ ((その他 / 陽性者数) * 100).toFixed(2) }}</strong>
+                <span :class="$style.unit">%</span>)
+              </div>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
@@ -264,11 +243,6 @@ $default-boxdiff: 35px;
 
     &:not(:last-child) {
       overflow-wrap: break-word;
-    }
-
-    div {
-      display: inline-block;
-      width: 7rem;
     }
   }
 

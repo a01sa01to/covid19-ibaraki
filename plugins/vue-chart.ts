@@ -1,7 +1,8 @@
 import { Plugin } from '@nuxt/types'
-import { Chart, ChartData, ChartOptions } from 'chart.js'
-import Vue, { PropType } from 'vue'
-import { Bar, Doughnut, HorizontalBar, Line, mixins } from 'vue-chartjs'
+import { ChartData, ChartOptions } from 'chart.js'
+import type { PropType } from 'vue'
+import Vue from 'vue'
+import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
 
 import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
 
@@ -87,13 +88,6 @@ const createCustomChart = () => {
     'DoughnutChart', // eslint-disable-next-line vue/one-component-per-file
     {
       mixins: [reactiveProp, Doughnut, generalChart],
-    }
-  )
-
-  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'HorizontalBar', // eslint-disable-next-line vue/one-component-per-file
-    {
-      mixins: [reactiveProp, HorizontalBar, generalChart],
     }
   )
 }
@@ -199,17 +193,4 @@ export interface DataSetsPoint<T = { x: string; y: number }> extends ChartData {
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]
-}
-
-interface DisplayDataTmp<T = number, U = string> {
-  label?: U
-  data: T[]
-  backgroundColor?: U
-  borderColor?: U
-  borderWidth?: T
-}
-
-export interface DisplayDetailData<T = number, U = string> {
-  labels?: U[]
-  datasets: DisplayDataTmp<T, U>[]
 }

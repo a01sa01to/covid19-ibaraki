@@ -7,16 +7,38 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <div class="WhatsNew-linkGroup">
-        <link-to-information-about-emergency-measure v-if="isEmergency" />
-        <app-link
-          class="WhatsNew-linkButton"
-          to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html"
-        >
-          <VaccineIcon class="WhatsNew-linkButton-icon" aria-hidden="true" />
-          {{ $t('ワクチン情報') }}
-        </app-link>
-      </div>
+      <ul class="WhatsNew-linkGroup">
+        <li>
+          <link-to-information-about-emergency-measure v-if="isEmergency" />
+        </li>
+        <li>
+          <app-link
+            class="WhatsNew-linkButton"
+            to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html"
+          >
+            <span class="WhatsNew-linkButton-inner">
+              <VaccineIcon
+                class="WhatsNew-linkButton-icon"
+                aria-hidden="true"
+              />
+              {{ $t('ワクチン情報') }}
+            </span>
+          </app-link>
+        </li>
+        <li>
+          <app-link
+            class="WhatsNew-linkButton"
+            to="https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/idwr/influ_taisaku/jitakuryouyou.html"
+          >
+            <span class="WhatsNew-linkButton-inner">
+              <v-icon size="1.2em" class="WhatsNew-linkButton-v-icon">
+                {{ mdiHomeAccount }}
+              </v-icon>
+              {{ $t('自宅での療養') }}
+            </span>
+          </app-link>
+        </li>
+      </ul>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -52,7 +74,7 @@
 </template>
 
 <script lang="ts">
-import { mdiInformation } from '@mdi/js'
+import { mdiHomeAccount, mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
@@ -79,6 +101,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      mdiHomeAccount,
       mdiInformation,
     }
   },
@@ -122,6 +145,8 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
+      padding: 0;
+      list-style: none;
 
       @include lessThan($medium) {
         justify-content: flex-start;
@@ -129,11 +154,24 @@ export default Vue.extend({
     }
 
     .WhatsNew-linkButton {
+      margin: 8px 12px 8px 0;
       @include button-text('sm');
+
+      &-inner {
+        display: inline-flex;
+        align-items: center;
+      }
 
       &-icon {
         width: 1em;
         height: 1em;
+        margin-right: 4px;
+      }
+
+      &-v-icon {
+        margin-right: 4px;
+        color: currentColor;
+        transition: none;
       }
     }
   }
@@ -143,35 +181,32 @@ export default Vue.extend({
     list-style-type: none;
 
     &-item {
-      &-anchor {
-        margin: 5px;
-        @include font-size(14);
+      margin: 0 5px;
+      @include font-size(14);
 
+      @include lessThan($medium) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &-time {
         @include lessThan($medium) {
-          display: flex;
-          flex-wrap: wrap;
+          flex: 0 0 100%;
+        }
+      }
+
+      &-anchor {
+        @include lessThan($medium) {
+          padding-left: 8px;
         }
 
-        &-time {
-          flex: 0 0 90px;
-          color: $gray-1;
-
-          @include lessThan($medium) {
-            flex: 0 0 100%;
-          }
-        }
+        flex: 0 1 auto;
 
         &-link {
-          flex: 0 1 auto;
-
           @include text-link();
-
-          @include lessThan($medium) {
-            padding-left: 8px;
-          }
         }
 
-        &-ExternalLinkIcon {
+        .ExternalLinkIcon {
           margin-left: 2px;
           color: $gray-3 !important;
         }
