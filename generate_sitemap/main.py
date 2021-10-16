@@ -12,12 +12,12 @@ PAGES = [
   ['/contacts',lastUpdate["lastUpdate"]],
   ['/emergency-measures',lastUpdate["lastUpdate"]],
   ['/otherpref',lastUpdate["lastUpdate"]],
+  ['/sitemap',lastUpdate["lastUpdate"]],
+
+  ['/cards/infection-medical-care-provision-status',lastUpdate["lastUpdate"]],
   ['/cards/details-of-confirmed-cases',lastUpdate["lastUpdate"]],
   ['/cards/number-of-confirmed-cases',lastUpdate["patients_summary"]["date"]],
   ['/cards/attributes-of-confirmed-cases',lastUpdate["patients_summary"]["date"]],
-  ['/cards/number-of-inspection-persons',lastUpdate["lastUpdate"]],
-  ['/cards/number-of-tested',lastUpdate["inspections_summary"]["date"]],
-  ['/cards/number-of-reports-to-covid19-telephone-advisory-center',lastUpdate["contacts"]["date"]],
   ['/cards/number-of-confirmed-cases-by-municipalities',lastUpdate["patients_city"]["date"]],
   ['/cards/ibaraki-graphical-map',lastUpdate["patients_city"]["date"]],
   ['/cards/number-of-recovered',lastUpdate["recovered_summary"]["date"]],
@@ -27,7 +27,12 @@ PAGES = [
   ['/cards/untracked-rate',lastUpdate["patients_summary"]["date"]],
   ['/cards/infection-status-by-national-index',lastUpdate["ibk_corona_next"]["date"]],
   ['/cards/number-of-mutant-confirmed-cases',lastUpdate["mutant_summary"]["date"]],
+
+  ['/cards/number-of-inspection-persons',lastUpdate["lastUpdate"]],
+  ['/cards/number-of-tested',lastUpdate["inspections_summary"]["date"]],
+  ['/cards/number-of-reports-to-covid19-telephone-advisory-center',lastUpdate["contacts"]["date"]],
   ['/cards/number-of-mutant-inspection-persons',lastUpdate["mutant_inspections"]["date"]],
+
   ['/cards/vaccination-1st',lastUpdate["lastUpdate"]],
   ['/cards/vaccination-2nd',lastUpdate["lastUpdate"]],
 ]

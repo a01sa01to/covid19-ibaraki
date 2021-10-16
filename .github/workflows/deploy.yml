@@ -39,7 +39,7 @@ jobs:
       - name: Generate
         run: yarn run generate:deploy --fail-on-page-error
       - name: Generate Sitemap
-        run: python ./workflow_tools/generate_sitemap/main.py
+        run: python ./generate_sitemap/main.py
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
@@ -67,7 +67,7 @@ jobs:
       - name: Install selenium with pip
         run: pip3 install selenium
       - name: Take screenshot
-        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./ui-test/ogp_screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
@@ -131,4 +131,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN_SCI }}
           ACCESS_SECRET_ASA: ${{ secrets.TWITTER_ASA_ACCESS_SECRET }}
           ACCESS_TOKEN_ASA: ${{ secrets.TWITTER_ASA_ACCESS_TOKEN }}
-        run: python workflow_tools/auto-tweet/tweet.py
+        run: python auto-tweet/tweet.py

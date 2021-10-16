@@ -6,7 +6,7 @@ on:
     branches:
       - development
     paths-ignore:
-      - 'workflow_tools/auto-i18n/result.csv'
+      - 'auto-i18n/result.csv'
 
 jobs:
   deploy:
@@ -36,7 +36,7 @@ jobs:
       - name: Generate for dev
         run: yarn run generate:dev --fail-on-page-error
       - name: Generate Sitemap
-        run: python ./workflow_tools/generate_sitemap/main.py
+        run: python ./generate_sitemap/main.py
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
@@ -59,7 +59,7 @@ jobs:
       - name: Install selenium with pip
         run: pip3 install selenium
       - name: Take screenshot
-        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./workflow_tools/ui-test/ogp_screenshot.py
+        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./ui-test/ogp_screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:

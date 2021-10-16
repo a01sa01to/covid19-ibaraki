@@ -22,7 +22,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py patients'
+        run: 'python ../../generate_datajson/csv2json.py patients'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -49,7 +49,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/test_people.py'
+        run: 'python ../../generate_datajson/csv2json_test_people.py'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -76,7 +76,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py mutant_test_people'
+        run: 'python ../../generate_datajson/csv2json.py mutant_test_people'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -103,7 +103,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py call_center'
+        run: 'python ../../generate_datajson/csv2json.py call_center'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -130,7 +130,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py positive_number'
+        run: 'python ../../generate_datajson/csv2json.py positive_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -177,7 +177,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py recovered_number'
+        run: 'python ../../generate_datajson/csv2json.py recovered_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -204,7 +204,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py death_number'
+        run: 'python ../../generate_datajson/csv2json.py death_number'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -327,7 +327,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
-        run: 'python ../../workflow_tools/csv2json/main.py otherpref'
+        run: 'python ../../generate_datajson/csv2json.py otherpref'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -348,7 +348,7 @@ jobs:
         run: curl --compressed https://vrs-data.cio.go.jp/vaccination/opendata/latest/prefecture.ndjson -L -o vaccine_data.ndjson
         working-directory: ./dist/data
       - name: Convert to Ibaraki Pref only JSON
-        run: 'python ../../workflow_tools/vaccine-data/main.py'
+        run: 'python ../../generate_datajson/vaccine_data.py'
         working-directory: ./dist/data
       - name: Save
         uses: actions/upload-artifact@v2
@@ -377,7 +377,7 @@ jobs:
       - name: Move restored files
         run: 'mv ./dist/data/opendata_artifact/*.* ./dist/data/'
       - name: Generate data.json
-        run: 'python ../../workflow_tools/generate_datajson/main.py'
+        run: 'python ../../generate_datajson/main.py'
         working-directory: ./dist/data
       - name: Move data.json, news.json, otherpref.json
         run: |
