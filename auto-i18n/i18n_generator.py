@@ -47,7 +47,7 @@ OUTPUT_DIR = "auto-i18n"
 CHECK_RESULT = "result.csv"
 
 # 翻訳ファイルパス
-JA_JSON_PATH = os.path.join(os.pardir, os.pardir, "assets/locales/ja.json")
+JA_JSON_PATH = os.path.join(os.pardir, "assets/locales/ja.json")
 
 # ログに用いる時間のタイムゾーン
 jst = timezone(timedelta(hours=9), "JST")
@@ -77,7 +77,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
     # ディレクトリ毎にチェック
     for cdir in CHECK_DIR:
         # リポジトリのルートからのパスをauto-i18nからの相対パスに変換
-        cdir = os.path.join(os.pardir, os.pardir, cdir)
+        cdir = os.path.join(os.pardir, cdir)
         # データディレクトリ以外の場合
         if "data" not in cdir and "utils" not in cdir and "csv" not in cdir:
             # すべてのVueファイルを検索
