@@ -392,7 +392,7 @@ jobs:
           git add .
           git commit -m "Update Data" -a
       - name: Temporary disable branch protection
-        uses: Hatzelencio/branch-protection@v0.0.0
+        uses: Hatzelencio/branch-protection@v1.0.0
         with:
           path: .github/config/branch_unlock_dev.yml
         env:
@@ -403,7 +403,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: development
       - name: Enable branch protection
-        uses: Hatzelencio/branch-protection@v0.0.0
+        uses: Hatzelencio/branch-protection@v1.0.0
         with:
           path: .github/config/branch_protect_dev.yml
         env:
@@ -434,7 +434,7 @@ jobs:
       - name: Merge
         run: git merge origin/development --ff
       - name: Temporary disable branch protection
-        uses: Hatzelencio/branch-protection@v0.0.0
+        uses: Hatzelencio/branch-protection@v1.0.0
         with:
           path: .github/config/branch_unlock_prod.yml
         env:
@@ -445,7 +445,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: production
       - name: Enable branch protection
-        uses: Hatzelencio/branch-protection@v0.0.0
+        uses: Hatzelencio/branch-protection@v1.0.0
         with:
           path: .github/config/branch_protect_prod.yml
         env:
