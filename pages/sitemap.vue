@@ -79,11 +79,11 @@
           class="Sitemap-titleLink"
         >
           <v-icon class="mr-2">{{ mdiBullhorn }}</v-icon>
-          {{ $t('感染拡大防止のための緊急措置について') }}
+          {{ $t('感染拡大防止のための対策について') }}
         </app-link>
       </h3>
       <p>
-        {{ $t('感染拡大防止のための緊急措置について、随時更新されます。') }}
+        {{ $t('感染拡大防止のための対策について、随時更新されます。') }}
       </p>
     </static-card>
     <static-card>

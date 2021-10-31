@@ -1,6 +1,6 @@
 <template>
   <div class="emergency-measures">
-    <page-header :title="$t('感染拡大防止のための緊急措置について')" />
+    <page-header :title="$t('感染拡大防止のための対策について')" />
     <div class="UpdatedAt">
       <span>{{ $t('最終更新') }}</span>
       <time :datetime="convertDate(lastUpdate)">{{
@@ -20,135 +20,7 @@
       <h3 class="mb-3">{{ $t('目次') }}</h3>
       <ul>
         <li>
-          <a href="#area">{{ $t('対象地域と期間') }}</a>
-        </li>
-        <li>
-          <a href="#req-for-all">{{ $t('県内全市町村に対する対策要請') }}</a>
-        </li>
-        <li>
           <a href="#basic-measures">{{ $t('基本的な感染対策') }}</a>
-        </li>
-      </ul>
-    </static-card>
-    <h2 id="area" class="mb-3">{{ $t('対象地域と期間') }}</h2>
-    <static-card>
-      <ul>
-        <li>
-          {{ $t('茨城県非常事態宣言の発令は、9月20日より解除となりました。') }}
-        </li>
-        <li>
-          {{ $t('国の緊急事態宣言の発令は、10月1日より解除となりました。') }}
-        </li>
-        <li>
-          {{
-            $t(
-              'いずれも解除となりましたが、以下に記載されている対策が要請されています。'
-            )
-          }}
-        </li>
-      </ul>
-      <div>
-        {{ $t('参考リンク') }}
-        <ul>
-          <li>
-            <app-link
-              :to="
-                localePath('/cards/number-of-confirmed-cases-by-municipalities')
-              "
-              >{{ $t('陽性者数（市町村別・直近1週間）') }}</app-link
-            >
-          </li>
-          <li>
-            <app-link
-              :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210916_rinjikaiken.html'"
-              >{{
-                $t(
-                  '【県公式ページ】県独自の非常事態宣言の解除について（9月16日発表）'
-                )
-              }}</app-link
-            >
-          </li>
-          <li>
-            <app-link
-              :to="'https://www.pref.ibaraki.jp/1saigai/2019-ncov/210927_kaiken.html'"
-              >{{
-                $t(
-                  '【県公式ページ】県全体のステージ移行について（9月27日発表）'
-                )
-              }}</app-link
-            >
-          </li>
-        </ul>
-      </div>
-    </static-card>
-    <h2 id="req-for-all" class="mb-3">
-      {{ $t('県内全市町村に対する対策要請') }}
-    </h2>
-    <static-card>
-      <h3>{{ $t('他都道府県との往来自粛等') }}</h3>
-      <ul>
-        <li>
-          {{
-            $t(
-              '緊急事態宣言やまん延防止等重点措置の対象都道府県との往来は、自粛してください。'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              'その他の都道府県との往来についても、地域の感染状況を踏まえて慎重に判断してください。'
-            )
-          }}
-        </li>
-      </ul>
-    </static-card>
-    <static-card>
-      <h3>{{ $t('学校における対策等') }}</h3>
-      <ul>
-        <li>
-          {{
-            $t(
-              '可能な限りの感染対策を行ったうえで、通常通り、登校・授業・部活動・学校行事を行うことができます。'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '県立学校・市町村立学校・私立学校・大学等に対して、対策を要請します。'
-            )
-          }}
-        </li>
-      </ul>
-    </static-card>
-    <static-card>
-      <h3>{{ $t('催し物の開催制限') }}</h3>
-      <ul>
-        <li>
-          {{
-            $t(
-              'イベントなどの催し物を開催する場合、人数上限5,000人、または収容率50%以下（最大10,000人）の大きいほうとしてください。'
-            )
-          }}<br />
-          {{
-            $t(
-              '※ 当サイトでは独自に「催し物開催制限における人数の算出」ページを作成しました。併せてご確認ください：'
-            )
-          }}
-          <app-link :to="localePath('event-max-people-calculator')">{{
-            $t('催し物開催制限における人数の算出')
-          }}</app-link>
-        </li>
-        <li>
-          {{ $t('COCOA、いばらきアマビエちゃんの利用登録も行ってください。') }}
-        </li>
-        <li>
-          {{
-            $t(
-              '大規模イベント（1,000人超/日(回)）や、全国的な人の移動を伴うイベントの開催時は、県に事前相談を行うようお願いします。'
-            )
-          }}
         </li>
       </ul>
     </static-card>
@@ -181,6 +53,13 @@
           {{
             $t(
               '換気をこまめに（30分に1回以上）、部屋の空気が入れ替わるように行いましょう。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '少しでも症状がある場合、すぐに受診をしましょう。二次感染の防止のほか、交代カクテル療法の適用可能性が向上します。'
             )
           }}
         </li>
@@ -260,6 +139,49 @@
       </ul>
     </static-card>
     <static-card>
+      <h3>{{ $t('「催し物の開催時の感染症対策」の徹底') }}</h3>
+      <ul>
+        <li>
+          {{
+            $t(
+              'イベント開催時は、業種別ガイドラインを遵守するなど、感染対策を徹底してください。また、COCOA、いばらきアマビエちゃんの利用登録を行ってください。'
+            )
+          }}<br /><app-link
+            :to="'https://www.pref.ibaraki.jp/shokorodo/chusho/shogyo/2020korona/guideline.html'"
+            >{{
+              $t('「業種別ガイドライン」はこちらをご覧ください。')
+            }}</app-link
+          >
+        </li>
+        <li>
+          {{
+            $t(
+              '大規模イベント（1,000人超/日(回)）や、全国的な人の移動を伴うイベントの開催時は、県に事前相談を行うようお願いします。'
+            )
+          }}<br /><app-link
+            :to="'https://www.pref.ibaraki.jp/bousaikiki/bousaikiki/kiki/event-jizensoudan.html'"
+            >{{
+              $t(
+                '大規模イベント等の開催に伴う事前相談については、こちらをご覧ください。'
+              )
+            }}</app-link
+          >
+        </li>
+      </ul>
+    </static-card>
+    <static-card>
+      <h3>{{ $t('「他都道府県との往来時の感染症対策」の継続') }}</h3>
+      <ul>
+        <li>
+          {{
+            $t(
+              '他都道府県との往来については、地域の感染状況を踏まえて慎重に判断してください。'
+            )
+          }}
+        </li>
+      </ul>
+    </static-card>
+    <static-card>
       <h3>{{ $t('「差別の禁止」の徹底') }}</h3>
       <ul>
         <li>
@@ -276,7 +198,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'
@@ -290,7 +212,7 @@ export default Vue.extend({
     AppLink,
   },
   data() {
-    const lastUpdate = '2021/10/01'
+    const lastUpdate = '2021/11/01'
 
     return {
       lastUpdate,
@@ -298,7 +220,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('感染拡大防止のための緊急措置について') as string,
+      title: this.$t('感染拡大防止のための対策について') as string,
     }
   },
   methods: {
