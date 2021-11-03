@@ -10,7 +10,7 @@ jobs:
     name: check_eslint_error
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -34,7 +34,7 @@ jobs:
     name: check_stylelint_error
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - name: stylelint review
         uses: reviewdog/action-stylelint@v1.11
         with:
