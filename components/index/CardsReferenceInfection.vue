@@ -53,7 +53,7 @@ export default Vue.extend({
         InfectionMedicalCareProvisionStatusCard,
         ConfirmedCasesDetailsCard,
         IbarakiCoronaNextCard,
-        NationalInfectionStatusCard,
+        // NationalInfectionStatusCard,
         ConfirmedCasesNumberCard,
         ConfirmedCasesAttributesCard,
         ConfirmedCasesByMunicipalitiesCard,
