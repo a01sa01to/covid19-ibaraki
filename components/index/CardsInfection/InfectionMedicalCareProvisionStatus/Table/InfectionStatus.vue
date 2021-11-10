@@ -50,10 +50,6 @@ export default Vue.extend({
       type: Object,
       required: true,
     },
-    date: {
-      type: String,
-      required: true,
-    },
   },
 })
 </script>
