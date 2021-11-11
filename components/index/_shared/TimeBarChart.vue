@@ -525,14 +525,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   methods: {
-    dateRangeUpdate(sliderValue: [number, number]) {
-      if (Math.abs(sliderValue[1] - sliderValue[0]) < 13) {
+    dateRangeUpdate(rangeValue: [number, number]) {
+      if (Math.abs(rangeValue[1] - rangeValue[0]) < 13) {
         return
       }
-      this.graphRange = sliderValue
+      this.graphRange = rangeValue
       this.dateRangedChartData = this.chartData.slice(
-        sliderValue[0],
-        sliderValue[1] + 1
+        rangeValue[0],
+        rangeValue[1] + 1
       )
     },
   },

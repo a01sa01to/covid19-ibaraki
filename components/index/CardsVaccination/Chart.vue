@@ -672,17 +672,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     makeLineData(value: number): number[] {
       return this.dateRangedChartData[0].map((_) => value)
     },
-    dateRangeUpdate(sliderValue: [number, number]) {
-      if (Math.abs(sliderValue[1] - sliderValue[0]) < 13) {
+    dateRangeUpdate(rangeValue: [number, number]) {
+      if (Math.abs(rangeValue[1] - rangeValue[0]) < 13) {
         return
       }
-      this.graphRange = sliderValue
+      this.graphRange = rangeValue
       this.dateRangedChartData = this.chartData.map((data) =>
-        data.slice(sliderValue[0], sliderValue[1] + 1)
+        data.slice(rangeValue[0], rangeValue[1] + 1)
       )
       this.dateRangedLabels = this.labels.slice(
-        sliderValue[0],
-        sliderValue[1] + 1
+        rangeValue[0],
+        rangeValue[1] + 1
       )
     },
   },
