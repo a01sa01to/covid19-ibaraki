@@ -112,13 +112,6 @@
     "ogpHeight": 502
   },
   {
-    "path": "/cards/infection-status-by-national-index",
-    "title": "国の指標による感染状況",
-    "category": "感染動向",
-    "ogpWidth": 959,
-    "ogpHeight": 502
-  },
-  {
     "path": "/cards/vaccination-1st",
     "title": "ワクチン接種回数（1回目）",
     "category": "ワクチン接種状況",

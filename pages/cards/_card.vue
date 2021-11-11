@@ -36,7 +36,7 @@ import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGr
 // Infection
 import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
 import MutantConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
-import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
+// import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
 import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
 import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
 // Inspection
@@ -69,7 +69,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     IbarakiGraphicalMapCard,
     RecoveredCard,
     UntrackedRateCard,
-    NationalInfectionStatusCard,
+    // NationalInfectionStatusCard,
     MutantConfirmedCasesNumberCard,
     // Inspection
     InspectionPersonsNumberCard,
@@ -115,7 +115,6 @@ export default class CardContainer extends Vue {
         cardTitle = '検査陽性者の状況'
         cardCategory = 'infection'
         break
-      // 報告日別による陽性者数の推移
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
         cardTitle = '公表日別による陽性者数の推移'
@@ -146,11 +145,11 @@ export default class CardContainer extends Vue {
         cardTitle = '感染経路不明者数推移'
         cardCategory = 'infection'
         break
-      case 'infection-status-by-national-index':
-        cardComponent = 'national-infection-status-card'
-        cardTitle = '国の指標による感染状況'
-        cardCategory = 'infection'
-        break
+      // case 'infection-status-by-national-index':
+      //   cardComponent = 'national-infection-status-card'
+      //   cardTitle = '国の指標による感染状況'
+      //   cardCategory = 'infection'
+      //   break
       case 'number-of-mutant-confirmed-cases':
         cardComponent = 'mutant-confirmed-cases-number-card'
         cardTitle = '公表日別による変異株陽性者数の推移'
