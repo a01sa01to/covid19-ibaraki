@@ -7,6 +7,7 @@
         :chart-data="municipalitiesTable"
         :date="date"
         :info="info"
+        :all-data="allData"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
       />
       <slot name="breadCrumb" />
@@ -67,10 +68,10 @@ export default {
 
     const allData = {
       area: this.$t('─'),
-      city: this.$t('県全体'),
+      label: this.$t('県全体'),
       ruby: this.$t('─'),
-      total: 0,
-      rate: 0,
+      count: 0,
+      countRecent: 0,
       population: 0,
     }
 
@@ -82,11 +83,12 @@ export default {
       city.rate = Number((city.total / city.population) * 10000)
 
       allData.population += CData.population
-      allData.total += city.total
+      allData.count += city.total
     })
 
-    allData.rate = Number((allData.total / allData.population) * 10000)
-    data.push(allData)
+    allData.countRecent = Number(
+      (allData.count / allData.population) * 10000
+    ).toFixed(3)
 
     data.sort((a, b) => {
       // 全体を陽性者数でソート
@@ -118,6 +120,7 @@ export default {
       date: formattedDate,
       municipalitiesTable,
       info,
+      allData,
     }
   },
 }

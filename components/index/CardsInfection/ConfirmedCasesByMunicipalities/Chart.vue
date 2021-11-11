@@ -5,8 +5,8 @@
     </template>
     <v-data-table
       :ref="'displayedTable'"
-      :headers="chartData.headers"
-      :items="chartData.datasets"
+      :headers="chartDataWithAllData.headers"
+      :items="chartDataWithAllData.datasets"
       :items-per-page="-1"
       :hide-default-footer="true"
       :height="240"
@@ -52,6 +52,10 @@ export default Vue.extend({
       type: Object,
       default: () => {},
     },
+    allData: {
+      type: Object,
+      default: () => {},
+    },
     date: {
       type: String,
       default: '',
@@ -64,6 +68,15 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+  },
+  data() {
+    console.log(this.allData, this.chartData.datasets)
+    return {
+      chartDataWithAllData: {
+        datasets: [this.allData, ...this.chartData.datasets],
+        headers: this.chartData.headers,
+      },
+    }
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
