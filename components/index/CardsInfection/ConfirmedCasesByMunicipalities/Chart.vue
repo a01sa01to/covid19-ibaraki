@@ -70,7 +70,6 @@ export default Vue.extend({
     },
   },
   data() {
-    console.log(this.allData, this.chartData.datasets)
     return {
       chartDataWithAllData: {
         datasets: [this.allData, ...this.chartData.datasets],
