@@ -60,6 +60,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   watch: {
     displayData() {
+      this.adjustChartWidth()
       this.scrollRightSide()
     },
   },

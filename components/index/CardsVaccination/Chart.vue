@@ -81,6 +81,14 @@
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
+    <template #dateRangeSelector>
+      <date-range-selector
+        :chart-data="labels"
+        :value="[0, chartDataIndexMax]"
+        :with-average="true"
+        @input="dateRangeUpdate"
+      />
+    </template>
     <template #dataSetPanel>
       <data-view-data-set-panel
         v-for="(di, i) in displayInfo"
@@ -103,7 +111,7 @@ import { Chart, ChartOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import DataSelector from '@/components/index/_shared/DataSelector.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
@@ -112,6 +120,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
+import DateRangeSelector from '@/components/index/_shared/DateRangeSelector.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import {
@@ -126,10 +135,14 @@ type Data = {
   displayLegends: boolean[]
   colors: SurfaceStyle[]
   dataKind: 'transition' | 'cumulative'
+  graphRange: [number, number]
+  dateRangedChartData: number[][]
+  dateRangedLabels: string[]
 }
 type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
+  dateRangeUpdate: (value: [number, number]) => void
 }
 type Computed = {
   displayInfo: {
@@ -146,6 +159,7 @@ type Computed = {
   scaledTicksYAxisMaxRight: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
+  chartDataIndexMax: number
 }
 type Props = {
   title: string
@@ -185,6 +199,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink,
+    DateRangeSelector,
   },
   props: {
     title: {
@@ -263,6 +278,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       colors,
       canvas: true,
       dataKind: 'transition',
+      graphRange: [0, 1],
+      dateRangedChartData: this.chartData,
+      dateRangedLabels: this.labels,
     }
   },
   computed: {
@@ -311,13 +329,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayData() {
       if (this.dataKind === 'transition') {
         return {
-          labels: this.labels,
+          labels: this.dateRangedLabels,
           datasets: [
             {
               type: 'bar',
               yAxisID: 'y-axis-1',
               label: this.dataLabels[0],
-              data: this.chartData[0],
+              data: this.dateRangedChartData[0],
               backgroundColor: this.colors[0].fillColor,
               borderColor: this.colors[0].strokeColor,
               borderWidth: 1,
@@ -327,13 +345,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: this.labels,
+        labels: this.dateRangedLabels,
         datasets: [
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
             label: this.dataLabels[1],
-            data: this.chartData[1],
+            data: this.dateRangedChartData[1],
             backgroundColor: this.colors[0].fillColor,
             borderColor: this.colors[0].strokeColor,
             borderWidth: 1,
@@ -343,7 +361,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             type: 'line',
             yAxisID: 'y-axis-2',
             label: this.dataLabels[2],
-            data: this.chartData[2],
+            data: this.dateRangedChartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
             borderColor: this.colors[1].strokeColor,
@@ -505,7 +523,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           labels: ['2020-01-01'],
           datasets: [
             {
-              data: [Math.max(...this.chartData[0])],
+              data: [Math.max(...this.dateRangedChartData[0])],
               backgroundColor: 'transparent',
               borderWidth: 0,
               yAxisId: 'y-axis-1',
@@ -517,13 +535,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         labels: ['2020-01-01'],
         datasets: [
           {
-            data: [Math.max(...this.chartData[1])],
+            data: [Math.max(...this.dateRangedChartData[1])],
             backgroundColor: 'transparent',
             borderWidth: 0,
             yAxisId: 'y-axis-1',
           },
           {
-            data: [Math.max(...this.chartData[2])],
+            data: [Math.max(...this.dateRangedChartData[2])],
             backgroundColor: 'transparent',
             borderWidth: 0,
             yAxisId: 'y-axis-2',
@@ -631,12 +649,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     scaledTicksYAxisMax() {
       if (this.dataKind === 'transition') {
-        return Math.max(...this.chartData[0])
+        return Math.max(...this.dateRangedChartData[0])
       }
-      return Math.max(...this.chartData[1])
+      return Math.max(...this.dateRangedChartData[1])
     },
     scaledTicksYAxisMaxRight() {
-      return Math.max(1, ...this.chartData[2])
+      return Math.max(1, ...this.dateRangedChartData[2])
+    },
+    chartDataIndexMax() {
+      if (!this.labels || this.labels.length === 0) {
+        return 1
+      }
+      this.dateRangeUpdate([0, this.labels.length - 1])
+      return this.labels.length - 1
     },
   },
   methods: {
@@ -645,7 +670,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends = this.displayLegends.slice()
     },
     makeLineData(value: number): number[] {
-      return this.chartData[0].map((_) => value)
+      return this.dateRangedChartData[0].map((_) => value)
+    },
+    dateRangeUpdate(sliderValue: [number, number]) {
+      if (Math.abs(sliderValue[1] - sliderValue[0]) < 13) {
+        return
+      }
+      this.graphRange = sliderValue
+      this.dateRangedChartData = this.chartData.map((data) =>
+        data.slice(sliderValue[0], sliderValue[1] + 1)
+      )
+      this.dateRangedLabels = this.labels.slice(
+        sliderValue[0],
+        sliderValue[1] + 1
+      )
     },
   },
   mounted() {

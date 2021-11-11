@@ -47,6 +47,14 @@
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
+    <template #dateRangeSelector>
+      <date-range-selector
+        :chart-data="chartData"
+        :value="[0, chartDataIndexMax]"
+        :with-average="false"
+        @input="dateRangeUpdate"
+      />
+    </template>
     <template #infoPanel>
       <data-view-data-set-panel
         :l-text="displayInfo.lText"
@@ -74,17 +82,23 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
+import DateRangeSelector from '@/components/index/_shared/DateRangeSelector.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
+
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
+  graphRange: [number, number]
+  dateRangedChartData: GraphDataType[]
 }
-type Methods = {}
+type Methods = {
+  dateRangeUpdate: (value: [number, number]) => void
+}
 type Computed = {
   displayInfo: {
     lText: string
@@ -98,6 +112,7 @@ type Computed = {
   scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
+  chartDataIndexMax: number
 }
 type Props = {
   title: string
@@ -131,6 +146,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataViewTable,
     ScrollableChart,
     OpenDataLink,
+    DateRangeSelector,
   },
   props: {
     title: {
@@ -170,10 +186,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: false,
     },
   },
-  data: () => ({
-    dataKind: 'transition',
-    canvas: true,
-  }),
+  data() {
+    return {
+      dataKind: 'transition',
+      canvas: true,
+      graphRange: [0, 1],
+      dateRangedChartData: this.chartData,
+    }
+  },
   computed: {
     displayInfo() {
       const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
@@ -212,19 +232,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const transparentWhite = 'rgba(255,255,255,0)'
       if (this.dataKind === 'transition') {
         return {
-          labels: this.chartData.map((d) => {
+          labels: this.dateRangedChartData.map((d) => {
             return d.label
           }),
           datasets: [
             {
               label: this.dataKind,
-              data: this.chartData.map((_d) => {
+              data: this.dateRangedChartData.map((_d) => {
                 return 0
               }),
               backgroundColor: transparentWhite,
               borderColor: transparentWhite,
               borderWidth: 0,
-              minBarLength: this.chartData.map((d) => {
+              minBarLength: this.dateRangedChartData.map((d) => {
                 if (d.transition <= 0) {
                   return zeroMouseOverHeight
                 }
@@ -233,7 +253,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               label: this.dataKind,
-              data: this.chartData.map((d) => {
+              data: this.dateRangedChartData.map((d) => {
                 return d.transition
               }),
               backgroundColor: style.fillColor,
@@ -244,17 +264,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: this.chartData.map((d) => d.label),
+        labels: this.dateRangedChartData.map((d) => d.label),
         datasets: [
           {
             label: this.dataKind,
-            data: this.chartData.map((_d) => {
+            data: this.dateRangedChartData.map((_d) => {
               return 0
             }),
             backgroundColor: transparentWhite,
             borderColor: transparentWhite,
             borderWidth: 0,
-            minBarLength: this.chartData.map((d) => {
+            minBarLength: this.dateRangedChartData.map((d) => {
               if (d.cumulative <= 0) {
                 return zeroMouseOverHeight
               }
@@ -263,7 +283,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             label: this.dataKind,
-            data: this.chartData.map((d) => {
+            data: this.dateRangedChartData.map((d) => {
               return d.cumulative
             }),
             backgroundColor: style.fillColor,
@@ -371,7 +391,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           labels: ['2020-01-01'],
           datasets: [
             {
-              data: [Math.max(...this.chartData.map((d) => d.transition))],
+              data: [
+                Math.max(...this.dateRangedChartData.map((d) => d.transition)),
+              ],
               backgroundColor: 'transparent',
               borderWidth: 0,
             },
@@ -382,7 +404,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         labels: ['2020-01-01'],
         datasets: [
           {
-            data: [Math.max(...this.chartData.map((d) => d.cumulative))],
+            data: [
+              Math.max(...this.dateRangedChartData.map((d) => d.cumulative)),
+            ],
             backgroundColor: 'transparent',
             borderWidth: 0,
           },
@@ -463,8 +487,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       const dataKind =
         this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map((d) => d[dataKind])
-      return Math.max(...values)
+      return Math.max(...this.dateRangedChartData.map((d) => d[dataKind]))
     },
     tableHeaders() {
       return [
@@ -492,6 +515,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
         .reverse()
+    },
+    chartDataIndexMax() {
+      if (!this.chartData || this.chartData.length === 0) {
+        return 1
+      }
+      this.dateRangeUpdate([0, this.chartData.length - 1])
+      return this.chartData.length - 1
+    },
+  },
+  methods: {
+    dateRangeUpdate(sliderValue: [number, number]) {
+      if (Math.abs(sliderValue[1] - sliderValue[0]) < 13) {
+        return
+      }
+      this.graphRange = sliderValue
+      this.dateRangedChartData = this.chartData.slice(
+        sliderValue[0],
+        sliderValue[1] + 1
+      )
     },
   },
   mounted() {

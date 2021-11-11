@@ -5,7 +5,7 @@
         <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
       </template>
       <template #title>
-        <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
+        <span class="expansion-panel-text">{{ message }}</span>
       </template>
       <template #content>
         <slot />
@@ -28,6 +28,10 @@ export default Vue.extend({
   components: { CustomExpansionPanel },
   props: {
     id: {
+      type: String,
+      required: true,
+    },
+    message: {
       type: String,
       required: true,
     },

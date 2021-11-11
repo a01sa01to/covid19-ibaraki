@@ -98,8 +98,18 @@
         v-if="$slots.dataTable"
         :id="titleId"
         class="DataView-ExpantionPanel"
+        :message="$t('テーブルを表示')"
       >
         <slot name="dataTable" />
+      </expantion-panel>
+
+      <expantion-panel
+        v-if="$slots.dateRangeSelector"
+        :id="titleId"
+        class="DataView-DateRangeSelector"
+        :message="$t('表示期間を変更')"
+      >
+        <slot name="dateRangeSelector" />
       </expantion-panel>
 
       <div class="DataView-Space" />
