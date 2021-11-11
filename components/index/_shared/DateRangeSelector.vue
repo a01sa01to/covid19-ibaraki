@@ -26,7 +26,7 @@
           :max="startDayMax"
           :min="datePickerMin"
           :locale="locale"
-          min-width="auto"
+          full-width
         >
           <v-spacer />
           <v-btn text color="primary" @click="startDayMenu = false">
@@ -63,7 +63,7 @@
           :max="datePickerMax"
           :min="endDayMin"
           :locale="locale"
-          min-width="auto"
+          full-width
         >
           <v-spacer />
           <v-btn text color="primary" @click="endDayMenu = false">
