@@ -1,77 +1,85 @@
 <template>
   <client-only>
-    <div class="mt-6 mb-3">
-      <v-menu
-        ref="startDayMenu"
-        v-model="startDayMenu"
-        :close-on-content-click="false"
-        transition="scale-transition"
-        offset-y
-        class="ml-3"
-      >
-        <template #activator="{ on, attrs }">
-          <v-text-field
-            v-model="startDayFormatted"
-            :label="$t('開始日')"
-            readonly
-            v-bind="attrs"
-            dense
-            class="ml-3"
-            v-on="on"
-          />
-        </template>
-        <v-date-picker
-          v-model="startDay"
-          :active-picker.sync="startDayActivePicker"
-          :max="startDayMax"
-          :min="datePickerMin"
-          :locale="locale"
-          full-width
+    <div>
+      <p class="ml-2" style="font-size: 1.2em; color: #707070">
+        {{
+          $t(
+            'こちらからデータの表示期間を変更できます。ここで変更した表示期間は、他のデータには影響しません。初期状態では、最新8週間分のデータを表示しています。最小表示期間は2週間です。'
+          )
+        }}
+      </p>
+      <div class="mt-6 mb-3">
+        <v-menu
+          ref="startDayMenu"
+          v-model="startDayMenu"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          class="ml-3"
         >
-          <v-spacer />
-          <v-btn text color="primary" @click="startDayMenu = false">
-            {{ $t('キャンセル') }}
-          </v-btn>
-          <v-btn text color="primary" @click="save(false, startDay)">
-            OK
-          </v-btn>
-        </v-date-picker>
-      </v-menu>
-      <v-menu
-        ref="endDayMenu"
-        v-model="endDayMenu"
-        :close-on-content-click="false"
-        transition="scale-transition"
-        offset-y
-        class="ml-3"
-      >
-        <template #activator="{ on, attrs }">
-          <v-text-field
-            v-model="endDayFormatted"
-            :label="$t('終了日')"
-            readonly
-            v-bind="attrs"
-            :messages="$t('期間は少なくとも2週間である必要があります')"
-            dense
-            class="ml-3"
-            v-on="on"
-          />
-        </template>
-        <v-date-picker
-          v-model="endDay"
-          :active-picker.sync="endDayActivePicker"
-          :max="datePickerMax"
-          :min="endDayMin"
-          :locale="locale"
-          full-width
+          <template #activator="{ on, attrs }">
+            <v-text-field
+              v-model="startDayFormatted"
+              :label="$t('開始日')"
+              readonly
+              v-bind="attrs"
+              dense
+              class="ml-3"
+              v-on="on"
+            />
+          </template>
+          <v-date-picker
+            v-model="startDay"
+            :active-picker.sync="startDayActivePicker"
+            :max="startDayMax"
+            :min="datePickerMin"
+            :locale="locale"
+            full-width
+          >
+            <v-spacer />
+            <v-btn text color="primary" @click="startDayMenu = false">
+              {{ $t('キャンセル') }}
+            </v-btn>
+            <v-btn text color="primary" @click="save(false, startDay)">
+              OK
+            </v-btn>
+          </v-date-picker>
+        </v-menu>
+        <v-menu
+          ref="endDayMenu"
+          v-model="endDayMenu"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          class="ml-3"
         >
-          <v-spacer />
-          <v-btn text color="primary" @click="endDayMenu = false">
-            {{ $t('キャンセル') }}
-          </v-btn>
-          <v-btn text color="primary" @click="save(true, endDay)"> OK </v-btn>
-        </v-date-picker>
-      </v-menu>
+          <template #activator="{ on, attrs }">
+            <v-text-field
+              v-model="endDayFormatted"
+              :label="$t('終了日')"
+              readonly
+              v-bind="attrs"
+              dense
+              class="ml-3"
+              v-on="on"
+            />
+          </template>
+          <v-date-picker
+            v-model="endDay"
+            :active-picker.sync="endDayActivePicker"
+            :max="datePickerMax"
+            :min="endDayMin"
+            :locale="locale"
+            full-width
+          >
+            <v-spacer />
+            <v-btn text color="primary" @click="endDayMenu = false">
+              {{ $t('キャンセル') }}
+            </v-btn>
+            <v-btn text color="primary" @click="save(true, endDay)"> OK </v-btn>
+          </v-date-picker>
+        </v-menu>
+      </div>
     </div>
   </client-only>
 </template>

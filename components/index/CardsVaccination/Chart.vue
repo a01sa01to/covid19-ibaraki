@@ -84,7 +84,7 @@
     <template #dateRangeSelector>
       <date-range-selector
         :chart-data="labels"
-        :value="[0, chartDataIndexMax]"
+        :value="[Math.max(0, chartDataIndexMax - 55), chartDataIndexMax]"
         :with-average="true"
         @input="dateRangeUpdate"
       />
@@ -660,7 +660,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!this.labels || this.labels.length === 0) {
         return 1
       }
-      this.dateRangeUpdate([0, this.labels.length - 1])
+      this.dateRangeUpdate([
+        Math.max(0, this.labels.length - 56),
+        this.labels.length - 1,
+      ])
       return this.labels.length - 1
     },
   },
