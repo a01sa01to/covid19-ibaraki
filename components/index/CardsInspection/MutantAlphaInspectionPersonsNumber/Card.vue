@@ -2,9 +2,9 @@
   <v-col cols="12" md="6" class="DataCard VariantCard">
     <client-only>
       <chart
-        :title="$t('変異株PCR検査の実施状況')"
-        :title-id="'number-of-mutant-inspection-persons'"
-        :chart-id="'number-of-mutant-inspection-persons-chart'"
+        :title="$t('変異株（アルファ株）PCR検査の実施状況')"
+        :title-id="'number-of-mutant-alpha-inspection-persons'"
+        :chart-id="'number-of-mutant-alpha-inspection-persons-chart'"
         :chart-data="chartData"
         :get-formatter="getFormatter"
         :date="updated"
@@ -21,14 +21,7 @@
             <li>
               {{
                 $t(
-                  '6月までの検査数は、県衛生研究所のものである。7月からの検査数には、水戸市保健所、民間検査機関、医療機関で行われた検査も追加されている。'
-                )
-              }}
-            </li>
-            <li>
-              {{
-                $t(
-                  '6月までの陽性者数は、県衛生研究所の検査により判明した数である。7月からの数は、県で公表された人数である。なお、検査結果の判明日を基準とする。'
+                  '検査数は、県衛生研究所のものである。また、陽性者数は県衛生研究所の検査により判明した数である。なお、陽性者数は検査結果の判明日を基準とする。'
                 )
               }}
             </li>
@@ -43,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsInspection/MutantInspectionPersonsNumber/Chart.vue'
+import Chart from '@/components/index/CardsInspection/_shared/MutantChart.vue'
 import Data from '@/data/data.json'
 import {
   getNumberToFixedFunction,
@@ -57,7 +50,12 @@ export default Vue.extend({
   data() {
     const formatPeriod = (from: string, to: string) => `${from} ~ ${to}`
 
-    const mutantInspection = Data.mutant_inspections
+    const mutantInspection = {
+      date: '2021-06-14 23:59',
+      data: Data.mutant_inspections.data.filter(
+        (item) => item.name === 'Alpha'
+      ),
+    }
 
     const labels = mutantInspection.data.map((dataset) => {
       const fr = this.$d(new Date(dataset.from_date), 'dateWithoutYear')

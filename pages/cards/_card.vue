@@ -35,13 +35,17 @@ import IbarakiCoronaNextCard from '@/components/index/CardsInfection/IbarakiCoro
 import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
 // Infection
 import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
-import MutantConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
+import MutantAlphaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantAlphaConfirmedCasesNumber/Card.vue'
+import MutantDeltaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantDeltaConfirmedCasesNumber/Card.vue'
+// import MutantOmicronConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue'
 // import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
 import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
 import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
 // Inspection
 import InspectionPersonsNumberCard from '@/components/index/CardsInspection/InspectionPersonsNumber/Card.vue'
-import MutantInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantInspectionPersonsNumber/Card.vue'
+import MutantAlphaInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantAlphaInspectionPersonsNumber/Card.vue'
+import MutantDeltaInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantDeltaInspectionPersonsNumber/Card.vue'
+import MutantOmicronInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantOmicronInspectionPersonsNumber/Card.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsInspection/TelephoneAdvisoryReportsNumber/Card.vue'
 import TestedNumberCard from '@/components/index/CardsInspection/TestedNumber/Card.vue'
 // Vaccination
@@ -70,12 +74,16 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     RecoveredCard,
     UntrackedRateCard,
     // NationalInfectionStatusCard,
-    MutantConfirmedCasesNumberCard,
+    MutantAlphaConfirmedCasesNumberCard,
+    MutantDeltaConfirmedCasesNumberCard,
+    // MutantOmicronConfirmedCasesNumberCard,
     // Inspection
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     TestedNumberCard,
-    MutantInspectionPersonsNumberCard,
+    MutantAlphaInspectionPersonsNumberCard,
+    MutantDeltaInspectionPersonsNumberCard,
+    MutantOmicronInspectionPersonsNumberCard,
     // Vaccination
     VaccineSummary1stCard,
     VaccineSummary2ndCard,
@@ -150,9 +158,19 @@ export default class CardContainer extends Vue {
       //   cardTitle = '国の指標による感染状況'
       //   cardCategory = 'infection'
       //   break
-      case 'number-of-mutant-confirmed-cases':
-        cardComponent = 'mutant-confirmed-cases-number-card'
-        cardTitle = '公表日別による変異株陽性者数の推移'
+      case 'number-of-mutant-alpha-confirmed-cases':
+        cardComponent = 'mutant-alpha-confirmed-cases-number-card'
+        cardTitle = '公表日別による変異株（アルファ株）陽性者数の推移'
+        cardCategory = 'infection'
+        break
+      case 'number-of-mutant-delta-confirmed-cases':
+        cardComponent = 'mutant-delta-confirmed-cases-number-card'
+        cardTitle = '公表日別による変異株（デルタ株）陽性者数の推移'
+        cardCategory = 'infection'
+        break
+      case 'number-of-mutant-omicron-confirmed-cases':
+        cardComponent = 'mutant-omicron-confirmed-cases-number-card'
+        cardTitle = '公表日別による変異株（オミクロン株）陽性者数の推移'
         cardCategory = 'infection'
         break
       // Inspection
@@ -171,9 +189,19 @@ export default class CardContainer extends Vue {
         cardTitle = '検査実施件数（全体）'
         cardCategory = 'inspection'
         break
-      case 'number-of-mutant-inspection-persons':
-        cardComponent = 'mutant-inspection-persons-number-card'
-        cardTitle = '変異株PCR検査の実施状況（県衛生研究所）'
+      case 'number-of-mutant-alpha-inspection-persons':
+        cardComponent = 'mutant-alpha-inspection-persons-number-card'
+        cardTitle = '変異株（アルファ株）PCR検査の実施状況'
+        cardCategory = 'inspection'
+        break
+      case 'number-of-mutant-delta-inspection-persons':
+        cardComponent = 'mutant-delta-inspection-persons-number-card'
+        cardTitle = '変異株（デルタ株）PCR検査の実施状況'
+        cardCategory = 'inspection'
+        break
+      case 'number-of-mutant-omicron-inspection-persons':
+        cardComponent = 'mutant-omicron-inspection-persons-number-card'
+        cardTitle = '変異株（オミクロン株）PCR検査の実施状況'
         cardCategory = 'inspection'
         break
       // Vaccination

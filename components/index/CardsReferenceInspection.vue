@@ -18,9 +18,17 @@ const TelephoneAdvisoryReportsNumberCard = () =>
   )
 const TestedNumberCard = () =>
   import('@/components/index/CardsInspection/TestedNumber/Card.vue')
-const MutantInspectionPersonsNumberCard = () =>
+const MutantAlphaInspectionPersonsNumberCard = () =>
   import(
-    '@/components/index/CardsInspection/MutantInspectionPersonsNumber/Card.vue'
+    '@/components/index/CardsInspection/MutantAlphaInspectionPersonsNumber/Card.vue'
+  )
+const MutantDeltaInspectionPersonsNumberCard = () =>
+  import(
+    '@/components/index/CardsInspection/MutantDeltaInspectionPersonsNumber/Card.vue'
+  )
+const MutantOmicronInspectionPersonsNumberCard = () =>
+  import(
+    '@/components/index/CardsInspection/MutantOmicronInspectionPersonsNumber/Card.vue'
   )
 
 export default Vue.extend({
@@ -29,10 +37,16 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [InspectionPersonsNumberCard, TestedNumberCard],
+      rows: [
+        InspectionPersonsNumberCard,
+        MutantOmicronInspectionPersonsNumberCard,
+        TestedNumberCard,
+      ],
+
       hideRows: [
-        MutantInspectionPersonsNumberCard,
         TelephoneAdvisoryReportsNumberCard,
+        MutantAlphaInspectionPersonsNumberCard,
+        MutantDeltaInspectionPersonsNumberCard,
       ],
     }
   },

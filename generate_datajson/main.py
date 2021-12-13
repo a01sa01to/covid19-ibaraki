@@ -175,7 +175,8 @@ with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
     day['total'] = int(day['変異株陽性者数'])
-    for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','変異株陽性者数','年代別','性別']:
+    day['name'] = day['変異株名']
+    for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','変異株陽性者数','年代別','性別','変異株名']:
       del day[key]
   file_content['mutant_summary']['data'] = json_content
   file_content['mutant_summary']['date'] = lastUpdate['mutant_positive']
@@ -212,7 +213,8 @@ with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
     day['to_date'] = day['実施_年月日 TO'].replace('T00:00:00','')
     day['inspected'] = int(day['検査実施_人数'])
     day['positive'] = int(day['陽性者数'])
-    for key in ['実施_年月日 FROM','実施_年月日 TO','全国地方公共団体コード','都道府県名','市区町村名','検査実施_人数','陽性者数']:
+    day['name'] = day['変異株名']
+    for key in ['実施_年月日 FROM','実施_年月日 TO','全国地方公共団体コード','都道府県名','市区町村名','検査実施_人数','陽性者数','変異株名']:
       del day[key]
   file_content['mutant_inspections']['data'] = json_content
   file_content['mutant_inspections']['date'] = lastUpdate['mutant_test_people']

@@ -36,12 +36,17 @@ const RecoveredCard = () =>
   import('@/components/index/CardsInfection/Recovered/Card.vue')
 const UntrackedRateCard = () =>
   import('@/components/index/CardsInfection/UntrackedRate/Card.vue')
-const NationalInfectionStatusCard = () =>
-  import('@/components/index/CardsInfection/NationalInfectionStatus/Card.vue')
-const MutantConfirmedCasesNumberCard = () =>
+// const NationalInfectionStatusCard = () =>
+//   import('@/components/index/CardsInfection/NationalInfectionStatus/Card.vue')
+const MutantAlphaConfirmedCasesNumberCard = () =>
   import(
-    '@/components/index/CardsInfection/MutantConfirmedCasesNumber/Card.vue'
+    '@/components/index/CardsInfection/MutantAlphaConfirmedCasesNumber/Card.vue'
   )
+const MutantDeltaConfirmedCasesNumberCard = () =>
+  import(
+    '@/components/index/CardsInfection/MutantDeltaConfirmedCasesNumber/Card.vue'
+  )
+// const MutantOmicronConfirmedCasesNumberCard = () => import('@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue')
 
 export default Vue.extend({
   components: {
@@ -60,10 +65,14 @@ export default Vue.extend({
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
         UntrackedRateCard,
+        // MutantOmicronConfirmedCasesNumberCard,
         RecoveredCard,
         DeathsCard,
       ],
-      hideRows: [MutantConfirmedCasesNumberCard],
+      hideRows: [
+        MutantAlphaConfirmedCasesNumberCard,
+        MutantDeltaConfirmedCasesNumberCard,
+      ],
     }
   },
 })

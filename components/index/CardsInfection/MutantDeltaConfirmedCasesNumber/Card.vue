@@ -2,9 +2,9 @@
   <v-col cols="12" md="6" class="DataCard MutantConfirmedCasesNumberCard">
     <client-only>
       <confirmed-cases-number-chart
-        :title="$t('公表日別による変異株陽性者数の推移')"
-        :title-id="'number-of-mutant-confirmed-cases'"
-        :chart-id="'time-bar-chart-patients'"
+        :title="$t('公表日別による変異株（デルタ株）陽性者数の推移')"
+        :title-id="'number-of-mutant-delta-confirmed-cases'"
+        :chart-id="'number-of-mutant-delta-confirmed-cases-chart'"
         :chart-data="chartData"
         :date="date"
         :unit="$t('人')"
@@ -23,20 +23,6 @@
               {{
                 $t(
                   '同一患者でも、「公表日別による陽性者数の推移」カードの日付とは異なる'
-                )
-              }}
-            </li>
-            <li>
-              {{
-                $t(
-                  '2021年2月1日からのデータはN501Y、2021年6月15日からのデータはL452Rの変異株に対する陽性者数を示している。検査体制が変わったため、その日の前後で「累計陽性者数」はリセットされる'
-                )
-              }}
-            </li>
-            <li>
-              {{
-                $t(
-                  '新型コロナウイルス感染症患者の約9割はL452R変異株に置き換わりが進んだことから、L452R変異株陽性者に関する公表は、2021年8月30日をもって終了となった'
                 )
               }}
             </li>
@@ -62,11 +48,10 @@ export default {
     ConfirmedCasesNumberChart,
   },
   data() {
-    // 感染者数グラフ（2021-06-14からL452Rに対する検査に移行したため、リセットする）
-    const resetDate = ['2021-02-01', '2021-06-15']
-
-    const patientsGraph = formatGraph(Data.mutant_summary.data, ...resetDate)
-    const date = Data.mutant_summary.date
+    const patientsGraph = formatGraph(
+      Data.mutant_summary.data.filter((d) => d.name === 'Delta')
+    )
+    const date = '2021-08-30 23:59'
 
     const [everydayCount, labels, cumulativeCount] = patientsGraph.reduce(
       (res, data) => {
@@ -80,15 +65,8 @@ export default {
 
     const weekAvg = []
     for (let i = 0; i < patientsGraph.length; i++) {
-      let isReset = false
-      resetDate.forEach((reset) => {
-        const deltaMilliSec = new Date(patientsGraph[i].label) - new Date(reset)
-        isReset ||= deltaMilliSec < 7 * 86400 * 1000 && deltaMilliSec >= 0
-      })
-
-      if (isReset) {
-        weekAvg.push(patientsGraph[i].cumulative / (i + 1))
-      } else {
+      if (i < 7) weekAvg.push(patientsGraph[i].cumulative / i)
+      else {
         weekAvg.push(
           (patientsGraph[i].cumulative - patientsGraph[i - 7].cumulative) / 7
         )
