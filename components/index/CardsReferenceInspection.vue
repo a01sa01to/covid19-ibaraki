@@ -1,6 +1,7 @@
 <template>
   <div>
     <cards-lazy-row :rows="rows" />
+    <cards-lazy-row :rows="hideRows" hide-cards />
   </div>
 </template>
 
@@ -28,10 +29,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [
-        InspectionPersonsNumberCard,
+      rows: [InspectionPersonsNumberCard, TestedNumberCard],
+      hideRows: [
         MutantInspectionPersonsNumberCard,
-        TestedNumberCard,
         TelephoneAdvisoryReportsNumberCard,
       ],
     }
