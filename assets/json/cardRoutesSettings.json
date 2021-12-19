@@ -4,7 +4,7 @@
     "title": "本日の感染状況・医療提供体制",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 582,
     "deprecated": false
   },
   {
@@ -12,7 +12,7 @@
     "title": "陽性者の属性",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 687,
     "deprecated": false
   },
   {
@@ -20,7 +20,7 @@
     "title": "年代別の感染状況（直近1週間）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 607,
     "deprecated": false
   },
   {
@@ -28,7 +28,7 @@
     "title": "陽性者数（市町村別）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 571,
     "deprecated": false
   },
   {
@@ -36,7 +36,7 @@
     "title": "検査陽性者の状況",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 852,
     "deprecated": false
   },
   {
@@ -44,7 +44,7 @@
     "title": "公表日別による陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 810,
     "deprecated": false
   },
   {
@@ -52,7 +52,7 @@
     "title": "死亡者数",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 783,
     "deprecated": false
   },
   {
@@ -60,7 +60,7 @@
     "title": "茨城版コロナNext",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 815,
     "deprecated": false
   },
   {
@@ -68,7 +68,7 @@
     "title": "市町村別感染状況（直近1週間）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 1072,
     "deprecated": false
   },
   {
@@ -76,7 +76,7 @@
     "title": "回復者数",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 819,
     "deprecated": false
   },
   {
@@ -84,7 +84,7 @@
     "title": "感染経路不明者数推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 939,
     "deprecated": false
   },
   {
@@ -92,7 +92,7 @@
     "title": "公表日別による変異株（アルファ株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 846,
     "deprecated": true
   },
   {
@@ -100,7 +100,7 @@
     "title": "公表日別による変異株（デルタ株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 846,
     "deprecated": true
   },
   {
@@ -108,7 +108,7 @@
     "title": "公表日別による変異株（オミクロン株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 846,
     "deprecated": false
   },
 
@@ -118,7 +118,7 @@
     "title": "検査実施人数（県衛生研究所・水戸市保健所）",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 891,
     "deprecated": false
   },
   {
@@ -126,7 +126,7 @@
     "title": "受診相談窓口における相談件数",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 783,
     "deprecated": true
   },
   {
@@ -134,7 +134,7 @@
     "title": "検査実施件数（全体）",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 630,
     "deprecated": false
   },
   {
@@ -142,7 +142,7 @@
     "title": "変異株（アルファ株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 883,
     "deprecated": true
   },
   {
@@ -150,7 +150,7 @@
     "title": "変異株（デルタ株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 901,
     "deprecated": true
   },
   {
@@ -158,7 +158,7 @@
     "title": "変異株（オミクロン株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 883,
     "deprecated": false
   },
 
@@ -168,7 +168,7 @@
     "title": "ワクチン接種回数（1回目）",
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 1051,
     "deprecated": false
   },
   {
@@ -176,7 +176,7 @@
     "title": "ワクチン接種回数（2回目）",
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
-    "ogpHeight": 502,
+    "ogpHeight": 1051,
     "deprecated": false
   }
 ]
