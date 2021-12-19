@@ -25,6 +25,7 @@ import { mdiChartTimelineVariant } from '@mdi/js'
 import { Component, Vue } from 'nuxt-property-decorator'
 
 import Breadcrumb from '@/components/_shared/breadcrumb.vue'
+// Infection
 import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
 import ConfirmedCasesByAgeCard from '@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
@@ -33,11 +34,10 @@ import ConfirmedCasesNumberCard from '@/components/index/CardsInfection/Confirme
 import DeathsCard from '@/components/index/CardsInfection/Deaths/Card.vue'
 import IbarakiCoronaNextCard from '@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue'
 import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
-// Infection
 import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
 import MutantAlphaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantAlphaConfirmedCasesNumber/Card.vue'
 import MutantDeltaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantDeltaConfirmedCasesNumber/Card.vue'
-// import MutantOmicronConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue'
+import MutantOmicronConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue'
 // import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
 import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
 import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
@@ -76,7 +76,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     // NationalInfectionStatusCard,
     MutantAlphaConfirmedCasesNumberCard,
     MutantDeltaConfirmedCasesNumberCard,
-    // MutantOmicronConfirmedCasesNumberCard,
+    MutantOmicronConfirmedCasesNumberCard,
     // Inspection
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,

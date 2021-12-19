@@ -46,7 +46,10 @@ const MutantDeltaConfirmedCasesNumberCard = () =>
   import(
     '@/components/index/CardsInfection/MutantDeltaConfirmedCasesNumber/Card.vue'
   )
-// const MutantOmicronConfirmedCasesNumberCard = () => import('@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue')
+const MutantOmicronConfirmedCasesNumberCard = () =>
+  import(
+    '@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue'
+  )
 
 export default Vue.extend({
   components: {
@@ -65,7 +68,7 @@ export default Vue.extend({
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
         UntrackedRateCard,
-        // MutantOmicronConfirmedCasesNumberCard,
+        MutantOmicronConfirmedCasesNumberCard,
         RecoveredCard,
         DeathsCard,
       ],
