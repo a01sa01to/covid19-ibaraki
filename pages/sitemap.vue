@@ -10,6 +10,18 @@
           {{ $t('県内の最新感染動向') }}
         </app-link>
       </h3>
+      <p>
+        <v-icon
+          class="Sitemap-deprecatedData"
+          :aria-label="$t('データの更新が終了しています')"
+          :title="$t('データの更新が終了しています')"
+          >{{ mdiAlertCircleOutline }}</v-icon
+        >{{
+          $t(
+            'のアイコンが表示されているものは、データの更新が終了したことを表しています。'
+          )
+        }}
+      </p>
       <section>
         <h4>
           <app-link :to="localePath('/')" class="Sitemap-titleLink">
@@ -23,6 +35,13 @@
             class="Sitemap-item"
           >
             <app-link class="Sitemap-linkButton" :to="localePath(card.path)">
+              <v-icon
+                v-if="card.deprecated"
+                class="Sitemap-deprecatedData"
+                :aria-label="$t('データの更新が終了しています')"
+                :title="$t('データの更新が終了しています')"
+                >{{ mdiAlertCircleOutline }}</v-icon
+              >
               {{ $t(card.title) }}
             </app-link>
           </li>
@@ -41,6 +60,13 @@
             class="Sitemap-item"
           >
             <app-link class="Sitemap-linkButton" :to="localePath(card.path)">
+              <v-icon
+                v-if="card.deprecated"
+                class="Sitemap-deprecatedData"
+                :aria-label="$t('データの更新が終了しています')"
+                :title="$t('データの更新が終了しています')"
+                >{{ mdiAlertCircleOutline }}</v-icon
+              >
               {{ $t(card.title) }}
             </app-link>
           </li>
@@ -59,6 +85,13 @@
             class="Sitemap-item"
           >
             <app-link class="Sitemap-linkButton" :to="localePath(card.path)">
+              <v-icon
+                v-if="card.deprecated"
+                class="Sitemap-deprecatedData"
+                :aria-label="$t('データの更新が終了しています')"
+                :title="$t('データの更新が終了しています')"
+                >{{ mdiAlertCircleOutline }}</v-icon
+              >
               {{ $t(card.title) }}
             </app-link>
           </li>
@@ -130,7 +163,11 @@
 </template>
 
 <script lang="ts">
-import { mdiChartTimelineVariant, mdiDomain } from '@mdi/js'
+import {
+  mdiAlertCircleOutline,
+  mdiChartTimelineVariant,
+  mdiDomain,
+} from '@mdi/js'
 import Vue from 'vue'
 import type { MetaInfo } from 'vue-meta'
 
@@ -161,6 +198,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     return {
       mdiChartTimelineVariant,
       mdiDomain,
+      mdiAlertCircleOutline,
       cardData,
     }
   },
@@ -205,5 +243,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   &:hover {
     text-decoration: none;
   }
+}
+.Sitemap-deprecatedData {
+  height: 2rem;
+  width: 2rem;
+  transition: none;
+  margin-right: 0.2rem;
+  background-color: inherit;
+  color: inherit;
 }
 </style>

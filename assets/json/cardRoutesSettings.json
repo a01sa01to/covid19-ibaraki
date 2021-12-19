@@ -4,98 +4,112 @@
     "title": "本日の感染状況・医療提供体制",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/attributes-of-confirmed-cases",
     "title": "陽性者の属性",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-confirmed-cases-by-age",
     "title": "年代別の感染状況（直近1週間）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-confirmed-cases-by-municipalities",
     "title": "陽性者数（市町村別）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/details-of-confirmed-cases",
     "title": "検査陽性者の状況",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-confirmed-cases",
     "title": "公表日別による陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-deaths",
     "title": "死亡者数",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/ibaraki-corona-next",
     "title": "茨城版コロナNext",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/ibaraki-graphical-map",
     "title": "市町村別感染状況（直近1週間）",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-recovered",
     "title": "回復者数",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/untracked-rate",
     "title": "感染経路不明者数推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-mutant-alpha-confirmed-cases",
     "title": "公表日別による変異株（アルファ株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": true
   },
   {
     "path": "/cards/number-of-mutant-delta-confirmed-cases",
     "title": "公表日別による変異株（デルタ株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": true
   },
   {
     "path": "/cards/number-of-mutant-omicron-confirmed-cases",
     "title": "公表日別による変異株（オミクロン株）陽性者数の推移",
     "category": "感染動向",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
 
 
@@ -104,42 +118,48 @@
     "title": "検査実施人数（県衛生研究所・水戸市保健所）",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-reports-to-covid19-telephone-advisory-center",
-    "title": "受信相談窓口における相談件数",
+    "title": "受診相談窓口における相談件数",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": true
   },
   {
     "path": "/cards/number-of-tested",
     "title": "検査実施件数（全体）",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/number-of-mutant-alpha-inspection-persons",
     "title": "変異株（アルファ株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": true
   },
   {
     "path": "/cards/number-of-mutant-delta-inspection-persons",
     "title": "変異株（デルタ株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": true
   },
   {
     "path": "/cards/number-of-mutant-omicron-inspection-persons",
     "title": "変異株（オミクロン株）PCR検査の実施状況",
     "category": "検査状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
 
 
@@ -148,13 +168,15 @@
     "title": "ワクチン接種回数（1回目）",
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   },
   {
     "path": "/cards/vaccination-2nd",
     "title": "ワクチン接種回数（2回目）",
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
-    "ogpHeight": 502
+    "ogpHeight": 502,
+    "deprecated": false
   }
 ]
