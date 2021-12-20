@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/cards/number-of-mutant-delta-confirmed-cases", {data:[{}],fetch:{},mutations:void 0});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/number-of-mutant-alpha-confirmed-cases", {data:[{}],fetch:{},mutations:void 0});
