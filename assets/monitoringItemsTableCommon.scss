@@ -4,16 +4,16 @@ $default-boxdiff: 35px;
 // .container > .box > (.group > .box > ...) .pillar > .content
 
 .container {
-  box-sizing: border-box;
   width: 100%;
-  // override default styles
-  padding-left: 0 !important;
-  line-height: 1.35;
+  box-sizing: border-box;
   color: $green-1;
+  line-height: 1.35;
 
   * {
     box-sizing: border-box;
   }
+  // override default styles
+  padding-left: 0 !important;
 
   ul {
     padding-left: 0;
@@ -28,11 +28,11 @@ $default-boxdiff: 35px;
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
   padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   border: $default-bdw solid $green-1;
 
   > span {
@@ -41,9 +41,9 @@ $default-boxdiff: 35px;
     @include font-size(14);
 
     &:first-child {
-      flex-shrink: 2;
-      margin-top: 1px;
       text-align: left;
+      margin-top: 1px;
+      flex-shrink: 2;
     }
 
     &:not(:last-child) {
@@ -65,27 +65,27 @@ $default-boxdiff: 35px;
   margin-top: $default-bdw;
 
   &.parent {
-    position: relative;
-    padding-left: $default-boxdiff - $default-bdw * 2;
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
+    position: relative;
+    padding-left: $default-boxdiff - $default-bdw * 2;
 
     &::after {
-      position: absolute;
-      bottom: 0;
-      left: -1px;
+      content: '';
       display: block;
+      position: absolute;
+      left: -1px;
+      bottom: 0;
       width: $default-boxdiff - $default-bdw - 2;
-      content: "";
       border-bottom: $default-bdw solid $green-1;
     }
 
     > .content {
-      width: calc(100% + #{($default-boxdiff - $default-bdw * 2)});
       margin-left: -($default-boxdiff - $default-bdw * 2);
+      width: calc(100% + #{($default-boxdiff - $default-bdw * 2)});
       border-top: none;
-      border-bottom: none;
       border-left: none;
+      border-bottom: none;
     }
   }
 }
@@ -99,7 +99,6 @@ $default-boxdiff: 35px;
 }
 
 @mixin override($vw, $bdw, $fz, $boxdiff) {
-
   .group {
     padding-left: px2vw($bdw, $vw) !important;
     border-top: px2vw($bdw, $vw) solid $green-1;
@@ -131,9 +130,9 @@ $default-boxdiff: 35px;
     margin-top: px2vw($bdw, $vw);
 
     &.parent {
-      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
       border-top: px2vw($bdw, $vw) solid $green-1;
       border-left: px2vw($bdw, $vw) solid $green-1;
+      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
 
       &::after {
         width: px2vw($boxdiff - $bdw, $vw);
@@ -141,8 +140,8 @@ $default-boxdiff: 35px;
       }
 
       > .content {
-        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
         margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
+        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
       }
     }
   }

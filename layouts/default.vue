@@ -270,6 +270,7 @@ export default class Default extends Vue implements NuxtConfig {
 
   .open {
     height: 100vh;
+
     @include largerThan($small) {
       overflow-x: hidden;
       overflow-y: auto;

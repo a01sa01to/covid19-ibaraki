@@ -59,13 +59,14 @@ export default Vue.extend({
     color: $gray-2;
 
     @include largerThan($large) {
-      flex-flow: row;
       justify-content: space-between;
+      flex-flow: row;
     }
 
     &-title {
-      flex: 1 1 50%;
       font-weight: normal;
+      flex: 1 1 50%;
+
       @include font-size(18);
     }
 
@@ -79,11 +80,12 @@ export default Vue.extend({
 
     &-summary {
       display: inline-block;
-      margin-bottom: 0 !important;
-      font-style: normal;
-      line-height: 30px;
       color: $gray-2;
       white-space: nowrap;
+      font-style: normal;
+      line-height: 30px;
+      margin-bottom: 0 !important;
+
       @include font-size(30);
 
       &-unit {
@@ -95,8 +97,9 @@ export default Vue.extend({
     &-date {
       display: inline-block;
       width: 100%;
-      line-height: initial;
       color: $gray-3;
+      line-height: initial;
+
       @include font-size(12);
     }
   }

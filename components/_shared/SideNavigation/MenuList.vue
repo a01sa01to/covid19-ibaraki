@@ -92,14 +92,17 @@ export default Vue.extend({
     border-top: 1px solid $gray-4;
   }
 }
+
 .MenuSection {
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid $gray-4;
+
   &:first-child {
     padding-top: 12px;
   }
 }
+
 .MenuTitle {
   color: $gray-3;
   padding: 12px 0;

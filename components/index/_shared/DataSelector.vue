@@ -62,7 +62,7 @@ export default Vue.extend({
     }
 
     &:focus {
-      outline: dotted $gray-3 1px;
+      outline: 2px solid $focus;
     }
   }
 

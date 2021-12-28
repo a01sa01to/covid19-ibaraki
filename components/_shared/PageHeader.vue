@@ -72,8 +72,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 <style lang="scss" scoped>
 .PageHeader {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-end;
+  flex-wrap: wrap;
 
   @include lessThan($small) {
     flex-direction: column;
@@ -83,11 +83,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   .PageTitle {
     @include font-size(30);
 
+    color: $gray-2;
     display: flex;
     align-items: center;
-    font-weight: normal;
     line-height: 1.35;
-    color: $gray-2;
+    font-weight: normal;
 
     @include lessThan($small) {
       @include font-size(20);
@@ -110,8 +110,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   .Annotation {
     @include font-size(12);
 
-    margin: 0.2em 0 0 auto;
     color: $gray-3;
+    margin: 0.2em 0 0 auto;
   }
 }
 </style>

@@ -12,7 +12,7 @@ Install the following application to the environment for development.
 
 | Application name | Application version(Fill in only if specified) | Installation conditions |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/en/)|14.16.0 or higher|Required|
+|[Node.js](https://nodejs.org/en/)|16.13.0 or higher|Required|
 |[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
 |[yarn](https://classic.yarnpkg.com/en/)| |When executing this program with `yarn`|
 |[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
@@ -121,7 +121,7 @@ You can check the program under development by accessing http://localhost:3000 a
 
 ## 3. Detect production/others environment
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.<br>
 Please use the variable to detect which enviroinment is used at the runtime.
 
 ---

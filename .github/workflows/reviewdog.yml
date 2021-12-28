@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.4.0
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.13.0'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -32,7 +36,7 @@ jobs:
 
   stylelint:
     name: check_stylelint_error
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.4.0
       - name: stylelint review

@@ -240,26 +240,23 @@ export default Vue.extend({
 /* stylelint-disable no-descending-specificity */
 
 .DataView-Share-Opener {
-  padding: 14px;
-  margin: -14px;
   cursor: pointer;
-
-  &:focus {
-    outline: dotted $gray-3 1px;
-  }
+  margin: -14px;
+  padding: 14px;
 }
 
 .DataView-Share-Buttons {
   position: absolute;
+  padding: 8px;
   right: 2rem;
   bottom: 3em;
-  z-index: 2;
   width: 260px;
-  padding: 8px;
-  text-align: left;
-  background: $white !important;
   border: solid 1px $gray-4;
+  background: $white !important;
   border-radius: 8px;
+  text-align: left;
+  z-index: 2;
+
   @include font-size(16);
 
   > * {
@@ -268,20 +265,20 @@ export default Vue.extend({
 
   .Share-Buttons-header {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
   }
 
   .Close-Button {
     color: $gray-3;
 
     button {
-      border: 1px solid #fff;
       border-radius: 50%;
+      border: 1px solid #fff;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }
@@ -304,11 +301,11 @@ export default Vue.extend({
     }
 
     button {
-      border: solid 1px #eee;
       border-radius: 50%;
+      border: solid 1px #eee;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }
@@ -321,10 +318,10 @@ export default Vue.extend({
 
   .Button-item {
     flex: 0 0 30%;
-    margin: 4px;
-    border-style: solid;
     border-width: 1px;
+    border-style: solid;
     border-radius: 4px;
+    margin: 4px;
 
     &.line {
       border-color: #06c755;
@@ -341,12 +338,13 @@ export default Vue.extend({
     .Button {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 16px 8px 8px 8px;
+      height: 100%;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }
@@ -357,8 +355,9 @@ export default Vue.extend({
 
     .Button-text {
       display: block;
-      margin-top: 8px;
       line-height: 1.2;
+      margin-top: 8px;
+
       @include font-size(10);
     }
   }
@@ -366,24 +365,25 @@ export default Vue.extend({
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   user-select: none;
   opacity: 0.8;
 
   > .overlay-text {
-    width: 60%;
-    padding: 2em;
-    color: $white !important;
     text-align: center;
+    padding: 2em;
+    width: 60%;
     background: $gray-2;
     border-radius: 8px;
+    color: $white !important;
+
     @include font-size(16);
   }
 }

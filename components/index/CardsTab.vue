@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="tab" hide-slider>
+  <v-tabs ref="tabs" v-model="tab" hide-slider>
     <v-tab
       v-for="(item, i) in items"
       :id="`cardTab-${i}`"
@@ -124,13 +124,14 @@ export default Vue.extend({
 .v-tab {
   top: 1px;
   margin: 0 8px;
-  font-weight: 600 !important;
   border-style: solid;
   border-radius: 4px 4px 0 0;
+  font-weight: 600 !important;
+
   @include font-size(16, true);
 
   &:focus {
-    outline: dotted $gray-3 1px;
+    outline: 2px solid $focus;
   }
 
   &--active {
@@ -179,28 +180,28 @@ export default Vue.extend({
   }
 
   .v-tab {
+    font-size: px2vw(14) !important;
+    font-weight: normal !important;
     flex: 1 1 auto;
     width: 100%;
     padding: 0 8px !important;
     margin: 0 6px;
-    font-size: px2vw(16) !important;
-    font-weight: normal !important;
   }
 }
 
 @include lessThan($small) {
   .v-tab {
+    font-size: px2vw(16, 600) !important;
     padding: 0 4px !important;
     margin: 0 4px;
-    font-size: px2vw(20, 600) !important;
   }
 
   .TabIcon {
-    font-size: px2vw(20, 600) !important;
+    font-size: px2vw(16, 600) !important;
 
     .v-icon__svg {
-      width: px2vw(24, 600) !important;
-      height: px2vw(24, 600) !important;
+      width: px2vw(16, 600) !important;
+      height: px2vw(16, 600) !important;
     }
   }
 }

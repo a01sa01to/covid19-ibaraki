@@ -33,8 +33,8 @@ export default Vue.extend({
   display: inline-flex;
   padding: 4px 8px;
   color: $gray-2;
-  background-color: $emergency;
-  border: 2px solid $emergency;
+  background-color: $focus;
+  border: 2px solid $focus;
   border-radius: 4px;
   @include font-size(16);
 

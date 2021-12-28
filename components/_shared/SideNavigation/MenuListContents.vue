@@ -70,9 +70,12 @@ export default Vue.extend({
 .MenuList-Item {
   line-height: 1.2;
   white-space: normal;
+
   @include font-size(14);
+
   @include lessThan($small) {
     font-weight: 600;
+
     @include font-size(14.5);
   }
 }
@@ -99,7 +102,6 @@ export default Vue.extend({
 
   &:focus {
     font-weight: 600;
-    outline: dotted $gray-3 1px;
   }
 
   &.nuxt-link-exact-active {
@@ -111,9 +113,9 @@ export default Vue.extend({
     &:active {
       color: $green-1;
     }
+
     &:focus {
       color: $green-1;
-      outline: dotted $gray-3 1px;
     }
   }
 }

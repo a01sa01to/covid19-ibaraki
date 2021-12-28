@@ -17,7 +17,7 @@
             to="https://www.pref.ibaraki.jp/1saigai/2019-ncov/covid-19_vaccine/team.html"
           >
             <span class="WhatsNew-linkButton-inner">
-              <VaccineIcon
+              <vaccine-icon
                 class="WhatsNew-linkButton-icon"
                 aria-hidden="true"
               />
@@ -42,32 +42,16 @@
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <app-link
-          v-if="item.url"
-          :to="item.url"
-          class="WhatsNew-list-item-anchor"
-        >
-          <time
-            class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
-          >
+        <span class="WhatsNew-list-item-time px-2">
+          <time :datetime="formattedDate(item.date)">
             {{ formattedDateForDisplay(item.date) }}
           </time>
-          <span class="WhatsNew-list-item-anchor-link">
+        </span>
+        <span class="WhatsNew-list-item-anchor">
+          <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
-          </span>
-        </app-link>
-        <div v-else class="WhatsNew-list-item-anchor">
-          <time
-            class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
-          >
-            {{ formattedDateForDisplay(item.date) }}
-          </time>
-          <span class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
-          </span>
-        </div>
+          </app-link>
+        </span>
       </li>
     </ul>
   </div>
@@ -125,8 +109,8 @@ export default Vue.extend({
 
   .WhatsNew-heading {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 8px;
 
     .WhatsNew-title {
@@ -145,8 +129,8 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
-      padding: 0;
       list-style: none;
+      padding: 0;
 
       @include lessThan($medium) {
         justify-content: flex-start;
@@ -169,8 +153,8 @@ export default Vue.extend({
       }
 
       &-v-icon {
-        margin-right: 4px;
         color: currentColor;
+        margin-right: 4px;
         transition: none;
       }
     }

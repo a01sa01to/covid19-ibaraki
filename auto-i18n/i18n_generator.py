@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv"]
 
 # チェックするjsonファイルのリスト
-JSON_FILES = ["data.json", "patient.json"]
+JSON_FILES = ["data.json", "otherpref.json","cities.json","opendata/json/patients.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状は formatConfirmedCasesAttributesTable.ts と formatMonitoringItems.ts しかないが、

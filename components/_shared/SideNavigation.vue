@@ -54,7 +54,7 @@
             <language-selector />
             <p class="SideNavigation-LangNote">
               <i18n
-                path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加してください。"
+                path="言語が足りない場合や翻訳が間違っている場合は、{transifex}から追加をお願いします。"
               >
                 <template #transifex>
                   <app-link
@@ -78,7 +78,7 @@
         <ul class="SideNavigation-Social">
           <li class="SideNavigation-SocialLink-ListItem">
             <app-link
-              to="https://line.me/R/ti/p/@615vsilb"
+              to="https://line.me/R/ti/p/%40615vsilb"
               :show-icon="false"
               class="SideNavigation-SocialLink"
             >
@@ -377,12 +377,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
+
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-  }
-
-  &:focus {
-    outline: 1px dotted $gray-3;
   }
 }
 
@@ -393,9 +390,11 @@ export default Vue.extend({
     height: auto;
     padding: 20px;
   }
+
   @include lessThan($small) {
     display: flex;
   }
+
   @include lessThan($tiny) {
     padding-left: 44px;
   }
@@ -407,10 +406,12 @@ export default Vue.extend({
   left: 0;
   padding: 18px 8px 18px 16px;
   font-size: 28px;
+
   @include lessThan($tiny) {
-    padding: 20px 10px;
     font-size: 24px;
+    padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -422,10 +423,12 @@ export default Vue.extend({
   left: 0;
   padding: 18px 8px 18px 16px;
   font-size: 28px;
+
   @include lessThan($tiny) {
-    padding: 20px 10px;
     font-size: 24px;
+    padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -433,9 +436,11 @@ export default Vue.extend({
 
 .SideNavigation-HeaderTitle {
   width: 100%;
-  font-weight: 600;
   color: $gray-3;
+  font-weight: 600;
+
   @include font-size(13);
+
   @include largerThan($small) {
     margin: 0;
     margin-top: 10px;
@@ -446,9 +451,11 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding-right: 10px;
+
   @include lessThan($small) {
     height: 64px;
   }
+
   @include lessThan($tiny) {
     justify-content: space-between;
   }
@@ -467,10 +474,6 @@ export default Vue.extend({
     font-weight: 600;
   }
 
-  &:focus {
-    outline: dotted $gray-3 1px;
-  }
-
   @include largerThan($small) {
     display: block;
     padding: 15px 0;
@@ -486,9 +489,11 @@ export default Vue.extend({
 .SideNavigation-HeaderText {
   display: block;
   margin: 10px 0 0 0;
+
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
+
   @include lessThan($tiny) {
     margin: 0;
   }
@@ -505,12 +510,12 @@ export default Vue.extend({
       top: 0;
       bottom: 0;
       left: 0;
-      z-index: z-index-of(opened-side-navigation);
       display: block !important;
       width: 100%;
+      z-index: z-index-of(opened-side-navigation);
+      background-color: $white;
       height: 100%;
       overflow: auto;
-      background-color: $white;
       -webkit-overflow-scrolling: touch;
     }
   }
@@ -533,16 +538,18 @@ export default Vue.extend({
 
   .SideNavigation-Social {
     display: flex;
+    list-style: none;
     padding: 0;
     margin-bottom: 15px;
-    list-style: none;
 
     .SideNavigation-SocialLink-ListItem {
       .SideNavigation-SocialLink {
         display: block;
-        color: $gray-3;
+        width: 30px;
+        height: 30px;
         border: 1px dotted transparent;
         border-radius: 15px;
+        color: $gray-3;
 
         &:link,
         &:hover,
@@ -555,7 +562,7 @@ export default Vue.extend({
         &:focus {
           color: inherit;
           text-decoration: none;
-          border: 1px dotted $gray-3;
+          border: 2px solid $focus;
           outline: none;
         }
 
@@ -575,16 +582,11 @@ export default Vue.extend({
 
 .SideNavigation-Copyright {
   display: inline-block;
-  font-weight: 600;
-  line-height: 1.3;
   color: $gray-1;
-  @include font-size(10);
-}
+  line-height: 1.3;
+  font-weight: 600;
 
-.SideNavigation-LicenseLink {
-  &:focus {
-    outline: 1px dotted $gray-3;
-  }
+  @include font-size(10);
 }
 
 .SideNavigation-GMarkWrapper {

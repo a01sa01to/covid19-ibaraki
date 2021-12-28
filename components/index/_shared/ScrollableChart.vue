@@ -112,8 +112,8 @@ export default options
 
 <style lang="scss" scoped>
 .LegendStickyChart {
-  position: relative;
   margin: 16px 0;
+  position: relative;
 
   .scrollable {
     overflow-x: scroll;
@@ -122,8 +122,8 @@ export default options
   .sticky-legend {
     position: absolute;
     top: 0;
-    width: 100%;
     pointer-events: none;
+    width: 100%;
   }
 }
 </style>

@@ -34,7 +34,7 @@
         <slot name="attentionNote" />
       </div>
 
-      <div class="DataView-Description">
+      <div v-if="$slots.description" class="DataView-Description">
         <slot name="description" />
       </div>
 
@@ -49,13 +49,15 @@
       <div
         :id="titleId + '--description'"
         ref="Description"
-        class="DataView-Description DataView-Description--Additional"
+        class="DataView-Description"
         :class="{
           'DataView-Description--Minimized-Additional':
             !isAdditionalDescriptionExpanded && !isAlreadyShowingDescription,
         }"
       >
-        <slot name="additionalDescription" />
+        <div class="DataView-Description--Inner">
+          <slot name="additionalDescription" />
+        </div>
 
         <button
           v-if="
@@ -64,7 +66,7 @@
             !isAlreadyShowingDescription
           "
           :class="[
-            'DataView-Description DataView-Description--Toggle',
+            'DataView-Description--Toggle',
             isAdditionalDescriptionExpanded ? 'expand' : '',
           ]"
           :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
@@ -240,22 +242,22 @@ export default Vue.extend({
 
   &-Header {
     display: flex;
-    flex-flow: column;
     align-items: flex-start;
+    flex-flow: column;
     padding: 0 10px;
 
     @include largerThan($medium) {
       padding: 0 5px;
 
       &.title-row {
-        flex-flow: row;
         justify-content: space-between;
+        flex-flow: row;
       }
     }
 
     @include largerThan($large) {
-      flex-flow: row;
       justify-content: space-between;
+      flex-flow: row;
       padding: 0;
 
       &.with-dataSetPanel {
@@ -267,16 +269,17 @@ export default Vue.extend({
   &-Inner {
     display: flex;
     flex-flow: column;
-    height: 100%;
     padding: 22px;
+    height: 100%;
   }
 
   &-Title {
     width: 100%;
     margin-bottom: 10px;
-    font-weight: normal;
     line-height: 1.5;
+    font-weight: normal;
     color: $gray-2;
+
     @include font-size(20);
 
     &.with-dataSetPanel {
@@ -327,13 +330,12 @@ export default Vue.extend({
     position: relative;
     margin: 10px 0;
     color: $gray-3;
-    outline-offset: 4px;
     @include font-size(12);
 
     ul,
     ol {
-      padding-left: 1em;
       list-style: disc inside;
+      padding-left: 1em;
 
       li {
         margin-left: 1.5em;
@@ -342,13 +344,17 @@ export default Vue.extend({
     }
 
     .ListStyleNone {
-      padding-left: 0;
       list-style: none;
+      padding-left: 0;
 
       li {
         margin-left: 0;
         text-indent: 0;
       }
+    }
+
+    &--Inner {
+      padding: 4px 4px 20px;
     }
 
     &--Minimized-Additional {
@@ -358,12 +364,12 @@ export default Vue.extend({
 
       &::after {
         position: absolute;
-        bottom: 0;
         z-index: 1;
+        bottom: 0;
+        content: '';
         display: block;
         width: 100%;
         height: 70px;
-        content: '';
         background: linear-gradient(
           to bottom,
           rgba(250, 252, 252, 0) 0%,
@@ -374,17 +380,18 @@ export default Vue.extend({
 
     &--Toggle {
       position: absolute;
-      bottom: 0;
-      left: 50%;
       z-index: 2;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
       display: inline-flex;
       align-items: center;
-      align-self: center;
-      padding: 5px 8px;
-      cursor: pointer;
-      background-color: $gray-3;
       border-radius: 4px;
-      transform: translateX(-50%);
+      padding: 5px 8px;
+      background-color: $gray-3;
+      align-self: center;
+      cursor: pointer;
+      outline-offset: 2px;
 
       &.expand {
         position: relative;
@@ -432,8 +439,8 @@ export default Vue.extend({
 
     ul,
     ol {
-      padding: 0;
       list-style-type: none;
+      padding: 0;
     }
 
     .Permalink {
@@ -447,11 +454,12 @@ export default Vue.extend({
   }
 
   &-AttentionNote {
-    padding: 12px;
     margin: 10px 0;
-    color: $gray-2;
+    padding: 12px;
     background-color: $notice;
     border-radius: 4px;
+    color: $gray-2;
+
     @include font-size(12);
 
     p {

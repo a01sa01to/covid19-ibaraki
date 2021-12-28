@@ -12,7 +12,7 @@
 
 | アプリケーション名 | バージョン(指定がある場合のみ、記載する) | インストール条件 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/ja/)|14.16.0以上|必須|
+|[Node.js](https://nodejs.org/ja/)|16.13.0以上|必須|
 |[Visual Studio Code](https://code.visualstudio.com/)| |[Visual Studio Codeを利用する場合](#1-1-visual-studio-codeの拡張機能)|
 |[yarn](https://classic.yarnpkg.com/ja/)| |[本プログラムをyarnで実行する場合](#2-1-yarn-を使う場合)|
 |[docker compose](https://docs.docker.com/compose/install/)| |[本プログラムをdocker composeで実行する場合](#2-2-docker-compose-を使う場合)|
@@ -184,3 +184,23 @@ $ yarn generate-data-converters
 また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
 
 JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。
+
+---
+
+## 7. 依存性の管理
+
+※ 以下のものは、東京都版の内容です。茨城県版は時々東京都版をマージすることで更新しています。
+
+このプロジェクトでは、[Renovate](https://github.com/renovatebot/renovate)によって依存性の更新を管理しています。<br>
+適用されるルールについては、[renovate.json](./.github/renovate.json)を参照してください。
+
+### 7-1. Node.jsのバージョンアップ
+
+このプロジェクトでは、Node.jsをRenovateの管理対象から除外しています。<br>
+Node.jsのバージョンを更新したい場合、次の手順に従ってください。
+
+1. このプロジェクトの現在のNode.jsバージョンを確認
+2. 現在のNode.jsバージョンを示す文字列（例：14.16.x）をすべて新しいバージョン（例：14.16.y）に置換
+3. 指定したNodeのバージョンを手元の環境にもセットアップしてからyarn.lockを再生成しコミットする
+
+Visual Studio Codeなどのエディタの検索機能で一括置換するのが簡単でしょう。
