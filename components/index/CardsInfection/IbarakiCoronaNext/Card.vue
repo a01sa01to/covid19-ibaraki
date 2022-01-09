@@ -63,6 +63,7 @@
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.pillar.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
                 <td>
                   <span
@@ -70,6 +71,7 @@
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.sickbed.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
               </tr>
               <tr :class="$style.additionalData">
@@ -120,6 +122,7 @@
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.new_patients.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
                 <td>
                   <span
@@ -131,6 +134,7 @@
                   />
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
+                  <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
               </tr>
               <tr :class="$style.additionalData">
