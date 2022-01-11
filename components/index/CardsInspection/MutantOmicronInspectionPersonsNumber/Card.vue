@@ -12,16 +12,22 @@
         :labels="labels"
         :data-labels="chartLabels"
         :table-labels="tableLabels"
-        :info-titles="[$t('検査数'), $t('陽性割合')]"
+        :info-titles="[
+          $t('検査数'),
+          $t('オミクロン株の可能性のある検体の割合'),
+        ]"
         :table-data="tableData"
         :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_test_people'"
       >
         <template #description>
           <ul>
             <li>
+              {{ $t('検査数は、県衛生研究所のものである。') }}
+            </li>
+            <li>
               {{
                 $t(
-                  '検査数は、県衛生研究所のものである。また、陽性者数は県衛生研究所の検査により判明した数である。なお、陽性者数は検査結果の判明日を基準とする。'
+                  'ここで「陽性例」として表示している検体数は、L452R変異株の陰性例であり、あくまで「オミクロン株の可能性のある検体数」である。後の検査でオミクロン株かどうか判定されるため、ここでの陽性例数は実際のオミクロン株陽性数とは異なる。'
                 )
               }}
             </li>
