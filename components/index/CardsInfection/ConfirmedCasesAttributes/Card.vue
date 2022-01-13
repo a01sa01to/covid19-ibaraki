@@ -64,6 +64,12 @@ import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
+interface MetaData {
+  startCursor: string
+  hasPreviousPage: boolean
+  updated: string
+}
+
 type DataT = {
   dataLength: number
   sumInfoOfPatients: {
@@ -74,11 +80,12 @@ type DataT = {
   date: string
   page: number
   itemsPerPage: 15 | 30 | 50 | 100 | 200 | 300 | 500 | 1000
-  endCursor: number
+  startCursor: string
+  hasPreviousPage: boolean
   patientsData: DataType[]
 }
 type Methods = {
-  fetchOpenAPI: () => Promise<{ patientsData: DataType }>
+  fetchOpenAPI: () => Promise<{ patientsData: DataType[]; metaData: MetaData }>
   fetchIfNoCache: () => void
   onChangeItemsPerPage: (itemsPerPage: DataT['itemsPerPage']) => void
   onChangePage: (page: number) => void
@@ -116,10 +123,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       dataLength,
       sumInfoOfPatients,
-      date: Data.lastUpdate,
+      date: '',
       page: 1,
       itemsPerPage: 15,
-      endCursor: dataLength,
+      hasPreviousPage: true,
+      startCursor: '',
       patientsData: [],
     }
   },
@@ -139,30 +147,73 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   async fetch() {
-    if (this.endCursor > 0) {
-      const { patientsData } = await this.fetchOpenAPI()
-      this.endCursor -= patientsData.length
+    if (this.hasPreviousPage) {
+      const { patientsData, metaData } = await this.fetchOpenAPI()
       this.patientsData = this.patientsData.concat(patientsData)
+      this.startCursor = metaData.startCursor
+      this.hasPreviousPage = metaData.hasPreviousPage
+      this.date = metaData.updated
       this.fetchIfNoCache()
     }
   },
   fetchOnServer: false, // i18nによる日付の変換ができないのでサーバーでは無効化
   methods: {
     async fetchOpenAPI() {
-      const lastIndividualNum = this.endCursor - this.itemsPerPage + 1
-      const endpoint =
-        'https://a01sa01to.com/opendata/data/covid19_ibaraki/080004_ibaraki_covid19_patients.csv?mode=json&filter='
-      const url =
-        endpoint +
-        encodeURIComponent(
-          `num__No__under__${this.endCursor};num__No__over__${
-            lastIndividualNum < 1 ? 1 : lastIndividualNum
-          };key__["No","公表_年月日","患者_濃厚接触者フラグ","患者_居住地","患者_年代","患者_性別","患者_職業","発症_年月日"]`
-        )
-
-      return await fetch(url)
+      const endpoint = 'https://a01sa01to.com/opendata/api/'
+      return await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+            query {
+              covid19_ibaraki {
+                patients(last: ${this.itemsPerPage}${
+            this.startCursor ? `, before: "${this.startCursor}"` : ''
+          }) {
+                  dataset {
+                    no
+                    publish_date
+                    onset_date
+                    address
+                    age
+                    gender
+                    occupation
+                    close_contact
+                  }
+                  pageinfo {
+                    hasPreviousPage
+                    startCursor
+                  }
+                  last_update
+                }
+              }
+            }
+          `,
+        }),
+      })
         .then((response) => response.json())
-        .then((data) => ({ patientsData: data.reverse() }))
+        .then((res) => {
+          const data: {
+            dataset: DataType[]
+            pageinfo: {
+              hasPreviousPage: boolean
+              startCursor: string
+            }
+            // eslint-disable-next-line camelcase
+            last_update: string
+          } = res.data.covid19_ibaraki.patients
+          return {
+            patientsData: data.dataset.reverse(),
+            metaData: {
+              startCursor: data.pageinfo.startCursor,
+              hasPreviousPage: data.pageinfo.hasPreviousPage,
+              // eslint-disable-next-line camelcase
+              updated: data.last_update,
+            },
+          }
+        })
         .catch((error) => {
           throw new Error(error.toString())
         })
@@ -173,7 +224,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     onChangeItemsPerPage(itemsPerPage) {
       this.itemsPerPage = itemsPerPage
-      this.endCursor = this.dataLength
+      this.startCursor = ''
       this.patientsData = []
       this.$fetch()
     },

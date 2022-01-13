@@ -5,3 +5,5 @@ static/
 assets/
 libraries/auto_generated
 vendor/
+
+utils/formatTable.ts

@@ -17,25 +17,25 @@ const headers: Header[] = [
 ]
 
 export type DataType = {
-  No: number
-  公表_年月日: string
-  発症_年月日: string | undefined
-  患者_居住地: string | undefined
-  患者_年代: string | undefined
-  患者_性別: '男性' | '女性' | string
-  患者_職業: string | undefined
-  患者_濃厚接触者フラグ: number | undefined
+  no: number
+  publish_date: string
+  onset_date: string | null
+  address: string | null
+  age: string | undefined
+  gender: '男性' | '女性' | string
+  occupation: string | null
+  close_contact: boolean
   [key: string]: any
 }
 
 type TableDataType = {
   整理番号: number
   公表日: string
-  居住地: DataType['患者_居住地']
-  年代: DataType['患者_年代']
-  性別: DataType['患者_性別'] | '不明'
-  職業: DataType['患者_職業']
-  発症日: DataType['発症_年月日']
+  居住地: DataType['address']
+  年代: DataType['age']
+  性別: DataType['gender'] | '不明'
+  職業: DataType['occupation']
+  発症日: DataType['onset_date']
   濃厚接触者: string
 }
 
@@ -51,14 +51,14 @@ export type TableDateType = {
  */
 export function formatTable(data: DataType[]): TableDateType {
   const datasets = data.map((d) => ({
-    整理番号: d.No,
-    公表日: d['公表_年月日'] ?? '不明',
-    居住地: d['患者_居住地'] ?? '調査中',
-    年代: d['患者_年代'] ?? '不明',
-    性別: d['患者_性別'] ?? '不明',
-    職業: d['患者_職業'] ?? '-',
-    発症日: d['発症_年月日'] ?? '',
-    濃厚接触者: d['患者_濃厚接触者フラグ'] ? '○' : '',
+    整理番号: d['no'],
+    公表日: d['publish_date'] ?? '不明',
+    居住地: d['address'] ?? '調査中',
+    年代: d['age'] ?? '不明',
+    性別: d['gender'] ?? '不明',
+    職業: d['occupation'] ?? '-',
+    発症日: d['onset_date'] ?? '',
+    濃厚接触者: d['close_contact'] ? '○' : '',
   }))
   return {
     headers,
