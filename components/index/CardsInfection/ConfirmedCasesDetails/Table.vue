@@ -172,7 +172,7 @@ export default Vue.extend({
 <style lang="scss" module>
 $default-bdw: 3px;
 $default-boxdiff: 35px;
-// .container > .box > (.group > .box > ...) .pillar > .content
+// .container > .box > (.group > .box > ...) .severe > .content
 
 .container {
   box-sizing: border-box;

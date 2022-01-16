@@ -54,7 +54,7 @@
                   <span :class="$style.unit">%</span>
                 </td>
                 <td>
-                  <strong>{{ statusData.pillar.toFixed(1) }}</strong>
+                  <strong>{{ statusData.severe.toFixed(1) }}</strong>
                   <span :class="$style.unit">%</span>
                 </td>
                 <td>
@@ -74,10 +74,10 @@
                 <td>
                   <span
                     :class="['stageMark', 'MarkSmall']"
-                    :style="stageToStyle(stage.pillar)"
+                    :style="stageToStyle(stage.severe)"
                   />
                   <span :class="$style.unit">Stage</span>
-                  <strong>{{ stage.pillar }}</strong>
+                  <strong>{{ stage.severe }}</strong>
                 </td>
                 <td>
                   <span
@@ -96,7 +96,7 @@
                 </td>
                 <td>
                   <span :class="$style.delta">{{ $t('前週比') }}:&nbsp;</span>
-                  <strong>{{ deltaStr.pillar }}</strong>
+                  <strong>{{ deltaStr.severe }}</strong>
                   <span :class="$style.unit">%</span>
                 </td>
                 <td>
@@ -295,7 +295,7 @@ export default {
     const coronaNext = Data.ibk_corona_next
     const stage = {
       sickbed: 2,
-      pillar: 2,
+      severe: 2,
       care: 2,
       // care_rate: 2,
       posi_rate: 2,
@@ -305,7 +305,7 @@ export default {
 
     const _ = {
       sickbed: (coronaNext.sickbed / 791) * 100,
-      pillar: (coronaNext.pillar / 70) * 100,
+      severe: (coronaNext.severe / 70) * 100,
       care: (coronaNext.care / PrefPopulation) * 10e4,
       // care_rate: coronaNext.care_rate,
       new_patients: ((coronaNext.new_patients * 7) / PrefPopulation) * 10e4,
@@ -315,7 +315,7 @@ export default {
     }
     const _Y = {
       sickbed: (coronaNext.sickbed_lastweek / 600) * 100,
-      pillar: (coronaNext.pillar_lastweek / 70) * 100,
+      severe: (coronaNext.severe_lastweek / 70) * 100,
       care: (coronaNext.care_lastweek / PrefPopulation) * 10e4,
       // care_rate: coronaNext.care_rate_lastweek,
       new_patients:
@@ -333,7 +333,7 @@ export default {
     // [ _でのKey, Stage2->3, Stage3->4]
     const list = [
       ['sickbed', 20, 50],
-      ['pillar', 20, 50],
+      ['severe', 20, 50],
       ['care', 20, 30],
       // ['care_rate', 40, 25],
       ['new_patients', 15, 25],

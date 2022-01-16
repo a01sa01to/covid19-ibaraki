@@ -48,7 +48,7 @@
             <tbody>
               <tr>
                 <td>
-                  <strong>{{ patients.pillar.toFixed(0) }}</strong>
+                  <strong>{{ patients.severe.toFixed(0) }}</strong>
                   <span :class="$style.unit">{{ $t('床.bed') }}</span>
                 </td>
                 <td>
@@ -59,10 +59,10 @@
               <tr>
                 <td>
                   <span
-                    :class="['stageMark', 'MarkSmall', `stage${stage.pillar}`]"
+                    :class="['stageMark', 'MarkSmall', `stage${stage.severe}`]"
                   />
                   <span :class="$style.unit">Stage</span>
-                  <strong>{{ stage.pillar.toLocaleString() }}</strong>
+                  <strong>{{ stage.severe.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
                 <td>
@@ -77,7 +77,7 @@
               <tr :class="$style.additionalData">
                 <td>
                   <span :class="$style.delta">{{ $t('前週比') }}:&nbsp;</span>
-                  <strong>{{ deltaStr.pillar }}</strong>
+                  <strong>{{ deltaStr.severe }}</strong>
                   <span :class="$style.unit">{{ $t('床.bed') }}</span>
                 </td>
                 <td>
@@ -207,20 +207,20 @@ export default {
   data() {
     const patients = Data.ibk_corona_next
     const stage = {
-      pillar: 1,
+      severe: 1,
       sickbed: 1,
       new_patients: 1,
       non_closecontact: 1,
     }
 
     const _ = {
-      pillar: patients.pillar,
+      severe: patients.severe,
       sickbed: patients.sickbed,
       new_patients: patients.new_patients,
       non_closecontact: patients.non_closecontact,
     }
     const _Y = {
-      pillar: patients.pillar_lastweek,
+      severe: patients.severe_lastweek,
       sickbed: patients.sickbed_lastweek,
       new_patients: patients.new_patients_lastweek,
       non_closecontact: patients.non_closecontact_lastweek,
@@ -231,7 +231,7 @@ export default {
     }
     // [ _でのKey, Stage1->2の境値, Stage2->3, Stage3->4]
     const list = [
-      ['pillar', 7, 12, 24],
+      ['severe', 7, 12, 24],
       ['sickbed', 67, 185, 287],
       ['new_patients', 20, 60, 100],
       ['non_closecontact', 10, 25, 40],
@@ -262,7 +262,7 @@ export default {
 
     const deltaStr = {}
     for (const key in delta) {
-      if (key === 'pillar' || key === 'sickbed') {
+      if (key === 'severe' || key === 'sickbed') {
         deltaStr[key] = formatDelta(delta[key], 0)
       } else {
         deltaStr[key] = formatDelta(delta[key], 1)

@@ -51,7 +51,7 @@ export default {
     const patientsGraph = formatGraph(
       Data.mutant_summary.data.filter((d) => d.name === 'Omicron')
     )
-    const date = Data.mutant_summary.date
+    const date = '2022-01-15 23:59'
 
     const [everydayCount, labels, cumulativeCount] = patientsGraph.reduce(
       (res, data) => {

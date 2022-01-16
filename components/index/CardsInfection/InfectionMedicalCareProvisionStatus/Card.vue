@@ -58,7 +58,7 @@ export default Vue.extend<DataType, Methods, Computed, Props>({
       recover: Data.recovered_summary.data.slice(-1)[0].total,
       death: Data.deaths_summary.data.slice(-1)[0].total,
       care: Data.ibk_corona_next.sickbed,
-      severe: Data.ibk_corona_next.pillar,
+      severe: Data.ibk_corona_next.severe,
     }
     const date = dayjs(Data.lastUpdate).format('YYYY/MM/DD HH:mm')
     return {
