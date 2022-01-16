@@ -68,13 +68,13 @@ export default Vue.extend({
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
         UntrackedRateCard,
-        MutantOmicronConfirmedCasesNumberCard,
         RecoveredCard,
         DeathsCard,
       ],
       hideRows: [
         MutantAlphaConfirmedCasesNumberCard,
         MutantDeltaConfirmedCasesNumberCard,
+        MutantOmicronConfirmedCasesNumberCard,
       ],
     }
   },
