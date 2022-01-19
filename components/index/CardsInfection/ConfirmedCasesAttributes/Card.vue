@@ -42,7 +42,7 @@
           <p style="margin-bottom: 4px">
             {{
               $t(
-                '整理番号に「*（アスタリスク）」がついている方については、概要のみが公表されているため、年代・性別が異なっている可能性がある'
+                '整理番号に「*（アスタリスク）」がついている方については、概要のみが公表されているため、属性が異なっている可能性がある'
               )
             }}
           </p>
@@ -257,6 +257,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         [4661, 4677],
         [5006, 5033],
         [5632, 5669],
+        [26516, 26855],
       ]
       for (const range of summaryOnly) {
         if (range[0] <= num && num <= range[1]) {
