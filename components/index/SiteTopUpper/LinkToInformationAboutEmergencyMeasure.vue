@@ -7,7 +7,7 @@
       >
         {{ mdiBullhorn }}
       </v-icon>
-      {{ $t('緊急事態宣言発令中') }}
+      {{ $t('まん延防止等重点措置 適用中') }}
     </app-link>
   </span>
 </template>
@@ -33,8 +33,8 @@ export default Vue.extend({
   display: inline-flex;
   padding: 4px 8px;
   color: $gray-2;
-  background-color: $focus;
-  border: 2px solid $focus;
+  background-color: $notice;
+  border: 2px solid $notice;
   border-radius: 4px;
   @include font-size(16);
 
