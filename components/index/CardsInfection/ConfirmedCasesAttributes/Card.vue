@@ -258,7 +258,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         [5006, 5033],
         [5632, 5669],
         [26516, 26855],
-        [26909, 29311],
+        [26909, 29958],
       ]
       for (const range of summaryOnly) {
         if (range[0] <= num && num <= range[1]) {
