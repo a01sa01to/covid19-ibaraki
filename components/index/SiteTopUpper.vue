@@ -5,13 +5,13 @@
         '茨城県新型コロナウイルス感染症ポータルサイト（stopcovid19-ibaraki.jp）は、茨城県新型コロナウイルス対策サイト（ibaraki.stopcovid19.jp）に統合されました。'
       )
     }}</static-card>
-    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
-    <!-- <static-info
+    <whats-new class="mb-4" :items="newsItems" :is-emergency="true" />
+    <static-info
       class="mb-4"
       :url="localePath('emergency-measures')"
       :text="$t('まん延防止等重点措置が適用されています')"
       :btn-text="$t('対策等についてはこちら')"
-    /> -->
+    />
     <static-info
       class="mb-4"
       :url="'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html'"
