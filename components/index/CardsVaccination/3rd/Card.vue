@@ -2,9 +2,9 @@
   <v-col cols="12" md="6" class="DataCard VaccinationCard">
     <client-only>
       <chart
-        :title="$t('ワクチン接種回数（2回目）')"
-        title-id="vaccination-2nd"
-        chart-id="vaccination-2nd-chart"
+        :title="$t('ワクチン接種回数（3回目）')"
+        title-id="vaccination-3rd"
+        chart-id="vaccination-3rd-chart"
         :info-titles="[$t('累計接種数'), $t('接種率')]"
         :chart-data="chartData"
         :date="date"
@@ -72,8 +72,8 @@ export default Vue.extend({
     const prefPopulation = CityData.reduce((a, b) => a + b.population, 0) - 9e4
     const summaryGraph = formatGraph(
       Data.vaccine_summary
-        .filter((_) => new Date(_.date) >= new Date('2021-05-01'))
-        .map((_) => ({ date: _.date, total: _.status_2 }))
+        .filter((_) => new Date(_.date) >= new Date('2021-11-28'))
+        .map((_) => ({ date: _.date, total: _.status_3 }))
     )
     const date = Data.lastUpdate
     const vaccineDate = this.$d(

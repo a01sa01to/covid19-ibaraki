@@ -19,6 +19,7 @@ while i < len(file_content):
     'count': file_content[i]['count'],
     'status_1': file_content[i]['count'] if file_content[i]['status']==1 else 0,
     'status_2': file_content[i]['count'] if file_content[i]['status']==2 else 0,
+    'status_3': file_content[i]['count'] if file_content[i]['status']==3 else 0,
   }
   for j in range(1,len(file_content)-i):
     print(i, j);
@@ -26,8 +27,10 @@ while i < len(file_content):
       new_content['count'] += file_content[i+j]['count']
       if file_content[i+j]['status'] == 1:
         new_content['status_1'] += file_content[i+j]['count']
-      else:
+      elif file_content[i+j]['status'] == 2:
         new_content['status_2'] += file_content[i+j]['count']
+      elif file_content[i+j]['status'] == 3:
+        new_content['status_3'] += file_content[i+j]['count']
     else:
       i += j-1
       break
