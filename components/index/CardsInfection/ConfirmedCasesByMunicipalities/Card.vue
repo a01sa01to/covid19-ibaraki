@@ -70,9 +70,10 @@ export default {
       area: this.$t('─'),
       label: this.$t('県全体'),
       ruby: this.$t('─'),
-      count: 0,
+      count_num: 0,
       countRecent: 0,
       population: 0,
+      count: '0',
     }
 
     data.forEach((city) => {
@@ -83,12 +84,15 @@ export default {
       city.rate = Number((city.total / city.population) * 10000)
 
       allData.population += CData.population
-      allData.count += city.total
+      allData.count_num += city.total
     })
 
     allData.countRecent = Number(
-      (allData.count / allData.population) * 10000
+      (allData.count_num / allData.population) * 10000
     ).toFixed(3)
+
+    allData.count = countFormatter(allData.count_num)
+    delete allData.count_num
 
     data.sort((a, b) => {
       // 全体を陽性者数でソート
