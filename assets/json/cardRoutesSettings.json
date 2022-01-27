@@ -178,5 +178,13 @@
     "ogpWidth": 959,
     "ogpHeight": 1051,
     "deprecated": false
+  },
+  {
+    "path": "/cards/vaccination-3rd",
+    "title": "ワクチン接種回数（3回目）",
+    "category": "ワクチン接種状況",
+    "ogpWidth": 959,
+    "ogpHeight": 1051,
+    "deprecated": false
   }
 ]
