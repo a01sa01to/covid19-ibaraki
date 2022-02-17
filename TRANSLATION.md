@@ -5,7 +5,7 @@ We are using Transifex to manage the resources that are used by internationalize
 ## For contributors of translations
 
 Please go to our project page on the Transifex.<br>
-https://www.transifex.com/asas-4/covid19-ibaraki/
+https://www.transifex.com/covid19-ibaraki/covid19-ibaraki/
 
 Please join our team from `Help Translate "Covid19-Ibaraki"` button. You will need to make/login account before joining our team.
 
@@ -13,7 +13,7 @@ Please join our team from `Help Translate "Covid19-Ibaraki"` button. You will ne
 
 After joining, please go to the dashboard page.
 
-https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/
+https://www.transifex.com/covid19-ibaraki/covid19-ibaraki/dashboard/
 
 Press `Translate` button on the language resource that you want to contribute.
 
