@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1645953178",layout:"default",error:a,serverRendered:true,routePath:"\u002Fcards\u002Fnumber-of-mutant-alpha-confirmed-cases",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a}},__i18n:{langs:{}}}}(null));
