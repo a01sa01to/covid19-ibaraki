@@ -38,8 +38,6 @@ jobs:
         run: yarn run test
       - name: Generate
         run: yarn run generate:deploy --fail-on-page-error
-      - name: Generate Sitemap
-        run: python ./generate_sitemap/main.py
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
