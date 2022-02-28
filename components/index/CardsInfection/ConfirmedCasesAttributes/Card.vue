@@ -159,7 +159,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   fetchOnServer: false, // i18nによる日付の変換ができないのでサーバーでは無効化
   methods: {
     async fetchOpenAPI() {
-      const endpoint = 'https://a01sa01to.com/opendata/api/'
+      const endpoint = 'https://a01sa01to.com/api/opendata/'
       return await fetch(endpoint, {
         method: 'POST',
         headers: {
