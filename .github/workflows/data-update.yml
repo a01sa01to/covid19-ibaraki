@@ -13,7 +13,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -40,7 +40,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -67,7 +67,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -94,7 +94,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -121,7 +121,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -168,7 +168,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -195,7 +195,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Download File
@@ -367,7 +367,7 @@ jobs:
         with:
           ref: development
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.3.2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Restore
