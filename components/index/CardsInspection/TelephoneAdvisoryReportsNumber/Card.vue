@@ -8,7 +8,7 @@
         :chart-data="contactsGraph"
         :date="date"
         :unit="$t('件')"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/call_center'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/call-center/'"
       />
       <slot name="breadCrumb" />
     </client-only>

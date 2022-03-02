@@ -7,7 +7,7 @@
         :table-data="patientsTable"
         :date="date"
         :info="sumInfoOfPatients"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/patients/'"
         :loaded="dataMargin >= 0"
         :error="$fetchState.error"
         :data-length="dataLength"

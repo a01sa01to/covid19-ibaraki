@@ -8,7 +8,7 @@
         :date="date"
         :info="info"
         :all-data="allData"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/patients/'"
       />
       <slot name="breadCrumb" />
     </client-only>

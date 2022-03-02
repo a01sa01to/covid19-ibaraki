@@ -5,7 +5,7 @@
         :title="$t('茨城版コロナNext')"
         :title-id="'ibaraki-corona-next'"
         :date="Data.ibk_corona_next.date"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/corona_next'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/corona-next/'"
       >
         <template #button>
           <ul :class="$style.note">
@@ -183,9 +183,9 @@
         <template #footer>
           <open-data-link
             v-show="
-              'https://a01sa01to.com/opendata/covid19_ibaraki/corona_next'
+              'https://a01sa01to.com/opendata/covid19-ibaraki/corona-next/'
             "
-            :url="'https://a01sa01to.com/opendata/covid19_ibaraki/corona_next'"
+            :url="'https://a01sa01to.com/opendata/covid19-ibaraki/corona-next/'"
           />
         </template>
       </data-view>

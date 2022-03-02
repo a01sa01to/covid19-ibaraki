@@ -7,7 +7,7 @@
         :chart-data="ageTable"
         :date="date"
         :info="info"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/patients/'"
       >
         <template #description>
           <ul>

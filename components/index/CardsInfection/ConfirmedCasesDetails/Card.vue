@@ -5,7 +5,7 @@
         :title="$t('検査陽性者の状況')"
         :title-id="'details-of-confirmed-cases'"
         :date="updatedAt"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients_summary'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/patients-summary/'"
       >
         <template #description>
           <ul>
@@ -40,7 +40,7 @@
         </template>
         <template #footer>
           <open-data-link
-            :url="'https://a01sa01to.com/opendata/covid19_ibaraki/patients_summary'"
+            :url="'https://a01sa01to.com/opendata/covid19-ibaraki/patients-summary/'"
           />
         </template>
       </data-view>
@@ -50,12 +50,12 @@
 </template>
 
 <script>
+// <table>タグとの競合回避のためConfirmedCasesDetailsTableにする
 import dayjs from 'dayjs'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-// <table>タグとの競合回避のためConfirmedCasesDetailsTableにする
 import ConfirmedCasesDetailsTable from '@/components/index/CardsInfection/ConfirmedCasesDetails/Table.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'

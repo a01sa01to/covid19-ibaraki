@@ -17,7 +17,7 @@
           $t('オミクロン株の可能性のある検体の割合'),
         ]"
         :table-data="tableData"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/mutant_test_people'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/mutant-test-people/'"
       >
         <template #description>
           <ul>

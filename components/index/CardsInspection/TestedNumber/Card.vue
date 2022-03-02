@@ -65,9 +65,9 @@
         <template #footer>
           <open-data-link
             v-show="
-              'https://a01sa01to.com/opendata/covid19_ibaraki/inspections_summary'
+              'https://a01sa01to.com/opendata/covid19-ibaraki/inspections-summary/'
             "
-            :url="'https://a01sa01to.com/opendata/covid19_ibaraki/inspections_summary'"
+            :url="'https://a01sa01to.com/opendata/covid19-ibaraki/inspections-summary/'"
           />
         </template>
       </data-view>
@@ -84,6 +84,7 @@ import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import Data from '@/data/data.json'
+
 dayjs.extend(duration)
 
 export default {

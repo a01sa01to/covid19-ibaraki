@@ -8,7 +8,7 @@
         :chart-data="deathsGraph"
         :date="Data.deaths_summary.date"
         :unit="$t('人')"
-        :url="'https://a01sa01to.com/opendata/covid19_ibaraki/death_number'"
+        :url="'https://a01sa01to.com/opendata/covid19-ibaraki/death-number/'"
       />
       <slot name="breadCrumb" />
     </client-only>
