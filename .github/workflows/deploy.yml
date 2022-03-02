@@ -13,7 +13,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           ref: production
       - name: Setup Node
@@ -59,7 +59,7 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           ref: prod-deploy
       - name: Install selenium with pip
@@ -80,7 +80,7 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           ref: prod-deploy
       - name: Download ogp images
@@ -108,7 +108,7 @@ jobs:
     needs: deploy
     steps:
       - name: Checkout production branch
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3
         with:
           ref: production
       - name: Set up Python 3.8

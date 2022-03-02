@@ -10,7 +10,7 @@ jobs:
     name: check_eslint_error
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3.0.0
         with:
@@ -38,7 +38,7 @@ jobs:
     name: check_stylelint_error
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: stylelint review
         uses: reviewdog/action-stylelint@v1.11
         with:
