@@ -8,8 +8,6 @@ consumer_key = os.environ['API_KEY']
 consumer_secret = os.environ['API_SECRET']
 access_token = os.environ['ACCESS_TOKEN']
 access_secret = os.environ['ACCESS_SECRET']
-access_token_asa = os.environ['ACCESS_TOKEN_ASA']
-access_secret_asa = os.environ['ACCESS_SECRET_ASA']
 
 CHECK_DIR = ["data"]
 ENCODING = "UTF-8"
@@ -33,8 +31,3 @@ param = {"status": status}
 req_tweet = twitter_cov19.post("https://api.twitter.com/1.1/statuses/update.json",params=param).json()
 
 print("TWEET ID: {}".format(req_tweet['id']))
-
-# Retweet as @a01sa01to
-twitter_asa = OAuth1Session(consumer_key,consumer_secret,access_token_asa,access_secret_asa)
-req_retweet = twitter_asa.post("https://api.twitter.com/1.1/statuses/retweet/{}.json".format(req_tweet['id'])).json()
-
