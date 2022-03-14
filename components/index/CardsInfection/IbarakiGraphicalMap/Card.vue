@@ -5,32 +5,27 @@
       :title-id="'ibaraki-graphical-map'"
       :date="date"
     >
-      <template #button>
-        <p :class="$style.note">
+      <template #description>
+        <p>
           {{ $t('・値は、直近1週間での人口1万人あたりの感染者数である') }}<br />
           {{ $t('・人口は2021年1月1日現在のものを用いた') }}<br />
           {{ $t('・白い地域は、直近1週間の感染者数が0人である') }}<br />
-          {{
-            $t(
-              '・国の指標では、1.5人以上がStage3、2.5人以上がStage4となっている'
-            )
-          }}<br />
         </p>
-        <p :class="$style.note2">{{ $t('凡例（単位は人）') }}</p>
-        <table :class="$style.note2">
+        <p>{{ $t('凡例（単位は人）') }}</p>
+        <table :class="$style.note">
           <tbody>
             <tr>
               <td>
-                <span class="color-test infected-level1" />{{ $t('0.5未満') }}
+                <span class="color-test infected-level1" />{{ $t('5未満') }}
               </td>
-              <td><span class="color-test infected-level2" />0.5 - 1.0</td>
-              <td><span class="color-test infected-level3" />1.0 - 1.5</td>
+              <td><span class="color-test infected-level2" />5 - 10</td>
+              <td><span class="color-test infected-level3" />10 - 15</td>
             </tr>
             <tr>
-              <td><span class="color-test infected-level4" />1.5 - 2.0</td>
-              <td><span class="color-test infected-level5" />2.0 - 2.5</td>
+              <td><span class="color-test infected-level4" />15 - 20</td>
+              <td><span class="color-test infected-level5" />20 - 25</td>
               <td>
-                <span class="color-test infected-level6" />{{ $t('2.5以上') }}
+                <span class="color-test infected-level6" />{{ $t('25以上') }}
               </td>
             </tr>
           </tbody>
@@ -71,11 +66,11 @@ export default {
       )
 
       if (rate === 0) targetElement.classList.add('infected-level0')
-      else if (rate < 0.5) targetElement.classList.add('infected-level1')
-      else if (rate < 1.0) targetElement.classList.add('infected-level2')
-      else if (rate < 1.5) targetElement.classList.add('infected-level3')
-      else if (rate < 2.0) targetElement.classList.add('infected-level4')
-      else if (rate < 2.5) targetElement.classList.add('infected-level5')
+      else if (rate < 5) targetElement.classList.add('infected-level1')
+      else if (rate < 10) targetElement.classList.add('infected-level2')
+      else if (rate < 15) targetElement.classList.add('infected-level3')
+      else if (rate < 20) targetElement.classList.add('infected-level4')
+      else if (rate < 25) targetElement.classList.add('infected-level5')
       else targetElement.classList.add('infected-level6')
     })
   },
@@ -84,21 +79,14 @@ export default {
 
 <style lang="scss" module>
 .note {
-  @include font-size(12);
+  @include font-size(14);
 
-  margin-top: 10px;
-  margin-bottom: 0;
-  color: $gray-3;
-
-  &2 {
-    @include font-size(14);
-
-    td {
-      padding-left: 16px;
-    }
+  td {
+    padding-right: 1em;
   }
 }
 </style>
+
 <!-- 本来ならばSVGをinline展開してそこに限定してcssを適用するべきだが、inline展開ができなかったため妥協 -->
 <style lang="scss">
 $infected-level0: #fff;
