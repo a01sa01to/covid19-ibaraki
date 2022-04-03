@@ -26,8 +26,10 @@
                 <span>
                   {{ $t('現在の対策状況：') }}
                   <span :class="$style.unit">Stage</span>
-                  <strong>{{ Data.ibk_corona_next.stage }}</strong
-                  ><br />
+                  <strong>
+                    {{ Data.ibk_corona_next.stage }}
+                  </strong>
+                  <br />
                   {{ $t('（{date}から）', { date: formattedMoveDate }) }}
                 </span>
               </div>

@@ -84,8 +84,9 @@
                   : 'none',
               }"
               size="2.4rem"
-              >{{ mdiChevronRight }}</v-icon
             >
+              {{ mdiChevronRight }}
+            </v-icon>
           </span>
           <span
             v-if="isAdditionalDescriptionExpanded"

@@ -15,8 +15,10 @@
           class="Sitemap-deprecatedData"
           :aria-label="$t('データの更新が終了しています')"
           :title="$t('データの更新が終了しています')"
-          >{{ mdiAlertCircleOutline }}</v-icon
-        >{{
+        >
+          {{ mdiAlertCircleOutline }}
+        </v-icon>
+        {{
           $t(
             'のアイコンが表示されているものは、データの更新が終了したことを表しています。'
           )
@@ -40,8 +42,9 @@
                 class="Sitemap-deprecatedData"
                 :aria-label="$t('データの更新が終了しています')"
                 :title="$t('データの更新が終了しています')"
-                >{{ mdiAlertCircleOutline }}</v-icon
               >
+                {{ mdiAlertCircleOutline }}
+              </v-icon>
               {{ $t(card.title) }}
             </app-link>
           </li>
@@ -65,8 +68,9 @@
                 class="Sitemap-deprecatedData"
                 :aria-label="$t('データの更新が終了しています')"
                 :title="$t('データの更新が終了しています')"
-                >{{ mdiAlertCircleOutline }}</v-icon
               >
+                {{ mdiAlertCircleOutline }}
+              </v-icon>
               {{ $t(card.title) }}
             </app-link>
           </li>
@@ -90,8 +94,9 @@
                 class="Sitemap-deprecatedData"
                 :aria-label="$t('データの更新が終了しています')"
                 :title="$t('データの更新が終了しています')"
-                >{{ mdiAlertCircleOutline }}</v-icon
               >
+                {{ mdiAlertCircleOutline }}
+              </v-icon>
               {{ $t(card.title) }}
             </app-link>
           </li>

@@ -51,8 +51,8 @@
             </li>
           </ul>
         </template>
-        <template #additionalDescription
-          ><ul class="ListStyleNone">
+        <template #additionalDescription>
+          <ul class="ListStyleNone">
             <li>
               {{
                 $t(
@@ -60,8 +60,8 @@
                 )
               }}
             </li>
-          </ul></template
-        >
+          </ul>
+        </template>
       </chart>
       <slot name="breadCrumb" />
     </client-only>

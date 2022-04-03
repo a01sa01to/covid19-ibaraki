@@ -16,26 +16,28 @@
               <td class="pref text-center">
                 {{ $t(item['自治体']) }}
                 <span v-if="item['公式'] === '1'">{{ $t('【公認】') }}</span>
-                <span v-else-if="item['公式'] === '2'">{{
-                  $t('【公式】')
-                }}</span>
+                <span v-else-if="item['公式'] === '2'">
+                  {{ $t('【公式】') }}
+                </span>
               </td>
               <td class="site text-center">
                 <a
                   v-if="item['URL'] === 'https://ibaraki.stopcovid19.jp/'"
                   href="#"
-                  >{{ item['URL'] }}</a
                 >
-                <a v-else :href="item['URL']" target="_blank">{{
-                  item['URL']
-                }}</a>
+                  {{ item['URL'] }}
+                </a>
+                <a v-else :href="item['URL']" target="_blank">
+                  {{ item['URL'] }}
+                </a>
               </td>
               <td class="repo text-center">
                 <a
                   :href="`https://github.com/${item['GitHub']}`"
                   target="_blank"
-                  >{{ item['GitHub'] }}</a
                 >
+                  {{ item['GitHub'] }}
+                </a>
               </td>
             </tr>
           </tbody>

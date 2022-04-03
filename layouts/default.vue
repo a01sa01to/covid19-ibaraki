@@ -9,7 +9,7 @@
         />
         <scale-loader color="#003FAB" />
         <p class="reload-prompt">
-          数秒経っても読み込まれない場合は、再読み込みしてください。
+          {{ $t('数秒経っても読み込まれない場合は、再読み込みしてください。') }}
         </p>
       </div>
     </v-overlay>

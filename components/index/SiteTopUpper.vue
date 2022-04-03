@@ -1,10 +1,12 @@
 <template>
   <div class="SiteTopUpper">
-    <static-card id="site_merged_info">{{
-      $t(
-        '茨城県新型コロナウイルス感染症ポータルサイト（stopcovid19-ibaraki.jp）は、茨城県新型コロナウイルス対策サイト（ibaraki.stopcovid19.jp）に統合されました。'
-      )
-    }}</static-card>
+    <static-card id="site_merged_info">
+      {{
+        $t(
+          '茨城県新型コロナウイルス感染症ポータルサイト（stopcovid19-ibaraki.jp）は、茨城県新型コロナウイルス対策サイト（ibaraki.stopcovid19.jp）に統合されました。'
+        )
+      }}
+    </static-card>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <!-- <static-info
       class="mb-4"

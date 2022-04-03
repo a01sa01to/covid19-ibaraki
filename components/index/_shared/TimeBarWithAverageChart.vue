@@ -41,8 +41,9 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through',
             }"
-            >{{ item }}</span
           >
+            {{ item }}
+          </span>
         </button>
       </li>
     </ul>

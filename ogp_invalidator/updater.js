@@ -1,4 +1,5 @@
 // 以下のコードを cards-dev.twitter.com/validator に貼り付ける
+/* eslint-disable no-console */
 
 const HOST = [
   'https://ibaraki.stopcovid19.jp/',

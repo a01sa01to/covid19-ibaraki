@@ -17,6 +17,7 @@ const headers: Header[] = [
 ]
 
 export type DataType = {
+  /* eslint-disable camelcase */
   no: number
   publish_date: string
   onset_date: string | null
@@ -26,6 +27,7 @@ export type DataType = {
   occupation: string | null
   close_contact: boolean
   [key: string]: any
+  /* eslint-enable camelcase */
 }
 
 type TableDataType = {
@@ -51,14 +53,16 @@ export type TableDateType = {
  */
 export function formatTable(data: DataType[]): TableDateType {
   const datasets = data.map((d) => ({
-    整理番号: d['no'],
-    公表日: d['publish_date'] ?? '不明',
-    居住地: d['address'] ?? '調査中',
-    年代: d['age'] ?? '不明',
-    性別: d['gender'] ?? '不明',
-    職業: d['occupation'] ?? '-',
-    発症日: d['onset_date'] ?? '',
-    濃厚接触者: d['close_contact'] ? '○' : '',
+    /* eslint-disable camelcase */
+    整理番号: d.no,
+    公表日: d.publish_date ?? '不明',
+    居住地: d.address ?? '調査中',
+    年代: d.age ?? '不明',
+    性別: d.gender ?? '不明',
+    職業: d.occupation ?? '-',
+    発症日: d.onset_date ?? '',
+    濃厚接触者: d.close_contact ? '○' : '',
+    /* eslint-enable camelcase */
   }))
   return {
     headers,

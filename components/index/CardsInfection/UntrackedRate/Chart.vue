@@ -45,8 +45,9 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through',
             }"
-            >{{ dataLabel }}</span
           >
+            {{ dataLabel }}
+          </span>
         </button>
       </li>
     </ul>

@@ -54,8 +54,9 @@
             class="EmbedCode-Copy"
             :aria-label="$t('クリップボードにコピー')"
             @click="copyEmbedCode"
-            >{{ mdiClipboardOutline }}</v-icon
           >
+            {{ mdiClipboardOutline }}
+          </v-icon>
           {{ graphEmbedValue }}
         </div>
       </section>
@@ -115,9 +116,9 @@
                 />
                 <img src="/facebook.png" alt="facebook" class="Button-icon" />
               </picture>
-              <span class="Button-text">{{
-                $t('facebookで情報をシェア')
-              }}</span>
+              <span class="Button-text">
+                {{ $t('facebookで情報をシェア') }}
+              </span>
             </button>
           </li>
         </ul>

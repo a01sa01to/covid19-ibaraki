@@ -38,9 +38,7 @@
                 </li>
                 <li :class="[$style.box]">
                   <div :class="$style.content">
-                    <!-- eslint-disable vue/no-v-html-->
-                    <span v-html="$t('中等症')" />
-                    <!-- eslint-enable vue/no-v-html-->
+                    <span>{{ $t('中等症') }}</span>
                     <span>
                       <strong>{{ 中等症.toLocaleString() }}</strong>
                       <span :class="$style.unit">{{ $t('人') }}</span>
@@ -49,9 +47,7 @@
                 </li>
                 <li :class="[$style.box]">
                   <div :class="$style.content">
-                    <!-- eslint-disable vue/no-v-html-->
-                    <span v-html="$t('軽症')" />
-                    <!-- eslint-enable vue/no-v-html-->
+                    <span>{{ $t('軽症') }}</span>
                     <span>
                       <strong>{{ 軽症.toLocaleString() }}</strong>
                       <span :class="$style.unit">{{ $t('人') }}</span>

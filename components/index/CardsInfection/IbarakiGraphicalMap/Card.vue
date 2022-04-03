@@ -16,7 +16,8 @@
           <tbody>
             <tr>
               <td>
-                <span class="color-test infected-level1" />{{ $t('5未満') }}
+                <span class="color-test infected-level1" />
+                {{ $t('5未満') }}
               </td>
               <td><span class="color-test infected-level2" />5 - 10</td>
               <td><span class="color-test infected-level3" />10 - 15</td>
@@ -25,7 +26,8 @@
               <td><span class="color-test infected-level4" />15 - 20</td>
               <td><span class="color-test infected-level5" />20 - 25</td>
               <td>
-                <span class="color-test infected-level6" />{{ $t('25以上') }}
+                <span class="color-test infected-level6" />
+                {{ $t('25以上') }}
               </td>
             </tr>
           </tbody>

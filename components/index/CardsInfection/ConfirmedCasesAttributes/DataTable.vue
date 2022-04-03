@@ -15,7 +15,7 @@
           {{ mdiAlert }}
         </v-icon>
         {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
-        エラーメッセージ: {{ error.message }}
+        {{ $t('エラーメッセージ') }}: {{ error.message }}
       </v-alert>
     </v-overlay>
     <template #description>

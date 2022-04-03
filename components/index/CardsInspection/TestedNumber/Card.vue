@@ -30,9 +30,9 @@
                   <span :class="$style.unit">{{ $t('人') }}</span>
                   <div style="width: fit-content; margin-left: 10px">
                     <span :class="$style.unit">{{ $t('全体での陽性率') }}</span>
-                    <strong>{{
-                      ((total.positive / total.number) * 100).toFixed(2)
-                    }}</strong>
+                    <strong>
+                      {{ ((total.positive / total.number) * 100).toFixed(2) }}
+                    </strong>
                     <span :class="$style.unit">%</span>
                   </div>
                 </span>
@@ -45,9 +45,9 @@
                   <strong>{{ dt.transition.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                   <div>
-                    (<strong>{{
-                      ((dt.transition / total.number) * 100).toFixed(2)
-                    }}</strong>
+                    (<strong>
+                      {{ ((dt.transition / total.number) * 100).toFixed(2) }}
+                    </strong>
                     <span :class="$style.unit">%</span>)
                   </div>
                 </span>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import { extend } from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
 import DataView from '@/components/index/_shared/DataView.vue'
@@ -85,7 +85,7 @@ import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPane
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import Data from '@/data/data.json'
 
-dayjs.extend(duration)
+extend(duration)
 
 export default {
   components: {

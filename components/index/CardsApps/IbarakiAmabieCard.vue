@@ -36,10 +36,12 @@
               class="GooglePlay"
               target="_blank"
               rel="noopener noreferrer"
-              ><img
+            >
+              <img
                 alt="Google Play で手に入れよう"
                 src="/ja_badge_web_generic.png"
-            /></a>
+              />
+            </a>
           </div>
         </div>
       </div>

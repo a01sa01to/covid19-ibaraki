@@ -12,49 +12,51 @@
           <a href="#contacts">{{ $t('お問い合わせ先') }}</a>
           <ul>
             <li>
-              <a href="#contacts>this-site">{{
-                $t('このサイトに関すること')
-              }}</a>
+              <a href="#contacts>this-site">
+                {{ $t('このサイトに関すること') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>pref-site">{{
-                $t('県公式サイトに関すること')
-              }}</a>
+              <a href="#contacts>pref-site">
+                {{ $t('県公式サイトに関すること') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>mental">{{
-                $t('不安やストレスなどから、心の不調を感じるとき')
-              }}</a>
+              <a href="#contacts>mental">
+                {{ $t('不安やストレスなどから、心の不調を感じるとき') }}
+              </a>
             </li>
             <li>
               <a href="#contacts>dv">{{ $t('DV被害について相談したい') }}</a>
             </li>
             <li>
-              <a href="#contacts>child-abuse">{{
-                $t('児童虐待について相談したい')
-              }}</a>
+              <a href="#contacts>child-abuse">
+                {{ $t('児童虐待について相談したい') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>job">{{
-                $t('仕事を失ったので就職相談したい・仕事を紹介してほしい')
-              }}</a>
+              <a href="#contacts>job">
+                {{ $t('仕事を失ったので就職相談したい・仕事を紹介してほしい') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>labor">{{
-                $t('労働条件・賃金不払い等の労働問題について相談したい')
-              }}</a>
+              <a href="#contacts>labor">
+                {{ $t('労働条件・賃金不払い等の労働問題について相談したい') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>funds">{{
-                $t('休業・失業などで一時的に資金が必要なとき')
-              }}</a>
+              <a href="#contacts>funds">
+                {{ $t('休業・失業などで一時的に資金が必要なとき') }}
+              </a>
             </li>
             <li>
-              <a href="#contacts>discrimination">{{
-                $t(
-                  '新型コロナウイルス感染症を理由に差別を受けたり、見かけたとき'
-                )
-              }}</a>
+              <a href="#contacts>discrimination">
+                {{
+                  $t(
+                    '新型コロナウイルス感染症を理由に差別を受けたり、見かけたとき'
+                  )
+                }}
+              </a>
             </li>
           </ul>
         </li>
@@ -121,9 +123,9 @@
             </td>
             <td class="bureau text-center">{{ $t('当サイトの管理者') }}</td>
             <td class="tel text-center">
-              <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank"
-                >covid19-ibaraki@a01sa01to.com</a
-              >
+              <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank">
+                covid19-ibaraki@a01sa01to.com
+              </a>
             </td>
           </tr>
           <!-- 公式サイトに関すること -->
@@ -132,8 +134,8 @@
               {{ $t('県公式サイトに関すること') }}
             </td>
             <td class="bureau tel text-center" colspan="2">
-              {{ $t('ページによって連絡先が異なります。')
-              }}{{
+              {{ $t('ページによって連絡先が異なります。') }}
+              {{
                 $t('公式サイトには、ページ下部に連絡先が掲載されております。')
               }}
             </td>
@@ -317,14 +319,19 @@
               {{ $t('お住まいの市町村の社会福祉協議会') }}
             </td>
             <td class="tel text-center">
-              連絡先等については、こちらのページを参照してください。<br />
+              {{ $t('連絡先等については、こちらのページを参照してください。')
+              }}<br />
               <a
                 href="https://www.ibaraki-welfare.or.jp/%e8%8c%a8%e5%9f%8e%e7%9c%8c%e7%a4%be%e4%bc%9a%e7%a6%8f%e7%a5%89%e5%8d%94%e8%ad%b0%e4%bc%9a/%e9%96%a2%e4%bf%82%e6%a9%9f%e9%96%a2%e3%83%bb%e5%9b%a3%e4%bd%93%e4%b8%80%e8%a6%a7/%e7%9c%8c%e5%86%85%e5%b8%82%e7%94%ba%e6%9d%91%e7%a4%be%e4%bc%9a%e7%a6%8f%e7%a5%89%e5%8d%94%e8%ad%b0%e4%bc%9a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                >県内市町村社会福祉協議会 | 茨城県社会福祉協議会 |
-                茨城県社会福祉協議会</a
               >
+                {{
+                  $t(
+                    '県内市町村社会福祉協議会 | 茨城県社会福祉協議会 | 茨城県社会福祉協議会'
+                  )
+                }}
+              </a>
             </td>
           </tr>
           <!-- 差別 -->

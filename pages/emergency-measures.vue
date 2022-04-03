@@ -146,26 +146,30 @@
             $t(
               'イベント開催時は、業種別ガイドラインを遵守するなど、感染対策を徹底してください。また、COCOA、いばらきアマビエちゃんの利用登録を行ってください。'
             )
-          }}<br /><app-link
+          }}
+          <br />
+          <app-link
             :to="'https://www.pref.ibaraki.jp/shokorodo/chusho/shogyo/2020korona/guideline.html'"
-            >{{
-              $t('「業種別ガイドライン」はこちらをご覧ください。')
-            }}</app-link
           >
+            {{ $t('「業種別ガイドライン」はこちらをご覧ください。') }}
+          </app-link>
         </li>
         <li>
           {{
             $t(
               '大規模イベント（5,000人超/日(回) かつ 収容定員50%超え）の開催時は、「感染防止安全計画」を作成し、県に事前提出してください。大規模イベントでなくても、感染防止策等を記載したチェックリストを作成し、自身のウェブサイト等で公表してください（事前提出等は不要）。'
             )
-          }}<br /><app-link
+          }}
+          <br />
+          <app-link
             :to="'https://www.pref.ibaraki.jp/bousaikiki/bousaikiki/kiki/event-jizensoudan.html'"
-            >{{
+          >
+            {{
               $t(
                 'イベント開催時における感染防止安全計画の提出等については、こちらをご覧ください。'
               )
-            }}</app-link
-          >
+            }}
+          </app-link>
         </li>
       </ul>
     </static-card>
