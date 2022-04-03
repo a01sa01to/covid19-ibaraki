@@ -1,11 +1,18 @@
 /* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
-// @ts-ignore
+import fs from 'fs'
+import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
 // eslint-disable-next-line no-restricted-imports
-import cardData from './assets/json/cardRoutesSettings.json'
-// eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
+// @ts-ignore
+import { Settings } from '@/types/cardRoutesSettings'
 const environment = process.env.NODE_ENV || 'development'
+const cardData = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, 'assets/json/cardRoutesSettings.json'),
+    'utf8'
+  )
+)
 
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.
@@ -172,7 +179,7 @@ const config: NuxtConfig = {
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.19' },
+              corejs: { version: '3.21' },
             },
           ],
         ]
@@ -214,7 +221,7 @@ const config: NuxtConfig = {
     fallback: true,
     routes() {
       const locales = ['en', 'ja-basic']
-      const pages = cardData.map((v) => {
+      const pages = cardData.map((v: Settings) => {
         return v.path
       })
       const localizedPages = locales
@@ -259,9 +266,9 @@ const config: NuxtConfig = {
     hostname: 'https://ibaraki.stopcovid19.jp',
     routes: () => {
       const localizedPages = ['en', 'ja-basic']
-        .map((locale) => cardData.map((v) => `/${locale}${v.path}`))
+        .map((locale) => cardData.map((v: Settings) => `/${locale}${v.path}`))
         .reduce((a, b) => [...a, ...b], [])
-      return [...cardData.map((v) => v.path), ...localizedPages]
+      return [...cardData.map((v: Settings) => v.path), ...localizedPages]
     },
     cacheTime: 1000 * 60 * 60, // 1 hour
     i18n: true,

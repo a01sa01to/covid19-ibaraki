@@ -9,6 +9,7 @@
         :date="Data.deaths_summary.date"
         :unit="$t('人')"
         :url="'https://a01sa01to.com/opendata/covid19-ibaraki/death-number/'"
+        :is-single-card="isSingleCard"
       />
       <slot name="breadCrumb" />
     </client-only>
@@ -19,6 +20,7 @@
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -31,6 +33,11 @@ export default {
       Data,
       deathsGraph,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

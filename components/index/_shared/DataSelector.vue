@@ -48,13 +48,17 @@ export default Vue.extend({
 <style lang="scss">
 .DataSelector {
   margin-top: 20px;
-  background-color: $white;
   border: 1px solid $gray-4;
+  background-color: $white;
 
   &-Button {
+    border: none !important;
+    margin: 2px;
+    border-radius: 4px !important;
     height: 24px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+
     @include font-size(12, true);
 
     &::before {
@@ -67,8 +71,8 @@ export default Vue.extend({
   }
 
   & .v-btn--active {
-    color: $white !important;
     background-color: $gray-2 !important;
+    color: $white !important;
   }
 }
 </style>

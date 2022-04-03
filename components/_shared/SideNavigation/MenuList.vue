@@ -45,9 +45,11 @@ type MenuItem = {
   link: string
   slug: string
 }
+
 type MenuObj = {
   [key: string]: MenuItem[]
 }
+
 export default Vue.extend({
   components: { CustomExpansionPanel, MenuListContents },
   props: {
@@ -67,7 +69,7 @@ export default Vue.extend({
   },
   computed: {
     menuItemsObj(): MenuObj {
-      const menuObj: { [key: string]: MenuItem[] } = {}
+      const menuObj = {}
       this.itemTitles.forEach((v) => {
         const splitItemsBySlug = this.items.filter((item) => {
           return v.slug === item.slug
@@ -78,8 +80,8 @@ export default Vue.extend({
     },
   },
   methods: {
-    setMenuTitle(slug: string): string {
-      return this.itemTitles.find((v) => v.slug === slug)!.text
+    setMenuTitle(slug): string {
+      return this.itemTitles.find((v) => v.slug === slug).text
     },
   },
 })

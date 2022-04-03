@@ -58,7 +58,7 @@
               >
                 <template #transifex>
                   <app-link
-                    to="https://www.transifex.com/asas-4/covid19-ibaraki/dashboard/"
+                    to="https://www.transifex.com/covid19-ibaraki/covid19-ibaraki/"
                   >
                     {{ $t('こちら') }}
                   </app-link>
@@ -163,7 +163,6 @@
             <app-link
               :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
               :icon-size="12"
-              class="SideNavigation-LicenseLink"
             >
               {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
             </app-link>

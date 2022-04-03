@@ -18,9 +18,9 @@
               : ''
           "
         >
-          <app-link :to="permalink" class="DataView-Title-HeaderLink">{{
-            title
-          }}</app-link>
+          <app-link :to="permalink" class="DataView-Title-HeaderLink">
+            {{ title }}
+          </app-link>
         </h3>
         <div v-if="!!$slots.infoPanel" class="DataView-InfoPanel">
           <slot name="infoPanel" />
@@ -55,7 +55,10 @@
             !isAdditionalDescriptionExpanded && !isAlreadyShowingDescription,
         }"
       >
-        <div class="DataView-Description--Inner">
+        <div
+          v-if="$slots.additionalDescription"
+          class="DataView-Description--Inner"
+        >
           <slot name="additionalDescription" />
         </div>
 
@@ -103,15 +106,6 @@
         :message="$t('テーブルを表示')"
       >
         <slot name="dataTable" />
-      </expantion-panel>
-
-      <expantion-panel
-        v-if="$slots.dateRangeSelector"
-        :id="titleId"
-        class="DataView-DateRangeSelector"
-        :message="$t('表示期間を変更')"
-      >
-        <slot name="dateRangeSelector" />
       </expantion-panel>
 
       <div class="DataView-Space" />
@@ -330,6 +324,8 @@ export default Vue.extend({
     position: relative;
     margin: 10px 0;
     color: $gray-3;
+    max-width: 600px;
+
     @include font-size(12);
 
     ul,

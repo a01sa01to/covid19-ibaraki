@@ -12,6 +12,7 @@
         :labels="dateLabels"
         :data-labels="dataLabels"
         :table-labels="tableLabels"
+        :is-single-card="isSingleCard"
       >
         <template #description>
           <ul>
@@ -70,6 +71,7 @@
 <script>
 import Chart from '@/components/index/CardsInfection/UntrackedRate/Chart.vue'
 import Data from '@/data/data.json'
+import { isSingleCard } from '@/utils/urls'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
@@ -154,6 +156,11 @@ export default {
       getFormatter,
       dateLabels,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

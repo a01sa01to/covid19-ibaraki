@@ -196,6 +196,9 @@ Tokyo COVID-19 Task Force site contributors
 | MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
 | Daichi Hata (Atria) | [@Atria64](https://github.com/Atria64) | [@AtriaSoft](https://twitter.com/AtriaSoft) | Coding |
 | [Meiryo7743](https://meiryo7743.net) | [@Meiryo7743](https://github.com/Meiryo7743) | | Coding |
+| knknk98 | [@knknk98](https://github.com/knknk98) | | Coding |
+| kyon-00 | [@kyon-00](https://github.com/kyon-00) | | Frontend |
+| osaguild | [@osaguild](https://github.com/osaguild) | [@osaguild](https://twitter.com/osaguild) | Reporter |
 
 ご協力に感謝です！！！
 

@@ -13,6 +13,7 @@
         :table-labels="tableLabels"
         :get-formatter="getFormatter"
         :url="'https://a01sa01to.com/opendata/covid19-ibaraki/mutant-positive-number/'"
+        :is-single-card="isSingleCard"
       >
         <template #description>
           <ul>
@@ -38,6 +39,7 @@
 import ConfirmedCasesNumberChart from '@/components/index/_shared/TimeBarWithAverageChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
@@ -101,6 +103,11 @@ export default {
       labels,
       getFormatter,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>
