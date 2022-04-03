@@ -37,16 +37,13 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [
-        InspectionPersonsNumberCard,
-        MutantOmicronInspectionPersonsNumberCard,
-        TestedNumberCard,
-      ],
+      rows: [InspectionPersonsNumberCard, TestedNumberCard],
 
       hideRows: [
         TelephoneAdvisoryReportsNumberCard,
         MutantAlphaInspectionPersonsNumberCard,
         MutantDeltaInspectionPersonsNumberCard,
+        MutantOmicronInspectionPersonsNumberCard,
       ],
     }
   },
