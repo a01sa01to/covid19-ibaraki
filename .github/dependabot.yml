@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "a01sa01to"
     labels:
@@ -12,19 +12,17 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "a01sa01to"
     labels:
       - "dependencies"
-    versioning-strategy: lockfile-only
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "a01sa01to"
     labels:
       - "dependencies"
-    versioning-strategy: lockfile-only
