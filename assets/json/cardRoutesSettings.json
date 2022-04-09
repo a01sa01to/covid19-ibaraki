@@ -109,7 +109,7 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 846,
-    "deprecated": false
+    "deprecated": true
   },
 
 
@@ -159,7 +159,7 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 883,
-    "deprecated": false
+    "deprecated": true
   },
 
 
