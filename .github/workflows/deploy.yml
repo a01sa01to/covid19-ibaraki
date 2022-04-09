@@ -84,7 +84,7 @@ jobs:
         with:
           ref: prod-deploy
       - name: Download ogp images
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: ogp
       - name: Compress Images
