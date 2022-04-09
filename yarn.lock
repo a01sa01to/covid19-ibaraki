@@ -1101,10 +1101,10 @@
     brfs "^1.4.0"
     unicode-trie "^0.3.0"
 
-"@mdi/js@6.5.95":
-  version "6.5.95"
-  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.5.95.tgz#2d895b013408f213252b77c30e0fdaaba6dc8b4b"
-  integrity sha512-x/bwEoAGP+Mo10Dfk5audNIPi7Yz8ZBrILcbXLW3ShOI/njpgodzpgpC2WYK3D2ZSC392peRRemIFb/JsyzzYQ==
+"@mdi/js@6.6.96":
+  version "6.6.96"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.6.96.tgz#119f79fa9327359421167a7d4b8bde26e84702ce"
+  integrity sha512-ke9PN5DjPCOlMfhioxeZYADz8Yiz6v47W0IYRza01SSJD7y1EwESVpwFnnFUso+eCoWtE1CO9cTIvQF6sEreuA==
 
 "@microsoft/tsdoc-config@0.15.2":
   version "0.15.2"
@@ -4345,10 +4345,10 @@ danger@10.9.0:
     require-from-string "^2.0.2"
     supports-hyperlinks "^1.0.1"
 
-dayjs@1.10.8:
-  version "1.10.8"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.8.tgz#267df4bc6276fcb33c04a6735287e3f429abec41"
-  integrity sha512-wbNwDfBHHur9UOzNUjeKUOJ0fCb0a52Wx0xInmQ7Y8FstyajiV1NmK1e00cxsr9YrE9r7yAChE0VvpuY5Rnlow==
+dayjs@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
+  integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
 
 de-indent@^1.0.2:
   version "1.0.2"
