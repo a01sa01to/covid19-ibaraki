@@ -55,7 +55,7 @@ import VaccineSummary3rdCard from '@/components/index/CardsVaccination/3rd/Card.
 import { lastUpdate } from '@/data/data.json'
 // Error
 import ErrorCard from '@/layouts/error.vue'
-import VaccineIcon from '@/static/vaccine.svg'
+import VaccineIcon from '@/static/vaccine.svg?inline'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 

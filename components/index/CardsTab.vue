@@ -36,7 +36,7 @@
 import { mdiAppsBox, mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
-import VaccineIcon from '@/static/vaccine.svg'
+import VaccineIcon from '@/static/vaccine.svg?inline'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
 const CardsReferenceInfection = () =>
   import('@/components/index/CardsReferenceInfection.vue')

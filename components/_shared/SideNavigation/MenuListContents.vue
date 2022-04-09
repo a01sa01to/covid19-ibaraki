@@ -29,11 +29,11 @@ import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import CovidIcon from '@/static/covid.svg'
-import MaskTrashIcon from '@/static/masktrash.svg'
-import ParentIcon from '@/static/parent.svg'
-import SupportIcon from '@/static/support.svg'
-import VaccineIcon from '@/static/vaccine.svg'
+import CovidIcon from '@/static/covid.svg?inline'
+import MaskTrashIcon from '@/static/masktrash.svg?inline'
+import ParentIcon from '@/static/parent.svg?inline'
+import SupportIcon from '@/static/support.svg?inline'
+import VaccineIcon from '@/static/vaccine.svg?inline'
 
 type MenuItem = {
   iconPath?: string

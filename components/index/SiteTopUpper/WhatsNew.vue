@@ -63,7 +63,7 @@ import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/index/SiteTopUpper/LinkToInformationAboutEmergencyMeasure.vue'
-import VaccineIcon from '@/static/vaccine.svg'
+import VaccineIcon from '@/static/vaccine.svg?inline'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({

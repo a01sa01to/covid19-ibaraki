@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import IbarakiMap from '@/assets/ibaraki-map.svg'
+import IbarakiMap from '@/assets/ibaraki-map.svg?inline'
 import DataView from '@/components/index/_shared/DataView.vue'
 import CityData from '@/data/cities.json'
 import Data from '@/data/data.json'
@@ -63,9 +63,9 @@ export default {
 
       const rate = (num / element.population) * 10000
 
-      const targetElement = document.getElementById(
-        'ibaraki-map_svg__' + element.Romaji
-      )
+      const targetElement = document
+        .getElementById('茨城県地域区分図')
+        .getElementById(element.Romaji)
 
       if (rate === 0) targetElement.classList.add('infected-level0')
       else if (rate < 5) targetElement.classList.add('infected-level1')

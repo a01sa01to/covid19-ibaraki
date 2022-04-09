@@ -111,6 +111,7 @@ const config: NuxtConfig = {
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
+    '@nuxtjs/svg',
   ],
   /*
    ** Nuxt.js modules
@@ -120,7 +121,6 @@ const config: NuxtConfig = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['@nuxtjs/i18n', i18n],
-    'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
     '@nuxtjs/sitemap',
