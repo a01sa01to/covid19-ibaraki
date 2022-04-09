@@ -87,6 +87,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ogp
+          path: ogp
       - name: Compress Images
         uses: calibreapp/image-actions@main
         with:
