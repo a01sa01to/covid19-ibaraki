@@ -55,8 +55,8 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
-    "@babel/runtime-corejs3": "7.17.8",
+    "@babel/core": "7.17.9",
+    "@babel/runtime-corejs3": "7.17.9",
     "@mdi/js": "6.6.96",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/eslint-config": "9.0.0",
@@ -70,7 +70,7 @@
     "@types/lodash": "4.14.181",
     "@types/node": "16.11.26",
     "core-js": "3.21.1",
-    "danger": "10.9.0",
+    "danger": "11.0.2",
     "eslint": "8.13.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -83,7 +83,7 @@
     "nuxt-property-decorator": "2.9.1",
     "nuxt-purgecss": "1.0.0",
     "nuxt-webfontloader": "1.1.0",
-    "prettier": "2.5.1",
+    "prettier": "2.6.2",
     "quicktype": "15.0.261",
     "stylelint": "13.13.1",
     "stylelint-config-prettier": "9.0.3",
