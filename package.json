@@ -59,7 +59,7 @@
     "@babel/runtime-corejs3": "7.17.8",
     "@mdi/js": "6.6.96",
     "@nuxt/typescript-build": "2.1.0",
-    "@nuxtjs/eslint-config": "7.0.0",
+    "@nuxtjs/eslint-config": "9.0.0",
     "@nuxtjs/eslint-config-typescript": "7.0.2",
     "@nuxtjs/google-analytics": "2.4.0",
     "@nuxtjs/sitemap": "^2.4.0",
@@ -91,7 +91,7 @@
     "stylelint-scss": "3.21.0",
     "ts-loader": "8.3.0",
     "ts-node": "10.7.0",
-    "typescript": "4.5.5",
+    "typescript": "4.6.3",
     "vue-axe": "2.4.4",
     "vue-template-compiler": "2.6.14"
   }
