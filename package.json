@@ -45,7 +45,7 @@
     "axe-core": "4.4.1",
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
-    "dayjs": "1.10.8",
+    "dayjs": "1.11.0",
     "netlify-lambda": "2.0.15",
     "nuxt": "2.15.8",
     "vue": "2.6.14",
@@ -90,7 +90,7 @@
     "stylelint-config-standard": "22.0.0",
     "stylelint-scss": "3.21.0",
     "ts-loader": "8.3.0",
-    "ts-node": "10.6.0",
+    "ts-node": "10.7.0",
     "typescript": "4.5.5",
     "vue-axe": "2.4.4",
     "vue-template-compiler": "2.6.14"
