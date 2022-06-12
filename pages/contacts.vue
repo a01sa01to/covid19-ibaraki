@@ -126,6 +126,10 @@
               <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank">
                 covid19-ibaraki@a01sa01to.com
               </a>
+              <br />
+              <p>
+                こちらのアドレスは、県公式のアドレスではなく、管理者個人のアドレスです。行政などに関することについてはお答えできませんので、予めご了承ください。
+              </p>
             </td>
           </tr>
           <!-- 公式サイトに関すること -->
