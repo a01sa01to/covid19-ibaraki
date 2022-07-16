@@ -52,6 +52,7 @@ import TestedNumberCard from '@/components/index/CardsInspection/TestedNumber/Ca
 import VaccineSummary1stCard from '@/components/index/CardsVaccination/1st/Card.vue'
 import VaccineSummary2ndCard from '@/components/index/CardsVaccination/2nd/Card.vue'
 import VaccineSummary3rdCard from '@/components/index/CardsVaccination/3rd/Card.vue'
+import VaccineSummary4thCard from '@/components/index/CardsVaccination/4th/Card.vue'
 import { lastUpdate } from '@/data/data.json'
 // Error
 import ErrorCard from '@/layouts/error.vue'
@@ -89,6 +90,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     VaccineSummary1stCard,
     VaccineSummary2ndCard,
     VaccineSummary3rdCard,
+    VaccineSummary4thCard,
     // Error
     ErrorCard,
   },
@@ -220,6 +222,11 @@ export default class CardContainer extends Vue {
       case 'vaccination-3rd':
         cardComponent = 'vaccine-summary-3rd-card'
         cardTitle = 'ワクチン接種回数（3回目）'
+        cardCategory = 'vaccination'
+        break
+      case 'vaccination-4th':
+        cardComponent = 'vaccine-summary-4th-card'
+        cardTitle = 'ワクチン接種回数（4回目）'
         cardCategory = 'vaccination'
         break
       // Error
