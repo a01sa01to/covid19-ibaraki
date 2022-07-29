@@ -93,13 +93,14 @@
           <table class="ibkCoronaNext">
             <thead>
               <tr>
-                <th colspan="2" style="background-color: #99a8e0">
+                <!-- <th colspan="2" style="background-color: #99a8e0"> -->
+                <th style="background-color: #99a8e0">
                   {{ $t('感染状況（週平均）') }}
                 </th>
               </tr>
               <tr>
                 <th>{{ $t('1日当たりの陽性者数') }}</th>
-                <th>{{ $t('陽性者のうち濃厚接触者以外の数') }}</th>
+                <!-- <th>{{ $t('陽性者のうち濃厚接触者以外の数') }}</th> -->
               </tr>
             </thead>
             <tbody>
@@ -108,10 +109,10 @@
                   <strong>{{ patients.new_patients.toFixed(1) }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </td>
-                <td>
+                <!-- <td>
                   <strong>{{ patients.non_closecontact.toFixed(1) }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
-                </td>
+                </td> -->
               </tr>
               <tr>
                 <td>
@@ -126,7 +127,7 @@
                   <strong>{{ stage.new_patients.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('相当.stage') }}</span>
                 </td>
-                <td>
+                <!-- <td>
                   <span
                     :class="[
                       'stageMark',
@@ -137,7 +138,7 @@
                   <span :class="$style.unit">Stage</span>
                   <strong>{{ stage.non_closecontact.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('相当.stage') }}</span>
-                </td>
+                </td> -->
               </tr>
               <tr :class="$style.additionalData">
                 <td>
@@ -145,11 +146,11 @@
                   <strong>{{ deltaStr.new_patients }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </td>
-                <td>
+                <!-- <td>
                   <span :class="$style.delta">{{ $t('前週比') }}:&nbsp;</span>
                   <strong>{{ deltaStr.non_closecontact }}</strong>
                   <span :class="$style.unit">{{ $t('人') }}</span>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>
@@ -219,13 +220,13 @@ export default {
       severe: patients.severe,
       sickbed: patients.sickbed,
       new_patients: patients.new_patients,
-      non_closecontact: patients.non_closecontact,
+      // non_closecontact: patients.non_closecontact,
     }
     const _Y = {
       severe: patients.severe_lastweek,
       sickbed: patients.sickbed_lastweek,
       new_patients: patients.new_patients_lastweek,
-      non_closecontact: patients.non_closecontact_lastweek,
+      // non_closecontact: patients.non_closecontact_lastweek,
     }
     const delta = {}
     for (const key in _) {
@@ -234,9 +235,9 @@ export default {
     // [ _でのKey, Stage1->2の境値, Stage2->3, Stage3->4]
     const list = [
       ['severe', 7, 18, 36],
-      ['sickbed', 67, 270, 420],
+      ['sickbed', 67, 270, 560],
       ['new_patients', 200, 800, 1300],
-      ['non_closecontact', 80, 320, 520],
+      // ['non_closecontact', 80, 320, 520],
     ]
 
     for (const l of list) {
