@@ -14,8 +14,8 @@ const InfectionMedicalCareProvisionStatusCard = () =>
   import(
     '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
   )
-const ConfirmedCasesAttributesCard = () =>
-  import('@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue')
+// const ConfirmedCasesAttributesCard = () =>
+//   import('@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue')
 const ConfirmedCasesByAgeCard = () =>
   import('@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue')
 const ConfirmedCasesByMunicipalitiesCard = () =>
@@ -63,7 +63,7 @@ export default Vue.extend({
         IbarakiCoronaNextCard,
         // NationalInfectionStatusCard,
         ConfirmedCasesNumberCard,
-        ConfirmedCasesAttributesCard,
+        // ConfirmedCasesAttributesCard,
         ConfirmedCasesByMunicipalitiesCard,
         IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,

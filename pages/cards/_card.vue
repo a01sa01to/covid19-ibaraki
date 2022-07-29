@@ -26,7 +26,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 import Breadcrumb from '@/components/_shared/breadcrumb.vue'
 // Infection
-import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
+// import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
 import ConfirmedCasesByAgeCard from '@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
 import ConfirmedCasesDetailsCard from '@/components/index/CardsInfection/ConfirmedCasesDetails/Card.vue'
@@ -65,7 +65,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     Breadcrumb,
     // Infection
     InfectionMedicalCareProvisionStatusCard,
-    ConfirmedCasesAttributesCard,
+    // ConfirmedCasesAttributesCard,
     ConfirmedCasesByAgeCard,
     ConfirmedCasesByMunicipalitiesCard,
     ConfirmedCasesDetailsCard,
@@ -107,11 +107,11 @@ export default class CardContainer extends Vue {
         cardTitle = `${this.$d(new Date(lastUpdate), 'date')}の状況`
         cardCategory = 'infection'
         break
-      case 'attributes-of-confirmed-cases':
-        cardComponent = 'confirmed-cases-attributes-card'
-        cardTitle = '陽性者の属性'
-        cardCategory = 'infection'
-        break
+      // case 'attributes-of-confirmed-cases':
+      //   cardComponent = 'confirmed-cases-attributes-card'
+      //   cardTitle = '陽性者の属性'
+      //   cardCategory = 'infection'
+      //   break
       case 'number-of-confirmed-cases-by-age':
         cardComponent = 'confirmed-cases-by-age-card'
         cardTitle = '年代別の感染状況'
