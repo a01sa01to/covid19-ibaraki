@@ -12,8 +12,8 @@ $gray-5: #f8f9fa;
 $white: #fff;
 $link: #006ca8;
 $focus: #1976d2;
-$notice: #FFDB1D;
-$alert: #AD2121;
+$notice: #ffdb1d;
+$alert: #ad2121;
 
 // ==================
 // shadow
@@ -54,16 +54,21 @@ $z-index-map: (
 
 // ==================
 // font-family
-$western: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
-$japanese: "Hiragino Sans", "Meiryo", "Source Han Sans", "Noto Sans CJK JP", "Yu Gothic";
-$korean: "Apple SD Gothic Neo", "Malgun Gothic", "Source Han Sans K", "Noto Sans CJK KR";
-$chinese-hans: "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC";
-$chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto Sans CJK TC";
+$western: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+  'Helvetica Neue';
+$japanese: 'Hiragino Sans', 'Meiryo', 'Source Han Sans', 'Noto Sans CJK JP',
+  'Yu Gothic';
+$korean: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Source Han Sans K',
+  'Noto Sans CJK KR';
+$chinese-hans: 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC',
+  'Noto Sans CJK SC';
+$chinese-hant: 'PingFang TC', 'Microsoft JhengHei', 'Source Han Sans TC',
+  'Noto Sans CJK TC';
 
 // ==================
 // font-size
 @mixin font-size($size, $important: false) {
-  font-size: ($size / 10) + rem #{if($important, "!important", "")};
+  font-size: ($size / 10) + rem #{if($important, '!important', '')};
 }
 
 @mixin card-h1 {
@@ -184,4 +189,4 @@ $expansion-panel-content-padding: 0;
 $expansion-panel-header-padding: 10px 0;
 $expansion-panel-header-min-height: 26px;
 $expansion-panel-active-header-min-height: 26px;
-$expansion-panel-header-font-size: .875rem;
+$expansion-panel-header-font-size: 0.875rem;
