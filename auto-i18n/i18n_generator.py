@@ -41,7 +41,7 @@ header_pattern = re.compile("\{ text: '[^']*?', value: '[^']*?'")
 
 # tsファイル内のtranslatable unitの正規表現パターン
 translatable_pattern = re.compile(
-    "\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
+    r"\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
 
 # 文字エンコーディング
 ENCODING = "UTF-8"
