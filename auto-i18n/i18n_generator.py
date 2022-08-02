@@ -16,15 +16,18 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv", "assets/json"]
+CHECK_DIR = ["pages", "components", "layouts",
+             "data", "utils", "auto-i18n/csv", "assets/json"]
 
 # チェックするjsonファイルのリスト
-JSON_FILES = ["data.json", "otherpref.json","cities.json","opendata/json/patients.json", "cardRoutesSettings.json"]
+JSON_FILES = ["data.json", "otherpref.json", "cities.json",
+              "opendata/json/patients.json", "cardRoutesSettings.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状は formatConfirmedCasesAttributesTable.ts と formatMonitoringItems.ts しかないが、
 # のちに表追加や、データ追加により必要になった場合は追加しなければならない。
-TS_FILES = ["formatConfirmedCasesAttributesTable.ts", "formatMonitoringItems.ts"]
+TS_FILES = ["formatConfirmedCasesAttributesTable.ts",
+            "formatMonitoringItems.ts"]
 
 # チェックするcsvファイルのリスト
 CSV_FILES = ["occupation.csv"]
@@ -37,7 +40,8 @@ tag_pattern_tc = re.compile("\$tc\([ ]*?['|`][^']*?['|`]")
 header_pattern = re.compile("\{ text: '[^']*?', value: '[^']*?'")
 
 # tsファイル内のtranslatable unitの正規表現パターン
-translatable_pattern = re.compile("\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
+translatable_pattern = re.compile(
+    "\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
 
 # 文字エンコーディング
 ENCODING = "UTF-8"
@@ -81,7 +85,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         # データディレクトリ以外の場合
         if "data" not in cdir and "utils" not in cdir and "csv" not in cdir and "json" not in cdir:
             # すべてのVueファイルを検索
-            vue_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.vue", recursive=True)
+            vue_files = glob.glob(cdir + os.sep + "**" +
+                                  os.sep + "*.vue", recursive=True)
             file_count += len(vue_files)
 
             # 各Vueファイルについて処理
@@ -111,7 +116,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
 
                     # i18nタグ内のpathを取得
                     soup = BeautifulSoup(content, "html.parser")
-                    i18n_tags = [tag.get("path") for tag in soup.find_all("i18n")]
+                    i18n_tags = [tag.get("path")
+                                 for tag in soup.find_all("i18n")]
 
                     # value-with-translatable-unitタグ内のunitを取得
                     # exceptが文字列内に含まれていることがあるが、pythonの予約語なので、あらかじめ置き換える
@@ -119,17 +125,20 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                     translatable_tags = []
                     for base_tag in soup.find_all("value-with-translatable-unit"):
                         try:
-                            tag = eval(base_tag.get(":unit").replace("except", '"except"'))[text]
+                            tag = eval(base_tag.get(":unit").replace(
+                                "except", '"except"'))[text]
                             # 文字列長0のものが取得されるので、それを除外する
                             if len(tag):
                                 translatable_tags.append(tag)
                         except NameError:
                             pass
                     # タグを統合し、重複分を取り除く
-                    all_tags = list(set(all_tags + fixed_tags + i18n_tags + translatable_tags))
+                    all_tags = list(
+                        set(all_tags + fixed_tags + i18n_tags + translatable_tags))
         elif "utils" in cdir:
             # すべてのtsファイルを検索
-            ts_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.ts", recursive=True)
+            ts_files = glob.glob(cdir + os.sep + "**" +
+                                 os.sep + "*.ts", recursive=True)
 
             # 各tsファイルについて処理
             for path in ts_files:
@@ -142,14 +151,18 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # ファイルの内容を文字列として取得
                         content = ''.join([l.strip() for l in file])
                         # ヘッダーを正規表現で取得し、textを抽出
-                        headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
+                        headers = [eval(str_header + " }")[text]
+                                   for str_header in header_pattern.findall(content)]
                         # translatable unitを正規表現で取得し、textを抽出
-                        translatable_tags = [eval(str_unit + " }")[text] for str_unit in translatable_pattern.findall(content)]
+                        translatable_tags = [eval(
+                            str_unit + " }")[text] for str_unit in translatable_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
-                        all_tags = list(set(all_tags + headers + translatable_tags))
+                        all_tags = list(
+                            set(all_tags + headers + translatable_tags))
         elif "auto-i18n/csv" in cdir:
             # すべてのcsvファイルを検索
-            csv_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.csv", recursive=True)
+            csv_files = glob.glob(cdir + os.sep + "**" +
+                                  os.sep + "*.csv", recursive=True)
             # 各csvファイルについて処理
             for path in csv_files:
                 file_name = os.path.basename(path)
@@ -165,7 +178,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         all_tags = list(set(all_tags + tags))
         else:
             # すべてのJsonファイルを検索
-            json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
+            json_files = glob.glob(
+                cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
 
             # 各jsonファイルについて処理
             for path in json_files:
@@ -197,7 +211,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                             for data in json_content:
                                 tags.append(data["city"])
                                 tags.append(data["area"])
-                        elif file_name == JSON_FILES[3]:  # opendata/json/patients.json
+                        # opendata/json/patients.json
+                        elif file_name == JSON_FILES[3]:
                             # 陽性者属性の濃厚接触者の「○」を追加
                             tags.append('○')
                             for data in json_content:
@@ -205,7 +220,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(data["患者_年代"])
                                 tags.append(data["患者_性別"])
                                 tags.append(data["患者_職業"])
-                        if file_name == JSON_FILES[4]:  # cardRoutesSettings.json
+                        # cardRoutesSettings.json
+                        if file_name == JSON_FILES[4]:
                             for card in json_content:
                                 # タイトルを取得
                                 tags.append(card["title"])
@@ -216,7 +232,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         all_tags = list(set(all_tags + tags))
             # Noneが混じっている場合、取り除く
             if None in all_tags:
-              all_tags.pop(all_tags.index(None))
+                all_tags.pop(all_tags.index(None))
             # 全角のハイフン、半角のハイフン、全角のダッシュ、全角ハイフンマイナスが混じっているので、取り除く
             # 理由は components/index/CardsReference/ConfirmedCasesAttributes/Card.vue の translateWord メソッドを参照。
             for x in ["-", "‐", "―", "－"]:
@@ -285,7 +301,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             ja_json[key] = tentative_tag
             print("Add TAG: " + str(tentative_tag) + " to " + JA_JSON_PATH)
             if not warn_count:
-                result.write(",".join(["RUN", datetime.now(jst).strftime("%Y/%m/%d %H:%M")]) + '\n')
+                result.write(
+                    ",".join(["RUN", datetime.now(jst).strftime("%Y/%m/%d %H:%M")]) + '\n')
             result.write(",".join(["TAG_ADD", str(tentative_tag)]) + '\n')
             warn_count += 1
         # 変更してはならない部分を変更する可能性があるため、変更に関しては自動化しない。

@@ -1,27 +1,27 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 card_classes = [
-  '.DataCard.PositiveNumberOver65Card',
-  '.DataCard.PositiveNumberByDevelopedDateCard',
-  '.DataCard.PositiveNumberByDiagnosedDateCard',
-  '.DataCard.DeathsByDeathDateCard',
-  '.DataCard.VariantCard',
-  '.DataCard.MetroCard',
-  '.DataCard.AgencyCard',
+  ".DataCard.PositiveNumberOver65Card",
+  ".DataCard.PositiveNumberByDevelopedDateCard",
+  ".DataCard.PositiveNumberByDiagnosedDateCard",
+  ".DataCard.DeathsByDeathDateCard",
+  ".DataCard.VariantCard",
+  ".DataCard.MetroCard",
+  ".DataCard.AgencyCard"
 ]
 
-describe 'page [/]', type: :feature do
-  context 'ja' do
-    describe 'CardsReference' do
+describe "page [/]", type: :feature do
+  context "ja" do
+    describe "CardsReference" do
       before do
-        visit '/reference'
+        visit "/reference"
         render_lazy_contents
       end
 
-      shared_examples 'DataViewExpansionPanel' do
-        example 'Open Panel -> Close Panel' do
+      shared_examples "DataViewExpansionPanel" do
+        example "Open Panel -> Close Panel" do
           # Before Open Panel
           expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='false']")
           expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true']")
@@ -47,7 +47,7 @@ describe 'page [/]', type: :feature do
       card_classes.each do |card_class|
         context card_class do
           let(:card_class) { card_class }
-          it_behaves_like 'DataViewExpansionPanel'
+          it_behaves_like "DataViewExpansionPanel"
         end
       end
     end

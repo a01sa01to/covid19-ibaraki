@@ -6,7 +6,7 @@ import json
 from selenium import webdriver
 
 if not os.path.exists("ogp"):
-  os.mkdir("ogp")
+    os.mkdir("ogp")
 
 # cardRoutesSettings.jsonで編集。幅を959pxにした後、高さを以下のJSコードで取得。
 # document.querySelector('html').style.overflow = "hidden";

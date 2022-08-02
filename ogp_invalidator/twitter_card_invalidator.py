@@ -10,7 +10,8 @@ USERNAME = os.environ['TWITTER_USERNAME']
 PASSWORD = os.environ['TWITTER_PASSWORD']
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-o', '--out', action='store_true', help='output screenshots.')
+parser.add_argument('-o', '--out', action='store_true',
+                    help='output screenshots.')
 args = parser.parse_args()
 
 HOST = 'https://ibaraki.stopcovid19.jp'
@@ -57,14 +58,17 @@ driver.get('https://twitter.com/login?redirect_after_login=https%3A%2F%2Fcards-d
 
 wait.until(expected_conditions.title_contains('Twitter'))
 
-driver.find_element_by_css_selector('input[name="session[username_or_email]"]').send_keys(USERNAME)
-driver.find_element_by_css_selector('input[name="session[password]"]').send_keys(PASSWORD)
+driver.find_element_by_css_selector(
+    'input[name="session[username_or_email]"]').send_keys(USERNAME)
+driver.find_element_by_css_selector(
+    'input[name="session[password]"]').send_keys(PASSWORD)
 driver.find_element_by_css_selector('div[role]').click()
 
 wait.until(expected_conditions.title_contains('Card Validator'))
 
 url_input = driver.find_element_by_css_selector('input[name="url"]')
 submit_button = driver.find_element_by_css_selector('input[type="submit"]')
+
 
 def twitter_card_validate(url):
     url_input.clear()
