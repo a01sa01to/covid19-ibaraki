@@ -1,8 +1,9 @@
 # For Developers
 
 ## The work we need your help with
- - Translation (Details: [here](../../TRANSLATION.md))
- - Problems in the Issue Tab
+
+- Translation (Details: [here](../../TRANSLATION.md))
+- Problems in the Issue Tab
 
 Please see [the Projects tab](https://github.com/a01sa01to/covid19-ibaraki/projects/2) for progress.
 
@@ -10,25 +11,25 @@ Please see [the Projects tab](https://github.com/a01sa01to/covid19-ibaraki/proje
 
 Install the following application to the environment for development.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/en/)|16.13.0 or higher|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/en/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+| Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
+| ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [Node.js](https://nodejs.org/en/)                          | 16.13.0 or higher                              | Required                                          |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
+| [yarn](https://classic.yarnpkg.com/en/)                    |                                                | When executing this program with `yarn`           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
+| [Vagrant](https://www.vagrantup.com/)                      |                                                | When executing this program with `Vagrant`        |
 
 ### 1-1. Extensions for Visual Studio Code
 
 To use Visual Studio Code, install the following extension.
 
-| Extensions | Installation conditions |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+| Extensions                                                                                                             | Installation conditions                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | Any                                                           |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | Any                                                           |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | Any                                                           |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | Any                                                           |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | When developing with Visual Studio Code and Remote Containers |
 
 ---
 
@@ -87,6 +88,7 @@ $ docker-compose up --build
 #### 2-2-2-1. How to resolve `Cannot find module ****` error
 
 Stop the program and execute the following command.
+
 ```bash
 $ docker-compose run --rm app yarn install
 ```
@@ -130,10 +132,10 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch | A branch where HTML is built and updated | Website updated |
-| ---- | ---- | ---- |
-|`production`|`prod-deploy`|The production site https://ibaraki.stopcovid19.jp/|
-|`development`|`dev-deploy`|The development site https://covid19-dev.a01sa01to.com/|
+| branch        | A branch where HTML is built and updated | Website updated                                         |
+| ------------- | ---------------------------------------- | ------------------------------------------------------- |
+| `production`  | `prod-deploy`                            | The production site https://ibaraki.stopcovid19.jp/     |
+| `development` | `dev-deploy`                             | The development site https://covid19-dev.a01sa01to.com/ |
 
 ---
 
@@ -142,28 +144,28 @@ When the branch listed in the left column of the table below is updated, the bra
 Pull Request is allowed only for `development`.
 Please use the following naming rules for the branch when sending a Pull Request.
 
-| Types of changes | Naming rules for the branch |
-| ---- | ---- |
-|Feature implementation|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| Types of changes       | Naming rules for the branch                |
+| ---------------------- | ------------------------------------------ |
+| Feature implementation | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix commit          | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 ### 5-1. Basic branch
 
-| Purpose | Branch | Confirmation URL | People who can make pull requests | Remarks |
-| ---- | ---- | ---- | ---- | ---- |
-| Development | development | https://covid19-dev.a01sa01to.com/ | All developers | base branch. Basically send a Pull Request here |
-| Production | production | https://ibaraki.stopcovid19.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
-| Base Project | upstream | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) | Synchronized daily at 0,6,12,18 o'clock (JST) |
+| Purpose      | Branch      | Confirmation URL                       | People who can make pull requests                                                                | Remarks                                                |
+| ------------ | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| Development  | development | https://covid19-dev.a01sa01to.com/     | All developers                                                                                   | base branch. Basically send a Pull Request here        |
+| Production   | production  | https://ibaraki.stopcovid19.jp/        | Only administrators                                                                              | Pull Requests other than Administrators are prohibited |
+| Base Project | upstream    | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) | Synchronized daily at 0,6,12,18 o'clock (JST)          |
 
 ### 5-2. Branch used by the system
 
-| Purpose | Branch | Confirmation URL | Remarks |
-| ---- | -------- | ---- | ---- |
-| Production site HTML | prod-deploy | https://ibaraki.stopcovid19.jp | Location where statically built HTML is located |
-| Development site HTML | dev-deploy | https://covid19-dev.a01sa01to.com/ | Where to find statically built HTML |
+| Purpose               | Branch      | Confirmation URL                   | Remarks                                         |
+| --------------------- | ----------- | ---------------------------------- | ----------------------------------------------- |
+| Production site HTML  | prod-deploy | https://ibaraki.stopcovid19.jp     | Location where statically built HTML is located |
+| Development site HTML | dev-deploy  | https://covid19-dev.a01sa01to.com/ | Where to find statically built HTML             |
 
 ---
 
 ### 6. Data
 
-* `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9).
+- `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9).

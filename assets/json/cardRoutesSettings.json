@@ -112,7 +112,6 @@
     "deprecated": true
   },
 
-
   {
     "path": "/cards/number-of-inspection-persons",
     "title": "検査実施人数（県衛生研究所・水戸市保健所）",
@@ -161,7 +160,6 @@
     "ogpHeight": 883,
     "deprecated": true
   },
-
 
   {
     "path": "/cards/vaccination-1st",

@@ -7,8 +7,5 @@
   "eslint.format.enable": false,
   "eslint.packageManager": "yarn",
   "eslint.workingDirectories": ["./"],
-  "eslint.validate": [
-    "javascript",
-    "vue"
-  ],
+  "eslint.validate": ["javascript", "vue"]
 }
