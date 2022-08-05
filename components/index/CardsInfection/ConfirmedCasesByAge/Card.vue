@@ -11,7 +11,7 @@
       >
         <template #description>
           <ul>
-            <li>
+            <!-- <li>
               {{
                 $t(
                   '「濃厚接触者」は、家族や知人などからの感染の可能性が高い方、クラスターに関係する方を指す。'
@@ -31,7 +31,7 @@
                   '県の公表資料の様式変更の影響で、これらの数値は一部異なっている場合がある。'
                 )
               }}
-            </li>
+            </li> -->
           </ul>
         </template>
       </chart>
@@ -67,8 +67,8 @@ export default {
     // ヘッダーを設定
     ageTable.headers = [
       { text: this.$t('年代'), value: 'age', align: 'center' },
-      { text: this.$t('新規'), value: '_new', align: 'center' },
-      { text: this.$t('濃厚接触者'), value: 'close', align: 'center' },
+      // { text: this.$t('新規'), value: '_new', align: 'center' },
+      // { text: this.$t('濃厚接触者'), value: 'close', align: 'center' },
       { text: this.$t('合計'), value: 'total', align: 'center' },
     ]
 
@@ -88,22 +88,13 @@ export default {
       '100歳以上',
       null,
     ]
+
     data
       .sort((a, b) => {
-        // 全体を合計でソート
-        if (a.new + a.close === b.new + b.close) {
-          return 0
-        } else if (a.new + a.close > b.new + b.close) {
-          return 1
-        } else {
-          return -1
-        }
-      })
-      .sort((a, b) => {
         // 全体を新規でソート
-        if (a.new === b.new) {
+        if (a.value === b.value) {
           return 0
-        } else if (a.new > b.new) {
+        } else if (a.value > b.value) {
           return 1
         } else {
           return -1
@@ -117,10 +108,8 @@ export default {
     // データを追加
     ageTable.datasets = data.map((d) => {
       const age = this.$t(d.age)
-      const _new = countFormatter(d.new)
-      const close = countFormatter(d.close)
-      const total = countFormatter(d.new + d.close)
-      return { age, _new, close, total }
+      const total = countFormatter(d.value)
+      return { age, total }
     })
 
     const info = {
