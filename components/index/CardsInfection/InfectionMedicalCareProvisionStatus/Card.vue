@@ -54,7 +54,7 @@ export default Vue.extend<DataType, Methods, Computed, Props>({
     const patients = Data.patients_summary.data.slice(-1)[0]
     const statuses = {
       positive: patients.total,
-      unknown: patients.total - patients.close,
+      // unknown: patients.total - patients.close,
       recover: Data.recovered_summary.data.slice(-1)[0].total,
       death: Data.deaths_summary.data.slice(-1)[0].total,
       care: Data.ibk_corona_next.sickbed,

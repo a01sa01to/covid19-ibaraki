@@ -27,4 +27,4 @@ if [ "$CHANGE_DETECTED" ]; then
   exit 1
 fi
 
-yarn lint-staged
+# yarn lint-staged

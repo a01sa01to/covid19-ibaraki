@@ -8,7 +8,7 @@
           <span :class="$style.unit">{{ $t('人') }}</span>
         </span>
       </div>
-      <ul :class="$style.group">
+      <!-- <ul :class="$style.group">
         <li :class="$style.box">
           <div :class="$style.content">
             <span>{{ $t('うち経路不明者') }}</span>
@@ -18,7 +18,7 @@
             </span>
           </div>
         </li>
-      </ul>
+      </ul> -->
     </li>
     <li :class="[$style.box]">
       <div :class="$style.content">
