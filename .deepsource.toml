@@ -1,5 +1,7 @@
 version = 1
 
+exclude_patterns = ["data/**"]
+
 [[analyzers]]
 name = "shell"
 enabled = true
