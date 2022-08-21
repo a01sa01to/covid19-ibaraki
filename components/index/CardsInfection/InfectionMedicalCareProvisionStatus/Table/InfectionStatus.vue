@@ -1,6 +1,7 @@
 <template>
   <ul :class="$style.container">
-    <li :class="[$style.box, $style.parent]">
+    <!-- <li :class="[$style.box, $style.parent]"> -->
+    <li :class="$style.box">
       <div :class="$style.content">
         <span>{{ $t('新規陽性者') }}</span>
         <span>
