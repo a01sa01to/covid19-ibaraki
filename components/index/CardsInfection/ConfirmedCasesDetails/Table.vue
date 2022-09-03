@@ -12,10 +12,10 @@
         <li :class="[$style.box, $style.parent]">
           <div :class="$style.content">
             <span>{{ $t('療養中') }}</span>
-            <span>
+            <!-- <span>
               <strong>{{ 療養中.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
+            </span> -->
           </div>
           <ul :class="$style.group">
             <li :class="[$style.box, $style.parent]">
@@ -65,7 +65,7 @@
                 </span>
               </div>
             </li>
-            <li :class="[$style.box]">
+            <!-- <li :class="[$style.box]">
               <div :class="$style.content">
                 <span>{{ $t('自宅療養') }}</span>
                 <span>
@@ -73,7 +73,7 @@
                   <span :class="$style.unit">{{ $t('人') }}</span>
                 </span>
               </div>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li :class="$style.box">
@@ -85,7 +85,7 @@
             </span>
           </div>
         </li>
-        <li :class="$style.box">
+        <!-- <li :class="$style.box">
           <div :class="$style.content">
             <span>{{ $t('回復済') }}</span>
             <span>
@@ -93,8 +93,8 @@
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
-        </li>
-        <li :class="[$style.box]">
+        </li> -->
+        <!-- <li :class="[$style.box]">
           <div :class="$style.content">
             <span>{{ $t('その他') }}</span>
             <span>
@@ -102,7 +102,7 @@
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
-        </li>
+        </li> -->
       </ul>
     </li>
   </ul>
@@ -121,10 +121,10 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    療養中: {
-      type: Number,
-      required: true,
-    },
+    // 療養中: {
+    //   type: Number,
+    //   required: true,
+    // },
     入院: {
       type: Number,
       required: true,
@@ -145,22 +145,22 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    自宅療養: {
-      type: Number,
-      required: true,
-    },
-    その他: {
-      type: Number,
-      required: true,
-    },
+    // 自宅療養: {
+    //   type: Number,
+    //   required: true,
+    // },
+    // その他: {
+    //   type: Number,
+    //   required: true,
+    // },
     死亡: {
       type: Number,
       required: true,
     },
-    回復済: {
-      type: Number,
-      required: true,
-    },
+    // 回復済: {
+    //   type: Number,
+    //   required: true,
+    // },
   },
 })
 </script>

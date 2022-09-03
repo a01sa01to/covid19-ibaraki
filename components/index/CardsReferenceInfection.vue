@@ -18,10 +18,10 @@ const InfectionMedicalCareProvisionStatusCard = () =>
 //   import('@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue')
 const ConfirmedCasesByAgeCard = () =>
   import('@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue')
-const ConfirmedCasesByMunicipalitiesCard = () =>
-  import(
-    '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
-  )
+// const ConfirmedCasesByMunicipalitiesCard = () =>
+//   import(
+//     '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
+//   )
 const ConfirmedCasesDetailsCard = () =>
   import('@/components/index/CardsInfection/ConfirmedCasesDetails/Card.vue')
 const ConfirmedCasesNumberCard = () =>
@@ -30,12 +30,12 @@ const DeathsCard = () =>
   import('@/components/index/CardsInfection/Deaths/Card.vue')
 const IbarakiCoronaNextCard = () =>
   import('@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue')
-const IbarakiGraphicalMapCard = () =>
-  import('@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue')
+// const IbarakiGraphicalMapCard = () =>
+//   import('@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue')
 const RecoveredCard = () =>
   import('@/components/index/CardsInfection/Recovered/Card.vue')
-const UntrackedRateCard = () =>
-  import('@/components/index/CardsInfection/UntrackedRate/Card.vue')
+// const UntrackedRateCard = () =>
+//   import('@/components/index/CardsInfection/UntrackedRate/Card.vue')
 // const NationalInfectionStatusCard = () =>
 //   import('@/components/index/CardsInfection/NationalInfectionStatus/Card.vue')
 const MutantAlphaConfirmedCasesNumberCard = () =>
@@ -64,14 +64,14 @@ export default Vue.extend({
         // NationalInfectionStatusCard,
         ConfirmedCasesNumberCard,
         // ConfirmedCasesAttributesCard,
-        ConfirmedCasesByMunicipalitiesCard,
-        IbarakiGraphicalMapCard,
+        // ConfirmedCasesByMunicipalitiesCard,
+        // IbarakiGraphicalMapCard,
         ConfirmedCasesByAgeCard,
-        UntrackedRateCard,
-        RecoveredCard,
+        // UntrackedRateCard,
         DeathsCard,
       ],
       hideRows: [
+        RecoveredCard,
         MutantAlphaConfirmedCasesNumberCard,
         MutantDeltaConfirmedCasesNumberCard,
         MutantOmicronConfirmedCasesNumberCard,
