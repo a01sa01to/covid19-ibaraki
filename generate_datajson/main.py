@@ -135,7 +135,7 @@ with open('patients.json', 'r', encoding="UTF-8") as f:
   for person in json_content:
     person['date'] = person['公表_年月日'].replace('T00:00:00','')
     person['年代'] = person['患者_年代']
-    if person['年代'] == '100歳以上':
+    if person['年代'] == '100歳以上' or person['年代'] == '90代':
       person['年代'] = '90歳以上'
     person['居住地'] = person['患者_居住地']
 
@@ -160,7 +160,7 @@ with open('positive_number.json', 'r', encoding="UTF-8") as f:
   for day in json_content:
     day['date'] = day['公表_年月日'].replace('T00:00:00','')
     day['total'] = int(day['陽性者数'])
-    day['close'] = int(day['うち濃厚接触者'])
+    # day['close'] = int(day['うち濃厚接触者'])
     for key in ['公表_年月日','全国地方公共団体コード','都道府県名','市区町村名','陽性者数','うち濃厚接触者']:
       del day[key]
   file_content['patients_summary']['data'] = json_content
