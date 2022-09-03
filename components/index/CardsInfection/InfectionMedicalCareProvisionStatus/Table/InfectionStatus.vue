@@ -21,7 +21,7 @@
         </li>
       </ul> -->
     </li>
-    <li :class="[$style.box]">
+    <!-- <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('回復者数') }}</span>
         <span>
@@ -29,7 +29,7 @@
           <span :class="$style.unit">{{ $t('人') }}</span>
         </span>
       </div>
-    </li>
+    </li> -->
     <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('死亡者数') }}</span>

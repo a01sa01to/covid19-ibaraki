@@ -252,12 +252,6 @@ export default Vue.extend({
           slug: 'covid19-info',
         },
         {
-          iconPath: mdiBullhorn,
-          title: this.$t('感染拡大防止のための対策について'),
-          link: this.localePath('/emergency-measures'),
-          slug: 'covid19-info',
-        },
-        {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: 'https://www.pref.ibaraki.jp/hokenfukushi/yobo/kiki/yobo/kansen/idwr/information/other/documents/corona-soudan.html',
@@ -308,11 +302,6 @@ export default Vue.extend({
         {
           title: this.$t('茨城県新型コロナ オープンデータ（非公式）'),
           link: 'https://a01sa01to.com/opendata/covid19-ibaraki/',
-          slug: 'site-info',
-        },
-        {
-          title: this.$t('対策サイトに関わるサービスの稼働状況'),
-          link: 'https://covid19-ibaraki.statuspage.io/',
           slug: 'site-info',
         },
       ]
