@@ -12,10 +12,10 @@
         <li :class="[$style.box, $style.parent]">
           <div :class="$style.content">
             <span>{{ $t('療養中') }}</span>
-            <span>
+            <!-- <span>
               <strong>{{ 療養中.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
+            </span> -->
           </div>
           <ul :class="$style.group">
             <li :class="[$style.box, $style.parent]">
@@ -121,10 +121,10 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    療養中: {
-      type: Number,
-      required: true,
-    },
+    // 療養中: {
+    //   type: Number,
+    //   required: true,
+    // },
     入院: {
       type: Number,
       required: true,

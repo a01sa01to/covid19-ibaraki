@@ -23,8 +23,8 @@ file_content = {
       { "age": "60代", "value": 0,},
       { "age": "70代", "value": 0,},
       { "age": "80代", "value": 0,},
-      { "age": "90代", "value": 0,},
-      { "age": "100歳以上", "value": 0,}
+      { "age": "90歳以上", "value": 0,},
+      # { "age": "100歳以上", "value": 0,}
     ],
     "date": "",
   },
@@ -135,6 +135,8 @@ with open('patients.json', 'r', encoding="UTF-8") as f:
   for person in json_content:
     person['date'] = person['公表_年月日'].replace('T00:00:00','')
     person['年代'] = person['患者_年代']
+    if person['年代'] == '100歳以上':
+      person['年代'] = '90歳以上'
     person['居住地'] = person['患者_居住地']
 
     person['date'] = datetime.datetime.strptime(person['date'], '%Y-%m-%d')
