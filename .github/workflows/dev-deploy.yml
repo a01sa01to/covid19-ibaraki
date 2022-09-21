@@ -76,7 +76,7 @@ jobs:
         with:
           ref: dev-deploy
       - name: Download ogp images
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: ogp
           path: ogp
