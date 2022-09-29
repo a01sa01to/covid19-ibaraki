@@ -1,5 +1,10 @@
 <template>
   <div>
+    <static-card class="mb-4">
+      <p>
+          {{ $t('県公式が公表を終了したことに伴い、こちらのタブにあるカードは更新終了となりました。カードは引き続きご覧いただけます。') }}
+      </p>
+    </static-card>
     <cards-lazy-row :rows="rows" />
     <cards-lazy-row :rows="hideRows" hide-cards />
   </div>
@@ -9,6 +14,7 @@
 import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
+import StaticCard from '@/components/_shared/StaticCard.vue'
 
 const InspectionPersonsNumberCard = () =>
   import('@/components/index/CardsInspection/InspectionPersonsNumber/Card.vue')
@@ -33,13 +39,14 @@ const MutantOmicronInspectionPersonsNumberCard = () =>
 
 export default Vue.extend({
   components: {
+    StaticCard,
     CardsLazyRow,
   },
   data() {
     return {
-      rows: [InspectionPersonsNumberCard, TestedNumberCard],
+      rows: [],
 
-      hideRows: [
+      hideRows: [InspectionPersonsNumberCard, TestedNumberCard,
         TelephoneAdvisoryReportsNumberCard,
         MutantAlphaInspectionPersonsNumberCard,
         MutantDeltaInspectionPersonsNumberCard,
