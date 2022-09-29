@@ -234,9 +234,9 @@ export default {
     }
     // [ _でのKey, Stage1->2の境値, Stage2->3, Stage3->4]
     const list = [
-      ['severe', 7, 18, 36],
-      ['sickbed', 67, 270, 560],
-      ['new_patients', 200, 800, 1300],
+      ['severe', 9, 18, 36],
+      ['sickbed', 160, 360, 560],
+      ['new_patients', 700, 1500, 4100],
       // ['non_closecontact', 80, 320, 520],
     ]
 
