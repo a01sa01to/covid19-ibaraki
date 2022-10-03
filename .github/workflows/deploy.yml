@@ -47,6 +47,7 @@ jobs:
 
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
+        continue-on-error: true
         with:
           bump_version_scheme: patch
 
