@@ -2,7 +2,11 @@
   <div>
     <static-card class="mb-4">
       <p>
-          {{ $t('県公式が公表を終了したことに伴い、こちらのタブにあるカードは更新終了となりました。カードは引き続きご覧いただけます。') }}
+        {{
+          $t(
+            '県公式が公表を終了したことに伴い、こちらのタブにあるカードは更新終了となりました。カードは引き続きご覧いただけます。'
+          )
+        }}
       </p>
     </static-card>
     <cards-lazy-row :rows="rows" />
@@ -46,7 +50,9 @@ export default Vue.extend({
     return {
       rows: [],
 
-      hideRows: [InspectionPersonsNumberCard, TestedNumberCard,
+      hideRows: [
+        InspectionPersonsNumberCard,
+        TestedNumberCard,
         TelephoneAdvisoryReportsNumberCard,
         MutantAlphaInspectionPersonsNumberCard,
         MutantDeltaInspectionPersonsNumberCard,
