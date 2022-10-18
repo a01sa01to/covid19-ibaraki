@@ -211,7 +211,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                             for data in json_content:
                                 tags.append(data["city"])
                                 tags.append(data["area"])
-                        elif file_name == JSON_FILES[3]:  # opendata/json/patients.json
+                        # opendata/json/patients.json
+                        elif file_name == JSON_FILES[3]:
                             # 陽性者属性の濃厚接触者の「○」を追加
                             tags.append('○')
                             for data in json_content:
