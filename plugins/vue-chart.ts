@@ -1,7 +1,6 @@
 import { Plugin } from '@nuxt/types'
 import Chart, { ChartData, ChartOptions, ChartXAxe, ChartYAxe } from 'chart.js'
-import type { PropType } from 'vue'
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 // eslint-disable-next-line import/default
 import VueChartJs from 'vue-chartjs'
 
