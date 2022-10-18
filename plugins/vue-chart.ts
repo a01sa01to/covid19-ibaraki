@@ -33,7 +33,7 @@ const createCustomChart = () => {
   const { reactiveProp } = VueChartJs.mixins
 
   const watchDisplayLegends = function (this: Vue, v?: boolean[] | null) {
-    if (v == null) {
+    if (!v) {
       return
     }
     if (v.length === 0) {
