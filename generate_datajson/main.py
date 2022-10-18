@@ -1,5 +1,3 @@
-# coding=utf-8
-
 import datetime
 import json
 
@@ -25,7 +23,6 @@ file_content = {
             {"age": "70代", "value": 0, },
             {"age": "80代", "value": 0, },
             {"age": "90歳以上", "value": 0, },
-            # { "age": "100歳以上", "value": 0,}
         ],
         "date": "",
     },
@@ -163,7 +160,6 @@ with open('positive_number.json', 'r', encoding="UTF-8") as f:
     for day in json_content:
         day['date'] = day['公表_年月日'].replace('T00:00:00', '')
         day['total'] = int(day['陽性者数'])
-        # day['close'] = int(day['うち濃厚接触者'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '陽性者数', 'うち濃厚接触者']:
             del day[key]
     file_content['patients_summary']['data'] = json_content
