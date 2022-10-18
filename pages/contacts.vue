@@ -123,7 +123,7 @@
             </td>
             <td class="bureau text-center">{{ $t('当サイトの管理者') }}</td>
             <td class="tel text-center">
-              <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank">
+              <a href="mailto:covid19-ibaraki%40a01sa01to.com" target="_blank"  rel="noopener noreferrer">
                 covid19-ibaraki@a01sa01to.com
               </a>
               <br />
@@ -153,14 +153,14 @@
               {{ $t('いばらきこころのホットライン') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:029-244-0556" target="_blank">029-244-0556</a><br />
+              <a href="tel:029-244-0556" target="_blank"  rel="noopener noreferrer">029-244-0556</a><br />
               {{ $t('平日 9時～12時・13時～16時') }}<br />
               {{ $t('祝日・年末年始休') }}
             </td>
           </tr>
           <tr>
             <td class="tel text-center">
-              <a href="tel:0120-236-556" target="_blank">0120-236-556</a><br />
+              <a href="tel:0120-236-556" target="_blank"  rel="noopener noreferrer">0120-236-556</a><br />
               {{ $t('土・日曜日 9時～12時・13時～16時') }}<br />
               {{ $t('祝日・年末年始休') }}
             </td>
@@ -172,7 +172,7 @@
             </td>
             <td class="bureau text-center">{{ $t('DV相談ナビ') }}</td>
             <td class="tel text-center">
-              <a href="tel:#8008" target="_blank">#8008</a><br />
+              <a href="tel:#8008" target="_blank"  rel="noopener noreferrer">#8008</a><br />
               {{ $t('平日 9時～21時') }}<br />
               {{ $t('土・日・祝日 9時～17時') }}
             </td>
@@ -180,7 +180,7 @@
           <tr>
             <td class="bureau text-center">{{ $t('DV相談+') }}</td>
             <td class="tel text-center">
-              <a href="tel:0120-279-889" target="_blank">0120-279-889</a><br />
+              <a href="tel:0120-279-889" target="_blank" rel="noopener noreferrer">0120-279-889</a><br />
               {{ $t('24時間対応') }}
             </td>
           </tr>
@@ -193,7 +193,7 @@
               {{ $t('児童相談所虐待対応ダイアル') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:189" target="_blank">189</a><br />
+              <a href="tel:189" target="_blank" rel="noopener noreferrer">189</a><br />
               {{ $t('24時間対応') }}
             </td>
           </tr>
@@ -202,42 +202,42 @@
               {{ $t('いばらき虐待ホットライン') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:0293-22-0293" target="_blank">0293-22-0293</a><br />
+              <a href="tel:0293-22-0293" target="_blank" rel="noopener noreferrer">0293-22-0293</a><br />
               {{ $t('24時間対応') }}
             </td>
           </tr>
           <tr>
             <td class="bureau text-center">{{ $t('中央児童相談所') }}</td>
             <td class="tel text-center">
-              <a href="tel:029-221-4150" target="_blank">029-221-4150</a><br />
+              <a href="tel:029-221-4150" target="_blank" rel="noopener noreferrer">029-221-4150</a><br />
               {{ $t('平日 8時30分～17時15分') }}
             </td>
           </tr>
           <tr>
             <td class="bureau text-center">{{ $t('日立児童相談所') }}</td>
             <td class="tel text-center">
-              <a href="tel:0294-22-0294" target="_blank">0294-22-0294</a><br />
+              <a href="tel:0294-22-0294" target="_blank" rel="noopener noreferrer">0294-22-0294</a><br />
               {{ $t('平日 8時30分～17時15分') }}
             </td>
           </tr>
           <tr>
             <td class="bureau text-center">{{ $t('鉾田児童相談所') }}</td>
             <td class="tel text-center">
-              <a href="tel:0291-33-4119" target="_blank">0291-33-4119</a><br />
+              <a href="tel:0291-33-4119" target="_blank" rel="noopener noreferrer">0291-33-4119</a><br />
               {{ $t('平日 8時30分～17時15分') }}
             </td>
           </tr>
           <tr>
             <td class="bureau text-center">{{ $t('土浦児童相談所') }}</td>
             <td class="tel text-center">
-              <a href="tel:029-821-4595" target="_blank">029-821-4595</a><br />
+              <a href="tel:029-821-4595" target="_blank" rel="noopener noreferrer">029-821-4595</a><br />
               {{ $t('平日 8時30分～17時15分') }}
             </td>
           </tr>
           <tr>
             <td class="bureau text-center">{{ $t('筑西児童相談所') }}</td>
             <td class="tel text-center">
-              <a href="tel:0296-24-1614" target="_blank">0296-24-1614</a><br />
+              <a href="tel:0296-24-1614" target="_blank" rel="noopener noreferrer">0296-24-1614</a><br />
               {{ $t('平日 8時30分～17時15分') }}
             </td>
           </tr>
@@ -250,7 +250,7 @@
               {{ $t('いばらき就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:029-300-1715" target="_blank">029-300-1715</a><br />
+              <a href="tel:029-300-1715" target="_blank" rel="noopener noreferrer">029-300-1715</a><br />
               {{ $t('平日 9時～19時') }}<br />
               {{ $t('第2・4土曜日 9時～16時') }}
             </td>
@@ -260,7 +260,7 @@
               {{ $t('県北地区就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:0294-80-3366" target="_blank">0294-80-3366</a><br />
+              <a href="tel:0294-80-3366" target="_blank" rel="noopener noreferrer">0294-80-3366</a><br />
               {{ $t('平日 9時～16時') }}
             </td>
           </tr>
@@ -269,7 +269,7 @@
               {{ $t('日立地区就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:0294-27-7172" target="_blank">0294-27-7172</a><br />
+              <a href="tel:0294-27-7172" target="_blank" rel="noopener noreferrer">0294-27-7172</a><br />
               {{ $t('平日 9時～16時') }}
             </td>
           </tr>
@@ -278,7 +278,7 @@
               {{ $t('鹿行地区就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:0291-34-2061" target="_blank">0291-34-2061</a><br />
+              <a href="tel:0291-34-2061" target="_blank" rel="noopener noreferrer">0291-34-2061</a><br />
               {{ $t('平日 9時～16時') }}
             </td>
           </tr>
@@ -287,7 +287,7 @@
               {{ $t('県南地区就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:029-825-3410" target="_blank">029-825-3410</a><br />
+              <a href="tel:029-825-3410" target="_blank" rel="noopener noreferrer">029-825-3410</a><br />
               {{ $t('平日 9時～16時') }}
             </td>
           </tr>
@@ -296,7 +296,7 @@
               {{ $t('県西地区就職支援センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:0296-23-3811" target="_blank">0296-23-3811</a><br />
+              <a href="tel:0296-23-3811" target="_blank" rel="noopener noreferrer">0296-23-3811</a><br />
               {{ $t('平日 9時～16時') }}
             </td>
           </tr>
@@ -309,7 +309,7 @@
               {{ $t('いばらき労働相談センター') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:029-233-1560" target="_blank">029-233-1560</a><br />
+              <a href="tel:029-233-1560" target="_blank" rel="noopener noreferrer">029-233-1560</a><br />
               {{ $t('平日 9時～19時') }}<br />
               {{ $t('第2・4土曜日 9時～15時') }}
             </td>
@@ -351,7 +351,7 @@
               {{ $t('新型コロナウイルス感染症に関する特設人権相談窓口') }}
             </td>
             <td class="tel text-center">
-              <a href="tel:029-301-2613" target="_blank">029-301-2613</a><br />
+              <a href="tel:029-301-2613" target="_blank" rel="noopener noreferrer">029-301-2613</a><br />
               {{ $t('平日 9時～17時') }}
             </td>
           </tr>
@@ -371,35 +371,35 @@
           <tr>
             <td class="tel text-center">
               {{ $t('県央地区') }}<br />
-              <a href="tel:029-221-5550" target="_blank">029-221-5550</a><br />
+              <a href="tel:029-221-5550" target="_blank" rel="noopener noreferrer">029-221-5550</a><br />
               {{ $t('平日 9時～17時（来所相談も可能）') }}
             </td>
           </tr>
           <tr>
             <td class="tel text-center">
               {{ $t('県北地区') }}<br />
-              <a href="tel:0294-34-4652" target="_blank">0294-34-4652</a><br />
+              <a href="tel:0294-34-4652" target="_blank" rel="noopener noreferrer">0294-34-4652</a><br />
               {{ $t('平日 9時～17時（来所相談も可能）') }}
             </td>
           </tr>
           <tr>
             <td class="tel text-center">
               {{ $t('鹿行地区') }}<br />
-              <a href="tel:0291-33-6317" target="_blank">0291-33-6317</a><br />
+              <a href="tel:0291-33-6317" target="_blank" rel="noopener noreferrer">0291-33-6317</a><br />
               {{ $t('平日 9時～17時（来所相談も可能）') }}
             </td>
           </tr>
           <tr>
             <td class="tel text-center">
               {{ $t('県南地区') }}<br />
-              <a href="tel:029-823-6770" target="_blank">029-823-6770</a><br />
+              <a href="tel:029-823-6770" target="_blank" rel="noopener noreferrer">029-823-6770</a><br />
               {{ $t('平日 9時～17時（来所相談も可能）') }}
             </td>
           </tr>
           <tr>
             <td class="tel text-center">
               {{ $t('県西地区') }}<br />
-              <a href="tel:0296-22-7830" target="_blank">0296-22-7830</a><br />
+              <a href="tel:0296-22-7830" target="_blank" rel="noopener noreferrer">0296-22-7830</a><br />
               {{ $t('平日 9時～17時（来所相談も可能）') }}
             </td>
           </tr>
