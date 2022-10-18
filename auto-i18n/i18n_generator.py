@@ -238,7 +238,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             for x in ["-", "‐", "―", "－"]:
                 try:
                     all_tags.pop(all_tags.index(x))
-                except Exception:
+                except ValueError:
                     pass
 
     # 翻訳が複数あるもの("."で区切られている特殊なもの)を保管するリスト
@@ -266,7 +266,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                 try:
                     int(tag[:-1])
                     continue
-                except Exception:
+                except ValueError:
                     pass
             tentative_ja_json[tag] = tag
 
