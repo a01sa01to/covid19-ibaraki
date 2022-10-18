@@ -26,7 +26,7 @@ export default function ({
   dataIndex = 0,
   digit = 0,
 }: DayBeforeRatioParameters): DayBeforeRatioData {
-  if(!displayData.labels) {
+  if (!displayData.labels) {
     return {
       lastDay: new Date(),
       lastDayData: '',
@@ -49,7 +49,7 @@ export default function ({
 
 function formatDayBeforeRatio(
   dayBeforeRatio: number,
-  formatter: (d: number)=>string
+  formatter: (d: number) => string
 ): string {
   const formattedDayBeforeRatio = formatter(dayBeforeRatio)
   switch (Math.sign(dayBeforeRatio)) {

@@ -89,29 +89,29 @@ const createCustomChart = () => {
         },
         min(value) {
           this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-           if(v.ticks) v.ticks.min = value
+            if (v.ticks) v.ticks.min = value
           })
           this.$data._chart.update()
         },
         max(value) {
           this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-            if(v.ticks)          v.ticks.max = value
+            if (v.ticks) v.ticks.max = value
           })
           this.$data._chart.update()
         },
         yAxisMax(value) {
           this.$data._chart.options.scales.yAxes.forEach((v: ChartYAxe) => {
-           if(v.ticks) v.ticks.max = value
+            if (v.ticks) v.ticks.max = value
           })
           this.$data._chart.update()
         },
         switch(newValue, oldValue) {
           if (newValue !== oldValue) {
             this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-             if(v.ticks) v.ticks.min = this.$props.min
+              if (v.ticks) v.ticks.min = this.$props.min
             })
             this.$data._chart.options.scales.xAxes.forEach((v: ChartYAxe) => {
-              if(v.ticks)v.ticks.max = this.$props.max
+              if (v.ticks) v.ticks.max = this.$props.max
             })
             this.$data._chart.update()
           }
