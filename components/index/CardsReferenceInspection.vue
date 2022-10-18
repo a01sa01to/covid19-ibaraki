@@ -17,8 +17,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 import StaticCard from '@/components/_shared/StaticCard.vue'
+import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 
 const InspectionPersonsNumberCard = () =>
   import('@/components/index/CardsInspection/InspectionPersonsNumber/Card.vue')
