@@ -26,7 +26,6 @@ export type DataType = {
   gender: '男性' | '女性' | string
   occupation: string | null
   close_contact: boolean
-  [key: string]: any
   /* eslint-enable camelcase */
 }
 
