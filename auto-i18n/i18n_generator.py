@@ -287,9 +287,6 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
     # ja.jsonを読み込む
     ja_json = json.load(ja_file)
 
-    # 念のためassert
-    assert isinstance(ja_json, dict)
-
     tentative_json_keys = list(tentative_ja_json.keys())
     ja_json_keys = list(ja_json.keys())
 
