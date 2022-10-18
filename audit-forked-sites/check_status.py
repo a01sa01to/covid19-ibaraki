@@ -6,9 +6,9 @@ import re
 import urllib.request
 
 
-def markdown_to_html(input: str):
+def markdown_to_html(input_md: str):
     return markdown.markdown(
-        input,
+        input_md,
         extensions=['markdown.extensions.tables']
     )
 

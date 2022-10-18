@@ -178,12 +178,7 @@
 </template>
 
 <script lang="ts">
-import {
-  mdiBullhorn,
-  mdiChartTimelineVariant,
-  mdiClose,
-  mdiMenu,
-} from '@mdi/js'
+import { mdiChartTimelineVariant, mdiClose, mdiMenu } from '@mdi/js'
 import Vue from 'vue'
 import type { TranslateResult } from 'vue-i18n'
 
@@ -337,17 +332,17 @@ export default Vue.extend({
         }
       })
     },
-    handleChangeRoute() {
+    async handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
-      return this.$nextTick().then(() => {
+      await this.$nextTick().then(() => {
         const $Side = this.$refs.Side as HTMLElement | undefined
         if ($Side) {
           $Side.focus()
         }
       })
     },
-    handleNavFocus(isNaviOpen: boolean) {
-      return this.$nextTick(() => {
+    async handleNavFocus(isNaviOpen: boolean) {
+      await this.$nextTick().then(() => {
         if (isNaviOpen) {
           const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
           $LanguageLabel.focus()

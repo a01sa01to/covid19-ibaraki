@@ -26,7 +26,14 @@ export default function ({
   dataIndex = 0,
   digit = 0,
 }: DayBeforeRatioParameters): DayBeforeRatioData {
-  const lastDay = displayData.labels!.slice(-1)[0]
+  if (!displayData.labels) {
+    return {
+      lastDay: new Date(),
+      lastDayData: '',
+      dayBeforeRatio: '',
+    }
+  }
+  const lastDay = displayData.labels.slice(-1)[0]
   const data = displayData.datasets[dataIndex].data
   const lastDayData = data.slice(-1)[0]
   const lastBeforeData = data.slice(-2)[0]
@@ -42,7 +49,7 @@ export default function ({
 
 function formatDayBeforeRatio(
   dayBeforeRatio: number,
-  formatter: Function
+  formatter: (d: number) => string
 ): string {
   const formattedDayBeforeRatio = formatter(dayBeforeRatio)
   switch (Math.sign(dayBeforeRatio)) {

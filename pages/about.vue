@@ -35,7 +35,11 @@
       </p>
       <ul>
         <li>
-          <a href="https://www.pref.ibaraki.jp/index.html" target="_blank">
+          <a
+            href="https://www.pref.ibaraki.jp/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{ $t('茨城県公式サイト') }}
           </a>
         </li>

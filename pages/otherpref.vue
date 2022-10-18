@@ -27,7 +27,12 @@
                 >
                   {{ item['URL'] }}
                 </a>
-                <a v-else :href="item['URL']" target="_blank">
+                <a
+                  v-else
+                  :href="item['URL']"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {{ item['URL'] }}
                 </a>
               </td>
@@ -35,6 +40,7 @@
                 <a
                   :href="`https://github.com/${item['GitHub']}`"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {{ item['GitHub'] }}
                 </a>

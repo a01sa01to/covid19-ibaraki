@@ -33,15 +33,15 @@ TS_FILES = ["formatConfirmedCasesAttributesTable.ts",
 CSV_FILES = ["occupation.csv"]
 
 # タグの正規表現パターン
-tag_pattern_t = re.compile("\$t\([ ]*?['|`][^']*?['|`]")
-tag_pattern_tc = re.compile("\$tc\([ ]*?['|`][^']*?['|`]")
+tag_pattern_t = re.compile(r"$t([ ]*?['|`][^']*?['|`]")
+tag_pattern_tc = re.compile(r"$tc([ ]*?['|`][^']*?['|`]")
 
 # tsファイル内のヘッダーの正規表現パターン
-header_pattern = re.compile("\{ text: '[^']*?', value: '[^']*?'")
+header_pattern = re.compile(r"{ text: '[^']*?', value: '[^']*?'")
 
 # tsファイル内のtranslatable unitの正規表現パターン
 translatable_pattern = re.compile(
-    r"\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
+    r"{[ ]*?text: '[^']*?',[ ]*?translatable: true")
 
 # 文字エンコーディング
 ENCODING = "UTF-8"
@@ -238,7 +238,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             for x in ["-", "‐", "―", "－"]:
                 try:
                     all_tags.pop(all_tags.index(x))
-                except Exception:
+                except ValueError:
                     pass
 
     # 翻訳が複数あるもの("."で区切られている特殊なもの)を保管するリスト
@@ -266,7 +266,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                 try:
                     int(tag[:-1])
                     continue
-                except Exception:
+                except ValueError:
                     pass
             tentative_ja_json[tag] = tag
 
@@ -286,9 +286,6 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
 
     # ja.jsonを読み込む
     ja_json = json.load(ja_file)
-
-    # 念のためassert
-    assert isinstance(ja_json, dict)
 
     tentative_json_keys = list(tentative_ja_json.keys())
     ja_json_keys = list(ja_json.keys())
