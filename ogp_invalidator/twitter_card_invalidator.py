@@ -70,9 +70,9 @@ url_input = driver.find_element_by_css_selector('input[name="url"]')
 submit_button = driver.find_element_by_css_selector('input[type="submit"]')
 
 
-def twitter_card_validate(url):
+def twitter_card_validate(validate_url):
     url_input.clear()
-    url_input.send_keys(url)
+    url_input.send_keys(validate_url)
     submit_button.click()
 
 
