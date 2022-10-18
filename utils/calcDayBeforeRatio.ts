@@ -49,7 +49,7 @@ export default function ({
 
 function formatDayBeforeRatio(
   dayBeforeRatio: number,
-  formatter: Function
+  formatter: (d: number)=>string
 ): string {
   const formattedDayBeforeRatio = formatter(dayBeforeRatio)
   switch (Math.sign(dayBeforeRatio)) {
