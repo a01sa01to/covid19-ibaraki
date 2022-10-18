@@ -33,8 +33,8 @@ TS_FILES = ["formatConfirmedCasesAttributesTable.ts",
 CSV_FILES = ["occupation.csv"]
 
 # タグの正規表現パターン
-tag_pattern_t = re.compile(r"$t([ ]*?['|`][^']*?['|`]")
-tag_pattern_tc = re.compile(r"$tc([ ]*?['|`][^']*?['|`]")
+tag_pattern_t = re.compile(r"$t([ ]*?['|`][^']*?['|`])")
+tag_pattern_tc = re.compile(r"$tc([ ]*?['|`][^']*?['|`])")
 
 # tsファイル内のヘッダーの正規表現パターン
 header_pattern = re.compile(r"{ text: '[^']*?', value: '[^']*?'")
