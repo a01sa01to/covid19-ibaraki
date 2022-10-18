@@ -108,10 +108,10 @@ const createCustomChart = () => {
         switch(newValue, oldValue) {
           if (newValue !== oldValue) {
             this.$data._chart.options.scales.xAxes.forEach((v: any) => {
-              v.ticks.min = this.min
+              v.ticks.min = this.$props.min
             })
             this.$data._chart.options.scales.xAxes.forEach((v: any) => {
-              v.ticks.max = this.max
+              v.ticks.max = this.$props.max
             })
             this.$data._chart.update()
           }
