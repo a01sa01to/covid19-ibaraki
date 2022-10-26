@@ -64,7 +64,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         # データディレクトリ以外の場合
         if "data" not in cdir and "utils" not in cdir:
             # すべてのVueファイルを検索
-            vue_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.vue", recursive=True)
+            vue_files = glob.glob(cdir + os.sep + "**" +
+                                  os.sep + "*.vue", recursive=True)
             file_count += len(vue_files)
 
             # 各Vueファイルについて処理
@@ -93,12 +94,14 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         fixed_tags.append(tag[start:])
                     # i18nタグ内のpathを取得
                     soup = BeautifulSoup(content, "html.parser")
-                    i18n_tags = [tag.get("path") for tag in soup.find_all("i18n")]
+                    i18n_tags = [tag.get("path")
+                                 for tag in soup.find_all("i18n")]
                     # タグを統合し、重複分を取り除く
                     all_tags = list(set(all_tags + fixed_tags + i18n_tags))
         elif "utils" in cdir:
             # すべてのtsファイルを検索
-            ts_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.ts", recursive=True)
+            ts_files = glob.glob(cdir + os.sep + "**" +
+                                 os.sep + "*.ts", recursive=True)
 
             # 各tsファイルについて処理
             for path in ts_files:
@@ -115,12 +118,14 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         text = "text"
                         value = "value"
                         # ヘッダーを正規表現で取得し、textを抽出
-                        headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
+                        headers = [eval(str_header + " }")[text]
+                                   for str_header in header_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + headers))
         else:
             # すべてのJsonファイルを検索
-            json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
+            json_files = glob.glob(
+                cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
 
             # 各jsonファイルについて処理
             for path in json_files:
@@ -139,7 +144,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 # エリアを取得
                                 tags.append(city["area"])
                                 # ラベルを取得、「小計」は除外する
-                                tags.append(city["label"]) if city["label"] != "小計" else None
+                                tags.append(
+                                    city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
                         # タグを統合し、重複分を取り除く
@@ -214,7 +220,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             ja_json[key] = tentative_tag
             print("Add TAG: " + str(tentative_tag) + " to " + JA_JSON_PATH)
             if not warn_count:
-                result.write(",".join(["RUN", datetime.now(jst).strftime("%Y/%m/%d %H:%M")]) + '\n')
+                result.write(
+                    ",".join(["RUN", datetime.now(jst).strftime("%Y/%m/%d %H:%M")]) + '\n')
             result.write(",".join(["TAG_ADD", str(tentative_tag)]) + '\n')
             warn_count += 1
         # 変更してはならない部分を変更する可能性があるため、変更に関しては自動化しない。

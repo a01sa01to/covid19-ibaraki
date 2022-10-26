@@ -15,7 +15,7 @@ PATHS = {
     "/cards/number-of-reports-to-covid19-telephone-advisory-center": (959, 500),
     "/cards/predicted-number-of-toei-subway-passengers": (959, 750),
     "/cards/agency": (959, 730),
-    "/cards/positive-number-by-diagnosed-date":(959, 730),
+    "/cards/positive-number-by-diagnosed-date": (959, 730),
     "/cards/positive-rate": (959, 730),
     "/cards/monitoring-number-of-confirmed-cases": (959, 500),
     "/cards/untracked-rate": (959, 500),
