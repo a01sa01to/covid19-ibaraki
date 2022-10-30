@@ -218,6 +218,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   }
 
   svg {
+    width: 24px;
+    height: 24px;
     fill: $green-1;
   }
 }

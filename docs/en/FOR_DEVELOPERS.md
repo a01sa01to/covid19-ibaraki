@@ -155,7 +155,7 @@ Please use the following naming rules for the branch when sending a Pull Request
 | ------------ | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
 | Development  | development | https://covid19-dev.a01sa01to.com/     | All developers                                                                                   | base branch. Basically send a Pull Request here        |
 | Production   | production  | https://ibaraki.stopcovid19.jp/        | Only administrators                                                                              | Pull Requests other than Administrators are prohibited |
-| Base Project | upstream    | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) | Synchronized daily at 0,6,12,18 o'clock (JST)          |
+| Base Project | upstream    | https://stopcovid19.metro.tokyo.lg.jp/ | Please check [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) |                                                        |
 
 ### 5-2. Branch used by the system
 

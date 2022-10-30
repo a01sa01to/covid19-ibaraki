@@ -3,4 +3,4 @@
 
 "$(dirname "$0")/check-unchangeable"
 
-# yarn lint-staged
+yarn lint-staged

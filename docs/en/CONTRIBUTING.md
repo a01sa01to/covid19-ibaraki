@@ -26,7 +26,7 @@ This page shows how you can contribute to the development of this site.
 - Please read [Principle / Code of Conduct](./CODE_OF_CONDUCT.md) before participating in development.
 - For communication, please also check Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
 - If you plan to work on an issue, please leave a comment behind to give a heads-up.
-- [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) is recommended for beginners.
+- [good first issue label](https://github.com/a01sa01to/covid19-ibaraki/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) is recommended for beginners.
 - If you can't make any progress for more than half a day, make sure that others can take over your work.
 - If an issue is not updated for more than one day, we may remove the assignment.
 - A [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) is recommended for any work in progress, so that everyone understands the situation.

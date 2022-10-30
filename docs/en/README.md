@@ -23,7 +23,7 @@ This software is released under [the MIT License](./../../LICENSE.txt).
 
 ## The project on which this site is based
 
-Tokyo COVID-19 Task Force website（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）<br>
+Tokyo COVID-19 Response website（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）<br>
 For projects derived from the above projects, please see [document here](./../../FORKED_SITES.md) (Japanese).
 
 ## For Translators
