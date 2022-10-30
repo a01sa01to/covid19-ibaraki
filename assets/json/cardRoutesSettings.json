@@ -5,7 +5,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 582,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/attributes-of-confirmed-cases",
@@ -13,7 +14,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 687,
-    "deprecated": false
+    "deprecated": true,
+    "hidden": true
   },
   {
     "path": "/cards/number-of-confirmed-cases-by-age",
@@ -21,7 +23,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 607,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-confirmed-cases-by-municipalities",
@@ -29,7 +32,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 571,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/details-of-confirmed-cases",
@@ -37,7 +41,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 852,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-confirmed-cases",
@@ -45,7 +50,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 810,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-deaths",
@@ -53,7 +59,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 783,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/ibaraki-corona-next",
@@ -61,7 +68,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 815,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/ibaraki-graphical-map",
@@ -69,7 +77,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 1072,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": true
   },
   {
     "path": "/cards/number-of-recovered",
@@ -77,7 +86,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 819,
-    "deprecated": false
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/untracked-rate",
@@ -85,7 +95,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 939,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": true
   },
   {
     "path": "/cards/number-of-mutant-alpha-confirmed-cases",
@@ -93,7 +104,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 846,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-mutant-delta-confirmed-cases",
@@ -101,7 +113,8 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 846,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-mutant-omicron-confirmed-cases",
@@ -109,16 +122,17 @@
     "category": "感染動向",
     "ogpWidth": 959,
     "ogpHeight": 846,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
-
   {
     "path": "/cards/number-of-inspection-persons",
     "title": "検査実施人数（県衛生研究所・水戸市保健所）",
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 891,
-    "deprecated": false
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-reports-to-covid19-telephone-advisory-center",
@@ -126,7 +140,8 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 783,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-tested",
@@ -134,7 +149,8 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 630,
-    "deprecated": false
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-mutant-alpha-inspection-persons",
@@ -142,7 +158,8 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 883,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-mutant-delta-inspection-persons",
@@ -150,7 +167,8 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 901,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
   {
     "path": "/cards/number-of-mutant-omicron-inspection-persons",
@@ -158,16 +176,17 @@
     "category": "検査状況",
     "ogpWidth": 959,
     "ogpHeight": 883,
-    "deprecated": true
+    "deprecated": true,
+    "hidden": false
   },
-
   {
     "path": "/cards/vaccination-1st",
     "title": "ワクチン接種回数（1回目）",
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
     "ogpHeight": 1051,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/vaccination-2nd",
@@ -175,7 +194,8 @@
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
     "ogpHeight": 1051,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
   },
   {
     "path": "/cards/vaccination-3rd",
@@ -183,6 +203,16 @@
     "category": "ワクチン接種状況",
     "ogpWidth": 959,
     "ogpHeight": 1051,
-    "deprecated": false
+    "deprecated": false,
+    "hidden": false
+  },
+  {
+    "path": "/cards/vaccination-4th",
+    "title": "ワクチン接種回数（4回目）",
+    "category": "ワクチン接種状況",
+    "ogpWidth": 959,
+    "ogpHeight": 1051,
+    "deprecated": false,
+    "hidden": false
   }
 ]
