@@ -112,20 +112,6 @@
     </static-card>
     <static-card>
       <h3>
-        <app-link
-          :to="localePath('/emergency-measures')"
-          class="Sitemap-titleLink"
-        >
-          <v-icon class="mr-2">{{ mdiBullhorn }}</v-icon>
-          {{ $t('感染拡大防止のための対策について') }}
-        </app-link>
-      </h3>
-      <p>
-        {{ $t('感染拡大防止のための対策について、随時更新されます。') }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
         <app-link :to="localePath('/otherpref')" class="Sitemap-titleLink">
           {{ $t('他都道府県の新型コロナ対策サイト') }}
         </app-link>
@@ -214,7 +200,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   methods: {
     getCardRoutes(category: string) {
-      return this.cardData.filter((v) => v.category === category)
+      return this.cardData
+        .filter((v) => v.category === category)
+        .filter((v) => !v.hidden)
     },
   },
 })
@@ -225,11 +213,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   display: flex;
   color: $green-1;
 
-  ::v-deep .v-icon {
+  ::v-deep(.v-icon) {
     color: $green-1;
   }
 
   svg {
+    width: 24px;
+    height: 24px;
     fill: $green-1;
   }
 }

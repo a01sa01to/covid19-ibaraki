@@ -1,10 +1,10 @@
-# Ibaraki COVID-19 Task Force website (Unofficial)
+# Ibaraki COVID-19 Response site (Unofficial)
 
 [![production deploy](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22production+deploy%22)
 [![OGP Builder](https://github.com/a01sa01to/covid19-ibaraki/workflows/OGP%20Builder/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22OGP+Builder%22)
 [![Auto-i18n Generator](https://github.com/a01sa01to/covid19-ibaraki/workflows/Auto-i18n%20Generator/badge.svg?branch=development)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22Auto-i18n+Generator%22)
 
-[![Ibaraki COVID-19 Task Force Website](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
+[![Ibaraki COVID-19 Response site](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
 
 ### [日本語](./../../README.md) | English |
 
@@ -23,7 +23,7 @@ This software is released under [the MIT License](./../../LICENSE.txt).
 
 ## The project on which this site is based
 
-Tokyo COVID-19 Task Force website（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）<br>
+Tokyo COVID-19 Response website（ [tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19) ）<br>
 For projects derived from the above projects, please see [document here](./../../FORKED_SITES.md) (Japanese).
 
 ## For Translators

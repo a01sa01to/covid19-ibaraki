@@ -1,8 +1,7 @@
 # 茨城県 新型コロナウイルス感染症対策サイト（非公式）
 
-[![production deploy](https://github.com/a01sa01to/covid19-ibaraki/workflows/production%20deploy/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22production+deploy%22)
-[![OGP Builder](https://github.com/a01sa01to/covid19-ibaraki/workflows/OGP%20Builder/badge.svg?branch=master)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22OGP+Builder%22)
-[![Auto-i18n Generator](https://github.com/a01sa01to/covid19-ibaraki/workflows/Auto-i18n%20Generator/badge.svg?branch=development)](https://github.com/a01sa01to/covid19-ibaraki/actions?query=workflow%3A%22Auto-i18n+Generator%22)
+[![Production Deploy](https://github.com/a01sa01to/covid19-ibaraki/actions/workflows/deploy.yml/badge.svg)](https://github.com/a01sa01to/covid19-ibaraki/actions/workflows/deploy.yml)
+[![Auto-i18n Generator](https://github.com/a01sa01to/covid19-ibaraki/actions/workflows/i18n-generator.yml/badge.svg)](https://github.com/a01sa01to/covid19-ibaraki/actions/workflows/i18n-generator.yml)
 
 [![茨城県 新型コロナウイルス感染症対策サイト](/static/ss.png)](https://ibaraki.stopcovid19.jp/)
 

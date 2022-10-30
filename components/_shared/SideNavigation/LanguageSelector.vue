@@ -4,6 +4,7 @@
       <earth-icon class="EarthIcon" aria-hidden="true" />
       <select-menu-icon class="SelectMenuIcon" aria-hidden="true" />
     </div>
+    <!-- eslint-disable vuejs-accessibility/form-control-has-label-->
     <select
       id="LanguageSelector"
       v-model="currentLocaleCode"
@@ -19,6 +20,7 @@
         {{ locale.name }}
       </option>
     </select>
+    <!-- eslint-enable vuejs-accessibility/form-control-has-label-->
   </div>
 </template>
 
@@ -90,10 +92,9 @@ export default Vue.extend({
 
 .LauguageSelector-Menu {
   // select 要素のリセット
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background: transparent;
+
   // IEで矢印ボタンを消す
   &::-ms-expand {
     display: none;

@@ -15,6 +15,12 @@
       :disable-sort="true"
       class="cardTable"
     />
+    <template #attentionNote>
+      <slot name="attentionNote" />
+    </template>
+    <template #additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template #infoPanel>
       <data-view-data-set-panel
         :l-text="info.lText"

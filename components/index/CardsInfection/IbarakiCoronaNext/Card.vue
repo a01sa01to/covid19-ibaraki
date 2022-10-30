@@ -304,6 +304,7 @@ $default-boxdiff: 35px;
   display: flex;
   justify-content: center;
   width: 100%;
+
   // override default styles
   padding-left: 0 !important;
   line-height: 1.35;
@@ -340,7 +341,6 @@ $default-boxdiff: 35px;
       width: 100%;
       margin: 4px;
       margin-top: 16px;
-      // font-size: 1.2rem;
       text-align: right;
 
       > a {

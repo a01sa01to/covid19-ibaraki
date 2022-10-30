@@ -1,4 +1,4 @@
-# Ibaraki COVID-19 Task Force site contributors
+# Ibaraki COVID-19 Response site contributors
 
 本プロジェクトにご協力いただいた皆様
 
@@ -11,7 +11,7 @@
 お名前の掲載をご希望の方は，[#35](https://github.com/a01sa01to/covid19-ibaraki/issues/35) にコメントをお願いします。<br>
 If you want to add your name, please comment on [#35](https://github.com/a01sa01to/covid19-ibaraki/issues/35).
 
-# Tokyo COVID-19 Task Force site contributors
+# Tokyo COVID-19 Response site contributors
 
 本プロジェクトの元「東京都 新型コロナウイルス感染症対策サイト」にご協力された皆様
 
@@ -196,6 +196,7 @@ If you want to add your name, please comment on [#35](https://github.com/a01sa01
 | knknk98                                                        | [@knknk98](https://github.com/knknk98)                 |                                                         | Coding                              |
 | kyon-00                                                        | [@kyon-00](https://github.com/kyon-00)                 |                                                         | Frontend                            |
 | osaguild                                                       | [@osaguild](https://github.com/osaguild)               | [@osaguild](https://twitter.com/osaguild)               | Reporter                            |
+| Akira Aso                                                      | [@akiraaso](https://github.com/akiraaso)               |                                                         | Coding                              |
 
 ご協力に感謝です！！！
 
