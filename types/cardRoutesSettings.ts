@@ -4,4 +4,6 @@ export type Settings = {
   category: string
   ogpWidth: number
   ogpHeight: number
+  deprecated: boolean
+  hidden: boolean
 }
