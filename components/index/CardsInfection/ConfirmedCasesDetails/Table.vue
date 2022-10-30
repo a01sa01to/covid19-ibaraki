@@ -168,12 +168,10 @@ export default Vue.extend({
 <style lang="scss" module>
 $default-bdw: 3px;
 $default-boxdiff: 35px;
-// .container > .box > (.group > .box > ...) .severe > .content
 
 .container {
   box-sizing: border-box;
   width: 100%;
-  // override default styles
   padding-left: 0 !important;
   line-height: 1.35;
   color: $green-1;

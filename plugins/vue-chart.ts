@@ -12,7 +12,7 @@ type ChartVCMethod = {
 }
 type ChartVCComputed = unknown
 type ChartVCProps = {
-  options: Object
+  options: ChartOptions
   displayLegends: boolean[] | null
   min?: string
   max?: string
@@ -28,6 +28,7 @@ const VueChartPlugin: Plugin = ({ app }) => {
 const rgba0 = 'rgba(255,255,255,0)'
 const rgba1 = 'rgba(255,255,255,1)'
 
+// prettier-ignore
 const createCustomChart = () => {
   const { reactiveProp } = VueChartJs.mixins
 
@@ -49,6 +50,7 @@ const createCustomChart = () => {
     ChartVCData,
     ChartVCMethod,
     ChartVCComputed,
+    // @ts-ignore
     ChartVCProps
   >(
     'GeneralChart', // eslint-disable-next-line vue/one-component-per-file
@@ -83,47 +85,61 @@ const createCustomChart = () => {
       watch: {
         displayLegends: watchDisplayLegends,
         width() {
+          // @ts-ignore
           setTimeout(() => this.$data._chart.resize())
+          // @ts-ignore
           this.$parent.$emit('update-width')
         },
-        min(value) {
-          this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-            if (v.ticks) v.ticks.min = value
+        min(value: string) {
+          // @ts-ignore
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            v.ticks.min = value
           })
+          // @ts-ignore
           this.$data._chart.update()
         },
-        max(value) {
-          this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-            if (v.ticks) v.ticks.max = value
+        max(value: string) {
+          // @ts-ignore
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            v.ticks.max = value
           })
+          // @ts-ignore
           this.$data._chart.update()
         },
-        yAxisMax(value) {
-          this.$data._chart.options.scales.yAxes.forEach((v: ChartYAxe) => {
-            if (v.ticks) v.ticks.max = value
+        yAxisMax(value: number) {
+          // @ts-ignore
+          this.$data._chart.options.scales.yAxes.forEach((v: any) => {
+            v.ticks.max = value
           })
+          // @ts-ignore
           this.$data._chart.update()
         },
-        switch(newValue, oldValue) {
+        switch(newValue: string, oldValue: string) {
           if (newValue !== oldValue) {
-            this.$data._chart.options.scales.xAxes.forEach((v: ChartXAxe) => {
-              if (v.ticks) v.ticks.min = this.$props.min
+            // @ts-ignore
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+              v.ticks.min = this.min
             })
-            this.$data._chart.options.scales.xAxes.forEach((v: ChartYAxe) => {
-              if (v.ticks) v.ticks.max = this.$props.max
+            // @ts-ignore
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+              v.ticks.max = this.max
             })
+            // @ts-ignore
             this.$data._chart.update()
           }
         },
       },
       mounted() {
+        // @ts-ignore
         this.$nextTick().then(() => {
+          // @ts-ignore
           this.renderChart(this.chartData, this.options)
         })
       },
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'LineChart', // eslint-disable-next-line vue/one-component-per-file
     {
@@ -131,6 +147,7 @@ const createCustomChart = () => {
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'Bar', // eslint-disable-next-line vue/one-component-per-file
     {
@@ -138,6 +155,7 @@ const createCustomChart = () => {
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'DoughnutChart', // eslint-disable-next-line vue/one-component-per-file
     {

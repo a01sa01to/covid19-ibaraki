@@ -50,15 +50,15 @@
 </template>
 
 <style lang="scss">
-$mediumLarge: 900;
-$tinySmall: 420;
+$medium-large: 900;
+$tiny-small: 420;
 
-@function px2vw($px, $vw: $mediumLarge) {
+@function px2vw($px, $vw: $medium-large) {
   @return $px / $vw * 100vw;
 }
 
 .AppInstall {
-  @include card-container();
+  @include card-container;
 
   padding: 10px;
   margin-bottom: 20px;
@@ -80,7 +80,7 @@ $tinySmall: 420;
       align-items: center;
       padding: 12px;
       color: $gray-2;
-      @include card-h2();
+      @include card-h2;
 
       &-icon {
         margin: 3px;

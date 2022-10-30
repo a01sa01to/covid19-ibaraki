@@ -14,6 +14,11 @@
 - `waiting` ラベルがついた Issue は関係者の確認中ですので、内容が固まるまで実装するのは避けていただく方が無難です。
 - good first issue / help wanted / bug を優先して対応いただけると助かります
 
+## コミュニケーションへの参加方法
+
+- Code for Japan の Slack アカウントを持っていない場合、[こちらから登録](https://cfjslackin.herokuapp.com/)してください
+- `#covid19` チャンネルにご参加ください。
+
 ## 参加にあたって
 
 - 開発に参加する前に、[Principle/行動規範](./CODE_OF_CONDUCT.md) をご一読ください。
@@ -22,6 +27,7 @@
 - [good first issue ラベルのついたもの](https://github.com/a01sa01to/covid19-ibaraki/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue)は初心者におすすめです
 - 半日以上作業から離れそうな場合は、他の人が作業を引き継げるようにしておいてください。（Issue を抱えたまま長時間オフになると、その Issue がブロックされてしまいます。）
 - 1 日以上更新されない Issue については、当方で assign を外させていただくことがあります。作業途中でも、[Draft Pull Request](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) を送ってもらえると、動きが把握しやすくなります。
+- Issue に関連した質問等は、Slack より Issue 内のコメントを活用しましょう
 - 提案なども受け付けます！積極的に新しく Issue を作ってください。
 
 ## 参考情報
@@ -38,7 +44,7 @@
 
 - 本番サイト https://ibaraki.stopcovid19.jp/
 - 開発サイト https://covid19-dev.a01sa01to.com/
-- [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
+- [デザイン (東京都版)](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 - [翻訳スプレッドシート (Transifex)](https://www.transifex.com/asas-4/covid19-ibaraki/)
 
 本 ドキュメント の更新も大歓迎です！

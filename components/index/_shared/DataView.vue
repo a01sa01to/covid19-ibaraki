@@ -9,6 +9,7 @@
         }"
       >
         <h3
+          v-if="title"
           class="DataView-Title"
           :class="
             !!$slots.infoPanel
@@ -74,7 +75,7 @@
           ]"
           :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
           :aria-controls="titleId + '--description'"
-          @click="toggleDescription"
+          @click.stop="toggleDescription"
         >
           <span class="DataView-Description--Toggle__Icon">
             <v-icon
@@ -233,7 +234,8 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   height: 100%;
-  @include card-container();
+
+  @include card-container;
 
   &-Header {
     display: flex;
@@ -369,8 +371,8 @@ export default Vue.extend({
         height: 70px;
         background: linear-gradient(
           to bottom,
-          rgba(250, 252, 252, 0) 0%,
-          rgba(255, 255, 255, 1) 80%
+          rgb(250 252 252 / 0%) 0%,
+          rgb(255 255 255 / 100%) 80%
         );
       }
     }

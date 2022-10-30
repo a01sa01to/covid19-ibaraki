@@ -80,7 +80,7 @@ After executing the following command, you can check the program under developme
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 ### 2-2-2. Troubleshoot
@@ -90,7 +90,7 @@ $ docker-compose up --build
 Stop the program and execute the following command.
 
 ```bash
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. Using `Vagrant`

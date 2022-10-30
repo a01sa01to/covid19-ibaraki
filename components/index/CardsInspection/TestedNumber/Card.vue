@@ -158,7 +158,6 @@ $default-boxdiff: 35px;
     }
 
     &:last-child {
-      // white-space: nowrap;
       flex-shrink: 1;
       margin-left: 10px;
       text-align: right;
@@ -239,6 +238,7 @@ $default-boxdiff: 35px;
 @include lessThan(959) {
   @include override(960, 3, 14, 35);
 }
+
 // Vuetify Breakpoints: Extra Small (600)
 @include lessThan(600) {
   @include override(600, 3, 14, 35);

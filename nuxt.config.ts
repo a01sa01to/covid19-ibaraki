@@ -88,6 +88,10 @@ const config: NuxtConfig = {
       src: '@/plugins/axe',
       ssr: true,
     },
+    {
+      src: '@/plugins/vue-scrollto',
+      ssr: true,
+    },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -102,7 +106,7 @@ const config: NuxtConfig = {
           async: true,
           typescript: {
             enable: true,
-            memoryLimit: 4096,
+            memoryLimit: 10240,
           },
         },
       },

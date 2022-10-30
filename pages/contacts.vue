@@ -706,7 +706,7 @@ export default Vue.extend({
 .Contacts,
 .HealthCenter {
   &-Card {
-    @include card-container();
+    @include card-container;
 
     &-Table {
       width: 100%;
@@ -748,8 +748,7 @@ export default Vue.extend({
         tr:not(:last-child) {
           border-top: none;
           border-right: none;
-          border-bottom: thin solid rgba(0, 0, 0, 0.12);
-          border-left: none;
+          border-bottom: thin solid rgb(0 0 0 / 12%);
         }
 
         tr:last-child {
@@ -797,18 +796,20 @@ export default Vue.extend({
             }
           }
 
-          // 子要素数が3のときにfirst-childにborderをつける
-
-          tr:not(:first-child) td:first-child:nth-last-child(3) {
-            border-top: thin solid rgba(0, 0, 0, 0.12);
+          tr:not(:last-child) {
+            border-bottom: thin solid rgb(0 0 0 / 12%);
           }
         }
-      }
 
-      p.caution {
-        margin: 0;
-        @include font-size(12);
+        tr:not(:first-child) td:first-child:nth-last-child(3) {
+          border-top: thin solid rgba(0 0 0 / 12%);
+        }
       }
+    }
+
+    p.caution {
+      margin: 0;
+      @include font-size(12);
     }
   }
 }
