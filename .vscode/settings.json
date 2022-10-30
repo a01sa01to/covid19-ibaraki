@@ -16,11 +16,6 @@
   },
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.workingDirectories": [
-    "./"
-  ],
-  "eslint.validate": [
-    "javascript",
-    "vue"
-  ]
+  "eslint.workingDirectories": ["./"],
+  "eslint.validate": ["javascript", "vue"]
 }
