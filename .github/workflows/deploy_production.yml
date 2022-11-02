@@ -20,18 +20,7 @@ jobs:
         uses: actions/setup-node@v3.5.1
         with:
           node-version: '16.13.0'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install deps
         run: yarn install --frozen-lockfile
       - name: Test
@@ -56,17 +45,17 @@ jobs:
     needs: deploy
     runs-on: macos-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - uses: actions/checkout@v3
         with:
           ref: prod-deploy
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
       - name: Install selenium with pip
-        run: pip3 install selenium
+        run: pip install selenium
       - name: Take screenshot
-        run: (python3 -m http.server --directory ./ 8000 &)  ; python3 ./ui-test/ogp_screenshot.py
+        run: (python -m http.server --directory ./ 8000 &)  ; python ./ui-test/ogp_screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v3
         with:
@@ -77,10 +66,6 @@ jobs:
     needs: ogp_build
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - uses: actions/checkout@v3
         with:
           ref: prod-deploy
@@ -113,10 +98,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: production
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.10'
+          cache: 'pip'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
