@@ -1,21 +1,21 @@
 import csv
-import datetime
-import markdown
+from datetime import timezone, timedelta, datetime
+from markdown import markdown
 import pandas as pd
 import re
 import urllib.request
 
 
 def markdown_to_html(input_md: str):
-    return markdown.markdown(
+    return markdown(
         input_md,
         extensions=['markdown.extensions.tables']
     )
 
 
 def now_in_jst():
-    jst = datetime.timezone(datetime.timedelta(hours=9))
-    return datetime.datetime.now(jst).isoformat(timespec='seconds')
+    jst = timezone(timedelta(hours=9))
+    return datetime.now(jst).isoformat(timespec='seconds')
 
 
 MD_PATH: str = './FORKED_SITES.md'

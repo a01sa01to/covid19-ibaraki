@@ -18,12 +18,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=patients_data -L -o patients.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py patients'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -45,12 +45,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=tested_people -L -o test_people.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json_test_people.py'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -72,12 +72,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=mutant_tested_people -L -o mutant_test_people.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py mutant_test_people'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -99,12 +99,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=call_center -L -o call_center.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py call_center'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -126,12 +126,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=positive_number -L -o positive_number.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py positive_number'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -149,7 +149,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=mutant_positive_number -L -o mutant_positive.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -173,12 +173,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=recovered_number -L -o recovered_number.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py recovered_number'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -200,12 +200,12 @@ jobs:
           python-version: 3.8
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=death_number -L -o death_number.csv'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py death_number'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -223,7 +223,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=inspections_summary -L -o inspections_summary.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -243,7 +243,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=main_summary -L -o main_summary.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -263,7 +263,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=corona_next -L -o corona_next.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -283,7 +283,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=news_json -L -o news.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -303,7 +303,7 @@ jobs:
           ref: development
       - name: Download File
         run: 'curl ${DATA_UPDATE_URL}?data=last_update -L -o last_update.json'
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
@@ -323,12 +323,12 @@ jobs:
           ref: development
       - name: Download File
         run: curl ${DATA_UPDATE_URL}?data=forked_sites -L -o otherpref.csv
-        working-directory: ./dist/data
+        working-directory: dist/data
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Convert to JSON
         run: 'python ../../generate_datajson/csv2json.py otherpref'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -346,10 +346,10 @@ jobs:
           ref: development
       - name: Download File
         run: curl --compressed https://data.vrs.digital.go.jp/vaccination/opendata/latest/prefecture.ndjson -L -o vaccine_data.ndjson
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Convert to Ibaraki Pref only JSON
         run: 'python ../../generate_datajson/vaccine_data.py'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Save
         uses: actions/upload-artifact@v3
         with:
@@ -370,6 +370,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: generate_datajson
       - name: Restore
         uses: actions/download-artifact@v3
         with:
@@ -378,13 +383,13 @@ jobs:
         run: 'mv ./dist/data/opendata_artifact/*.* ./dist/data/'
       - name: Generate data.json
         run: 'python ../../generate_datajson/main.py'
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Move data.json, news.json, otherpref.json
         run: |
           mv data.json ../../data/data.json -u
           mv news.json ../../data/news.json -u
           mv otherpref.json ../../data/otherpref.json -u
-        working-directory: ./dist/data
+        working-directory: dist/data
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"

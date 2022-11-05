@@ -19,7 +19,52 @@ updates:
       - "dependencies"
 
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/audit-forked-sites"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/auto-18n"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/auto-tweet"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/generate_datajson"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/ogp_invalidator"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "a01sa01to"
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/ui-test"
     schedule:
       interval: "weekly"
     assignees:
