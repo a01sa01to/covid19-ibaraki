@@ -433,9 +433,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: development
+          depth: 0
+      - uses: actions/checkout@v3
+        with:
           ref: production
-      - name: Fetch
-        run: git fetch origin
+          depth: 0
       - name: Merge
         run: git merge origin/development --ff
       - name: Temporary disable branch protection
