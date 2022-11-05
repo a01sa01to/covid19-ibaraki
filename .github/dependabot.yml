@@ -28,7 +28,7 @@ updates:
       - "dependencies"
 
   - package-ecosystem: "pip"
-    directory: "/auto-18n"
+    directory: "/auto-i18n"
     schedule:
       interval: "weekly"
     assignees:
