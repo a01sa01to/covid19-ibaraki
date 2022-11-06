@@ -434,11 +434,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: development
-          depth: 0
+          fetch-depth: 0
       - uses: actions/checkout@v3
         with:
           ref: production
-          depth: 0
+          fetch-depth: 0
       - name: Merge
         run: git merge origin/development --ff
       - name: Temporary disable branch protection
