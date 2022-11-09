@@ -1479,5 +1479,22 @@
   "以下の対策は、県立学校、市町村立学校や私立学校、大学等にも要請されます。": "These measures are required not only for prefectural schools, but also for municipal schools, private schools, and universities.",
   "部活動は、原則禁止としてください。": "In principle, club activities should be prohibited.",
   "2/18まで、すべての県立特別支援学校で、分散登校を実施し、一部リモート学習を併用してください。": "Until Feb. 18, all prefectural special-needs schools should conduct dispersed school attendance and use some remote learning together.",
-  "休み時間など、授業以外の場面においても、感染症対策を徹底してください。": "Please take all possible measures to prevent infections even outside of class, such as during breaks."
+  "休み時間など、授業以外の場面においても、感染症対策を徹底してください。": "Please take all possible measures to prevent infections even outside of class, such as during breaks.",
+  "措置期間は、3/6まで延長されました。": "The duration of the measure has been extended until 3/6.",
+  "措置期間は、3/21まで延長されました。": "The duration of the measure has been extended until 3/21.",
+  "25以上": "25 and more",
+  "5未満": "Less than 5",
+  "数秒経っても読み込まれない場合は、再読み込みしてください。": "If it does not load after a few seconds, please reload the website.",
+  "県内市町村社会福祉協議会 ": "Municipal Councils of Social Welfare in the prefecture",
+  "{date}まで": "Until {date}",
+  "表示期間": "Display Period",
+  "{date}から": "From {date}",
+  "エラーメッセージ": "Error Message",
+  "連絡先等については、こちらのページを参照してください。": "For contact information, please refer to this page.",
+  "終了": "End",
+  "開始": "Start",
+  "本日の感染状況・医療提供体制": "Today's infection situation and healthcare delivery system",
+  "ワクチン接種回数（4回目）": "Number of Vaccination (4th time)",
+  "90歳以上": "90 and over",
+  "県公式が公表を終了したことに伴い、こちらのタブにあるカードは更新終了となりました。カードは引き続きご覧いただけます。": "The cards in this tab are no longer updated as the prefectural government has ceased publishing the data. Cards will continue to be available."
 }
