@@ -33,7 +33,7 @@
     "ogpWidth": 959,
     "ogpHeight": 571,
     "deprecated": false,
-    "hidden": false
+    "hidden": true
   },
   {
     "path": "/cards/details-of-confirmed-cases",

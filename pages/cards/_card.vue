@@ -28,19 +28,19 @@ import Breadcrumb from '@/components/_shared/breadcrumb.vue'
 // Infection
 // import ConfirmedCasesAttributesCard from '@/components/index/CardsInfection/ConfirmedCasesAttributes/Card.vue'
 import ConfirmedCasesByAgeCard from '@/components/index/CardsInfection/ConfirmedCasesByAge/Card.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
+// import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsInfection/ConfirmedCasesByMunicipalities/Card.vue'
 import ConfirmedCasesDetailsCard from '@/components/index/CardsInfection/ConfirmedCasesDetails/Card.vue'
 import ConfirmedCasesNumberCard from '@/components/index/CardsInfection/ConfirmedCasesNumber/Card.vue'
 import DeathsCard from '@/components/index/CardsInfection/Deaths/Card.vue'
 import IbarakiCoronaNextCard from '@/components/index/CardsInfection/IbarakiCoronaNext/Card.vue'
-import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
+// import IbarakiGraphicalMapCard from '@/components/index/CardsInfection/IbarakiGraphicalMap/Card.vue'
 import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Card.vue'
 import MutantAlphaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantAlphaConfirmedCasesNumber/Card.vue'
 import MutantDeltaConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantDeltaConfirmedCasesNumber/Card.vue'
 import MutantOmicronConfirmedCasesNumberCard from '@/components/index/CardsInfection/MutantOmicronConfirmedCasesNumber/Card.vue'
 // import NationalInfectionStatusCard from '@/components/index/CardsInfection/NationalInfectionStatus/Card.vue'
 import RecoveredCard from '@/components/index/CardsInfection/Recovered/Card.vue'
-import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
+// import UntrackedRateCard from '@/components/index/CardsInfection/UntrackedRate/Card.vue'
 // Inspection
 import InspectionPersonsNumberCard from '@/components/index/CardsInspection/InspectionPersonsNumber/Card.vue'
 import MutantAlphaInspectionPersonsNumberCard from '@/components/index/CardsInspection/MutantAlphaInspectionPersonsNumber/Card.vue'
@@ -67,14 +67,14 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     InfectionMedicalCareProvisionStatusCard,
     // ConfirmedCasesAttributesCard,
     ConfirmedCasesByAgeCard,
-    ConfirmedCasesByMunicipalitiesCard,
+    // ConfirmedCasesByMunicipalitiesCard,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     DeathsCard,
     IbarakiCoronaNextCard,
-    IbarakiGraphicalMapCard,
+    // IbarakiGraphicalMapCard,
     RecoveredCard,
-    UntrackedRateCard,
+    // UntrackedRateCard,
     // NationalInfectionStatusCard,
     MutantAlphaConfirmedCasesNumberCard,
     MutantDeltaConfirmedCasesNumberCard,
@@ -117,11 +117,11 @@ export default class CardContainer extends Vue {
         cardTitle = '年代別の感染状況'
         cardCategory = 'infection'
         break
-      case 'number-of-confirmed-cases-by-municipalities':
-        cardComponent = 'confirmed-cases-by-municipalities-card'
-        cardTitle = '陽性者数（市町村別）'
-        cardCategory = 'infection'
-        break
+      // case 'number-of-confirmed-cases-by-municipalities':
+      //   cardComponent = 'confirmed-cases-by-municipalities-card'
+      //   cardTitle = '陽性者数（市町村別）'
+      //   cardCategory = 'infection'
+      //   break
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
         cardTitle = '検査陽性者の状況'
@@ -142,21 +142,21 @@ export default class CardContainer extends Vue {
         cardTitle = '茨城版コロナNext'
         cardCategory = 'infection'
         break
-      case 'ibaraki-graphical-map':
-        cardComponent = 'ibaraki-graphical-map-card'
-        cardTitle = '市町村別感染状況（直近1週間）'
-        cardCategory = 'infection'
-        break
+      // case 'ibaraki-graphical-map':
+      //   cardComponent = 'ibaraki-graphical-map-card'
+      //   cardTitle = '市町村別感染状況（直近1週間）'
+      //   cardCategory = 'infection'
+      //   break
       case 'number-of-recovered':
         cardComponent = 'recovered-card'
         cardTitle = '回復者数'
         cardCategory = 'infection'
         break
-      case 'untracked-rate':
-        cardComponent = 'untracked-rate-card'
-        cardTitle = '感染経路不明者数推移'
-        cardCategory = 'infection'
-        break
+      // case 'untracked-rate':
+      //   cardComponent = 'untracked-rate-card'
+      //   cardTitle = '感染経路不明者数推移'
+      //   cardCategory = 'infection'
+      //   break
       // case 'infection-status-by-national-index':
       //   cardComponent = 'national-infection-status-card'
       //   cardTitle = '国の指標による感染状況'
