@@ -66,6 +66,14 @@ const config: NuxtConfig = {
         src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
         defer: true,
       },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-DTJSS66395',
+        async: true,
+      },
+      {
+        innerHTML:
+          'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-DTJSS66395");',
+      },
     ],
   },
   /*
@@ -111,8 +119,6 @@ const config: NuxtConfig = {
         },
       },
     ],
-    '@nuxtjs/google-analytics',
-    '@nuxtjs/gtm',
     'nuxt-purgecss',
     '@nuxtjs/svg',
   ],
@@ -146,17 +152,6 @@ const config: NuxtConfig = {
     google: {
       families: ['Roboto:100,300,400,500,700,900&display=swap'],
     },
-  },
-  googleAnalytics: {
-    id: 'UA-142148155-4',
-  },
-  /*
-   ** @nuxtjs/gtm config
-   */
-  gtm: {
-    id: process.env.GTM_CONTAINER_ID,
-    pageTracking: true,
-    enabled: true,
   },
   /*
    * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
