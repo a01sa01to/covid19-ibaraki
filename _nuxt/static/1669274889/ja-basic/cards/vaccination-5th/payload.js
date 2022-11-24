@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/vaccination-5th", {data:[{}],fetch:{},mutations:void 0});
