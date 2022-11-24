@@ -229,6 +229,11 @@ export default class CardContainer extends Vue {
         cardTitle = 'ワクチン接種回数（4回目）'
         cardCategory = 'vaccination'
         break
+      case 'vaccination-5th':
+        cardComponent = 'vaccine-summary-5th-card'
+        cardTitle = 'ワクチン接種回数（5回目）'
+        cardCategory = 'vaccination'
+        break
       // Error
       default:
         err = true
