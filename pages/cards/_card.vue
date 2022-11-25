@@ -53,6 +53,7 @@ import VaccineSummary1stCard from '@/components/index/CardsVaccination/1st/Card.
 import VaccineSummary2ndCard from '@/components/index/CardsVaccination/2nd/Card.vue'
 import VaccineSummary3rdCard from '@/components/index/CardsVaccination/3rd/Card.vue'
 import VaccineSummary4thCard from '@/components/index/CardsVaccination/4th/Card.vue'
+import VaccineSummary5thCard from '@/components/index/CardsVaccination/5th/Card.vue'
 import { lastUpdate } from '@/data/data.json'
 // Error
 import ErrorCard from '@/layouts/error.vue'
@@ -91,6 +92,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     VaccineSummary2ndCard,
     VaccineSummary3rdCard,
     VaccineSummary4thCard,
+    VaccineSummary5thCard,
     // Error
     ErrorCard,
   },
