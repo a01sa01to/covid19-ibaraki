@@ -216,7 +216,7 @@
       >
         <template #catalogWebsite>
           <app-link
-            to="https://a01sa01to.com/opendata/covid19_ibaraki/"
+            to="https://a01sa01to.com/opendata/covid19-ibaraki/"
             :icon-size="16"
           >
             {{ $t('当サイト管理者によるオープンデータカタログサイト') }}
