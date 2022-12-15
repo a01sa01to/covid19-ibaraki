@@ -17,7 +17,7 @@ jobs:
           node-version: '16.13.0'
           cache: 'yarn'
       - name: Yarn install
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prefer-offline
       - name: eslint review
         uses: reviewdog/action-eslint@v1.17
         with:

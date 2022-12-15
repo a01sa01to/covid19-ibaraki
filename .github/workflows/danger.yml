@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '16.13.0'
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --frozen-lockfile --prefer-offline
       - name: Run Danger
         run: yarn danger:ci
         env:

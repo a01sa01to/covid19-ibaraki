@@ -22,7 +22,7 @@ jobs:
           node-version: '16.13.0'
           cache: 'yarn'
       - name: Install deps
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prefer-offline
       - name: Test
         run: yarn run test
       - name: Generate
