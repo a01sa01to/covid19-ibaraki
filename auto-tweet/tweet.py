@@ -16,12 +16,27 @@ lastUpdate = ""
 with open(os.path.join("data/data.json"), encoding=ENCODING) as file:
     # jsonを読み込み
     json_content = json.load(file)
-    # タグリストを生成
-    lastUpdate = json_content["lastUpdate"]
-    print("更新日時: "+lastUpdate+"\n")
+    # 入院関連
+    hospitalized = 0
+    hosp = json_content["main_summary"]["children"][0]["children"][0]["children"]
+    hospitalized += hosp[0]["value"]
+    hospitalized += hosp[1]["value"]
+    hospitalized += hosp[2]["value"]
 
-status = "#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。\n{}更新\nhttps://ibaraki.stopcovid19.jp/\n\n※反映には少し時間がかかります。".format(
-    lastUpdate)
+status = f"""
+#茨城県 版 #新型コロナウイルス 対策サイトを更新しました。
+{json_content["lastUpdate"]}更新
+
+本日のデータ
+・感染確認数: {json_content["patients_summary"]["data"][-1]["total"]}人
+・死亡確認数: {json_content["deaths_summary"]["data"][-1]["total"]}人
+・入院者数: {hospitalized}人
+・重症者数: {hosp[0]["value"]}人
+
+https://ibaraki.stopcovid19.jp/
+
+※反映に時間がかかる場合があります。
+"""
 
 print("TWEET MESSAGE\n----------\n"+status+"\n----------")
 
