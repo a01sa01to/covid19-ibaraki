@@ -1,1 +1,18 @@
 * text=auto eol=lf
+static/ogp/** merge=ours
+data/** merge=ours
+.github/workflows/** merge=ours
+assets/json/cardRoutesSettings.json merge=ours
+assets/locales/** merge=ours
+audit-forked-sites/error.csv merge=ours
+auto-i18n/result.csv merge=ours
+docs/es/** merge=ours
+docs/fr/** merge=ours
+docs/ko/** merge=ours
+docs/pt_BR/** merge=ours
+docs/th/** merge=ours
+docs/vi/** merge=ours
+docs/zh_CN/** merge=ours
+docs/zh_TW/** merge=ours
+libraries/** merge=ours
+pages/cards/_card.vue merge=ours

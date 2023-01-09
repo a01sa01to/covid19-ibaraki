@@ -3,12 +3,12 @@
 require "spec_helper"
 
 card_classes = [
-  ".DataCard.PositiveNumberByDevelopedDateCard",
-  ".DataCard.PositiveNumberByDiagnosedDateCard",
-  ".DataCard.PositiveNumberOver65Card",
-  ".DataCard.DeathsByDeathDateCard",
-  ".DataCard.MetroCard",
-  ".DataCard.AgencyCard"
+  '.DataCard.PositiveNumberByDevelopedDateCard',
+  '.DataCard.PositiveNumberByDiagnosedDateCard',
+  '.DataCard.PositiveNumberOver65Card',
+  '.DataCard.DeathsByDeathDateCard',
+  '.DataCard.MetroCard',
+  '.DataCard.AgencyCard',
 ]
 
 describe "page [/]", type: :feature do

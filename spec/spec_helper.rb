@@ -11,9 +11,9 @@ APP_HOST = "http://localhost:3000"
 Capybara.register_driver :emulated_chrome_ios do |app|
   # Run tests with Headless Chrome(iPhone6/7/8 Emulation Mode)
   options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument("--headless")
-  options.add_argument("--disable-gpu")
-  options.add_emulation(device_name: "iPhone SE")
+  options.add_argument('--headless')
+  options.add_argument('--disable-gpu')
+  options.add_emulation(device_name: 'iPhone SE')
   Capybara::Selenium::Driver.new(app,
     browser: :chrome,
     options: options)

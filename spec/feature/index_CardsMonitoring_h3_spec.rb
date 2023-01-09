@@ -16,14 +16,14 @@ describe "page [/]", type: :feature do
             expect(find(".v-tabs a#cardTab-1.v-tab--active").text).to eq t(lang, "モニタリング項目").upcase
           end
 
-          it "has h3" do
-            expect(find(".DataCard.MonitoringItemsOverviewCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目")
-            expect(find(".DataCard.MonitoringConfirmedCasesNumberCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(1)")
-            expect(find(".DataCard.ConsultationAboutFeverNumberCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(2)")
-            expect(find(".DataCard.PositiveRateCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(3)")
-            expect(find(".DataCard.TokyoRulesApplicationNumberCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(4)")
-            expect(find(".DataCard.HospitalizedNumberCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(5)")
-            expect(find(".DataCard.SevereCaseCard > div > div > div.DataView-Header > h3").text).to eq t(lang, "モニタリング項目(6)")
+          it 'has h3' do
+            expect(find('.DataCard.MonitoringItemsOverviewCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目')
+            expect(find('.DataCard.MonitoringConfirmedCasesNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(1)')
+            expect(find('.DataCard.ConsultationAboutFeverNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(2)')
+            expect(find('.DataCard.PositiveRateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(3)')
+            expect(find('.DataCard.TokyoRulesApplicationNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(4)')
+            expect(find('.DataCard.HospitalizedNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(5)')
+            expect(find('.DataCard.SevereCaseCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目(6)')
           end
         end
       end
