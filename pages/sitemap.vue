@@ -102,13 +102,6 @@
           </li>
         </ul>
       </section>
-      <section>
-        <h4>
-          <app-link :to="localePath('/apps')" class="Sitemap-titleLink">
-            {{ $t('アプリ') }}
-          </app-link>
-        </h4>
-      </section>
     </static-card>
     <static-card>
       <h3>

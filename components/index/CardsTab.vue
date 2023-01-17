@@ -42,8 +42,6 @@ const CardsReferenceInfection = () =>
   import('@/components/index/CardsReferenceInfection.vue')
 const CardsReferenceInspection = () =>
   import('@/components/index/CardsReferenceInspection.vue')
-const CardsReferenceApps = () =>
-  import('@/components/index/CardsReferenceApps.vue')
 const CardsReferenceVaccination = () =>
   import('@/components/index/CardsReferenceVaccination.vue')
 
@@ -51,7 +49,6 @@ export default Vue.extend({
   components: {
     CardsReferenceInfection,
     CardsReferenceInspection,
-    CardsReferenceApps,
     CardsReferenceVaccination,
   },
   data() {
@@ -75,12 +72,6 @@ export default Vue.extend({
           component: CardsReferenceVaccination,
           svg: VaccineIcon,
           path: '/vaccination',
-        },
-        {
-          label: this.$t('アプリ'),
-          component: CardsReferenceApps,
-          icon: mdiAppsBox,
-          path: '/apps',
         },
       ],
     }
