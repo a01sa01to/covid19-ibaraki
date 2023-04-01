@@ -343,12 +343,12 @@ export default Vue.extend({
     },
     async handleNavFocus(isNaviOpen: boolean) {
       await this.$nextTick()
-      if(isNaviOpen) {
-        const $LanguageLabel=this.$refs.LanguageLabel as HTMLElement
+      if (isNaviOpen) {
+        const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
         $LanguageLabel.focus()
       } else {
-        const $Open=this.$refs.Open as Vue
-        const $OpenElement=$Open.$el as HTMLButtonElement
+        const $Open = this.$refs.Open as Vue
+        const $OpenElement = $Open.$el as HTMLButtonElement
         $OpenElement.focus()
       }
     },

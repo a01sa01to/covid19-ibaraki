@@ -168,11 +168,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
-    indexToDate(
-      id: number,
-      format: string = 'date',
-      useDayjs: boolean = false
-    ) {
+    indexToDate(id: number, format = 'date', useDayjs = false) {
       if (!this.chartData || this.chartData.length === 0) {
         return 1
       }

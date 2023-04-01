@@ -17,7 +17,6 @@ const headers: Header[] = [
 ]
 
 export type DataType = {
-  /* eslint-disable camelcase */
   no: number
   publish_date: string
   onset_date: string | null
@@ -52,7 +51,6 @@ export type TableDateType = {
  */
 export function formatTable(data: DataType[]): TableDateType {
   const datasets = data.map((d) => ({
-    /* eslint-disable camelcase */
     整理番号: d.no,
     公表日: d.publish_date ?? '不明',
     居住地: d.address ?? '調査中',
