@@ -40,6 +40,7 @@ wercker.yml
 .documentup.json
 .yarn-metadata.json
 .travis.yml
+*.md
 
 # misc
-*.md
+!**/yaml/dist/**/doc
