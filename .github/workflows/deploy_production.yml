@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: '16.13.0'
+          node-version: '18.14.2'
           cache: 'yarn'
       - name: Install deps
         run: yarn install --frozen-lockfile --prefer-offline
@@ -67,7 +67,7 @@ jobs:
   ogp_upload:
     name: OGP Upload
     needs: ogp_build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
         with:
@@ -94,7 +94,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: prod-deploy
   tweet:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: deploy
     steps:
       - name: Checkout production branch

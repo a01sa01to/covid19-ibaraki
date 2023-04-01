@@ -11,16 +11,16 @@ on:
 jobs:
   i18n-builder:
     if: false == contains(github.event.commits[0].message, 'Update assets/locales/ja.json')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout development branch
         uses: actions/checkout@v3
         with:
           ref: development
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.10'
           cache: pip
       - name: Install dependencies
         run: |

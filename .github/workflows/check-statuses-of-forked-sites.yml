@@ -8,7 +8,7 @@ on:
 
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Switch to the development branch
@@ -16,10 +16,10 @@ jobs:
         with:
           ref: development
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.10'
           cache: pip
 
       - name: Install dependencies
