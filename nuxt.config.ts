@@ -114,7 +114,7 @@ const config: NuxtConfig = {
           async: true,
           typescript: {
             enable: true,
-            memoryLimit: 10240,
+            memoryLimit: 16384,
           },
         },
       },
@@ -184,10 +184,12 @@ const config: NuxtConfig = {
       },
     },
     postcss: {
-      preset: {
-        autoprefixer: {
-          // Built-in since nuxt@2.14.5
-          grid: 'autoplace',
+      postcssOptions: {
+        plugins: {
+          autoprefixer: {
+            // Built-in since nuxt@2.14.5
+            grid: 'autoplace',
+          },
         },
       },
     },
