@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { mdiAppsBox, mdiChartTimelineVariant } from '@mdi/js'
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import VaccineIcon from '@/static/vaccine.svg?inline'

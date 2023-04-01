@@ -8,13 +8,13 @@ on:
 jobs:
   eslint:
     name: check_eslint_error
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: '16.13.0'
+          node-version-file: ./.node-version
           cache: 'yarn'
       - name: Yarn install
         run: yarn install --frozen-lockfile --prefer-offline
@@ -27,7 +27,7 @@ jobs:
 
   stylelint:
     name: check_stylelint_error
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: stylelint review

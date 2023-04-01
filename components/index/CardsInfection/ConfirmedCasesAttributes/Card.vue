@@ -208,7 +208,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               hasPreviousPage: boolean
               startCursor: string
             }
-            // eslint-disable-next-line camelcase
+
             last_update: string
           } = res.data.covid19_ibaraki.patients
           return {
@@ -216,7 +216,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             metaData: {
               startCursor: data.pageinfo.startCursor,
               hasPreviousPage: data.pageinfo.hasPreviousPage,
-              // eslint-disable-next-line camelcase
+
               updated: data.last_update,
             },
           }

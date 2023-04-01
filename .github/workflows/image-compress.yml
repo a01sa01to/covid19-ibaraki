@@ -20,7 +20,7 @@ on:
 jobs:
   build:
     name: Compress
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     # Only run on main repo on and PRs that match the main repo.
     if: |
       github.repository == 'a01sa01to/covid19-ibaraki' &&
