@@ -45,6 +45,6 @@ twitter_cov19 = OAuth1Session(
     consumer_key, consumer_secret, access_token, access_secret)
 param = {"text": status}
 req_tweet = twitter_cov19.post(
-    "https://api.twitter.com/2/tweets", params=param).json()
+    "https://api.twitter.com/2/tweets", json=param).json()
 
-print("TWEET ID: {}".format(req_tweet['id']))
+print(req_tweet)
