@@ -76,7 +76,7 @@
 
       <footer class="SideNavigation-Footer">
         <ul class="SideNavigation-Social">
-          <li class="SideNavigation-SocialLink-ListItem">
+          <!-- <li class="SideNavigation-SocialLink-ListItem">
             <app-link
               to="https://line.me/R/ti/p/%40615vsilb"
               :show-icon="false"
@@ -87,7 +87,7 @@
                 <img src="/line.png" width="130" height="130" alt="LINE" />
               </picture>
             </app-link>
-          </li>
+          </li> -->
           <li class="SideNavigation-SocialLink-ListItem">
             <app-link
               to="https://twitter.com/covid19_ibaraki"
@@ -136,7 +136,7 @@
               </picture>
             </app-link>
           </li>
-          <li class="SideNavigation-SocialLink-ListItem">
+          <!-- <li class="SideNavigation-SocialLink-ListItem">
             <app-link
               to="https://www.youtube.com/channel/UCzAcY98s-Tg6ooS3OujMMeg"
               :show-icon="false"
@@ -152,7 +152,7 @@
                 />
               </picture>
             </app-link>
-          </li>
+          </li> -->
         </ul>
         <i18n
           tag="small"
