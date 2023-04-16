@@ -269,6 +269,11 @@ export default Vue.extend({
           slug: 'covid19-info',
         },
         {
+          title: this.$t('当サイトの今後の運用について'),
+          link: this.localePath('/future-announcement'),
+          slug: 'covid19-info',
+        },
+        {
           title:
             this.$tc('茨城県公式') + ' ' + this.$tc('新型コロナ情報まとめ'),
           link: 'https://www.pref.ibaraki.jp/1saigai/2019-ncov/index.html',

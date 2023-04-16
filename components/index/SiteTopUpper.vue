@@ -20,6 +20,12 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
+    <static-info
+      class="mb-4"
+      :url="localePath('/future-announcement')"
+      :text="$t('当サイトは、5月7日をもって情報更新を停止する見込みです')"
+      :btn-text="$t('詳細はこちら')"
+    />
   </div>
 </template>
 
