@@ -1,5 +1,6 @@
 import datetime
 import json
+import os
 
 def dump_json_minify(file_name: str, json_data: dict) -> None:
     # JSON書き込み
@@ -92,117 +93,125 @@ file_content = {
     "ibk_corona_next": {},
 }
 
-with open('last_update.json', 'r', encoding="UTF-8") as f:
-    lastUpdate = json.load(f)
+def main() -> None:
+    # 存在しなければ data ディレクトリを作る
+    if not os.path.exists('data'):
+        os.mkdir('data')
 
-with open('call_center.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['date'] = day['受付_年月日'].replace('T00:00:00', '')
-        day['total'] = int(day['相談件数'])
-        for key in ['受付_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '相談件数']:
-            del day[key]
-    dump_json_minify('data/contacts.json',{'data':json_content, 'date': lastUpdate['call_center']})
+    with open('last_update.json', 'r', encoding="UTF-8") as f:
+        lastUpdate = json.load(f)
 
-with open('patients.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for person in json_content:
-        person['date'] = person['公表_年月日'].replace('T00:00:00', '')
-        person['年代'] = person['患者_年代']
-        if person['年代'] == '100歳以上' or person['年代'] == '90代':
-            person['年代'] = '90歳以上'
-        person['居住地'] = person['患者_居住地']
+    with open('call_center.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['date'] = day['受付_年月日'].replace('T00:00:00', '')
+            day['total'] = int(day['相談件数'])
+            for key in ['受付_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '相談件数']:
+                del day[key]
+        dump_json_minify('data/contacts.json',{'data':json_content, 'date': lastUpdate['call_center']})
 
-        person['date'] = datetime.datetime.strptime(person['date'], '%Y-%m-%d')
-        one_wk_ago = datetime.datetime.now() - datetime.timedelta(days=7)
+    with open('patients.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for person in json_content:
+            person['date'] = person['公表_年月日'].replace('T00:00:00', '')
+            person['年代'] = person['患者_年代']
+            if person['年代'] == '100歳以上' or person['年代'] == '90代':
+                person['年代'] = '90歳以上'
+            person['居住地'] = person['患者_居住地']
 
-        for key in ['No', '全国地方公共団体コード', '都道府県名', '市区町村名', '公表_年月日', '発症_年月日', '患者_居住地', '患者_年代', '患者_性別', '患者_職業', '患者_状態', '患者_症状', '患者_渡航歴の有無フラグ', '患者_濃厚接触者フラグ', '検査方法', '備考']:
-            del person[key]
+            person['date'] = datetime.datetime.strptime(person['date'], '%Y-%m-%d')
+            one_wk_ago = datetime.datetime.now() - datetime.timedelta(days=7)
 
-        if person['居住地'] in IBK_CITY_LIST:
-            city = [_ for _ in file_content['patients_city']
-                    ['data'] if _["city"] == person['居住地']][0]
-            city["total"] += 1 if person['date'] > one_wk_ago else 0
-        if person['年代'] != '不明' and person["date"] > one_wk_ago:
-            age = [_ for _ in file_content['patients_age']
-                   ['data'] if _["age"] == person['年代']][0]
-            age['value'] += 1
-            file_content['patients_age']['data'][0]['value'] += 1
-    file_content['patients_city']['date'] = lastUpdate['patients']
-    file_content['patients_age']['date'] = lastUpdate['patients']
+            for key in ['No', '全国地方公共団体コード', '都道府県名', '市区町村名', '公表_年月日', '発症_年月日', '患者_居住地', '患者_年代', '患者_性別', '患者_職業', '患者_状態', '患者_症状', '患者_渡航歴の有無フラグ', '患者_濃厚接触者フラグ', '検査方法', '備考']:
+                del person[key]
 
-with open('positive_number.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['date'] = day['公表_年月日'].replace('T00:00:00', '')
-        day['total'] = int(day['陽性者数'])
-        for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '陽性者数', 'うち濃厚接触者']:
-            del day[key]
-    dump_json_minify('data/patients_summary.json', {'data': json_content, 'date': lastUpdate['positive_number']})
+            if person['居住地'] in IBK_CITY_LIST:
+                city = [_ for _ in file_content['patients_city']
+                        ['data'] if _["city"] == person['居住地']][0]
+                city["total"] += 1 if person['date'] > one_wk_ago else 0
+            if person['年代'] != '不明' and person["date"] > one_wk_ago:
+                age = [_ for _ in file_content['patients_age']
+                    ['data'] if _["age"] == person['年代']][0]
+                age['value'] += 1
+                file_content['patients_age']['data'][0]['value'] += 1
+        file_content['patients_city']['date'] = lastUpdate['patients']
+        file_content['patients_age']['date'] = lastUpdate['patients']
 
-with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['date'] = day['公表_年月日'].replace('T00:00:00', '')
-        day['total'] = int(day['変異株陽性者数'])
-        day['name'] = day['変異株名']
-        for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '変異株陽性者数', '年代別', '性別', '変異株名']:
-            del day[key]
-    dump_json_minify('data/mutant_summary.json', {'data': json_content, 'date': lastUpdate['mutant_positive']})
+    with open('positive_number.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['date'] = day['公表_年月日'].replace('T00:00:00', '')
+            day['total'] = int(day['陽性者数'])
+            for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '陽性者数', 'うち濃厚接触者']:
+                del day[key]
+        dump_json_minify('data/patients_summary.json', {'data': json_content, 'date': lastUpdate['positive_number']})
 
-with open('recovered_number.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['date'] = day['公表_年月日'].replace('T00:00:00', '')
-        day['total'] = int(day['回復者数'])
-        for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '回復者数']:
-            del day[key]
-    dump_json_minify('data/recovered_summary.json', {'data': json_content, 'date': lastUpdate['recovered_number']})
+    with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['date'] = day['公表_年月日'].replace('T00:00:00', '')
+            day['total'] = int(day['変異株陽性者数'])
+            day['name'] = day['変異株名']
+            for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '変異株陽性者数', '年代別', '性別', '変異株名']:
+                del day[key]
+        dump_json_minify('data/mutant_summary.json', {'data': json_content, 'date': lastUpdate['mutant_positive']})
 
-with open('death_number.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['date'] = day['公表_年月日'].replace('T00:00:00', '')
-        day['total'] = int(day['死亡者数'])
-        for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '死亡者数']:
-            del day[key]
-    dump_json_minify('data/deaths_summary.json', {'data': json_content, 'date': lastUpdate['death_number']})
+    with open('recovered_number.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['date'] = day['公表_年月日'].replace('T00:00:00', '')
+            day['total'] = int(day['回復者数'])
+            for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '回復者数']:
+                del day[key]
+        dump_json_minify('data/recovered_summary.json', {'data': json_content, 'date': lastUpdate['recovered_number']})
 
-with open('test_people.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    dump_json_minify('data/inspection_summary.json', {'data': json_content, 'date': lastUpdate['test_people']})
+    with open('death_number.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['date'] = day['公表_年月日'].replace('T00:00:00', '')
+            day['total'] = int(day['死亡者数'])
+            for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '死亡者数']:
+                del day[key]
+        dump_json_minify('data/deaths_summary.json', {'data': json_content, 'date': lastUpdate['death_number']})
 
-with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    for day in json_content:
-        day['from_date'] = day['実施_年月日 FROM'].replace('T00:00:00', '')
-        day['to_date'] = day['実施_年月日 TO'].replace('T00:00:00', '')
-        day['inspected'] = int(day['検査実施_人数'])
-        day['positive'] = int(day['陽性者数'])
-        day['name'] = day['変異株名']
-        for key in ['実施_年月日 FROM', '実施_年月日 TO', '全国地方公共団体コード', '都道府県名', '市区町村名', '検査実施_人数', '陽性者数', '変異株名']:
-            del day[key]
-    dump_json_minify('data/mutant_inspections.json', {'data': json_content, 'date': lastUpdate['mutant_test_people']})
+    with open('test_people.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        dump_json_minify('data/inspection_summary.json', {'data': json_content, 'date': lastUpdate['test_people']})
 
-with open('inspections_summary.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    file_content['inspections_summary'] = json_content
-    file_content['inspections_summary']['date'] = lastUpdate['inspections_summary']
+    with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        for day in json_content:
+            day['from_date'] = day['実施_年月日 FROM'].replace('T00:00:00', '')
+            day['to_date'] = day['実施_年月日 TO'].replace('T00:00:00', '')
+            day['inspected'] = int(day['検査実施_人数'])
+            day['positive'] = int(day['陽性者数'])
+            day['name'] = day['変異株名']
+            for key in ['実施_年月日 FROM', '実施_年月日 TO', '全国地方公共団体コード', '都道府県名', '市区町村名', '検査実施_人数', '陽性者数', '変異株名']:
+                del day[key]
+        dump_json_minify('data/mutant_inspections.json', {'data': json_content, 'date': lastUpdate['mutant_test_people']})
 
-file_content['lastUpdate'] = lastUpdate['lastUpdate']
+    with open('inspections_summary.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        file_content['inspections_summary'] = json_content
+        file_content['inspections_summary']['date'] = lastUpdate['inspections_summary']
 
-with open('main_summary.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    file_content['main_summary'] = json_content
-    file_content['main_summary']['children'][0]['date'] = lastUpdate['main_summary']
+    file_content['lastUpdate'] = lastUpdate['lastUpdate']
 
-with open('corona_next.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    file_content['ibk_corona_next'] = json_content
-    file_content['ibk_corona_next']['date'] = lastUpdate['corona_next']
+    with open('main_summary.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        file_content['main_summary'] = json_content
+        file_content['main_summary']['children'][0]['date'] = lastUpdate['main_summary']
 
-with open('vaccine_data.json', 'r', encoding="UTF-8") as f:
-    json_content = json.load(f)
-    dump_json_minify('data/vaccine_summary.json', json_content)
+    with open('corona_next.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        file_content['ibk_corona_next'] = json_content
+        file_content['ibk_corona_next']['date'] = lastUpdate['corona_next']
 
-dump_json_minify('data/data.json', file_content)
+    with open('vaccine_data.json', 'r', encoding="UTF-8") as f:
+        json_content = json.load(f)
+        dump_json_minify('data/vaccine_summary.json', json_content)
+
+    dump_json_minify('data/data.json', file_content)
+
+if __name__ == '__main__':
+    main()
