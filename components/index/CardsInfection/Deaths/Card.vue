@@ -6,7 +6,7 @@
         :title-id="'number-of-deaths'"
         :chart-id="'time-bar-chart-deaths'"
         :chart-data="deathsGraph"
-        :date="Data.deaths_summary.date"
+        :date="Data.date"
         :unit="$t('人')"
         :url="'https://a01sa01to.com/opendata/covid19-ibaraki/death-number/'"
         :is-single-card="isSingleCard"
@@ -18,7 +18,7 @@
 
 <script>
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/deaths_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import { isSingleCard } from '@/utils/urls'
 
@@ -27,7 +27,7 @@ export default {
     TimeBarChart,
   },
   data() {
-    const deathsGraph = formatGraph(Data.deaths_summary.data)
+    const deathsGraph = formatGraph(Data.data)
 
     return {
       Data,

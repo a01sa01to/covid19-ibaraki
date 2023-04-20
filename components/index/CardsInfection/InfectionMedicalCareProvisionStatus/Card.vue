@@ -32,6 +32,7 @@ import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Table/InfectionStatus.vue'
 import MedicalSystem from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Table/MedicalSystem.vue'
 import Data from '@/data/data.json'
+import deathsSummary from '@/data/deaths_summary.json'
 import patientsSummary from '@/data/patients_summary.json'
 import recoveredSummary from '@/data/recovered_summary.json'
 
@@ -58,7 +59,7 @@ export default Vue.extend<DataType, Methods, Computed, Props>({
       positive: patients.total,
       // unknown: patients.total - patients.close,
       recover: recoveredSummary.data.slice(-1)[0].total,
-      death: Data.deaths_summary.data.slice(-1)[0].total,
+      death: deathsSummary.data.slice(-1)[0].total,
       care: Data.ibk_corona_next.sickbed,
       severe: Data.ibk_corona_next.severe,
     }
