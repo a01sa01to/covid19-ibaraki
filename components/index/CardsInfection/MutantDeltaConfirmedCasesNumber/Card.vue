@@ -37,7 +37,7 @@
 
 <script>
 import ConfirmedCasesNumberChart from '@/components/index/_shared/TimeBarWithAverageChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/mutant_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import { isSingleCard } from '@/utils/urls'
 import {
@@ -51,7 +51,7 @@ export default {
   },
   data() {
     const patientsGraph = formatGraph(
-      Data.mutant_summary.data.filter((d) => d.name === 'Delta')
+      Data.data.filter((d) => d.name === 'Delta')
     )
     const date = '2021-08-30 23:59'
 

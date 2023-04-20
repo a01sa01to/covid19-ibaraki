@@ -91,11 +91,6 @@ file_content = {
 
     "ibk_corona_next": {},
 
-    "mutant_summary": {
-        "data": [],
-        "date": "",
-    },
-
     "mutant_inspections": {
         "data": [],
         "date": "",
@@ -160,8 +155,7 @@ with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
         day['name'] = day['変異株名']
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '変異株陽性者数', '年代別', '性別', '変異株名']:
             del day[key]
-    file_content['mutant_summary']['data'] = json_content
-    file_content['mutant_summary']['date'] = lastUpdate['mutant_positive']
+    dump_json_minify('data/mutant_summary.json', {'data': json_content, 'date': lastUpdate['mutant_positive']})
 
 with open('recovered_number.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
