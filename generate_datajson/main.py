@@ -83,11 +83,6 @@ file_content = {
         "date": ""
     },
 
-    "recovered_summary": {
-        "data": [],
-        "date": "",
-    },
-
     "deaths_summary": {
         "data": [],
         "date": "",
@@ -182,8 +177,7 @@ with open('recovered_number.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['回復者数'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '回復者数']:
             del day[key]
-    file_content['recovered_summary']['data'] = json_content
-    file_content['recovered_summary']['date'] = lastUpdate['recovered_number']
+    dump_json_minify('data/recovered_summary.json', {'data': json_content, 'date': lastUpdate['recovered_number']})
 
 with open('death_number.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)

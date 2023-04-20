@@ -6,7 +6,7 @@
         :title-id="'number-of-recovered'"
         :chart-id="'time-bar-chart-recovered'"
         :chart-data="recoveredGraph"
-        :date="Data.recovered_summary.date"
+        :date="Data.date"
         :unit="$t('人')"
         :url="'https://a01sa01to.com/opendata/covid19-ibaraki/recovered-number/'"
         :is-single-card="isSingleCard"
@@ -37,7 +37,7 @@
 
 <script>
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/recovered_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import { isSingleCard } from '@/utils/urls'
 
@@ -46,7 +46,7 @@ export default {
     TimeBarChart,
   },
   data() {
-    const recoveredGraph = formatGraph(Data.recovered_summary.data)
+    const recoveredGraph = formatGraph(Data.data)
 
     const data = {
       Data,
