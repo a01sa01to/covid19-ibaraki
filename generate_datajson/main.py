@@ -83,8 +83,6 @@ file_content = {
         "date": ""
     },
 
-    "inspection_persons": {},
-
     "inspections_summary": {},
 
     "lastUpdate": "",
@@ -185,8 +183,7 @@ with open('death_number.json', 'r', encoding="UTF-8") as f:
 
 with open('test_people.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
-    file_content['inspection_persons'] = json_content
-    file_content['inspection_persons']['date'] = lastUpdate['test_people']
+    dump_json_minify('data/inspection_summary.json', {'data': json_content, 'date': lastUpdate['test_people']})
 
 with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)

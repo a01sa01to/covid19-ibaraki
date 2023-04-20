@@ -56,7 +56,7 @@
 
 <script>
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/inspection_persons.json'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
@@ -64,10 +64,10 @@ export default {
     TimeBarChart,
   },
   data() {
-    const formatData = Data.inspection_persons.labels.map((date, i) => {
+    const formatData = Data.labels.map((date, i) => {
       return {
         date,
-        total: Data.inspection_persons.datasets[0].data[i],
+        total: Data.datasets[0].data[i],
       }
     })
 
@@ -75,7 +75,7 @@ export default {
     const graphData = formatGraph(formatData)
 
     return {
-      data: Data.inspection_persons,
+      data: Data,
       graphData,
     }
   },
