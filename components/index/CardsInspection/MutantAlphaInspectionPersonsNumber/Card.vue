@@ -37,7 +37,7 @@
 import Vue from 'vue'
 
 import Chart from '@/components/index/CardsInspection/_shared/MutantChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/mutant_inspections.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
@@ -52,9 +52,7 @@ export default Vue.extend({
 
     const mutantInspection = {
       date: '2021-06-14 23:59',
-      data: Data.mutant_inspections.data.filter(
-        (item) => item.name === 'Alpha'
-      ),
+      data: Data.data.filter((item) => item.name === 'Alpha'),
     }
 
     const labels = mutantInspection.data.map((dataset) => {
