@@ -48,9 +48,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      rows: [],
-
-      hideRows: [
+      rows: [
         InspectionPersonsNumberCard,
         TestedNumberCard,
         TelephoneAdvisoryReportsNumberCard,
@@ -58,6 +56,8 @@ export default Vue.extend({
         MutantDeltaInspectionPersonsNumberCard,
         MutantOmicronInspectionPersonsNumberCard,
       ],
+
+      hideRows: [],
     }
   },
 })
