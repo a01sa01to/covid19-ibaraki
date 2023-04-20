@@ -17,7 +17,7 @@
 
 <script>
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/contacts.json'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
@@ -25,10 +25,9 @@ export default {
     TimeBarChart,
   },
   data() {
-    const { contacts } = Data
-    const { date } = contacts
+    const { date, data } = Data
     // 相談件数
-    const contactsGraph = formatGraph(contacts.data)
+    const contactsGraph = formatGraph(data)
 
     return {
       contactsGraph,
