@@ -205,13 +205,4 @@ with open('vaccine_data.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
     dump_json_minify('data/vaccine_summary.json', json_content)
 
-# JSON書き込み
-with open('data.json', 'w', encoding="UTF-8") as f:
-    json.dump(file_content, f, ensure_ascii=False,
-              indent=0, separators=(',', ':'))
-
-# JSON改行なくす
-with open('data.json', 'r', encoding="UTF-8") as f:
-    json_content = f.read()
-with open('data.json', 'w', encoding="UTF-8") as f:
-    f.write(json_content.replace("\n", ""))
+dump_json_minify('data/data.json', file_content)

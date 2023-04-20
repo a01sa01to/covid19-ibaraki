@@ -403,9 +403,7 @@ jobs:
         working-directory: dist/data
       - name: Move data.json, news.json, otherpref.json
         run: |
-          mv data.json ../../data/data.json -u
-          mv news.json ../../data/news.json -u
-          mv otherpref.json ../../data/otherpref.json -u
+          mv data/*.json ../../data/ -f
         working-directory: dist/data
       - name: Commit files
         run: |
