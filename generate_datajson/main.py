@@ -1,10 +1,12 @@
 import datetime
 import json
 
+
 def dump_json_minify(file_name: str, json_data: dict) -> None:
     # JSON書き込み
     with open(file_name, 'w', encoding="UTF-8") as f:
-        json.dump(json_data, f, ensure_ascii=False,indent=0, separators=(',', ':'))
+        json.dump(json_data, f, ensure_ascii=False,
+                  indent=0, separators=(',', ':'))
     # JSON改行なくす
     with open(file_name, 'r', encoding="UTF-8") as f:
         content = f.read()
@@ -102,7 +104,8 @@ with open('call_center.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['相談件数'])
         for key in ['受付_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '相談件数']:
             del day[key]
-    dump_json_minify('data/contacts.json',{'data':json_content, 'date': lastUpdate['call_center']})
+    dump_json_minify('data/contacts.json',
+                     {'data': json_content, 'date': lastUpdate['call_center']})
 
 with open('patients.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -138,7 +141,8 @@ with open('positive_number.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['陽性者数'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '陽性者数', 'うち濃厚接触者']:
             del day[key]
-    dump_json_minify('data/patients_summary.json', {'data': json_content, 'date': lastUpdate['positive_number']})
+    dump_json_minify('data/patients_summary.json',
+                     {'data': json_content, 'date': lastUpdate['positive_number']})
 
 with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -148,7 +152,8 @@ with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
         day['name'] = day['変異株名']
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '変異株陽性者数', '年代別', '性別', '変異株名']:
             del day[key]
-    dump_json_minify('data/mutant_summary.json', {'data': json_content, 'date': lastUpdate['mutant_positive']})
+    dump_json_minify('data/mutant_summary.json',
+                     {'data': json_content, 'date': lastUpdate['mutant_positive']})
 
 with open('recovered_number.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -157,7 +162,8 @@ with open('recovered_number.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['回復者数'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '回復者数']:
             del day[key]
-    dump_json_minify('data/recovered_summary.json', {'data': json_content, 'date': lastUpdate['recovered_number']})
+    dump_json_minify('data/recovered_summary.json',
+                     {'data': json_content, 'date': lastUpdate['recovered_number']})
 
 with open('death_number.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -166,11 +172,13 @@ with open('death_number.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['死亡者数'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '死亡者数']:
             del day[key]
-    dump_json_minify('data/deaths_summary.json', {'data': json_content, 'date': lastUpdate['death_number']})
+    dump_json_minify('data/deaths_summary.json',
+                     {'data': json_content, 'date': lastUpdate['death_number']})
 
 with open('test_people.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
-    dump_json_minify('data/inspection_summary.json', {'data': json_content, 'date': lastUpdate['test_people']})
+    dump_json_minify('data/inspection_summary.json',
+                     {'data': json_content, 'date': lastUpdate['test_people']})
 
 with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -182,7 +190,8 @@ with open('mutant_test_people.json', 'r', encoding="UTF-8") as f:
         day['name'] = day['変異株名']
         for key in ['実施_年月日 FROM', '実施_年月日 TO', '全国地方公共団体コード', '都道府県名', '市区町村名', '検査実施_人数', '陽性者数', '変異株名']:
             del day[key]
-    dump_json_minify('data/mutant_inspections.json', {'data': json_content, 'date': lastUpdate['mutant_test_people']})
+    dump_json_minify('data/mutant_inspections.json',
+                     {'data': json_content, 'date': lastUpdate['mutant_test_people']})
 
 with open('inspections_summary.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
