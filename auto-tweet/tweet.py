@@ -13,6 +13,10 @@ ENCODING = "UTF-8"
 JSON_FILES = ["data.json"]
 lastUpdate = ""
 
+with open(os.path.join("data/patients_summary"), encoding=ENCODING) as file:
+    # jsonを読み込み
+    patients_summary = json.load(file)
+
 with open(os.path.join("data/data.json"), encoding=ENCODING) as file:
     # jsonを読み込み
     json_content = json.load(file)
@@ -28,7 +32,7 @@ status = f"""
 {json_content["lastUpdate"]}更新
 
 本日のデータ
-・感染確認数: {json_content["patients_summary"]["data"][-1]["total"]}人
+・感染確認数: {patients_summary["data"][-1]["total"]}人
 ・死亡確認数: {json_content["deaths_summary"]["data"][-1]["total"]}人
 ・入院者数: {hospitalized}人
 ・重症者数: {hosp[0]["value"]}人

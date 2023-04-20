@@ -70,7 +70,7 @@
 
 <script>
 import Chart from '@/components/index/CardsInfection/UntrackedRate/Chart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/patients_summary.json'
 import { isSingleCard } from '@/utils/urls'
 import {
   getNumberToFixedFunction,
@@ -82,26 +82,20 @@ export default {
     Chart,
   },
   data() {
-    const data = Data.patients_summary
-
     const reportedCount = []
     const missingCount = []
     const untrackedRate = []
     const untrackedIncreseRate = []
     const dateLabels = []
 
-    const l = data.data.length
+    const l = Data.data.length
     for (let i = 13; i < l; i++) {
       // 直近1weekおよび1week前の陽性者数平均を算出
       let sumPos = 0
       let sumPosPrev = 0
       for (let j = 0; j < 7; j++) {
-        sumPos +=
-          Data.patients_summary.data[i - j].total -
-          Data.patients_summary.data[i - j].close
-        sumPosPrev +=
-          Data.patients_summary.data[i - j - 7].total -
-          Data.patients_summary.data[i - j - 7].close
+        sumPos += Data.data[i - j].total - Data.data[i - j].close
+        sumPosPrev += Data.data[i - j - 7].total - Data.data[i - j - 7].close
       }
 
       let Rate = sumPos / sumPosPrev
@@ -121,7 +115,7 @@ export default {
       missingCount.push(row.total - row.close)
     }
 
-    const updated = data.date
+    const updated = Data.date
     const graphData = [
       reportedCount,
       missingCount,

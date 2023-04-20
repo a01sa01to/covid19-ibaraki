@@ -32,6 +32,7 @@ import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Table/InfectionStatus.vue'
 import MedicalSystem from '@/components/index/CardsInfection/InfectionMedicalCareProvisionStatus/Table/MedicalSystem.vue'
 import Data from '@/data/data.json'
+import patientsSummary from '@/data/patients_summary.json'
 
 type DataType = {
   mdiChevronRight: string
@@ -51,7 +52,7 @@ export default Vue.extend<DataType, Methods, Computed, Props>({
     MedicalSystem,
   },
   data() {
-    const patients = Data.patients_summary.data.slice(-1)[0]
+    const patients = patientsSummary.data.slice(-1)[0]
     const statuses = {
       positive: patients.total,
       // unknown: patients.total - patients.close,

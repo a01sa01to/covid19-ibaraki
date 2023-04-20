@@ -67,7 +67,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import VueI18n from 'vue-i18n'
 
 import DataTable from '@/components/index/CardsInfection/ConfirmedCasesAttributes/DataTable.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/patients_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
@@ -117,7 +117,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: { DataTable },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraph(Data.data)
     const lastData = patientsGraph[patientsGraph.length - 1]
     const lastDay = this.$d(new Date(lastData.label), 'date')
     const dataLength = lastData.cumulative

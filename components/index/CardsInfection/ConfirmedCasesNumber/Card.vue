@@ -22,7 +22,7 @@
 
 <script>
 import ConfirmedCasesNumberChart from '@/components/index/_shared/TimeBarWithAverageChart.vue'
-import Data from '@/data/data.json'
+import Data from '@/data/patients_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import { isSingleCard } from '@/utils/urls'
 import {
@@ -36,8 +36,8 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-    const date = Data.patients_summary.date
+    const patientsGraph = formatGraph(Data.data)
+    const date = Data.date
 
     const [everydayCount, labels, cumulativeCount] = patientsGraph.reduce(
       (res, data) => {

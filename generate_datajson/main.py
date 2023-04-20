@@ -1,15 +1,21 @@
 import datetime
 import json
 
+def dump_json_minify(file_name: str, json_data: dict) -> None:
+    # JSON書き込み
+    with open(file_name, 'w', encoding="UTF-8") as f:
+        json.dump(json_data, f, ensure_ascii=False,indent=0, separators=(',', ':'))
+    # JSON改行なくす
+    with open(file_name, 'r', encoding="UTF-8") as f:
+        content = f.read()
+    with open(file_name, 'w', encoding="UTF-8") as f:
+        f.write(content.replace("\n", ""))
+
+
 IBK_CITY_LIST = ["利根町", "境町", "五霞町", "八千代町", "河内町", "阿見町", "美浦村", "大子町", "東海村", "城里町", "大洗町", "茨城町", "小美玉市", "つくばみらい市", "鉾田市", "行方市", "神栖市", "桜川市", "かすみがうら市", "稲敷市", "坂東市",
                  "筑西市", "那珂市", "常陸大宮市", "守谷市", "潮来市", "鹿嶋市", "ひたちなか市", "つくば市", "牛久市", "取手市", "笠間市", "北茨城市", "高萩市", "常陸太田市", "常総市", "下妻市", "龍ケ崎市", "結城市", "石岡市", "古河市", "土浦市", "日立市", "水戸市"]
 
 file_content = {
-    "contacts": {
-        "data": [],
-        "date": "",
-    },
-
     "patients_age": {
         "data": [
             {"age": "合計", "value": 0, },
@@ -77,11 +83,6 @@ file_content = {
         "date": ""
     },
 
-    "patients_summary": {
-        "data": [],
-        "date": "",
-    },
-
     "recovered_summary": {
         "data": [],
         "date": "",
@@ -125,8 +126,7 @@ with open('call_center.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['相談件数'])
         for key in ['受付_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '相談件数']:
             del day[key]
-    file_content['contacts']['data'] = json_content
-    file_content['contacts']['date'] = lastUpdate['call_center']
+    dump_json_minify('data/contacts.json',{'data':json_content, 'date': lastUpdate['call_center']})
 
 with open('patients.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
@@ -162,8 +162,7 @@ with open('positive_number.json', 'r', encoding="UTF-8") as f:
         day['total'] = int(day['陽性者数'])
         for key in ['公表_年月日', '全国地方公共団体コード', '都道府県名', '市区町村名', '陽性者数', 'うち濃厚接触者']:
             del day[key]
-    file_content['patients_summary']['data'] = json_content
-    file_content['patients_summary']['date'] = lastUpdate['positive_number']
+    dump_json_minify('data/patients_summary.json', {'data': json_content, 'date': lastUpdate['positive_number']})
 
 with open('mutant_positive.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
