@@ -58,6 +58,7 @@ import Vue from 'vue'
 import Chart from '@/components/index/CardsVaccination/Chart.vue'
 import CityData from '@/data/cities.json'
 import Data from '@/data/data.json'
+import VaccineData from '@/data/vaccine_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import {
   getNumberToFixedFunction,
@@ -71,15 +72,12 @@ export default Vue.extend({
   data() {
     const prefPopulation = CityData.reduce((a, b) => a + b.population, 0) - 9e4
     const summaryGraph = formatGraph(
-      Data.vaccine_summary
-        .filter((_) => new Date(_.date) >= new Date('2021-05-01'))
-        .map((_) => ({ date: _.date, total: _.status_2 }))
+      VaccineData.filter((_) => new Date(_.date) >= new Date('2021-05-01')).map(
+        (_) => ({ date: _.date, total: _.status_2 })
+      )
     )
     const date = Data.lastUpdate
-    const vaccineDate = this.$d(
-      new Date(Data.vaccine_summary.slice(-1)[0].date),
-      'date'
-    )
+    const vaccineDate = this.$d(new Date(VaccineData.slice(-1)[0].date), 'date')
 
     const [everydayCount, labels, cumulativeCount, rate]: (
       | number

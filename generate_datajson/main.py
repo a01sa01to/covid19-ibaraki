@@ -90,8 +90,6 @@ file_content = {
     "main_summary": {},
 
     "ibk_corona_next": {},
-
-    "vaccine_summary": []
 }
 
 with open('last_update.json', 'r', encoding="UTF-8") as f:
@@ -205,7 +203,7 @@ with open('corona_next.json', 'r', encoding="UTF-8") as f:
 
 with open('vaccine_data.json', 'r', encoding="UTF-8") as f:
     json_content = json.load(f)
-    file_content['vaccine_summary'] = json_content
+    dump_json_minify('data/vaccine_summary.json', json_content)
 
 # JSON書き込み
 with open('data.json', 'w', encoding="UTF-8") as f:
