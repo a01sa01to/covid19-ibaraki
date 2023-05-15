@@ -33,15 +33,7 @@ status = f"""
 #茨城県 版 #新型コロナウイルス 対策サイトを更新しました。
 {json_content["lastUpdate"]}更新
 
-本日のデータ
-・感染確認数: {patients_summary["data"][-1]["total"]}人
-・死亡確認数: {deaths_summary["data"][-1]["total"]}人
-・入院者数: {hospitalized}人
-・重症者数: {hosp[0]["value"]}人
-
 https://ibaraki.stopcovid19.jp/
-
-※反映に時間がかかる場合があります。
 """
 
 print("TWEET MESSAGE\n----------\n"+status+"\n----------")
