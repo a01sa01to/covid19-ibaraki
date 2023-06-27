@@ -17,6 +17,8 @@ const VaccineSummary4thCard = () =>
   import('@/components/index/CardsVaccination/4th/Card.vue')
 const VaccineSummary5thCard = () =>
   import('@/components/index/CardsVaccination/5th/Card.vue')
+const VaccineSummary6thCard = () =>
+  import('@/components/index/CardsVaccination/6th/Card.vue')
 
 export default Vue.extend({
   components: {
@@ -25,6 +27,7 @@ export default Vue.extend({
   data() {
     return {
       rows: [
+        VaccineSummary6thCard,
         VaccineSummary5thCard,
         VaccineSummary4thCard,
         VaccineSummary3rdCard,
