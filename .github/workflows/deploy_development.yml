@@ -13,7 +13,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v3.7.0
@@ -38,7 +38,7 @@ jobs:
     needs: deploy
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: dev-deploy
       - uses: actions/setup-python@v4
@@ -62,7 +62,7 @@ jobs:
     needs: ogp_build
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: dev-deploy
       - name: Download ogp images
