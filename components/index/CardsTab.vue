@@ -56,22 +56,22 @@ export default Vue.extend({
       tab: null,
       items: [
         {
+          label: this.$t('ワクチン接種状況'),
+          component: CardsReferenceVaccination,
+          svg: VaccineIcon,
+          path: '/',
+        },
+        {
           label: this.$t('感染動向'),
           component: CardsReferenceInfection,
           icon: mdiChartTimelineVariant,
-          path: '/',
+          path: '/infection',
         },
         {
           label: this.$t('検査状況'),
           component: CardsReferenceInspection,
           icon: mdiChartTimelineVariant,
           path: '/inspection',
-        },
-        {
-          label: this.$t('ワクチン接種状況'),
-          component: CardsReferenceVaccination,
-          svg: VaccineIcon,
-          path: '/vaccination',
         },
       ],
     }
