@@ -56,7 +56,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   head(): MetaInfo {
     return {
       title: `${this.$t('県内の最新感染動向')} : ${this.$t(
-        'ワクチン接種状況'
+        'ワクチン接種状況',
       )}` as string,
     }
   },
