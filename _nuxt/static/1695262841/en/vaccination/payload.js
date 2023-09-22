@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/en/vaccination", {data:[{}],fetch:{},mutations:void 0});
