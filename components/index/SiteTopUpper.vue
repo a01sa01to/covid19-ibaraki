@@ -23,7 +23,7 @@
     <static-info
       class="mb-4"
       :url="localePath('/future-announcement')"
-      :text="$t('当サイトは、5月8日をもって毎日の情報更新を終了しました')"
+      :text="$t('当サイトは、2023年5月8日をもって毎日の情報更新を終了しました')"
       :btn-text="$t('詳細はこちら')"
     />
   </div>
