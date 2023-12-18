@@ -53,7 +53,7 @@ jobs:
       - name: Take screenshot
         run: (python -m http.server --directory ./ 8000 &)  ; python ./ui-test/ogp_screenshot.py
       - name: Upload screenshot
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ogp
           path: ogp
