@@ -4,16 +4,20 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
+    groups:
+      all:
+        patterns:
+          - '*'
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -22,7 +26,7 @@ updates:
     directory: "/audit-forked-sites"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -31,7 +35,7 @@ updates:
     directory: "/auto-i18n"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -40,7 +44,7 @@ updates:
     directory: "/auto-tweet"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -49,7 +53,7 @@ updates:
     directory: "/generate_datajson"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -58,7 +62,7 @@ updates:
     directory: "/ogp_invalidator"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
@@ -67,7 +71,7 @@ updates:
     directory: "/ui-test"
     schedule:
       interval: "weekly"
-    assignees:
+    reviewers:
       - "a01sa01to"
     labels:
       - "dependencies"
