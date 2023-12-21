@@ -25,7 +25,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py patients'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/patients.json
@@ -52,7 +52,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json_test_people.py'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/test_people.json
@@ -79,7 +79,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py mutant_test_people'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/mutant_test_people.json
@@ -106,7 +106,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py call_center'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/call_center.json
@@ -133,7 +133,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py positive_number'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/positive_number.json
@@ -153,7 +153,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/mutant_positive.json
@@ -180,7 +180,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py recovered_number'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/recovered_number.json
@@ -207,7 +207,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py death_number'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/death_number.json
@@ -227,7 +227,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/inspections_summary.json
@@ -247,7 +247,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/main_summary.json
@@ -267,7 +267,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/corona_next.json
@@ -287,7 +287,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/news.json
@@ -307,7 +307,7 @@ jobs:
         env:
           DATA_UPDATE_URL: ${{ secrets.DATA_UPDATE_URL }}
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/last_update.json
@@ -330,7 +330,7 @@ jobs:
         run: 'python ../../generate_datajson/csv2json.py otherpref'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/otherpref.json
@@ -351,7 +351,7 @@ jobs:
         run: 'python ../../generate_datajson/vaccine_data.py'
         working-directory: dist/data
       - name: Save
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: opendata_artifact
           path: dist/data/vaccine_data.json
