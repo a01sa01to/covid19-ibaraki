@@ -19,7 +19,7 @@ jobs:
       - name: Yarn install
         run: yarn install --frozen-lockfile --prefer-offline
       - name: eslint review
-        uses: reviewdog/action-eslint@v1.20
+        uses: reviewdog/action-eslint@v1.21
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
