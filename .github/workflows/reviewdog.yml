@@ -19,7 +19,7 @@ jobs:
       - name: Yarn install
         run: yarn install --frozen-lockfile --prefer-offline
       - name: eslint review
-        uses: reviewdog/action-eslint@v1.20
+        uses: reviewdog/action-eslint@v1.22
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: stylelint review
-        uses: reviewdog/action-stylelint@v1.18
+        uses: reviewdog/action-stylelint@v1.20
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
