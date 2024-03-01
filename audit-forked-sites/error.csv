@@ -423,3 +423,27 @@ timestamp,url,exists,status
 2024-02-01T09:49:56+09:00,https://covid19-kochi.netlify.app/,False,404
 2024-02-01T09:50:02+09:00,https://stopcovid19.code4saga.org/,False,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
 2024-02-01T09:50:02+09:00,https://oita.stopcovid19.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'oita.stopcovid19.jp'. (_ssl.c:1007)"
+2024-03-01T09:32:32+09:00,https://covid19.codeforaomori.org/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'covid19.codeforaomori.org'. (_ssl.c:1007)"
+2024-03-01T09:32:34+09:00,https://fukushima-covid19.firebaseapp.com/,False,404
+2024-03-01T09:32:35+09:00,https://stopcovid19.pref.gunma.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:32:36+09:00,https://covid19.civictech.chiba.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:32:37+09:00,https://yachiyo-covid19.netlify.app/,False,404
+2024-03-01T09:50:39+09:00,https://niigata.stopcovid19.jp/,False,[Errno 110] Connection timed out
+2024-03-01T09:50:40+09:00,https://stopcovid19.pref.ishikawa.jp/,False,[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1007)
+2024-03-01T09:50:40+09:00,https://ishikawa-covid19.netlify.app/,False,404
+2024-03-01T09:50:43+09:00,https://stopcovid19.city.shizuoka.lg.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:44+09:00,https://mie.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:44+09:00,https://stopcovid19.pref.shiga.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:45+09:00,https://covid19-osaka.info/,False,[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1007)
+2024-03-01T09:50:46+09:00,https://stopcovid19.wakayama.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:48+09:00,https://hiroshima.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:49+09:00,https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:50+09:00,https://covid19-yamaguchi.netlify.app/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:50+09:00,https://kagawa.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:50:50+09:00,https://covid19-kagawa.jp/,False,[Errno -2] Name or service not known
+2024-03-01T09:53:05+09:00,https://ehime-covid19.com/,False,[Errno 110] Connection timed out
+2024-03-01T09:53:05+09:00,https://covid19-kochi.netlify.app/,False,404
+2024-03-01T09:55:20+09:00,https://fukuoka.stopcovid19.jp/,False,[Errno 110] Connection timed out
+2024-03-01T09:57:35+09:00,https://stopcovid19.codeforfukuoka.org/,False,[Errno 110] Connection timed out
+2024-03-01T09:57:37+09:00,https://stopcovid19.code4saga.org/,False,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
+2024-03-01T09:57:38+09:00,https://oita.stopcovid19.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'oita.stopcovid19.jp'. (_ssl.c:1007)"
