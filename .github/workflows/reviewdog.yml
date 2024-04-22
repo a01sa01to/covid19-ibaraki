@@ -12,14 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
         with:
           node-version-file: ./.node-version
           cache: 'yarn'
       - name: Yarn install
         run: yarn install --frozen-lockfile --prefer-offline
       - name: eslint review
-        uses: reviewdog/action-eslint@v1.20
+        uses: reviewdog/action-eslint@v1.23
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: stylelint review
-        uses: reviewdog/action-stylelint@v1.18
+        uses: reviewdog/action-stylelint@v1.22
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
