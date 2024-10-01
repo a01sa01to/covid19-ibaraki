@@ -633,3 +633,35 @@ timestamp,url,exists,status
 2024-09-01T10:08:12+09:00,https://stopcovid19-kitakyushu.jp/,False,[Errno -2] Name or service not known
 2024-09-01T10:10:27+09:00,https://stopcovid19.code4saga.org/,False,[Errno 110] Connection timed out
 2024-09-01T10:10:27+09:00,https://oita.stopcovid19.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'oita.stopcovid19.jp'. (_ssl.c:1007)"
+2024-10-01T09:42:50+09:00,https://stopcovid19.pref.aomori.lg.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'stopcovid19.pref.aomori.lg.jp'. (_ssl.c:1007)"
+2024-10-01T09:45:06+09:00,https://covid19.codeforaomori.org/,False,[Errno 110] Connection timed out
+2024-10-01T09:45:06+09:00,https://covid19-daily-tohoku.news/,False,[Errno -2] Name or service not known
+2024-10-01T09:45:08+09:00,https://fukushima-covid19.firebaseapp.com/,False,404
+2024-10-01T09:45:08+09:00,https://stopcovid19-ibaraki.jp/,False,[Errno -2] Name or service not known
+2024-10-01T09:45:08+09:00,https://covid19-tochigi.netlify.com/,False,404
+2024-10-01T09:45:09+09:00,https://stopcovid19.pref.gunma.jp/,False,[Errno -2] Name or service not known
+2024-10-01T09:45:11+09:00,https://covid19.civictech.chiba.jp/,False,[Errno -2] Name or service not known
+2024-10-01T09:45:11+09:00,https://yachiyo-covid19.netlify.app/,False,404
+2024-10-01T09:45:21+09:00,https://stopcovid19.metro.tokyo.lg.jp/,False,[Errno -3] Temporary failure in name resolution
+2024-10-01T09:45:22+09:00,https://www.pref.kanagawa.jp/osirase/1369/,False,403
+2024-10-01T09:45:22+09:00,https://covid19.yokohama/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:23+09:00,https://niigata.stopcovid19.jp/,False,[Errno 110] Connection timed out
+2024-10-01T10:03:25+09:00,https://ishikawa-covid19.netlify.app/,False,404
+2024-10-01T10:03:27+09:00,https://covid19-nagano.info/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:27+09:00,https://stopcovid19.city.shizuoka.lg.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:28+09:00,https://mie.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:29+09:00,https://stopcovid19.pref.shiga.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:29+09:00,https://kyoto.stopcovid19.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'kyoto.stopcovid19.jp'. (_ssl.c:1007)"
+2024-10-01T10:03:30+09:00,https://covid19-osaka.info/,False,[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1007)
+2024-10-01T10:03:32+09:00,https://stopcovid19.wakayama.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:34+09:00,https://hiroshima.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:35+09:00,https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:36+09:00,https://covid19-yamaguchi.netlify.app/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'yamaguchi.stopcovid19.jp'. (_ssl.c:1007)"
+2024-10-01T10:03:36+09:00,https://kagawa.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:37+09:00,https://covid19-kagawa.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:03:37+09:00,https://covid19-kochi.netlify.app/,False,404
+2024-10-01T10:05:51+09:00,https://fukuoka.stopcovid19.jp/,False,[Errno 110] Connection timed out
+2024-10-01T10:08:06+09:00,https://stopcovid19.codeforfukuoka.org/,False,[Errno 110] Connection timed out
+2024-10-01T10:08:06+09:00,https://stopcovid19-kitakyushu.jp/,False,[Errno -2] Name or service not known
+2024-10-01T10:10:21+09:00,https://stopcovid19.code4saga.org/,False,[Errno 110] Connection timed out
+2024-10-01T10:10:22+09:00,https://oita.stopcovid19.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'oita.stopcovid19.jp'. (_ssl.c:1007)"
